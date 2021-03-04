@@ -1,0 +1,19 @@
+{
+  "name": "joshs-dotfiles-docs",
+  "version": "0.0.1",
+  "description": "The dotfiles for my developer environment",
+  "main": "index.js",
+  "authors": {
+    "name": "Josh Medeski",
+    "email": "josh.medeski@gmail.com"
+  },
+  "repository": "joshmedeski/dotfiles",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  }
+}

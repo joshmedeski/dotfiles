@@ -1,0 +1,56 @@
+live_config_reload: true
+selection:
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+  save_to_clipboard: true
+
+background_opacity: 0.8
+
+window:
+  padding:
+    x: 10
+    y: 10
+  dynamic_padding: false
+  decorations: none
+
+font:
+  normal:
+    family: 'Fira Mono for Powerline'
+    style: Regular
+  italic:
+    family: 'Fira Mono for Powerline'
+    style: Italic
+  size: 18.0
+  use_thin_strokes: true
+
+cursor:
+  style:
+    blinking: Always
+
+mouse:
+  hide_when_typing: true
+
+key_bindings:
+  - { key: Comma, mods: Command, chars: "\x02\x2c" }
+  - { key: F, mods: Command, chars: "\x6c\x66\x63\x64\x0a" }
+  - { key: G, mods: Command, chars: "\x02\x67" }
+  - { key: J, mods: Command, chars: "\x02\x73" }
+  - { key: Key1, mods: Command, chars: "\x02\x31" }
+  - { key: Key2, mods: Command, chars: "\x02\x32" }
+  - { key: Key3, mods: Command, chars: "\x02\x33" }
+  - { key: Key4, mods: Command, chars: "\x02\x34" }
+  - { key: Key5, mods: Command, chars: "\x02\x35" }
+  - { key: Key6, mods: Command, chars: "\x02\x36" }
+  - { key: Key7, mods: Command, chars: "\x02\x37" }
+  - { key: Key8, mods: Command, chars: "\x02\x38" }
+  - { key: Key9, mods: Command, chars: "\x02\x39" }
+  - { key: L, mods: Command, chars: "\x02\x4c" }
+  - { key: LBracket, mods: Command|Shift, chars: "\x02\x70" }
+  - { key: RBracket, mods: Command|Shift, chars: "\x02\x6e" }
+  - { key: S, mods: Command, chars: "\x3a\x77\x0a" }
+  - { key: Semicolon, mods: Command, chars: "\x02\x3a" }
+  - { key: T, mods: Command, chars: "\x02\x63" }
+  - { key: W, mods: Command, chars: "\x02\x78" }
+  - { key: Z, mods: Command, chars: "\x02\x7a" }
+
+imports:
+  - ./themes/star-wars-dogfight.yml

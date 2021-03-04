@@ -1,0 +1,21 @@
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[user]
+	name = Josh Medeski
+	email = josh.medeski@gmail.com
+[core]
+	editor = nvim
+	pager = delta
+	excludesfile = /Users/joshmedeski/.gitignore
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	features = side-by-side line-numbers decorations
+	syntax-theme = Nord
+	whitespace-error-style = 22 reverse
+[delta "decorations"]
+	commit-decoration-style = bold yellow box ul
+	file-style = bold yellow ul
+	file-decoration-style = none
+[diff]
+	colorMoved = default

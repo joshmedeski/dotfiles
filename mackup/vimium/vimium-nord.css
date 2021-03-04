@@ -1,0 +1,194 @@
+/*
+ * Nord theme for Vimium
+ * by @joshmedeski
+ *
+ * See Nord's website for colors and palettes
+ * https://www.nordtheme.com/docs/colors-and-palettes
+ *
+ * To use:
+ * 1. Copy the code.
+ * 2. Go to the Vimium options.
+ * 3. Click Show Advanced Options.
+ * 4. Under Advanced Options, scroll down to CSS for link hints.
+ * 5. Paste the code in the text field.
+ * 6. Click Save Changes.
+ * 7. Go to the website of your choice (or, if you have it open already, reload it) and check out the results.
+ */
+
+:root {
+  /* Polar Night */
+  --nord0: #2e3440;
+  --nord1: #3b4252;
+  --nord2: #434c5e;
+  --nord3: #4c566a;
+  /* Snow Storm */
+  --nord4: #d8dee9;
+  --nord5: #e5e9f0;
+  --nord6: #eceff4;
+  /* Frost */
+  --nord7: #8fbcbb;
+  --nord8: #88c0d0;
+  --nord9: #81a1c1;
+  --nord10: #5e81ac;
+  /* Aurora */
+  --nord11: #bf616a; /* errors */
+  --nord12: #d08770; /* annotations */
+  --nord13: #ebcb8b; /* warnings */
+  --nord14: #a3be8c; /* quoted */
+  --nord15: #b48ead; /* numbers */
+}
+
+/* Link hint boxes */
+div > .vimiumHintMarker {
+  background: var(--nord13);
+  border-radius: 2px;
+  border: none;
+  box-shadow: none;
+  font-size: 14px;
+  padding: 4px 6px;
+}
+
+/* Link hint text */
+div > .vimiumHintMarker span {
+  color: var(--nord0);
+  font-size: inherit;
+  text-shadow: none;
+}
+
+/* Link hint matching characters */
+div > .vimiumHintMarker > .matchingCharacter {
+  color: var(--nord3);
+}
+
+/* HUD ("heads-up display") bar */
+div.vimiumHUD {
+  background: var(--nord0);
+  border: none;
+}
+
+div.vimiumHUD .vimiumHUDSearchArea {
+  background: var(--nord0);
+}
+
+div.vimiumHUD .hud-find {
+  background: var(--nord0);
+  border: none;
+  color: #f8f8f2;
+}
+
+div.vimiumHUD span#hud-find-input {
+  color: var(--nord0); /* 'Foreground' color */
+}
+
+div.vimiumHUD span#hud-match-count {
+  color: var(--nord13); /* 'Foreground' color */
+}
+
+div.vimiumHUD .vimiumHUDSearchAreaInner {
+  color: var(--nord14); /* 'Comment' color */
+}
+
+#vomnibar {
+  background-color: var(--nord1); /* 'Comment' color */
+}
+
+#vomnibar input {
+  color: var(--nord4);
+  font: -moz-window;
+  font-family: "Fira Code", monospace;
+  font-size: 20px;
+  height: 34px;
+  margin-bottom: 0;
+  padding: 4px;
+  background-color: #282a36;
+  border-radius: 3px;
+  border: 1px solid #6272a4;
+  box-shadow: none;
+  width: 100%;
+  outline: none;
+  box-sizing: border-box;
+}
+
+#vomnibar .vomnibarSearchArea {
+  display: block;
+  padding: 10px;
+  background-color: #6272a4;
+  border-radius: 4px 4px 0 0;
+  border-bottom: 0px solid #bd93f9;
+}
+
+#vomnibar ul {
+  background-color: #44475a;
+  border-radius: 0 0 4px 4px;
+  list-style: none;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-block-start: 2px;
+  margin-block-end: 0px;
+}
+
+#vomnibar li {
+  border-bottom: 1px solid #6272a4;
+  line-height: 1.1em;
+  padding: 7px 10px;
+  font-size: 16px;
+  color: #f8f8f2;
+  position: relative;
+  display: list-item;
+  margin: auto;
+}
+
+#vomnibar li .vomnibarBottomHalf {
+  font-size: 15px;
+  margin-top: 3px;
+  padding: 2px 0;
+}
+
+#vomnibar li .vomnibarSource {
+  color: #bd93f9;
+  margin-right: 4px;
+}
+#vomnibar li .vomnibarRelevancy {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 5px;
+  background-color: #282a36;
+  color: #f8f8f2;
+  font-family: monospace;
+  width: 100px;
+  overflow: hidden;
+}
+
+#vomnibar li .vomnibarUrl {
+  white-space: nowrap;
+  color: #50fa7b;
+}
+
+#vomnibar li .vomnibarMatch {
+  font-weight: bold;
+  color: #ffb86c;
+}
+
+#vomnibar li em,
+#vomnibar li .vomnibarTitle {
+  color: #f8f8f2;
+  margin-left: 4px;
+  font-weight: normal;
+}
+#vomnibar li em {
+  font-style: italic;
+}
+#vomnibar li em .vomnibarMatch,
+#vomnibar li .vomnibarTitle .vomnibarMatch {
+  color: #ffb86c;
+}
+
+#vomnibar li.vomnibarSelected {
+  background-color: #6272a4;
+  font-weight: normal;
+}
+
+#vomnibarInput::selection {
+  background-color: #8be9fd;
+}
