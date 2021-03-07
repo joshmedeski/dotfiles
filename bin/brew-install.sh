@@ -28,26 +28,30 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 nvim +PlugInstall
 
-# install dependencies
-brew install bat
-brew install bash
+# custom taps
+brew tap clementtsang/bottom
 brew install bottom
-brew install fd
-brew install ripgrep
+brew tap federico-terzi/espanso
 brew install espanso
-brew install lsd
+
+# install dependencies
+brew install bash
+brew install bat
+brew install fd
 brew install fzf
 brew install gh
 brew install git
 brew install git-delta
 brew install lazydocker
 brew install lazygit
-brew install neofetch
 brew install lf
-brew install starship
-brew install zoxide
+brew install lsd
+brew install neofetch
 brew install pgcli
-brew install tldr
+brew install ripgrep
+brew install starship
+brew install teeldeer
+brew install zoxide
 
 if [[ $PLATFORM == 'macos' ]]; then
    brew install trash-cli
