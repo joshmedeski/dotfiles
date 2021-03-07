@@ -1,16 +1,22 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export BAT_THEME:Nord
 SETUVAR --export EDITOR:nvim
+SETUVAR --export FZF_CTRL_R_OPTS:\x2d\x2dreverse\x20\x2d\x2dpreview\x20\x27echo\x20\x7b\x7d\x27\x20\x2d\x2dpreview\x2dwindow\x20down\x3a3\x3ahidden\x3awrap\x20\x2d\x2dbind\x20\x27\x3f\x3atoggle\x2dpreview\x27
 SETUVAR FZF_DISABLE_KEYBINDINGS:0
 SETUVAR FZF_LEGACY_KEYBINDINGS:0
 SETUVAR FZF_PREVIEW_DIR_CMD:ls
 SETUVAR FZF_PREVIEW_FILE_CMD:head\x20\x2dn\x2010
 SETUVAR FZF_TMUX:1
 SETUVAR FZF_TMUX_HEIGHT:40\x25
+SETUVAR --export FZF_TMUX_OPTS:\x2dp
+SETUVAR --export --path GOPATH:/home/joshmedeski/go
+SETUVAR --export --path PKG_CONFIG_PATH:/opt/homebrew/Cellar/zlib/1\x2e2\x2e11/lib/pkgconfig\x20\x2e/configure
 SETUVAR __fish_initialized:3100
 SETUVAR _fish_abbr_aa:nvim\x20\x7e/\x2econfig/alacritty/alacritty\x2eyml
 SETUVAR _fish_abbr_acs:alacritty\x2dcolorscheme\x20\x2da\x20\x28alacritty\x2dcolorscheme\x20\x2dl\x20\x7c\x20fzf\x20\x2d\x2dpreview\x20\x27alacritty\x2dcolorscheme\x20\x2da\x20\x7b\x7d\x20\x26\x26\x20msgcat\x20\x2d\x2dcolor\x3dtest\x27\x29
 SETUVAR _fish_abbr_b:brew
+SETUVAR _fish_abbr_bb:arch\x20\x2darm64\x20brew
 SETUVAR _fish_abbr_bc:brew\x20cleanup
 SETUVAR _fish_abbr_bd:brew\x20doctor
 SETUVAR _fish_abbr_bi:brew\x20install
@@ -47,6 +53,7 @@ SETUVAR _fish_abbr_dcupd:docker\x2dcompose\x20up\x20\x2dd
 SETUVAR _fish_abbr_dps:docker\x20ps\x20\x2d\x2dformat\x20\x27table\x20\x7b\x7b\x2eNames\x7d\x7d\x5ct\x7b\x7b\x2eStatus\x7d\x7d\x27
 SETUVAR _fish_abbr_e:exit
 SETUVAR _fish_abbr_ff:nvim\x20\x7e/\x2econfig/fish/config\x2efish
+SETUVAR _fish_abbr_g:git\x20status
 SETUVAR _fish_abbr_ga:git\x20add
 SETUVAR _fish_abbr_gb:git\x20branch\x20\x2dv
 SETUVAR _fish_abbr_gc:git\x20commit\x20\x2dv
@@ -58,14 +65,21 @@ SETUVAR _fish_abbr_gd:git\x20diff
 SETUVAR _fish_abbr_gl:git\x20pull
 SETUVAR _fish_abbr_gp:git\x20push
 SETUVAR _fish_abbr_gpr:gh\x20pr\x20create
+SETUVAR _fish_abbr_gpum:git\x20pull\x20upstream\x20master
+SETUVAR _fish_abbr_gr:git\x20remote
+SETUVAR _fish_abbr_gra:git\x20remote\x20add
+SETUVAR _fish_abbr_grao:git\x20remote\x20add\x20origin
+SETUVAR _fish_abbr_grau:git\x20remote\x20add\x20upstream
+SETUVAR _fish_abbr_grv:git\x20remote\x20\x2dv
 SETUVAR _fish_abbr_gs:git\x20status
 SETUVAR _fish_abbr_gst:git\x20status
 SETUVAR _fish_abbr_h:history\x20delete\x20\x2d\x2dexact\x20\x2d\x2dcase\x2dsensitive\x20\x5c\x27\x28history\x20\x7c\x20fzf\x2dtmux\x20\x2dp\x20\x2dm\x20\x2d\x2dreverse\x29\x5c\x27
 SETUVAR _fish_abbr_hd:history\x20delete\x20\x2d\x2dexact\x20\x2d\x2dcase\x2dsensitive\x20\x5c\x27\x28history\x20\x7c\x20fzf\x2dtmux\x20\x2dp\x20\x2dm\x20\x2d\x2dreverse\x29\x5c\x27
-SETUVAR _fish_abbr_l:exa\x20\x2da\x20\x2d\x2dgroup\x2ddirectories\x2dfirst
+SETUVAR _fish_abbr_l:lsd\x20\x20\x2d\x2dgroup\x2ddirs\x20first\x20\x2dA
 SETUVAR _fish_abbr_ld:lazydocker
 SETUVAR _fish_abbr_lg:lazygit
-SETUVAR _fish_abbr_ll:exa\x20\x2dal\x20\x2d\x2dgroup\x2ddirectories\x2dfirst
+SETUVAR _fish_abbr_ll:lsd\x20\x20\x2d\x2dgroup\x2ddirs\x20first\x20\x2dAl
+SETUVAR _fish_abbr_lt:lsd\x20\x20\x2d\x2dgroup\x2ddirs\x20last\x20\x2dAl\x20\x2d\x2dtree
 SETUVAR _fish_abbr_mux:tmuxinator
 SETUVAR _fish_abbr_nvf:nvim\x20\x28fzf\x20\x2d\x2dheight\x20100\x25\x20\x2d\x2dpreview\x20\x27bat\x20\x2d\x2dstyle\x3dnumbers\x20\x2d\x2dcolor\x3dalways\x20\x7b\x7d\x27\x29
 SETUVAR _fish_abbr_t:tmux\x20a\x20\x7c\x7c\x20tmux\x20new
@@ -82,6 +96,7 @@ SETUVAR _fish_abbr_up:\x7e/bin/update\x2esh
 SETUVAR _fish_abbr_v:v\x20\x28fzf\x29
 SETUVAR _fish_abbr_vv:nvim\x20\x7e/\x2econfig/nvim/init\x2evim
 SETUVAR _fish_abbr_yb:yarn\x20build
+SETUVAR _fish_abbr_yd:yarn\x20dev
 SETUVAR _fish_abbr_yo:yarn\x20open
 SETUVAR _fish_abbr_ys:yarn\x20start
 SETUVAR _fish_abbr_zat:docker\x20run\x20\x2d\x2drm\x20\x2dv\x20\x28pwd\x29\x3a/data\x20\x2dp\x204567\x3a4567\x20\x2dit\x20pindar/zat\x20zat
