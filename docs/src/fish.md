@@ -8,31 +8,21 @@ sidebar: auto
 
 [fishshell.com](http://fishshell.com)
 
-## Setup
+## Config
 
-### 1. Install binary
+<<< @/../mackup/.config/fish/config.fish
 
-<code-group>
-  <code-block title="brew">
-  ```sh
-  brew install fish
-  ```
-  </code-block>
+## Commands
 
-  <code-block title="apt-get">
-  ```sh
-  sudo apt-get install fish
-  ```
-  </code-block>
-</code-group>
-
-### 2. Link dotfile
+### Reload config
 
 ```sh
-mackup restore
+source ~/.config/fish/config.fish
 ```
 
-### 3. Change default shell
+## Change default shell
+
+Here are instructions for how to change the default shell to fish.
 
 :::warning
 The path to fish will change depending on what machine you use to install it. `/opt/homebrew/bin/fish` may be something else on your computer.
@@ -79,29 +69,5 @@ Run change shell
 sudo chsh -s /opt/homebrew/bin/fish
 ```
 
-Close and reopen your terminal, it should automatically load the fish shell.
+Close and reopen your terminal, it should automatically load the fish shell. If on linux, you'll have to logout and back in again.
 
-### 4. Install plugins (fisher)
-
-```sh
-curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-fisher
-```
-
-> A plugin manager for Fish—the friendly interactive shell.
-
-[github.com/jorgebucaran/fisher](https://github.com/jorgebucaran/fisher)
-
-## Config
-
-::: details ~/.config/fish/config.fish
-<<< @/mackup/.config/fish/config.fish
-:::
-
-## Commands
-
-### Reload config
-
-```sh
-source ~/.config/fish/config.fish
-```

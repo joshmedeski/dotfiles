@@ -3,13 +3,13 @@ home: true
 heroImage: https://v1.vuepress.vuejs.org/hero.png
 tagline: The dotfiles for my developer environment
 actionText: Quick Start →
-actionLink: /guide/
+actionLink: /quick-start/
 features:
-- title: Feature 1 Title
-  details: Feature 1 Description
-- title: Feature 2 Title
-  details: Feature 2 Description
-- title: Feature 3 Title
-  details: Feature 3 Description
+- title: Homebrew
+  details: The best package manager out there.
+- title: Mackup
+  details: Track your dotfiles with ease.
+- title: TMUX
+  details: Powerful session management in the terminal.
 footer: Made by Josh Medeski with ❤️
 ---

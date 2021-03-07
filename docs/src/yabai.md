@@ -39,7 +39,7 @@ See [mackup](/mackup) for more info on how linking dotfiles works.
 ## Config
 
 ::: details ~/.yabairc
-<<< @/mackup/.yabairc
+<<< @/../mackup/.yabairc
 :::
 
 ## Commands

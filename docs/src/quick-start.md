@@ -2,7 +2,7 @@
 sidebar: auto
 ---
 
-# Getting Started
+# Quick Start
 
 How to get started with dotfiles:
 

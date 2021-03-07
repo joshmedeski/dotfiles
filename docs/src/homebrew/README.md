@@ -1,5 +1,0 @@
---- 
-sidebar: auto
----
-
-# homebrew (brew)

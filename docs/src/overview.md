@@ -2,7 +2,7 @@
 sidebar: auto
 ---
 
-# Guide
+# Overview
 
 I have been a developer since 2011. Throughout the years I have had a strong passion for building the most production developer environment possible. I spend countless hours tweaking my system and adjusting to my specific needs as my work changes over the years.
 
@@ -36,7 +36,7 @@ I currently am using the following operating systems:
 - [bat](/bat): `cat` replacement
 - [docker](/docker): software containers
 - [espanso](/espanso): text snippets
-- [exa](/exa): `ls` replacement
+- [lsd](/lsd): `ls` replacement
 - [fish](/fish): shell
 - [fzf](/fzf): fuzzy finder
 - [git](/git): version control
