@@ -1,7 +1,10 @@
 set fish_greeting # disable fish greeting
 
-# source tools
-eval (/opt/homebrew/bin/brew shellenv)
+switch (uname)
+case Darwin
+  eval (/opt/homebrew/bin/brew shellenv)
+end
+
 starship init fish | source
 zoxide init fish | source
 
@@ -11,11 +14,9 @@ set -Ux EDITOR nvim
 set -Ux FZF_CTRL_R_OPTS "--reverse --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 set -Ux FZF_TMUX_OPTS "-p"
 set -Ux GOPATH (go env GOPATH)
-set -Ux PKG_CONFIG_PATH "/opt/homebrew/Cellar/zlib/1.2.11/lib/pkgconfig ./configure"
 
 # user path
-set -g fish_user_paths "/Users/joshmedeski/go/bin" $fish_user_paths
-set -g fish_user_paths "/opt/homebrew/opt/node@14/bin" $fish_user_paths
+set -g fish_user_paths "~/go/bin" $fish_user_paths
 set -x PATH (pwd)"/git-fuzzy/bin:$PATH"
 
 # language
@@ -23,18 +24,15 @@ set -x LANG en_US.UTF-8
 set -x LC_ALL en_US.UTF-8
 
 # aliases
-alias alacritty-colorscheme="python3 /Users/joshmedeski/Library/Python/3.9/lib/python/site-packages/alacritty_colorscheme/cli.py"
 alias t="~/.config/bin/t"
 
 # abbreviations
-abbr aa "$EDITOR ~/.config/alacritty/alacritty.yml"
-abbr acs "alacritty-colorscheme -a (alacritty-colorscheme -l | fzf --preview 'alacritty-colorscheme -a {} && msgcat --color=test')"
 abbr b "brew"
+abbr bb "arch -arm64 brew"
 abbr bc "brew cleanup"
 abbr bd "brew doctor"
 abbr bi "brew install"
 abbr bo "brew outdated"
-abbr breww "arch -arm64 brew"
 abbr bs "brew services"
 abbr bsr "brew services restart"
 abbr bu "brew update"
@@ -59,7 +57,7 @@ abbr dcstop	"docker-compose stop"
 abbr dcu "docker-compose up -d" 
 abbr dps "docker ps --format 'table {{.Names}}\t{{.Status}}'"
 abbr e "exit"
-abbr ff "$EDITOR ~/.config/fish/config.fish"
+abbr g "git status"
 abbr ga "git add"
 abbr gb "git branch -v"
 abbr gc "git commit -v"
@@ -93,11 +91,7 @@ abbr tnt "nvim ~/.todoist/tasks/(todoist show | fzf | cut -d ' ' -f 1 | tr -d '[
 abbr tt "$EDITOR ~/.tmux.conf"
 abbr tx tmuxinator
 abbr u "~/bin/update.sh"
-abbr uc "ultralist c (ul | fzf | cut -c 1)"
-abbr ul "ultralist list not:completed group:context"
-abbr up "~/bin/update.sh"
 abbr v "v (fzf)"
-abbr vv "$EDITOR ~/.config/nvim/init.vim"
 abbr yb "yarn build"
 abbr yd "yarn dev"
 abbr yo "yarn open"
@@ -112,4 +106,3 @@ set fish_color_param magenta
 set fish_color_redirections yellow
 set fish_color_terminators white
 set fish_color_valid_path normal
-

@@ -19,12 +19,8 @@ font:
   italic:
     family: 'Inconsolata Nerd Font'
     style: Italic
-  size: 20.0
+  size: 16.0
   use_thin_strokes: true
-
-cursor:
-  style:
-    blinking: Always
 
 mouse:
   hide_when_typing: true
