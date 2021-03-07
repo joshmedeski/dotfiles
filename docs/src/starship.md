@@ -45,6 +45,6 @@ starship init fish | source
 ## Config
 
 ::: details ~/.config/starship.toml
-<<< @/mackup/.config/starship.toml
+<<< @/../mackup/.config/starship.toml
 :::
 
