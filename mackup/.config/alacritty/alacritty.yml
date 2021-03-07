@@ -14,12 +14,12 @@ window:
 
 font:
   normal:
-    family: 'Fira Mono for Powerline'
+    family: 'FiraCode Nerd Font Mono'
     style: Regular
   italic:
-    family: 'Fira Mono for Powerline'
+    family: 'Inconsolata Nerd Font'
     style: Italic
-  size: 18.0
+  size: 20.0
   use_thin_strokes: true
 
 cursor:

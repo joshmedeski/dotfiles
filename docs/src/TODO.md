@@ -17,3 +17,4 @@ sidebar: auto
 
 ## Someday / Maybe
 
+- `TODO` Setup mosh servers on any/all OS
