@@ -19,7 +19,7 @@ font:
   italic:
     family: 'Inconsolata Nerd Font'
     style: Italic
-  size: 16.0
+  size: 20.0
   use_thin_strokes: true
 
 mouse:
