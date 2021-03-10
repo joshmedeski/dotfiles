@@ -13,6 +13,7 @@ nmap <leader>bp :bp<cr>
 nmap <leader>en <Plug>(coc-diagnostic-next)
 nmap <leader>ep <Plug>(coc-diagnostic-prev)
 nmap <leader>fs :w<cr>
+nmap <leader>g :Goyo<cr>
 nmap <leader>h :noh<cr>
 nmap <leader>j :Files<cr>
 nmap <leader>l :LF<cr>

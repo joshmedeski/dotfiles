@@ -2,6 +2,7 @@ call plug#begin()
 source $HOME/.config/nvim/nvim-config/plugins.vim
 call plug#end()
 
+source $HOME/.config/nvim/nvim-config/goyo.vim
 source $HOME/.config/nvim/nvim-config/autocmd.vim
 source $HOME/.config/nvim/nvim-config/coc.vim
 source $HOME/.config/nvim/nvim-config/general.vim
