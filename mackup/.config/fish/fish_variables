@@ -3,6 +3,7 @@
 SETUVAR --export BAT_THEME:Nord
 SETUVAR --export EDITOR:nvim
 SETUVAR --export FZF_CTRL_R_OPTS:\x2d\x2dreverse\x20\x2d\x2dpreview\x20\x27echo\x20\x7b\x7d\x27\x20\x2d\x2dpreview\x2dwindow\x20down\x3a3\x3ahidden\x3awrap\x20\x2d\x2dbind\x20\x27\x3f\x3atoggle\x2dpreview\x27
+SETUVAR --export FZF_DEFAULT_COMMAND:fd\x20\x2dH\x20\x2dE\x20\x27\x2egit\x27
 SETUVAR FZF_DISABLE_KEYBINDINGS:0
 SETUVAR FZF_LEGACY_KEYBINDINGS:0
 SETUVAR FZF_PREVIEW_DIR_CMD:ls
@@ -12,6 +13,7 @@ SETUVAR FZF_TMUX_HEIGHT:40\x25
 SETUVAR --export FZF_TMUX_OPTS:\x2dp
 SETUVAR --export --path GOPATH:/Users/joshmedeski/go
 SETUVAR --export --path PKG_CONFIG_PATH:/opt/homebrew/Cellar/zlib/1\x2e2\x2e11/lib/pkgconfig\x20\x2e/configure
+SETUVAR __done_min_cmd_duration:4000
 SETUVAR __fish_initialized:3100
 SETUVAR _fish_abbr_aa:nvim\x20\x7e/\x2econfig/alacritty/alacritty\x2eyml
 SETUVAR _fish_abbr_acs:alacritty\x2dcolorscheme\x20\x2da\x20\x28alacritty\x2dcolorscheme\x20\x2dl\x20\x7c\x20fzf\x20\x2d\x2dpreview\x20\x27alacritty\x2dcolorscheme\x20\x2da\x20\x7b\x7d\x20\x26\x26\x20msgcat\x20\x2d\x2dcolor\x3dtest\x27\x29
@@ -29,7 +31,10 @@ SETUVAR _fish_abbr_bud:brew\x20update
 SETUVAR _fish_abbr_bug:brew\x20upgrade
 SETUVAR _fish_abbr_buu:brew\x20upgrade
 SETUVAR _fish_abbr_c:clear
+SETUVAR _fish_abbr_cl:clear
+SETUVAR _fish_abbr_claer:clear
 SETUVAR _fish_abbr_clera:clear
+SETUVAR _fish_abbr_cx:chmod\x20\x2bx
 SETUVAR _fish_abbr_dcb:docker\x2dcompose\x20build
 SETUVAR _fish_abbr_dcd:docker\x2dcompose\x20down
 SETUVAR _fish_abbr_dcdn:docker\x2dcompose\x20down
@@ -54,9 +59,9 @@ SETUVAR _fish_abbr_dps:docker\x20ps\x20\x2d\x2dformat\x20\x27table\x20\x7b\x7b\x
 SETUVAR _fish_abbr_e:exit
 SETUVAR _fish_abbr_ff:nvim\x20\x7e/\x2econfig/fish/config\x2efish
 SETUVAR _fish_abbr_g:git\x20status
-SETUVAR _fish_abbr_ga:git\x20add
+SETUVAR _fish_abbr_ga:git\x20add\x20\x2e
 SETUVAR _fish_abbr_gb:git\x20branch\x20\x2dv
-SETUVAR _fish_abbr_gc:git\x20commit\x20\x2dv
+SETUVAR _fish_abbr_gc:git\x20commit
 SETUVAR _fish_abbr_gca:git\x20commit\x20\x2dav
 SETUVAR _fish_abbr_gcl:git\x20clone
 SETUVAR _fish_abbr_gco:git\x20checkout\x20\x2db
@@ -81,19 +86,27 @@ SETUVAR _fish_abbr_lg:lazygit
 SETUVAR _fish_abbr_ll:lsd\x20\x20\x2d\x2dgroup\x2ddirs\x20first\x20\x2dAl
 SETUVAR _fish_abbr_lt:lsd\x20\x20\x2d\x2dgroup\x2ddirs\x20last\x20\x2dA\x20\x2d\x2dtree
 SETUVAR _fish_abbr_mux:tmuxinator
+SETUVAR _fish_abbr_n:nvim\x20\x2bFiles
 SETUVAR _fish_abbr_nvf:nvim\x20\x28fzf\x20\x2d\x2dheight\x20100\x25\x20\x2d\x2dpreview\x20\x27bat\x20\x2d\x2dstyle\x3dnumbers\x20\x2d\x2dcolor\x3dalways\x20\x7b\x7d\x27\x29
-SETUVAR _fish_abbr_t:tmux\x20a\x20\x7c\x7c\x20tmux\x20new
+SETUVAR _fish_abbr_nvim:vim
+SETUVAR _fish_abbr_sf:source\x20\x7e/\x2econfig/fish/config\x2efish
+SETUVAR _fish_abbr_st:tmux\x20source\x20\x7e/\x2econfig/tmux/tmux\x2econf
+SETUVAR _fish_abbr_t:t
 SETUVAR _fish_abbr_tmuxx:tmux\x20attach\x2dsession\x20\x2dt\x20\x28tmux\x20list\x2dsessions\x20\x7c\x20fzf\x20\x7c\x20cut\x20\x2dd\x20\x27\x3a\x27\x20\x2df\x201\x29
+SETUVAR _fish_abbr_tn:tmux\x20new\x20\x2ds
 SETUVAR _fish_abbr_tnl:nvim\x20\x7e/\x2etodoist/labels/\x28todoist\x20labels\x20\x7c\x20fzf\x20\x7c\x20cut\x20\x2dd\x20\x27\x20\x27\x20\x2df\x201\x20\x7c\x20tr\x20\x2dd\x20\x27\x5b\x3aspace\x3a\x5d\x27\x29\x2emd
 SETUVAR _fish_abbr_tnp:nvim\x20\x7e/\x2etodoist/projects/\x28todoist\x20projects\x20\x7c\x20fzf\x20\x7c\x20cut\x20\x2dd\x20\x27\x20\x27\x20\x2df\x201\x20\x7c\x20tr\x20\x2dd\x20\x27\x5b\x3aspace\x3a\x5d\x27\x29\x2emd
 SETUVAR _fish_abbr_tnt:nvim\x20\x7e/\x2etodoist/tasks/\x28todoist\x20show\x20\x7c\x20fzf\x20\x7c\x20cut\x20\x2dd\x20\x27\x20\x27\x20\x2df\x201\x20\x7c\x20tr\x20\x2dd\x20\x27\x5b\x3aspace\x3a\x5d\x27\x29\x2emd
-SETUVAR _fish_abbr_tt:nvim\x20\x7e/\x2etmux\x2econf
+SETUVAR _fish_abbr_tt:nvim\x20\x7e/\x2econfig/tmux/tmux\x2econf
 SETUVAR _fish_abbr_tx:tmuxinator
 SETUVAR _fish_abbr_u:\x7e/bin/update\x2esh
 SETUVAR _fish_abbr_uc:ultralist\x20c\x20\x28ul\x20\x7c\x20fzf\x20\x7c\x20cut\x20\x2dc\x201\x29
 SETUVAR _fish_abbr_ul:ultralist\x20list\x20not\x3acompleted\x20group\x3acontext
 SETUVAR _fish_abbr_up:\x7e/bin/update\x2esh
 SETUVAR _fish_abbr_v:v\x20\x28fzf\x29
+SETUVAR _fish_abbr_vf:vim\x20\x7e/\x2econfig/fish/config\x2efish
+SETUVAR _fish_abbr_vh:vim\x20\x7e/\x2elocal/share/fish/fish_history
+SETUVAR _fish_abbr_vt:vim\x20\x7e/\x2econfig/tmux/tmux\x2econf
 SETUVAR _fish_abbr_vv:nvim\x20\x7e/\x2econfig/nvim/init\x2evim
 SETUVAR _fish_abbr_yb:yarn\x20build
 SETUVAR _fish_abbr_yd:yarn\x20dev
