@@ -26,7 +26,7 @@ key_bindings:
   - { key: Comma, mods: Command, chars: "\x02\x2c" }
   - { key: F, mods: Command, chars: "\x6c\x66\x63\x64\x0a" }
   - { key: G, mods: Command, chars: "\x02\x67" }
-  - { key: J, mods: Command, chars: "\x02\x73" }
+  - { key: K, mods: Command, chars: "\x02\x73" }
   - { key: Key1, mods: Command, chars: "\x02\x31" }
   - { key: Key2, mods: Command, chars: "\x02\x32" }
   - { key: Key3, mods: Command, chars: "\x02\x33" }
