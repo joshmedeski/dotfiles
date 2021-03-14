@@ -2,6 +2,8 @@ set hidden on
 # interpreter for shell commands (needs to be POSIX compatible)
 set shell sh
 
+set drawbox
+
 # set '-eu' options for shell commands
 # These options are used to have safer shell commands. Option '-e' is used to
 # exit on error and option '-u' is used to give error for unset variables.

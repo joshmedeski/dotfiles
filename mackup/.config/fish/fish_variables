@@ -10,7 +10,7 @@ SETUVAR FZF_PREVIEW_FILE_CMD:head\x20\x2dn\x2010
 SETUVAR FZF_TMUX:1
 SETUVAR FZF_TMUX_HEIGHT:40\x25
 SETUVAR --export FZF_TMUX_OPTS:\x2dp
-SETUVAR --export --path GOPATH:/home/joshmedeski/go
+SETUVAR --export --path GOPATH:/Users/joshmedeski/go
 SETUVAR --export --path PKG_CONFIG_PATH:/opt/homebrew/Cellar/zlib/1\x2e2\x2e11/lib/pkgconfig\x20\x2e/configure
 SETUVAR __fish_initialized:3100
 SETUVAR _fish_abbr_aa:nvim\x20\x7e/\x2econfig/alacritty/alacritty\x2eyml
@@ -79,7 +79,7 @@ SETUVAR _fish_abbr_l:lsd\x20\x20\x2d\x2dgroup\x2ddirs\x20first\x20\x2dA
 SETUVAR _fish_abbr_ld:lazydocker
 SETUVAR _fish_abbr_lg:lazygit
 SETUVAR _fish_abbr_ll:lsd\x20\x20\x2d\x2dgroup\x2ddirs\x20first\x20\x2dAl
-SETUVAR _fish_abbr_lt:lsd\x20\x20\x2d\x2dgroup\x2ddirs\x20last\x20\x2dAl\x20\x2d\x2dtree
+SETUVAR _fish_abbr_lt:lsd\x20\x20\x2d\x2dgroup\x2ddirs\x20last\x20\x2dA\x20\x2d\x2dtree
 SETUVAR _fish_abbr_mux:tmuxinator
 SETUVAR _fish_abbr_nvf:nvim\x20\x28fzf\x20\x2d\x2dheight\x20100\x25\x20\x2d\x2dpreview\x20\x27bat\x20\x2d\x2dstyle\x3dnumbers\x20\x2d\x2dcolor\x3dalways\x20\x7b\x7d\x27\x29
 SETUVAR _fish_abbr_t:tmux\x20a\x20\x7c\x7c\x20tmux\x20new
