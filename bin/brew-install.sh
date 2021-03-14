@@ -49,7 +49,7 @@ brew install neofetch
 brew install pgcli
 brew install ripgrep
 brew install starship
-brew install teeldeer
+brew install tealdeer
 brew install terminal-notifier
 brew install wakatime-cli
 brew install zoxide
