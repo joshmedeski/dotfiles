@@ -50,6 +50,7 @@ brew install pgcli
 brew install ripgrep
 brew install starship
 brew install teeldeer
+brew install terminal-notifier
 brew install wakatime-cli
 brew install zoxide
 
@@ -70,7 +71,7 @@ if [[ $PLATFORM == 'macos' ]]; then
 brew install fish
 # https://github.com/jorgebucaran/fisher
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-fisher install FabioAntunes/fish-nvm edc/bass
+fisher install FabioAntunes/fish-nvm edc/bass franciscolourenco/done
 
 # nvm
 brew install nvm
