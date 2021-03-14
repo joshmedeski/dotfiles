@@ -13,6 +13,7 @@ set -Ux BAT_THEME Nord
 set -Ux EDITOR nvim
 set -Ux FZF_CTRL_R_OPTS "--reverse --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 set -Ux FZF_TMUX_OPTS "-p"
+set -Ux FZF_DEFAULT_COMMAND "fd -H -E '.git'"
 set -Ux GOPATH (go env GOPATH)
 
 # user path
