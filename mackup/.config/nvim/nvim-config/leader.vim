@@ -21,6 +21,7 @@ nmap <leader>m :MaximizerToggle!<cr>
 nmap <leader>wf :MaximizerToggle!<cr>
 nmap <leader>n :bn<cr>
 nmap <leader>p :bp<cr>
+nmap <leader>r :Rg<cr>
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
