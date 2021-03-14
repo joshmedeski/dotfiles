@@ -3,6 +3,8 @@ set fish_greeting # disable fish greeting
 switch (uname)
 case Darwin
   eval (/opt/homebrew/bin/brew shellenv)
+case Linux
+  set -g fish_user_paths "/home/linuxbrew/.linuxbrew/bin" $fish_user_paths
 end
 
 starship init fish | source
@@ -39,21 +41,10 @@ abbr bu "brew update"
 abbr bug "brew upgrade"
 abbr c "clear"
 abbr clera "clear"
-abbr dcb "docker-compose build"
+abbr dc "docker-compose"
 abbr dcd "docker-compose down"
 abbr dcdv "docker-compose down -v"
-abbr dce "docker-compose exec"
-abbr dck "docker-compose kill"
-abbr dcl	"docker-compose logs"
-abbr dclf	"docker-compose logs -f"
-abbr dco "docker-compose"
-abbr dcps	"docker-compose ps"
-abbr dcpull "docker-compose pull"
-abbr dcr	"docker-compose run"
-abbr dcrestart	"docker-compose restart"
-abbr dcrm	"docker-compose rm"
-abbr dcstart "docker-compose start"
-abbr dcstop	"docker-compose stop"
+abbr dcr "docker-compose restart"
 abbr dcu "docker-compose up -d" 
 abbr dps "docker ps --format 'table {{.Names}}\t{{.Status}}'"
 abbr e "exit"
@@ -82,14 +73,7 @@ abbr l "lsd  --group-dirs first -A"
 abbr ld "lazydocker"
 abbr lg "lazygit"
 abbr ll "lsd  --group-dirs first -Al"
-abbr lt "lsd  --group-dirs last -Al --tree"
-abbr nvf "nvim (fzf --height 100% --preview 'bat --style=numbers --color=always {}')"
-abbr tmuxx "tmux attach-session -t (tmux list-sessions | fzf | cut -d ':' -f 1)"
-abbr tnl "nvim ~/.todoist/labels/(todoist labels | fzf | cut -d ' ' -f 1 | tr -d '[:space:]').md"
-abbr tnp "nvim ~/.todoist/projects/(todoist projects | fzf | cut -d ' ' -f 1 | tr -d '[:space:]').md"
-abbr tnt "nvim ~/.todoist/tasks/(todoist show | fzf | cut -d ' ' -f 1 | tr -d '[:space:]').md"
-abbr tt "$EDITOR ~/.tmux.conf"
-abbr tx tmuxinator
+abbr lt "lsd  --group-dirs last -A --tree"
 abbr u "~/bin/update.sh"
 abbr v "v (fzf)"
 abbr yb "yarn build"
