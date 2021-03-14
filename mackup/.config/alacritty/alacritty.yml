@@ -16,9 +16,6 @@ font:
   normal:
     family: 'FiraCode Nerd Font Mono'
     style: Regular
-  italic:
-    family: 'Inconsolata Nerd Font'
-    style: Italic
   size: 20.0
   use_thin_strokes: true
 
