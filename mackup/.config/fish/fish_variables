@@ -35,6 +35,7 @@ SETUVAR _fish_abbr_cl:clear
 SETUVAR _fish_abbr_claer:clear
 SETUVAR _fish_abbr_clera:clear
 SETUVAR _fish_abbr_cx:chmod\x20\x2bx
+SETUVAR _fish_abbr_dc:docker\x2dcompose
 SETUVAR _fish_abbr_dcb:docker\x2dcompose\x20build
 SETUVAR _fish_abbr_dcd:docker\x2dcompose\x20down
 SETUVAR _fish_abbr_dcdn:docker\x2dcompose\x20down
@@ -46,7 +47,7 @@ SETUVAR _fish_abbr_dclf:docker\x2dcompose\x20logs\x20\x2df
 SETUVAR _fish_abbr_dco:docker\x2dcompose
 SETUVAR _fish_abbr_dcps:docker\x2dcompose\x20ps
 SETUVAR _fish_abbr_dcpull:docker\x2dcompose\x20pull
-SETUVAR _fish_abbr_dcr:docker\x2dcompose\x20run
+SETUVAR _fish_abbr_dcr:docker\x2dcompose\x20restart
 SETUVAR _fish_abbr_dcrestart:docker\x2dcompose\x20restart
 SETUVAR _fish_abbr_dcrm:docker\x2dcompose\x20rm
 SETUVAR _fish_abbr_dcstart:docker\x2dcompose\x20start
@@ -92,6 +93,7 @@ SETUVAR _fish_abbr_nvim:vim
 SETUVAR _fish_abbr_sf:source\x20\x7e/\x2econfig/fish/config\x2efish
 SETUVAR _fish_abbr_st:tmux\x20source\x20\x7e/\x2econfig/tmux/tmux\x2econf
 SETUVAR _fish_abbr_t:t
+SETUVAR _fish_abbr_ta:tmux\x20attach\x20\x2dt
 SETUVAR _fish_abbr_tmuxx:tmux\x20attach\x2dsession\x20\x2dt\x20\x28tmux\x20list\x2dsessions\x20\x7c\x20fzf\x20\x7c\x20cut\x20\x2dd\x20\x27\x3a\x27\x20\x2df\x201\x29
 SETUVAR _fish_abbr_tn:tmux\x20new\x20\x2ds
 SETUVAR _fish_abbr_tnl:nvim\x20\x7e/\x2etodoist/labels/\x28todoist\x20labels\x20\x7c\x20fzf\x20\x7c\x20cut\x20\x2dd\x20\x27\x20\x27\x20\x2df\x201\x20\x7c\x20tr\x20\x2dd\x20\x27\x5b\x3aspace\x3a\x5d\x27\x29\x2emd
