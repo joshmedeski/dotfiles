@@ -50,7 +50,7 @@ module.exports = {
       },
       {
         text: "GitHub",
-        link: "https://github.com/joshmedeski/dotfiles",
+        link: "https://github.com/joshmedeski/joshs-dotfiles",
       },
     ],
     sidebar: {
