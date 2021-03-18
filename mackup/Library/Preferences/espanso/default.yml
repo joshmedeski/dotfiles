@@ -31,6 +31,15 @@ matches:
         params:
           format: "%m/%d/%Y"
 
+  # Dates
+  - trigger: "today;"
+    replace: "{{today}}"
+    vars:
+      - name: today
+        type: date
+        params:
+          format: "%m/%d/%Y"
+
   # Shell commands
   - trigger: ":shell"
     replace: "{{output}}"
