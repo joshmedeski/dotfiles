@@ -1,0 +1,8 @@
+/* OVERRIDE */
+#header {
+  display: none !important;
+}
+
+#titlebar {
+  display: none !important;
+}
