@@ -45,10 +45,6 @@ module.exports = {
         link: "/overview/",
       },
       {
-        text: "TODO",
-        link: "/todo/",
-      },
-      {
         text: "GitHub",
         link: "https://github.com/joshmedeski/dotfiles",
       },
