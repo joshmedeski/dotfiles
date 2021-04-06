@@ -44,6 +44,3 @@ key_bindings:
   - { key: T, mods: Command, chars: "\x02\x63" }
   - { key: W, mods: Command, chars: "\x02\x78" }
   - { key: Z, mods: Command, chars: "\x02\x7a" }
-
-imports:
-  - ./themes/star-wars-dogfight.yml
