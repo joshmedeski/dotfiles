@@ -45,3 +45,7 @@ set tabstop=2
 set colorcolumn=80,120
 
 set rtp+=/usr/local/opt/fzf
+
+" Remap yank & paste
+vnoremap <C-c> "+y
+map <C-p> "+P
