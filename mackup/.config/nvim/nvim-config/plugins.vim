@@ -9,10 +9,12 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+Plug 'mattn/emmet-vim'
 Plug 'mhinz/vim-signify'
 Plug 'mhinz/vim-startify'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'norcalli/nvim-colorizer.lua'
+Plug 'roxma/vim-tmux-clipboard'
 Plug 'sheerun/vim-polyglot'
 Plug 'szw/vim-maximizer'
 Plug 'tmux-plugins/vim-tmux'
