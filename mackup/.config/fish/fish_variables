@@ -111,6 +111,7 @@ SETUVAR _fish_abbr_vf:vim\x20\x7e/\x2econfig/fish/config\x2efish
 SETUVAR _fish_abbr_vh:vim\x20\x7e/\x2elocal/share/fish/fish_history
 SETUVAR _fish_abbr_vt:vim\x20\x7e/\x2econfig/tmux/tmux\x2econf
 SETUVAR _fish_abbr_vv:nvim\x20\x7e/\x2econfig/nvim/init\x2evim
+SETUVAR _fish_abbr_y:yarn
 SETUVAR _fish_abbr_yb:yarn\x20build
 SETUVAR _fish_abbr_yd:yarn\x20dev
 SETUVAR _fish_abbr_yo:yarn\x20open
