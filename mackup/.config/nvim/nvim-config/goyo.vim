@@ -7,10 +7,11 @@ function! s:goyo_enter()
     silent !tmux set status off
     silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
   endif
-  set spell spelllang=en_us
-  set noshowmode
   set noshowcmd
+  set noshowmode
   set scrolloff=999
+  set spell spelllang=en_us
+  set wrap
   Limelight
 endfunction
 
@@ -20,9 +21,10 @@ function! s:goyo_leave()
     silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
   endif
   set nospell
-  set showmode
-  set showcmd
+  set nowrap
   set scrolloff=5
+  set showcmd
+  set showmode
   Limelight!
 endfunction
 
