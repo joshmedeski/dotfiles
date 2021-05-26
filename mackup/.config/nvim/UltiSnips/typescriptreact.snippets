@@ -1,0 +1,61 @@
+snippet fc "Functional Component" b
+import { FC } from "react";
+
+const $1: FC = () => {
+	return <></>
+}
+
+export default $1;
+endsnippet
+
+snippet use "Custom React Hook" b
+const use$1 = () => {
+	return {}
+}
+
+export default use$1;
+endsnippet
+
+snippet todo "TODO reminder"
+// TODO ${1:desc} `!v strftime("%c")`
+endsnippet
+
+snippet input "Form Input"
+<Input
+	name="$1"
+	register={register}
+	error={errors.$1?.message}
+/>
+endsnippet
+
+snippet cn "class name property"
+className="$1"
+endsnippet
+
+snippet d "class name property" b
+<div className="$1">
+	$2
+</div>
+endsnippet
+
+snippet ue "use effect" b
+useEffect(() => {
+	$1
+}, []);
+endsnippet
+
+snippet us "use state" b
+const [$1, $2] = useState();
+endsnippet
+
+snippet cl "console.log" b
+console.log("$1: ", $1);
+endsnippet
+
+snippet ir "import react" b
+import React from "react";
+endsnippet
+
+snippet dis "eslint disable next line exhaustive deps" b
+// eslint-disable-next-line react-hooks/exhaustive-deps
+endsnippet
