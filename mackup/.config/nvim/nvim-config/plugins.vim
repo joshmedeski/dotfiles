@@ -17,6 +17,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'roxma/vim-tmux-clipboard'
 Plug 'sheerun/vim-polyglot'
+Plug 'SirVer/ultisnips'
 Plug 'szw/vim-maximizer'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tpope/vim-surround'
