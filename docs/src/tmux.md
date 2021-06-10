@@ -2,7 +2,7 @@
 sidebar: auto
 ---
 
-# tmux <Badge text="HEAD" type="warning"/>
+# tmux
 
 > tmux is a terminal multiplexer. It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal.
 

@@ -3,10 +3,6 @@
 cd ~ && mkdir repos && cd repos
 git clone git@github.com:joshmedeski/joshs-dotfiles.git dotfiles
 
-# tmux https://github.com/tmux/tmux/wiki/Installing
-if [[ $PLATFORM == 'linux' ]]; then
-  apt-get install libevent-dev ncurses-dev build-essential bison pkg-config
-
 brew install bash
 brew install bat
 brew install fd
@@ -26,7 +22,7 @@ brew install pgcli
 brew install ripgrep
 brew install starship
 brew install tealdeer
-brew install tmux --HEAD
+brew install tmux
 brew install wakatime-cli
 brew install zoxide
 
