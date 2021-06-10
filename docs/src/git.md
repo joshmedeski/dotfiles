@@ -28,6 +28,12 @@ All things related to the infamous VCS, git.
 
 [cli.github.com](https://cli.github.com)
 
+### Committia
+
+> A Vim plugin for more pleasant editing on commit messages
+
+[github.com/rhysd/committia.vim](https://github.com/rhysd/committia.vim)
+
 ## Config
 
 <<< @/../mackup/.gitconfig
