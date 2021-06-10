@@ -12,6 +12,23 @@ sidebar: auto
 
 <<< @/../mackup/.config/fish/config.fish
 
+## Fisher Package Manager
+
+> A plugin manager for Fish.
+
+[github.com/jorgebucaran/fisher](https://github.com/jorgebucaran/fisher)
+
+### Packages
+
+```
+edc/bass
+FabioAntunes/fish-nvm
+franciscolourenco/done
+james2doyle/omf-plugin-fnm
+joshmedeski/fish-fzf-todoist
+upamune/fish-todoist
+```
+
 ## Commands
 
 ### Reload config
