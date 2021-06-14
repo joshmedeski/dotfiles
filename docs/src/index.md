@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: https://v1.vuepress.vuejs.org/hero.png
+heroImage: /josh-sitting-at-desk.jpg
 tagline: The dotfiles for my developer environment
 actionText: Quick Start →
 actionLink: /quick-start/
