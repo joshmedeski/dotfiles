@@ -4,9 +4,6 @@ style = "blue bold"
 [package]
 disabled = true
 
-[directory]
-style = "blue bold"
-
 [username]
 disabled = true
 
