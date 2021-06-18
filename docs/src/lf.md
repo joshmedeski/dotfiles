@@ -6,8 +6,7 @@ sidebar: auto
 
 > Terminal file manager
 
-
-https://github.com/gokcehan/lf
+[github.com/gokcehan/lf](https://github.com/gokcehan/lf)
 
 ## Config
 
