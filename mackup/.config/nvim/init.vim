@@ -17,6 +17,11 @@ let g:airline#extensions#tabline#enabled=1
 let g:vim_markdown_folding_disabled = 1
 let NERDTreeShowHidden=1
 
+" lf Config
+let g:lf_replace_netrw = 1 " Open lf when vim opens a directory
+let g:lf_width = 0.9
+let g:lf_height = 0.7
+
 " Vim Wiki Setup
 let g:vimwiki_list = [{'path': '~/repos/obsidian/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]

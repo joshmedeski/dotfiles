@@ -12,7 +12,7 @@ nmap <leader>bn :bn<cr>
 nmap <leader>bp :bp<cr>
 nmap <leader>en <Plug>(coc-diagnostic-next)
 nmap <leader>ep <Plug>(coc-diagnostic-prev)
-nmap <leader>fs :w<cr>
+nmap <leader>f :Lfcd<cr>
 nmap <leader>g :Goyo<cr>
 nmap <leader>h :noh<cr>
 nmap <leader>j :Files<cr>
@@ -22,7 +22,3 @@ nmap <leader>wf :MaximizerToggle!<cr>
 nmap <leader>n :bn<cr>
 nmap <leader>p :bp<cr>
 nmap <leader>r :Rg<cr>
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>

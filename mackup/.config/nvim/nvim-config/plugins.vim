@@ -15,6 +15,7 @@ Plug 'mhinz/vim-signify'
 Plug 'mhinz/vim-startify'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'norcalli/nvim-colorizer.lua'
+Plug 'ptzz/lf.vim'
 Plug 'rhysd/committia.vim'
 Plug 'roxma/vim-tmux-clipboard'
 Plug 'sheerun/vim-polyglot'
