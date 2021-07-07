@@ -1,8 +1,10 @@
 snippet fc "Functional Component" b
-import { FC } from "react";
+import React from "react";
 
-const $1: FC = () => {
-	return <></>
+const $1: React.FC = () => {
+	return (
+		$2
+	)
 }
 
 export default $1;
@@ -58,4 +60,17 @@ endsnippet
 
 snippet dis "eslint disable next line exhaustive deps" b
 // eslint-disable-next-line react-hooks/exhaustive-deps
+endsnippet
+
+
+snippet np "NextJS Page" b
+import { NextPage } from "next";
+
+const $1: NextPage = () => {
+  return (
+		$2
+  );
+};
+
+export default $1;
 endsnippet
