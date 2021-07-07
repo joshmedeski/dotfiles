@@ -11,6 +11,8 @@ dist
 config.local.js
 basement_dist
 mackup/Library/*
+mackup/.ssh
 
 mackup/.config/fish/fish_variables
 mackup/.config/fish/functions/fzf_key_bindings.fish
+mackup/.aws/credentials
