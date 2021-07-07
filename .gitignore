@@ -11,3 +11,6 @@ dist
 config.local.js
 basement_dist
 mackup/Library/*
+
+mackup/.config/fish/fish_variables
+mackup/.config/fish/functions/fzf_key_bindings.fish

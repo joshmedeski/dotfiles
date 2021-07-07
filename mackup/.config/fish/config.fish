@@ -25,7 +25,6 @@ set -Ux FZF_DEFAULT_OPTS '
 
 # user path
 set -g fish_user_paths "~/go/bin" $fish_user_paths
-set -x PATH (pwd)"/git-fuzzy/bin:$PATH"
 
 # language
 set -x LANG en_US.UTF-8

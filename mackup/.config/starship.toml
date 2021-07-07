@@ -1,8 +1,8 @@
-[package]
-disabled = true
-
 [directory]
 style = "blue bold"
+
+[package]
+disabled = true
 
 [username]
 disabled = true
