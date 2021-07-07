@@ -16,3 +16,5 @@ mackup/.ssh
 mackup/.config/fish/fish_variables
 mackup/.config/fish/functions/fzf_key_bindings.fish
 mackup/.aws/credentials
+
+mackup/.wakatime.cfg
