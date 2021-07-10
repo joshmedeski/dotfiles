@@ -16,6 +16,10 @@ sidebar: auto
 
 <<< @/../mackup/.yabairc
 
+## ~/.skhdrc
+
+<<< @/../mackup/.skhdrc
+
 ## Commands
 
 ### Reload
