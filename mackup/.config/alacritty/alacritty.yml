@@ -24,9 +24,9 @@ mouse:
 
 key_bindings:
   - { key: Comma, mods: Command, chars: "\x02\x2c" }
+  - { key: D, mods: Command, chars: "\x02\x4b" }
   - { key: F, mods: Command, chars: "\x6c\x66\x63\x64\x0a" }
   - { key: G, mods: Command, chars: "\x02\x67" }
-  - { key: D, mods: Command, chars: "\x02\x4b" }
   - { key: K, mods: Command, chars: "\x02\x73" }
   - { key: Key1, mods: Command, chars: "\x02\x31" }
   - { key: Key2, mods: Command, chars: "\x02\x32" }
@@ -40,10 +40,11 @@ key_bindings:
   - { key: L, mods: Command, chars: "\x02\x4c" }
   - { key: LBracket, mods: Command, chars: "\x02\x5b" }
   - { key: LBracket, mods: Command|Shift, chars: "\x02\x70" }
+  - { key: Q, mods: Command, chars: "\x02\x64" }
   - { key: RBracket, mods: Command|Shift, chars: "\x02\x6e" }
   - { key: S, mods: Command, chars: "\x1b\x3a\x77\x0a" }
   - { key: Semicolon, mods: Command, chars: "\x02\x3a" }
   - { key: T, mods: Command, chars: "\x02\x63" }
   - { key: W, mods: Command, chars: "\x02\x78" }
-  - { key: Q, mods: Command, chars: "\x02\x64" }
   - { key: Z, mods: Command, chars: "\x02\x7a" }
+
