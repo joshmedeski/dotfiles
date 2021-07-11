@@ -39,7 +39,7 @@ key_bindings:
   - { key: L, mods: Command, chars: "\x02\x4c" }
   - { key: LBracket, mods: Command|Shift, chars: "\x02\x70" }
   - { key: RBracket, mods: Command|Shift, chars: "\x02\x6e" }
-  - { key: S, mods: Command, chars: "\x3a\x77\x0a" }
+  - { key: S, mods: Command, chars: "\x1b\x3a\x77\x0a" }
   - { key: Semicolon, mods: Command, chars: "\x02\x3a" }
   - { key: T, mods: Command, chars: "\x02\x63" }
   - { key: W, mods: Command, chars: "\x02\x78" }
