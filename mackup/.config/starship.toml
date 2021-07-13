@@ -10,3 +10,6 @@ disabled = true
 [hostname]
 disabled = true
 
+[aws]
+disabled = true
+
