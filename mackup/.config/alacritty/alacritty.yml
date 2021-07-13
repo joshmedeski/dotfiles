@@ -47,6 +47,7 @@ key_bindings:
   - { key: S, mods: Command, chars: "\x1b\x3a\x77\x0a" }
   - { key: Semicolon, mods: Command, chars: "\x02\x3a" }
   - { key: T, mods: Command, chars: "\x02\x63" }
+  - { key: T, mods: Command|Shift, chars: "\x02\x21" }
   - { key: W, mods: Command, chars: "\x02\x78" }
   - { key: Z, mods: Command, chars: "\x02\x7a" }
 
