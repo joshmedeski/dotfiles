@@ -8,6 +8,8 @@ sidebar: auto
 
 [fishshell.com](http://fishshell.com)
 
+[Why I Switched from ZSH to FISH](https://dev.to/joshmedeski/why-i-switched-from-zsh-to-fish-2j17)
+
 ## Config
 
 <<< @/../mackup/.config/fish/config.fish

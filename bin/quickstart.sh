@@ -70,8 +70,6 @@ if [[ $PLATFORM == 'macos' ]]; then
    brew install --cask home-assistant   
    brew install --cask obsidian         
    brew install --cask postman          
-   brew install --cask raycast          
-   brew install --cask rocket           
    brew install --cask slack
    brew install --cask spacelauncher    
    brew install --cask spotify
