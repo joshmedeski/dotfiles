@@ -33,7 +33,7 @@ I currently am using the following operating systems:
 
 ## Binaries
 
-- [bat](/bat): `cat` replacement
+- [bat](/cat): `cat` replacement
 - [docker](/docker): software containers
 - [espanso](/espanso): text snippets
 - [lsd](/lsd): `ls` replacement
