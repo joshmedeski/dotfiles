@@ -4,6 +4,19 @@ sidebar: auto
 
 # Docker
 
+## Packages
+
+### lazydoker (tui)
+
+> The lazier way to manage everything docker
+
+[github.com/jesseduffield/lazydocker](https://github.com/jesseduffield/lazydocker)
+
+## Resources
+
+- [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+- [How to Fix Docker Permission Denied Error on Ubuntu](https://linuxhandbook.com/docker-permission-denied/)
+
 ## Networking
 
 ### Access native services on Docker for linux
@@ -24,7 +37,3 @@ To access a native service on a linux computer from inside a Docker container (e
 - [Docker container to connect localhost of host](https://djangocas.dev/blog/docker-container-to-connect-localhost-of-host/#google_vignette)
 - [Access native services on Docker host via host.docker.internal](https://megamorf.gitlab.io/2020/09/19/access-native-services-on-docker-host-via-host-docker-internal/)
 
-## Resources
-
-- [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
-- [How to Fix Docker Permission Denied Error on Ubuntu](https://linuxhandbook.com/docker-permission-denied/)
