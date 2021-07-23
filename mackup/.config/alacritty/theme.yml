@@ -1,0 +1,26 @@
+background_opacity: 0.6
+
+colors:
+   primary:
+     background: '#02012b'
+     foreground: '#e0fff1'
+
+   normal:
+     black:   '#02012b'
+     red:     '#f1b5f1'
+     green:   '#afe5c1'
+     yellow:  '#e7ce57'
+     blue:    '#04b8f7'
+     magenta: '#e7bdfe'
+     cyan:    '#43c5f9'
+     white:   '#ffffff'
+
+   bright:
+     black:   '#02012b'
+     red:     '#f1b5f1'
+     green:   '#afe5c1'
+     yellow:  '#e7ce57'
+     blue:    '#04b8f7'
+     magenta: '#e7bdfe'
+     cyan:    '#43c5f9'
+     white:   '#ffffff'

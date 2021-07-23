@@ -1,9 +1,8 @@
 live_config_reload: true
+
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
   save_to_clipboard: true
-
-background_opacity: 0.8
 
 window:
   padding:
@@ -51,3 +50,5 @@ key_bindings:
   - { key: W, mods: Command, chars: "\x02\x78" }
   - { key: Z, mods: Command, chars: "\x02\x7a" }
 
+import:
+  - ~/.config/alacritty/theme.yml
