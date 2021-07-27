@@ -36,18 +36,26 @@ alias ls="lsd  --group-dirs first -A"
 alias vim="nvim"
 alias v="vim"
 
+# os specific abbreviations
+switch (uname)
+case Darwin
+  abbr bi "arch -arm64 brew install"
+abbr bug "arch -arm64 brew upgrade"
+abbr bi "brew install"
+case Linux
+  abbr bi "brew install"
+  abbr bug "brew upgrade"
+end
+
 # abbreviations
 abbr t "t"
 abbr b "brew"
-abbr bb "arch -arm64 brew"
 abbr bc "brew cleanup"
 abbr bd "brew doctor"
-abbr bi "brew install"
 abbr bo "brew outdated"
 abbr bs "brew services"
 abbr bsr "brew services restart"
 abbr bu "brew update"
-abbr bug "brew upgrade"
 abbr c "clear"
 abbr cl "clear"
 abbr claer "clear"
