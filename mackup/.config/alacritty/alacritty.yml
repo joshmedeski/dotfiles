@@ -39,8 +39,8 @@ key_bindings:
   - { key: L, mods: Command, chars: "\x02\x4c" }
   - { key: LBracket, mods: Command, chars: "\x02\x5b" }
   - { key: LBracket, mods: Command|Shift, chars: "\x02\x70" }
-  - { key: N, mods: Command|Shift, chars: "\x02\x25" }
-  - { key: N, mods: Command, chars: "\x02\x22" }
+  - { key: E, mods: Command|Shift, chars: "\x02\x25" }
+  - { key: E, mods: Command, chars: "\x02\x22" }
   - { key: Q, mods: Command, chars: "\x02\x64" }
   - { key: RBracket, mods: Command|Shift, chars: "\x02\x6e" }
   - { key: S, mods: Command, chars: "\x1b\x3a\x77\x0a" }
@@ -51,4 +51,6 @@ key_bindings:
   - { key: Z, mods: Command, chars: "\x02\x7a" }
 
 import:
+  # TODO set default theme
   - ~/.config/alacritty/theme.yml
+
