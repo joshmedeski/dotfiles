@@ -12,6 +12,8 @@ function! s:goyo_enter()
   set scrolloff=999
   set spell spelllang=en_us
   set wrap
+  set nolist
+  set linebreak
   Limelight
 endfunction
 
