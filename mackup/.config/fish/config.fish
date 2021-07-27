@@ -31,6 +31,7 @@ set -x LANG en_US.UTF-8
 set -x LC_ALL en_US.UTF-8
 
 # aliases
+alias aw="~/.config/alacritty/aw/bin/run"
 alias t="~/repos/dotfiles/bin/t.sh"
 alias ls="lsd  --group-dirs first -A"
 alias vim="nvim"
@@ -66,6 +67,7 @@ abbr dcd "docker-compose down"
 abbr dcdv "docker-compose down -v"
 abbr dcr "docker-compose restart"
 abbr dcu "docker-compose up -d" 
+abbr dnd "/Users/joshmedeski/.nvm/versions/node/v14.17.1/bin/dnd"
 abbr dps "docker ps --format 'table {{.Names}}\t{{.Status}}'"
 abbr e "exit"
 abbr ee "espanso edit"
