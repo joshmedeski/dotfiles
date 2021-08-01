@@ -6,6 +6,10 @@ alt - j : yabai -m window --focus south
 alt - k : yabai -m window --focus north
 alt - l : yabai -m window --focus east
 
+# for stream
+alt - d : yabai -m config left_padding 655 
+alt - a : yabai -m config left_padding 15 
+
 # swap window
 shift + alt - h : yabai -m window --swap west
 shift + alt - j : yabai -m window --swap south
