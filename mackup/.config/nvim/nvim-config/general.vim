@@ -49,3 +49,31 @@ set rtp+=/usr/local/opt/fzf
 " Remap yank & paste
 vnoremap <C-c> "+y
 map <C-p> "+P
+
+" Yank to end of line
+nnoremap Y yg_
+
+" Center next search results
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" Better J cursor position
+nnoremap J mzJ`z
+
+" Undo break points
+inoremap , ,<c-g>u
+inoremap { {<c-g>u
+inoremap } }<c-g>u
+inoremap [ [<c-g>u
+inoremap ] ]<c-g>u
+inoremap ( (<c-g>u
+inoremap ) )<c-g>u
+
+" Jumplist mutation
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+
+" Moving text
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
