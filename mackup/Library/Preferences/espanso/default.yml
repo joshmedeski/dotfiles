@@ -32,7 +32,7 @@ matches:
           format: "%m/%d/%Y"
 
   # Dates
-  - trigger: "today;"
+  - trigger: "td;"
     replace: "{{today}}"
     vars:
       - name: today
