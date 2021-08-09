@@ -14,9 +14,11 @@ nmap <leader>en <Plug>(coc-diagnostic-next)
 nmap <leader>ep <Plug>(coc-diagnostic-prev)
 nmap <leader>f :Lfcd<cr>
 nmap <leader>g :Goyo<cr>
-nmap <leader>h :noh<cr>
+" nmap <leader>h :noh<cr>
+nmap <leader>h :HopWord<cr>
+nmap <leader>l :HopLine<cr>
+
 nmap <leader>j :Files<cr>
-nmap <leader>l :LF<cr>
 nmap <leader>m :MaximizerToggle!<cr>
 nmap <leader>wf :MaximizerToggle!<cr>
 nmap <leader>n :bn<cr>

@@ -25,6 +25,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'oncomouse/coc-fish', {'do': 'yarn install --frozen-lockfile'}
+Plug 'phaazon/hop.nvim'
 Plug 'ptzz/lf.vim'
 Plug 'rhysd/committia.vim'
 Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
