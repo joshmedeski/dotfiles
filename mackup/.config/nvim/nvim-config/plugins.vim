@@ -11,8 +11,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'justinmk/vim-sneak'
+Plug 'lewis6991/gitsigns.nvim'
 Plug 'mattn/emmet-vim'
-Plug 'mhinz/vim-signify'
 Plug 'mhinz/vim-startify'
 Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
