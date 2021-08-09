@@ -38,3 +38,5 @@ Plug 'vimwiki/vimwiki'
 Plug 'voldikss/fzf-floaterm'
 Plug 'voldikss/vim-floaterm'
 Plug 'wakatime/vim-wakatime'
+
+Plug 'ryanoasis/vim-devicons'
