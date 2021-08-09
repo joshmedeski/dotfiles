@@ -4,12 +4,23 @@ call plug#end()
 
 source $HOME/.config/nvim/nvim-config/goyo.vim
 source $HOME/.config/nvim/nvim-config/firenvim.vim
-source $HOME/.config/nvim/nvim-config/coc.vim
+" source $HOME/.config/nvim/nvim-config/coc.vim
 source $HOME/.config/nvim/nvim-config/general.vim
 source $HOME/.config/nvim/nvim-config/theme.vim
 
 let mapleader=" "
 source $HOME/.config/nvim/nvim-config/leader.vim
+
+source $HOME/.config/nvim/nvim-config/lsp.lua
+source $HOME/.config/nvim/nvim-config/gitsigns.lua
+
+" compe
+source $HOME/.config/nvim/nvim-config/compe.lua
+inoremap <silent><expr> <C-Space> compe#complete()
+inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
 " Miscellaneous
 command! LF FloatermNew lf

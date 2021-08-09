@@ -29,7 +29,7 @@ set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
-set encoding=utf8
+set encoding=UTF-8
 
 " Turn backup off
 set nobackup
@@ -76,4 +76,6 @@ nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 " Moving text
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+
+set completeopt=menuone,noselect
 
