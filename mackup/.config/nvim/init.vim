@@ -8,6 +8,7 @@ source $HOME/.config/nvim/nvim-config/coc.vim
 source $HOME/.config/nvim/nvim-config/general.vim
 source $HOME/.config/nvim/nvim-config/theme.vim
 
+source $HOME/.config/nvim/nvim-config/nvim-treesitter.lua
 let mapleader=" "
 source $HOME/.config/nvim/nvim-config/leader.vim
 
