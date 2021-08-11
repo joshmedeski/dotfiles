@@ -9,6 +9,7 @@ source $HOME/.config/nvim/nvim-config/general.vim
 source $HOME/.config/nvim/nvim-config/theme.vim
 
 source $HOME/.config/nvim/nvim-config/hop.lua
+source $HOME/.config/nvim/nvim-config/start-screen.vim
 
 let mapleader=" "
 source $HOME/.config/nvim/nvim-config/leader.vim
