@@ -1,3 +1,4 @@
+" cSpell:disable
 Plug 'airblade/vim-rooter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'chrisbra/vim-autosave'
@@ -36,9 +37,6 @@ Plug 'szw/vim-maximizer'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
-Plug 'vimwiki/vimwiki'
 Plug 'voldikss/fzf-floaterm'
 Plug 'voldikss/vim-floaterm'
 Plug 'wakatime/vim-wakatime'
-
-Plug 'ryanoasis/vim-devicons'

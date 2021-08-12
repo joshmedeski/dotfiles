@@ -1,3 +1,4 @@
+" cSpell:words Lfcd Goyo
 nmap <leader>% :source %<cr>
 nmap <leader>' :Marks<cr>
 nmap <leader>/ :noh<cr>
@@ -15,11 +16,10 @@ nmap <leader>ep <Plug>(coc-diagnostic-prev)
 nmap <leader>f :Lfcd<cr>
 nmap <leader>g :Goyo<cr>
 nmap <leader>h :HopWord<cr>
-nmap <leader>l :HopLine<cr>
-
 nmap <leader>j :Files<cr>
+nmap <leader>l :HopLine<cr>
 nmap <leader>m :MaximizerToggle!<cr>
-nmap <leader>wf :MaximizerToggle!<cr>
 nmap <leader>n :bn<cr>
 nmap <leader>p :bp<cr>
 nmap <leader>r :Rg<cr>
+nmap <leader>wf :MaximizerToggle!<cr>

@@ -1,2 +1,0 @@
-require'hop'.setup()
-

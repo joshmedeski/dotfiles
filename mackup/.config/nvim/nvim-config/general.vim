@@ -42,6 +42,7 @@ set smarttab
 set shiftwidth=2
 set softtabstop=2
 set tabstop=2
+
 set colorcolumn=80,120
 
 set rtp+=/usr/local/opt/fzf
@@ -54,8 +55,10 @@ map <C-p> "+P
 nnoremap Y yg_
 
 " Center next search results
+" cspell:disable
 nnoremap n nzzzv
 nnoremap N Nzzzv
+" cspell:enable
 
 " Better J cursor position
 nnoremap J mzJ`z

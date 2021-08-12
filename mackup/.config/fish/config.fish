@@ -24,7 +24,7 @@ set -Ux FZF_DEFAULT_OPTS '
 '
 
 # user path
-set -g fish_user_paths "~/go/bin" $fish_user_paths
+set -g fish_user_paths "$HOME/go/bin" $fish_user_paths
 
 # language
 set -x LANG en_US.UTF-8
