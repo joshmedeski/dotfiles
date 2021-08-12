@@ -10,6 +10,15 @@ end
 starship init fish | source
 zoxide init fish | source
 
+# plugins
+fundle plugin 'edc/bass'
+fundle plugin 'FabioAntunes/fish-nvm'
+fundle plugin 'franciscolourenco/done'
+fundle plugin 'gazorby/fish-abbreviation-tips'
+fundle plugin 'james2doyle/omf-plugin-fnm'
+
+fundle init
+
 # shell env variables
 set -Ux BAT_THEME Nord 
 set -Ux EDITOR nvim
