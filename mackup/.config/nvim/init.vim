@@ -22,6 +22,9 @@ command! LF FloatermNew lf
 let g:airline#extensions#tabline#enabled=1
 let g:vim_markdown_folding_disabled = 1
 
+let g:rooter_patterns = ['.git']
+autocmd FileType gitcommit setlocal spell
+
 " lf Config
 let g:lf_replace_netrw = 1 " Open lf when vim opens a directory
 let g:lf_width = 0.9
