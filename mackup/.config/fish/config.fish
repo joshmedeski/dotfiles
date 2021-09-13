@@ -131,6 +131,7 @@ abbr yg "yarn generate"
 abbr yl "yarn lint"
 abbr yo "yarn open"
 abbr ys "yarn start"
+abbr yt "yarn test"
 abbr zat "docker run --rm -v (pwd):/data -p 4567:4567 -it pindar/zat zat"
 
 # adjust color scheme
