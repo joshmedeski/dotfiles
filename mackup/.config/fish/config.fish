@@ -3,6 +3,7 @@ set fish_greeting # disable fish greeting
 switch (uname)
 case Darwin
   eval (/opt/homebrew/bin/brew shellenv)
+  fish_add_path /opt/homebrew/bin
 case Linux
   set -g fish_user_paths "/home/linuxbrew/.linuxbrew/bin" $fish_user_paths
 end
