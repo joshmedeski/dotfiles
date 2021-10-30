@@ -1,24 +1,24 @@
-# nord
+# dracula
 background_opacity: 0.8
 colors:
   primary:
-    background: "#2E3440"
-    foreground: "#D8DEE9"
+    background: '#000000'
+    foreground: '#ffffff'
   normal:
-    black: "#3B4252"
-    red: "#BF616A"
-    green: "#A3BE8C"
-    yellow: "#EBCB8B"
-    blue: "#81A1C1"
-    magenta: "#B48EAD"
-    cyan: "#88C0D0"
-    white: "#E5E9F0"
+    black:   '#000000'
+    red:     '#ff5555'
+    green:   '#50fa7b'
+    yellow:  '#f1fa8c'
+    blue:    '#bd93f9'
+    magenta: '#ff79c6'
+    cyan:    '#8be9fd'
+    white:   '#bfbfbf'
   bright:
-    black: "#4C566A"
-    red: "#BF616A"
-    green: "#A3BE8C"
-    yellow: "#EBCB8B"
-    blue: "#81A1C1"
-    magenta: "#B48EAD"
-    cyan: "#8FBCBB"
-    white: "#ECEFF4"
+    black:   '#4d4d4d'
+    red:     '#ff6e67'
+    green:   '#5af78e'
+    yellow:  '#f4f99d'
+    blue:    '#caa9fa'
+    magenta: '#ff92d0'
+    cyan:    '#9aedfe'
+    white:   '#e6e6e6'
