@@ -16,7 +16,7 @@ window:
 
 font:
   normal:
-    family: 'FiraCode Nerd Font Mono'
+    family: 'SFMono Nerd Font'
     style: Regular
   size: 20.0
   use_thin_strokes: true
