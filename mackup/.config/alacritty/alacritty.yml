@@ -54,6 +54,6 @@ key_bindings:
   - { key: Z, mods: Command, chars: "\x02\x7a" }
 
 import:
-  # TODO set default theme
-  - ~/.config/alacritty/theme.yml
+  - ~/.config/alacritty/aw/fallback.yml
+  - ~/.config/alacritty/aw/current.yml
 
