@@ -34,6 +34,12 @@ snippet cn "class name property"
 className="$1"
 endsnippet
 
+snippet gt "<GradientText>" b
+<GradientText>
+	$2
+</GradientText>
+endsnippet
+
 snippet d "class name property" b
 <div className="$1">
 	$2
@@ -50,8 +56,20 @@ snippet us "use state" b
 const [$1, $2] = useState();
 endsnippet
 
+snippet ul "use loading state" b
+const [loading, setLoading] = useLoading();
+endsnippet
+
 snippet cl "console.log" b
-console.log("$1: ", $1);
+console.log('$1: ', $1);
+endsnippet
+
+snippet ce "console.error" b
+if (process.env.NODE_ENV !== 'production') console.error(error)
+endsnippet
+
+snippet tp "text-primary"
+text-primary-light dark:text-primary-dark
 endsnippet
 
 snippet ir "import react" b
@@ -73,4 +91,8 @@ const $1: NextPage = () => {
 };
 
 export default $1;
+endsnippet
+
+snippet ed "export default" b
+export default $1
 endsnippet

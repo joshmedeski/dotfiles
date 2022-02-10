@@ -1,3 +1,11 @@
 snippet cl "console.log" b
-console.log("$1: ", $1);
+console.log('$1: ', $1);
+endsnippet
+
+snippet ec "export const " b
+export const 
+endsnippet
+
+snippet ce "console.error" b
+if (process.env.NODE_ENV !== 'production') console.error(error)
 endsnippet
