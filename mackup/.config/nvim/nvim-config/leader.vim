@@ -11,6 +11,7 @@ nmap <leader>bb :Buffers<cr>
 nmap <leader>bd :bd<cr>
 nmap <leader>bn :bn<cr>
 nmap <leader>bp :bp<cr>
+nmap <leader>bsd :%bd\|e#\|bd#<cr>\|'"
 nmap <leader>en <Plug>(coc-diagnostic-next)
 nmap <leader>ep <Plug>(coc-diagnostic-prev)
 nmap <leader>f :Lfcd<cr>
