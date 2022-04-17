@@ -10,7 +10,6 @@ Plug 'iamcco/coc-spell-checker', {'do': 'yarn install --frozen-lockfile'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'mattn/emmet-vim'
