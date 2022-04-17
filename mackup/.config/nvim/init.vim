@@ -8,6 +8,7 @@ source $HOME/.config/nvim/nvim-config/theme.vim
 
 source $HOME/.config/nvim/nvim-config/init.lua
 
+source $HOME/.config/nvim/nvim-config/abbreviations.vim
 source $HOME/.config/nvim/nvim-config/coc.vim
 source $HOME/.config/nvim/nvim-config/firenvim.vim
 source $HOME/.config/nvim/nvim-config/goyo.vim
