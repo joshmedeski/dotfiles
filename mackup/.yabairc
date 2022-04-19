@@ -1,38 +1,33 @@
 #!/usr/bin/env sh
 
-# TODO Add back when sa is supported on m1
-#sudo yabai --load-sa
+sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
-# general config
-yabai -m config auto_balance                 off
-yabai -m config insert_feedback_color        0xffd75f5f
-yabai -m config layout                       bsp
-yabai -m config split_ratio                  0.50
-
-# window config
-yabai -m config active_window_opacity        1.0
-yabai -m config normal_window_border_color   0xff555555
-yabai -m config normal_window_opacity        0.90
+# global settings
+yabai -m config mouse_follows_focus          off
+yabai -m config focus_follows_mouse          off
+yabai -m config window_origin_display        default
+yabai -m config window_placement             second_child
+yabai -m config window_topmost               off
+yabai -m config window_shadow                on
 yabai -m config window_opacity               off
 yabai -m config window_opacity_duration      0.0
-yabai -m config window_placement             second_child
-yabai -m config window_shadow                on
-yabai -m config window_topmost               off
-
-# border config
-yabai -m config active_window_border_color   0xff775759
+yabai -m config active_window_opacity        1.0
+yabai -m config normal_window_opacity        0.90
 yabai -m config window_border                off
 yabai -m config window_border_width          6
-
-# mouse config
-yabai -m config focus_follows_mouse          off
+yabai -m config active_window_border_color   0xff775759
+yabai -m config normal_window_border_color   0xff555555
+yabai -m config insert_feedback_color        0xffd75f5f
+yabai -m config split_ratio                  0.50
+yabai -m config auto_balance                 off
+yabai -m config mouse_modifier               fn
 yabai -m config mouse_action1                move
 yabai -m config mouse_action2                resize
 yabai -m config mouse_drop_action            swap
-yabai -m config mouse_follows_focus          off
-yabai -m config mouse_modifier               fn
 
-# padding config
+# general space settings
+yabai -m config layout                       bsp
 yabai -m config top_padding                  15
 yabai -m config bottom_padding               15
 yabai -m config left_padding                 15
@@ -49,4 +44,4 @@ yabai -m rule --add app="^Creative Cloud$" manage=off
 yabai -m rule --add app="^Logi Options$" manage=off
 yabai -m rule --add app="^Alfred Preferences$" manage=off
 
-echo "~/.yabai config loaded successfully"
+echo "yabai configuration loaded.."
