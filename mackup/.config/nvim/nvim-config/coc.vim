@@ -28,6 +28,17 @@ nmap <silent> gr <Plug>(coc-references)
 
 inoremap <silent><expr> <Tab>
 
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
 " Prettier
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
