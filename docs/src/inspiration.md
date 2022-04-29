@@ -13,3 +13,4 @@ Here's a collection of other people's dotfiles I have found inspiring.
 - [My dearly Neovim setup (Neovim + Tmux) : neovim](https://www.reddit.com/r/neovim/comments/ldtdeu/my_dearly_neovim_setup_neovim_tmux/)
 - [github.com/solidiquis/dotfiles](https://github.com/solidiquis/dotfiles)
 - [RobinMalfait/dotfiles](https://github.com/RobinMalfait/dotfiles)
+- [David-Kunz/vim](https://github.com/David-Kunz/vim)
