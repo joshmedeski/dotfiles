@@ -18,3 +18,4 @@ mackup/.config/fish/functions/fzf_key_bindings.fish
 mackup/.aws/credentials
 
 mackup/.wakatime.cfg
+mackup/.gnupg/trustdb.gpg
