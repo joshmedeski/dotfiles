@@ -6,19 +6,16 @@
 [core]
  	editor = nvim
  	excludesfile = /Users/joshmedeski/.gitignore
-	pager = diff-so-fancy | less --tabs=2 -RFX
+	#pager = difft
+[pager]
+	difftool = true
 [color]
 	ui = true
-[color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
-[color "diff"]
-	meta = 11
-	frag = blue bold
-	func = 146 bold
-	commit = yellow bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
+[pager]
+	difftool = true
+[diff]
+	tool = difftastic
+[difftool]
+	prompt = false
+[difftool "difftastic"]
+	cmd = difft "$LOCAL" "$REMOTE"
