@@ -1,4 +1,3 @@
-
 " Thanks https://www.chrisatmachine.com/Neovim/17-snippets/
 " Use <C-l> for trigger snippet expand.
 imap <C-l> <Plug>(coc-snippets-expand)
@@ -40,7 +39,11 @@ function! s:show_documentation()
 endfunction
 
 " Prettier
-command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+" MDX
+" Thanks https://github.com/neoclide/coc-prettier/issues/127#issuecomment-850598753
+let g:coc_filetype_map = { 'markdown.mdx': 'mdx' }
 
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort

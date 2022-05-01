@@ -1,16 +1,24 @@
-" new keyboard shortcuts to learn
+" cSpell:ignore prevchunk prevconflict lfcd goyo
+
 " coc-git
-" navigate chunks of current buffer
-nmap [g <Plug>(coc-git-prevchunk)
-nmap ]g <Plug>(coc-git-nextchunk)
-" navigate conflicts of current buffer
-nmap [c <Plug>(coc-git-prevconflict)
-nmap ]c <Plug>(coc-git-nextconflict)
-" show chunk diff at current position
-nmap gs <Plug>(coc-git-chunkinfo)
-nmap gb <Plug>(coc-git-blame)
-" show commit contains current position
-nmap gc <Plug>(coc-git-commit)
+nmap <leader>gb <Plug>(coc-git-blame)<cr>
+nmap <leader>gc :CocCommand git.showCommit<cr>
+nmap <leader>gdc :CocCommand git.diffCached<cr>
+nmap <leader>gen <Plug>(coc-git-prevconflict)<cr>
+nmap <leader>gep <Plug>(coc-git-nextconflict)<cr>
+nmap <leader>gg :CocCommand git.chunkStage<cr>
+nmap <leader>gi :CocCommand git.chunkInfo<cr>
+nmap <leader>gn <Plug>(coc-git-nextchunk)<cr>
+nmap <leader>go :CocCommand git.browserOpen<cr>
+nmap <leader>gP :CocCommand git.push<cr>
+nmap <leader>gp <Plug>(coc-git-prevchunk)<cr>
+nmap <leader>gr <Plug>(coc-git-commit)
+nmap <leader>gt :CocCommand git.toggleGutters<cr>
+nmap <leader>gu :CocCommand git.chunkUndo<cr>
+nmap <leader>gU :CocCommand git.chunkUnstage<cr>
+nmap <leader>gy :CocCommand git.copyUrl<cr><cr>
+nmap <leader>gz :CocCommand git.foldUnchanged<cr>
+
 " create text object for git chunks
 omap ig <Plug>(coc-git-chunk-inner)
 xmap ig <Plug>(coc-git-chunk-inner)
@@ -31,10 +39,10 @@ nmap <leader>bd :bd<cr>
 nmap <leader>bn :bn<cr>
 nmap <leader>bp :bp<cr>
 nmap <leader>bsd :%bd\|e#\|bd#<cr>\|'"
+nmap <leader>cl <Plug>(coc-codelens-action)
 nmap <leader>en <Plug>(coc-diagnostic-next)
 nmap <leader>ep <Plug>(coc-diagnostic-prev)
 nmap <leader>f :Lfcd<cr>
-nmap <leader>g :Goyo<cr>
 nmap <leader>h :HopWord<cr>
 nmap <leader>j :Files<cr>
 nmap <leader>l :HopLine<cr>
@@ -42,4 +50,3 @@ nmap <leader>m :MaximizerToggle!<cr>
 nmap <leader>n :bn<cr>
 nmap <leader>p :bp<cr>
 nmap <leader>r :Rg<cr>
-nmap <leader>wf :MaximizerToggle!<cr>

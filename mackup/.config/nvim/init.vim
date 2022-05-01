@@ -1,24 +1,28 @@
+" cSpell:words octo firenvim goyo floaterm
 call plug#begin()
 source $HOME/.config/nvim/nvim-config/plugins.vim
-Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 source $HOME/.config/nvim/nvim-config/general.vim
 source $HOME/.config/nvim/nvim-config/theme.vim
 
 source $HOME/.config/nvim/nvim-config/init.lua
+source $HOME/.config/nvim/nvim-config/octo-nvim.lua
+source $HOME/.config/nvim/nvim-config/nvim-treesitter.lua
 
 source $HOME/.config/nvim/nvim-config/abbreviations.vim
 source $HOME/.config/nvim/nvim-config/coc.vim
 source $HOME/.config/nvim/nvim-config/firenvim.vim
 source $HOME/.config/nvim/nvim-config/goyo.vim
 source $HOME/.config/nvim/nvim-config/start-screen.vim
+source $HOME/.config/nvim/nvim-config/vim-test.vim
 
 let mapleader=" "
 source $HOME/.config/nvim/nvim-config/leader.vim
 
 " Miscellaneous
-" cSpell:words floaterm
+let g:python3_host_prog='/opt/homebrew/bin/python3'
+
 command! LF FloatermNew lf
 let g:airline#extensions#tabline#enabled=1
 let g:vim_markdown_folding_disabled = 1

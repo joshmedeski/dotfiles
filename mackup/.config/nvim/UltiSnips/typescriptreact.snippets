@@ -1,3 +1,5 @@
+# React
+# - - - - - - - - - - - - - - - - - - 
 snippet fc "Functional Component" b
 import React from "react";
 
@@ -10,16 +12,28 @@ const $1: React.FC = () => {
 export default $1;
 endsnippet
 
-snippet use "Custom React Hook" b
-const use$1 = () => {
-	return {}
-}
-
-export default use$1;
+snippet ue "use effect" b
+useEffect(() => {
+	$1
+}, []);
 endsnippet
 
-snippet todo "TODO reminder"
-// TODO ${1:desc} `!v strftime("%c")`
+snippet us "use state" b
+const [$1, $2] = useState();
+endsnippet
+
+snippet um "use memo" b
+const $1 = useMemo(() => {
+	$2
+}, [$3]);
+endsnippet
+
+snippet ul "use loading state" b
+const [loading, setLoading] = useLoading();
+endsnippet
+
+snippet dis "eslint disable next line exhaustive deps" b
+// eslint-disable-next-line react-hooks/exhaustive-deps
 endsnippet
 
 snippet input "Form Input"
@@ -34,60 +48,84 @@ snippet cn "class name property"
 className="$1"
 endsnippet
 
-snippet gt "<GradientText>" b
-<GradientText>
-	$2
-</GradientText>
-endsnippet
-
 snippet d "class name property" b
 <div className="$1">
 	$2
 </div>
 endsnippet
 
-snippet ue "use effect" b
-useEffect(() => {
-	$1
-}, []);
-endsnippet
-
-snippet us "use state" b
-const [$1, $2] = useState();
-endsnippet
-
-snippet ul "use loading state" b
-const [loading, setLoading] = useLoading();
-endsnippet
-
 snippet cl "console.log" b
 console.log('$1: ', $1);
 endsnippet
+
+# Node
+# - - - - - - - - - - - - - - - - - - 
 
 snippet ce "console.error" b
 if (process.env.NODE_ENV !== 'production') console.error(error)
 endsnippet
 
+# TailwindCSS
+# - - - - - - - - - - - - - - - - - - 
+
 snippet tp "text-primary"
 text-primary-light dark:text-primary-dark
 endsnippet
 
-snippet ir "import react" b
-import React from "react";
+snippet tg1 "text-gray-100"
+text-gray-100 dark:text-gray-900
 endsnippet
 
-snippet dis "eslint disable next line exhaustive deps" b
-// eslint-disable-next-line react-hooks/exhaustive-deps
+snippet tg2 "text-gray-200"
+text-gray-200 dark:text-gray-800
 endsnippet
 
+snippet tg3 "text-gray-300"
+text-gray-300 dark:text-gray-700
+endsnippet
+
+snippet tg4 "text-gray-400"
+text-gray-400 dark:text-gray-600
+endsnippet
+
+snippet tg5 "text-gray-500"
+text-gray-500
+endsnippet
+
+snippet tg6 "text-gray-600"
+text-gray-600 dark:text-gray-400
+endsnippet
+
+snippet tg7 "text-gray-700"
+text-gray-700 dark:text-gray-300
+endsnippet
+
+snippet tg8 "text-gray-800"
+text-gray-800 dark:text-gray-200
+endsnippet
+
+snippet tg9 "text-gray-900"
+text-gray-900 dark:text-gray-100
+endsnippet
+
+snippet tw "text-white"
+text-white dark:text-black
+endsnippet
+
+snippet tw "text-white"
+text-white dark:text-black
+endsnippet
+
+# NextJS
+# - - - - - - - - - - - - - - - - - - 
 
 snippet np "NextJS Page" b
 import { NextPage } from "next";
 
 const $1: NextPage = () => {
-  return (
+	return (
 		$2
-  );
+	);
 };
 
 export default $1;
@@ -96,3 +134,21 @@ endsnippet
 snippet ed "export default" b
 export default $1
 endsnippet
+
+# Remix
+# - - - - - - - - - - - - - - - - - - 
+
+snippet loader "remix loader" b
+export const loader = async ({ params }: LoaderArgs) => {
+  return {}
+}
+endsnippet
+
+
+# Other
+# - - - - - - - - - - - - - - - - - - 
+
+snippet inv "invariant" b
+	invariant($1, 'expected $1')
+endsnippet
+

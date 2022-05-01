@@ -4,6 +4,8 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'chrisbra/vim-autosave'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'fannheyward/telescope-coc.nvim'
+Plug 'fhill2/telescope-ultisnips.nvim'
 Plug 'github/copilot.vim'
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'godlygeek/tabular'
@@ -12,9 +14,11 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'justinmk/vim-sneak'
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'mattn/emmet-vim'
 Plug 'mhinz/vim-startify'
+Plug 'nelsyeung/twig.vim'
 Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-git', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
@@ -25,9 +29,16 @@ Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'oncomouse/coc-fish', {'do': 'yarn install --frozen-lockfile'}
+Plug 'pantharshit00/coc-prisma', {'do': 'yarn install --frozen-lockfile'}
+Plug 'pantharshit00/vim-prisma'
 Plug 'phaazon/hop.nvim'
+Plug 'preservim/vimux'
 Plug 'ptzz/lf.vim'
+Plug 'puremourning/vimspector'
+Plug 'pwntester/octo.nvim'
 Plug 'rhysd/committia.vim'
 Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
 Plug 'roxma/vim-tmux-clipboard'
