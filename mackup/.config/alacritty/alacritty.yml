@@ -1,4 +1,9 @@
+# cSpell:words alacritty lfcd
 live_config_reload: true
+
+import:
+  - ~/.config/alacritty/aw/fallback.yml
+  - ~/.config/alacritty/aw/current.yml
 
 shell:
   program: /opt/homebrew/bin/fish
@@ -25,35 +30,31 @@ mouse:
   hide_when_typing: true
 
 key_bindings:
-  - { key: Comma, mods: Command, chars: "\x02\x2c" }
-  - { key: D, mods: Command, chars: "\x02\x4b" }
-  - { key: F, mods: Command, chars: "\x6c\x66\x63\x64\x0a" }
-  - { key: G, mods: Command, chars: "\x02\x67" }
-  - { key: K, mods: Command, chars: "\x02\x73" }
-  - { key: Key1, mods: Command, chars: "\x02\x31" }
-  - { key: Key2, mods: Command, chars: "\x02\x32" }
-  - { key: Key3, mods: Command, chars: "\x02\x33" }
-  - { key: Key4, mods: Command, chars: "\x02\x34" }
-  - { key: Key5, mods: Command, chars: "\x02\x35" }
-  - { key: Key6, mods: Command, chars: "\x02\x36" }
-  - { key: Key7, mods: Command, chars: "\x02\x37" }
-  - { key: Key8, mods: Command, chars: "\x02\x38" }
-  - { key: Key9, mods: Command, chars: "\x02\x39" }
-  - { key: L, mods: Command, chars: "\x02\x4c" }
-  - { key: LBracket, mods: Command, chars: "\x02\x5b" }
-  - { key: LBracket, mods: Command|Shift, chars: "\x02\x70" }
-  - { key: E, mods: Command|Shift, chars: "\x02\x25" }
-  - { key: E, mods: Command, chars: "\x02\x22" }
-  - { key: Q, mods: Command, chars: "\x02\x64" }
-  - { key: RBracket, mods: Command|Shift, chars: "\x02\x6e" }
-  - { key: S, mods: Command, chars: "\x1b\x3a\x77\x0a" }
-  - { key: Semicolon, mods: Command, chars: "\x02\x3a" }
-  - { key: T, mods: Command, chars: "\x02\x63" }
-  - { key: T, mods: Command|Shift, chars: "\x02\x21" }
-  - { key: W, mods: Command, chars: "\x02\x78" }
-  - { key: Z, mods: Command, chars: "\x02\x7a" }
-
-import:
-  - ~/.config/alacritty/aw/fallback.yml
-  - ~/.config/alacritty/aw/current.yml
-
+  - { key: Comma, mods: Command, chars: "\x02," }
+  - { key: D, mods: Command, chars: "\x02K" }
+  - { key: F, mods: Command, chars: "lfcd\n" }
+  - { key: P, mods: Command, chars: ":lua require'telescope.builtin'.git_files{}\n" }
+  - { key: G, mods: Command, chars: "\x02g" }
+  - { key: K, mods: Command, chars: "\x02s" }
+  - { key: Key1, mods: Command, chars: "\x021" }
+  - { key: Key2, mods: Command, chars: "\x022" }
+  - { key: Key3, mods: Command, chars: "\x023" }
+  - { key: Key4, mods: Command, chars: "\x024" }
+  - { key: Key5, mods: Command, chars: "\x025" }
+  - { key: Key6, mods: Command, chars: "\x026" }
+  - { key: Key7, mods: Command, chars: "\x027" }
+  - { key: Key8, mods: Command, chars: "\x028" }
+  - { key: Key9, mods: Command, chars: "\x029" }
+  - { key: L, mods: Command, chars: "\x02L" }
+  - { key: LBracket, mods: Command, chars: "\x02[" }
+  - { key: LBracket, mods: Command|Shift, chars: "\x02p" }
+  - { key: E, mods: Command|Shift, chars: "\x02%" }
+  - { key: E, mods: Command, chars: "\x02\"" }
+  - { key: Q, mods: Command, chars: "\x02d" }
+  - { key: RBracket, mods: Command|Shift, chars: "\x02n" }
+  - { key: S, mods: Command, chars: "\e:w\n" }
+  - { key: Semicolon, mods: Command, chars: "\x02:" }
+  - { key: T, mods: Command, chars: "\x02c" }
+  - { key: T, mods: Command|Shift, chars: "\x02!" }
+  - { key: W, mods: Command, chars: "\x02x" }
+  - { key: Z, mods: Command, chars: "\x02z" }
