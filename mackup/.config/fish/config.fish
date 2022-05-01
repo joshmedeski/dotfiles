@@ -23,7 +23,7 @@ fundle init
 # shell env variables
 set -Ux BAT_THEME Nord 
 set -Ux EDITOR nvim
-set -Ux GOPATH (go env GOPATH)
+#set -Ux GOPATH (go env GOPATH)
 set -Ux FZF_CTRL_R_OPTS "--reverse --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 set -Ux FZF_TMUX_OPTS "-p"
 set -Ux FZF_DEFAULT_COMMAND "fd -H -E '.git'"
@@ -34,14 +34,15 @@ set -Ux FZF_DEFAULT_OPTS '
 '
 
 # user path
-set -g fish_user_paths "$HOME/go/bin" $fish_user_paths
+#set -g fish_user_paths "$HOME/go/bin" $fish_user_paths
+set -g fish_user_paths "$HOME/bin" $fish_user_paths
 
 # language
 set -x LANG en_US.UTF-8
 set -x LC_ALL en_US.UTF-8
 
 # aliases
-alias aw="~/.config/alacritty/aw/bin/run"
+alias aw="~/.config/aw/bin/run"
 alias t="~/repos/dotfiles/bin/t.sh"
 alias ls="lsd  --group-dirs first -A"
 alias vim="nvim"
@@ -51,18 +52,21 @@ alias v="vim"
 switch (uname)
 case Darwin
   abbr bi "arch -arm64 brew install"
-abbr bug "arch -arm64 brew upgrade"
-abbr bi "brew install"
+  abbr bug "arch -arm64 brew upgrade"
 case Linux
   abbr bi "brew install"
   abbr bug "brew upgrade"
 end
 
 # abbreviations
+abbr ast "aw set -t (aw list | fzf-tmux -p --reverse --preview 'aw set -t {}')"
 abbr t "t"
-abbr b "brew"
+abbr b "~/bin/b"
 abbr bc "brew cleanup"
 abbr bd "brew doctor"
+abbr bic "brew install --cask"
+abbr bif "brew info"
+abbr bifc "brew info --cask"
 abbr bo "brew outdated"
 abbr bs "brew services"
 abbr bsr "brew services restart"
@@ -109,29 +113,46 @@ abbr lg "lazygit"
 abbr ll "lsd  --group-dirs first -Al"
 abbr lt "lsd  --group-dirs last -A --tree"
 abbr nf "neofetch"
+abbr nd "npm run dev"
 abbr nvim "vim"
+abbr nxdg "nx dep-graph"
 abbr os "overmind start"
+abbr p "pnpm"
+abbr pi "pnpm install"
+abbr pa "pnpm add"
+abbr pad "pnpm add -D"
+abbr pb "pnpm build"
+abbr pd "pnpm dev"
+abbr ps "pnpm storybook"
+abbr psb "pnpm storybook"
+abbr rmr "rm -rf"
+abbr sa "SwitchAudioSource -t output -s (SwitchAudioSource -t output -a | fzf-tmux -p --reverse)"
+abbr sai "SwitchAudioSource -t input -s (SwitchAudioSource -t input -a | fzf-tmux -p --reverse)"
+abbr sao "SwitchAudioSource -t output -s (SwitchAudioSource -t output -a | fzf-tmux -p --reverse)"
 abbr sb "sam build"
 abbr sf "source ~/.config/fish/config.fish"
 abbr st "tmux source ~/.config/tmux/tmux.conf"
-abbr tn "tmux new -s"
 abbr ta "tmux a"
 abbr tat "tmux attach -t"
+abbr tn "tmux new -s (pwd | sed 's/.*\///g')"
 abbr u "~/bin/update.sh"
 abbr vf "vim ~/.config/fish/config.fish"
 abbr vh "vim ~/.local/share/fish/fish_history"
+abbr vp "vim package.json"
+abbr vpc "vim +PlugClean"
+abbr vpi "vim +PlugInstall"
+abbr vpu "vim +PlugUpdate"
+abbr vpug "vim +PlugUpgrade"
 abbr vt "vim ~/.config/tmux/tmux.conf"
 abbr y "yarn"
 abbr ya "yarn add"
 abbr yad "yarn add -D"
-abbr yc "yarn console"
 abbr yb "yarn build"
-abbr yd "yarn dev"
+abbr yd "tmux rename-window dev && yarn dev"
+abbr ye "tmux rename-window e2e && yarn e2e"
 abbr yg "yarn generate"
 abbr yl "yarn lint"
-abbr yo "yarn open"
-abbr ys "yarn start"
-abbr yt "yarn test"
+abbr yt "tmux rename-window test && yarn test"
 abbr zat "docker run --rm -v (pwd):/data -p 4567:4567 -it pindar/zat zat"
 
 # adjust color scheme
@@ -315,3 +336,6 @@ tw=:\
 *.zst=:\
 *yarn.lock=:\
 "
+
+set -gx PNPM_HOME "/Users/joshmedeski/.node/corepack/pnpm/6.11.0/bin"
+set -gx PATH "$PNPM_HOME" $PATH
