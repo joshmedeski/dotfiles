@@ -1,8 +1,10 @@
 # cSpell:words alacritty lfcd
 live_config_reload: true
 
+env:
+  TERM: xterm-256color
+
 import:
-  - ~/.config/alacritty/aw/fallback.yml
   - ~/.config/alacritty/aw/current.yml
 
 shell:
@@ -13,6 +15,7 @@ selection:
   save_to_clipboard: true
 
 window:
+  opacity: 0.9
   padding:
     x: 10
     y: 10
