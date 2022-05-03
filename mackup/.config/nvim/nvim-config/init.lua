@@ -1,6 +1,15 @@
 require'hop'.setup()
 require('Comment').setup()
 
+require'lspconfig'.tailwindcss.setup{}
+
+require("null-ls").setup({
+    sources = {
+        require("null-ls").builtins.code_actions.gitsigns,
+        require("null-ls").builtins.formatting.lua_format
+    },
+})
+
 require'nvim-web-devicons'.setup {
  -- your personnal icons can go here (to override)
  -- you can specify color or cterm_color instead of specifying both of them
