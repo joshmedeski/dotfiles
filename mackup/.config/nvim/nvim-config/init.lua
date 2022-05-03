@@ -31,6 +31,15 @@ require('telescope').setup { }
 require('telescope').load_extension('ultisnips')
 require('telescope').load_extension('coc')
 
+require("bufferline").setup {
+  options = {
+    indicator_icon = "",
+    show_buffer_close_icons = false,
+    show_close_icon = false,
+    show_tab_indicators = false
+  }
+}
+
 require('gitsigns').setup {
   signs = {
     add = { hl = "GitSignsAdd", text = "", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },

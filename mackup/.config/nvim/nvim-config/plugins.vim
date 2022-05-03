@@ -1,5 +1,6 @@
 " cSpell:disable
 Plug 'airblade/vim-rooter'
+Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 Plug 'arcticicestudio/nord-vim'
 Plug 'chrisbra/vim-autosave'
 Plug 'christoomey/vim-tmux-navigator'
