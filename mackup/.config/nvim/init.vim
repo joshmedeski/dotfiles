@@ -7,6 +7,7 @@ source $HOME/.config/nvim/nvim-config/general.vim
 source $HOME/.config/nvim/nvim-config/theme.vim
 
 source $HOME/.config/nvim/nvim-config/init.lua
+source $HOME/.config/nvim/nvim-config/lualine.lua
 source $HOME/.config/nvim/nvim-config/octo-nvim.lua
 source $HOME/.config/nvim/nvim-config/nvim-treesitter.lua
 

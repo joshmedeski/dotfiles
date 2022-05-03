@@ -30,6 +30,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'numToStr/Comment.nvim'
 Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'oncomouse/coc-fish', {'do': 'yarn install --frozen-lockfile'}
@@ -49,7 +50,6 @@ Plug 'szw/vim-maximizer'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'vim-airline/vim-airline'
 Plug 'voldikss/fzf-floaterm'
 Plug 'voldikss/vim-floaterm'
 Plug 'wakatime/vim-wakatime'
