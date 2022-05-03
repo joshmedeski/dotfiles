@@ -43,7 +43,7 @@ local location = {
 lualine.setup({
 	options = {
 		icons_enabled = true,
-		theme = "base16",
+		theme = "auto",
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
