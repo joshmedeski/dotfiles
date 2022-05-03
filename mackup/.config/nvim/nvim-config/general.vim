@@ -43,8 +43,6 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 
-set colorcolumn=80,120
-
 set rtp+=/usr/local/opt/fzf
 
 " Remap yank & paste

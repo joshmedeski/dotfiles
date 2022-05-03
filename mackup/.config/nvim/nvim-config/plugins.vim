@@ -2,6 +2,7 @@
 Plug 'airblade/vim-rooter'
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 Plug 'arcticicestudio/nord-vim'
+Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 Plug 'chrisbra/vim-autosave'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'editorconfig/editorconfig-vim'
@@ -55,3 +56,4 @@ Plug 'tpope/vim-surround'
 Plug 'voldikss/fzf-floaterm'
 Plug 'voldikss/vim-floaterm'
 Plug 'wakatime/vim-wakatime'
+Plug 'xiyaowong/nvim-transparent'

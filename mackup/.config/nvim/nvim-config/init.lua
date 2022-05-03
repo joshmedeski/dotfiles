@@ -1,3 +1,22 @@
+require('catppuccin').setup {
+  transparent_background = true,
+}
+vim.cmd[[syntax enable]]
+vim.cmd[[colorscheme catppuccin]]
+vim.cmd[[set termguicolors]]
+
+require("transparent").setup({
+  enable = true,
+  extra_groups = {
+    -- akinsho/nvim-bufferline.lua
+    "BufferLineTabClose",
+    "BufferLineFill",
+    "BufferLineBackground",
+    "BufferLineSeparator",
+    "BufferLineIndicatorSelected",
+  },
+})
+
 require'hop'.setup()
 require('Comment').setup()
 
