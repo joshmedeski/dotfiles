@@ -17,7 +17,7 @@ local diagnostics = {
 	symbols = { error = " ", warn = " " },
 	colored = true,
 	update_in_insert = false,
-	always_visible = true,
+	always_visible = false,
 }
 
 local diff = {
@@ -50,21 +50,21 @@ lualine.setup({
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
-		always_divide_middle = false,
+		always_divide_middle = true,
 	},
 	sections = {
 		lualine_a = { mode },
-		lualine_b = { diff, diagnostics },
-		lualine_c = {},
+		lualine_b = { "filetype" },
+		lualine_c = { diff, diagnostics },
 		lualine_x = {},
-		lualine_y = { "filetype", "encoding" },
-		lualine_z = { location },
+		lualine_y = {},
+		lualine_z = {},
 	},
 	inactive_sections = {
 		lualine_a = {},
 		lualine_b = {},
-		lualine_c = { "filename" },
-		lualine_x = { "location" },
+		lualine_c = {},
+		lualine_x = {},
 		lualine_y = {},
 		lualine_z = {},
 	},
