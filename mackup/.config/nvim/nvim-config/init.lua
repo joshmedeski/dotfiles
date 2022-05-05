@@ -19,6 +19,7 @@ require("transparent").setup({
 
 require'hop'.setup()
 require('Comment').setup()
+require("harpoon").setup {}
 
 require'lspconfig'.tailwindcss.setup{}
 

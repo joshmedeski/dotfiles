@@ -1,5 +1,18 @@
 " cSpell:ignore prevchunk prevconflict lfcd goyo
 
+" harpoon
+nnoremap <silent><leader><leader> :lua require("harpoon.ui").toggle_quick_menu()<CR>
+nnoremap <silent><leader>' :lua require("harpoon.mark").add_file()<CR>
+nnoremap <silent><leader>1 :lua require("harpoon.ui").nav_file(1)<CR>
+nnoremap <silent><leader>2 :lua require("harpoon.ui").nav_file(2)<CR>
+nnoremap <silent><leader>3 :lua require("harpoon.ui").nav_file(3)<CR>
+nnoremap <silent><leader>4 :lua require("harpoon.ui").nav_file(4)<CR>
+nnoremap <silent><leader>5 :lua require("harpoon.ui").nav_file(5)<CR>
+nnoremap <silent><leader>6 :lua require("harpoon.ui").nav_file(6)<CR>
+nnoremap <silent><leader>7 :lua require("harpoon.ui").nav_file(7)<CR>
+nnoremap <silent><leader>8 :lua require("harpoon.ui").nav_file(8)<CR>
+nnoremap <silent><leader>9 :lua require("harpoon.ui").nav_file(9)<CR>
+
 " coc-git
 nmap <leader>gb <Plug>(coc-git-blame)<cr>
 nmap <leader>gc :CocCommand git.showCommit<cr>
@@ -27,9 +40,7 @@ xmap ag <Plug>(coc-git-chunk-outer)
 
 " learned
 nmap <leader>% :source %<cr>
-nmap <leader>' :Marks<cr>
 nmap <leader>/ :noh<cr>
-nmap <leader>1 :source ~/.vimrc \| :PlugInstall<cr>
 nmap <leader><return> :w!<cr>
 nmap <leader><tab> :bp<cr>
 nmap <leader>a :CocAction<cr>
