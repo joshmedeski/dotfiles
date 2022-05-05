@@ -47,9 +47,24 @@ require'nvim-web-devicons'.setup {
  default = true;
 }
 
-require('telescope').setup { }
-require('telescope').load_extension('ultisnips')
-require('telescope').load_extension('coc')
+local telescope = require('telescope')
+
+telescope.setup {
+  defaults = {
+    prompt_prefix = " ",
+  },
+  pickers = {
+    git_files = {
+      layout_config = {
+        preview_width = 0.6,
+        prompt_position = "top"
+      }
+    }
+  }
+}
+
+telescope.load_extension('ultisnips')
+telescope.load_extension('coc')
 
 require("bufferline").setup {
   options = {
