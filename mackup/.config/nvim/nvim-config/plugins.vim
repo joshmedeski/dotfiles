@@ -7,7 +7,7 @@ Plug 'chrisbra/vim-autosave'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'fannheyward/telescope-coc.nvim'
-Plug 'fhill2/telescope-ultisnips.nvim'
+Plug 'felippepuhle/coc-graphql', {'do': 'yarn install --frozen-lockfile'}
 Plug 'folke/todo-comments.nvim'
 Plug 'github/copilot.vim'
 Plug 'godlygeek/tabular' " Vim script for text filtering and alignment
@@ -25,6 +25,7 @@ Plug 'nelsyeung/twig.vim'
 Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-sources', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}

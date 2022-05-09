@@ -5,6 +5,33 @@ vim.cmd[[syntax enable]]
 vim.cmd[[colorscheme catppuccin]]
 vim.cmd[[set termguicolors]]
 
+-- NOTE: https://github.com/neoclide/coc.nvim/blob/master/doc/coc.txt
+-- NOTE: https://github.com/catppuccin/nvim/blob/main/lua/catppuccin/core/color_palette.lua
+vim.cmd[[hi CocErrorHighlight guifg=#F28FAD]]
+vim.cmd[[hi CocErrorSign guifg=#F28FAD]]
+vim.cmd[[hi CocErrorVirtualText guifg=#F28FAD]]
+-- vim.cmd[[hi CocErrorLine guifg=#F28FAD]]
+
+vim.cmd[[hi CocHintHighlight guifg=#F5E0DC]]
+vim.cmd[[hi CocHintSign guifg=#F5E0DC]]
+vim.cmd[[hi CocHintVirtualText guifg=#F5E0DC]]
+-- vim.cmd[[hi CocHintLine guifg=#F5E0DC]]
+
+vim.cmd[[hi CocInfoHighlight guifg=#89DCEB]]
+vim.cmd[[hi CocInfoSign guifg=#89DCEB]]
+vim.cmd[[hi CocInfoVirtualText guifg=#89DCEB]]
+-- vim.cmd[[hi CocInfoLine guifg=#89DCEB]]
+
+vim.cmd[[hi CocWarningHighlight guifg=#FAE3B0]]
+vim.cmd[[hi CocWarningSign guifg=#FAE3B0]]
+vim.cmd[[hi CocWarningVirtualText guifg=#FAE3B0]]
+-- vim.cmd[[hi CocWarningLine guifg=#FAE3B0]]
+
+-- vim.cmd[[hi CocDeprecatedHighlight guifg=#f28fad]]
+-- vim.cmd[[hi CocFadeOut guifg=#f28fad]]
+-- vim.cmd[[hi CocStrikeThrough guifg=#f28fad]]
+-- vim.cmd[[hi CocUnusedHighlight guifg=#f28fad]]
+
 require("transparent").setup({
   enable = true,
   extra_groups = {
@@ -24,28 +51,10 @@ require("harpoon").setup {}
 require'lspconfig'.tailwindcss.setup{}
 
 require("null-ls").setup({
-    sources = {
-        require("null-ls").builtins.code_actions.gitsigns,
-        require("null-ls").builtins.formatting.lua_format
-    },
+    sources = { },
 })
 
-require'nvim-web-devicons'.setup {
- -- your personnal icons can go here (to override)
- -- you can specify color or cterm_color instead of specifying both of them
- -- DevIcon will be appended to `name`
- override = {
-  zsh = {
-    icon = "",
-    color = "#428850",
-    cterm_color = "65",
-    name = "Zsh"
-  }
- };
- -- globally enable default icons (default to false)
- -- will get overriden by `get_icons` option
- default = true;
-}
+require'nvim-web-devicons'.setup { }
 
 local telescope = require('telescope')
 
@@ -63,7 +72,6 @@ telescope.setup {
   }
 }
 
-telescope.load_extension('ultisnips')
 telescope.load_extension('coc')
 
 require("bufferline").setup {
@@ -75,61 +83,7 @@ require("bufferline").setup {
   }
 }
 
-require("todo-comments").setup {
-  signs = true, -- show icons in the signs column
-  sign_priority = 8, -- sign priority
-  -- keywords recognized as todo comments
-  keywords = {
-    FIX = {
-      icon = " ", -- icon used for the sign, and in search results
-      color = "error", -- can be a hex color, or a named color (see below)
-      alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
-      -- signs = false, -- configure signs for some keywords individually
-    },
-    TODO = { icon = " ", color = "info" },
-    HACK = { icon = " ", color = "warning" },
-    WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
-    PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
-    NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
-  },
-  merge_keywords = true, -- when true, custom keywords will be merged with the defaults
-  -- highlighting of the line containing the todo comment
-  -- * before: highlights before the keyword (typically comment characters)
-  -- * keyword: highlights of the keyword
-  -- * after: highlights after the keyword (todo text)
-  highlight = {
-    before = "", -- "fg" or "bg" or empty
-    keyword = "wide", -- "fg", "bg", "wide" or empty. (wide is the same as bg, but will also highlight surrounding characters)
-    after = "fg", -- "fg" or "bg" or empty
-    pattern = [[.*<(KEYWORDS)\s*:]], -- pattern or table of patterns, used for highlightng (vim regex)
-    comments_only = true, -- uses treesitter to match keywords in comments only
-    max_line_len = 400, -- ignore lines longer than this
-    exclude = {}, -- list of file types to exclude highlighting
-  },
-  -- list of named colors where we try to extract the guifg from the
-  -- list of hilight groups or use the hex color if hl not found as a fallback
-  colors = {
-    error = { "DiagnosticError", "ErrorMsg", "#DC2626" },
-    warning = { "DiagnosticWarning", "WarningMsg", "#FBBF24" },
-    info = { "DiagnosticInfo", "#2563EB" },
-    hint = { "DiagnosticHint", "#10B981" },
-    default = { "Identifier", "#7C3AED" },
-  },
-  search = {
-    command = "rg",
-    args = {
-      "--color=never",
-      "--no-heading",
-      "--with-filename",
-      "--line-number",
-      "--column",
-    },
-    -- regex that will be used to match keywords.
-    -- don't replace the (KEYWORDS) placeholder
-    pattern = [[\b(KEYWORDS):]], -- ripgrep regex
-    -- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
-  },
-}
+require("todo-comments").setup { }
 
 require('gitsigns').setup {
   signs = {
