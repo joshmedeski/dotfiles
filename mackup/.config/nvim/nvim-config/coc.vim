@@ -38,9 +38,6 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Prettier
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
 " MDX
 " Thanks https://github.com/neoclide/coc-prettier/issues/127#issuecomment-850598753
 let g:coc_filetype_map = { 'markdown.mdx': 'mdx' }
