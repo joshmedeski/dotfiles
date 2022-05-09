@@ -58,7 +58,7 @@ lualine.setup({
 		lualine_z = {},
 	},
 	inactive_sections = {
-		lualine_a = {},
+		lualine_a = { mode },
 		lualine_b = {},
 		lualine_c = {},
 		lualine_x = {},
