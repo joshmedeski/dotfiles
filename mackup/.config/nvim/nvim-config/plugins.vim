@@ -10,7 +10,6 @@ Plug 'fannheyward/telescope-coc.nvim'
 Plug 'fhill2/telescope-ultisnips.nvim'
 Plug 'folke/todo-comments.nvim'
 Plug 'github/copilot.vim'
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'godlygeek/tabular' " Vim script for text filtering and alignment
 Plug 'iamcco/coc-spell-checker', {'do': 'yarn install --frozen-lockfile'}
 Plug 'jose-elias-alvarez/null-ls.nvim'
