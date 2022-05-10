@@ -27,11 +27,7 @@ set -Ux EDITOR nvim
 set -Ux FZF_CTRL_R_OPTS "--reverse --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 set -Ux FZF_TMUX_OPTS "-p"
 set -Ux FZF_DEFAULT_COMMAND "fd -H -E '.git'"
-set -Ux FZF_DEFAULT_OPTS '
---color=dark
---color=fg:-1,bg:-1,hl:#5fff87,fg+:-1,bg+:-1,hl+:#ffaf5f
---color=info:#af87ff,prompt:#5fff87,pointer:#ff87d7,marker:#ff87d7,spinner:#ff87d7
-'
+set -Ux FZF_DEFAULT_OPTS "--color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD"
 
 # user path
 #set -g fish_user_paths "$HOME/go/bin" $fish_user_paths
