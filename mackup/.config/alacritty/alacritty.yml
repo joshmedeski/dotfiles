@@ -17,8 +17,8 @@ selection:
 window:
   opacity: 0.85
   padding:
-    x: 20
-    y: 14
+    x: 18
+    y: 16
   dynamic_padding: false
   decorations: buttonless
 
@@ -26,7 +26,7 @@ font:
   normal:
     family: 'SFMono Nerd Font'
     style: Regular
-  size: 20.0
+  size: 22.0
   use_thin_strokes: true
 
 mouse:
