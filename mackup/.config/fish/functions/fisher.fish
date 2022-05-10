@@ -1,6 +1,6 @@
 function fisher --argument-names cmd --description "A plugin manager for Fish"
     set --query fisher_path || set --local fisher_path $__fish_config_dir
-    set --local fisher_version 4.3.0
+    set --local fisher_version 4.3.1
     set --local fish_plugins $__fish_config_dir/fish_plugins
 
     switch "$cmd"
@@ -15,6 +15,8 @@ function fisher --argument-names cmd --description "A plugin manager for Fish"
             echo "Options:"
             echo "       -v or --version  Print version"
             echo "       -h or --help     Print this help message"
+            echo "Variables:"
+            echo "       \$fisher_path  Plugin installation path. Default: ~/.config/fish"
         case ls list
             string match --entire --regex -- "$argv[2]" $_fisher_plugins
         case install update remove
@@ -82,11 +84,12 @@ function fisher --argument-names cmd --description "A plugin manager for Fish"
                     else
                         set temp (command mktemp -d)
                         set name (string split \@ $plugin) || set name[2] HEAD
-                        set url https://codeload.github.com/\$name[1]/tar.gz/\$name[2]
+                        set url https://api.github.com/repos/\$name[1]/tarball/\$name[2]
+                        set header 'Accept: application/vnd.github.v3+json'
 
                         echo Fetching (set_color --underline)\$url(set_color normal)
 
-                        if curl --silent \$url | tar -xzC \$temp -f - 2>/dev/null
+                        if curl --silent -L -H \$header \$url | tar -xzC \$temp -f - 2>/dev/null
                             command cp -Rf \$temp/*/* $source
                         else
                             echo fisher: Invalid plugin name or host unavailable: \\\"$plugin\\\" >&2
