@@ -15,12 +15,12 @@ selection:
   save_to_clipboard: true
 
 window:
-  opacity: 0.9
+  opacity: 0.85
   padding:
-    x: 10
-    y: 10
+    x: 20
+    y: 14
   dynamic_padding: false
-  decorations: none
+  decorations: buttonless
 
 font:
   normal:
