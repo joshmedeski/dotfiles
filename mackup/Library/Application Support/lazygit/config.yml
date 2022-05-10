@@ -11,12 +11,12 @@ gui:
   theme:
     lightTheme: false # For terminals with a light background
     activeBorderColor:
-      - green
+      - magenta
       - bold
     inactiveBorderColor:
-      - brightblack
+      - gray
     optionsTextColor:
-      - brightblack
+      - blue
     selectedLineBgColor:
       - black
     selectedRangeBgColor:
@@ -26,7 +26,7 @@ gui:
     cherryPickedCommitFgColor:
       - cyan
     unstagedChangesColor:
-      - gray
+      - yellow
   commitLength:
     show: true
   mouseEvents: true

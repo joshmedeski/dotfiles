@@ -1,9 +1,11 @@
 require('catppuccin').setup {
   transparent_background = true,
 }
+vim.cmd[[set termguicolors]]
 vim.cmd[[syntax enable]]
 vim.cmd[[colorscheme catppuccin]]
-vim.cmd[[set termguicolors]]
+vim.cmd[[hi CursorLine guibg=none]]
+vim.cmd[[hi CursorLineNr guifg=#F5C2E7]]
 
 -- NOTE: https://github.com/neoclide/coc.nvim/blob/master/doc/coc.txt
 -- NOTE: https://github.com/catppuccin/nvim/blob/main/lua/catppuccin/core/color_palette.lua
@@ -44,17 +46,17 @@ require("transparent").setup({
   },
 })
 
-require'hop'.setup()
+require('colorizer').setup()
+require('hop').setup()
 require('Comment').setup()
-require("harpoon").setup {}
-
-require'lspconfig'.tailwindcss.setup{}
+require("harpoon").setup()
+require'lspconfig'.tailwindcss.setup {}
 
 require("null-ls").setup({
     sources = { },
 })
 
-require'nvim-web-devicons'.setup { }
+require'nvim-web-devicons'.setup()
 
 local telescope = require('telescope')
 

@@ -25,7 +25,6 @@ nmap <leader>gn <Plug>(coc-git-nextchunk)<cr>
 nmap <leader>go :CocCommand git.browserOpen<cr>
 nmap <leader>gP :CocCommand git.push<cr>
 nmap <leader>gp <Plug>(coc-git-prevchunk)<cr>
-nmap <leader>gr <Plug>(coc-git-commit)
 nmap <leader>gt :CocCommand git.toggleGutters<cr>
 nmap <leader>gu :CocCommand git.chunkUndo<cr>
 nmap <leader>gU :CocCommand git.chunkUnstage<cr>
