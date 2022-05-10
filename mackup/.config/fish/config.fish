@@ -1,15 +1,21 @@
 set fish_greeting # disable fish greeting
+starship init fish | source
+zoxide init fish | source
 
+# os specific homebrew setup
 switch (uname)
 case Darwin
   eval (/opt/homebrew/bin/brew shellenv)
   fish_add_path /opt/homebrew/bin
 case Linux
-  set -g fish_user_paths "/home/linuxbrew/.linuxbrew/bin" $fish_user_paths
+  fish_add_path "/home/linuxbrew/.linuxbrew/bin"
 end
 
-starship init fish | source
-zoxide init fish | source
+# user path
+fish_add_path /opt/homebrew/opt/node@14/bin
+fish_add_path /Users/joshmedeski/.nvm/versions/node/v16.15.0/bin
+fish_add_path "$HOME/go/bin"
+fish_add_path "$HOME/bin"
 
 # plugins
 fundle plugin 'edc/bass'
@@ -17,21 +23,16 @@ fundle plugin 'FabioAntunes/fish-nvm'
 fundle plugin 'franciscolourenco/done'
 fundle plugin 'gazorby/fish-abbreviation-tips'
 fundle plugin 'james2doyle/omf-plugin-fnm'
-
 fundle init
 
-# shell env variables
+# env variables
 set -Ux BAT_THEME Nord 
 set -Ux EDITOR nvim
-#set -Ux GOPATH (go env GOPATH)
+set -Ux GOPATH (go env GOPATH)
 set -Ux FZF_CTRL_R_OPTS "--reverse --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 set -Ux FZF_TMUX_OPTS "-p"
 set -Ux FZF_DEFAULT_COMMAND "fd -H -E '.git'"
 set -Ux FZF_DEFAULT_OPTS "--color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD"
-
-# user path
-#set -g fish_user_paths "$HOME/go/bin" $fish_user_paths
-set -g fish_user_paths "$HOME/bin" $fish_user_paths
 
 # language
 set -x LANG en_US.UTF-8
@@ -77,7 +78,6 @@ abbr dcd "docker compose down"
 abbr dcdv "docker compose down -v"
 abbr dcr "docker compose restart"
 abbr dcu "docker compose up -d" 
-abbr dnd "/Users/joshmedeski/.nvm/versions/node/v14.17.1/bin/dnd"
 abbr dps "docker ps --format 'table {{.Names}}\t{{.Status}}'"
 abbr e "exit"
 abbr ee "espanso edit"
@@ -333,6 +333,3 @@ tw=:\
 *.zst=:\
 *yarn.lock=:\
 "
-
-set -gx PNPM_HOME "/Users/joshmedeski/.node/corepack/pnpm/6.11.0/bin"
-set -gx PATH "$PNPM_HOME" $PATH
