@@ -16,7 +16,6 @@ source $HOME/.config/nvim/nvim-config/goyo.vim
 source $HOME/.config/nvim/nvim-config/start-screen.vim
 source $HOME/.config/nvim/nvim-config/vim-test.vim
 
-let mapleader=" "
 source $HOME/.config/nvim/nvim-config/leader.vim
 
 " Miscellaneous

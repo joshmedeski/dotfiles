@@ -1,4 +1,5 @@
 " cSpell:ignore prevchunk prevconflict lfcd goyo
+let mapleader=" "
 
 " harpoon
 nnoremap <silent><leader><leader> :lua require("harpoon.ui").toggle_quick_menu()<CR>
