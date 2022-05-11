@@ -13,6 +13,8 @@ set icons
 # times.
 set shellopts '-eu'
 
+set promptfmt "\033[34;1m%d\033[0m\033[1m%f\033[0m"
+
 # set internal field separator (IFS) to "\n" for shell commands
 # This is useful to automatically split file names in $fs and $fx properly
 # since default file separator used in these variables (i.e. 'filesep' option)
