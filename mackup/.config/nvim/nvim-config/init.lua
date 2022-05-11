@@ -62,6 +62,7 @@ local telescope = require('telescope')
 
 telescope.setup {
   defaults = {
+    sorting_strategy = "ascending",
     prompt_prefix = " ",
   },
   pickers = {
