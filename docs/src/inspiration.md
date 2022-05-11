@@ -14,3 +14,5 @@ Here's a collection of other people's dotfiles I have found inspiring.
 - [github.com/solidiquis/dotfiles](https://github.com/solidiquis/dotfiles)
 - [RobinMalfait/dotfiles](https://github.com/RobinMalfait/dotfiles)
 - [David-Kunz/vim](https://github.com/David-Kunz/vim)
+- [Chris Toomey's dotfiles](https://github.com/christoomey/dotfiles)
+- [Walen's Dockerized dotfiles](https://github.com/WaylonWalker/devtainer)
