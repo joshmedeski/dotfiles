@@ -17,14 +17,6 @@ fish_add_path /Users/joshmedeski/.nvm/versions/node/v16.15.0/bin
 fish_add_path "$HOME/go/bin"
 fish_add_path "$HOME/bin"
 
-# plugins
-fundle plugin 'edc/bass'
-fundle plugin 'FabioAntunes/fish-nvm'
-fundle plugin 'franciscolourenco/done'
-fundle plugin 'gazorby/fish-abbreviation-tips'
-fundle plugin 'james2doyle/omf-plugin-fnm'
-fundle init
-
 # env variables
 set -Ux BAT_THEME Nord 
 set -Ux EDITOR nvim
@@ -32,7 +24,7 @@ set -Ux GOPATH (go env GOPATH)
 set -Ux FZF_CTRL_R_OPTS "--reverse --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 set -Ux FZF_TMUX_OPTS "-p"
 set -Ux FZF_DEFAULT_COMMAND "fd -H -E '.git'"
-set -Ux FZF_DEFAULT_OPTS "--color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD"
+set -Ux FZF_DEFAULT_OPTS "--color=spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD"
 
 # language
 set -x LANG en_US.UTF-8
@@ -40,10 +32,9 @@ set -x LC_ALL en_US.UTF-8
 
 # aliases
 alias aw="~/.config/aw/bin/run"
-alias t="~/repos/dotfiles/bin/t.sh"
+alias t="~/bin/t"
 alias ls="lsd  --group-dirs first -A"
 alias vim="nvim"
-alias v="vim"
 
 # os specific abbreviations
 switch (uname)
@@ -160,176 +151,3 @@ set fish_color_param magenta
 set fish_color_redirections yellow
 set fish_color_terminators white
 set fish_color_valid_path normal
-
-set -Ux LF_ICONS "\
-di=:\
-dt=:\
-ex=:\
-fi=:\
-ln=:\
-or=:\
-ow=:\
-st=:\
-tw=:\
-*.7z=:\
-*.DS_Store=:\
-*.aac=:\
-*.ace=:\
-*.alz=:\
-*.arc=:\
-*.arj=:\
-*.asf=:\
-*.au=:\
-*.avi=:\
-*.bash=:\
-*.bmp=:\
-*.bz2=:\
-*.bz=:\
-*.c=:\
-*.cab=:\
-*.cc=:\
-*.cgm=:\
-*.clj=:\
-*.cmd=:\
-*.coffee=:\
-*.cpio=:\
-*.cpp=:\
-*.css=:\
-*.d=:\
-*.dart=:\
-*.deb=:\
-*.dl=:\
-*.dwm=:\
-*.dz=:\
-*.ear=:\
-*.emf=:\
-*.env=:\
-*.erl=:\
-*.esd=:\
-*.exs=:\
-*.fish=:\
-*.flac=:\
-*.flc=:\
-*.fli=:\
-*.flv=:\
-*.fs=:\
-*.gif=:\
-*.gitignore=:\
-*.gitkeep=:\
-*.gl=:\
-*.go=:\
-*.gz=:\
-*.h=:\
-*.hh=:\
-*.hpp=:\
-*.hs=:\
-*.html=:\
-*.jar=:\
-*.java=:\
-*.jl=:\
-*.jpeg=:\
-*.jpg=:\
-*.js=:\
-*.json=:\
-*.lha=:\
-*.lrz=:\
-*.lua=:\
-*.lz4=:\
-*.lz=:\
-*.lzh=:\
-*.lzma=:\
-*.lzo=:\
-*.m2v=:\
-*.m4a=:\
-*.m4v=:\
-*.md=:\
-*.mdx=:\
-*.mid=:\
-*.midi=:\
-*.mjpeg=:\
-*.mjpg=:\
-*.mka=:\
-*.mkv=:\
-*.mng=:\
-*.mov=:\
-*.mp3=:\
-*.mp4=:\
-*.mp4v=:\
-*.mpc=:\
-*.mpeg=:\
-*.mpg=:\
-*.nix=:\
-*.nuv=:\
-*.oga=:\
-*.ogg=:\
-*.ogm=:\
-*.ogv=:\
-*.ogx=:\
-*.opus=:\
-*.pbm=:\
-*.pcx=:\
-*.pdf=:\
-*.pgm=:\
-*.php=:\
-*.pl=:\
-*.png=:\
-*.ppm=:\
-*.pro=:\
-*.ps1=:\
-*.py=:\
-*.qt=:\
-*.ra=:\
-*.rar=:\
-*.rb=:\
-*.rm=:\
-*.rmvb=:\
-*.rpm=:\
-*.rs=:\
-*.rz=:\
-*.sar=:\
-*.scala=:\
-*.sh=:\
-*.sol=ﲹ:\
-*.spx=:\
-*.svg=:\
-*.svgz=:\
-*.swm=:\
-*.t7z=:\
-*.tar=:\
-*.taz=:\
-*.tbz2=:\
-*.tbz=:\
-*.tga=:\
-*.tgz=:\
-*.tif=:\
-*.tiff=:\
-*.tlz=:\
-*.ts=:\
-*.ts=:\
-*.tsx=:\
-*.txz=:\
-*.tz=:\
-*.tzo=:\
-*.tzst=:\
-*.vim=:\
-*.vob=:\
-*.war=:\
-*.wav=:\
-*.webm=:\
-*.wim=:\
-*.xbm=:\
-*.xcf=:\
-*.xpm=:\
-*.xspf=:\
-*.xwd=:\
-*.xz=:\
-*.yaml=פּ:\
-*.yml=פּ:\
-*.yuv=:\
-*.z=:\
-*.zip=:\
-*.zoo=:\
-*.zsh=:\
-*.zst=:\
-*yarn.lock=:\
-"
