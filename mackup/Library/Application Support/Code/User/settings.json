@@ -1,0 +1,31 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.fontFamily": "SFMono Nerd Font",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 18,
+  "editor.formatOnSave": true,
+  "editor.inlineSuggest.enabled": true,
+  "redhat.telemetry.enabled": true,
+  "terminal.external.osxExec": "Alarcitty.app",
+  "terminal.integrated.fontSize": 16,
+  "window.dialogStyle": "custom",
+  "window.nativeFullScreen": false,
+  "window.zoomLevel": 1,
+  "workbench.iconTheme": "vscode-icons",
+  "vim.easymotion": true,
+  "vim.enableNeovim": true,
+  "vim.leader": " ",
+  "vim.neovimPath": "/opt/homebrew/bin/nvim",
+  "vim.statusBarColorControl": true,
+  "vim.useSystemClipboard": true,
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#005f5f",
+    "statusBar.noFolderBackground": "#005f5f",
+    "statusBar.debuggingBackground": "#005f5f"
+  },
+  "git.autofetch": true,
+  "workbench.colorTheme": "Catppuccin"
+}
