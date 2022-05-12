@@ -19,3 +19,17 @@ mackup/.aws/credentials
 mackup/.wakatime.cfg
 mackup/.gnupg/trustdb.gpg
 mackup/.yarnrc
+
+mackup/Library/Application Support/Adobe
+mackup/Library/Developer/Xcode/UserData/KeyBindings
+mackup/Library/Application Support/obs-studio
+mackup/Library/Preferences/com.adobe.Photoshop.plist
+mackup/Library/Preferences/com.adobe.illustrator.plist
+mackup/Library/Preferences/com.apple.Music.eq.plist
+mackup/Library/Preferences/com.apple.Music.plist
+mackup/Library/Preferences/com.apple.dt.Xcode.plist
+mackup/Library/Preferences/com.apple.symbolichotkeys.plist
+mackup/Library/Preferences/com.logitech.manager.setting.ffff.plist
+mackup/Library/Preferences/com.obsproject.obs-studio.plist
+mackup/Library/Preferences/com.raycast.macos.plist
+mackup/Library/Preferences/com.spotify.client.plist
