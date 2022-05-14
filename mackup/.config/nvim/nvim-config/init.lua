@@ -49,7 +49,9 @@ require("transparent").setup({
 require('colorizer').setup()
 require('hop').setup()
 require('Comment').setup()
-require("harpoon").setup()
+require("harpoon").setup({
+  mark_branch = true
+})
 require'lspconfig'.tailwindcss.setup {}
 
 require("null-ls").setup({
@@ -76,6 +78,7 @@ telescope.setup {
 }
 
 telescope.load_extension('coc')
+telescope.load_extension('harpoon')
 
 require("bufferline").setup {
   options = {
