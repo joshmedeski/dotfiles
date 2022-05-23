@@ -12,15 +12,6 @@ set -Ux GOPATH (go env GOPATH)
 set -x LANG en_US.UTF-8
 set -x LC_ALL en_US.UTF-8
 
-# adjust color scheme
-set fish_color_autosuggestion green
-set fish_color_command normal
-set fish_color_error red
-set fish_color_param magenta
-set fish_color_redirections yellow
-set fish_color_terminators white
-set fish_color_valid_path normal
-
 # os specific homebrew setup
 switch (uname)
 case Darwin
@@ -36,9 +27,17 @@ fish_add_path /Users/joshmedeski/.nvm/versions/node/v16.15.0/bin
 fish_add_path "$HOME/go/bin"
 fish_add_path "$HOME/bin"
 
+# adjust color scheme
+set fish_color_autosuggestion green
+set fish_color_command normal
+set fish_color_error red
+set fish_color_param magenta
+set fish_color_redirections yellow
+set fish_color_terminators white
+set fish_color_valid_path normal
+
 # aliases
 alias aw="~/.config/aw/bin/run"
-alias ls="lsd  --group-dirs first -A"
 
 # abbreviations
 abbr ast "aw set -t (aw list | fzf-tmux -p --reverse --preview 'aw set -t {}')"
