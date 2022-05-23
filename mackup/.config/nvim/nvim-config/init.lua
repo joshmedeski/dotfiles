@@ -136,3 +136,6 @@ require('gitsigns').setup {
     enable = false,
   },
 }
+
+vim.cmd[[command! -nargs=0 GitFiles :Telescope git_files ]]
+vim.cmd[[command! -nargs=0 Commands :Telescope commands ]]
