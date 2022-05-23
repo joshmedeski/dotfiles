@@ -50,7 +50,9 @@ require('colorizer').setup()
 require('hop').setup()
 require('Comment').setup()
 require("harpoon").setup({
-  mark_branch = true
+  global_settings = {
+    mark_branch = true
+  }
 })
 require'lspconfig'.tailwindcss.setup {}
 
