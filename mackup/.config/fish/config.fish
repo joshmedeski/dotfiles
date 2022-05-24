@@ -43,6 +43,8 @@ alias aw="~/.config/aw/bin/run"
 # abbreviations
 abbr :Commands "nvim +Commands"
 abbr :GitFiles "nvim +GitFiles"
+abbr :bd "exit"
+abbr :q "tmux kill-server"
 abbr ast "aw set -t (aw list | fzf-tmux -p --reverse --preview 'aw set -t {}')"
 abbr bc "brew cleanup"
 abbr bd "brew doctor"

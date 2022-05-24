@@ -54,11 +54,12 @@ key_bindings:
   - { key: LBracket, mods: Command|Shift, chars: "\x02p" }
   - { key: E, mods: Command|Shift, chars: "\x02%" }
   - { key: E, mods: Command, chars: "\x02\"" }
-  - { key: Q, mods: Command, chars: "\x02d" }
+  - { key: Q, mods: Command, chars: ":q\n" }
   - { key: RBracket, mods: Command|Shift, chars: "\x02n" }
-  - { key: S, mods: Command, chars: "\e:w\n" }
+  - { key: S, mods: Command, chars: ":w\n" }
+  - { key: S, mods: Command|Shift, chars: ":wa\n" }
   - { key: Semicolon, mods: Command, chars: "\x02:" }
   - { key: T, mods: Command, chars: "\x02c" }
   - { key: J, mods: Command, chars: "\x02\x54" }
-  - { key: W, mods: Command, chars: "\x02x" }
+  - { key: W, mods: Command, chars: ":bd\n" }
   - { key: Z, mods: Command, chars: "\x02z" }
