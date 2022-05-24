@@ -14,9 +14,9 @@ gui:
       - magenta
       - bold
     inactiveBorderColor:
-      - gray
+      - black
     optionsTextColor:
-      - blue
+      - black
     selectedLineBgColor:
       - black
     selectedRangeBgColor:
@@ -26,7 +26,7 @@ gui:
     cherryPickedCommitFgColor:
       - cyan
     unstagedChangesColor:
-      - yellow
+      - white
   commitLength:
     show: true
   mouseEvents: true
@@ -42,8 +42,8 @@ gui:
 git:
   paging:
     colorArg: always
-    useConfig: true
-    pager: delta --dark --paging=never --24-bit-color=never line-numbers
+    useConfig: false
+    pager: delta --dark --color-only --side-by-side
   merging:
     # only applicable to unix users
     manualCommit: false
