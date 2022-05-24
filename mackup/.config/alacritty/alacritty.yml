@@ -61,5 +61,5 @@ key_bindings:
   - { key: Semicolon, mods: Command, chars: "\x02:" }
   - { key: T, mods: Command, chars: "\x02c" }
   - { key: J, mods: Command, chars: "\x02\x54" }
-  - { key: W, mods: Command, chars: ":bd\n" }
+  - { key: W, mods: Command, chars: "\x02x" }
   - { key: Z, mods: Command, chars: "\x02z" }
