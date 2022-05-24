@@ -1,17 +1,18 @@
 let g:startify_session_dir = '~/.config/nvim/sessions'
+let g:startify_enable_special = 0
+
+function! s:gitModified()
+  let files = systemlist('git ls-files -m 2>/dev/null')
+  return map(files, "{'line': v:val, 'path': v:val}")
+endfunction
+
+function! s:gitUntracked()
+  let files = systemlist('git ls-files -o --exclude-standard 2>/dev/null')
+  return map(files, "{'line': v:val, 'path': v:val}")
+endfunction
 
 let g:startify_lists = [
-  \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+  \ { 'type': function('s:gitModified'),  'header': ['   Modified']},
+  \ { 'type': function('s:gitUntracked'), 'header': ['   Untracked']},
   \ { 'type': 'sessions',  'header': ['   Sessions']       },
-  \ { 'type': 'files',     'header': ['   Files']            },
-  \ { 'type': 'dir',       'header': ['   Current Directory '. getcwd()] },
-\ ]
-
-let g:startify_bookmarks = [
-  \ { 'a': '~/.config/alacritty/alacritty.yml' },
-  \ { 'f': '~/.config/fish/config.fish' },
-  \ { 'p': '~/.config/nvim/nvim-config/plugins.vim' },
-  \ { 'r': '~/repos' },
-  \ { 't': '~/.config/tmux/tmux.conf' },
-  \ { 'v': '~/.config/nvim/init.vim' },
 \ ]

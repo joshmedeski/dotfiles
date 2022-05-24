@@ -68,6 +68,7 @@ telescope.setup {
   defaults = {
     sorting_strategy = "ascending",
     prompt_prefix = " ",
+    prompt_position = "top"
   },
   pickers = {
     git_files = {
@@ -77,6 +78,11 @@ telescope.setup {
       }
     },
     commands = {
+      layout_config = {
+        prompt_position = "top"
+      }
+    },
+    git_status = {
       layout_config = {
         prompt_position = "top"
       }
@@ -145,3 +151,4 @@ require('gitsigns').setup {
 
 vim.cmd[[command! -nargs=0 GitFiles :Telescope git_files ]]
 vim.cmd[[command! -nargs=0 Commands :Telescope commands ]]
+vim.cmd[[command! -nargs=0 GitStatus :Telescope git_status ]]
