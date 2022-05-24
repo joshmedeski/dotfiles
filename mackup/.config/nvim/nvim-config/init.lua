@@ -75,6 +75,11 @@ telescope.setup {
         preview_width = 0.6,
         prompt_position = "top"
       }
+    },
+    commands = {
+      layout_config = {
+        prompt_position = "top"
+      }
     }
   }
 }
@@ -84,6 +89,7 @@ telescope.load_extension('harpoon')
 
 require("bufferline").setup {
   options = {
+    separator_style = {"", ""},
     indicator_icon = "",
     show_buffer_close_icons = false,
     show_close_icon = false,
