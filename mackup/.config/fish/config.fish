@@ -132,3 +132,7 @@ abbr yg "yarn generate"
 abbr yl "yarn lint"
 abbr yt "yarn test"
 abbr yu "yarn ui"
+
+# tabtab source for packages
+# uninstall by removing these lines
+[ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
