@@ -54,7 +54,6 @@ Plug 'rhysd/committia.vim'
 Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
 Plug 'roxma/vim-tmux-clipboard'
 Plug 'sheerun/vim-polyglot'
-Plug 'SirVer/ultisnips'
 Plug 'szw/vim-maximizer'
 Plug 'ThePrimeagen/harpoon'
 Plug 'tmux-plugins/vim-tmux'
