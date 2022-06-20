@@ -71,9 +71,21 @@ telescope.setup {
     prompt_position = "top"
   },
   pickers = {
-    git_files = {
+    buffers = {
+      layout_config = {
+        preview_width = 0.0,
+        prompt_position = "top"
+      }
+    },
+    live_grep = {
       layout_config = {
         preview_width = 0.6,
+        prompt_position = "top"
+      }
+    },
+    git_files = {
+      layout_config = {
+        preview_width = 0,
         prompt_position = "top"
       }
     },
