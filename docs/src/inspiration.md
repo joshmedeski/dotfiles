@@ -16,3 +16,4 @@ Here's a collection of other people's dotfiles I have found inspiring.
 - [David-Kunz/vim](https://github.com/David-Kunz/vim)
 - [Chris Toomey's dotfiles](https://github.com/christoomey/dotfiles)
 - [Walen's Dockerized dotfiles](https://github.com/WaylonWalker/devtainer)
+- [rx2130/dotfiles](https://github.com/rx2130/dotfiles)
