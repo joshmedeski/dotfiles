@@ -50,8 +50,8 @@ lualine.setup({
 		always_divide_middle = true,
 	},
 	sections = {
-		lualine_a = { mode },
-		lualine_b = { "filetype" },
+		lualine_a = { },
+		lualine_b = { mode },
 		lualine_c = { diff, diagnostics },
 		lualine_x = {},
 		lualine_y = {},
@@ -59,8 +59,8 @@ lualine.setup({
 	},
 	inactive_sections = {
 		lualine_a = { mode },
-		lualine_b = {},
-		lualine_c = {},
+		lualine_b = { },
+		lualine_c = { },
 		lualine_x = {},
 		lualine_y = {},
 		lualine_z = {},
