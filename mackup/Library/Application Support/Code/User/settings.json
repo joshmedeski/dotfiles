@@ -11,9 +11,6 @@
   "redhat.telemetry.enabled": true,
   "terminal.external.osxExec": "Alarcitty.app",
   "terminal.integrated.fontSize": 16,
-  "window.dialogStyle": "custom",
-  "window.nativeFullScreen": false,
-  "window.zoomLevel": 1,
   "workbench.iconTheme": "vscode-icons",
   "vim.easymotion": true,
   "vim.enableNeovim": true,
@@ -27,5 +24,9 @@
     "statusBar.debuggingBackground": "#005f5f"
   },
   "git.autofetch": true,
-  "workbench.colorTheme": "Catppuccin"
+  "workbench.colorTheme": "Catppuccin",
+  "workbench.sideBar.location": "right",
+  "workbench.statusBar.visible": false,
+  "workbench.activityBar.visible": false,
+  "window.nativeFullScreen": false
 }
