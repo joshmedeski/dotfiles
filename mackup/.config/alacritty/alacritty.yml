@@ -52,6 +52,7 @@ key_bindings:
   - { key: L, mods: Command, chars: "\x02L" }
   - { key: LBracket, mods: Command, chars: "\x02[" }
   - { key: LBracket, mods: Command|Shift, chars: "\x02p" }
+  - { key: O, mods: Command, chars: "\x02u" }
   - { key: E, mods: Command|Shift, chars: "\x02%" }
   - { key: E, mods: Command, chars: "\x02\"" }
   - { key: Q, mods: Command, chars: ":q\n" }
