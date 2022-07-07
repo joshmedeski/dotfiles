@@ -33,3 +33,12 @@ mackup/Library/Preferences/com.logitech.manager.setting.ffff.plist
 mackup/Library/Preferences/com.obsproject.obs-studio.plist
 mackup/Library/Preferences/com.raycast.macos.plist
 mackup/Library/Preferences/com.spotify.client.plist
+mackup/Library/Application Support/Loopback/Devices.plist
+mackup/Library/Application Support/Rocket/rocket.db
+mackup/Library/Application Support/zoxide/db.zo
+mackup/Library/Preferences/com.apple.Terminal.plist
+mackup/Library/Preferences/com.knollsoft.Rectangle.plist
+mackup/Library/Preferences/com.rogueamoeba.Loopback.plist
+mackup/Library/Preferences/name.guoc.SpaceLauncher.plist
+mackup/Library/Preferences/net.matthewpalmer.Rocket.plist
+mackup/.npmrc
