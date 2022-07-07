@@ -229,9 +229,9 @@ if set -q __done_enabled
                 end
             else if type -q terminal-notifier # https://github.com/julienXX/terminal-notifier
                 if test "$__done_notify_sound" -eq 1
-                    terminal-notifier -message "$message" -title "$title" -sender "$__done_initial_window_id" -sound default
+                    terminal-notifier -message "$message" -title "$title" -sender "$__done_initial_window_id" -sound default -execute "open /Applications/Alacritty.app/"
                 else
-                    terminal-notifier -message "$message" -title "$title" -sender "$__done_initial_window_id"
+                    terminal-notifier -message "$message" -title "$title $__done_initial_window_id" -activate "$__done_initial_window_id"
                 end
 
             else if type -q osascript # AppleScript
