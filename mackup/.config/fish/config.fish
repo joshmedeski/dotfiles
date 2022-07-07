@@ -1,48 +1,46 @@
 set fish_greeting # disable fish greeting
+
 starship init fish | source
 zoxide init fish | source
 
-set -Ux BAT_THEME Nord 
-set -Ux EDITOR nvim
-set -Ux PAGER ~/.local/bin/nvimpager
-set -Ux FZF_CTRL_R_OPTS "--reverse --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
-set -Ux FZF_DEFAULT_COMMAND "fd -H -E '.git'"
-set -Ux FZF_DEFAULT_OPTS "--color=spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD"
-set -Ux FZF_TMUX_OPTS "-p"
-set -Ux GOPATH (go env GOPATH)
-set -x LANG en_US.UTF-8
-set -x LC_ALL en_US.UTF-8
+# variables
+set -U BAT_THEME Nord 
+set -U EDITOR nvim
+set -U FZF_CTRL_R_OPTS "--reverse --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
+set -U FZF_DEFAULT_COMMAND "fd -H -E '.git'"
+set -U FZF_DEFAULT_OPTS "--color=spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD"
+set -U FZF_TMUX_OPTS "-p"
+set -U GOPATH (go env GOPATH)
+set -U KIT_EDITOR /opt/homebrew/bin/nvim
+set -U LANG en_US.UTF-8
+set -U LC_ALL en_US.UTF-8
+set -U NODE_PATH "~/.nvm/versions/node/v16.15.0/bin/node"
+set -U PAGER ~/.local/bin/nvimpager
+set -U PNPM_HOME "/Users/joshmedeski/Library/pnpm"
 
-# os specific homebrew setup
-switch (uname)
-case Darwin
-  eval (/opt/homebrew/bin/brew shellenv)
-  fish_add_path /opt/homebrew/bin
-case Linux
-  fish_add_path "/home/linuxbrew/.linuxbrew/bin"
-end
-
-# user path
-fish_add_path /opt/homebrew/opt/node@14/bin
+fish_add_path /opt/homebrew/bin
 fish_add_path /Users/joshmedeski/.nvm/versions/node/v16.15.0/bin
-fish_add_path "$HOME/go/bin"
-fish_add_path "$HOME/bin"
+fish_add_path $PNPM_HOME
+fish_add_path $GOPATH/bin
+fish_add_path $HOME/.config/bin
+fish_add_path ./node_modules/.bin
 
-# adjust color scheme
-set fish_color_autosuggestion green
-set fish_color_command normal
-set fish_color_error red
-set fish_color_param magenta
-set fish_color_redirections yellow
-set fish_color_terminators white
-set fish_color_valid_path normal
+# pnpm autocomplete
+[ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
+
+# fish colors
+set -U fish_color_autosuggestion black
+set -U fish_color_command normal
+set -U fish_color_error red
+set -U fish_color_param cyan
+set -U fish_color_redirections yellow
+set -U fish_color_terminators white
+set -U fish_color_valid_path green
 
 # aliases
 alias aw="~/.config/aw/bin/run"
 
 # abbreviations
-abbr :Commands "nvim +Commands"
-abbr :GitFiles "nvim +GitFiles"
 abbr :bd "exit"
 abbr :q "tmux kill-server"
 abbr ast "aw set -t (aw list | fzf-tmux -p --reverse --preview 'aw set -t {}')"
@@ -82,7 +80,10 @@ abbr gcom "~/bin/git-to-master-cleanup-branch.sh"
 abbr gd "git diff"
 abbr gf "git fetch --all"
 abbr gl "git pull"
+abbr gma "git merge --abort"
+abbr gmc "git merge --continue"
 abbr gp "git push"
+abbr gpom "git pull origin main"
 abbr gpr "gh pr create"
 abbr gpum "git pull upstream master"
 abbr gr "git remote"
@@ -102,6 +103,9 @@ abbr nd "npm run dev"
 abbr nf "neofetch"
 abbr nxdg "nx dep-graph"
 abbr os "overmind start"
+abbr pd "pnpm dev"
+abbr pi "pnpm install"
+abbr pb "pnpm build"
 abbr rmr "rm -rf"
 abbr sa "SwitchAudioSource -t output -s (SwitchAudioSource -t output -a | fzf-tmux -p --reverse)"
 abbr sai "SwitchAudioSource -t input -s (SwitchAudioSource -t input -a | fzf-tmux -p --reverse)"
@@ -111,11 +115,13 @@ abbr sf "source ~/.config/fish/config.fish"
 abbr st "tmux source ~/.config/tmux/tmux.conf"
 abbr ta "tmux a"
 abbr tat "tmux attach -t"
+abbr td "t dotfiles"
+abbr tn "t nutiliti"
 abbr tn "tmux new -s (pwd | sed 's/.*\///g')"
 abbr u "~/bin/update.sh"
+abbr v "nvim (fd --type f --hidden --follow --exclude .git | fzf-tmux -p --reverse)"
 abbr vf "nvim ~/.config/fish/config.fish"
 abbr vh "nvim ~/.local/share/fish/fish_history"
-abbr vim "nvim"
 abbr vp "nvim package.json"
 abbr vpc "nvim +PlugClean"
 abbr vpi "nvim +PlugInstall"
@@ -132,7 +138,3 @@ abbr yg "yarn generate"
 abbr yl "yarn lint"
 abbr yt "yarn test"
 abbr yu "yarn ui"
-
-# tabtab source for packages
-# uninstall by removing these lines
-[ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
