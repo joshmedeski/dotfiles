@@ -1,32 +1,36 @@
-require('catppuccin').setup {
+require'nvim-web-devicons'.setup()
+
+require('catppuccin').setup({
   transparent_background = true,
-}
+  integrations = {
+    coc_nvim = true,
+  }
+})
+
 vim.cmd[[set termguicolors]]
 vim.cmd[[syntax enable]]
 vim.cmd[[colorscheme catppuccin]]
-vim.cmd[[hi CursorLine guibg=none]]
-vim.cmd[[hi CursorLineNr guifg=#F5C2E7]]
 
 -- NOTE: https://github.com/neoclide/coc.nvim/blob/master/doc/coc.txt
 -- NOTE: https://github.com/catppuccin/nvim/blob/main/lua/catppuccin/core/color_palette.lua
-vim.cmd[[hi CocErrorHighlight guifg=#F28FAD]]
-vim.cmd[[hi CocErrorSign guifg=#F28FAD]]
-vim.cmd[[hi CocErrorVirtualText guifg=#F28FAD]]
+-- vim.cmd[[hi CocErrorHighlight guifg=#F28FAD]]
+-- vim.cmd[[hi CocErrorSign guifg=#F28FAD]]
+-- vim.cmd[[hi CocErrorVirtualText guifg=#F28FAD]]
 -- vim.cmd[[hi CocErrorLine guifg=#F28FAD]]
 
-vim.cmd[[hi CocHintHighlight guifg=#F5E0DC]]
-vim.cmd[[hi CocHintSign guifg=#F5E0DC]]
-vim.cmd[[hi CocHintVirtualText guifg=#F5E0DC]]
+-- vim.cmd[[hi CocHintHighlight guifg=#F5E0DC]]
+-- vim.cmd[[hi CocHintSign guifg=#F5E0DC]]
+-- vim.cmd[[hi CocHintVirtualText guifg=#F5E0DC]]
 -- vim.cmd[[hi CocHintLine guifg=#F5E0DC]]
 
-vim.cmd[[hi CocInfoHighlight guifg=#89DCEB]]
-vim.cmd[[hi CocInfoSign guifg=#89DCEB]]
-vim.cmd[[hi CocInfoVirtualText guifg=#89DCEB]]
+-- vim.cmd[[hi CocInfoHighlight guifg=#89DCEB]]
+-- vim.cmd[[hi CocInfoSign guifg=#89DCEB]]
+-- vim.cmd[[hi CocInfoVirtualText guifg=#89DCEB]]
 -- vim.cmd[[hi CocInfoLine guifg=#89DCEB]]
 
-vim.cmd[[hi CocWarningHighlight guifg=#FAE3B0]]
-vim.cmd[[hi CocWarningSign guifg=#FAE3B0]]
-vim.cmd[[hi CocWarningVirtualText guifg=#FAE3B0]]
+-- vim.cmd[[hi CocWarningHighlight guifg=#FAE3B0]]
+-- vim.cmd[[hi CocWarningSign guifg=#FAE3B0]]
+-- vim.cmd[[hi CocWarningVirtualText guifg=#FAE3B0]]
 -- vim.cmd[[hi CocWarningLine guifg=#FAE3B0]]
 
 -- vim.cmd[[hi CocDeprecatedHighlight guifg=#f28fad]]
@@ -59,8 +63,6 @@ require'lspconfig'.tailwindcss.setup {}
 require("null-ls").setup({
     sources = { },
 })
-
-require'nvim-web-devicons'.setup()
 
 local telescope = require('telescope')
 
@@ -267,3 +269,8 @@ require('gitsigns').setup {
 vim.cmd[[command! -nargs=0 GitFiles :Telescope git_files ]]
 vim.cmd[[command! -nargs=0 Commands :Telescope commands ]]
 vim.cmd[[command! -nargs=0 GitStatus :Telescope git_status ]]
+
+-- Dotfile hooks
+vim.cmd[[autocmd BufWritePost *tmux.conf !tmux source <afile>]]
+vim.cmd[[autocmd BufWritePost *yabairc !brew services restart yabai]]
+vim.cmd[[autocmd BufWritePost *skhdrc !brew services restart skhd]]
