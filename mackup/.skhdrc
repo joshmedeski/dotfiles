@@ -1,4 +1,4 @@
-# TODO https://github.com/koekeishiya/yabai/issues/725
+# TODO: https://github.com/koekeishiya/yabai/issues/725
 
 # focus window
 alt - h : yabai -m window --focus west
@@ -24,6 +24,11 @@ alt - r : yabai -m space --rotate 90
 # toggle window fullscreen zoom
 alt - f : yabai -m window --toggle zoom-fullscreen
 
+# alt - s : yabai -m window --toggle 
+alt - s : yabai -m window --toggle sticky;\
+          yabai -m window --toggle topmost;\
+          yabai -m window --toggle pip
+
 # toggle padding and gap
 alt - g : yabai -m space --toggle padding; yabai -m space --toggle gap
 
@@ -48,6 +53,7 @@ shift + alt - 7 : yabai -m window --space 7; yabai -m space --focus 7
 shift + alt - 8 : yabai -m window --space 8; yabai -m space --focus 8
 shift + alt - 9 : yabai -m window --space 9; yabai -m space --focus 9
 
+
 # create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
 shift + alt - n : yabai -m space --create && \
                    index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
@@ -55,17 +61,8 @@ shift + alt - n : yabai -m space --create && \
                    yabai -m space --focus "${index}"
 
 # fast focus desktop
-alt - 0 : yabai -m space --focus recent
+alt - tab : yabai -m space --focus recent
 
 # send window to monitor and follow focus
 shift + alt - n : yabai -m window --display next; yabai -m display --focus next
 shift + alt - p : yabai -m window --display previous; yabai -m display --focus previous
-
-# increase window size
-shift + alt - w : yabai -m window --resize top:0:-20
-shift + alt - d : yabai -m window --resize left:-20:0
-
-# decrease window size
-shift + alt - s : yabai -m window --resize bottom:0:-20
-shift + alt - a : yabai -m window --resize top:0:20
-
