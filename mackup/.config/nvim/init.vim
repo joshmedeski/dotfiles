@@ -4,7 +4,6 @@ source $HOME/.config/nvim/nvim-config/plugins.vim
 call plug#end()
 
 source $HOME/.config/nvim/nvim-config/general.vim
-source $HOME/.config/nvim/nvim-config/theme.vim
 
 source $HOME/.config/nvim/nvim-config/init.lua
 source $HOME/.config/nvim/nvim-config/lualine.lua
@@ -17,6 +16,7 @@ source $HOME/.config/nvim/nvim-config/start-screen.vim
 source $HOME/.config/nvim/nvim-config/vim-test.vim
 
 source $HOME/.config/nvim/nvim-config/leader.vim
+source $HOME/.config/nvim/nvim-config/theme.vim
 
 " Miscellaneous
 let g:python3_host_prog='/opt/homebrew/bin/python3'
