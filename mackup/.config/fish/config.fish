@@ -16,7 +16,7 @@ set -U LANG en_US.UTF-8
 set -U LC_ALL en_US.UTF-8
 set -U NODE_PATH "~/.nvm/versions/node/v16.15.0/bin/node"
 set -U PAGER ~/.local/bin/nvimpager
-set -U PNPM_HOME "/Users/joshmedeski/Library/pnpm"
+set -gx PNPM_HOME "/Users/joshmedeski/Library/pnpm"
 
 fish_add_path /opt/homebrew/bin
 fish_add_path /opt/homebrew/sbin
