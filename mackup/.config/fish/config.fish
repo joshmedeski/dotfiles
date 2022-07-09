@@ -19,6 +19,7 @@ set -U PAGER ~/.local/bin/nvimpager
 set -U PNPM_HOME "/Users/joshmedeski/Library/pnpm"
 
 fish_add_path /opt/homebrew/bin
+fish_add_path /opt/homebrew/sbin
 fish_add_path /Users/joshmedeski/.nvm/versions/node/v16.15.0/bin
 fish_add_path $PNPM_HOME
 fish_add_path $GOPATH/bin
