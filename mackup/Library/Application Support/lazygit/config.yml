@@ -56,8 +56,8 @@ git:
   branchLogCmd: 'git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium {{branchName}} --'
   allBranchesLogCmd: 'git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium'
   overrideGpg: false # prevents lazygit from spawning a separate process when using GPG
-  disableForcePushing: false
-  parseEmoji: false
+  disableForcePushing: true
+  parseEmoji: true
   log:
     # one of date-order, author-date-order, topo-order.
     # topo-order makes it easier to read the git log graph, but commits may not
