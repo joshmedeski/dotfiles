@@ -1,4 +1,5 @@
 {
+  "editor.accessibilitySupport": "off",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
@@ -8,25 +9,28 @@
   "editor.fontSize": 18,
   "editor.formatOnSave": true,
   "editor.inlineSuggest.enabled": true,
+  "git.autofetch": true,
   "redhat.telemetry.enabled": true,
   "terminal.external.osxExec": "Alarcitty.app",
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1"
+  },
   "terminal.integrated.fontSize": 16,
-  "workbench.iconTheme": "vscode-icons",
   "vim.easymotion": true,
   "vim.enableNeovim": true,
   "vim.leader": " ",
   "vim.neovimPath": "/opt/homebrew/bin/nvim",
   "vim.statusBarColorControl": true,
   "vim.useSystemClipboard": true,
+  "window.nativeFullScreen": false,
+  "workbench.activityBar.visible": false,
   "workbench.colorCustomizations": {
     "statusBar.background": "#005f5f",
     "statusBar.noFolderBackground": "#005f5f",
     "statusBar.debuggingBackground": "#005f5f"
   },
-  "git.autofetch": true,
   "workbench.colorTheme": "Catppuccin",
+  "workbench.iconTheme": "vscode-icons",
   "workbench.sideBar.location": "right",
-  "workbench.statusBar.visible": false,
-  "workbench.activityBar.visible": false,
-  "window.nativeFullScreen": false
+  "workbench.statusBar.visible": false
 }
