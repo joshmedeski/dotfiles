@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# if current dir has 'package-lock.json` file, then npm install
+if [ -f package-lock.json ]; then
+  echo 'npm run dev'
+  npm run generate
+  exit 0
+fi
+
+if [ -f yarn.lock ]; then
+  echo 'yarn dev'
+  yarn generate
+  exit 0
+fi
+
+if [ -f pnpm-lock.yaml ]; then
+  echo 'pnpm run dev'
+  pnpm run generate
+  exit 0
+fi
