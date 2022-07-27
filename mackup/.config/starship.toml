@@ -1,3 +1,8 @@
+[character]
+success_symbol = "[](black)"
+error_symbol = "[](red)"
+vicmd_symbol = "[](black)"
+
 [directory]
 style = "blue bold"
 
