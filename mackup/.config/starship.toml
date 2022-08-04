@@ -1,7 +1,7 @@
 [character]
-success_symbol = "[](black)"
+success_symbol = "[](white)"
 error_symbol = "[](red)"
-vicmd_symbol = "[](black)"
+vicmd_symbol = "[](green)"
 
 [directory]
 style = "blue bold"
