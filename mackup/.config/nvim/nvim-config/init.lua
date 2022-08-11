@@ -58,7 +58,10 @@ require("harpoon").setup({
     mark_branch = true
   }
 })
+
+require("nvim-lsp-installer").setup {}
 require'lspconfig'.tailwindcss.setup {}
+require'lspconfig'.prismals.setup{}
 
 require("null-ls").setup({
     sources = { },

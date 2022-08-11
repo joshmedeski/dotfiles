@@ -20,7 +20,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'justinmk/vim-sneak'
-Plug 'kabouzeid/nvim-lspinstall'
+Plug 'williamboman/nvim-lsp-installer'
 Plug 'kkiyama117/coc-toml', {'do': 'yarn install --frozen-lockfile'}
 Plug 'kristijanhusak/vim-dadbod-ui'
 Plug 'kyazdani42/nvim-web-devicons'
@@ -28,6 +28,7 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'mattn/emmet-vim'
 Plug 'mfussenegger/nvim-dap'
 Plug 'mhinz/vim-startify'
+Plug 'mustache/vim-mustache-handlebars'
 Plug 'nelsyeung/twig.vim'
 Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-git', {'do': 'yarn install --frozen-lockfile'}
@@ -48,7 +49,6 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'oncomouse/coc-fish', {'do': 'yarn install --frozen-lockfile'}
-Plug 'pantharshit00/coc-prisma', {'do': 'yarn install --frozen-lockfile'}
 Plug 'pantharshit00/vim-prisma'
 Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build', 'branch': 'main' }
 Plug 'phaazon/hop.nvim'
