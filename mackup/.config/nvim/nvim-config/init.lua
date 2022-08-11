@@ -88,9 +88,14 @@ telescope.setup {
         prompt_position = "top"
       }
     },
-    git_files = {
+    find_files = {
       layout_config = {
-        preview_width = 0,
+        prompt_position = "top"
+      }
+    },
+    git_files = {
+      show_untracked = true,
+      layout_config = {
         prompt_position = "top"
       }
     },
