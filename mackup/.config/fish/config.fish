@@ -11,6 +11,7 @@ set -U FZF_DEFAULT_COMMAND "fd -H -E '.git'"
 set -U FZF_DEFAULT_OPTS "--color=spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD"
 set -U FZF_TMUX_OPTS "-p"
 set -U GOPATH (go env GOPATH)
+set -U VOLTA_HOME $HOME/.volta
 set -U KIT_EDITOR /opt/homebrew/bin/nvim
 set -U LANG en_US.UTF-8
 set -U LC_ALL en_US.UTF-8
@@ -23,7 +24,8 @@ fish_add_path /opt/homebrew/sbin
 fish_add_path /Users/joshmedeski/.nvm/versions/node/v16.15.0/bin
 fish_add_path $PNPM_HOME
 fish_add_path $GOPATH/bin
-fish_add_path $HOME/.config/bin
+fish_add_path $VOLTA_HOME/bin
+fish_add_path $HOME/.config/bin # custom scripts
 fish_add_path ./node_modules/.bin
 
 # pnpm autocomplete
@@ -120,10 +122,10 @@ abbr st "tmux source ~/.config/tmux/tmux.conf"
 abbr ta "tmux a"
 abbr tat "tmux attach -t"
 abbr td "t dotfiles"
-abbr tn "t nutiliti"
 abbr tn "tmux new -s (pwd | sed 's/.*\///g')"
 abbr u "~/bin/update.sh"
 abbr v "nvim +GitFiles"
+abbr :GitFiles "nvim +GitFiles"
 abbr vfzf "nvim (fd --type f --hidden --follow --exclude .git | fzf-tmux -p -w 100 --reverse --preview 'bat --color=always --style=numbers --line-range=:500 {}')"
 abbr va "nvim ~/.config/alacritty/alacritty.yml"
 abbr vf "nvim ~/.config/fish/config.fish"
@@ -140,6 +142,13 @@ abbr yb "yarn build"
 abbr yd "yarn dev"
 abbr ye "yarn e2e"
 abbr yg "yarn generate"
+abbr yi "yarn install --frozen-lockfile"
 abbr yl "yarn lint"
+abbr yp "yarn plop"
+abbr ypm "yarn plop model"
+abbr ys "yarn server"
 abbr yt "yarn test"
 abbr yu "yarn ui"
+abbr yw "yarn web"
+set -gx VOLTA_HOME "$HOME/.volta"
+set -gx PATH "$VOLTA_HOME/bin" $PATH
