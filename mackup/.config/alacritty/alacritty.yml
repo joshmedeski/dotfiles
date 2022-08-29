@@ -4,15 +4,15 @@ live_config_reload: true
 env:
   TERM: xterm-256color
 
-import:
-  - ~/.config/alacritty/aw/current.yml
-
 shell:
   program: /opt/homebrew/bin/fish
 
-selection:
-  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
-  save_to_clipboard: true
+font:
+  normal:
+    family: 'SFMono Nerd Font'
+    style: Medium
+  size: 22.0
+  use_thin_strokes: true
 
 window:
   opacity: 0.8
@@ -21,16 +21,6 @@ window:
     y: 16
   dynamic_padding: false
   decorations: buttonless
-
-font:
-  normal:
-    family: 'SFMono Nerd Font'
-    style: Regular
-  size: 22.0
-  use_thin_strokes: true
-
-mouse:
-  hide_when_typing: true
 
 key_bindings:
   - { key: Comma, mods: Command, chars: "\x02," }
@@ -57,10 +47,20 @@ key_bindings:
   - { key: E, mods: Command, chars: "\x02\"" }
   - { key: Q, mods: Command, chars: ":q\n" }
   - { key: RBracket, mods: Command|Shift, chars: "\x02n" }
-  - { key: S, mods: Command, chars: ":w\n" }
+  - { key: S, mods: Command, chars: "\x1b\x3a\x77\x0a" }
   - { key: S, mods: Command|Shift, chars: ":wa\n" }
   - { key: Semicolon, mods: Command, chars: "\x02:" }
   - { key: T, mods: Command, chars: "\x02c" }
   - { key: J, mods: Command, chars: "\x02\x54" }
   - { key: W, mods: Command, chars: "\x02x" }
   - { key: Z, mods: Command, chars: "\x02z" }
+
+selection:
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+  save_to_clipboard: true
+
+mouse:
+  hide_when_typing: true
+
+import:
+  - ~/.config/alacritty/aw/current.yml
