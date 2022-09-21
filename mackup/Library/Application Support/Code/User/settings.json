@@ -23,7 +23,6 @@
   "vim.statusBarColorControl": true,
   "vim.useSystemClipboard": true,
   "window.nativeFullScreen": false,
-  "workbench.activityBar.visible": false,
   "workbench.colorCustomizations": {
     "statusBar.background": "#005f5f",
     "statusBar.noFolderBackground": "#005f5f",
@@ -31,6 +30,5 @@
   },
   "workbench.colorTheme": "Catppuccin",
   "workbench.iconTheme": "vscode-icons",
-  "workbench.sideBar.location": "right",
-  "workbench.statusBar.visible": false
+  "workbench.sideBar.location": "right"
 }
