@@ -12,7 +12,6 @@ source $HOME/.config/nvim/nvim-config/nvim-treesitter.lua
 source $HOME/.config/nvim/nvim-config/abbreviations.vim
 source $HOME/.config/nvim/nvim-config/coc.vim
 source $HOME/.config/nvim/nvim-config/goyo.vim
-source $HOME/.config/nvim/nvim-config/start-screen.vim
 source $HOME/.config/nvim/nvim-config/vim-test.vim
 
 source $HOME/.config/nvim/nvim-config/leader.vim
@@ -34,3 +33,9 @@ let g:lf_height = 0.7
 
 " Write all buffers before navigating from Vim to tmux pane
 let g:tmux_navigator_save_on_switch = 2
+
+function! SortLines() range
+    execute a:firstline . "," . a:lastline . 's/^\(.*\)$/\=strdisplaywidth( submatch(0) ) . " " . submatch(0)/'
+    execute a:firstline . "," . a:lastline . 'sort n'
+    execute a:firstline . "," . a:lastline . 's/^\d\+\s//'
+endfunction

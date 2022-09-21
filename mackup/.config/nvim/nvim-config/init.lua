@@ -38,6 +38,7 @@ vim.cmd[[colorscheme catppuccin]]
 -- vim.cmd[[hi CocStrikeThrough guifg=#f28fad]]
 -- vim.cmd[[hi CocUnusedHighlight guifg=#f28fad]]
 
+
 require("transparent").setup({
   enable = true,
   extra_groups = {
@@ -62,10 +63,13 @@ require("harpoon").setup({
 require("nvim-lsp-installer").setup {}
 require'lspconfig'.tailwindcss.setup {}
 require'lspconfig'.prismals.setup{}
+require'lspconfig'.astro.setup{}
 
-require("null-ls").setup({
-    sources = { },
-})
+require'nvim-treesitter.configs'.setup {
+  highlight = { enable = true }
+}
+
+require("null-ls").setup({ sources = {} })
 
 local telescope = require('telescope')
 
@@ -97,6 +101,7 @@ telescope.setup {
       show_untracked = true,
       layout_config = {
         prompt_position = "top"
+        -- TODO: sort by last_modified
       }
     },
     commands = {
@@ -115,10 +120,11 @@ telescope.setup {
 telescope.load_extension('coc')
 telescope.load_extension('harpoon')
 
+-- require'telescope.builtin'.symbols{ sources = {'emoji', 'kaomoji', 'gitmoji'} }
+
 require("bufferline").setup {
   options = {
     separator_style = {"", ""},
-    indicator_icon = "",
     show_buffer_close_icons = false,
     show_close_icon = false,
     show_tab_indicators = false

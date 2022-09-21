@@ -19,10 +19,9 @@ nmap <leader><leader> <Plug>(coc-fix-current)
 nmap <leader><tab> :bp<cr>
 nmap <leader>a <Plug>(coc-codeaction)
 nmap <leader>bsd :%bd\|e#\|bd#<cr>\|'"
-nmap <leader>c :<C-u>CocList commands<cr>
-nmap <leader>cl  <Plug>(coc-codelens-action)
-nmap <leader>e :<C-u>CocList extensions<cr>
+nmap <leader>bd :bd<cr>
 nmap <leader>en <Plug>(coc-diagnostic-next)
+nmap <leader>ee <Plug>(coc-fix-current)
 nmap <leader>ep <Plug>(coc-diagnostic-prev)
 nmap <leader>f :Lfcd<cr>
 nmap <leader>gb <Plug>(coc-git-blame)<cr>
@@ -53,7 +52,7 @@ nmap <leader>p :bp<cr>
 nmap <leader>q :wq!<cr>
 nmap <leader>rn <Plug>(coc-rename)
 nmap <leader>s :<C-u>CocList -I symbols<cr>
-nmap <leader>w :bd<cr>
+
 nnoremap <leader>\ <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>bb <cmd>lua require('telescope.builtin').buffers()<cr>
 omap ag <Plug>(coc-git-chunk-outer)
