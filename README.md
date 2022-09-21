@@ -25,7 +25,7 @@ This is the home of all my dotfiles. These are special files that add custom con
 
 ## TODO Yabai
 
-- [ ] Tell neovim to automatically run `brew services restart yabai` when `~/.yabairc` is saved (in tmux split)
+- [x] Tell neovim to automatically run `brew services restart yabai` when `~/.yabairc` is saved (in tmux split)
 - [ ] Learn how new stacking feature works and add appropriate keybindings
 - [ ] Learn the new full screen layout (related to stacking?) and add apporopriate keybindings
 - [ ] Learn to use vim diff to stage hunks for comitting
