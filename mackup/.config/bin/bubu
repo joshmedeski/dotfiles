@@ -1,0 +1,14 @@
+#!/usr/bin/env zx
+
+await $`brew update`;
+let outdated = await $`brew outdated`;
+if (outdated.stdout.length) {
+  let upgrade = await question("Upgrade the listed above (y/n)? ");
+  if (upgrade === "y") {
+    await $`arch -arm64 brew upgrade`;
+    await $`brew cleanup`;
+    await $`brew doctor`;
+  }
+} else {
+    console.log("No brew packages need upgraded at this time.");
+}
