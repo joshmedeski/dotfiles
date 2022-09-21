@@ -47,6 +47,7 @@ key_bindings:
   - { key: E, mods: Command, chars: "\x02\"" }
   - { key: Q, mods: Command, chars: ":q\n" }
   - { key: RBracket, mods: Command|Shift, chars: "\x02n" }
+  - { key: R, mods: Command, chars: "\x1b\x5b\x41\x0a" }
   - { key: S, mods: Command, chars: "\x1b\x3a\x77\x0a" }
   - { key: S, mods: Command|Shift, chars: ":wa\n" }
   - { key: Semicolon, mods: Command, chars: "\x02:" }
