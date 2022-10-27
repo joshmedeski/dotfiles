@@ -12,7 +12,6 @@ font:
     family: 'SFMono Nerd Font'
     style: Medium
   size: 22.0
-  use_thin_strokes: true
 
 window:
   opacity: 0.8
