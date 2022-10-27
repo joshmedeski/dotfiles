@@ -40,8 +40,6 @@ Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neovim/nvim-lspconfig'
 Plug 'norcalli/nvim-colorizer.lua'
-Plug 'norcalli/nvim-colorizer.lua'
-Plug 'norcalli/nvim-colorizer.lua'
 Plug 'numToStr/Comment.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lualine/lualine.nvim'
