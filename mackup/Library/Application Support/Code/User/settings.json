@@ -1,7 +1,7 @@
 {
   "editor.accessibilitySupport": "off",
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll": false
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.fontFamily": "SFMono Nerd Font",
@@ -28,7 +28,15 @@
     "statusBar.noFolderBackground": "#005f5f",
     "statusBar.debuggingBackground": "#005f5f"
   },
-  "workbench.colorTheme": "Catppuccin",
+  "workbench.colorTheme": "Catppuccin Mocha",
   "workbench.iconTheme": "vscode-icons",
-  "workbench.sideBar.location": "right"
+  "gitlens.blame.toggleMode": "window",
+  "gitlens.blame.highlight.enabled": false,
+  "transparent-win.transparency": 0.8,
+  "window.titleBarStyle": "native",
+  "workbench.layoutControl.enabled": false,
+  "customizeUI.activityBar": "bottom",
+  "customizeUI.activityBarHideSettings": true,
+  "customizeUI.statusBarPosition": "under-panel",
+  "customizeUI.titleBar": "frameless"
 }
