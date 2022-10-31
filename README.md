@@ -2,65 +2,43 @@
 
 This is the home of all my dotfiles. These are special files that add custom configurations to my computer and applications, primarily the terminnal.
 
-# TODO
+# Known Bugs
 
-- [ ] Setup `mosh` for Blink
-- [ ] Setup ssh key for iPadOS Blink shell
-- [ ] Enable coc-spelling on markdown files
-- [ ] Setup https certificate for my mac (while developing)
-- [ ] Combine fzf with previewing a wallpaper desktop
+- [ ] Copilot `tab` doesn't work for copilot
 
-## TODO TMUX
+# Wishlist
 
+- [ ] Convert Neovim to Lua
+- [ ] Switch to native Neovim lsp
+- [ ] Add additional keybindings for using Copilot
 - [ ] When a pane is split, count the number of rows outputted by the previous command and resize it to that amount
-- [ ] Have neovim auto run `tmux source-file ~/.tmux.conf` when `~/.tmux.conf` is saved (create vim plugin)
 - [ ] Bind <prefix> ? to display all keyboard shortcuts (including custom mappings). Create keymapping shortcut
-- [ ] Fork and create my own `man tmux` page?
-- [ ] Setup neovim-remote to combine with custom tmux commands (like lf)
-- [ ] Add tmux-fzf popup that can kill a process on macOS
-- [ ] Find a good system for saving a session and all it's windows and panes for reuse
-- [ ] Create a tmux script that prompts the user for a previously saved session to restore (ex: nvimrc)
-- [ ] Write article about how to theme your tmux theme (yourself, no plugins)
-- [ ] bind escape key while in yank mode to quit escape mode (currently does nothing)
-
-## TODO Yabai
-
-- [x] Tell neovim to automatically run `brew services restart yabai` when `~/.yabairc` is saved (in tmux split)
-- [ ] Learn how new stacking feature works and add appropriate keybindings
-- [ ] Learn the new full screen layout (related to stacking?) and add apporopriate keybindings
-- [ ] Learn to use vim diff to stage hunks for comitting
-
-## TODO Vim
-
-- [ ] Setup neovim remote to work with tmux commands
+- [ ] Extend `aw` to create custom Neovim theme (that matches Alacritty theme)
 - [ ] Learn targets.vim https://www.barbarianmeetscoding.com/blog/exploring-vim-plugins-improve-and-extend-your-text-objects-with-targets-vim
-- [ ] Bind <space>lf to popup lf and bind `e` to edit in existing
-- [ ] Neovim-remote server and close the lf popup
-- [ ] Bind vimwiki obsidian page to open Obisidian in preview mode on the current file
+- [ ] Bind <space>lf to popup lf and bind `e` to edit in existing neovim instance (using neovim remote?)
+- [ ] Setup Obsidian / vimwiki setup
+
+## Done
+
+- [x] Have neovim auto run `tmux source-file ~/.tmux.conf` when `~/.tmux.conf` is saved (create vim plugin)
+- [x] Tell neovim to automatically run `brew services restart yabai` when `~/.yabairc` is saved (in tmux split)
 
 # Hardware
 
-- Desktop: M1 Mac Mini
-  - Keyboard: Moonlander
-- Laptop (replacement): iPad Pro (12.9-inch) (3rd generation)
-  - Keyboard: Magic Keyboard
+- Laptop: MacBook Pro (16-inch, 2021)
+  - Chip: Apple M1 Pro
+  - Memory: 16 GB
+  - Mechanical Keyboard: Moonlander
   - Mouse: Logitech trackball
-
-# Apps
-
-- Terminal:
-  - Alacritty
-  - Blink
 
 # Software
 
-- Package Manager: Homebrew
-- Shell: Fish
-- Multiplexer: tmux
-- Editor: Neovim
-- Git: lazygit
+- Terminal: [Alacritty](https://alacritty.org)
+- Font: [SFMono Nerd Font](https://github.com/epk/SF-Mono-Nerd-Font)
+- Colors: [catppuccin](https://github.com/catppuccin/catppuccin)
+- Shell: [fish](https://fishshell.com)
+- Multiplexer: [tmux](https://github.com/tmux/tmux/wiki)
+- Editor: [Neovim](https://neovim.io)
+- Git: [lazygit](https://github.com/jesseduffield/lazygit)
+- Package Manager: [Homebrew](https://brew.sh)
 
-# Appearance
-
-- Font: Fira Code Nerd Font
-- Colors: Nord
