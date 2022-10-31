@@ -36,11 +36,9 @@ set -gx PNPM_HOME "/Users/joshmedeski/Library/pnpm"
 
 fish_add_path /opt/homebrew/bin
 fish_add_path /opt/homebrew/sbin
-fish_add_path /Users/joshmedeski/.nvm/versions/node/v16.15.0/bin
 fish_add_path $PNPM_HOME
 fish_add_path $GOPATH/bin
-fish_add_path $HOME/.config/bin # custom scripts
-fish_add_path ./node_modules/.bin
+fish_add_path $HOME/.config/bin # my custom scripts
 
 # pnpm autocomplete
 [ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
