@@ -18,6 +18,7 @@ set -U NODE_PATH "~/.nvm/versions/node/v16.15.0/bin/node"
 set -U PAGER ~/.local/bin/nvimpager
 set -gx PNPM_HOME "/Users/joshmedeski/Library/pnpm"
 
+# path
 fish_add_path /opt/homebrew/bin
 fish_add_path /opt/homebrew/sbin
 fish_add_path $PNPM_HOME
@@ -126,6 +127,7 @@ abbr st "tmux source ~/.config/tmux/tmux.conf"
 abbr ta "tmux a"
 abbr tat "tmux attach -t"
 abbr td "t dotfiles"
+abbr tr "tldr --list | fzf --header 'tldr (tealdeer)' --reverse --preview 'tldr {1} --color=always' --preview-window=right,80% | xargs tldr"
 abbr tn "tmux new -s (pwd | sed 's/.*\///g')"
 abbr u "~/bin/update.sh"
 abbr v "nvim +GitFiles"

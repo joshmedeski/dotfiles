@@ -175,4 +175,5 @@ rocket
 slack
 spacelauncher
 spotify
+tealdeer
 visual-studio-code
