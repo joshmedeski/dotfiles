@@ -3,22 +3,6 @@ set fish_greeting # disable fish greeting
 starship init fish | source
 zoxide init fish | source
 
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# Sqlite
-
-# If you need to have sqlite first in your PATH, run:
-fish_add_path /opt/homebrew/opt/sqlite/bin
-
-# For compilers to find sqlite you may need to set:
-set -gx LDFLAGS "-L/opt/homebrew/opt/sqlite/lib"
-set -gx CPPFLAGS "-I/opt/homebrew/opt/sqlite/include"
-
-# For pkg-config to find sqlite you may need to set:
-set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/sqlite/lib/pkgconfig"
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 # variables
 set -U BAT_THEME Nord 
 set -U EDITOR nvim
@@ -42,6 +26,12 @@ fish_add_path $HOME/.config/bin # my custom scripts
 
 # pnpm autocomplete
 [ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
+
+# sqlite
+fish_add_path /opt/homebrew/opt/sqlite/bin
+set -gx LDFLAGS "-L/opt/homebrew/opt/sqlite/lib"
+set -gx CPPFLAGS "-I/opt/homebrew/opt/sqlite/include"
+set -gx PKG_CONFIG_PATH "/opt/homebrew/opt/sqlite/lib/pkgconfig"
 
 # fish colors
 set -U fish_color_autosuggestion black
