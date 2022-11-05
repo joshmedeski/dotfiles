@@ -22,8 +22,8 @@ key_bindings:
   - { key: Comma, mods: Command, chars: "\x02," }
   - { key: D, mods: Command, chars: "\x02K" }
   - { key: F, mods: Command, chars: "lfcd\n" }
-  - { key: P, mods: Command, chars: ":GitFiles\n" }
-  - { key: P, mods: Command|Shift, chars: ":Commands\n" }
+  - { key: P, mods: Command, chars: ":Telescope git_files\n" }
+  - { key: P, mods: Command|Shift, chars: ":Telescope commands\n" }
   - { key: G, mods: Command, chars: "\x02g" }
   - { key: K, mods: Command, chars: "\x02s" }
   - { key: Key1, mods: Command, chars: "\x021" }
