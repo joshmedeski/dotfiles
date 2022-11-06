@@ -6,7 +6,8 @@ This is the home of all my dotfiles. These are special files that add custom con
 
 # Known Bugs
 
-- [ ] Copilot `tab` doesn't work for copilot
+- [ ] Configure copilot to work with Lunarvim
+  - [ ] Copilot `tab` doesn't work for copilot
 - [ ] `eval (/opt/homebrew/bin/brew shellenv)` can't be used in config.fish. My brew node install is prioritized over my fnm node verisons (which I want to be the highest priority in the $PATH). For now, I'm manually adding homebrew items to the path.
 
 ```fish
