@@ -15,6 +15,7 @@ require("user.emmet_ls").config()
 require("user.telescope").config()
 require("user.gitsigns").config()
 require("user.lualine").config()
+lvim.builtin.which_key.mappings["G"] = { "<cmd>Goyo<CR>", "Goyo" }
 
 -- Additional Plugins
 lvim.plugins = {
