@@ -42,3 +42,6 @@ mackup/Library/Preferences/com.rogueamoeba.Loopback.plist
 mackup/Library/Preferences/name.guoc.SpaceLauncher.plist
 mackup/Library/Preferences/net.matthewpalmer.Rocket.plist
 mackup/.npmrc
+mackup/.azure
+mackup/.config/karabiner/
+mackup/Library/Application Support/mkcert
