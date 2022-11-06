@@ -11,8 +11,9 @@ M.config = function()
     pickers = {
       buffers = {
         layout_config = {
-          preview_width = 0.0,
-          prompt_position = "top"
+          preview_width = 0.6,
+          prompt_position = "top",
+          prompt_prefix = " "
         }
       },
       live_grep = {

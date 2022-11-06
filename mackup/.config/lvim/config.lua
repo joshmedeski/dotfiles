@@ -19,7 +19,7 @@ require("user.lualine").config()
 --   name = "Copilot",
 --   C = { "<cmd>Copilot suggest<CR>", "Copilot" },
 -- }
-lvim.builtin.which_key.mappings["0"] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "Menu" }
+lvim.builtin.which_key.mappings["p"] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "Menu" }
 lvim.builtin.which_key.mappings["1"] = { "<cmd>lua require('harpoon.ui').nav_file(1)<CR>", "File 1" }
 lvim.builtin.which_key.mappings["2"] = { "<cmd>lua require('harpoon.ui').nav_file(2)<CR>", "File 2" }
 lvim.builtin.which_key.mappings["3"] = { "<cmd>lua require('harpoon.ui').nav_file(3)<CR>", "File 3" }
@@ -29,6 +29,23 @@ lvim.builtin.which_key.mappings["6"] = { "<cmd>lua require('harpoon.ui').nav_fil
 lvim.builtin.which_key.mappings["7"] = { "<cmd>lua require('harpoon.ui').nav_file(7)<CR>", "File 7" }
 lvim.builtin.which_key.mappings["f"] = { "<cmd>Lf<CR>", "Lf" }
 lvim.builtin.which_key.mappings["G"] = { "<cmd>Goyo<CR>", "Goyo" }
+lvim.builtin.which_key.mappings["n"] = { "<cmd>lua require('harpoon.mark').nav_next()<CR>", "Next" }
+lvim.builtin.which_key.mappings["p"] = { "<cmd>lua require('harpoon.mark').nav_prev()<CR>", "Next" }
+
+lvim.builtin.which_key.mappings["b"] = {
+  name = "Buffers",
+  b = { "<cmd>Telescope buffers<cr>", "Delete" },
+  d = { "<cmd>bd<cr>", "Delete" },
+  D = { "<cmd>BufferLineSortByDirectory<cr>", "Sort by directory" },
+  e = { "<cmd>BufferLinePickClose<cr>", "Pick which buffer to close" },
+  f = { "<cmd>Telescope buffers<cr>", "Find" },
+  h = { "<cmd>BufferLineCloseLeft<cr>", "Close all to the left" },
+  j = { "<cmd>BufferLinePick<cr>", "Jump" },
+  l = { "<cmd>BufferLineCloseRight<cr>", "Close all to the right" },
+  L = { "<cmd>BufferLineSortByExtension<cr>", "Sort by language" },
+  n = { "<cmd>BufferLineCycleNext<cr>", "Next" },
+  p = { "<cmd>BufferLineCyclePrev<cr>", "Previous" },
+}
 
 
 lvim.builtin.which_key.mappings["g"] = {
@@ -67,32 +84,6 @@ lvim.builtin.which_key.mappings["'"] = {
   ["p"] = { "<cmd>lua require('harpoon.mark').nav_prev()<CR>", "Prev" },
 }
 
-lvim.builtin.which_key.mappings["b"] = {
-  name = "Buffers",
-  f = { "<cmd>Telescope buffers<cr>", "Find" },
-  j = { "<cmd>BufferLinePick<cr>", "Jump" },
-  n = { "<cmd>BufferLineCycleNext<cr>", "Next" },
-  p = { "<cmd>BufferLineCyclePrev<cr>", "Previous" },
-  -- w = { "<cmd>BufferWipeout<cr>", "Wipeout" }, -- TODO: implement this for bufferline
-  e = {
-    "<cmd>BufferLinePickClose<cr>",
-    "Pick which buffer to close",
-  },
-  h = { "<cmd>BufferLineCloseLeft<cr>", "Close all to the left" },
-  l = {
-    "<cmd>BufferLineCloseRight<cr>",
-    "Close all to the right",
-  },
-  D = {
-    "<cmd>BufferLineSortByDirectory<cr>",
-    "Sort by directory",
-  },
-  L = {
-    "<cmd>BufferLineSortByExtension<cr>",
-    "Sort by language",
-  },
-}
-
 -- Additional Plugins
 lvim.plugins = {
   { "christoomey/vim-tmux-navigator" },
@@ -100,7 +91,13 @@ lvim.plugins = {
   { "folke/lsp-colors.nvim" },
   { "voldikss/vim-floaterm" },
   { "wakatime/vim-wakatime" },
-  { "sindrets/diffview.nvim", event = "BufRead" },
+  { "rktjmp/lush.nvim" },
+  { "sindrets/diffview.nvim",
+    event = "BufRead",
+    config = function()
+      require("user.diffview").config()
+    end,
+  },
   {
     "lmburns/lf.nvim",
     config = function()
@@ -168,10 +165,6 @@ lvim.plugins = {
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = { "*tmux.conf" },
   command = "!tmux source <afile>"
-})
-vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = { "config.lua" },
-  command = "LvimReload"
 })
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = { ".yabairc" },
