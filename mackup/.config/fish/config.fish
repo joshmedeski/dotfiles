@@ -5,7 +5,7 @@ zoxide init fish | source
 
 # variables
 set -U BAT_THEME Nord 
-set -U EDITOR nvim
+set -U EDITOR lvim
 set -U FZF_CTRL_R_OPTS "--reverse"
 set -U FZF_DEFAULT_COMMAND "fd -H -E '.git'"
 set -U FZF_DEFAULT_OPTS "--color=spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD"
