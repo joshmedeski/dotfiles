@@ -31,6 +31,10 @@ lvim.builtin.which_key.mappings["0"] = { "<cmd>lua require('harpoon.ui').toggle_
 lvim.builtin.which_key.mappings["1"] = { "<cmd>lua require('harpoon.ui').nav_file(1)<CR>", "File 1" }
 lvim.builtin.which_key.mappings["2"] = { "<cmd>lua require('harpoon.ui').nav_file(2)<CR>", "File 2" }
 lvim.builtin.which_key.mappings["3"] = { "<cmd>lua require('harpoon.ui').nav_file(3)<CR>", "File 3" }
+lvim.builtin.which_key.mappings["4"] = { "<cmd>lua require('harpoon.ui').nav_file(4)<CR>", "File 4" }
+lvim.builtin.which_key.mappings["5"] = { "<cmd>lua require('harpoon.ui').nav_file(5)<CR>", "File 5" }
+lvim.builtin.which_key.mappings["6"] = { "<cmd>lua require('harpoon.ui').nav_file(6)<CR>", "File 6" }
+lvim.builtin.which_key.mappings["7"] = { "<cmd>lua require('harpoon.ui').nav_file(7)<CR>", "File 7" }
 
 lvim.builtin.which_key.mappings["b"] = {
   name = "Buffers",
