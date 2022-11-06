@@ -16,10 +16,14 @@ fish_add_path /opt/homebrew/bin
 fish_add_path /opt/homebrew/sbin
 ```
 
+# Recently Done
+
+- [x] Convert Neovim to Lua with Luavim (lvim)
+  - [x] Switch to native Neovim lsp
+  - [ ] Merge my previous nvim-config with lvim's config.lua
+
 # Wishlist
 
-- [ ] Convert Neovim to Lua
-- [ ] Switch to native Neovim lsp
 - [ ] Add additional keybindings for using Copilot
 - [ ] When a pane is split, count the number of rows outputted by the previous command and resize it to that amount
 - [ ] Bind <prefix> ? to display all keyboard shortcuts (including custom mappings). Create keymapping shortcut
