@@ -15,18 +15,10 @@ require("user.gitsigns").config()
 require("user.lualine").config()
 -- require("user.bufferline").config()
 
-lvim.builtin.which_key.mappings["G"] = { "<cmd>Goyo<CR>", "Goyo" }
-lvim.builtin.which_key.mappings["f"] = { "<cmd>Lf<CR>", "Lf" }
 -- lvim.builtin.which_key.mappings["C"] = {
 --   name = "Copilot",
 --   C = { "<cmd>Copilot suggest<CR>", "Copilot" },
 -- }
-lvim.builtin.which_key.mappings["'"] = {
-  name = "Harpoon",
-  ["'"] = { "<cmd>lua require('harpoon.mark').add_file()<CR>", "Add File" },
-  ["n"] = { "<cmd>lua require('harpoon.mark').nav_next()<CR>", "Next" },
-  ["p"] = { "<cmd>lua require('harpoon.mark').nav_prev()<CR>", "Prev" },
-}
 lvim.builtin.which_key.mappings["0"] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "Menu" }
 lvim.builtin.which_key.mappings["1"] = { "<cmd>lua require('harpoon.ui').nav_file(1)<CR>", "File 1" }
 lvim.builtin.which_key.mappings["2"] = { "<cmd>lua require('harpoon.ui').nav_file(2)<CR>", "File 2" }
@@ -35,6 +27,45 @@ lvim.builtin.which_key.mappings["4"] = { "<cmd>lua require('harpoon.ui').nav_fil
 lvim.builtin.which_key.mappings["5"] = { "<cmd>lua require('harpoon.ui').nav_file(5)<CR>", "File 5" }
 lvim.builtin.which_key.mappings["6"] = { "<cmd>lua require('harpoon.ui').nav_file(6)<CR>", "File 6" }
 lvim.builtin.which_key.mappings["7"] = { "<cmd>lua require('harpoon.ui').nav_file(7)<CR>", "File 7" }
+lvim.builtin.which_key.mappings["f"] = { "<cmd>Lf<CR>", "Lf" }
+lvim.builtin.which_key.mappings["G"] = { "<cmd>Goyo<CR>", "Goyo" }
+
+
+lvim.builtin.which_key.mappings["g"] = {
+  name = "Git",
+  -- g = { "<cmd>lua require 'lvim.core.terminal'.lazygit_toggle()<cr>", "Lazygit" },
+  g = { "<cmd>lua require 'lvim.core.terminal'.lazygit_toggle()<cr>", "Lazygit" },
+  j = { "<cmd>lua require 'gitsigns'.next_hunk({navigation_message = false})<cr>", "Next Hunk" },
+  k = { "<cmd>lua require 'gitsigns'.prev_hunk({navigation_message = false})<cr>", "Prev Hunk" },
+  l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
+  p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
+  r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
+  R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
+  s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
+  u = {
+    "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
+    "Undo Stage Hunk",
+  },
+  o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
+  b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+  c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+  C = {
+    "<cmd>Telescope git_bcommits<cr>",
+    "Checkout commit(for current file)",
+  },
+  d = {
+    "<cmd>Gitsigns diffthis HEAD<cr>",
+    "Git Diff",
+  },
+}
+
+
+lvim.builtin.which_key.mappings["'"] = {
+  name = "Harpoon",
+  ["'"] = { "<cmd>lua require('harpoon.mark').add_file()<CR>", "Add File" },
+  ["n"] = { "<cmd>lua require('harpoon.mark').nav_next()<CR>", "Next" },
+  ["p"] = { "<cmd>lua require('harpoon.mark').nav_prev()<CR>", "Prev" },
+}
 
 lvim.builtin.which_key.mappings["b"] = {
   name = "Buffers",
