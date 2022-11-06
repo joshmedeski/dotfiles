@@ -14,7 +14,7 @@ lvim.format_on_save.enabled = true
 lvim.colorscheme = "catppuccin"
 lvim.transparent_window = true
 lvim.builtin.lualine.style = "lvim"
-
+-- highlights
 vim.cmd([[hi BufferLineFill ctermbg=none]])
 vim.cmd([[hi clear CursorLine]])
 vim.cmd([[hi Comment ctermfg=grey]])
@@ -30,19 +30,27 @@ vim.cmd([[nnoremap J mzJ`z]])
 -- Center next search results
 vim.cmd([[nnoremap n nzzzv]])
 vim.cmd([[nnoremap N Nzzzv]])
+-- TODO: revisit why these are helpful (ThePrimeagen YouTube video)
 -- Undo break points
-vim.cmd([[inoremap , ,<c-g>u]])
-vim.cmd([[inoremap { {<c-g>u]])
-vim.cmd([[inoremap } }<c-g>u]])
-vim.cmd([[inoremap [ [<c-g>u]])
-vim.cmd([[inoremap] ]<c-g>u ]])
-vim.cmd([[inoremap ( (<c-g>u]])
-vim.cmd([[inoremap ) )<c-g>u]])
+-- vim.cmd([[inoremap , ,<c-g>u]])
+-- vim.cmd([[inoremap { {<c-g>u]])
+-- vim.cmd([[inoremap } }<c-g>u]])
+-- vim.cmd([[inoremap [ [<c-g>u]])
+-- vim.cmd([[inoremap] ]<c-g>u ]])
+-- vim.cmd([[inoremap ( (<c-g>u]])
+-- vim.cmd([[inoremap ) )<c-g>u]])
 -- Jumplist mutation
 vim.cmd([[nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k']])
 vim.cmd([[nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j']])
 vim.cmd([[vnoremap J :m '>+1<CR>gv=gv]])
 vim.cmd([[vnoremap K :m '<-2<CR>gv=gv]])
+
+vim.cmd([[let g:tmux_navigator_no_mappings = 1]])
+vim.cmd([[noremap <silent> {Left-Mapping} :<C-U>TmuxNavigateLeft<cr>]])
+vim.cmd([[noremap <silent> {Down-Mapping} :<C-U>TmuxNavigateDown<cr>]])
+vim.cmd([[noremap <silent> {Up-Mapping} :<C-U>TmuxNavigateUp<cr>]])
+vim.cmd([[noremap <silent> {Right-Mapping} :<C-U>TmuxNavigateRight<cr>]])
+vim.cmd([[noremap <silent> {Previous-Mapping} :<C-U>TmuxNavigatePrevious<cr>]])
 
 lvim.builtin.gitsigns.opts = {
   signs = {
