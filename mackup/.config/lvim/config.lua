@@ -15,11 +15,7 @@ require("user.gitsigns").config()
 require("user.lualine").config()
 -- require("user.bufferline").config()
 
--- lvim.builtin.which_key.mappings["C"] = {
---   name = "Copilot",
---   C = { "<cmd>Copilot suggest<CR>", "Copilot" },
--- }
-lvim.builtin.which_key.mappings["p"] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "Menu" }
+lvim.builtin.which_key.mappings["0"] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "Menu" }
 lvim.builtin.which_key.mappings["1"] = { "<cmd>lua require('harpoon.ui').nav_file(1)<CR>", "File 1" }
 lvim.builtin.which_key.mappings["2"] = { "<cmd>lua require('harpoon.ui').nav_file(2)<CR>", "File 2" }
 lvim.builtin.which_key.mappings["3"] = { "<cmd>lua require('harpoon.ui').nav_file(3)<CR>", "File 3" }
@@ -31,6 +27,11 @@ lvim.builtin.which_key.mappings["f"] = { "<cmd>Lf<CR>", "Lf" }
 lvim.builtin.which_key.mappings["G"] = { "<cmd>Goyo<CR>", "Goyo" }
 lvim.builtin.which_key.mappings["n"] = { "<cmd>lua require('harpoon.mark').nav_next()<CR>", "Next" }
 lvim.builtin.which_key.mappings["p"] = { "<cmd>lua require('harpoon.mark').nav_prev()<CR>", "Next" }
+
+-- lvim.builtin.which_key.mappings["C"] = {
+--   name = "Copilot",
+--   C = { "<cmd>Copilot suggest<CR>", "Copilot" },
+-- }
 
 lvim.builtin.which_key.mappings["b"] = {
   name = "Buffers",
@@ -92,6 +93,12 @@ lvim.plugins = {
   { "voldikss/vim-floaterm" },
   { "wakatime/vim-wakatime" },
   { "rktjmp/lush.nvim" },
+  { "norcalli/nvim-colorizer.lua",
+    event = "BufRead",
+    config = function()
+      require("colorizer").setup()
+    end,
+  },
   { "sindrets/diffview.nvim",
     event = "BufRead",
     config = function()
@@ -133,12 +140,8 @@ lvim.plugins = {
     requires = { "plenary.nvim" },
     config = function()
       require("harpoon").setup({
-        global_settings = {
-          mark_branch = true
-        },
-        menu = {
-          width = 60
-        }
+        global_settings = { mark_branch = true },
+        menu = { width = 60 }
       })
     end
   }, {
