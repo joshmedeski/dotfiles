@@ -28,6 +28,12 @@ lvim.plugins = {
       require("user.transparent")
     end
   }, {
+    "junegunn/goyo.vim",
+    cmd = "Goyo",
+    config = function()
+      require("user.goyo").config()
+    end
+  }, {
     "ThePrimeagen/harpoon",
     config = function()
       require("harpoon").setup({ global_settings = { mark_branch = true } })
