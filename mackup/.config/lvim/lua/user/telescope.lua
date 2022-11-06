@@ -30,8 +30,8 @@ M.config = function()
       git_files = {
         show_untracked = true,
         layout_config = {
-          prompt_position = "top"
-          -- TODO: sort by last_modified
+          prompt_position = "top",
+          preview_width = 0.6,
         }
       },
       commands = {
