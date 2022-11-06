@@ -18,12 +18,13 @@ set -U NODE_PATH "~/.nvm/versions/node/v16.15.0/bin/node"
 set -U PAGER ~/.local/bin/nvimpager
 set -gx PNPM_HOME "/Users/joshmedeski/Library/pnpm"
 
-# path
+# path (ordered by priority - bottom up)
 fish_add_path /opt/homebrew/bin
 fish_add_path /opt/homebrew/sbin
 fish_add_path $PNPM_HOME
-fish_add_path $GOPATH/bin
 fish_add_path $HOME/.config/bin # my custom scripts
+fish_add_path $HOME/.local/bin
+fish_add_path $GOPATH/bin
 
 # pnpm autocomplete
 [ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
