@@ -16,6 +16,18 @@ require("user.lualine").config()
 -- require("user.bufferline").config()
 require("lspconfig.ui.windows").default_options.border = "rounded"
 
+lvim.autocommands = {
+  {
+    "BufWinEnter", {
+      pattern = { "*.mdx" },
+      callback = function()
+        vim.cmd [[set filetype=markdown]]
+        vim.cmd [[set wrap]]
+      end
+    },
+  }
+}
+
 lvim.builtin.which_key.mappings["0"] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "Menu" }
 lvim.builtin.which_key.mappings["1"] = { "<cmd>lua require('harpoon.ui').nav_file(1)<CR>", "File 1" }
 lvim.builtin.which_key.mappings["2"] = { "<cmd>lua require('harpoon.ui').nav_file(2)<CR>", "File 2" }
