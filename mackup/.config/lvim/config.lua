@@ -22,7 +22,7 @@ lvim.autocommands = {
       pattern = { "*.mdx" },
       callback = function()
         vim.cmd [[set filetype=markdown]]
-        vim.cmd [[set wrap]]
+        vim.cmd [[set wrap linebreak]]
       end
     },
   }
