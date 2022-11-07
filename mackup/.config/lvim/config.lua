@@ -14,6 +14,7 @@ require("user.telescope").config()
 require("user.gitsigns").config()
 require("user.lualine").config()
 -- require("user.bufferline").config()
+require("lspconfig.ui.windows").default_options.border = "rounded"
 
 lvim.builtin.which_key.mappings["0"] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "Menu" }
 lvim.builtin.which_key.mappings["1"] = { "<cmd>lua require('harpoon.ui').nav_file(1)<CR>", "File 1" }
