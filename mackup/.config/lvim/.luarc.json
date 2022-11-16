@@ -1,0 +1,12 @@
+{
+    "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
+    "Lua.workspace.library": [
+        "/opt/homebrew/Cellar/neovim/0.8.0/share/nvim/runtime",
+        "/Users/joshmedeski/.local/share/lunarvim/lvim",
+        "/Users/joshmedeski/.local/share/lunarvim/site/pack/packer/opt/neodev.nvim/types/stable",
+        "/Users/joshmedeski/.local/share/lunarvim/site/pack/packer/start/LuaSnip/lua",
+        "/Users/joshmedeski/.local/share/lunarvim/site/pack/packer/start/plenary.nvim/lua",
+        "/Users/joshmedeski/.local/share/lunarvim/site/pack/packer/start/telescope.nvim/lua",
+        "${3rd}/luassert/library"
+    ]
+}
