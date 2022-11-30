@@ -48,10 +48,14 @@ lvim.plugins = {
   { "catppuccin/nvim" },
   {
     'xiyaowong/nvim-transparent',
+  },
+  {
+    'folke/zen-mode.nvim',
     config = function()
-      require("user.transparent")
+      require('user.zen-mode')
     end
-  }, {
+  },
+  {
     "junegunn/goyo.vim",
     cmd = "Goyo",
     config = function()
@@ -65,11 +69,6 @@ lvim.plugins = {
         global_settings = { mark_branch = true },
         menu = { width = 60 }
       })
-    end
-  }, {
-    "folke/todo-comments.nvim",
-    config = function()
-      require("user.todo-comments")
     end
   }, {
     "folke/trouble.nvim",
@@ -115,6 +114,16 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = { ".skhdrc" },
   command = "!brew services restart skhd"
 })
+
+vim.cmd [[
+augroup clearcmdline
+  autocmd!
+  function! Echo_Nothing(timer)
+    echo ''
+  endfunction
+  autocmd CmdlineLeave * call timer_start(1000, 'Echo_Nothing')
+augroup END
+]]
 
 require("user.general").config()
 require("user.mason").config()
