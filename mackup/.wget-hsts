@@ -1,4 +1,5 @@
 # HSTS 1.0 Known Hosts database for GNU Wget.
 # Edit at your own risk.
 # <hostname>	<port>	<incl. subdomains>	<created>	<max-age>
+latest-github-tag.redwill.se	0	0	1669505909	63072000
 github.com	0	1	1660233227	31536000
