@@ -7,6 +7,9 @@ function! s:goyo_enter()
     silent !tmux set status off
     silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
   endif
+  lua vim.o.ls = 0
+  lua vim.o.ch = 0
+  set showtabline=0
   set noshowcmd
   set noshowmode
   set scrolloff=999
@@ -14,7 +17,7 @@ function! s:goyo_enter()
   set wrap
   set nolist
   set linebreak
-  Limelight
+  " Limelight
 endfunction
 
 function! s:goyo_leave()
@@ -22,6 +25,7 @@ function! s:goyo_leave()
     silent !tmux set status on
     silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
   endif
+  set showtabline=2
   set nospell
   set nowrap
   set scrolloff=5
