@@ -19,6 +19,7 @@ window:
   decorations: buttonless
 
 key_bindings:
+  - { key: Period, mods: Command, chars: ":ZenMode\n" }
   - { key: Comma, mods: Command, chars: "\x02," }
   - { key: D, mods: Command, chars: "\x02K" }
   - { key: F, mods: Command, chars: "lfcd\n" }
@@ -59,5 +60,3 @@ selection:
 mouse:
   hide_when_typing: true
 
-import:
-  - ~/.config/alacritty/aw/current.yml
