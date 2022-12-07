@@ -38,5 +38,6 @@
   "customizeUI.activityBar": "bottom",
   "customizeUI.activityBarHideSettings": true,
   "customizeUI.statusBarPosition": "under-panel",
-  "customizeUI.titleBar": "frameless"
+  "customizeUI.titleBar": "frameless",
+  "window.zoomLevel": -1
 }
