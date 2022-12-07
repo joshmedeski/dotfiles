@@ -37,7 +37,8 @@ key_bindings:
   - { key: Key8, mods: Command, chars: "\x028" }
   - { key: Key9, mods: Command, chars: "\x029" }
   - { key: L, mods: Command, chars: "\x02L" }
-  - { key: LBracket, mods: Command, chars: "\x02[" }
+  - { key: RBracket, mods: Command, chars: "\x09" }
+  - { key: LBracket, mods: Command, chars: "\x0f" }
   - { key: LBracket, mods: Command|Shift, chars: "\x02p" }
   - { key: O, mods: Command, chars: "\x02u" }
   - { key: E, mods: Command|Shift, chars: "\x02%" }
