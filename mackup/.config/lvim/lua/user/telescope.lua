@@ -10,7 +10,6 @@ lvim.builtin.telescope = {
       layout_config = {
         preview_width = 0.6,
         prompt_position = "top",
-        prompt_prefix = " "
       }
     },
     live_grep = {
@@ -21,6 +20,7 @@ lvim.builtin.telescope = {
     },
     find_files = {
       layout_config = {
+        preview_width = 0.6,
         prompt_position = "top"
       }
     },
