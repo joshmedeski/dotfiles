@@ -7,7 +7,7 @@
 --    88 |\888888  |88 |  88 |\888888$ |88 |        \$  /   88 |88 | 88 | 88 |
 --    \__| \______/ \__|  \__| \_______|\__|         \_/    \__|\__| \__| \__|
 -- ------------------------------------------------------------------------------
--- Additional Plugins
+
 lvim.plugins = {
   { "christoomey/vim-tmux-navigator" },
   { "tpope/vim-surround" },
@@ -146,18 +146,18 @@ lvim.autocommands = {
   }
 }
 
+for i = 1, 5 do
+  local cmd = "<cmd>lua require('harpoon.ui').nav_file(" .. i .. ")<CR>"
+  local name = "File " .. i
+  lvim.builtin.which_key.mappings[tostring(i)] = { cmd, name }
+end
+
 lvim.builtin.which_key.mappings["0"] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "Menu" }
-lvim.builtin.which_key.mappings["1"] = { "<cmd>lua require('harpoon.ui').nav_file(1)<CR>", "File 1" }
-lvim.builtin.which_key.mappings["2"] = { "<cmd>lua require('harpoon.ui').nav_file(2)<CR>", "File 2" }
-lvim.builtin.which_key.mappings["3"] = { "<cmd>lua require('harpoon.ui').nav_file(3)<CR>", "File 3" }
-lvim.builtin.which_key.mappings["4"] = { "<cmd>lua require('harpoon.ui').nav_file(4)<CR>", "File 4" }
-lvim.builtin.which_key.mappings["5"] = { "<cmd>lua require('harpoon.ui').nav_file(5)<CR>", "File 5" }
-lvim.builtin.which_key.mappings["6"] = { "<cmd>lua require('harpoon.ui').nav_file(6)<CR>", "File 6" }
-lvim.builtin.which_key.mappings["7"] = { "<cmd>lua require('harpoon.ui').nav_file(7)<CR>", "File 7" }
 lvim.builtin.which_key.mappings["f"] = { "<cmd>Lf<CR>", "Lf" }
 lvim.builtin.which_key.mappings["G"] = { "<cmd>Goyo<CR>", "Goyo" }
-lvim.builtin.which_key.mappings["n"] = { "<cmd>lua require('harpoon.mark').nav_next()<CR>", "Next" }
-lvim.builtin.which_key.mappings["p"] = { "<cmd>lua require('harpoon.mark').nav_prev()<CR>", "Next" }
+
+lvim.builtin.which_key.mappings["n"] = { "<cmd>bn<cr>", "Previous buffer" }
+lvim.builtin.which_key.mappings["p"] = { "<cmd>bp<cr>", "Next buffer" }
 
 -- lvim.builtin.which_key.mappings["C"] = {
 --   name = "Copilot",
@@ -166,17 +166,11 @@ lvim.builtin.which_key.mappings["p"] = { "<cmd>lua require('harpoon.mark').nav_p
 
 lvim.builtin.which_key.mappings["b"] = {
   name = "Buffers",
-  b = { "<cmd>Telescope buffers<cr>", "Delete" },
+  b = { "<cmd>Telescope buffers<cr>", "Telescope" },
   d = { "<cmd>bd<cr>", "Delete" },
-  D = { "<cmd>BufferLineSortByDirectory<cr>", "Sort by directory" },
-  e = { "<cmd>BufferLinePickClose<cr>", "Pick which buffer to close" },
-  f = { "<cmd>Telescope buffers<cr>", "Find" },
-  h = { "<cmd>BufferLineCloseLeft<cr>", "Close all to the left" },
-  j = { "<cmd>BufferLinePick<cr>", "Jump" },
-  l = { "<cmd>BufferLineCloseRight<cr>", "Close all to the right" },
-  L = { "<cmd>BufferLineSortByExtension<cr>", "Sort by language" },
-  n = { "<cmd>BufferLineCycleNext<cr>", "Next" },
-  p = { "<cmd>BufferLineCyclePrev<cr>", "Previous" },
+  x = { "<cmd>bd<cr>", "Delete" },
+  n = { "<cmd>bn<cr>", "Next" },
+  p = { "<cmd>bp<cr>", "Previous" },
 }
 
 lvim.builtin.which_key.mappings["g"] = {
