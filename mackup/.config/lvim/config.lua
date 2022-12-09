@@ -8,6 +8,9 @@
 --    \__| \______/ \__|  \__| \_______|\__|         \_/    \__|\__| \__| \__|
 -- ------------------------------------------------------------------------------
 
+lvim.builtin.bufferline.active = false
+vim.opt.showtabline = 0
+
 lvim.plugins = {
   { "christoomey/vim-tmux-navigator" },
   { "tpope/vim-surround" },
@@ -200,7 +203,6 @@ lvim.builtin.which_key.mappings["g"] = {
     "Git Diff",
   },
 }
-
 
 lvim.builtin.which_key.mappings["'"] = {
   name = "Harpoon",
