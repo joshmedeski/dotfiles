@@ -21,12 +21,12 @@ lvim.plugins = {
       require("colorizer").setup()
     end,
   },
-  { "sindrets/diffview.nvim",
-    event = "BufRead",
-    config = function()
-      require("user.diffview").config()
-    end,
-  },
+  -- { "sindrets/diffview.nvim",
+  --   event = "BufRead",
+  --   config = function()
+  --     require("user.diffview").config()
+  --   end,
+  -- },
   {
     "lmburns/lf.nvim",
     config = function()
