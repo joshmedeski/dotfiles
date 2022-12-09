@@ -22,8 +22,6 @@ local diff = {
   cond = hide_in_width
 }
 
-local mode = { "mode", colored = false }
-
 lvim.builtin.lualine.options = {
   icons_enabled = true,
   theme = theme,
@@ -35,7 +33,6 @@ lvim.builtin.lualine.options = {
 lvim.builtin.lualine.sections = {
   lualine_a = {},
   lualine_b = {},
-  -- lualine_b = { mode },
   lualine_c = { diff, diagnostics },
   lualine_x = {},
   lualine_y = {},
@@ -43,9 +40,9 @@ lvim.builtin.lualine.sections = {
 }
 lvim.builtin.lualine.inactive_sections = {
   lualine_a = {},
-  lualine_b = { mode },
-  lualine_c = { 'filename' },
-  lualine_x = { 'location' },
+  lualine_b = { 'filename', 'location' },
+  lualine_c = {},
+  lualine_x = {},
   lualine_y = {},
   lualine_z = {},
 }
