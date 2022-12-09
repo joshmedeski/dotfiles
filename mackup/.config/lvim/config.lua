@@ -21,12 +21,12 @@ lvim.plugins = {
       require("colorizer").setup()
     end,
   },
-  -- { "sindrets/diffview.nvim",
-  --   event = "BufRead",
-  --   config = function()
-  --     require("user.diffview").config()
-  --   end,
-  -- },
+  { "sindrets/diffview.nvim",
+    event = "BufRead",
+    config = function()
+      require("user.diffview").config()
+    end,
+  },
   {
     "lmburns/lf.nvim",
     config = function()
@@ -77,28 +77,28 @@ lvim.plugins = {
       require("user.trouble")
     end
   },
-  {
-    "zbirenbaum/copilot.lua",
-    -- event = { "VimEnter" },
-    config = function()
-      vim.defer_fn(function()
-        require("copilot").setup {
-          plugin_manager_path = os.getenv "LUNARVIM_RUNTIME_DIR" .. "/site/pack/packer",
-        }
-      end, 100)
-    end,
-  },
-  {
-    "zbirenbaum/copilot-cmp",
-    after = { "copilot.lua" },
-    config = function()
-      require("copilot_cmp").setup {
-        formatters = {
-          insert_text = require("copilot_cmp.format").remove_existing,
-        },
-      }
-    end,
-  },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   -- event = { "VimEnter" },
+  --   config = function()
+  --     vim.defer_fn(function()
+  --       require("copilot").setup {
+  --         plugin_manager_path = os.getenv "LUNARVIM_RUNTIME_DIR" .. "/site/pack/packer",
+  --       }
+  --     end, 100)
+  --   end,
+  -- },
+  -- {
+  --   "zbirenbaum/copilot-cmp",
+  --   after = { "copilot.lua" },
+  --   config = function()
+  --     require("copilot_cmp").setup {
+  --       formatters = {
+  --         insert_text = require("copilot_cmp.format").remove_existing,
+  --       },
+  --     }
+  --   end,
+  -- },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
@@ -179,16 +179,15 @@ lvim.builtin.which_key.mappings["b"] = {
   p = { "<cmd>BufferLineCyclePrev<cr>", "Previous" },
 }
 
-
 lvim.builtin.which_key.mappings["g"] = {
   name = "Git",
   -- g = { "<cmd>lua require 'lvim.core.terminal'.lazygit_toggle()<cr>", "Lazygit" },
-  g = { "<cmd>lua require 'lvim.core.terminal'.lazygit_toggle()<cr>", "Lazygit" },
-  j = { "<cmd>lua require 'gitsigns'.next_hunk({navigation_message = false})<cr>", "Next Hunk" },
-  k = { "<cmd>lua require 'gitsigns'.prev_hunk({navigation_message = false})<cr>", "Prev Hunk" },
+  j = { "<cmd>lua require 'gitsigns'.next_hunk({navigation_message = false})<cr>zt", "Next Hunk" },
+  n = { "<cmd>lua require 'gitsigns'.next_hunk({navigation_message = false})<cr>zt", "Next Hunk" },
+  k = { "<cmd>lua require 'gitsigns'.prev_hunk({navigation_message = false})<cr>zt", "Prev Hunk" },
+  p = { "<cmd>lua require 'gitsigns'.prev_hunk({navigation_message = false})<cr>zt", "Prev Hunk" },
   l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
-  p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
-  r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
+  x = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
   R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
   s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
   u = {
@@ -198,10 +197,10 @@ lvim.builtin.which_key.mappings["g"] = {
   o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
   b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
   c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-  C = {
-    "<cmd>Telescope git_bcommits<cr>",
-    "Checkout commit(for current file)",
-  },
+  -- C = {
+  --   "<cmd>Telescope git_bcommits<cr>",
+  --   "Checkout commit(for current file)",
+  -- },
   d = {
     "<cmd>Gitsigns diffthis HEAD<cr>",
     "Git Diff",
