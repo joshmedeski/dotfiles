@@ -1,52 +1,13 @@
 lvim.builtin.telescope = {
   active = true,
   defaults = {
+    layout_config = {
+      preview_width = 0.6,
+      prompt_position = "top",
+    },
     sorting_strategy = "ascending",
     prompt_prefix = " ",
     prompt_position = "top"
-  },
-  pickers = {
-    buffers = {
-      layout_config = {
-        preview_width = 0.6,
-        prompt_position = "top",
-      }
-    },
-    git_status = {
-      layout_config = {
-        preview_width = 0.6,
-        prompt_position = "top"
-      }
-    },
-    live_grep = {
-      layout_config = {
-        preview_width = 0.6,
-        prompt_position = "top"
-      }
-    },
-    find_files = {
-      layout_config = {
-        preview_width = 0.6,
-        prompt_position = "top"
-      }
-    },
-    git_files = {
-      show_untracked = true,
-      layout_config = {
-        prompt_position = "top",
-        preview_width = 0.6,
-      }
-    },
-    commands = {
-      layout_config = {
-        prompt_position = "top"
-      }
-    },
-    git_status = {
-      layout_config = {
-        prompt_position = "top"
-      }
-    }
   }
 }
 
