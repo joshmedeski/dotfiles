@@ -1,13 +1,18 @@
+local actions = require "telescope.actions"
+
 lvim.builtin.telescope = {
   active = true,
   defaults = {
+    file_ignore_patterns = { ".git/", "node_modules" },
     layout_config = {
       preview_width = 0.6,
       prompt_position = "top",
     },
-    sorting_strategy = "ascending",
+    path_display = { "smart" },
+    prompt_position = "top",
     prompt_prefix = " ",
-    prompt_position = "top"
+    selection_caret = " ",
+    sorting_strategy = "ascending",
   }
 }
 
