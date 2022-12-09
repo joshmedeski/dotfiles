@@ -12,6 +12,12 @@ lvim.builtin.telescope = {
         prompt_position = "top",
       }
     },
+    git_status = {
+      layout_config = {
+        preview_width = 0.6,
+        prompt_position = "top"
+      }
+    },
     live_grep = {
       layout_config = {
         preview_width = 0.6,
