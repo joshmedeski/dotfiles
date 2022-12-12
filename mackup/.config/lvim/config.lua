@@ -48,6 +48,13 @@ lvim.plugins = {
       require "octo".setup()
     end
   },
+  {
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+      require("user.todo-comments")
+    end
+  },
   { "catppuccin/nvim" },
   {
     'xiyaowong/nvim-transparent',
