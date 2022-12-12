@@ -55,7 +55,11 @@ lvim.plugins = {
       require("user.todo-comments")
     end
   },
-  { "catppuccin/nvim" },
+  { "catppuccin/nvim",
+    config = function()
+      require('user.catppuccin')
+    end
+  },
   {
     'xiyaowong/nvim-transparent',
   },

@@ -3,7 +3,6 @@ local M = {}
 M.config = function()
   -- general
   lvim.format_on_save.enabled = true
-  lvim.colorscheme = "catppuccin"
   lvim.transparent_window = true
 
   -- keymappings
@@ -25,7 +24,6 @@ M.config = function()
   vim.cmd([[
   hi BufferLineFill ctermbg=none
   hi Comment ctermfg=grey
-  hi LineNr term=bold ctermfg=gray
   hi Search ctermfg=black ctermbg=yellow
   hi Sneak ctermfg=black ctermbg=yellow
   hi SneakScope ctermfg=black ctermbg=yellow
