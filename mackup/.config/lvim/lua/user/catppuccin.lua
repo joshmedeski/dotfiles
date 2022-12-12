@@ -35,6 +35,7 @@ require("catppuccin").setup({
     all = {
       surface1 = "#a3a7bc",
       surface2 = "#a3a7bc",
+      surface3 = "#a3a7bc",
     }
   },
   custom_highlights = {},
