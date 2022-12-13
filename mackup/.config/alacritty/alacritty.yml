@@ -1,4 +1,3 @@
-# cSpell:words alacritty lfcd
 live_config_reload: true
 
 env:
@@ -19,13 +18,13 @@ window:
   decorations: buttonless
 
 key_bindings:
-  - { key: Period, mods: Command, chars: ":ZenMode\n" }
   - { key: Comma, mods: Command, chars: "\x02," }
   - { key: D, mods: Command, chars: "\x02K" }
-  - { key: F, mods: Command, chars: "lfcd\n" }
-  - { key: P, mods: Command, chars: ":Telescope git_files\n" }
-  - { key: P, mods: Command|Shift, chars: ":Telescope commands\n" }
+  - { key: E, mods: Command, chars: "\x02\"" }
+  - { key: E, mods: Command|Shift, chars: "\x02%" }
+  - { key: F, mods: Command, chars: "\x02\x5b\x2f" }
   - { key: G, mods: Command, chars: "\x02g" }
+  - { key: J, mods: Command, chars: "\x02\x54" }
   - { key: K, mods: Command, chars: "\x02s" }
   - { key: Key1, mods: Command, chars: "\x021" }
   - { key: Key2, mods: Command, chars: "\x022" }
@@ -37,27 +36,22 @@ key_bindings:
   - { key: Key8, mods: Command, chars: "\x028" }
   - { key: Key9, mods: Command, chars: "\x029" }
   - { key: L, mods: Command, chars: "\x02L" }
-  - { key: RBracket, mods: Command, chars: "\x09" }
   - { key: LBracket, mods: Command, chars: "\x0f" }
   - { key: LBracket, mods: Command|Shift, chars: "\x02p" }
   - { key: O, mods: Command, chars: "\x02u" }
-  - { key: E, mods: Command|Shift, chars: "\x02%" }
-  - { key: E, mods: Command, chars: "\x02\"" }
+  - { key: P, mods: Command, chars: ":Telescope git_files\n" }
+  - { key: P, mods: Command|Shift, chars: ":Telescope commands\n" }
+  - { key: Period, mods: Command, chars: ":ZenMode\n" }
   - { key: Q, mods: Command, chars: ":q\n" }
-  - { key: RBracket, mods: Command|Shift, chars: "\x02n" }
   - { key: R, mods: Command, chars: "\x1b\x5b\x41\x0a" }
+  - { key: RBracket, mods: Command, chars: "\x09" }
+  - { key: RBracket, mods: Command|Shift, chars: "\x02n" }
   - { key: S, mods: Command, chars: "\x1b\x3a\x77\x0a" }
   - { key: S, mods: Command|Shift, chars: ":wa\n" }
   - { key: Semicolon, mods: Command, chars: "\x02:" }
   - { key: T, mods: Command, chars: "\x02c" }
-  - { key: J, mods: Command, chars: "\x02\x54" }
   - { key: W, mods: Command, chars: "\x02x" }
   - { key: Z, mods: Command, chars: "\x02z" }
 
-selection:
-  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
-  save_to_clipboard: true
-
-mouse:
-  hide_when_typing: true
-
+import:
+  - ~/.config/alacritty/aw/current.yml
