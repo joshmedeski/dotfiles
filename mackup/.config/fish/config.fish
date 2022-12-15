@@ -23,6 +23,8 @@ fish_add_path /opt/homebrew/bin
 fish_add_path /opt/homebrew/sbin
 fish_add_path $PNPM_HOME
 fish_add_path $HOME/.config/bin # my custom scripts
+fish_add_path $HOME/.config/tmux/plugins/tmux-nvr/bin
+fish_add_path $HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin
 fish_add_path $HOME/.local/bin
 fish_add_path $GOPATH/bin
 
