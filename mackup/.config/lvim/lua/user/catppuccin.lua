@@ -33,6 +33,7 @@ require("catppuccin").setup({
   },
   color_overrides = {
     all = {
+      -- surface0 = "#a3a7bc",
       surface1 = "#a3a7bc",
       surface2 = "#a3a7bc",
       surface3 = "#a3a7bc",
