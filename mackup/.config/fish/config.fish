@@ -5,7 +5,7 @@ zoxide init fish | source
 
 # variables
 set -U BAT_THEME Nord 
-set -U EDITOR lvim
+set -U EDITOR 'nvr-tmux --remote-wait-silent'
 set -U FZF_CTRL_R_OPTS "--reverse"
 set -U FZF_DEFAULT_COMMAND "fd -H -E '.git'"
 set -U FZF_DEFAULT_OPTS "--color=spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD"
@@ -30,6 +30,12 @@ fish_add_path $GOPATH/bin
 
 # pnpm autocomplete
 [ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
+
+if test -n "$TMUX"
+    eval (string replace "NVIM_LISTEN_ADDRESS=" "set -x NVIM_LISTEN_ADDRESS " (tmux show-environment -s NVIM_LISTEN_ADDRESS))
+else
+    set -x NVIM_LISTEN_ADDRESS /tmp/nvimsocket
+end
 
 # sqlite
 fish_add_path /opt/homebrew/opt/sqlite/bin
@@ -137,8 +143,7 @@ abbr tr "tldr --list | fzf --header 'tldr (tealdeer)' --reverse --preview 'tldr 
 # abbr tn "tmux new -s (pwd | sed 's/.*\///g')"
 abbr tn "tmux new -s (basename (pwd))"
 abbr u "~/bin/update.sh"
-abbr v "nvim +GitFiles"
-abbr :GitFiles "nvim +GitFiles"
+abbr v "tmux rename-window '' && nvr-tmux +GitFiles"
 abbr vfzf "nvim (fd --type f --hidden --follow --exclude .git | fzf-tmux -p -w 100 --reverse --preview 'bat --color=always --style=numbers --line-range=:500 {}')"
 abbr va "nvim ~/.config/alacritty/alacritty.yml"
 abbr vf "nvim ~/.config/fish/config.fish"
