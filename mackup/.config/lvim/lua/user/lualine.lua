@@ -23,12 +23,12 @@ local diff = {
 }
 
 lvim.builtin.lualine.options = {
-  icons_enabled = true,
   theme = theme,
-  component_separators = { left = "", right = "" },
+  icons_enabled = true,
+  always_divide_middle = false,
   section_separators = { left = "", right = "" },
+  component_separators = { left = "", right = "" },
   disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
-  always_divide_middle = true,
 }
 
 lvim.builtin.lualine.sections = {
