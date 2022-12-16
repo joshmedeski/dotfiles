@@ -42,3 +42,39 @@ lvim.builtin.which_key.mappings["g"] = {
     "Git Diff",
   },
 }
+
+lvim.builtin.which_key.mappings["t"] = {
+  name = "Trouble",
+  d = { "<cmd>Trouble lsp_document_diagnostics<cr>", "Diagnostics" },
+  f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
+  j = { "<cmd>lua require('todo-comments').jump_next()<cr>", "Next TODO comment" },
+  k = { "<cmd>lua require('todo-comments').jump_prev()<cr>", "Prev TODO comment" },
+  l = { "<cmd>Trouble loclist<cr>", "LocationList" },
+  n = { "<cmd>lua require('todo-comments').jump_next()<cr>", "Next TODO comment" },
+  p = { "<cmd>lua require('todo-comments').jump_prev()<cr>", "Prev TODO comment" },
+  q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
+  r = { "<cmd>Trouble lsp_references<cr>", "References" },
+  t = { "<cmd>TroubleToggle<cr>", "Toggle Trouble" },
+  T = { "<cmd>TodoTrouble<cr>", "TODO Trouble" },
+  w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnostics" },
+  -- jump to the next item, skipping the groups
+  -- require("trouble").next({skip_groups = true, jump = true});
+
+  -- jump to the previous item, skipping the groups
+  -- require("trouble").previous({skip_groups = true, jump = true});
+
+  g = {
+    g = {
+      "<cmd>lua require('trouble').first({skip_groups = true, jump = true})<cr>",
+      "Jump to the first item, skipping the groups"
+    },
+  },
+  G = {
+    "<cmd>lua require('trouble').last({skip_groups = true, jump = true})<cr>",
+    "Jump to the last item, skipping the groups"
+  }
+}
+
+vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>",
+  { silent = true, noremap = true }
+)

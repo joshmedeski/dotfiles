@@ -1,16 +1,9 @@
-lvim.builtin.which_key.mappings["t"] = {
-  name = "Trouble",
-  d = { "<cmd>Trouble lsp_document_diagnostics<cr>", "Diagnostics" },
-  f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
-  l = { "<cmd>Trouble loclist<cr>", "LocationList" },
-  q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
-  r = { "<cmd>Trouble lsp_references<cr>", "References" },
-  w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnostics" },
-}
+-- TODO: add which-key entries for trouble
+-- TODO: show all TODOs from git root
 
-require("trouble").setup {
-  position = "top", -- position of the list can be: bottom, top, left, right
-  height = 5, -- height of the trouble list when position is top or bottom
+require "trouble".setup {
+  position = "bottom", -- position of the list can be: bottom, top, left, right
+  height = 10, -- height of the trouble list when position is top or bottom
   width = 50, -- width of the list when position is left or right
   icons = true, -- use devicons for filenames
   mode = "workspace_diagnostics", -- "workspace_diagnostics", "document_diagnostics", "quickfix", "lsp_references", "loclist"

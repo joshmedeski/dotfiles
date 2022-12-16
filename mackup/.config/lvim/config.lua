@@ -16,13 +16,13 @@ lvim.plugins = {
   { "norcalli/nvim-colorizer.lua",
     event = "BufRead",
     config = function()
-      require("colorizer").setup()
+      require "colorizer".setup {}
     end,
   },
   { "lmburns/lf.nvim",
     requires = { "plenary.nvim", "toggleterm.nvim", "lmburns/lf.nvim" },
     config = function()
-      require("user.lf").config()
+      reload "user.lf"
     end,
   },
   { "pwntester/octo.nvim",
@@ -32,13 +32,13 @@ lvim.plugins = {
       "kyazdani42/nvim-web-devicons",
     },
     config = function()
-      require "octo".setup()
+      require "octo".setup {}
     end
   },
   { "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
     config = function()
-      require("user.todo-comments")
+      reload "user.todo-comments"
     end
   },
   { "folke/zen-mode.nvim",
@@ -49,21 +49,24 @@ lvim.plugins = {
   { "ThePrimeagen/harpoon",
     requires = "plenary.nvim",
     config = function()
-      require("harpoon").setup({
+      require "harpoon".setup {
         global_settings = { mark_branch = true },
         menu = { width = 60 }
-      })
+      }
     end
   },
   { "folke/trouble.nvim",
-    cmd = "TroubleToggle",
+    requires = "kyazdani42/nvim-web-devicons",
     config = function()
       reload "user.trouble"
     end
   },
+  -- TODO: fix this plugin with lunarvim
   { "christoomey/vim-tmux-navigator" },
   { "folke/lsp-colors.nvim" },
+  -- TODO: investigate alternatives to vim-surround
   { "tpope/vim-surround" },
   { "wakatime/vim-wakatime" },
+  -- TODO: add ActivityWatch
   { "xiyaowong/nvim-transparent" },
 }
