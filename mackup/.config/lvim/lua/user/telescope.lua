@@ -13,6 +13,11 @@ lvim.builtin.telescope = {
     prompt_prefix = " ",
     selection_caret = " ",
     sorting_strategy = "ascending",
+  },
+  pickers = {
+    git_files = {
+      show_untracked = true,
+    }
   }
 }
 

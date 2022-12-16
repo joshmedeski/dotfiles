@@ -1,9 +1,5 @@
 require("catppuccin").setup({
-  -- latte, frappe, macchiato, mocha
-  flavour = "mocha",
-  -- flavour = "latte",
-  -- flavour = "frappe",
-  -- flavour = "macchiato",
+  flavour = "mocha", -- latte, frappe, macchiato, or mocha
   background = { -- :h background
     light = "latte",
     dark = "mocha",
@@ -51,5 +47,4 @@ require("catppuccin").setup({
   },
 })
 
--- setup must be called before loading
 vim.cmd.colorscheme "catppuccin"
