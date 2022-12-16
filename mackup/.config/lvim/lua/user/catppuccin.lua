@@ -7,7 +7,7 @@ require("catppuccin").setup({
   transparent_background = true,
   term_colors = false,
   dim_inactive = {
-    enabled = false,
+    enabled = true,
     shade = "dark",
     percentage = 0.15,
   },
@@ -36,6 +36,7 @@ require("catppuccin").setup({
     }
   },
   custom_highlights = {},
+  -- https://github.com/catppuccin/nvim#integrations
   integrations = {
     cmp = true,
     gitsigns = true,
@@ -43,7 +44,6 @@ require("catppuccin").setup({
     telescope = true,
     notify = false,
     mini = false,
-    -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
   },
 })
 

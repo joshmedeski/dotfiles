@@ -8,11 +8,6 @@ reload "user.telescope"
 reload "user.which-key"
 
 lvim.plugins = {
-  { "catppuccin/nvim",
-    config = function()
-      reload "user.catppuccin"
-    end
-  },
   { "norcalli/nvim-colorizer.lua",
     event = "BufRead",
     config = function()
@@ -59,6 +54,11 @@ lvim.plugins = {
     requires = "kyazdani42/nvim-web-devicons",
     config = function()
       reload "user.trouble"
+    end
+  },
+  { "catppuccin/nvim",
+    config = function()
+      reload "user.catppuccin"
     end
   },
   -- TODO: fix this plugin with lunarvim
