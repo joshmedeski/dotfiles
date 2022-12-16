@@ -18,7 +18,7 @@ local diagnostics = {
 local diff = {
   "diff",
   colored = true,
-  symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
+  symbols = { added = " ", modified = " ", removed = " " },
   cond = hide_in_width
 }
 
@@ -30,6 +30,7 @@ lvim.builtin.lualine.options = {
   disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
   always_divide_middle = true,
 }
+
 lvim.builtin.lualine.sections = {
   lualine_a = {},
   lualine_b = {},
@@ -38,10 +39,11 @@ lvim.builtin.lualine.sections = {
   lualine_y = {},
   lualine_z = {},
 }
+
 lvim.builtin.lualine.inactive_sections = {
   lualine_a = {},
-  lualine_b = { 'filename', 'location' },
-  lualine_c = {},
+  lualine_b = {},
+  lualine_c = { 'filename', 'location' },
   lualine_x = {},
   lualine_y = {},
   lualine_z = {},
