@@ -4,25 +4,6 @@ return require('packer').startup({ function(use)
     -- plugins
     use 'wbthomason/packer.nvim'
 
-    -- manipulation
-    use 'tpope/vim-surround'
-    use 'folke/which-key.nvim'
-    use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
-
-    -- navigation
-    use 'theprimeagen/harpoon'
-    use { 'folke/trouble.nvim', requires = 'kyazdani42/nvim-web-devicons' }
-    use { 'lmburns/lf.nvim',
-        requires = { 'nvim-lua/plenary.nvim', 'akinsho/toggleterm.nvim' }
-    }
-    use { 'nvim-telescope/telescope.nvim',
-        tag = '0.1.0', requires = 'nvim-lua/plenary.nvim'
-    }
-    use { -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
-        'nvim-telescope/telescope-fzf-native.nvim',
-        run = 'make', cond = vim.fn.executable 'make' == 1
-    }
-
     -- style
     use 'catppuccin/nvim'
     use 'xiyaowong/nvim-transparent'
@@ -36,29 +17,22 @@ return require('packer').startup({ function(use)
         config = function() require 'colorizer'.setup {} end,
     }
 
-    -- git
-    use 'lewis6991/gitsigns.nvim'
-    use 'rhysd/committia.vim'
-    use {
-        'sindrets/diffview.nvim',
-        requires = { 'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons' }
-    }
-    use {
-        'pwntester/octo.nvim',
-        requires = {
-            'nvim-lua/plenary.nvim',
-            'nvim-telescope/telescope.nvim',
-            'kyazdani42/nvim-web-devicons',
-        },
-        config = function()
-            require 'octo'.setup {}
-        end
+    -- manipulation
+    use 'tpope/vim-surround'
+    use 'folke/which-key.nvim'
+    use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
+
+    -- navigation
+    use 'theprimeagen/harpoon'
+    use { 'folke/trouble.nvim', requires = 'kyazdani42/nvim-web-devicons' }
+    use { 'lmburns/lf.nvim', requires = { 'nvim-lua/plenary.nvim', 'akinsho/toggleterm.nvim' } }
+    use { 'nvim-telescope/telescope.nvim',
+        tag = '0.1.0', requires = 'nvim-lua/plenary.nvim'
     }
 
     -- lsp
     use { 'folke/todo-comments.nvim', requires = 'nvim-lua/plenary.nvim' }
-    use {
-        'VonHeikemen/lsp-zero.nvim',
+    use { 'VonHeikemen/lsp-zero.nvim',
         requires = {
             -- LSP Support
             { 'neovim/nvim-lspconfig' },
@@ -77,6 +51,21 @@ return require('packer').startup({ function(use)
             -- nvim
             { 'folke/neodev.nvim' }
         }
+    }
+
+    -- git
+    use 'lewis6991/gitsigns.nvim'
+    use 'rhysd/committia.vim'
+    use { 'sindrets/diffview.nvim',
+        requires = { 'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons' }
+    }
+    use { 'pwntester/octo.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim',
+            'nvim-telescope/telescope.nvim',
+            'kyazdani42/nvim-web-devicons',
+        },
+        config = function() require 'octo'.setup {} end
     }
 
     -- tmux
