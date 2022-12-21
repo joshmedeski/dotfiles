@@ -1,0 +1,24 @@
+#!/bin/sh
+
+NAME=$1
+
+case $NAME in
+  fish|zsh|bash)
+    echo ""
+    ;;
+  nvim|vim|lvim)
+    echo ""
+    ;;
+  lazygit|git)
+    echo ""
+    ;;
+  node)
+    echo ""
+    ;;
+  lf|lfcd)
+    echo ""
+    ;;
+  *)
+    echo $NAME
+    ;;
+esac
