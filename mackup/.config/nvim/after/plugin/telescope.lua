@@ -14,7 +14,14 @@ telescope.setup {
     sorting_strategy = "ascending",
   },
   pickers = {
+    buffers = {
+      prompt_prefix = '﬘ ',
+    },
+    commands = {
+      prompt_prefix = ' ',
+    },
     git_files = {
+      prompt_prefix = ' ',
       show_untracked = true,
     }
   }
