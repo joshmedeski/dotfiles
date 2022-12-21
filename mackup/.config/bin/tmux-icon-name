@@ -15,6 +15,12 @@ case $NAME in
   node)
     echo ""
     ;;
+  ruby)
+    echo ""
+    ;;
+  go)
+    echo "ﳑ"
+    ;;
   lf|lfcd)
     echo ""
     ;;
