@@ -10,7 +10,7 @@ font:
   normal:
     family: 'SFMono Nerd Font'
     style: Medium
-  size: 22.0
+  size: 18.0
 
 window:
   opacity: 0.8
