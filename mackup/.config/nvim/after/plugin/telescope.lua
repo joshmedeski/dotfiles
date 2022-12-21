@@ -1,7 +1,6 @@
-local actions = require "telescope.actions"
+local telescope = require('telescope')
 
-lvim.builtin.telescope = {
-  active = true,
+telescope.setup {
   defaults = {
     file_ignore_patterns = { ".git/", "node_modules" },
     layout_config = {
@@ -13,11 +12,19 @@ lvim.builtin.telescope = {
     prompt_prefix = " ",
     selection_caret = " ",
     sorting_strategy = "ascending",
+  },
+  pickers = {
+    buffers = {
+      prompt_prefix = '﬘ ',
+    },
+    commands = {
+      prompt_prefix = ' ',
+    },
+    git_files = {
+      prompt_prefix = ' ',
+      show_untracked = true,
+    }
   }
 }
 
-lvim.builtin.telescope.on_config_done = function(telescope)
-  -- pcall(telescope.load_extension, "frecency")
-  -- pcall(telescope.load_extension, "neoclip")
-  pcall(telescope.load_extension, "harpoon")
-end
+telescope.load_extension('harpoon')
