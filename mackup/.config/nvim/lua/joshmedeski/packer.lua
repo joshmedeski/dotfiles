@@ -4,12 +4,13 @@ return require('packer').startup({ function(use)
     use 'wbthomason/packer.nvim'
 
     use 'catppuccin/nvim'
+    use 'folke/neodev.nvim'
     use 'folke/which-key.nvim'
     use 'lewis6991/gitsigns.nvim'
+    use 'rhysd/committia.vim'
     use 'theprimeagen/harpoon'
     use 'tpope/vim-surround'
     use 'xiyaowong/nvim-transparent'
-    use 'folke/neodev.nvim'
 
     use { -- Additional text objects via treesitter
         'nvim-treesitter/nvim-treesitter-textobjects',
