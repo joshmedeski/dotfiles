@@ -6,10 +6,10 @@ zoxide init fish | source
 # variables
 set -U BAT_THEME Nord 
 set -U EDITOR 'nvr-tmux --remote-wait-silent'
-set -U FZF_CTRL_R_OPTS "--reverse"
+set -U FZF_CTRL_R_OPTS "--border-label=' History ' --prompt=' '"
 set -U FZF_DEFAULT_COMMAND "fd -H -E '.git'"
-set -U FZF_DEFAULT_OPTS "--color=spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD"
-set -U FZF_TMUX_OPTS "-p"
+set -U FZF_DEFAULT_OPTS "--reverse --no-info --prompt=' ' --pointer='' --marker='' --ansi --color gutter:-1,bg+:-1,header:4,separator:0,info:0,label:4,border:4,prompt:7,pointer:5,query:7,prompt:7"
+set -U FZF_TMUX_OPTS "-p --no-info --ansi --color gutter:-1,bg+:-1,header:4,separator:0,info:0,label:4,border:4,prompt:7,pointer:5,query:7,prompt:7"
 set -U GOPATH (go env GOPATH)
 set -U KIT_EDITOR /opt/homebrew/bin/nvim
 set -U LANG en_US.UTF-8
@@ -109,7 +109,7 @@ abbr grau "git remote add upstream"
 abbr grv "git remote -v"
 abbr gs "git status"
 abbr gst "git status"
-abbr hd "history delete --exact --case-sensitive \'(history | fzf-tmux -p -m --reverse)\'"
+abbr hd "history delete --exact --case-sensitive \'(history | fzf-tmux -p -m)\'"
 abbr kn "killall node"
 abbr l "lsd  --group-dirs first -A"
 abbr ld "lazydocker"
