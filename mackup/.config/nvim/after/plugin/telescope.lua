@@ -1,4 +1,6 @@
-require('telescope').setup {
+local telescope = require('telescope')
+
+telescope.setup {
   defaults = {
     file_ignore_patterns = { ".git/", "node_modules" },
     layout_config = {
@@ -18,4 +20,4 @@ require('telescope').setup {
   }
 }
 
--- TODO: add harpoon
+telescope.load_extension('harpoon')
