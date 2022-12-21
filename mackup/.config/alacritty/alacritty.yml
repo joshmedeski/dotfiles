@@ -3,11 +3,14 @@ live_config_reload: true
 env:
   TERM: xterm-256color
 
+shell:
+  program: /opt/homebrew/bin/fish
+
 font:
   normal:
     family: 'SFMono Nerd Font'
     style: Medium
-  size: 22.0
+  size: 18.0
 
 window:
   opacity: 0.8

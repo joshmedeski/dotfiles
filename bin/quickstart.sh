@@ -1,7 +1,7 @@
 #/bin/bash
 
-cd ~ && mkdir repos && cd repos
-git clone git@github.com:joshmedeski/joshs-dotfiles.git dotfiles
+cd ~ && mkdir github && cd github
+git clone git@github.com:jdhoffa/dotfiles.git dotfiles
 
 brew install bash
 brew install bat
@@ -39,7 +39,7 @@ if [[ $PLATFORM == 'macos' ]]; then
    brew services start yabai
 
 # mackup
-cp ~/repos/dotfiles/mackup/.mackup.cfg ~/.mackup.cfg
+cp ~/github/dotfiles/mackup/.mackup.cfg ~/.mackup.cfg
 mackup restore
 
 # fisher https://github.com/jorgebucaran/fisher

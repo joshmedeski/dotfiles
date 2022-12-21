@@ -1,11 +1,11 @@
 [user]
-	name = Josh Medeski
-	email = josh.medeski@gmail.com
+	name = Jackson Hoffart
+	email = jackson.hoffart@gmail.com
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [core]
  	editor = nvim
- 	excludesfile = /Users/joshmedeski/.gitignore
+ 	excludesfile = /Users/jdhoffa/.gitignore
 	pager = delta
 [interactive]
 	diffFilter = delta --color-only
