@@ -115,6 +115,11 @@ _G.packer_plugins = {
     path = "/Users/joshmedeski/.local/share/nvim/site/pack/packer/start/committia.vim",
     url = "https://github.com/rhysd/committia.vim"
   },
+  ["diffview.nvim"] = {
+    loaded = true,
+    path = "/Users/joshmedeski/.local/share/nvim/site/pack/packer/start/diffview.nvim",
+    url = "https://github.com/sindrets/diffview.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/Users/joshmedeski/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -247,6 +252,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/joshmedeski/.local/share/nvim/site/pack/packer/start/vim-surround",
     url = "https://github.com/tpope/vim-surround"
+  },
+  ["vim-tmux-navigator"] = {
+    loaded = true,
+    path = "/Users/joshmedeski/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",
+    url = "https://github.com/christoomey/vim-tmux-navigator"
   },
   ["which-key.nvim"] = {
     loaded = true,

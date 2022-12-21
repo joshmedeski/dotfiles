@@ -4,6 +4,7 @@ return require('packer').startup({ function(use)
     use 'wbthomason/packer.nvim'
 
     use 'catppuccin/nvim'
+    use 'christoomey/vim-tmux-navigator'
     use 'folke/neodev.nvim'
     use 'folke/which-key.nvim'
     use 'lewis6991/gitsigns.nvim'
@@ -11,6 +12,11 @@ return require('packer').startup({ function(use)
     use 'theprimeagen/harpoon'
     use 'tpope/vim-surround'
     use 'xiyaowong/nvim-transparent'
+
+    use {
+        'sindrets/diffview.nvim',
+        requires = { 'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons' }
+    }
 
     use { -- Additional text objects via treesitter
         'nvim-treesitter/nvim-treesitter-textobjects',

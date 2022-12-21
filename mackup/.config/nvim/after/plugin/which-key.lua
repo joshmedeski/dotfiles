@@ -88,6 +88,8 @@ wk.register({
     ["8"] = { "<cmd>nnoremap <silent><leader>8 :lua require('harpoon.ui').nav_file(8)<cr>", "Harpoon Buffer 8" },
     ["9"] = { "<cmd>nnoremap <silent><leader>9 :lua require('harpoon.ui').nav_file(9)<cr>", "Harpoon Buffer 9" },
 
+    ["/"] = { "<cmd>lua require('telescope.builtin').live_grep()<cr>", "Live Grep" },
+
     b = {
         name = "buffer",
         b = { "<cmd>Telescope buffers<cr>", "Telescope" },
@@ -154,8 +156,6 @@ wk.register({
             "Jump to the last item, skipping the groups"
         }
     },
-
-    ["\\"] = { "<cmd>lua require('telescope.builtin').live_grep()<cr>", "Live Grep" },
 
     -- nmap <leader>% :source %<cr>
     -- nmap <leader><leader> <Plug>(coc-fix-current)
