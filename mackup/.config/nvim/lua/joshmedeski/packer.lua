@@ -4,14 +4,18 @@ return require('packer').startup({ function(use)
   -- plugins
   use 'wbthomason/packer.nvim'
 
-  -- style
+  -- theme
   use 'catppuccin/nvim'
+
+  -- style
   use 'xiyaowong/nvim-transparent'
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use { 'nvim-treesitter/nvim-treesitter-textobjects', after = 'nvim-treesitter' }
   use { 'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
+
+  -- highlighting
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use { 'nvim-treesitter/nvim-treesitter-textobjects', after = 'nvim-treesitter' }
   use { 'norcalli/nvim-colorizer.lua',
     event = 'BufRead',
     config = function() require 'colorizer'.setup {} end,
