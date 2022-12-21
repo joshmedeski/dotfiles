@@ -1,4 +1,6 @@
-vim.opt.guicursor = ""
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+vim.opt.guicursor = ''
 
 vim.opt.nu = true
 
