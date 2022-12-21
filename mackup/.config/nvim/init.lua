@@ -1,3 +1,3 @@
-require("joshmedeski.opt")
-require("joshmedeski.packer")
-require("joshmedeski.autocmd")
+require("jdhoffa.opt")
+require("jdhoffa.packer")
+require("jdhoffa.autocmd")
