@@ -22,20 +22,19 @@ return require('packer').startup({ function(use)
   }
 
   -- manipulation
-  use 'tpope/vim-surround'
   use 'folke/which-key.nvim'
+  use 'tpope/vim-surround'
   use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
 
   -- navigation
+  use 'airblade/vim-rooter'
   use 'theprimeagen/harpoon'
   use { 'lmburns/lf.nvim', requires = { 'nvim-lua/plenary.nvim', 'akinsho/toggleterm.nvim' } }
-  use { 'nvim-telescope/telescope.nvim',
-    tag = '0.1.0', requires = 'nvim-lua/plenary.nvim'
-  }
+  use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = 'nvim-lua/plenary.nvim' }
 
   -- lists
-  use { 'folke/trouble.nvim', requires = 'kyazdani42/nvim-web-devicons' }
   use { 'folke/todo-comments.nvim', requires = 'nvim-lua/plenary.nvim' }
+  use { 'folke/trouble.nvim', requires = 'kyazdani42/nvim-web-devicons' }
 
   -- lsp
   use { 'VonHeikemen/lsp-zero.nvim',
@@ -60,7 +59,6 @@ return require('packer').startup({ function(use)
   }
 
   -- git
-  use 'airblade/vim-rooter'
   use 'lewis6991/gitsigns.nvim'
   use 'rhysd/committia.vim'
   use { 'sindrets/diffview.nvim',
