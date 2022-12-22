@@ -2,6 +2,7 @@ set fish_greeting # disable fish greeting
 
 starship init fish | source
 zoxide init fish | source
+pyenv init - | source
 
 # variables
 set -U BAT_THEME Nord 

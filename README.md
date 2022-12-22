@@ -1,4 +1,6 @@
-# Josh Medeski's Dotfiles
+# Jackson Hoffart's Dotfiles
+
+Forked from https://github.com/joshmedeski/dotfiles 
 
 ![screenshot](./screenshot.png)
 

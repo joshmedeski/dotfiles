@@ -72,12 +72,14 @@ return require('packer').startup({ function(use)
     },
     config = function() require 'octo'.setup {} end
   }
+  -- slime
+  use 'jpalardy/vim-slime'
 
   -- tmux
   use 'christoomey/vim-tmux-navigator'
 
   -- tracking
   use 'wakatime/vim-wakatime'
-  use 'ActivityWatch/aw-watcher-vim'
+
 end, config = { display = { open_fn = require('packer.util').float } }
 })

@@ -9,6 +9,6 @@ export NVM_DIR="$HOME/.nvm"
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/bashrc.post.bash" ]] && . "$HOME/.fig/shell/bashrc.post.bash"
 
-source /Users/joshmedeski/.config/broot/launcher/bash/br
+source /Users/jdhoffa/.config/broot/launcher/bash/br
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
