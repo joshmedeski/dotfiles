@@ -27,6 +27,7 @@ return require('packer').startup({ function(use)
   }
 
   -- manipulation
+  use 'windwp/nvim-autopairs'
   use 'folke/which-key.nvim'
   use 'tpope/vim-surround'
   use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
@@ -61,7 +62,10 @@ return require('packer').startup({ function(use)
       { 'L3MON4D3/LuaSnip' },
       { 'rafamadriz/friendly-snippets' },
       -- nvim
-      { 'folke/neodev.nvim' }
+      { 'folke/neodev.nvim' },
+      -- icons
+      { 'nvim-tree/nvim-web-devicons' },
+      { 'onsails/lspkind.nvim' }
     }
   }
 
