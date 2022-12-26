@@ -27,7 +27,9 @@ return require('packer').startup({ function(use)
   }
 
   -- manipulation
-  use 'windwp/nvim-autopairs'
+  use { 'windwp/nvim-autopairs',
+    config = function() require("nvim-autopairs").setup {} end
+  }
   use 'folke/which-key.nvim'
   use 'tpope/vim-surround'
   use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
