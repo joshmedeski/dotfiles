@@ -120,6 +120,11 @@ _G.packer_plugins = {
     path = "/Users/joshmedeski/.local/share/nvim/site/pack/packer/start/committia.vim",
     url = "https://github.com/rhysd/committia.vim"
   },
+  ["copilot.vim"] = {
+    loaded = true,
+    path = "/Users/joshmedeski/.local/share/nvim/site/pack/packer/start/copilot.vim",
+    url = "https://github.com/github/copilot.vim"
+  },
   ["diffview.nvim"] = {
     loaded = true,
     path = "/Users/joshmedeski/.local/share/nvim/site/pack/packer/start/diffview.nvim",
@@ -139,6 +144,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/joshmedeski/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/theprimeagen/harpoon"
+  },
+  ["impatient.nvim"] = {
+    config = { "\27LJ\2\n)\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\14impatient\frequire\0" },
+    loaded = true,
+    path = "/Users/joshmedeski/.local/share/nvim/site/pack/packer/start/impatient.nvim",
+    url = "https://github.com/lewis6991/impatient.nvim"
   },
   ["lf.nvim"] = {
     loaded = true,
@@ -169,6 +180,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/joshmedeski/.local/share/nvim/site/pack/packer/start/neodev.nvim",
     url = "https://github.com/folke/neodev.nvim"
+  },
+  ["null-ls.nvim"] = {
+    loaded = true,
+    path = "/Users/joshmedeski/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   nvim = {
     loaded = true,
@@ -280,6 +296,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: impatient.nvim
+time([[Config for impatient.nvim]], true)
+try_loadstring("\27LJ\2\n)\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\14impatient\frequire\0", "config", "impatient.nvim")
+time([[Config for impatient.nvim]], false)
 -- Config for: octo.nvim
 time([[Config for octo.nvim]], true)
 try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\tocto\frequire\0", "config", "octo.nvim")

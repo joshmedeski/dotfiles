@@ -4,6 +4,11 @@ return require('packer').startup({ function(use)
   -- plugins
   use 'wbthomason/packer.nvim'
 
+  -- cache
+  use { 'lewis6991/impatient.nvim',
+    config = function() require 'impatient' end,
+  }
+
   -- theme
   use 'catppuccin/nvim'
 
@@ -43,6 +48,8 @@ return require('packer').startup({ function(use)
       { 'neovim/nvim-lspconfig' },
       { 'williamboman/mason.nvim' },
       { 'williamboman/mason-lspconfig.nvim' },
+      -- null-ls
+      { 'jose-elias-alvarez/null-ls.nvim' },
       -- Autocompletion
       { 'hrsh7th/nvim-cmp' },
       { 'hrsh7th/cmp-buffer' },
@@ -75,6 +82,9 @@ return require('packer').startup({ function(use)
 
   -- tmux
   use 'christoomey/vim-tmux-navigator'
+
+  -- AI
+  use 'github/copilot.vim'
 
   -- tracking
   use 'wakatime/vim-wakatime'
