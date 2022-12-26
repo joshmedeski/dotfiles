@@ -1,4 +1,4 @@
-local theme = require('lualine.themes.catppuccin')
+local theme = require("lualine.themes.catppuccin")
 theme.normal.c.bg = nil
 
 local hide_in_width = function()
@@ -8,7 +8,7 @@ end
 local diagnostics = {
   "diagnostics",
   sources = { "nvim_diagnostic" },
-  sections = { 'error', 'warn', 'info', 'hint' },
+  sections = { "error", "warn", "info", "hint" },
   symbols = { error = " ", warn = " ", info = " ", hint = "﨧" },
   colored = true,
   update_in_insert = false,
@@ -19,10 +19,10 @@ local diff = {
   "diff",
   colored = true,
   symbols = { added = " ", modified = " ", removed = " " },
-  cond = hide_in_width
+  cond = hide_in_width,
 }
 
-require('lualine').setup {
+require("lualine").setup({
   options = {
     theme = theme,
     icons_enabled = true,
@@ -44,9 +44,9 @@ require('lualine').setup {
   inactive_sections = {
     lualine_a = {},
     lualine_b = {},
-    lualine_c = { 'filename', 'location' },
+    lualine_c = { "filename", "location" },
     lualine_x = {},
     lualine_y = {},
     lualine_z = {},
-  }
-}
+  },
+})

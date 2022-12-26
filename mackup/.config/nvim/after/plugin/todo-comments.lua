@@ -6,7 +6,7 @@ require("todo-comments").setup({
     FIX = {
       icon = " ", -- icon used for the sign, and in search results
       color = "error", -- can be a hex color, or a named color (see below)
-      alt = { "FIXME", "BUG", "FIXIT", "ISSUE" } -- a set of other keywords that all map to this FIX keywords
+      alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
       -- signs = false, -- configure signs for some keywords individually
     },
     TODO = { icon = " ", color = "info" },
@@ -14,13 +14,13 @@ require("todo-comments").setup({
     WARN = {
       icon = " ",
       color = "warning",
-      alt = { "WARNING", "XXX" }
+      alt = { "WARNING", "XXX" },
     },
     PERF = {
       icon = " ",
-      alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" }
+      alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" },
     },
-    NOTE = { icon = " ", color = "hint", alt = { "INFO" } }
+    NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
   },
   merge_keywords = true, -- when true, custom keywords will be merged with the defaults
   -- highlighting of the line containing the todo comment
@@ -34,7 +34,7 @@ require("todo-comments").setup({
     pattern = [[.*<(KEYWORDS)\s*:]], -- pattern or table of patterns, used for highlightng (vim regex)
     comments_only = true, -- uses treesitter to match keywords in comments only
     max_line_len = 400, -- ignore lines longer than this
-    exclude = {} -- list of file types to exclude highlighting
+    exclude = {}, -- list of file types to exclude highlighting
   },
   -- list of named colors where we try to extract the guifg from the
   -- list of hilight groups or use the hex color if hl not found as a fallback
@@ -43,17 +43,20 @@ require("todo-comments").setup({
     warning = { "DiagnosticWarning", "WarningMsg", "#FBBF24" },
     info = { "DiagnosticInfo", "#2563EB" },
     hint = { "DiagnosticHint", "#10B981" },
-    default = { "Identifier", "#7C3AED" }
+    default = { "Identifier", "#7C3AED" },
   },
   search = {
     command = "rg",
     args = {
-      "--color=never", "--no-heading", "--with-filename",
-      "--line-number", "--column"
+      "--color=never",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
     },
     -- regex that will be used to match keywords.
     -- don't replace the (KEYWORDS) placeholder
     -- pattern = [[\b(KEYWORDS):]] -- ripgrep regex
     pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
-  }
+  },
 })

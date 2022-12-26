@@ -1,10 +1,10 @@
-require('gitsigns').setup {
+require("gitsigns").setup({
   signs = {
     add = { text = "", hl = "GitSignsAdd", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
     change = { text = "", hl = "GitSignsChange", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
     delete = { text = "", hl = "GitSignsDelete", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
     topdelete = { text = "", hl = "GitSignsDelete", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-    changedelete = { text = "", hl = "GitSignsChange", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" }
+    changedelete = { text = "", hl = "GitSignsChange", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
   },
   signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
   numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
@@ -17,7 +17,7 @@ require('gitsigns').setup {
     virt_text = true,
     virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
     delay = 1000,
-    ignore_whitespace = false
+    ignore_whitespace = false,
   },
   current_line_blame_formatter_opts = { relative_time = false },
   sign_priority = 6,
@@ -30,7 +30,7 @@ require('gitsigns').setup {
     style = "minimal",
     relative = "cursor",
     row = 0,
-    col = 1
+    col = 1,
   },
-  yadm = { enable = false }
-}
+  yadm = { enable = false },
+})

@@ -1,3 +1,3 @@
 require("transparent").setup({
-  enable = true
+  enable = true,
 })

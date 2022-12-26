@@ -7,7 +7,7 @@ require("catppuccin").setup({
       surface1 = "#666666",
       surface2 = "#a3a7bc",
       surface3 = "#a3a7bc",
-    }
+    },
   },
   integrations = {
     cmp = true,
@@ -17,4 +17,4 @@ require("catppuccin").setup({
   },
 })
 
-vim.cmd.colorscheme "catppuccin"
+vim.cmd.colorscheme("catppuccin")

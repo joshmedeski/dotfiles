@@ -50,7 +50,7 @@ require("diffview").setup({
     win_config = { -- See ':h diffview-config-win_config'
       position = "left",
       width = 35,
-      win_opts = {}
+      win_opts = {},
     },
   },
   file_history_panel = {
@@ -71,13 +71,13 @@ require("diffview").setup({
     win_config = { -- See ':h diffview-config-win_config'
       position = "bottom",
       height = 16,
-      win_opts = {}
+      win_opts = {},
     },
   },
   commit_log_panel = {
     win_config = { -- See ':h diffview-config-win_config'
       win_opts = {},
-    }
+    },
   },
   default_args = { -- Default args prepended to the arg-list for the listed commands
     DiffviewOpen = {},
@@ -100,7 +100,12 @@ require("diffview").setup({
       { "n", "[x", actions.prev_conflict, { desc = "In the merge-tool: jump to the previous conflict" } },
       { "n", "]x", actions.next_conflict, { desc = "In the merge-tool: jump to the next conflict" } },
       { "n", "<leader>co", actions.conflict_choose("ours"), { desc = "Choose the OURS version of a conflict" } },
-      { "n", "<leader>ct", actions.conflict_choose("theirs"), { desc = "Choose the THEIRS version of a conflict" } },
+      {
+        "n",
+        "<leader>ct",
+        actions.conflict_choose("theirs"),
+        { desc = "Choose the THEIRS version of a conflict" },
+      },
       { "n", "<leader>cb", actions.conflict_choose("base"), { desc = "Choose the BASE version of a conflict" } },
       { "n", "<leader>ca", actions.conflict_choose("all"), { desc = "Choose all the versions of a conflict" } },
       { "n", "dx", actions.conflict_choose("none"), { desc = "Delete the conflict region" } },
@@ -115,20 +120,40 @@ require("diffview").setup({
     },
     diff3 = {
       -- Mappings in 3-way diff layouts
-      { { "n", "x" }, "2do", actions.diffget("ours"),
-        { desc = "Obtain the diff hunk from the OURS version of the file" } },
-      { { "n", "x" }, "3do", actions.diffget("theirs"),
-        { desc = "Obtain the diff hunk from the THEIRS version of the file" } },
+      {
+        { "n", "x" },
+        "2do",
+        actions.diffget("ours"),
+        { desc = "Obtain the diff hunk from the OURS version of the file" },
+      },
+      {
+        { "n", "x" },
+        "3do",
+        actions.diffget("theirs"),
+        { desc = "Obtain the diff hunk from the THEIRS version of the file" },
+      },
       { "n", "g?", actions.help({ "view", "diff3" }), { desc = "Open the help panel" } },
     },
     diff4 = {
       -- Mappings in 4-way diff layouts
-      { { "n", "x" }, "1do", actions.diffget("base"),
-        { desc = "Obtain the diff hunk from the BASE version of the file" } },
-      { { "n", "x" }, "2do", actions.diffget("ours"),
-        { desc = "Obtain the diff hunk from the OURS version of the file" } },
-      { { "n", "x" }, "3do", actions.diffget("theirs"),
-        { desc = "Obtain the diff hunk from the THEIRS version of the file" } },
+      {
+        { "n", "x" },
+        "1do",
+        actions.diffget("base"),
+        { desc = "Obtain the diff hunk from the BASE version of the file" },
+      },
+      {
+        { "n", "x" },
+        "2do",
+        actions.diffget("ours"),
+        { desc = "Obtain the diff hunk from the OURS version of the file" },
+      },
+      {
+        { "n", "x" },
+        "3do",
+        actions.diffget("theirs"),
+        { desc = "Obtain the diff hunk from the THEIRS version of the file" },
+      },
       { "n", "g?", actions.help({ "view", "diff4" }), { desc = "Open the help panel" } },
     },
     file_panel = {

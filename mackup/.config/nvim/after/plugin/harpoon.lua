@@ -1,4 +1,4 @@
-require "harpoon".setup {
+require("harpoon").setup({
   global_settings = { mark_branch = true },
-  menu = { width = 60 }
-}
+  menu = { width = 60 },
+})

@@ -1,6 +1,6 @@
-local telescope = require('telescope')
+local telescope = require("telescope")
 
-telescope.setup {
+telescope.setup({
   defaults = {
     file_ignore_patterns = { ".git/", "node_modules" },
     layout_config = {
@@ -15,16 +15,16 @@ telescope.setup {
   },
   pickers = {
     buffers = {
-      prompt_prefix = '﬘ ',
+      prompt_prefix = "﬘ ",
     },
     commands = {
-      prompt_prefix = ' ',
+      prompt_prefix = " ",
     },
     git_files = {
-      prompt_prefix = ' ',
+      prompt_prefix = " ",
       show_untracked = true,
-    }
-  }
-}
+    },
+  },
+})
 
-telescope.load_extension('harpoon')
+telescope.load_extension("harpoon")
