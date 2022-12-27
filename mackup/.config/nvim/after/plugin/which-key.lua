@@ -160,6 +160,8 @@ wk.register({
     },
   },
 
+  u = { "<cmd>UndotreeToggle<cr>", "UndoTree" },
+
   -- nmap <leader>% :source %<cr>
   -- nmap <leader><leader> <Plug>(coc-fix-current)
   -- nmap <leader>a <Plug>(coc-codeaction)

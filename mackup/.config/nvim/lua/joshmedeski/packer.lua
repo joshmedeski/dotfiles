@@ -47,6 +47,9 @@ return require("packer").startup({
       end,
     })
 
+    -- undo
+    use("mbbill/undotree")
+
     -- navigation
     use("airblade/vim-rooter")
     use("theprimeagen/harpoon")
