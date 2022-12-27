@@ -1,1 +1,22 @@
-{"version":"0.2","language":"en","words":["nvim","yabai","skhd","wakatime","diffview","gitsigns","lspkind","lspconfig","undotree","lualine","neodev","luasnip","neovim","treesitter"],"flagWords":[]}
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "autocmd",
+    "diffview",
+    "gitsigns",
+    "lspconfig",
+    "lspkind",
+    "lualine",
+    "luasnip",
+    "neodev",
+    "neovim",
+    "nvim",
+    "skhd",
+    "treesitter",
+    "undotree",
+    "wakatime",
+    "yabai"
+  ],
+  "flagWords": []
+}
