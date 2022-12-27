@@ -90,6 +90,13 @@ return require("packer").startup({
       },
     })
     use({ "weilbith/nvim-code-action-menu" })
+    use({
+      "ThePrimeagen/refactoring.nvim",
+      requires = {
+        { "nvim-lua/plenary.nvim" },
+        { "nvim-treesitter/nvim-treesitter" },
+      },
+    })
 
     -- git
     use("lewis6991/gitsigns.nvim")
