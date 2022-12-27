@@ -1,7 +1,7 @@
+-- cSpell:words bufnr mtoohey
 local lsp = require("lsp-zero")
-require("neodev").setup({})
 require("lspconfig.ui.windows").default_options.border = "double"
-
+require("neodev").setup({})
 lsp.preset("recommended")
 
 lsp.set_preferences({
@@ -10,6 +10,24 @@ lsp.set_preferences({
 })
 
 lsp.on_attach(function(_, bufnr)
+  vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<cr>", {
+    buffer = bufnr,
+    remap = false,
+    desc = "Telescope lsp implementations",
+  })
+
+  vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>", {
+    buffer = bufnr,
+    remap = false,
+    desc = "Telescope lsp references",
+  })
+
+  vim.keymap.set("n", "gD", "<cmd>Telescope lsp_definitions<cr>", {
+    buffer = bufnr,
+    remap = false,
+    desc = "Telescope lsp definitions",
+  })
+
   vim.keymap.set("n", "gd", require("joshmedeski/go_to_def").go_to_def, {
     buffer = bufnr,
     remap = false,
@@ -18,20 +36,6 @@ lsp.on_attach(function(_, bufnr)
 end)
 
 require("packer").use({ "mtoohey31/cmp-fish", ft = "fish" })
-
-lsp.setup_nvim_cmp({
-  sources = {
-    { name = "nvim_lsp", group_index = 1 },
-    { name = "buffer", group_index = 2 },
-    { name = "nvim_lua" },
-    { name = "luasnip" },
-    { name = "path" },
-    { name = "spell" },
-    { name = "fish" },
-    { name = "tmux" },
-    { name = "conventionalcommits" },
-  },
-})
 
 local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
@@ -49,11 +53,24 @@ cmp_mappings["<S-Tab>"] = nil
 
 local lspkind = require("lspkind")
 lsp.setup_nvim_cmp({
+  sources = {
+    { name = "nvim_lsp", group_index = 1 },
+    { name = "buffer", group_index = 2 },
+    { name = "nvim_lua" },
+    { name = "luasnip" },
+    { name = "path" },
+    { name = "spell" },
+    { name = "fish" },
+    { name = "tmux" },
+    { name = "conventionalcommits" },
+  },
   mapping = cmp_mappings,
   formatting = {
     format = function(entry, vim_item)
       if vim.tbl_contains({ "path" }, entry.source.name) then
-        local icon, hl_group = require("nvim-web-devicons").get_icon(entry:get_completion_item().label)
+        local icon, hl_group = require("nvim-web-devicons").get_icon(
+          entry:get_completion_item().label
+        )
         if icon then
           vim_item.kind = icon
           vim_item.kind_hl_group = hl_group
@@ -64,6 +81,8 @@ lsp.setup_nvim_cmp({
     end,
   },
 })
+
+lsp.setup()
 
 local null_ls = require("null-ls")
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
@@ -80,13 +99,23 @@ local null_opts = lsp.build_options("null-ls", {
       })
     end
   end,
-  sources = {
-    null_ls.builtins.code_actions.eslint_d,
-    null_ls.builtins.code_actions.refactoring,
-    null_ls.builtins.diagnostics.commitlint,
-    null_ls.builtins.diagnostics.fish,
-    null_ls.builtins.formatting.fish_indent,
-    null_ls.builtins.formatting.prettierd.with({
+})
+
+local mason_null_ls = require("mason-null-ls")
+mason_null_ls.setup({
+  automatic_installation = true,
+  automatic_setup = true,
+})
+mason_null_ls.setup_handlers({
+  function(source_name, methods)
+    -- all sources with no handler get passed here
+
+    -- To keep the original functionality of `automatic_setup = true`,
+    -- please add the below.
+    require("mason-null-ls.automatic_setup")(source_name, methods)
+  end,
+  prettierd = function()
+    null_ls.register(null_ls.builtins.formatting.prettierd.with({
       filetypes = {
         "astro",
         "css",
@@ -101,18 +130,14 @@ local null_opts = lsp.build_options("null-ls", {
         "xml",
         "yaml",
       },
-    }),
-    null_ls.builtins.formatting.stylua,
-  },
+    }))
+  end,
 })
 
 null_ls.setup({
   border = "double",
   on_attach = null_opts.on_attach,
-  sources = null_opts.sources,
 })
-
-lsp.setup()
 
 vim.diagnostic.config({
   virtual_text = true,

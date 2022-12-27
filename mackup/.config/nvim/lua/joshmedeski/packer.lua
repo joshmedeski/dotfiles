@@ -19,11 +19,17 @@ return require("packer").startup({
 
     -- style
     use("xiyaowong/nvim-transparent")
-    use({ "nvim-lualine/lualine.nvim", requires = { "nvim-tree/nvim-web-devicons" } })
+    use({
+      "nvim-lualine/lualine.nvim",
+      requires = { "nvim-tree/nvim-web-devicons" },
+    })
 
     -- highlighting
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-    use({ "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" })
+    use({
+      "nvim-treesitter/nvim-treesitter-textobjects",
+      after = "nvim-treesitter",
+    })
     use({
       "norcalli/nvim-colorizer.lua",
       event = "BufRead",
@@ -54,8 +60,15 @@ return require("packer").startup({
     -- navigation
     use("airblade/vim-rooter")
     use("theprimeagen/harpoon")
-    use({ "lmburns/lf.nvim", requires = { "nvim-lua/plenary.nvim", "akinsho/toggleterm.nvim" } })
-    use({ "nvim-telescope/telescope.nvim", tag = "0.1.0", requires = "nvim-lua/plenary.nvim" })
+    use({
+      "lmburns/lf.nvim",
+      requires = { "nvim-lua/plenary.nvim", "akinsho/toggleterm.nvim" },
+    })
+    use({
+      "nvim-telescope/telescope.nvim",
+      tag = "0.1.0",
+      requires = "nvim-lua/plenary.nvim",
+    })
 
     -- lists
     use({ "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" })
@@ -69,16 +82,19 @@ return require("packer").startup({
         { "neovim/nvim-lspconfig" },
         { "williamboman/mason.nvim" },
         { "williamboman/mason-lspconfig.nvim" },
+        { "jay-babu/mason-null-ls.nvim" },
         -- null-ls
         { "jose-elias-alvarez/null-ls.nvim" },
-        -- Autocompletion
+        -- cmp
         { "hrsh7th/nvim-cmp" },
+        -- cmp plugins
+        { "davidsierradz/cmp-conventionalcommits" },
         { "hrsh7th/cmp-buffer" },
-        { "hrsh7th/cmp-path" },
-        { "saadparwaiz1/cmp_luasnip" },
         { "hrsh7th/cmp-nvim-lsp" },
         { "hrsh7th/cmp-nvim-lua" },
-        { "davidsierradz/cmp-conventionalcommits" },
+        { "hrsh7th/cmp-path" },
+        { "mtoohey31/cmp-fish" },
+        { "saadparwaiz1/cmp_luasnip" },
         -- Snippets
         { "L3MON4D3/LuaSnip" },
         { "rafamadriz/friendly-snippets" },
@@ -101,7 +117,10 @@ return require("packer").startup({
     -- git
     use("lewis6991/gitsigns.nvim")
     use("rhysd/committia.vim")
-    use({ "sindrets/diffview.nvim", requires = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons" } })
+    use({
+      "sindrets/diffview.nvim",
+      requires = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons" },
+    })
     use({
       "pwntester/octo.nvim",
       requires = {
