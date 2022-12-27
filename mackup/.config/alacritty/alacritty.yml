@@ -5,7 +5,7 @@ env:
 
 font:
   normal:
-    family: 'SFMono Nerd Font'
+    family: "SFMono Nerd Font"
     style: Medium
   size: 22.0
 
