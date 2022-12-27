@@ -120,7 +120,7 @@ wk.register({
     g = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
     j = { "<cmd>lua require 'gitsigns'.next_hunk({navigation_message = false})<cr>zt", "Next Hunk" },
     k = { "<cmd>lua require 'gitsigns'.prev_hunk({navigation_message = false})<cr>zt", "Prev Hunk" },
-    l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
+    l = { "<cmd>Gitsigns toggle_signs<cr>", "Blame" },
     n = { "<cmd>lua require 'gitsigns'.next_hunk({navigation_message = false})<cr>zt", "Next Hunk" },
     o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
     p = { "<cmd>lua require 'gitsigns'.prev_hunk({navigation_message = false})<cr>zt", "Prev Hunk" },
@@ -130,6 +130,13 @@ wk.register({
       "Undo Stage Hunk",
     },
     x = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
+  },
+
+  l = {
+    name = "Lines",
+    x = { "<cmd>set nonumber norelativenumber<cr>", "Hide line number" },
+    l = { "<cmd>set number relativenumber<cr>", "Relative line numbers" },
+    e = { "<cmd>set number norelativenumber<cr>", "Absolute line numbers" },
   },
 
   t = {
