@@ -21,7 +21,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 })
 
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufFilePre", "BufRead" }, {
-  pattern = { "*.mdx" },
+  pattern = { "*.mdx", "*.md" },
   callback = function()
     vim.cmd([[set filetype=markdown wrap linebreak nolist]])
   end,
