@@ -134,9 +134,9 @@ wk.register({
 
   l = {
     name = "Lines",
-    x = { "<cmd>set nonumber norelativenumber<cr>", "Hide line number" },
-    l = { "<cmd>set number relativenumber<cr>", "Relative line numbers" },
     e = { "<cmd>set number norelativenumber<cr>", "Absolute line numbers" },
+    r = { "<cmd>set number relativenumber<cr>", "Relative line numbers" },
+    x = { "<cmd>set nonumber norelativenumber<cr>", "Hide line number" },
   },
 
   t = {
