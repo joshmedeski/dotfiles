@@ -1,4 +1,8 @@
 {
+  "customizeUI.activityBar": "bottom",
+  "customizeUI.activityBarHideSettings": true,
+  "customizeUI.statusBarPosition": "under-panel",
+  "customizeUI.titleBar": "frameless",
   "editor.accessibilitySupport": "off",
   "editor.codeActionsOnSave": {
     "source.fixAll": false
@@ -10,12 +14,15 @@
   "editor.formatOnSave": true,
   "editor.inlineSuggest.enabled": true,
   "git.autofetch": true,
+  "gitlens.blame.highlight.enabled": false,
+  "gitlens.blame.toggleMode": "window",
   "redhat.telemetry.enabled": true,
   "terminal.external.osxExec": "Alarcitty.app",
   "terminal.integrated.env.osx": {
     "FIG_NEW_SESSION": "1"
   },
   "terminal.integrated.fontSize": 16,
+  "transparent-win.transparency": 0.8,
   "vim.easymotion": true,
   "vim.enableNeovim": true,
   "vim.leader": " ",
@@ -23,21 +30,14 @@
   "vim.statusBarColorControl": true,
   "vim.useSystemClipboard": true,
   "window.nativeFullScreen": false,
+  "window.titleBarStyle": "native",
+  "window.zoomLevel": -1,
   "workbench.colorCustomizations": {
     "statusBar.background": "#005f5f",
-    "statusBar.noFolderBackground": "#005f5f",
-    "statusBar.debuggingBackground": "#005f5f"
+    "statusBar.debuggingBackground": "#005f5f",
+    "statusBar.noFolderBackground": "#005f5f"
   },
   "workbench.colorTheme": "Catppuccin Mocha",
   "workbench.iconTheme": "vscode-icons",
-  "gitlens.blame.toggleMode": "window",
-  "gitlens.blame.highlight.enabled": false,
-  "transparent-win.transparency": 0.8,
-  "window.titleBarStyle": "native",
-  "workbench.layoutControl.enabled": false,
-  "customizeUI.activityBar": "bottom",
-  "customizeUI.activityBarHideSettings": true,
-  "customizeUI.statusBarPosition": "under-panel",
-  "customizeUI.titleBar": "frameless",
-  "window.zoomLevel": -1
+  "workbench.layoutControl.enabled": false
 }
