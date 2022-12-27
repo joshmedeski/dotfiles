@@ -3,6 +3,9 @@
 NAME=$1
 
 case $NAME in
+  tmux)
+    echo ""
+    ;;
   fish|zsh|bash)
     echo ""
     ;;
