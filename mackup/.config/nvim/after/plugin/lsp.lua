@@ -1,12 +1,28 @@
 local lsp = require("lsp-zero")
 require("neodev").setup({})
-require("lspconfig.ui.windows").default_options.border = "single"
+require("lspconfig.ui.windows").default_options.border = "double"
 
 lsp.preset("recommended")
 
 lsp.set_preferences({
   suggest_lsp_servers = true,
   sign_icons = { error = "", warn = "", hint = "﨧", info = "" },
+})
+
+require("packer").use({ "mtoohey31/cmp-fish", ft = "fish" })
+
+lsp.setup_nvim_cmp({
+  sources = {
+    { name = "nvim_lsp", group_index = 1 },
+    { name = "buffer", group_index = 2 },
+    { name = "nvim_lua" },
+    { name = "luasnip" },
+    { name = "path" },
+    { name = "spell" },
+    { name = "fish" },
+    { name = "tmux" },
+    { name = "conventionalcommits" },
+  },
 })
 
 local cmp = require("cmp")
@@ -78,12 +94,17 @@ local null_opts = lsp.build_options("null-ls", {
   end,
   sources = {
     null_ls.builtins.code_actions.eslint_d,
+    null_ls.builtins.code_actions.refactoring,
+    null_ls.builtins.diagnostics.commitlint,
+    null_ls.builtins.diagnostics.fish,
+    null_ls.builtins.formatting.fish_indent,
     null_ls.builtins.formatting.prettierd,
     null_ls.builtins.formatting.stylua,
   },
 })
 
 null_ls.setup({
+  border = "double",
   on_attach = null_opts.on_attach,
   sources = null_opts.sources,
 })
