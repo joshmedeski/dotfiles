@@ -35,8 +35,6 @@ lsp.on_attach(function(_, bufnr)
   })
 end)
 
-require("packer").use({ "mtoohey31/cmp-fish", ft = "fish" })
-
 local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
@@ -50,6 +48,8 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 -- this helps with copilot setup
 cmp_mappings["<Tab>"] = nil
 cmp_mappings["<S-Tab>"] = nil
+
+require("packer").use({ "mtoohey31/cmp-fish", ft = "fish" })
 
 local lspkind = require("lspkind")
 lsp.setup_nvim_cmp({
@@ -124,11 +124,6 @@ mason_null_ls.setup_handlers({
         "javascriptreact",
         "json",
         "markdown",
-        "markdown",
-        "typescript",
-        "typescriptreact",
-        "xml",
-        "yaml",
       },
     }))
   end,
@@ -137,6 +132,10 @@ mason_null_ls.setup_handlers({
 null_ls.setup({
   border = "double",
   on_attach = null_opts.on_attach,
+  sources = {
+    null_ls.builtins.diagnostics.fish,
+    null_ls.builtins.formatting.fish_indent,
+  },
 })
 
 vim.diagnostic.config({

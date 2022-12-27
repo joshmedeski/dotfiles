@@ -82,19 +82,55 @@ wk.register({
   ["."] = { "<cmd>CodeActionMenu<cr>", "CodeActionMenu" },
 
   -- Harpoon
-  ["'"] = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "Add to Harpoon" },
-  ["0"] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Show Harpoon" },
-  ["1"] = { "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", "Harpoon Buffer 1" },
-  ["2"] = { "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", "Harpoon Buffer 2" },
-  ["3"] = { "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", "Harpoon Buffer 3" },
-  ["4"] = { "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", "Harpoon Buffer 4" },
-  ["5"] = { "<cmd>lua require('harpoon.ui').nav_file(5)<cr>", "Harpoon Buffer 5" },
-  ["6"] = { "<cmd>lua require('harpoon.ui').nav_file(6)<cr>", "Harpoon Buffer 6" },
-  ["7"] = { "<cmd>lua require('harpoon.ui').nav_file(7)<cr>", "Harpoon Buffer 7" },
-  ["8"] = { "<cmd>lua require('harpoon.ui').nav_file(8)<cr>", "Harpoon Buffer 8" },
-  ["9"] = { "<cmd>lua require('harpoon.ui').nav_file(9)<cr>", "Harpoon Buffer 9" },
+  ["'"] = {
+    "<cmd>lua require('harpoon.mark').add_file()<cr>",
+    "Add to Harpoon",
+  },
+  ["0"] = {
+    "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>",
+    "Show Harpoon",
+  },
+  ["1"] = {
+    "<cmd>lua require('harpoon.ui').nav_file(1)<cr>",
+    "Harpoon Buffer 1",
+  },
+  ["2"] = {
+    "<cmd>lua require('harpoon.ui').nav_file(2)<cr>",
+    "Harpoon Buffer 2",
+  },
+  ["3"] = {
+    "<cmd>lua require('harpoon.ui').nav_file(3)<cr>",
+    "Harpoon Buffer 3",
+  },
+  ["4"] = {
+    "<cmd>lua require('harpoon.ui').nav_file(4)<cr>",
+    "Harpoon Buffer 4",
+  },
+  ["5"] = {
+    "<cmd>lua require('harpoon.ui').nav_file(5)<cr>",
+    "Harpoon Buffer 5",
+  },
+  ["6"] = {
+    "<cmd>lua require('harpoon.ui').nav_file(6)<cr>",
+    "Harpoon Buffer 6",
+  },
+  ["7"] = {
+    "<cmd>lua require('harpoon.ui').nav_file(7)<cr>",
+    "Harpoon Buffer 7",
+  },
+  ["8"] = {
+    "<cmd>lua require('harpoon.ui').nav_file(8)<cr>",
+    "Harpoon Buffer 8",
+  },
+  ["9"] = {
+    "<cmd>lua require('harpoon.ui').nav_file(9)<cr>",
+    "Harpoon Buffer 9",
+  },
 
-  ["/"] = { "<cmd>lua require('telescope.builtin').live_grep()<cr>", "Live Grep" },
+  ["/"] = {
+    "<cmd>lua require('telescope.builtin').live_grep()<cr>",
+    "Live Grep",
+  },
 
   b = {
     name = "buffer",
@@ -105,7 +141,7 @@ wk.register({
     n = { "<cmd>bn<cr>", "Next" },
     p = { "<cmd>bp<cr>", "Previous" },
     s = {
-      name = "Surroding",
+      name = "Surrounding",
       d = { "<cmd>%bd|e#|bd#<cr>|'<cr>", "Delete surrounding" },
     },
   },
@@ -118,18 +154,37 @@ wk.register({
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     -- c = { "<cmd>silent !git commit -v<cr>", "Commit" },
     g = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
-    j = { "<cmd>lua require 'gitsigns'.next_hunk({navigation_message = false})<cr>zt", "Next Hunk" },
-    k = { "<cmd>lua require 'gitsigns'.prev_hunk({navigation_message = false})<cr>zt", "Prev Hunk" },
+    j = {
+      "<cmd>lua require 'gitsigns'.next_hunk({navigation_message = false})<cr>zt",
+      "Next Hunk",
+    },
+    k = {
+      "<cmd>lua require 'gitsigns'.prev_hunk({navigation_message = false})<cr>zt",
+      "Prev Hunk",
+    },
     l = { "<cmd>Gitsigns toggle_signs<cr>", "Blame" },
-    n = { "<cmd>lua require 'gitsigns'.next_hunk({navigation_message = false})<cr>zt", "Next Hunk" },
+    n = {
+      "<cmd>lua require 'gitsigns'.next_hunk({navigation_message = false})<cr>zt",
+      "Next Hunk",
+    },
     o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-    p = { "<cmd>lua require 'gitsigns'.prev_hunk({navigation_message = false})<cr>zt", "Prev Hunk" },
+    p = {
+      "<cmd>lua require 'gitsigns'.prev_hunk({navigation_message = false})<cr>zt",
+      "Prev Hunk",
+    },
     R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
     u = {
       "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
       "Undo Stage Hunk",
     },
     x = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
+  },
+
+  i = {
+    name = "Info",
+    l = { "<cmd>LspInfo<cr>", "Show LSP Info" },
+    m = { "<cmd>Mason<cr>", "Show Mason" },
+    n = { "<cmd>NullLsInfo<cr>", "Show null-ls Info" },
   },
 
   l = {
@@ -143,11 +198,23 @@ wk.register({
     name = "Trouble",
     d = { "<cmd>Trouble lsp_document_diagnostics<cr>", "Diagnostics" },
     f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
-    j = { "<cmd>lua require('todo-comments').jump_next()<cr>", "Next TODO comment" },
-    k = { "<cmd>lua require('todo-comments').jump_prev()<cr>", "Prev TODO comment" },
+    j = {
+      "<cmd>lua require('todo-comments').jump_next()<cr>",
+      "Next TODO comment",
+    },
+    k = {
+      "<cmd>lua require('todo-comments').jump_prev()<cr>",
+      "Prev TODO comment",
+    },
     l = { "<cmd>Trouble loclist<cr>", "LocationList" },
-    n = { "<cmd>lua require('todo-comments').jump_next()<cr>", "Next TODO comment" },
-    p = { "<cmd>lua require('todo-comments').jump_prev()<cr>", "Prev TODO comment" },
+    n = {
+      "<cmd>lua require('todo-comments').jump_next()<cr>",
+      "Next TODO comment",
+    },
+    p = {
+      "<cmd>lua require('todo-comments').jump_prev()<cr>",
+      "Prev TODO comment",
+    },
     q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
     r = { "<cmd>Trouble lsp_references<cr>", "References" },
     t = { "<cmd>TroubleToggle<cr>", "Toggle Trouble" },
