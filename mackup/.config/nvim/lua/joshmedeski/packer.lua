@@ -1,3 +1,4 @@
+-- cSpell:words packadd wbthomason xiyaowong catppuccin christoomey octo devicons pwntester sindrets rhysd committia weilbith onsails folke rafamadriz conventionalcommits davidsierradz hrsh7th saadparwaiz1 williamboman Heikemen lmburns theprimeagen airblade mbbill tpope norcalli toggleterm akinsho autopairs windwp textobjects kyazdani
 vim.cmd([[packadd packer.nvim]])
 
 return require("packer").startup({
@@ -18,7 +19,7 @@ return require("packer").startup({
 
     -- style
     use("xiyaowong/nvim-transparent")
-    use({ "nvim-lualine/lualine.nvim", requires = { "nvim-tree/nvim-web-devicons", opt = true } })
+    use({ "nvim-lualine/lualine.nvim", requires = { "nvim-tree/nvim-web-devicons" } })
 
     -- highlighting
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
@@ -58,7 +59,7 @@ return require("packer").startup({
 
     -- lists
     use({ "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" })
-    use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" })
+    use({ "folke/trouble.nvim", requires = "nvim-tree/nvim-web-devicons" })
 
     -- lsp
     use({
@@ -88,6 +89,7 @@ return require("packer").startup({
         { "onsails/lspkind.nvim" },
       },
     })
+    use({ "weilbith/nvim-code-action-menu" })
 
     -- git
     use("lewis6991/gitsigns.nvim")
