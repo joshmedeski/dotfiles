@@ -99,6 +99,22 @@ local null_opts = lsp.build_options("null-ls", {
     null_ls.builtins.diagnostics.fish,
     null_ls.builtins.formatting.fish_indent,
     null_ls.builtins.formatting.prettierd,
+    null_ls.builtins.formatting.prettierd.with({
+      filetypes = {
+        "astro",
+        "css",
+        "html",
+        "javascript",
+        "javascriptreact",
+        "json",
+        "markdown",
+        "markdown",
+        "typescript",
+        "typescriptreact",
+        "xml",
+        "yaml",
+      },
+    }),
     null_ls.builtins.formatting.stylua,
   },
 })
