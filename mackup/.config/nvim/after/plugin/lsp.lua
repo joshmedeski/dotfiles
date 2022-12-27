@@ -9,6 +9,47 @@ lsp.set_preferences({
   sign_icons = { error = "", warn = "", hint = "﨧", info = "" },
 })
 
+lsp.on_attach(function(_, bufnr)
+  local opts = { buffer = bufnr, remap = false }
+  local map = vim.keymap.set
+
+  local function filterReactDTS(value)
+    return string.match(value.filename, "%.d.ts") == nil
+  end
+
+  local function filter(arr, fn)
+    if type(arr) ~= "table" then
+      return arr
+    end
+
+    local filtered = {}
+    for k, v in pairs(arr) do
+      if fn(v, k, arr) then
+        table.insert(filtered, v)
+      end
+    end
+
+    return filtered
+  end
+
+  local function on_list(options)
+    -- https://github.com/typescript-language-server/typescript-language-server/issues/216
+    local items = options.items
+    if #items > 1 then
+      items = filter(items, filterReactDTS)
+    end
+
+    vim.fn.setqflist({}, " ", { title = options.title, items = items, context = options.context })
+    vim.api.nvim_command("cfirst")
+  end
+
+  local goto_definition = function()
+    vim.lsp.buf.definition({ on_list = on_list })
+  end
+
+  map("n", "gd", goto_definition, opts)
+end)
+
 require("packer").use({ "mtoohey31/cmp-fish", ft = "fish" })
 
 lsp.setup_nvim_cmp({
@@ -57,26 +98,6 @@ lsp.setup_nvim_cmp({
   },
 })
 
-lsp.on_attach(function(client, bufnr)
-  local opts = { buffer = bufnr, remap = false }
-
-  if client.name == "eslint" then
-    vim.cmd.LspStop("eslint")
-    return
-  end
-
-  vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-  vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-  vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, opts)
-  vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
-  vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
-  vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
-  vim.keymap.set("n", "<leader>vca", vim.lsp.buf.code_action, opts)
-  vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, opts)
-  vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
-  vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
-end)
-
 local null_ls = require("null-ls")
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local null_opts = lsp.build_options("null-ls", {
@@ -98,7 +119,6 @@ local null_opts = lsp.build_options("null-ls", {
     null_ls.builtins.diagnostics.commitlint,
     null_ls.builtins.diagnostics.fish,
     null_ls.builtins.formatting.fish_indent,
-    null_ls.builtins.formatting.prettierd,
     null_ls.builtins.formatting.prettierd.with({
       filetypes = {
         "astro",
