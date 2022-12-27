@@ -1,4 +1,5 @@
 -- cSpell:words bufnr mtoohey
+
 local lsp = require("lsp-zero")
 require("lspconfig.ui.windows").default_options.border = "double"
 require("neodev").setup({})
