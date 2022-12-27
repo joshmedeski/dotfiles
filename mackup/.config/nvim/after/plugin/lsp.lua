@@ -10,44 +10,11 @@ lsp.set_preferences({
 })
 
 lsp.on_attach(function(_, bufnr)
-  local opts = { buffer = bufnr, remap = false }
-  local map = vim.keymap.set
-
-  local function filterReactDTS(value)
-    return string.match(value.filename, "%.d.ts") == nil
-  end
-
-  local function filter(arr, fn)
-    if type(arr) ~= "table" then
-      return arr
-    end
-
-    local filtered = {}
-    for k, v in pairs(arr) do
-      if fn(v, k, arr) then
-        table.insert(filtered, v)
-      end
-    end
-
-    return filtered
-  end
-
-  local function on_list(options)
-    -- https://github.com/typescript-language-server/typescript-language-server/issues/216
-    local items = options.items
-    if #items > 1 then
-      items = filter(items, filterReactDTS)
-    end
-
-    vim.fn.setqflist({}, " ", { title = options.title, items = items, context = options.context })
-    vim.api.nvim_command("cfirst")
-  end
-
-  local goto_definition = function()
-    vim.lsp.buf.definition({ on_list = on_list })
-  end
-
-  map("n", "gd", goto_definition, opts)
+  vim.keymap.set("n", "gd", require("joshmedeski/go_to_def").go_to_def, {
+    buffer = bufnr,
+    remap = false,
+    desc = "Go to definition",
+  })
 end)
 
 require("packer").use({ "mtoohey31/cmp-fish", ft = "fish" })
