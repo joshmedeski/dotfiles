@@ -77,6 +77,7 @@ vim.keymap.set("v", "<leader>y", '"+y', { desc = "Yank to clipboard" })
 wk.register({
   -- format
   ["="] = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format file" },
+
   -- Harpoon
   ["'"] = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "Add to Harpoon" },
   ["0"] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Show Harpoon" },
@@ -106,7 +107,7 @@ wk.register({
     },
   },
 
-  f = { "<cmd>Lf<cr>", "Lf" }, -- create a binding with label
+  f = { "<cmd>Lf<cr>", "Lf" },
 
   g = {
     name = "Git",
