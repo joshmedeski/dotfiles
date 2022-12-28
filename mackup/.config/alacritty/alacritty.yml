@@ -19,7 +19,6 @@ window:
 
 key_bindings:
   - { key: Comma, mods: Command, chars: "\x02," }
-  - { key: D, mods: Command, chars: "\x02K" }
   - { key: E, mods: Command, chars: "\x02\"" }
   - { key: E, mods: Command|Shift, chars: "\x02%" }
   - { key: F, mods: Command, chars: "\x02\x5b\x2f" }
