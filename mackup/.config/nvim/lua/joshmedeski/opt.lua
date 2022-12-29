@@ -11,6 +11,10 @@ vim.g.maplocalleader = " "
 -- default position
 vim.opt.scrolloff = 5
 
+-- ex line
+vim.o.ls = 0
+vim.o.ch = 0
+
 -- search
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
