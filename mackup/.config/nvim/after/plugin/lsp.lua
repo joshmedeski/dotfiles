@@ -7,7 +7,7 @@ lsp.preset("recommended")
 
 lsp.set_preferences({
   suggest_lsp_servers = true,
-  sign_icons = { error = "", warn = "", hint = "﨧", info = "" },
+  sign_icons = { error = "", warn = "", hint = "", info = "" },
 })
 
 lsp.on_attach(function(_, bufnr)
