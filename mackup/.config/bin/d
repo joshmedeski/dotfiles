@@ -1,28 +1,29 @@
 #!/bin/sh
 
-if [ -z "$TMUX" ]; then
-  echo 'Not in tmux'
-else
-  tmux rename-window 'd'
-fi
+# NOTE: disable renaming tmux window in favor of tmux-icon-name script
+# if [ -z "$TMUX" ]; then
+#   echo 'Not in tmux'
+# else
+#   tmux rename-window 'd'
+# fi
 
 # if current dir has 'package-lock.json` file, then npm install
 if [ -f package-lock.json ]; then
-  echo 'npm run dev'
-  npm run dev
-  exit 0
+    echo 'npm run dev'
+    npm run dev
+    exit 0
 fi
 
 if [ -f yarn.lock ]; then
-  echo 'yarn dev'
-  yarn dev
-  exit 0
+    echo 'yarn dev'
+    yarn dev
+    exit 0
 fi
 
 if [ -f pnpm-lock.yaml ]; then
-  echo 'pnpm run dev'
-  pnpm run dev
-  exit 0
+    echo 'pnpm run dev'
+    pnpm run dev
+    exit 0
 fi
 
 echo ' Node package not detected'
