@@ -21,8 +21,8 @@ key_bindings:
   - { key: Comma, mods: Command, chars: "\x02," }
   - { key: E, mods: Command, chars: "\x02\"" }
   - { key: E, mods: Command|Shift, chars: "\x02%" }
-  - { key: F, mods: Command, chars: "\x02\x5b\x2f" }
-  - { key: F, mods: Command|Shift, chars: "lfcd\n" }
+  - { key: F, mods: Command|Shift, chars: "\x02\x5b\x2f" }
+  - { key: F, mods: Command, chars: "lfcd\n" }
   - { key: G, mods: Command, chars: "\x02g" }
   - { key: J, mods: Command, chars: "\x02\x54" }
   - { key: K, mods: Command, chars: "\x02s" }
