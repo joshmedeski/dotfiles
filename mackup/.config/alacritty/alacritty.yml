@@ -17,6 +17,9 @@ window:
   dynamic_padding: false
   decorations: buttonless
 
+# \x1b = escape (useful for vim-related keybindings)
+# \x02 = control-b (the default tmux prefix)
+
 key_bindings:
   - { key: Comma, mods: Command, chars: "\x02," }
   - { key: E, mods: Command, chars: "\x02\"" }
