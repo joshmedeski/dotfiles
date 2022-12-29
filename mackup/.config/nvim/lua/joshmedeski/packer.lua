@@ -74,6 +74,16 @@ return require("packer").startup({
     use({ "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" })
     use({ "folke/trouble.nvim", requires = "nvim-tree/nvim-web-devicons" })
 
+    -- window
+    use({
+      "beauwilliams/focus.nvim",
+      cmd = { "FocusSplitNicely", "FocusSplitCycle" },
+      module = "focus",
+      config = function()
+        require("focus").setup({ hybridnumber = true })
+      end,
+    })
+
     -- lsp
     use({
       "VonHeikemen/lsp-zero.nvim",
