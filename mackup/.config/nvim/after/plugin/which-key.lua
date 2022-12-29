@@ -79,7 +79,7 @@ wk.register({
   ["="] = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format file" },
 
   -- lsp
-  ["."] = { "<cmd>CodeActionMenu<cr>", "CodeActionMenu" },
+  ["<leader>"] = { "<cmd>CodeActionMenu<cr>", "CodeActionMenu" },
 
   -- Harpoon
   ["'"] = {
