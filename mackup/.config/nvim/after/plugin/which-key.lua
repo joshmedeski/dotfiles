@@ -195,6 +195,11 @@ wk.register({
     x = { "<cmd>set nonumber norelativenumber<cr>", "Hide line number" },
   },
 
+  r = {
+    name = "Replace",
+    r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+  },
+
   s = {
     name = "Spelling & Grammar",
     c = { "<cmd>setlocal spell!<cr>", "Toggle spell check" },
