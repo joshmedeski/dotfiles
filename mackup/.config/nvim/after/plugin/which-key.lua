@@ -153,7 +153,8 @@ wk.register({
     a = { "<cmd>silent !git add %<cr>", "Commit" },
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     -- c = { "<cmd>silent !git commit -v<cr>", "Commit" },
-    d = { "<cmd>:DiffViewOpen<cr>", "DiffViewOpen" },
+    d = { "<cmd>:DiffviewOpen<cr>", "DiffViewOpen" },
+    D = { "<cmd>:DiffviewClose<cr>", "DiffViewOpen" },
     g = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
     j = {
       "<cmd>lua require 'gitsigns'.next_hunk({navigation_message = false})<cr>zt",
