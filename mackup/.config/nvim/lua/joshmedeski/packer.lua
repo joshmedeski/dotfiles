@@ -1,4 +1,4 @@
--- cSpell:words packadd wbthomason xiyaowong catppuccin christoomey octo devicons pwntester sindrets rhysd committia weilbith onsails folke rafamadriz conventionalcommits davidsierradz hrsh7th saadparwaiz1 williamboman Heikemen lmburns theprimeagen airblade mbbill tpope norcalli toggleterm akinsho autopairs windwp textobjects kyazdani
+-- cSpell:words packadd wbthomason xiyaowong catppuccin christoomey octo devicons pwntester sindrets rhysd committia weilbith onsails folke rafamadriz conventionalcommits davidsierradz hrsh7th saadparwaiz1 williamboman Heikemen lmburns theprimeagen airblade mbbill tpope norcalli toggleterm akinsho autopairs windwp textobjects kyazdani beauwilliams hybridnumber
 vim.cmd([[packadd packer.nvim]])
 
 return require("packer").startup({
@@ -58,7 +58,7 @@ return require("packer").startup({
     use("mbbill/undotree")
 
     -- navigation
-    use("airblade/vim-rooter")
+    -- use("airblade/vim-rooter")
     use("theprimeagen/harpoon")
     use({
       "lmburns/lf.nvim",
