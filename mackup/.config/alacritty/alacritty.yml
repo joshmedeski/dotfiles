@@ -43,8 +43,8 @@ key_bindings:
   - { key: LBracket, mods: Command, chars: "\x0f" } # navigate back (ctrl+o)
   - { key: LBracket, mods: Command|Shift, chars: "\x02p" } # switch to next tmux window
   - { key: O, mods: Command, chars: "\x02u" }
-  - { key: P, mods: Command, chars: "\x1b:Telescope git_files\n" } # files
-  - { key: P, mods: Command|Shift, chars: "\x1b:Telescope commands\n" } # commands
+  - { key: P, mods: Command, chars: ":GoToFile\n" } # files
+  - { key: P, mods: Command|Shift, chars: ":GoToCommand\n" } # commands
   # - { key: Period, mods: Command, chars: "\x1b\x20\x2e\x0a" } (causes popup to be unfocused)
   - { key: Q, mods: Command, chars: ":q\n" } # quit vim
   - { key: R, mods: Command, chars: "\x1b\x5b\x41\x0a" }
