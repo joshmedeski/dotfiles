@@ -15,6 +15,7 @@ This is the home of all my dotfiles. These are special files that add custom con
 - Git: [lazygit](https://github.com/jesseduffield/lazygit)
 - macOS package manager: [Homebrew](https://brew.sh)
 - npm package manager: [pnpm](https://pnpm.io/)
+- music accessory: [Sleeve](https://replay.software/sleeve)
 
 # Hardware
 
