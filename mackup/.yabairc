@@ -46,6 +46,5 @@ yabai -m rule --add app="^Creative Cloud$" manage=off
 yabai -m rule --add app="^Logi Options$" manage=off
 yabai -m rule --add app="^Alfred Preferences$" manage=off
 yabai -m rule --add app="Raycast" manage=off
-yabai -m rule --add app="^Music$" manage=off
 
 echo "yabai configuration loaded.."
