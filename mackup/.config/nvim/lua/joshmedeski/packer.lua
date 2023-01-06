@@ -6,6 +6,9 @@ return require("packer").startup({
     -- plugins
     use("wbthomason/packer.nvim")
 
+    -- startup
+    use("dstein64/vim-startuptime")
+
     -- cache
     use({
       "lewis6991/impatient.nvim",
