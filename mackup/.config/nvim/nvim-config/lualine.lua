@@ -1,3 +1,4 @@
+-- "nvim-lualine/lualine.nvim"
 local status_ok, lualine = pcall(require, "lualine")
 if not status_ok then
   return
@@ -12,33 +13,25 @@ end
 
 local diagnostics = {
   "diagnostics",
-  sources = { "coc" },
-  sections = { "error", "warn", "info" },
-  symbols = { error = "", warn = "", hint = "", info = "" },
+  sources = { "nvim_lsp" },
+  sections = { "error", "warn", "hint", "info" },
+  symbols = { error = " ", warn = " ", hint = " ", info = " " },
   colored = true,
-  update_in_insert = false,
+  update_in_insert = true,
   always_visible = false,
 }
 
 local diff = {
   "diff",
   colored = true,
-  symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
+  symbols = { added = " ", modified = " ", removed = " " },
   cond = hide_in_width,
 }
 
--- local mode = {
---   "mode",
---   colored = false,
--- }
-
--- local location = {
---   "location",
---   fmt = function(str)
---     return str .. " "
---   end,
---   padding = 0,
--- }
+local mode = {
+  "mode",
+  colored = false,
+}
 
 lualine.setup({
   options = {
