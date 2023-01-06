@@ -28,11 +28,6 @@ local diff = {
   cond = hide_in_width,
 }
 
-local mode = {
-  "mode",
-  colored = false,
-}
-
 lualine.setup({
   options = {
     icons_enabled = true,
