@@ -2,7 +2,7 @@
 
 ![screenshot](./screenshot.png)
 
-This is the home of all my dotfiles. These are special files that add custom configurations to my computer and applications, primarily the terminnal.
+This is the home of all my dotfiles. These are files that add custom configurations to my computer and applications, primarily the terminal.
 
 # Software
 
