@@ -154,7 +154,7 @@ return require("packer").startup({
 
     -- tracking
     use("wakatime/vim-wakatime")
-    use("ActivityWatch/aw-watcher-vim")
+    -- use("ActivityWatch/aw-watcher-vim")
   end,
   config = { display = { open_fn = require("packer.util").float } },
 })
