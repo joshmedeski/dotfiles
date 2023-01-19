@@ -34,6 +34,10 @@ return require("packer").startup({
       after = "nvim-treesitter",
     })
     use({
+      "JoosepAlviste/nvim-ts-context-commentstring",
+      after = "nvim-treesitter",
+    })
+    use({
       "norcalli/nvim-colorizer.lua",
       event = "BufRead",
       config = function()
