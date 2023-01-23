@@ -21,3 +21,8 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufFilePre", "BufRead" }, {
     vim.cmd([[set filetype=markdown wrap linebreak nolist]])
   end,
 })
+
+vim.api.nvim_create_autocmd({ "BufReadPost", "FileReadPost" }, {
+  pattern = {"*"},
+  command = "set foldlevel=99",
+})
