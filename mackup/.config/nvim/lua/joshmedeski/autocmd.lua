@@ -26,3 +26,10 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "FileReadPost" }, {
   pattern = {"*"},
   command = "set foldlevel=99",
 })
+
+vim.api.nvim_create_autocmd({ "BufRead" }, {
+  pattern = { "gitmux.conf" },
+  callback = function()
+    vim.cmd([[set filetype=sh]])
+  end,
+})
