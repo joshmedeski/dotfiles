@@ -1,47 +1,43 @@
-pids
-logs
-node_modules
-npm-debug.log
-coverage/
-run
-dist
-.DS_Store
-.nyc_output
+.aws/credentials
+.azure
 .basement
-config.local.js
+.config/fish/fish_variables
+.config/fish/functions/fzf_key_bindings.fish
+.config/karabiner/
+.DS_Store
+.gnupg/trustdb.gpg
+.npmrc
+.nyc_output
+.ssh
+.wakatime.cfg
+.yarnrc
 basement_dist
-mackup/.ssh
-
-mackup/.config/fish/fish_variables
-mackup/.config/fish/functions/fzf_key_bindings.fish
-mackup/.aws/credentials
-
-mackup/.wakatime.cfg
-mackup/.gnupg/trustdb.gpg
-mackup/.yarnrc
-
-mackup/Library/Application Support/Adobe
-mackup/Library/Developer/Xcode/UserData/KeyBindings
-mackup/Library/Application Support/obs-studio
-mackup/Library/Preferences/com.adobe.Photoshop.plist
-mackup/Library/Preferences/com.adobe.illustrator.plist
-mackup/Library/Preferences/com.apple.Music.eq.plist
-mackup/Library/Preferences/com.apple.Music.plist
-mackup/Library/Preferences/com.apple.dt.Xcode.plist
-mackup/Library/Preferences/com.apple.symbolichotkeys.plist
-mackup/Library/Preferences/com.logitech.manager.setting.ffff.plist
-mackup/Library/Preferences/com.obsproject.obs-studio.plist
-mackup/Library/Preferences/com.raycast.macos.plist
-mackup/Library/Preferences/com.spotify.client.plist
-mackup/Library/Application Support/Loopback/Devices.plist
-mackup/Library/Application Support/Rocket/rocket.db
-mackup/Library/Application Support/zoxide/db.zo
-mackup/Library/Preferences/com.apple.Terminal.plist
-mackup/Library/Preferences/com.knollsoft.Rectangle.plist
-mackup/Library/Preferences/com.rogueamoeba.Loopback.plist
-mackup/Library/Preferences/name.guoc.SpaceLauncher.plist
-mackup/Library/Preferences/net.matthewpalmer.Rocket.plist
-mackup/.npmrc
-mackup/.azure
-mackup/.config/karabiner/
-mackup/Library/Application Support/mkcert
+config.local.js
+coverage/
+dist
+Library/Application Support/Adobe
+Library/Application Support/Loopback/Devices.plist
+Library/Application Support/mkcert
+Library/Application Support/obs-studio
+Library/Application Support/Rocket/rocket.db
+Library/Application Support/zoxide/db.zo
+Library/Developer/Xcode/UserData/KeyBindings
+Library/Preferences/com.adobe.illustrator.plist
+Library/Preferences/com.adobe.Photoshop.plist
+Library/Preferences/com.apple.dt.Xcode.plist
+Library/Preferences/com.apple.Music.eq.plist
+Library/Preferences/com.apple.Music.plist
+Library/Preferences/com.apple.symbolichotkeys.plist
+Library/Preferences/com.apple.Terminal.plist
+Library/Preferences/com.knollsoft.Rectangle.plist
+Library/Preferences/com.logitech.manager.setting.ffff.plist
+Library/Preferences/com.obsproject.obs-studio.plist
+Library/Preferences/com.raycast.macos.plist
+Library/Preferences/com.rogueamoeba.Loopback.plist
+Library/Preferences/com.spotify.client.plist
+Library/Preferences/name.guoc.SpaceLauncher.plist
+Library/Preferences/net.matthewpalmer.Rocket.plist
+logs
+npm-debug.log
+pids
+run
