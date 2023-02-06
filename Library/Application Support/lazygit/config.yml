@@ -86,15 +86,10 @@ disableStartupPopups: false
 notARepository: 'prompt' # one of: 'prompt' | 'create' | 'skip'
 promptToReturnFromSubprocess: false # display confirmation when subprocess terminates
 customCommands:
-  - key: "c"
+  - key: "z"
     command: "~/.config/bin/gc"
     context: "files"
-    loadingText: "Commit"
-    subprocess: true
-  - key: "Z"
-    command: "cz commit"
-    context: "files"
-    loadingText: "opening commitizen commit tool"
+    loadingText: "Commitizen prompt"
     subprocess: true
 keybinding:
   universal:
