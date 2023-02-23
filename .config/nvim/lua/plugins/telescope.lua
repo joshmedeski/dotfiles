@@ -33,6 +33,9 @@ return {
         prompt_prefix = " ",
         show_untracked = true,
       },
+      find_files = {
+        find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+      },
     },
   },
   keys = function()
