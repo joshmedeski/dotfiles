@@ -34,7 +34,8 @@ return {
         show_untracked = true,
       },
       find_files = {
-        find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+        prompt_prefix = " ",
+        find_command = { "rg", "--files", "--hidden" },
       },
     },
   },
