@@ -29,14 +29,14 @@ set -Ux FZF_TMUX_OPTS "-p --reverse --no-info --pointer='' --marker='' \
 
 set -Ux FZF_CTRL_R_OPTS "--border-label=' History ' --prompt=' '"
 
-set -U GOPATH (go env GOPATH) # https://golang.google.cn/
-set -U KIT_EDITOR /opt/homebrew/bin/nvim # https://www.scriptkit.com/
-set -U LANG en_US.UTF-8
-set -U LC_ALL en_US.UTF-8
-set -U NODE_PATH "~/.nvm/versions/node/v16.19.0/bin/node" # 'nvm-sh/nvm'
-set -U PAGER ~/.local/bin/nvimpager # 'lucc/nvimpager'
-set -U RIPGREP_CONFIG_PATH "$HOME/.config/rg/ripgreprc"
-set -U VISUAL nvim
+set -Ux GOPATH (go env GOPATH) # https://golang.google.cn/
+set -Ux KIT_EDITOR /opt/homebrew/bin/nvim # https://www.scriptkit.com/
+set -Ux LANG en_US.UTF-8
+set -Ux LC_ALL en_US.UTF-8
+set -Ux NODE_PATH "~/.nvm/versions/node/v16.19.0/bin/node" # 'nvm-sh/nvm'
+set -Ux PAGER ~/.local/bin/nvimpager # 'lucc/nvimpager'
+set -Ux RIPGREP_CONFIG_PATH "$HOME/.config/rg/ripgreprc"
+set -Ux VISUAL nvim
 
 # ordered by priority - bottom up
 fish_add_path /opt/homebrew/bin # https://brew.sh/
