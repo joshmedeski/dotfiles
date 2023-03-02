@@ -1,0 +1,10 @@
+#!/bin/sh
+
+gum style "Find and replace"
+FIND=$(gum input --placeholder "find")
+gum style "Find: $FIND"
+REPLACE=$(gum input --placeholder "replace with")
+gum style "Replace: $REPLACE"
+WHERE=$(gum input --placeholder ".")
+
+fd "$WHERE" | sad "$FIND" "$REPLACE"
