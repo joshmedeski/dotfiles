@@ -8,6 +8,11 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 })
 
 vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = { "config.fish" },
+  command = "execute 'silent !source <afile> --silent'",
+})
+
+vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = { ".yabairc" },
   command = "!brew services restart yabai",
 })
