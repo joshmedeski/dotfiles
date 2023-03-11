@@ -34,21 +34,21 @@ return {
 
     local diff = {
       "diff",
-      colored = true,
       symbols = {
         added = icons.git.added .. " ",
         untracked = icons.git.added .. " ",
         modified = icons.git.changed .. " ",
         removed = icons.git.deleted .. " ",
       },
-      -- cond = hide_in_width,
+      colored = true,
+      always_visible = false,
     }
 
     return {
       options = {
         theme = "auto",
         globalstatus = true,
-        component_separators = { left = " ", right = " " },
+        component_separators = { left = "", right = "" },
         disabled_filetypes = { statusline = { "dashboard", "lazy", "alpha" } },
       },
       sections = {
