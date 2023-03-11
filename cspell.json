@@ -1,7 +1,4 @@
 {
-  "language": "en",
-  "version": "0.2",
-  "flagWords": [],
   "words": [
     "ajeetdsouza",
     "akohlbecker",
@@ -99,11 +96,19 @@
     "vomnibar",
     "wakatime",
     "wakatime",
-    "wellle"
+    "wellle",
     "wfxr",
     "winwidth",
     "Xcode",
     "yabai",
-    "zoxide"
-  ]
+    "zoxide",
+    "folke",
+    "lazyvim",
+    "navic",
+    "globalstatus",
+    "statusline"
+  ],
+  "version": "0.2",
+  "language": "en",
+  "flagWords": []
 }
