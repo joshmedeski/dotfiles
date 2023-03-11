@@ -47,6 +47,9 @@ alt - t : yabai -m window --toggle float;\
 # toggle window split type
 alt - e : yabai -m window --toggle split
 
+# toggle window split type
+alt - m : yabai -m space --toggle mission-control
+
 # balance size of windows
 shift + alt - 0 : yabai -m space --balance
 
