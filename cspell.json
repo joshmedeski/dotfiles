@@ -1,4 +1,5 @@
 {
+  "flagWords": [],
   "words": [
     "ajeetdsouza",
     "akohlbecker",
@@ -106,9 +107,9 @@
     "lazyvim",
     "navic",
     "globalstatus",
-    "statusline"
+    "statusline",
+    "nargs"
   ],
-  "version": "0.2",
   "language": "en",
-  "flagWords": []
+  "version": "0.2"
 }
