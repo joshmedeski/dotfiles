@@ -6,14 +6,7 @@ return {
       require("lazyvim.util").deprecate("lualine.override", "lualine.opts")
     end
 
-    -- local hide_in_width = function()
-    --   return vim.fn.winwidth(0) > 80
-    -- end
-
-    local icons = require("lazyvim.config").icons
-
-    local filetype = { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } }
-    local filename = { "filename", path = 1, symbols = { modified = "  ", readonly = "", unnamed = "" } }
+    local icons = require("config.icons")
 
     local navic = {
       function()
@@ -43,51 +36,29 @@ return {
       "diff",
       colored = true,
       symbols = {
-        added = icons.git.added,
-        untracked = icons.git.added,
-        modified = icons.git.modified,
-        removed = icons.git.removed,
+        added = icons.git.added .. " ",
+        untracked = icons.git.added .. " ",
+        modified = icons.git.changed .. " ",
+        removed = icons.git.deleted .. " ",
       },
       -- cond = hide_in_width,
     }
-
-    local function fg(name)
-      return function()
-        ---@type {foreground?:number}?
-        local hl = vim.api.nvim_get_hl_by_name(name, true)
-        return hl and hl.foreground and { fg = string.format("#%06x", hl.foreground) }
-      end
-    end
 
     return {
       options = {
         theme = "auto",
         globalstatus = true,
+        component_separators = { left = " ", right = " " },
         disabled_filetypes = { statusline = { "dashboard", "lazy", "alpha" } },
       },
       sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = { diff, diagnostics, filetype, filename, navic },
-        lualine_x = {
-            -- stylua: ignore
-            {
-              function() return require("noice").api.status.command.get() end,
-              cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
-              color = fg("Statement")
-            },
-            -- stylua: ignore
-            {
-              function() return require("noice").api.status.mode.get() end,
-              cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
-              color = fg("Constant") ,
-            },
-          { require("lazy.status").updates, cond = require("lazy.status").has_updates, color = fg("Special") },
-        },
+        lualine_c = { diff, diagnostics, navic },
+        lualine_x = {},
         lualine_y = {},
         lualine_z = {},
       },
-      extensions = { "nvim-tree" },
     }
   end,
 }
