@@ -3,7 +3,7 @@
 await $`brew update`;
 let outdated = await $`brew outdated`;
 if (outdated.stdout.length) {
-  let upgrade = await question("Upgrade the listed above (y/n)? ");
+  let upgrade = await question("Upgrade the listed above (y/N)? ");
   if (upgrade === "y") {
     await $`arch -arm64 brew upgrade`;
     await $`brew cleanup --prune=all`;
