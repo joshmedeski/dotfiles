@@ -7,10 +7,8 @@ return {
       save_after_format = false,
       sources = {
         null_ls.builtins.code_actions.cspell,
-        null_ls.builtins.code_actions.eslint,
         null_ls.builtins.code_actions.refactoring,
         null_ls.builtins.diagnostics.cspell,
-        null_ls.builtins.diagnostics.eslint,
         null_ls.builtins.diagnostics.fish,
         null_ls.builtins.diagnostics.flake8,
         null_ls.builtins.diagnostics.markdownlint,
