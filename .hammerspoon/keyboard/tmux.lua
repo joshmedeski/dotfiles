@@ -1,0 +1,10 @@
+-- hs.hotkey.bind({ "cmd" }, "t", function()
+-- 	-- remap cmd+e to cmd+t for slack
+-- 	local terminal = hs.application("alacritty")
+-- 	if terminal:isFrontmost() then
+-- 		hs.eventtap.keyStroke({ "ctrl" }, "b")
+-- 		hs.eventtap.keyStrokes("c")
+-- 	else
+-- 		hs.eventtap.keyStroke({ "cmd" }, "t")
+-- 	end
+-- end)

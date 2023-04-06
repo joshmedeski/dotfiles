@@ -1,42 +1,43 @@
 -- cSpell:words yabai fullscreen unfloat
-local yabai = "/opt/homebrew/bin/yabai "
-
-local function yabaiCommand(cmd)
-	os.execute(yabai .. cmd)
+local function yabaiCommand(commands)
+	for _, command in ipairs(commands) do
+		os.execute("/opt/homebrew/bin/yabai -m " .. command)
+	end
 end
 
-local function alt(key, cmd)
+local function alt(key, commands)
 	hs.hotkey.bind({ "alt" }, key, function()
-		yabaiCommand(cmd)
+		yabaiCommand(commands)
 	end)
 end
 
-local function altShift(key, cmd)
+local function altShift(key, commands)
 	hs.hotkey.bind({ "alt", "shift" }, key, function()
-		yabaiCommand(cmd)
+		yabaiCommand(commands)
 	end)
 end
 
 local function altShiftNumber(number)
-	altShift(number, "-m window --space " .. number .. "; " .. yabai .. "-m space --focus " .. number)
+	altShift(number, { "window --space " .. number, "space --focus " .. number })
 end
 
 for i = 1, 9 do
 	local numString = tostring(i)
-	alt(numString, "-m space --focus " .. numString)
+	alt(numString, { "space --focus " .. numString })
 	altShiftNumber(numString)
 end
 
 local homeRow = { h = "west", j = "south", k = "north", l = "east" }
 for key, direction in pairs(homeRow) do
-	alt(key, "-m window --focus " .. direction)
-	altShift(key, "-m window --swap " .. direction)
+	alt(key, { "window --focus " .. direction })
+	altShift(key, { "window --swap " .. direction })
 end
 
-alt("'", "-m space --layout stack")
-alt(";", "-m space --layout bsp")
-alt("f", "-m window --toggle zoom-fullscreen")
-alt("g", "-m space --toggle padding;" .. yabai .. "-m space --toggle gap")
-alt("r", "-m space --rotate 90")
-alt("t", "-m window --toggle float;\\" .. yabai .. "-m window --grid 4:4:1:1:2:2")
-alt("tab", "-m space --focus recent")
+alt(";", { "space --layout bsp" })
+alt("'", { "space --layout stack" })
+alt("f", { "window --toggle zoom-fullscreen" })
+alt("p", { "window --toggle pip" })
+alt("g", { "space --toggle padding", "space --toggle gap" })
+alt("r", { "space --rotate 90" })
+alt("t", { "window --toggle float", "window --grid 4:4:1:1:2:2" })
+alt("tab", { "space --focus recent" })

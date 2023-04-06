@@ -1,6 +1,6 @@
 -- cSpell:words eventtap
-local function hyper(key, keyEvent)
-	hs.hotkey.bind({ "alt", "shift", "cmd", "ctrl" }, key, function()
+local function hyper(key, keyEvent) -- cmd + ctrl + alt + shift + key
+	hs.hotkey.bind({ "cmd", "ctrl", "alt", "shift" }, key, function()
 		hs.eventtap.event.newKeyEvent(keyEvent, true):post()
 	end)
 end
