@@ -1,0 +1,181 @@
+--# selene: allow(unused_variable)
+---@diagnostic disable: unused-local
+
+-- Functions providing basic support for UTF-8 encodings
+--
+-- Prior to upgrading Hammerspoon's Lua interpreter to 5.3, UTF8 support was provided by including the then beta version of Lua 5.3's utf8 library as a Hammerspoon module.  This is no longer necessary, but to maintain compatibility, the Lua utf8 library can still be accessed through `hs.utf8`.  The documentation for the utf8 library can be found at http://www.lua.org/manual/5.3/ or from the Hammerspoon console via the help command: `help.lua.utf8`. This affects the following functions and variables:
+--
+--   * hs.utf8.char          - help available via `help.lua.utf8.char`
+--   * hs.utf8.charPattern   - help available via `help.lua.utf8.charpattern`
+--   * hs.utf8.codepoint     - help available via `help.lua.utf8.codepoint`
+--   * hs.utf8.codes         - help available via `help.lua.utf8.codes`
+--   * hs.utf8.len           - help available via `help.lua.utf8.len`
+--   * hs.utf8.offset        - help available via `help.lua.utf8.offset`
+--
+-- Additional functions that are specific to Hammerspoon which provide expanded support for UTF8 are documented here.
+-- 
+---@class hs.utf8
+local M = {}
+hs.utf8 = M
+
+-- Returns the provided string with all non-printable ascii characters escaped, except Return, Linefeed, and Tab.
+--
+-- Parameters:
+--  * string - The input string which is to have all non-printable ascii characters escaped as \x## (a single byte hexadecimal number).
+--  * all    - an optional boolean parameter (default false) indicating whether or not Return, Linefeed, and Tab should also be considered "non-printable"
+--
+-- Returns:
+--  * The cleaned up string, with non-printable characters escaped.
+--
+-- Notes:
+--  * Because Unicode characters outside of the basic ascii alphabet are multi-byte characters, any UTF8 or other Unicode encoded character will be broken up into their individual bytes and likely escaped by this function.
+--  * This function is useful for displaying binary data in a human readable way that might otherwise be inexpressible in the Hammerspoon console or other destination.  For example:
+--    * `utf8.charpattern`, which contains the regular expression for matching valid UTF8 encoded sequences, results in `(null)` in the Hammerspoon console, but `hs.utf8.asciiOnly(utf8.charpattern)` will display `[\x00-\x7F\xC2-\xF4][\x80-\xBF]*`.
+---@return string
+function M.asciiOnly(string, all, ...) end
+
+-- Wrapper to `utf8.char(...)` which ensures that all codepoints return valid UTF8 characters.
+--
+-- Parameters:
+--  * codepoints - A series of numeric Unicode code points to be converted to a UTF-8 byte sequences.  If a codepoint is a string (and does not start with U+, it is used as a key for lookup in `hs.utf8.registeredKeys[]`
+--
+-- Returns:
+--  * A string containing the UTF-8 byte sequences corresponding to provided codepoints as a combined string.
+--
+-- Notes:
+--  * Valid codepoint values are from 0x0000 - 0x10FFFF (0 - 1114111)
+--  * If the codepoint provided is a string that starts with U+, then the 'U+' is converted to a '0x' so that lua can properly treat the value as numeric.
+--  * Invalid codepoints are returned as the Unicode Replacement Character (U+FFFD)
+--    * This includes out of range codepoints as well as the Unicode Surrogate codepoints (U+D800 - U+DFFF)
+---@return string
+function M.codepointToUTF8(...) end
+
+-- Replace invalid UTF8 character sequences in `inString` with `replacementChar` so it can be safely displayed in the console or other destination which requires valid UTF8 encoding.
+--
+-- Parameters:
+--  * inString - String of characters which may contain invalid UTF8 byte sequences
+--  * replacementChar - optional parameter to replace invalid byte sequences in `inString`.  If this parameter is not provided, the default UTF8 replacement character, U+FFFD, is used.
+--
+-- Returns:
+--  * outString - The contents of `inString` with all invalid UTF8 byte sequences replaced by the `replacementChar`.
+--  * posTable - a table of indexes in `outString` corresponding indicating where `replacementChar` has been used.
+--
+-- Notes:
+--  * This function is a slight modification to code found at http://notebook.kulchenko.com/programming/fixing-malformed-utf8-in-lua.
+--  * If `replacementChar` is a multi-byte character (like U+FFFD) or multi character string, then the string length of `outString` will be longer than the string length of `inString`.  The character positions in `posTable` will reflect these new positions in `outString`.
+--  * To calculate the character position of the invalid characters in `inString`, use something like the following:
+--
+--       outString, outErrors = hs.utf8.fixUTF8(inString, replacement)
+--       inErrors = {}
+--       for i,p in ipairs(outErrors) do
+--           table.insert(inErrors, p - ((i - 1) * string.length(replacement) - 1))
+--       end
+--
+--    Where replacement is `utf8.char(0xFFFD)`, if you leave it out of the `hs.utf8.fixUTF8` function in the first line.
+-- 
+function M.fixUTF8(inString, replacementChar, ...) end
+
+-- Returns a hex dump of the provided string.  This is primarily useful for examining the exact makeup of binary data contained in a Lua String as individual bytes for debugging purposes.
+--
+-- Parameters:
+--  * inputString - the data to be rendered as individual hexadecimal bytes for examination.
+--  * count - an optional parameter specifying the number of bytes to display per line (default 16)
+--
+-- Returns:
+--  * a string containing the hex dump of the input string.
+--
+-- Notes:
+--  * Like hs.utf8.asciiOnly, this function will break up Unicode characters into their individual bytes.
+--  * As an example:
+--      `hs.utf8.hexDump(utf8.charpattern)` will return
+--      `00 : 5B 00 2D 7F C2 2D F4 5D 5B 80 2D BF 5D 2A        : [.-..-.][.-.]*`
+---@return string
+function M.hexDump(inputString, count, ...) end
+
+-- Registers a Unicode codepoint under the given label as a UTF-8 string of bytes which can be referenced by the label later in your code as `hs.utf8.registeredKeys[label]` for convenience and readability.
+--
+-- Parameters:
+--  * label - a string label to use as a human-readable reference when getting the UTF-8 byte sequence for use in other strings and output functions.
+--  * codepoint - a Unicode codepoint in numeric or `U+xxxx` format to register with the given label.
+--
+-- Returns:
+--  * Returns the UTF-8 byte sequence for the Unicode codepoint registered.
+--
+-- Notes:
+--  * If a codepoint label was previously registered, this will overwrite the previous value with a new one.  Because many of the special keys you may want to register have different variants, this allows you to easily modify the existing predefined defaults to suite your preferences.
+--  * The return value is merely syntactic sugar and you do not need to save it locally; it can be safely ignored -- future access to the pre-converted codepoint should be retrieved as `hs.utf8.registeredKeys[label]` in your code.  It looks good when invoked from the console, though ☺.
+---@return string
+function M.registerCodepoint(label, codepoint, ...) end
+
+-- A collection of UTF-8 characters already converted from codepoint and available as convenient key-value pairs.  UTF-8 printable versions of common Apple and OS X special keys are predefined and others can be added with `hs.utf8.registerCodepoint(label, codepoint)` for your own use.
+--
+-- Predefined keys include:
+--
+--     (U+2325) alt              ⌥
+--     (U+F8FF) apple            
+--     (U+21E4) backtab          ⇤
+--     (U+21EA) capslock         ⇪
+--     (U+2713) checkMark        ✓
+--     (U+2318) cmd              ⌘
+--     (U+27E1) concaveDiamond   ✧
+--     (U+00A9) copyrightSign    ©
+--     (U+2303) ctrl             ⌃
+--     (U+232B) delete           ⌫
+--     (U+2193) down             ↓
+--     (U+21E3) down2            ⇣
+--     (U+23CF) eject            ⏏
+--     (U+21F2) end              ⇲
+--     (U+2198) end2             ↘
+--     (U+238B) escape           ⎋
+--     (U+2326) forwarddelete    ⌦
+--     (U+FE56) help             ﹖
+--     (U+21F1) home             ⇱
+--     (U+2196) home2            ↖
+--     (U+21B8) home3            ↸
+--     (U+2190) left             ←
+--     (U+21E0) left2            ⇠
+--     (U+201C) leftDoubleQuote  “
+--     (U+2018) leftSingleQuote  ‘
+--     (U+00B7) middleDot        ·
+--     (U+21ED) numlock          ⇭
+--     (U+2325) option           ⌥
+--     (U+2327) padclear         ⌧
+--     (U+2324) padenter         ⌤
+--     (U+2386) padenter2        ⎆
+--     (U+21A9) padenter3        ↩
+--     (U+21DF) pagedown         ⇟
+--     (U+21DE) pageup           ⇞
+--     (U+233D) power            ⌽
+--     (U+00AE) registeredSign   ®
+--     (U+23CE) return           ⏎
+--     (U+21A9) return2          ↩
+--     (U+2192) right            →
+--     (U+21E2) right2           ⇢
+--     (U+201D) rightDoubleQuote  ”
+--     (U+2019) rightSingleQuote  ’
+--     (U+00A7) sectionSign      §
+--     (U+21E7) shift            ⇧
+--     (U+2423) space            ␣
+--     (U+21E5) tab              ⇥
+--     (U+2191) up               ↑
+--     (U+21E1) up2              ⇡
+--
+-- Notes:
+--  * This table has a __tostring() metamethod which allows listing it's contents in the Hammerspoon console by typing `hs.utf8.registeredKeys`.
+--  * For parity with `hs.utf8.registeredLabels`, this can also invoked as a function, i.e. `hs.utf8.registeredKeys["cmd"]` is equivalent to `hs.utf8.registeredKeys("cmd")`
+---@type table
+M.registeredKeys = {}
+
+-- Returns the label name for a UTF8 character, as it is registered in `hs.utf8.registeredKeys[]`.
+--
+-- Parameters:
+--  * utf8char -- the character to lookup in `hs.utf8.registeredKeys[]`
+--
+-- Returns:
+--  * The string label for the UTF8 character or a string in the format of "U+XXXX", if it is not defined in `hs.utf8.registeredKeys[]`, or nil, if utf8char is not a valid UTF8 character.
+--
+-- Notes:
+--  * For parity with `hs.utf8.registeredKeys`, this can also be invoked as if it were an array: i.e. `hs.utf8.registeredLabels(char)` is equivalent to `hs.utf8.registeredLabels[char]`
+---@return string
+function M.registeredLabels(utf8char, ...) end
+
