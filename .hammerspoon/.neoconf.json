@@ -1,0 +1,15 @@
+{
+  "neodev": {
+    "library": {
+      "enabled": true,
+      "plugins": ["nvim-lspconfig"]
+    }
+  },
+  "lspconfig": {
+    "lua_ls": {
+      "Lua.workspace.library": [
+        "/Users/joshmedeski/.hammerspoon/Spoons/EmmyLua.spoon/annotations"
+      ]
+    }
+  }
+}
