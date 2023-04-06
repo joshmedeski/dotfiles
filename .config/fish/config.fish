@@ -30,27 +30,6 @@ set -Ux NODE_PATH "~/.nvm/versions/node/v16.19.0/bin/node" # 'nvm-sh/nvm'
 set -Ux PAGER ~/.local/bin/nvimpager # 'lucc/nvimpager'
 set -Ux VISUAL nvim
 
-set -Ux FZF_DEFAULT_OPTS "--reverse \
---border rounded \
---no-info \
---pointer='' \
---marker=' ' \
---ansi \
---color='16,bg+:-1,gutter:-1,prompt:4,pointer:5,marker:6'"
-
-set -Ux FZF_TMUX_OPTS "-p \
---reverse \
---border rounded \
---no-info \
---pointer='' \
---marker=' ' \
---ansi \
---color='16,bg+:-1,gutter:-1,prompt:4,pointer:5,marker:6'"
-
-set -Ux FZF_CTRL_R_OPTS "--border-label=' history ' \
---header='ctrl-d: delete' \
---prompt='  '"
-
 # ordered by priority - bottom up
 fish_add_path /opt/homebrew/bin # https://brew.sh/
 fish_add_path /opt/homebrew/sbin
