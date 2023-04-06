@@ -37,7 +37,7 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufFilePre", "BufRead" }, {
 })
 
 vim.api.nvim_create_autocmd({ "BufRead" }, {
-  pattern = { "gitmux.conf" },
+  pattern = { "*.conf" },
   callback = function()
     vim.cmd([[set filetype=sh]])
   end,
