@@ -1,6 +1,6 @@
 {
-  "flagWords": [],
   "version": "0.2",
+  "language": "en",
   "words": [
     "ajeetdsouza",
     "akohlbecker",
@@ -23,9 +23,11 @@
     "eightpigs",
     "epwalsh",
     "firenvim",
+    "eventtap",
     "floaterm",
     "Floatterm",
     "folke",
+    "frontmost",
     "gitmux",
     "gitsigns",
     "glacambre",
@@ -115,5 +117,5 @@
     "zettelkasten",
     "zoxide"
   ],
-  "language": "en"
+  "flagWords": []
 }
