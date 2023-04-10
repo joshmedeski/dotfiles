@@ -1,7 +1,5 @@
 hs.loadSpoon("EmmyLua")
-hs.loadSpoon("ReloadConfiguration")
 require("keyboard.yabai")
 require("keyboard.hyper")
-require("keyboard.tmux")
-hs.notify.new({ title = "Hammerspoon", informativeText = "Hello World" }):send()
+-- require("keyboard.tmux")
 hs.notify.new({ title = "Hammerspoon", informativeText = "Ready to rock!! 🤘" }):send()
