@@ -52,6 +52,8 @@ key_bindings:
   - { key: L, mods: Command, chars: "\x02L" } # switch to the last tmux session
   - { key: LBracket, mods: Command, chars: "\x0f" } # navigate back (ctrl+o)
   - { key: LBracket, mods: Command|Shift, chars: "\x02p" } # switch to next tmux window
+  - { key: Tab, mods: Control, chars: "\x02n" } # select tmux window 1
+  - { key: Grave, mods: Control, chars: "\x02p" } # select tmux window 1
   - { key: O, mods: Command, chars: "\x02u" }
   - { key: P, mods: Command, chars: ":GoToFile\n" } # files
   - { key: P, mods: Command|Shift, chars: ":GoToCommand\n" } # commands
