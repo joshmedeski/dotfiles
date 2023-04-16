@@ -5,5 +5,14 @@ return {
     diagnostics = {
       virtual_text = false,
     },
+    servers = {
+      yamlls = {
+        settings = {
+          yaml = {
+            keyOrdering = false,
+          },
+        },
+      },
+    },
   },
 }
