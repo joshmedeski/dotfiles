@@ -1,6 +1,5 @@
 {
   "version": "0.2",
-  "language": "en",
   "words": [
     "ajeetdsouza",
     "akohlbecker",
@@ -22,8 +21,8 @@
     "dotfiles",
     "eightpigs",
     "epwalsh",
-    "firenvim",
     "eventtap",
+    "firenvim",
     "floaterm",
     "Floatterm",
     "folke",
@@ -72,8 +71,8 @@
     "neovim",
     "nhdaly",
     "nobold",
-    "nord",
     "Nord",
+    "nord",
     "Nord's",
     "nvim",
     "nvimpager",
@@ -114,8 +113,10 @@
     "winwidth",
     "Xcode",
     "yabai",
+    "yamlls",
     "zettelkasten",
     "zoxide"
   ],
+  "language": "en",
   "flagWords": []
 }
