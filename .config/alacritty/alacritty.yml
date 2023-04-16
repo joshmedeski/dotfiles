@@ -55,7 +55,6 @@ key_bindings:
   - { key: O, mods: Command, chars: "\x02u" }
   - { key: P, mods: Command, chars: ":GoToFile\n" } # files
   - { key: P, mods: Command|Shift, chars: ":GoToCommand\n" } # commands
-  # - { key: Period, mods: Command, chars: "\x1b\x20\x2e\x0a" } (causes popup to be unfocused)
   - { key: Q, mods: Command, chars: ":q\n" } # quit vim
   - { key: R, mods: Command, chars: "\x1b\x5b\x41\x0a" }
   - { key: RBracket, mods: Command, chars: "\x09" }
