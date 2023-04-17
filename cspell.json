@@ -1,5 +1,4 @@
 {
-  "version": "0.2",
   "words": [
     "ajeetdsouza",
     "akohlbecker",
@@ -14,11 +13,13 @@
     "catppuccin",
     "christoomey",
     "cmtooheyommitlint",
+    "colour",
     "conventionalcommits",
     "CPPFLAGS",
     "devicons",
     "diffview",
     "dotfiles",
+    "echasnovski",
     "eightpigs",
     "epwalsh",
     "eventtap",
@@ -45,6 +46,7 @@
     "junegunn",
     "kdheepak",
     "keymap",
+    "kylechui",
     "lazygit",
     "lazyvim",
     "LDFLAGS",
@@ -84,6 +86,7 @@
     "prettierd",
     "Quicklook",
     "raycast",
+    "rcarriga",
     "redirections",
     "rhysd",
     "sharkdp",
@@ -118,5 +121,6 @@
     "zoxide"
   ],
   "language": "en",
+  "version": "0.2",
   "flagWords": []
 }
