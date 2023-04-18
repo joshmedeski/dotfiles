@@ -1,4 +1,7 @@
 {
+  "language": "en",
+  "version": "0.2",
+  "flagWords": [],
   "words": [
     "ajeetdsouza",
     "akohlbecker",
@@ -48,6 +51,7 @@
     "keymap",
     "kylechui",
     "lazygit",
+    "lazypath",
     "lazyvim",
     "LDFLAGS",
     "lfcd",
@@ -84,6 +88,7 @@
     "plist",
     "pnpm",
     "prettierd",
+    "Primeagen",
     "Quicklook",
     "raycast",
     "rcarriga",
@@ -119,8 +124,5 @@
     "yamlls",
     "zettelkasten",
     "zoxide"
-  ],
-  "language": "en",
-  "version": "0.2",
-  "flagWords": []
+  ]
 }
