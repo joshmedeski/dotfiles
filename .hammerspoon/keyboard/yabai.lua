@@ -1,7 +1,7 @@
 -- cSpell:words yabai fullscreen unfloat
 local function yabaiCommand(commands)
-	for _, command in ipairs(commands) do
-		os.execute("/opt/homebrew/bin/yabai -m " .. command)
+	for _, cmd in ipairs(commands) do
+		os.execute("/opt/homebrew/bin/yabai -m " .. cmd)
 	end
 end
 
@@ -22,9 +22,9 @@ local function altShiftNumber(number)
 end
 
 for i = 1, 9 do
-	local numString = tostring(i)
-	alt(numString, { "space --focus " .. numString })
-	altShiftNumber(numString)
+	local num = tostring(i)
+	alt(num, { "space --focus " .. num })
+	altShiftNumber(num)
 end
 
 local homeRow = { h = "west", j = "south", k = "north", l = "east" }
