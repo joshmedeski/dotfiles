@@ -33,11 +33,18 @@ for key, direction in pairs(homeRow) do
 	altShift(key, { "window --swap " .. direction })
 end
 
-alt(";", { "space --layout bsp" })
-alt("'", { "space --layout stack" })
 alt("f", { "window --toggle zoom-fullscreen" })
+alt("l", { "space --focus recent" })
+alt("m", { "space --toggle mission-control" })
 alt("p", { "window --toggle pip" })
 alt("g", { "space --toggle padding", "space --toggle gap" })
 alt("r", { "space --rotate 90" })
 alt("t", { "window --toggle float", "window --grid 4:4:1:1:2:2" })
+
+alt("'", { "space --layout stack" })
+alt(";", { "space --layout bsp" })
 alt("tab", { "space --focus recent" })
+
+-- FIX: get these working with non pad + and -
+-- alt("pad+", { "space --create" })
+-- alt("pad-", { "space --destroy" })
