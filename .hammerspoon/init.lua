@@ -1,4 +1,6 @@
 hs.loadSpoon("EmmyLua")
+require("auto-reload")
+require("vim-mode")
 require("keyboard.yabai")
 require("keyboard.hyper")
 -- require("keyboard.tmux")

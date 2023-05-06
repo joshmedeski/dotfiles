@@ -14,5 +14,6 @@ hyper("h", "left")
 hyper("j", "down")
 hyper("k", "up")
 hyper("l", "right")
+
 hyper("n", "down")
 hyper("p", "up")
