@@ -1,4 +1,13 @@
--- cSpell:words yabai fullscreen unfloat
+-- cSpell:words koekeishiya yabai fullscreen unfloat hjkl
+--
+-- ██╗   ██╗ █████╗ ██████╗  █████╗ ██╗
+-- ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗██║
+--  ╚████╔╝ ███████║██████╔╝███████║██║
+--   ╚██╔╝  ██╔══██║██╔══██╗██╔══██║██║
+--    ██║   ██║  ██║██████╔╝██║  ██║██║
+--    ╚═╝   ╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝
+-- https://github.com/koekeishiya/yabai
+
 local function yabaiCommand(commands)
 	for _, cmd in ipairs(commands) do
 		os.execute("/opt/homebrew/bin/yabai -m " .. cmd)
@@ -27,7 +36,9 @@ for i = 1, 9 do
 	altShiftNumber(num)
 end
 
+-- NOTE: use as arrow keys
 local homeRow = { h = "west", j = "south", k = "north", l = "east" }
+
 for key, direction in pairs(homeRow) do
 	alt(key, { "window --focus " .. direction })
 	altShift(key, { "window --swap " .. direction })
@@ -41,8 +52,10 @@ alt("g", { "space --toggle padding", "space --toggle gap" })
 alt("r", { "space --rotate 90" })
 alt("t", { "window --toggle float", "window --grid 4:4:1:1:2:2" })
 
+-- NOTE: Switch between layouts
 alt("'", { "space --layout stack" })
 alt(";", { "space --layout bsp" })
+
 alt("tab", { "space --focus recent" })
 
 -- FIX: get these working with non pad + and -
