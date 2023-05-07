@@ -6,9 +6,9 @@
 --   ╚██╔╝  ██╔══██║██╔══██╗██╔══██║██║
 --    ██║   ██║  ██║██████╔╝██║  ██║██║
 --    ╚═╝   ╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝
+--
 -- https://github.com/koekeishiya/yabai
 
--- Send message(s) to a running instance of yabai.
 local function yabai(commands)
 	for _, cmd in ipairs(commands) do
 		os.execute("/opt/homebrew/bin/yabai -m " .. cmd)
