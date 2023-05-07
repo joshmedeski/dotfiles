@@ -8,7 +8,8 @@
 --    ╚═╝   ╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝
 -- https://github.com/koekeishiya/yabai
 
-local function yabaiCommand(commands)
+-- Send message(s) to a running instance of yabai.
+local function yabai(commands)
 	for _, cmd in ipairs(commands) do
 		os.execute("/opt/homebrew/bin/yabai -m " .. cmd)
 	end
@@ -16,13 +17,27 @@ end
 
 local function alt(key, commands)
 	hs.hotkey.bind({ "alt" }, key, function()
-		yabaiCommand(commands)
+		yabai(commands)
 	end)
 end
 
+-- alpha
+alt("f", { "window --toggle zoom-fullscreen" })
+alt("l", { "space --focus recent" })
+alt("m", { "space --toggle mission-control" })
+alt("p", { "window --toggle pip" })
+alt("g", { "space --toggle padding", "space --toggle gap" })
+alt("r", { "space --rotate 90" })
+alt("t", { "window --toggle float", "window --grid 4:4:1:1:2:2" })
+
+-- special characters
+alt("'", { "space --layout stack" })
+alt(";", { "space --layout bsp" })
+alt("tab", { "space --focus recent" })
+
 local function altShift(key, commands)
 	hs.hotkey.bind({ "alt", "shift" }, key, function()
-		yabaiCommand(commands)
+		yabai(commands)
 	end)
 end
 
@@ -43,21 +58,3 @@ for key, direction in pairs(homeRow) do
 	alt(key, { "window --focus " .. direction })
 	altShift(key, { "window --swap " .. direction })
 end
-
-alt("f", { "window --toggle zoom-fullscreen" })
-alt("l", { "space --focus recent" })
-alt("m", { "space --toggle mission-control" })
-alt("p", { "window --toggle pip" })
-alt("g", { "space --toggle padding", "space --toggle gap" })
-alt("r", { "space --rotate 90" })
-alt("t", { "window --toggle float", "window --grid 4:4:1:1:2:2" })
-
--- NOTE: Switch between layouts
-alt("'", { "space --layout stack" })
-alt(";", { "space --layout bsp" })
-
-alt("tab", { "space --focus recent" })
-
--- FIX: get these working with non pad + and -
--- alt("pad+", { "space --create" })
--- alt("pad-", { "space --destroy" })
