@@ -1,0 +1,106 @@
+{
+  "Name": "Philips Hue",
+  "Category": "Philips Hue",
+  "Description": "Philips Hueの照明をコントロールします。",
+  "com.elgato.philips-hue.power": {
+    "Name": "オン/オフ",
+    "Tooltip": "照明をオン、またはオフにします。",
+    "States": [
+      {
+        "Name": "オン"
+      },
+      {
+        "Name": "オフ"
+      }
+    ]
+  },
+  "com.elgato.philips-hue.color": {
+    "Name": "カラー",
+    "Tooltip": "照明のカラーを設定します。"
+  },
+  "com.elgato.philips-hue.cycle": {
+    "Name": "カラーサイクル",
+    "Tooltip": "照明のカラーを循環して表示します。"
+  },
+  "com.elgato.philips-hue.brightness": {
+    "Name": "明るさ",
+    "Tooltip": "照明の明るさを調整します。",
+    "Encoder": {
+      "TriggerDescription": {
+        "Rotate": "明るさを調整",
+        "Touch": "照明のオン/オフを切り替え"
+      }
+    }
+  },
+  "com.elgato.philips-hue.brightness-rel": {
+    "Name": "明るさ (相対的)",
+    "Tooltip": "現在の明るさを基準にして照明の明るさを調整します。"
+  },
+  "com.elgato.philips-hue.scene": {
+    "Name": "シーン",
+    "Tooltip": "シーンを設定します。"
+  },
+  "Localization": {
+    "PI": {
+      "Bridge": "ブリッジ",
+      "NoBridges": "ブリッジがありません",
+      "AddBridge": "新規を追加",
+      "Lights": "照明",
+      "Group": "グループ",
+      "LightsTitle": "照明",
+      "GroupsTitle": "グループ",
+      "NoLights": "照明がありません",
+      "NoGroups": "グループがありません",
+      "Color": "カラー",
+      "Colors": "カラー",
+      "Temperature": "温度",
+      "Brightness": "明るさ",
+      "Steps": "ステップ",
+      "Scene": "シーン",
+      "NoScenes": "シーンがありません"
+    },
+    "Setup": {
+      "Intro": {
+        "Title": "ブリッジを追加",
+        "Description": "照明をコントロールするには、Philips Hueのブリッジを使ってペアリングしてください。",
+        "Start": "ブリッジを検出",
+        "Manual": "ブリッジを手動で追加",
+        "Close": "今はしない"
+      },
+      "Discovery": {
+        "Title": "ブリッジを検出中…",
+        "TitleNone": "ブリッジが見つかりません",
+        "TitleOne": "１件のブリッジを検出しました",
+        "TitleMultiple": "{{ number }}件のブリッジを検出しました",
+        "DescriptionFound": "今すぐペアリングしますか？",
+        "DescriptionNone": "ブリッジがオンになっていて、ネットワークに接続されていることを確認してください。",
+        "Pair": "ペアリング",
+        "Close": "閉じる",
+        "Retry": "やり直す"
+      },
+      "Manual": {
+        "Title": "ブリッジを手動で追加",
+        "Description": "自動検出がサポートされていない場合、Philips Hueブリッジをお使いのネットワークに (IPアドレスを使って) 手動で追加してください。",
+        "IPAddress": "ブリッジのIPアドレス",
+        "Check": "入力を検証",
+        "Close": "閉じる",
+        "Error": {
+          "Empty": "ブリッジのIPアドレスを追加してください。",
+          "Invalid": "入力されたIPアドレスは無効なフォーマットです。入力を確認してください。",
+          "Unreachable": "ブリッジに接続できません。IPアドレスを確認してください。"
+        }
+      },
+      "Pairing": {
+        "Title": "ペアリング中…",
+        "Description": "今すぐブリッジの接続ボタンを押してください。",
+        "Close": "閉じる",
+        "Retry": "やり直す"
+      },
+      "Save": {
+        "Title": "ブリッジが追加されました",
+        "Description": "ブリッジのペアリングを完了しました。",
+        "Save": "完了"
+      }
+    }
+  }
+}

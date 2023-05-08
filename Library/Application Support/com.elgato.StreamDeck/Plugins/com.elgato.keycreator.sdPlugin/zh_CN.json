@@ -1,0 +1,37 @@
+{
+    "Description": "创建您自己的按键",
+    "Name": "Stream Deck 图标库",
+    "Category": "模板",
+    "IconMenuItem": "打开 Stream Deck 图标库",
+    "com.elgato.keycreator.action": {
+        "Name": "操作",
+        "Tooltip": "这是此插件的唯一操作"
+    },
+    "Localization": {
+        "Close": "关闭",
+        "Done": "完成",
+        "More info": "更多信息",
+        "Message": "消息",
+        "Click Me": "点我",
+        "Button": "按钮",
+        "Color": "颜色",
+        "Opacity": "不透明度",
+        "Stroke": "描边",
+        "Angle": "角度",
+        "Font": "字体",
+        "Layer": "图层",
+        "Layers": "图层",
+        "Inspector": "检查器",
+        "Filter": "过滤器",
+        "Find Font": "查找字体",
+        "Custom Fonts": "自定义字体",
+        "System Fonts": "系统字体",
+        "Search...": "搜索...",
+        "Search in icons": "搜索图标...",
+        "Search in iconpacks": "搜索图标包...",
+        "More Actions...": "更多操作…",
+        "Get more icon packs...": "获取更多图标包...",
+        "Acknowledgements": "致谢",
+        "Settings": "设置"
+    }
+}

@@ -1,0 +1,37 @@
+{
+    "Description": "自分のキーを作成",
+    "Name": "Stream Deck アイコンライブラリ",
+    "Category": "テンプレート",
+    "IconMenuItem": "Stream Deck アイコンライブラリを開く",
+    "com.elgato.keycreator.action": {
+        "Name": "アクション",
+        "Tooltip": "このプラグインではこれが唯一のアクションです"
+    },
+    "Localization": {
+        "Close": "閉じる",
+        "Done": "完了",
+        "More info": "詳細情報",
+        "Message": "メッセージ",
+        "Click Me": "ここをクリック",
+        "Button": "ボタン",
+        "Color": "カラー",
+        "Opacity": "不透明度",
+        "Stroke": "ストローク",
+        "Angle": "角度",
+        "Font": "フォント",
+        "Layer": "レイヤー",
+        "Layers": "レイヤー",
+        "Inspector": "インスペクタ",
+        "Filter": "フィルタ",
+        "Find Font": "フォントを検索",
+        "Custom Fonts": "カスタムフォント",
+        "System Fonts": "システムフォント",
+        "Search...": "検索…",
+        "Search in icons": "アイコン内を検索…",
+        "Search in iconpacks": "アイコンパック内を検索…",
+        "More Actions...": "その他のアクション…",
+        "Get more icon packs...": "他のアイコンパックを入手…",
+        "Acknowledgements": "謝辞",
+        "Settings": "設定"
+    }
+}

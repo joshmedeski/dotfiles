@@ -1,0 +1,106 @@
+{
+  "Name": "Philips Hue",
+  "Category": "Philips Hue",
+  "Description": "Contrôlez vos systèmes d’éclairage Philips Hue.",
+  "com.elgato.philips-hue.power": {
+    "Name": "Activer/Désactiver",
+    "Tooltip": "Allumez ou éteignez les lumières.",
+    "States": [
+      {
+        "Name": "Activer"
+      },
+      {
+        "Name": "Désactiver"
+      }
+    ]
+  },
+  "com.elgato.philips-hue.color": {
+    "Name": "Couleur",
+    "Tooltip": "Réglez la couleur de la lumière."
+  },
+  "com.elgato.philips-hue.cycle": {
+    "Name": "Cycle de couleurs",
+    "Tooltip": "Activez les différentes couleurs de votre lumière de façon cyclique."
+  },
+  "com.elgato.philips-hue.brightness": {
+    "Name": "Luminosité",
+    "Tooltip": "Réglez la luminosité de la lumière.",
+    "Encoder": {
+      "TriggerDescription": {
+        "Rotate": "Ajuster la luminosité",
+        "Touch": "Allumer ou éteindre les lumières"
+      }
+    }
+  },
+  "com.elgato.philips-hue.brightness-rel": {
+    "Name": "Luminosité relative",
+    "Tooltip": "Permet de régler la luminosité de l’éclairage par rapport à la luminosité actuelle."
+  },
+  "com.elgato.philips-hue.scene": {
+    "Name": "Scène",
+    "Tooltip": "Définissez une scène."
+  },
+  "Localization": {
+    "PI": {
+      "Bridge": "Pont",
+      "NoBridges": "Aucun pont",
+      "AddBridge": "Ajouter",
+      "Lights": "Lumières",
+      "Group": "Groupe",
+      "LightsTitle": "Lumières",
+      "GroupsTitle": "Groupes",
+      "NoLights": "Aucune lumière",
+      "NoGroups": "Aucun groupe",
+      "Color": "Couleur",
+      "Colors": "Couleurs",
+      "Temperature": "Température",
+      "Brightness": "Luminosité",
+      "Steps": "Pas",
+      "Scene": "Scène",
+      "NoScenes": "Aucune scène"
+    },
+    "Setup": {
+      "Intro": {
+        "Title": "Ajouter un pont",
+        "Description": "Jumelez l’application à un pont Philips Hue pour contrôler vos lumières.",
+        "Start": "Découvrir des ponts",
+        "Manual": "Ajouter un pont manuellement",
+        "Close": "Pas maintenant"
+      },
+      "Discovery": {
+        "Title": "Découverte des ponts…",
+        "TitleNone": "Aucun pont trouvé",
+        "TitleOne": "1 pont trouvé",
+        "TitleMultiple": "{{ number }} ponts trouvés",
+        "DescriptionFound": "Lancer le jumelage ?",
+        "DescriptionNone": "Vérifiez que votre pont est allumé et connecté au réseau.",
+        "Pair": "Jumeler",
+        "Close": "Fermer",
+        "Retry": "Réessayer"
+      },
+      "Manual": {
+        "Title": "Ajouter un pont manuellement",
+        "Description": "Ajoutez votre pont Philips Hue manuellement (à partir de son adresse IP) à votre réseau, au cas où la découverte automatique serait impossible.",
+        "IPAddress": "Adresse IP du pont",
+        "Check": "Valider la saisie",
+        "Close": "Fermer",
+        "Error": {
+          "Empty": "Veuillez ajouter l’adresse IP de votre pont.",
+          "Invalid": "Le format de l’adresse IP saisie n’est pas valide. Veuillez vérifier votre saisie.",
+          "Unreachable": "Le pont est injoignable. Veuillez vérifier l’adresse IP."
+        }
+      },
+      "Pairing": {
+        "Title": "Jumelage…",
+        "Description": "Veuillez appuyer sur le bouton de jumelage du pont.",
+        "Close": "Fermer",
+        "Retry": "Réessayer"
+      },
+      "Save": {
+        "Title": "Pont ajouté",
+        "Description": "Le pont a bien été jumelé à l’application.",
+        "Save": "Terminé"
+      }
+    }
+  }
+}

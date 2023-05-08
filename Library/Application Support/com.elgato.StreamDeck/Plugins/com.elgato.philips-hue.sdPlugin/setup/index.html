@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>com.elgato.philips-hue.setup</title>
+    <meta name='viewport' content='viewport-fit=cover, width=device-width, initial-scale=1'>
+    <meta charset="UTF-8">
+    <!-- Import style sheets -->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!-- Import scripts -->
+    <script src="../plugin/js/philips/meethue.js"></script>
+    <script src="../plugin/js/utils.js"></script>
+    <script src="js/introView.js"></script>
+    <script src="js/discoveryView.js"></script>
+    <script src="js/manualView.js"></script>
+    <script src="js/pairingView.js"></script>
+    <script src="js/saveView.js"></script>
+    <script src="js/main.js"></script>
+  </head>
+  <body oncontextmenu="return false;">
+    <!-- Center view horizontally -->
+    <div class="main">
+      <!-- Center view vertically -->
+      <div class="center">
+        <!-- Add a border around the view on big screens -->
+        <div class="border">
+          <!-- Status bar indicating the current view -->
+          <div class="status-bar">
+            <div class="status-row">
+              <div id="status-intro" class="status-cell"></div>
+              <div id="status-discovery" class="status-cell"></div>
+              <div id="status-pairing" class="status-cell"></div>
+              <div id="status-save" class="status-cell"></div>
+            </div>
+          </div>
+          <!-- General header element -->
+          <div class="header">
+            <h2>Philips Hue</h2>
+            <h1 id="title"></h1>
+          </div>
+          <!-- Main view element -->
+          <div id="content"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

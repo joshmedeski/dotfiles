@@ -1,0 +1,19 @@
+{
+  "Description": "언제나 시간을 시키세요.", 
+  "Name": "아날로그 시계", 
+  "com.elgato.analogclock.action": {
+    "Name": "아날로그 시계", 
+    "Tooltip": "멋진 아날로그 시계를 보여줍니다"
+  },
+  
+  "Localization": {
+      "Face": "문자판",
+      "Black" : "검은색",
+      "Blue" : "파란색",
+      "Blueish" : "푸른색",
+      "Green" : "초록색",
+      "Red": "빨강색",
+      "White": "하얀색",
+      "Transparent": "투명"
+  }
+}

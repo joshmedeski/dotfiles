@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<!-- TODO: Turn the inspector into a monolithic API based version, instead of this. -->
+
+<head>
+	<title>com.elgato.obsstudio.inspector.scene</title>
+	<meta charset="utf-8" />
+	<meta name=viewport
+		content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui,viewport-fit=cover">
+	<meta name=apple-mobile-web-app-capable content=yes>
+	<meta name=apple-mobile-web-app-status-bar-style content=black>
+	<link rel="stylesheet" href="../../../resources/css/sdpi.css">
+	<link rel="stylesheet" href="../../../resources/css/inspector.css">
+</head>
+
+<body>
+	<div class="sdpi-wrapper">
+		<div class="sdpi-item" id="scene">
+			<div class="sdpi-item-label" localize>Scene</div>
+			<select class="sdpi-item-value select">
+			</select>
+		</div>
+		<div class="sdpi-item" id="target">
+			<div class="sdpi-item-label" localize>Target</div>
+			<select class="sdpi-item-value select">
+				<option value="preview" localize>Preview</option>
+				<option value="program" localize>Program</option>
+			</select>
+		</div>
+	</div>
+
+	<!-- Configuration -->
+	<script src='../../config.js'></script>
+	<!-- Libraries -->
+	<script src='../../lib/TypedArray.toHex.js'></script>
+	<script src='../../lib/JSON.js'></script>
+	<script src='../../lib/jsonrpc.js'></script>
+	<script src='../../lib/uuid.js'></script>
+	<script src='../../lib/common.js'></script>
+	<!-- Code -->
+	<script src='../../streamdeck.js'></script>
+	<script src='../iinspector.js'></script>
+	<!-- Self Code -->
+	<script src='action_scene_inspector.js'></script>
+</body>
+
+</html>

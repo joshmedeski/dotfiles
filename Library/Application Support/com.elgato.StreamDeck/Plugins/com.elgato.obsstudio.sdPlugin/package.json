@@ -1,0 +1,32 @@
+{
+	"name": "com.elgato.obsstudio",
+	"version": "0.0.0",
+	"description": "OBS Studio integration for Elgato Stream Deck",
+	"main": ".",
+	"scripts": {
+		"lint": "npx eslint ./source --ext .js",
+		"fix": "npx eslint ./source --ext .js --fix"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@bitbucket.org/elgato-pd/streamdeck-obs.git"
+	},
+	"keywords": [
+		"WebSocket",
+		"RPC",
+		"Stream Deck",
+		"OBS Studio",
+		"OBS",
+		"Plugin"
+	],
+	"author": "Corsair Memory Inc.",
+	"license": "SEE LICENSE IN LICENSE",
+	"bugs": {
+		"url": "https://bitbucket.org/elgato-pd/streamdeck-obs/issues"
+	},
+	"homepage": "https://bitbucket.org/elgato-pd/streamdeck-obs#readme",
+	"devDependencies": {
+		"eslint": "^8.20.0",
+		"onchange": "^7.1.0"
+	}
+}

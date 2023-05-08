@@ -1,0 +1,234 @@
+{
+	"Author": "Corsair Memory Inc.",
+	"Name": "OBS Studio",
+	"Description": "Plug-in Elgato Stream Deck pour OBS Studio",
+	"Category": "OBS Studio",
+	"com.elgato.obsstudio.record": {
+		"Name": "Enregistrer",
+		"Tooltip": "Démarrer/Arrêter l’enregistrement dans un fichier",
+		"States": [
+			{
+				"Name": "Démarrer"
+			},
+			{
+				"Name": "Arrêter"
+			}
+		]
+	},
+	"com.elgato.obsstudio.record.pause": {
+		"Name": "Suspendre l'enregistrement",
+		"States": [
+			{
+				"Name": "Pause"
+			},
+			{
+				"Name": "Relancer"
+			}
+		],
+		"Tooltip": "Suspendre un enregistrement actif"
+	},
+	"com.elgato.obsstudio.stream": {
+		"Name": "Diffuser",
+		"States": [
+			{
+				"Name": "Démarrer"
+			},
+			{
+				"Name": "Arrêter"
+			}
+		],
+		"Tooltip": "Démarrer/Arrêter le streaming"
+	},
+	"com.elgato.obsstudio.virtualcam": {
+		"Name": "Caméra virtuelle",
+		"States": [
+			{
+				"Name": "Démarrer"
+			},
+			{
+				"Name": "Arrêter"
+			}
+		],
+		"Tooltip": "Démarrer/Arrêter la caméra virtuelle"
+	},
+	"com.elgato.obsstudio.replaybuffer": {
+		"Name": "Tampon de relecture",
+		"States": [
+			{
+				"Name": "Démarrer"
+			},
+			{
+				"Name": "Arrêter"
+			}
+		],
+		"Tooltip": "Activer/Désactiver le tampon de relecture"
+	},
+	"com.elgato.obsstudio.replaybuffer.save": {
+		"Name": "Enregistrement du tampon de relecture",
+		"Tooltip": "Enregistrer le tampon de relecture actif"
+	},
+	"com.elgato.obsstudio.scenecollection": {
+		"Name": "Collection de scènes",
+		"Tooltip": "Changer de collection de scènes"
+	},
+	"com.elgato.obsstudio.profile": {
+		"Name": "Profil",
+		"Tooltip": "Changer de profil OBS"
+	},
+	"com.elgato.obsstudio.scene": {
+		"Name": "Scène",
+		"Tooltip": "Changer de scène"
+	},
+	"com.elgato.obsstudio.source": {
+		"Name": "Visibilité de la source",
+		"States": [
+			{
+				"Name": "Afficher"
+			},
+			{
+				"Name": "Masquer"
+			}
+		],
+		"Tooltip": "Afficher/Masquer la source"
+	},
+	"com.elgato.obsstudio.mixeraudio": {
+		"Name": "Console de mixage audio",
+		"Tooltip": "Couper/Réactiver la source audio"
+	},
+	"com.elgato.obsstudio.mixeraudio.volume": {
+		"Name": "Volume de la console de mixage audio",
+		"States": [
+			{
+				"Name": "Son activé"
+			},
+			{
+				"Name": "Son coupé"
+			}
+		],
+		"Tooltip": "Régler le volume audio d'une source",
+		"Encoder": {
+			"TriggerDescription": {
+				"Rotate": "Régler le volume",
+				"Push": "Couper/Réactiver le son",
+				"Touch": "Couper/Réactiver le son"
+			}
+		}
+	},
+	"com.elgato.obsstudio.source.media": {
+		"Name": "Contrôle des sources multimédias",
+		"States": [
+			{
+				"Name": "Lecture"
+			},
+			{
+				"Name": "Pause"
+			},
+			{
+				"Name": "Arrêter"
+			},
+			{
+				"Name": "Redémarrer"
+			}
+		],
+		"Tooltip": "Contrôle de lecture des sources multimédias"
+	},
+	"com.elgato.obsstudio.studiomode": {
+		"Name": "Mode Studio",
+		"States": [
+			{
+				"Name": "Activer"
+			},
+			{
+				"Name": "Désactiver"
+			}
+		],
+		"Tooltip": "Activer/Désactiver le mode Studio"
+	},
+	"com.elgato.obsstudio.transitionstudio": {
+		"Name": "Transition",
+		"Tooltip": "Convertir la scène de l'aperçu en programme en mode Studio"
+	},
+	"com.elgato.obsstudio.filter.state": {
+		"Name": "Filtre",
+		"States": [
+			{
+				"Name": "Activer"
+			},
+			{
+				"Name": "Désactiver"
+			}
+		],
+		"Tooltip": "Afficher/Masquer le filtre"
+	},
+	"com.elgato.obsstudio.screenshot": {
+		"Name": "Capture d’écran",
+		"Tooltip": "Faire une capture d'écran de la scène active"
+	},
+	"com.elgato.obsstudio.transition": {
+		"Name": "Transition de scène",
+		"Tooltip": "Définir la transition de scène"
+	},
+	"Localization": {
+		"Source": "Source",
+		"Filter": "Filtre",
+		"Long Press": "Appui long",
+		"Scene": "Scène",
+		"Keep Same": "Conserver à l'identique",
+		"Target": "Cible",
+		"Preview": "Aperçu",
+		"Program": "Programme",
+		"Collection": "Collection",
+		"Action": "Action",
+		"Play/Pause": "Lecture/Pause",
+		"Play/Stop": "Lecture/Arrêter",
+		"Play/Restart": "Lecture/Restart",
+		"Stop": "Arrêter",
+		"Transition": "Transition",
+		"Duration (ms)": "Durée (ms)",
+		"OBS Studio is not connected.": "OBS Studio n'est pas connecté.",
+		"Studio mode is not enabled.": "Le mode Studio n'est pas activé.",
+		"The source is no longer valid.": "La source n'est plus valide.",
+		"Source is invalid.": "La source n'est pas valide.",
+		"Missing parameters": "Paramètres manquants",
+		"Disconnected from OBS Studio.": "Déconnecté d'OBS Studio.",
+		"To pause a recording start recording first.": "Pour pouvoir suspendre un enregistrement, vous devez d'abord lancer l'enregistrement.",
+		"Replay Buffer is not enabled!": "Le tampon de relecture n'est pas activé !",
+		"Replay Buffer must be started for saving to work.": "Pour que l'enregistrement fonctionne, vous devez démarrer le tampon de relecture.",
+		"Action is not configured for the active scene collection": "L'action n'est pas configurée pour la collection de scènes active",
+		"Unknown (Load collection %s to load)": "Inconnu (chargez la collection « %s »)",
+		"Waiting for OBS...": "En attente d'OBS…",
+		"Waiting for settings...": "En attente des paramètres…",
+		"Waiting for sources...": "En attente des sources…",
+		"Waiting for filters...": "En attente des filtres…",
+		"Waiting for scenes...": "En attente des scènes…",
+		"Waiting for collections...": "En attente des collections…",
+		"Changing collection...": "Changement de collection…",
+		"Error": "Erreur",
+		"Finished": "Terminé",
+		"This action only works while OBS is in studio mode.": "Cette action ne fonctionne que si OBS est en mode Studio.",
+		"Waiting for profiles...": "En attente des profils…",
+		"Waiting for transitions...": "En attente des transitions…",
+		"Profile": "Profil",
+		"Media Playback Time Display": "Indicateur de durée de lecture du contenu",
+		"While Playing": "Pendant la lecture",
+		"Only show source name": "Afficher seulement le nom de la source",
+		"Show time counting up": "Afficher la durée écoulée",
+		"Show time counting down": "Afficher la durée restante",
+		"Title must be empty for time display to show on key.": "Pour que l'indicateur de durée s'affiche sur la touche, le titre doit rester vide.",
+		"Type": "Type",
+		"Set": "Définir",
+		"Adjust": "Ajuster",
+		"Mute": "Couper le son",
+		"Unmute": "Activer le son",
+		"Icon Style": "Style d'icône",
+		"Static": "Statique",
+		"Fader (Vertical)": "Fader (vertical)",
+		"Fader (Horizontal)": "Fader (horizontal)",
+		"Step Size": "Taille des pas",
+		"Volume": "Volume",
+		"Mode": "Mode",
+		"Toggle Mute": "Couper/Réactiver le son",
+		"Push to Mute": "Appuyer pour couper le son",
+		"Push to Talk": "Appuyer pour parler"
+	}
+}

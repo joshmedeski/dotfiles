@@ -1,0 +1,10 @@
+{
+    "Name": "Elgato",
+    "Version": "1.0",
+    "Description": "Internal Icon Pack",
+    "Author": "Corsair/Elgato",
+    "URL": "https://elgato.com",
+    "Icon": "icon.svg",
+    "License": "license.txt",
+    "pinned": "true"
+}

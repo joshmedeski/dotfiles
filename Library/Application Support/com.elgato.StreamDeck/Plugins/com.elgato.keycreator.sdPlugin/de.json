@@ -1,0 +1,37 @@
+{
+    "Description": "Gestalte Deine Tasten",
+    "Name": "Stream Deck-Iconsammlung",
+    "Category": "Vorlagen",
+    "IconMenuItem": "Stream Deck-Iconsammlung öffnen",
+    "com.elgato.keycreator.action": {
+        "Name": "Aktion",
+        "Tooltip": "Dies ist die einzige Aktion in diesem Plugin"
+    },
+    "Localization": {
+        "Close": "Schließen",
+        "Done": "Fertig",
+        "More info": "Mehr Info",
+        "Message": "Nachricht",
+        "Click Me": "Klick mich",
+        "Button": "Taste",
+        "Color": "Farbe",
+        "Opacity": "Deckkraft",
+        "Stroke": "Rahmen",
+        "Angle": "Winkel",
+        "Font": "Schrift",
+        "Layer": "Ebene",
+        "Layers": "Ebenen",
+        "Inspector": "Inspektor",
+        "Filter": "Filter",
+        "Find Font": "Schrift finden",
+        "Custom Fonts": "Eigene Schrift",
+        "System Fonts": "Systemschriften",
+        "Search...": "Suchen …",
+        "Search in icons": "In Icons suchen …",
+        "Search in iconpacks": "In Icon-Paketen suchen …",
+        "More Actions...": "Weitere Aktionen …",
+        "Get more icon packs...": "Mehr Icon-Pakete laden …",
+        "Acknowledgements": "Danksagungen",
+        "Settings": "Einstellungen"
+    }
+}

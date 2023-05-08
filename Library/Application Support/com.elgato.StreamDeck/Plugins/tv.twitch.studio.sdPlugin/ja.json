@@ -1,0 +1,63 @@
+{
+    "Description": "Twitch Studioをコントロール",
+    "Name": "Twitch Studio",
+    "Category": "Twitch Studio",
+    "tv.twitch.studio.layout": {
+        "Name": "レイアウトを選択",
+        "Tooltip": "レイアウトを選択"
+    },
+    "tv.twitch.studio.layer": {
+        "Name": "レイヤーを表示/非表示",
+        "Tooltip": "レイヤーを表示/非表示",
+        "States": [
+			{
+				"Name": "表示"
+			}, 
+			{
+				"Name": "非表示"
+			}
+		]
+    },
+    "tv.twitch.studio.audio": {
+        "Name": "オーディオを消音/消音解除",
+        "Tooltip": "音源を消音/消音解除",
+        "States": [
+			{
+				"Name": "消音を解除"
+			}, 
+			{
+				"Name": "消音"
+			}
+		]
+    },
+    "tv.twitch.studio.stream": {
+        "Name": "ストリーミングを開始/終了",
+        "Tooltip": "ストリーミングを開始/終了",
+        "States": [
+			{
+				"Name": "開始"
+			}, 
+			{
+				"Name": "停止"
+			}
+		]
+    },
+    "tv.twitch.studio.record": {
+        "Name": "録画を開始/終了",
+        "Tooltip": "録画を開始/終了",
+        "States": [
+			{
+				"Name": "開始"
+			}, 
+			{
+				"Name": "停止"
+			}
+		]
+    },
+    "Localization": {
+        "Please launch Twitch Studio": "Twitch Studioを起動してください",
+        "Audio Source": "音源",
+        "Layout": "レイアウト",
+        "Layer": "レイヤー"
+    }
+}

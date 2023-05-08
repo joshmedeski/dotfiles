@@ -1,0 +1,15 @@
+{
+  "Name": "Seasonal",
+  "Icon": "Seasonal.svg",
+  "Images": [
+    "Backgrounds/Sunset LCD.PNG",
+    "Backgrounds/Summer LCD.PNG",
+    "Backgrounds/Summer 2 LCD.PNG",
+    "Backgrounds/Spring LCD.PNG",
+    "Backgrounds/Hallowstream.png",
+    "Backgrounds/Halloween_Gaveyard.png",
+    "Backgrounds/Halloween LCD.PNG",
+    "Backgrounds/Full Background.png",
+    "Backgrounds/Christmas LCD.PNG"
+  ]
+}

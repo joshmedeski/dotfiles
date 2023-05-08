@@ -1,0 +1,8 @@
+{
+  "Description": "Run arbitrary AppleScript / JavaScript code",
+  "Name": "OSAScript",
+  "com.gabrielperales.osascript.action": {
+    "Name": "Run OSA script",
+    "Tooltip": "Run AppleScript / JavaScript code"
+  }
+}

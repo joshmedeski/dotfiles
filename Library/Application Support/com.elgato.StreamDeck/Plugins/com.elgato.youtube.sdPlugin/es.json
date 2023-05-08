@@ -1,0 +1,25 @@
+{
+  "Description": "Controla YouTube.", 
+  "Name": "YouTube", 
+  "com.elgato.youtube.chatmessage": {
+    "Name": "Mensaje de chat", 
+    "Tooltip": "Publicar mensaje predefinido en el chat de YouTube"
+  }, 
+  "com.elgato.youtube.playad": {
+    "Name": "Reproducir anuncio", 
+    "Tooltip": "Reproducir anuncio"
+  }, 
+  "com.elgato.youtube.viewers": {
+    "Name": "Espectadores", 
+    "Tooltip": "Mostrar n.º de espectadores del directo en YouTube"
+  }, 
+  "Localization": {
+    "PI": {
+      "Account": "Cuenta",
+      "NoAccounts": "No hay cuentas",
+      "AddAccount": "Añadir",
+      "Message": "Mensaje",
+      "MessagePlaceholder": "Escribe aquí el mensaje de chat de YouTube."
+    }
+  }
+}

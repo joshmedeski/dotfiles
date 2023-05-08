@@ -1,0 +1,1079 @@
+[
+    {
+        "path": "elgatogaming.svg",
+        "name": "Elgato Gaming",
+        "tags": [
+            "elgato"
+        ]
+    },
+    {
+        "path": "streamdeck.svg",
+        "name": "streamdeck.svg",
+        "tags": []
+    },
+    {
+        "path": "gamecapture.svg",
+        "name": "Game Capture",
+        "tags": [
+            "elgato",
+            "video",
+            "gaming"
+        ]
+    },
+    {
+        "path": "videocapture.svg",
+        "name": "videocapture.svg",
+        "tags": [
+            "video"
+        ]
+    },
+    {
+        "path": "wavelink_logo.svg",
+        "name": "wavelink_logo.svg",
+        "tags": [
+            "elgato",
+            "audio",
+            "microphone"
+        ]
+    },
+    {
+        "path": "wavelink_type.svg",
+        "name": "WaveLink",
+        "tags": [
+            "elgato",
+            "audio",
+            "microphone"
+        ]
+    },
+    {
+        "path": "wave_microphone_empty.svg",
+        "name": "wave_microphone_empty.svg",
+        "tags": [
+            "elgato",
+            "audio",
+            "microphone"
+        ]
+    },
+    {
+        "path": "wave_microphone_with_multiple_dots.svg",
+        "name": "wave_microphone_with_multiple_dots.svg",
+        "tags": [
+            "elgato",
+            "audio",
+            "microphone"
+        ]
+    },
+    {
+        "path": "wave_microphone.svg",
+        "name": "wave_microphone.svg",
+        "tags": [
+            "elgato",
+            "audio",
+            "microphone"
+        ]
+    },
+    {
+        "path": "wave_mute.svg",
+        "name": "wave_mute.svg",
+        "tags": [
+            "elgato",
+            "audio",
+            "microphone"
+        ]
+    },
+    {
+        "path": "wave_local_overlay.svg",
+        "name": "wave_local_overlay.svg",
+        "tags": []
+    },
+    {
+        "path": "wave_stream_overlay.svg",
+        "name": "wave_stream_overlay.svg",
+        "tags": []
+    },
+    {
+        "path": "action_missing_action.svg",
+        "name": "action_missing_action.svg",
+        "tags": []
+    },
+    {
+        "path": "action_missing_questionmark.svg",
+        "name": "action_missing_questionmark.svg",
+        "tags": []
+    },
+    {
+        "path": "actionkey.svg",
+        "name": "actionkey.svg",
+        "tags": []
+    },
+    {
+        "path": "alert.svg",
+        "name": "alert.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_custom_folder.svg",
+        "name": "btn_custom_folder.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_custom_open_website.svg",
+        "name": "btn_custom_open_website.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_custom_toggle_hotkey_off.svg",
+        "name": "btn_custom_toggle_hotkey_off.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_custom_toggle_hotkey.svg",
+        "name": "btn_custom_toggle_hotkey.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_custom_trigger_hotkey2.svg",
+        "name": "btn_custom_trigger_hotkey2.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_egc_flashback_record_inactive.svg",
+        "name": "btn_egc_flashback_record_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_egc_flashback_record.svg",
+        "name": "btn_egc_flashback_record.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_egc_select_scene_inactive.svg",
+        "name": "btn_egc_select_scene_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_egc_select_scene.svg",
+        "name": "btn_egc_select_scene.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_egc_take_screenshot_inactive.svg",
+        "name": "btn_egc_take_screenshot_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_egc_take_screenshot.svg",
+        "name": "btn_egc_take_screenshot.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_egc_toggle_microphone_inactive.svg",
+        "name": "btn_egc_toggle_microphone_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_egc_toggle_microphone.svg",
+        "name": "btn_egc_toggle_microphone.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_egc_toggle_recording_inactive.svg",
+        "name": "btn_egc_toggle_recording_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_egc_toggle_recording.svg",
+        "name": "btn_egc_toggle_recording.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_egc_toggle_streaming_inactive.svg",
+        "name": "btn_egc_toggle_streaming_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_egc_toggle_streaming.svg",
+        "name": "btn_egc_toggle_streaming.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_play.svg",
+        "name": "btn_play.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_stop_play.svg",
+        "name": "btn_stop_play.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_launch.svg",
+        "name": "btn_launch.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_delay.svg",
+        "name": "btn_delay.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_duration.svg",
+        "name": "btn_duration.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_multi_action.svg",
+        "name": "btn_multi_action.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_switch_profile.svg",
+        "name": "btn_switch_profile.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_text.svg",
+        "name": "btn_text.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_keybrightness_decrease.svg",
+        "name": "btn_keybrightness_decrease.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_keybrightness_high.svg",
+        "name": "btn_keybrightness_high.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_keybrightness_increase.svg",
+        "name": "btn_keybrightness_increase.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_keybrightness_low.svg",
+        "name": "btn_keybrightness_low.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_keybrightness_max.svg",
+        "name": "btn_keybrightness_max.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_keybrightness_medium.svg",
+        "name": "btn_keybrightness_medium.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_keybrightness_min.svg",
+        "name": "btn_keybrightness_min.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_media_mute.svg",
+        "name": "btn_media_mute.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_media_next_track.svg",
+        "name": "btn_media_next_track.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_media_play_pause.svg",
+        "name": "btn_media_play_pause.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_media_prev_track.svg",
+        "name": "btn_media_prev_track.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_media_stop.svg",
+        "name": "btn_media_stop.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_media_unmute.svg",
+        "name": "btn_media_unmute.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_media_volume_down.svg",
+        "name": "btn_media_volume_down.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_media_volume_up.svg",
+        "name": "btn_media_volume_up.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_mixer_clear_chat.svg",
+        "name": "btn_mixer_clear_chat.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_mixer_post_message.svg",
+        "name": "btn_mixer_post_message.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_mixer_show_viewers_inactive.svg",
+        "name": "btn_mixer_show_viewers_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_mixer_show_viewers.svg",
+        "name": "btn_mixer_show_viewers.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_mixer_toggle_slowchat_inactive.svg",
+        "name": "btn_mixer_toggle_slowchat_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_mixer_toggle_slowchat.svg",
+        "name": "btn_mixer_toggle_slowchat.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_obs_select_scene_inactive.svg",
+        "name": "btn_obs_select_scene_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_obs_select_scene.svg",
+        "name": "btn_obs_select_scene.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_obs_toggle_mixer_audio_inactive.svg",
+        "name": "btn_obs_toggle_mixer_audio_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_obs_toggle_mixer_audio.svg",
+        "name": "btn_obs_toggle_mixer_audio.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_obs_toggle_recording_inactive.svg",
+        "name": "btn_obs_toggle_recording_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_obs_toggle_recording.svg",
+        "name": "btn_obs_toggle_recording.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_obs_toggle_source_inactive.svg",
+        "name": "btn_obs_toggle_source_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_obs_toggle_source.svg",
+        "name": "btn_obs_toggle_source.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_obs_toggle_streaming_inactive.svg",
+        "name": "btn_obs_toggle_streaming_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_obs_toggle_streaming.svg",
+        "name": "btn_obs_toggle_streaming.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_slobs_select_scene_inactive.svg",
+        "name": "btn_slobs_select_scene_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_slobs_select_scene.svg",
+        "name": "btn_slobs_select_scene.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_slobs_toggle_mixer_audio_inactive.svg",
+        "name": "btn_slobs_toggle_mixer_audio_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_slobs_toggle_mixer_audio.svg",
+        "name": "btn_slobs_toggle_mixer_audio.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_slobs_toggle_recording_inactive.svg",
+        "name": "btn_slobs_toggle_recording_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_slobs_toggle_recording.svg",
+        "name": "btn_slobs_toggle_recording.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_slobs_toggle_source_inactive.svg",
+        "name": "btn_slobs_toggle_source_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_slobs_toggle_source.svg",
+        "name": "btn_slobs_toggle_source.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_slobs_toggle_streaming_inactive.svg",
+        "name": "btn_slobs_toggle_streaming_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_slobs_toggle_streaming.svg",
+        "name": "btn_slobs_toggle_streaming.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_spotify_next.svg",
+        "name": "btn_spotify_next.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_spotify_pause_playlist.svg",
+        "name": "btn_spotify_pause_playlist.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_spotify_pause.svg",
+        "name": "btn_spotify_pause.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_spotify_play_playlist.svg",
+        "name": "btn_spotify_play_playlist.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_spotify_play.svg",
+        "name": "btn_spotify_play.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_spotify_shuffle.svg",
+        "name": "btn_spotify_shuffle.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_streamlabs_alert.svg",
+        "name": "btn_streamlabs_alert.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_streamlabs_credits.svg",
+        "name": "btn_streamlabs_credits.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_streamlabs_emptyjar.svg",
+        "name": "btn_streamlabs_emptyjar.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_streamlabs_hide_media_sharing.svg",
+        "name": "btn_streamlabs_hide_media_sharing.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_streamlabs_mute.svg",
+        "name": "btn_streamlabs_mute.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_streamlabs_profile.svg",
+        "name": "btn_streamlabs_profile.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_streamlabs_show_media_sharing.svg",
+        "name": "btn_streamlabs_show_media_sharing.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_streamlabs_skip.svg",
+        "name": "btn_streamlabs_skip.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_streamlabs_spinwheel.svg",
+        "name": "btn_streamlabs_spinwheel.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_streamlabs_unmute.svg",
+        "name": "btn_streamlabs_unmute.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_streamlabs_unpause.svg",
+        "name": "btn_streamlabs_unpause.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_system_back.svg",
+        "name": "btn_system_back.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_system_custom_folder.svg",
+        "name": "btn_system_custom_folder.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_system_duration.svg",
+        "name": "btn_system_duration.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_system_launch.svg",
+        "name": "btn_system_launch.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_system_multi_action.svg",
+        "name": "btn_system_multi_action.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_system_play.svg",
+        "name": "btn_system_play.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_system_stop_play.svg",
+        "name": "btn_system_stop_play.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_system_switch_profile.svg",
+        "name": "btn_system_switch_profile.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_system_text.svg",
+        "name": "btn_system_text.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_tipeeestream_toggle_scene_element_inactive.svg",
+        "name": "btn_tipeeestream_toggle_scene_element_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_tipeeestream_toggle_scene_element.svg",
+        "name": "btn_tipeeestream_toggle_scene_element.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_twitch_create_clip_inactive.svg",
+        "name": "btn_twitch_create_clip_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_twitch_create_clip.svg",
+        "name": "btn_twitch_create_clip.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_twitch_game_title.svg",
+        "name": "btn_twitch_game_title.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_twitch_open_last_create_clip_inactive.svg",
+        "name": "btn_twitch_open_last_create_clip_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_twitch_open_last_create_clip.svg",
+        "name": "btn_twitch_open_last_create_clip.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_twitch_play_ad.svg",
+        "name": "btn_twitch_play_ad.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_twitch_post_message.svg",
+        "name": "btn_twitch_post_message.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_twitch_show_viewers_inactive.svg",
+        "name": "btn_twitch_show_viewers_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_twitch_show_viewers.svg",
+        "name": "btn_twitch_show_viewers.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_twitch_skip.svg",
+        "name": "btn_twitch_skip.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_twitch_spinwheel.svg",
+        "name": "btn_twitch_spinwheel.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_twitch_toggle_emotechat_inactive.svg",
+        "name": "btn_twitch_toggle_emotechat_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_twitch_toggle_emotechat.svg",
+        "name": "btn_twitch_toggle_emotechat.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_twitch_toggle_followerschat_inactive.svg",
+        "name": "btn_twitch_toggle_followerschat_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_twitch_toggle_followerschat.svg",
+        "name": "btn_twitch_toggle_followerschat.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_twitch_toggle_slowchat_inactive.svg",
+        "name": "btn_twitch_toggle_slowchat_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_twitch_toggle_slowchat.svg",
+        "name": "btn_twitch_toggle_slowchat.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_twitch_toggle_subchat_inactive.svg",
+        "name": "btn_twitch_toggle_subchat_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_twitch_toggle_subchat.svg",
+        "name": "btn_twitch_toggle_subchat.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_twitter_change_display_name.svg",
+        "name": "btn_twitter_change_display_name.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_twitter_post_message_attachment.svg",
+        "name": "btn_twitter_post_message_attachment.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_twitter_post_message.svg",
+        "name": "btn_twitter_post_message.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_xsplit_folder_inactive.svg",
+        "name": "btn_xsplit_folder_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_xsplit_folder.svg",
+        "name": "btn_xsplit_folder.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_xsplit_logo_inactive.svg",
+        "name": "btn_xsplit_logo_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_xsplit_logo.svg",
+        "name": "btn_xsplit_logo.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_xsplit_scene_inactive.svg",
+        "name": "btn_xsplit_scene_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_xsplit_scene.svg",
+        "name": "btn_xsplit_scene.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_xsplit_screenshot_inactive.svg",
+        "name": "btn_xsplit_screenshot_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_xsplit_screenshot.svg",
+        "name": "btn_xsplit_screenshot.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_xsplit_toggle_desktop_audio_inactive.svg",
+        "name": "btn_xsplit_toggle_desktop_audio_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_xsplit_toggle_desktop_audio.svg",
+        "name": "btn_xsplit_toggle_desktop_audio.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_xsplit_toggle_media_source_inactive.svg",
+        "name": "btn_xsplit_toggle_media_source_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_xsplit_toggle_media_source.svg",
+        "name": "btn_xsplit_toggle_media_source.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_xsplit_toggle_microphone_inactive.svg",
+        "name": "btn_xsplit_toggle_microphone_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_xsplit_toggle_microphone.svg",
+        "name": "btn_xsplit_toggle_microphone.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_xsplit_toggle_output_inactive.svg",
+        "name": "btn_xsplit_toggle_output_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_xsplit_toggle_output.svg",
+        "name": "btn_xsplit_toggle_output.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_xsplit_toggle_recording_inactive.svg",
+        "name": "btn_xsplit_toggle_recording_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_xsplit_toggle_recording.svg",
+        "name": "btn_xsplit_toggle_recording.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_xsplit_toggle_source_inactive.svg",
+        "name": "btn_xsplit_toggle_source_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_xsplit_toggle_source.svg",
+        "name": "btn_xsplit_toggle_source.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_youtube_chat_message_inactive.svg",
+        "name": "btn_youtube_chat_message_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_youtube_chat_message.svg",
+        "name": "btn_youtube_chat_message.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_youtube_play_ad.svg",
+        "name": "btn_youtube_play_ad.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_youtube_post_message_inactive.svg",
+        "name": "btn_youtube_post_message_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_youtube_post_message.svg",
+        "name": "btn_youtube_post_message.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_youtube_show_viewers_inactive.svg",
+        "name": "btn_youtube_show_viewers_inactive.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_youtube_show_viewers.svg",
+        "name": "btn_youtube_show_viewers.svg",
+        "tags": []
+    },
+    {
+        "path": "bulb_color.svg",
+        "name": "bulb_color.svg",
+        "tags": []
+    },
+    {
+        "path": "bulb_group.svg",
+        "name": "bulb_group.svg",
+        "tags": []
+    },
+    {
+        "path": "bulb.svg",
+        "name": "bulb.svg",
+        "tags": []
+    },
+    {
+        "path": "category.svg",
+        "name": "category.svg",
+        "tags": []
+    },
+    {
+        "path": "action_icon.svg",
+        "name": "action_icon.svg",
+        "tags": []
+    },
+    {
+        "path": "100.svg",
+        "name": "100.svg",
+        "tags": []
+    },
+    {
+        "path": "200.svg",
+        "name": "200.svg",
+        "tags": []
+    },
+    {
+        "path": "201.svg",
+        "name": "201.svg",
+        "tags": []
+    },
+    {
+        "path": "202.svg",
+        "name": "202.svg",
+        "tags": []
+    },
+    {
+        "path": "203.svg",
+        "name": "203.svg",
+        "tags": []
+    },
+    {
+        "path": "210.svg",
+        "name": "210.svg",
+        "tags": []
+    },
+    {
+        "path": "211.svg",
+        "name": "211.svg",
+        "tags": []
+    },
+    {
+        "path": "300.svg",
+        "name": "300.svg",
+        "tags": []
+    },
+    {
+        "path": "301.svg",
+        "name": "301.svg",
+        "tags": []
+    },
+    {
+        "path": "302.svg",
+        "name": "302.svg",
+        "tags": []
+    },
+    {
+        "path": "303.svg",
+        "name": "303.svg",
+        "tags": []
+    },
+    {
+        "path": "400.svg",
+        "name": "400.svg",
+        "tags": []
+    },
+    {
+        "path": "cc_keylight_boxed.svg",
+        "name": "cc_keylight_boxed.svg",
+        "tags": []
+    },
+    {
+        "path": "cc_keylight_cold.svg",
+        "name": "cc_keylight_cold.svg",
+        "tags": []
+    },
+    {
+        "path": "cc_keylight_warm.svg",
+        "name": "cc_keylight_warm.svg",
+        "tags": []
+    },
+    {
+        "path": "cc_keylight.svg",
+        "name": "cc_keylight.svg",
+        "tags": []
+    },
+    {
+        "path": "cc_kl_fill_black.svg",
+        "name": "cc_kl_fill_black.svg",
+        "tags": []
+    },
+    {
+        "path": "cc_kl_fill_cold.svg",
+        "name": "cc_kl_fill_cold.svg",
+        "tags": []
+    },
+    {
+        "path": "cc_kl_fill_solo.svg",
+        "name": "cc_kl_fill_solo.svg",
+        "tags": []
+    },
+    {
+        "path": "cc_kl_fill_warm.svg",
+        "name": "cc_kl_fill_warm.svg",
+        "tags": []
+    },
+    {
+        "path": "cc_kl_fill.svg",
+        "name": "cc_kl_fill.svg",
+        "tags": []
+    },
+    {
+        "path": "cpu.svg",
+        "name": "cpu.svg",
+        "tags": []
+    },
+    {
+        "path": "cpu2.svg",
+        "name": "cpu2.svg",
+        "tags": []
+    },
+    {
+        "path": "delay.svg",
+        "name": "delay.svg",
+        "tags": []
+    },
+    {
+        "path": "epoccam_fill.svg",
+        "name": "epoccam_fill.svg",
+        "tags": []
+    },
+    {
+        "path": "epoccam_outline.svg",
+        "name": "epoccam_outline.svg",
+        "tags": []
+    },
+    {
+        "path": "hues.svg",
+        "name": "hues.svg",
+        "tags": []
+    },
+    {
+        "path": "icon_brightness_slider.svg",
+        "name": "icon_brightness_slider.svg",
+        "tags": []
+    },
+    {
+        "path": "icon_off.svg",
+        "name": "icon_off.svg",
+        "tags": []
+    },
+    {
+        "path": "icon_on.svg",
+        "name": "icon_on.svg",
+        "tags": []
+    },
+    {
+        "path": "icon_temperature_slider.svg",
+        "name": "icon_temperature_slider.svg",
+        "tags": []
+    },
+    {
+        "path": "lamp.svg",
+        "name": "lamp.svg",
+        "tags": []
+    },
+    {
+        "path": "minus.svg",
+        "name": "minus.svg",
+        "tags": []
+    },
+    {
+        "path": "multi_action.svg",
+        "name": "multi_action.svg",
+        "tags": []
+    },
+    {
+        "path": "ok.svg",
+        "name": "ok.svg",
+        "tags": []
+    },
+    {
+        "path": "playbutton.svg",
+        "name": "playbutton.svg",
+        "tags": []
+    },
+    {
+        "path": "playbutton2.svg",
+        "name": "playbutton2.svg",
+        "tags": []
+    },
+    {
+        "path": "plus.svg",
+        "name": "plus.svg",
+        "tags": []
+    },
+    {
+        "path": "sd_plugin_icon.svg",
+        "name": "sd_plugin_icon.svg",
+        "tags": []
+    },
+    {
+        "path": "sl_contrast.svg",
+        "name": "sl_contrast.svg",
+        "tags": []
+    },
+    {
+        "path": "sl_hue_line.svg",
+        "name": "sl_hue_line.svg",
+        "tags": []
+    },
+    {
+        "path": "sl_hue.svg",
+        "name": "sl_hue.svg",
+        "tags": []
+    },
+    {
+        "path": "sun_line.svg",
+        "name": "sun_line.svg",
+        "tags": []
+    },
+    {
+        "path": "sun.svg",
+        "name": "sun.svg",
+        "tags": []
+    },
+    {
+        "path": "btn_followme.svg",
+        "name": "btn_followme.svg",
+        "tags": []
+    }
+]

@@ -1,0 +1,63 @@
+{
+    "Description": "Twitch Studio를 제어합니다.",
+    "Name": "Twitch Studio",
+    "Category": "Twitch Studio",
+    "tv.twitch.studio.layout": {
+        "Name": "레이아웃 선택",
+        "Tooltip": "레이아웃을 선택합니다"
+    },
+    "tv.twitch.studio.layer": {
+        "Name": "레이어 보기/가리기",
+        "Tooltip": "레이어를 보기/가리기합니다",
+        "States": [
+			{
+				"Name": "보기"
+			}, 
+			{
+				"Name": "가리기"
+			}
+		]
+    },
+    "tv.twitch.studio.audio": {
+        "Name": "오디오 음소거/해제",
+        "Tooltip": "오디오 소스를 음소거/해제합니다",
+        "States": [
+			{
+				"Name": "음소거 해제"
+			}, 
+			{
+				"Name": "음소거"
+			}
+		]
+    },
+    "tv.twitch.studio.stream": {
+        "Name": "스트리밍 시작/종료",
+        "Tooltip": "스트리밍을 시작/종료합니다",
+        "States": [
+			{
+				"Name": "시작"
+			}, 
+			{
+				"Name": "정지"
+			}
+		]
+    },
+    "tv.twitch.studio.record": {
+        "Name": "녹화 시작/종료",
+        "Tooltip": "녹화를 시작/종료합니다",
+        "States": [
+			{
+				"Name": "시작"
+			}, 
+			{
+				"Name": "정지"
+			}
+		]
+    },
+    "Localization": {
+        "Please launch Twitch Studio": "Twitch Studio를 실행하세요",
+        "Audio Source": "오디오 소스",
+        "Layout": "레이아웃",
+        "Layer": "레이어"
+    }
+}

@@ -1,0 +1,63 @@
+{
+    "Description": "控制 Twitch Studio。",
+    "Name": "Twitch Studio",
+    "Category": "Twitch Studio",
+    "tv.twitch.studio.layout": {
+        "Name": "选择布局",
+        "Tooltip": "选择一个布局"
+    },
+    "tv.twitch.studio.layer": {
+        "Name": "显示/隐藏图层",
+        "Tooltip": "显示/隐藏一个图层",
+        "States": [
+			{
+				"Name": "显示"
+			}, 
+			{
+				"Name": "隐藏"
+			}
+		]
+    },
+    "tv.twitch.studio.audio": {
+        "Name": "静音/取消静音音频",
+        "Tooltip": "静音/取消静音一个音频源",
+        "States": [
+			{
+				"Name": "取消静音"
+			}, 
+			{
+				"Name": "静音"
+			}
+		]
+    },
+    "tv.twitch.studio.stream": {
+        "Name": "开始/结束实时播放",
+        "Tooltip": "开始/结束实时播放",
+        "States": [
+			{
+				"Name": "开始"
+			}, 
+			{
+				"Name": "停止"
+			}
+		]
+    },
+    "tv.twitch.studio.record": {
+        "Name": "开始/结束录制",
+        "Tooltip": "开始/结束录制",
+        "States": [
+			{
+				"Name": "开始"
+			}, 
+			{
+				"Name": "停止"
+			}
+		]
+    },
+    "Localization": {
+        "Please launch Twitch Studio": "请启动 Twitch Studio",
+        "Audio Source": "音频源",
+        "Layout": "布局",
+        "Layer": "图层"
+    }
+}

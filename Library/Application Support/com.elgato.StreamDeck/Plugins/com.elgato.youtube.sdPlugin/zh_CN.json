@@ -1,0 +1,25 @@
+{
+  "Description": "控制 YouTube。", 
+  "Name": "YouTube", 
+  "com.elgato.youtube.chatmessage": {
+    "Name": "聊天消息", 
+    "Tooltip": "发布预编辑的 YouTube 聊天消息"
+  }, 
+  "com.elgato.youtube.playad": {
+    "Name": "播放广告", 
+    "Tooltip": "播放广告"
+  }, 
+  "com.elgato.youtube.viewers": {
+    "Name": "观众", 
+    "Tooltip": "显示 YouTube 实时播放观众人数"
+  }, 
+  "Localization": {
+    "PI": {
+      "Account": "帐户",
+      "NoAccounts": "无帐户",
+      "AddAccount": "添加帐户",
+      "Message": "消息",
+      "MessagePlaceholder": "在此输入 YouTube 聊天消息。"
+    }
+  }
+}

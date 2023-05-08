@@ -1,0 +1,18 @@
+body,
+.localbody {
+  height: 100%;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.localbody {
+  width: 350px;
+  margin: 0 auto;
+}
+
+.hidden {
+  display: block;
+}

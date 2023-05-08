@@ -1,0 +1,120 @@
+{
+  "Actions": [
+    {
+      "Icon": "images/layout",
+      "Name": "Select Scene",
+      "States": [
+        {
+          "Image": "Images/key-layout-active"
+        }, 
+        {
+          "Image": "Images/key-layout-inactive"
+        }
+      ], 
+      "SupportedInMultiActions": true,
+      "Tooltip": "Select a scene",
+      "UUID": "tv.twitch.studio.layout"
+    },
+    {
+      "Icon": "images/layer",
+      "Name": "Show/Hide Layer",
+      "States": [
+        {
+          "Image": "Images/key-layer-active",
+		  "Name": "Show"
+        }, 
+        {
+          "Image": "Images/key-layer-inactive",
+		  "Name": "Hide"
+        }
+      ], 
+      "SupportedInMultiActions": true,
+      "Tooltip": "Show/hide a layer",
+      "UUID": "tv.twitch.studio.layer"
+    },
+    {
+      "Icon": "images/audio-source",
+      "Name": "Mute/Unmute Audio",
+      "States": [
+        {
+          "Image": "Images/key-audio-source-active",
+		  "Name": "Unmute"
+        }, 
+        {
+          "Image": "Images/key-audio-source-inactive",
+		  "Name": "Mute"
+        }
+      ], 
+      "SupportedInMultiActions": true,
+      "Tooltip": "Mute/unmute an audio source",
+      "UUID": "tv.twitch.studio.audio"
+    },
+	{
+      "Icon": "images/streaming", 
+      "Name": "Start/End Streaming", 
+      "States": [
+        {
+          "Image": "images/key-stream-active",
+		  "Name": "Start"
+        }, 
+        {
+          "Image": "images/key-stream-inactive",
+		  "Name": "Stop"
+        }
+      ], 
+      "SupportedInMultiActions": true,
+      "Tooltip": "Start/End streaming", 
+      "UUID": "tv.twitch.studio.stream"
+    },
+    {
+      "Icon": "images/recording", 
+      "Name": "Start/End Recording", 
+      "States": [
+        {
+          "Image": "images/key-recording-active",
+		  "Name": "Start"
+        }, 
+        {
+          "Image": "images/key-recording-inactive",
+		  "Name": "Stop"
+        }
+      ], 
+      "SupportedInMultiActions": true,
+      "Tooltip": "Start/End recording", 
+      "UUID": "tv.twitch.studio.record"
+    }
+  ],
+  "SDKVersion": 2,
+  "Author": "Twitch",
+  "CodePathWin": "twitchstudiostreamdeck.exe",
+  "CodePathMac": "TwitchStudioStreamDeck",
+  "PropertyInspectorPath": "propertyinspector/index.html",
+  "Description": "Control Twitch Studio.",
+  "Name": "Twitch Studio",
+  "Icon": "twitch-studio",
+  "URL": "https://www.twitch.tv/broadcast/studio",
+  "Version": "1.2",
+  "Category": "Twitch Studio",
+  "CategoryIcon": "Images/twitch-category-image",
+  "OS": [
+    {
+      "Platform": "windows",
+      "MinimumVersion": "10"
+    },
+    {
+        "Platform": "mac", 
+        "MinimumVersion" : "10.14"
+    }
+  ],
+  "ApplicationsToMonitor": {
+  	"windows": [
+		"TwitchStudio.exe"
+	],
+	"mac": [
+		"com.twitch.spotlight"
+	]
+  },
+  "Software": {
+    "MinimumVersion": "4.6.3"
+  }
+}

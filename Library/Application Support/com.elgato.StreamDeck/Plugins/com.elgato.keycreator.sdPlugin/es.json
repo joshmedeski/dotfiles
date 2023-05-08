@@ -1,0 +1,37 @@
+{
+    "Description": "Crea tus teclas",
+    "Name": "Biblioteca de iconos de Stream Deck",
+    "Category": "Plantillas",
+    "IconMenuItem": "Abrir la Biblioteca de iconos de Stream Deck",
+    "com.elgato.keycreator.action": {
+        "Name": "Acción",
+        "Tooltip": "Esta es la única acción de este plugin"
+    },
+    "Localization": {
+        "Close": "Cerrar",
+        "Done": "OK",
+        "More info": "Más información",
+        "Message": "Mensaje",
+        "Click Me": "Púlsame",
+        "Button": "Botón",
+        "Color": "Color",
+        "Opacity": "Opacidad",
+        "Stroke": "Trazo",
+        "Angle": "Ángulo",
+        "Font": "Fuente",
+        "Layer": "Capa",
+        "Layers": "Capas",
+        "Inspector": "Inspector",
+        "Filter": "Filtro",
+        "Find Font": "Buscar fuente",
+        "Custom Fonts": "Fuentes personalizadas",
+        "System Fonts": "Fuentes del sistema",
+        "Search...": "Buscar…",
+        "Search in icons": "Buscar en iconos…",
+        "Search in iconpacks": "Buscar en paquetes de iconos…",
+        "More Actions...": "Más acciones…",
+        "Get more icon packs...": "Obtener más paquetes de iconos…",
+        "Acknowledgements": "Agradecimientos",
+        "Settings": "Ajustes"
+    }
+}

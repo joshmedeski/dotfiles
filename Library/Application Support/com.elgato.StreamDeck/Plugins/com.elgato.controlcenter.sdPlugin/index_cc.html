@@ -1,0 +1,278 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>com.elgato.controlcenter</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="./propertyinspector/css/sdpi.css">
+
+    <style>
+        :root {
+            --sdpi-bgcolorOrig: #212330;
+            --sdpi-bgcolor: #3A393A;  /* OBS */
+            --sdpi-width: 260px;
+            --sdpi-max-width: 320px;
+            --sdpi-bordercolor: rgba(0,0, 0, 0.2);
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        #devices {
+            overflow: hidden;
+        }
+
+        h1 {
+            padding-top: 20px;
+        }
+
+        .sdpi-wrapper {
+            position: relative;
+            padding: 8px;
+            padding-top: 0px;
+            /*20px; */
+        }
+
+        .sdpi-wrapper::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            border-top: 1px solid var(--sdpi-bordercolor);
+            z-index: 10;
+        }
+
+        .output {
+            position: relative;
+            padding: 8px;
+            width: 100%;
+
+        }
+
+        .xxgroups {
+            margin-top: 20px;
+            padding-top: 12px;
+            border-top: 1px solid var(--sdpi-bordercolor);
+        }
+
+        .xxgroups::before {
+            content: "Groups";
+            display: block;
+            font-size: 1.3em;
+            font-weight: 500;
+            text-align: center;
+
+            margin-bottom: 12px;
+        }
+
+        .sdpi-item {
+            max-width: none !important;
+            min-height: 26px !important;
+        }
+        
+        .sdpi-item > *:not(.sdpi-item-label.empty):not(meter) {
+            min-height: 26px !important;
+        }
+
+        .sdpi-item-label {
+            width: 240px !important;
+        }
+
+        .sdpi-item-value {
+            font-weight: normal !important;
+        }
+
+        tr:nth-child(even) {
+            background-color: transparent !important;
+            padding: 2px;
+        }
+
+        td {
+            min-width: 180px !important;
+            padding: 1px;
+        }
+
+        .left {
+            text-align: left;
+            font-weight: bold;
+            ;
+        }
+
+        .sdpi-item-value,
+        option,
+        input,
+        select {
+            font-size: 12px !important;
+            text-align: left !important;
+        }
+    
+        input[type="radio"] + label span, input[type="checkbox"] + label span {
+            background-color: rgba(119, 119, 255, 0.1);
+        }
+
+        .sdpi-wrapper>.sdpi-item[type='checkbox'],
+        .sdpi-wrapper>.sdpi-item[type='range'],
+        .sdpi-wrapper>.sdpi-item[type='select'] {
+            line-height: 26px;
+            ;
+        }
+
+        .sdpi-wrapper>.sdpi-item[type='range'] {
+            position: relative
+        }
+
+        .bold,
+        input[type="radio"]+label.bold,
+        input[type="checkbox"]+label.bold {
+            font-weight: #9a9a9a;
+            font-weight: 600;
+        }
+
+        .sdpi-item-value,
+        option,
+        input,
+        select,
+        button {
+            max-width:   var(--sdpi-max-width);
+            ;
+        }
+
+        span+input[type="range"] {
+            max-width: none;
+        }
+
+        .inner {
+            /* padding: 12px 24px; */
+            padding: 0px 16px;
+        }
+
+        .dropzone {
+            background-color: rgba(0, 0, 255, 0.4);
+        }
+
+        .dropzone * {
+            pointer-events: none;
+        }
+
+        .device:hover {
+            background-color: rgba(255, 255, 255, 0.01);
+        }
+
+        .add-to-group {
+            position: absolute;
+            top: 16px;
+            right: 12px;
+            /* background-color: #212330; */
+            border: none;
+            /* color: #fff; */
+            padding: 4px;
+            border-radius: 4px;
+            cursor: pointer;
+            min-width: 20px;
+            text-align: center;
+        }
+
+
+        .strikethrough::after {
+            --strike-color: rgba(255, 64, 0, 0.9);
+            pointer-events: none;
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top right, transparent 45%, var(--strike-color) 46%, var(--strike-color) 54%, transparent 55%);
+        }
+
+        /* TABS */
+
+        .tabs {
+            /**
+               * Setting display to flex makes this container lay
+               * out its children using flexbox, the exact same
+               * as in the above "Stepper input" example.
+               */
+            display: flex;
+
+            border-bottom: 1px solid transparent;
+            flex-wrap: nowrap;
+            white-space: nowrap;
+            overflow-x: scroll;
+            text-transform: capitalize;
+        }
+
+        .tab {
+            cursor: pointer;
+            padding: 6px 16px;
+            color: var(--tab-color);
+            /* font-size: var(--tab-font-size); */
+            /* font-size: 1.2em;
+            font-weight: 500; */
+            border-bottom: 2px solid transparent;
+        }
+
+        .tab.is-tab-selected {
+            border-bottom-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .tab.selected {
+            border-bottom-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .istab {
+            background-color: rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+            padding: 4px;
+        }
+        .previewContainer {
+            display:flex;
+        }
+        .scenes {
+            overflow-x: scroll;
+            margin: 0px;
+            margin-left: 12px;
+            padding: 0px;
+        }
+        .scenes img {
+            max-width: 36px;
+            max-height: 36px;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .sdpi-item-value.scenes> :last-of-type, .sdpi-item-value.scenes:last-child {
+            margin-bottom: 0px;
+
+        }
+        .pcIcon {
+            opacity: 0.5;
+            background-image: url("./action/images/sidebar/scene.svg");
+            background-repeat: no-repeat;
+            background-size: 18px;
+            background-position: center;
+            width: 18px;
+            height: 36px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tabs">
+        <div class="tab" id="tab_devices" data-target="#devices">Devices</div>
+        <div class="tab" id="tab_group" data-target="#groups">Group</div>
+    </div>
+    <div id="devices" class="devices"></div>
+    <div id="groups" class="groups hidden"></div>
+    <script src="config.js"></script>
+    <script src="js/timers.js"></script>
+    <script src="propertyinspector/js/common.js"></script>
+    <script src="js/simple-jsonrpc-js.min.js"></script>
+    <script src="js/ControlCenterClient.js"></script>
+    <script src="scene_basic.js"></script>
+    <script src="app_standalone.js"></script>
+</body>
+
+</html>

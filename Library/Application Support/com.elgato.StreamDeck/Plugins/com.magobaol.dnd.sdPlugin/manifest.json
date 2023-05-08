@@ -1,0 +1,45 @@
+{
+  "Actions": [
+    {
+      "Icon": "images/ActionIcon",
+      "Name": "DND Toggler",
+      "SupportedInMultiActions": true,
+      "Tooltip": "Easy way to toggle DND on your Mac",
+      "UUID": "com.magobaol.dnd.toggle",
+      "States": [
+        {
+          "Image": "images/dndDisabled",
+          "TitleAlignment": "bottom",
+          "FontSize": "11",
+          "Title": "DND OFF",
+          "ShowTitle": false
+        },
+        {
+          "Image": "images/dndEnabled",
+          "TitleAlignment": "bottom",
+          "FontSize": "11",
+          "Title": "DND ON",
+          "ShowTitle": false
+        }
+      ]
+    }
+  ],
+  "SDKVersion": 2,
+  "Author": "Francesco Face",
+  "CodePath": "Plugin",
+  "Description": "Plugin to toggle DND on your Mac",
+  "Name": "DND",
+  "Icon": "images/dndEnabled",
+  "URL": "https://github.com/magobaol/streamdeck-dnd",
+  "Version": "1.0",
+  "OS": [
+    {
+        "Platform": "mac",
+        "MinimumVersion" : "10.11"
+    }
+  ],
+  "Software":
+    {
+        "MinimumVersion" : "4.3"
+    }
+}

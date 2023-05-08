@@ -1,0 +1,19 @@
+/**
+@file      pi.css
+@brief     Philips Hue Plugin
+@copyright (c) 2019, Corsair Memory, Inc.
+@license   This source code is licensed under the MIT-style license found in the LICENSE file.
+*/
+
+#pi {
+  display: none;
+}
+
+#placeholder {
+  margin-top: 3px;
+}
+
+select option:disabled {
+  font-size: 1pt;
+  background-color: #505050;
+}

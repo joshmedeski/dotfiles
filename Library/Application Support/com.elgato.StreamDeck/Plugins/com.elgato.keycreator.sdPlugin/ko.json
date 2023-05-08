@@ -1,0 +1,37 @@
+{
+    "Description": "나만의 키를 만드세요",
+    "Name": "Stream Deck 아이콘 라이브러리",
+    "Category": "템플릿",
+    "IconMenuItem": "Stream Deck 아이콘 라이브러리 열기",
+    "com.elgato.keycreator.action": {
+        "Name": "동작",
+        "Tooltip": "이 플러그인의 유일한 동작입니다"
+    },
+    "Localization": {
+        "Close": "닫기",
+        "Done": "완료",
+        "More info": "더 많은 정보",
+        "Message": "메시지",
+        "Click Me": "클릭하세요",
+        "Button": "버튼",
+        "Color": "색상",
+        "Opacity": "불투명도",
+        "Stroke": "획",
+        "Angle": "각도",
+        "Font": "서체",
+        "Layer": "레이어",
+        "Layers": "레이어",
+        "Inspector": "속성",
+        "Filter": "필터",
+        "Find Font": "서체 찾기",
+        "Custom Fonts": "사용자지정 서체",
+        "System Fonts": "시스템 서체",
+        "Search...": "검색...",
+        "Search in icons": "아이콘 검색...",
+        "Search in iconpacks": "아이콘팩 검색...",
+        "More Actions...": "더 많은 동작…",
+        "Get more icon packs...": "더 많은 아이콘 팩 받기...",
+        "Acknowledgements": "감사의 글",
+        "Settings": "설정"
+    }
+}

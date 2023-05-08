@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="144px" height="144px" viewBox="0 0 144 144" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>kc-logo</title>
+    <g id="kc-logo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="kc_icon" transform="translate(1.000000, 1.000000)">
+            <circle id="Oval" fill="#007AFF" cx="72" cy="72" r="72"></circle>
+            <path d="M82.96918,19.2 L89.59818,25.829 L44.6105287,72.4204761 L89.84018,119.262 L84.30218,124.8 L65.72018,124.8 L13.72318,72.8031824 L67.32718,19.2 L82.96918,19.2 Z M96.29218,32.523 L121.55518,57.786 L119.096265,60.3216813 C112.844469,53.8765164 102.708303,53.8765164 96.4565067,60.3216813 C90.20471,66.7668462 90.20471,77.2165231 96.4565067,83.661688 C102.708303,90.1068528 112.844469,90.1068528 119.096265,83.661688 L122.22018,86.882 L96.54218,112.56 L57.6,72.4122595 L96.29218,32.523 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+        </g>
+    </g>
+</svg>

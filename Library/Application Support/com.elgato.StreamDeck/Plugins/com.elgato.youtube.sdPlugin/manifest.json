@@ -1,0 +1,53 @@
+{
+  "Actions": [
+    {
+      "Icon": "plugin/images/icons/youtube_post_message_white", 
+      "Name": "Chat Message", 
+      "States": [
+        {
+          "Image": "plugin/images/actions/btn_youtube_post_message"
+        }
+      ], 
+      "Tooltip": "Post a precomposed YouTube chat message", 
+      "UUID": "com.elgato.youtube.chatmessage"
+    }, 
+    {
+      "Icon": "plugin/images/icons/youtube_show_viewers_white", 
+      "Name": "Viewers", 
+      "States": [
+        {
+          "Image": "plugin/images/actions/btn_youtube_show_viewers"
+        }
+      ], 
+      "Tooltip": "Show number of YouTube live stream viewers", 
+      "UUID": "com.elgato.youtube.viewers",
+	    "SupportedInMultiActions": false
+    }
+  ], 
+  "SDKVersion": 2,
+  "Author": "Elgato",
+  "CodePath": "plugin/index.html",
+  "Description": "Control YouTube.", 
+  "Name": "YouTube", 
+  "Icon": "plugin/images/icons/plugin",
+  "Category": "YouTube",
+  "CategoryIcon": "plugin/images/icons/category",
+  "PropertyInspectorPath": "pi/index.html",
+  "URL": "https://www.elgato.com/en/gaming/stream-deck", 
+  "Version": "1.5",
+  "DefaultWindowSize": [500, 650],
+  "OS": [
+    {
+        "Platform": "mac",
+        "MinimumVersion" : "10.11"
+    },
+    {
+        "Platform": "windows",
+        "MinimumVersion" : "10"
+    }
+  ],
+  "Software":
+    {
+        "MinimumVersion" : "5.0"
+    }
+}

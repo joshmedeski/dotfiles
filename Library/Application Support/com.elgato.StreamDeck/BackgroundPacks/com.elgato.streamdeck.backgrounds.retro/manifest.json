@@ -1,0 +1,11 @@
+{
+  "Name": "Retro",
+  "Icon": "Retro.svg",
+  "Images": [
+    "Backgrounds/Waves.png",
+    "Backgrounds/Waves_WIP.png",
+    "Backgrounds/TVS.jpg",
+    "Backgrounds/Grid_Blue.png",
+    "Backgrounds/Full Background.png"
+  ]
+}

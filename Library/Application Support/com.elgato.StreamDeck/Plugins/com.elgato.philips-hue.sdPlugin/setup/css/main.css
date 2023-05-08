@@ -1,0 +1,214 @@
+/**
+@file      main.css
+@brief     Philips Hue Plugin
+@copyright (c) 2019, Corsair Memory, Inc.
+@license   This source code is licensed under the MIT-style license found in the LICENSE file.
+*/
+
+html, body {
+  margin: 0;
+  color: #e6e6e6;
+  background-color: #2d2d2d;
+  font-family: 'Helvetica Light', 'Helvetica', Arial, sans-serif;
+  height: 100%;
+  -webkit-user-select: none;
+  user-select: none;
+  overflow: hidden;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+h1 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  color: #969696;
+  font-weight: 100;
+  margin-bottom: 5px;
+}
+
+.header {
+  padding: 25px 25px 5px;
+}
+
+#content {
+  padding: 0 25px 15px;
+}
+
+.main {
+  min-width: 400px;
+}
+
+@media (min-width: 600px) {
+  .main {
+    max-width: 500px;
+    height: 100%;
+    width: 100%;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .center {
+    display: table-cell;
+    height: 100%;
+    vertical-align: middle;
+  }
+
+  .border {
+    border: 1px solid #3c3c3c;
+    border-radius: 5px;
+    margin: 10px;
+    min-height: 625px;
+  }
+}
+
+p, li {
+  line-height: 1.5;
+  text-align: center;
+}
+
+.status-bar {
+  display: table;
+  width: 100%;
+  border-spacing: 3px;
+  border-collapse: separate;
+}
+
+.status-row {
+  display: table-row;
+}
+
+.status-cell {
+  display: table-cell;
+  background-color: #3d3d3d;
+  height: 10px;
+}
+
+.status-cell.active {
+  background-color: #007dff;
+}
+
+.image {
+  width: 250px;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 5px;
+  padding-bottom: 20px;
+}
+
+label {
+  width: 100%;
+  font-weight: bold;
+  text-align: center;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+input {
+  width: 65%;
+  color: #fff;
+  border: 1px solid #8d8d8d;
+  background-color: #3d3d3d;
+  border-radius: 4px;
+  padding: 8px;
+  margin: 8px auto 16px;
+  text-align: center;
+  font-size: 1rem;
+  display: block;
+  box-sizing: border-box;
+}
+
+input:focus, input:active {
+  border-color: #007dff;
+}
+
+.button, .button-main, .button-transparent {
+  padding: 8px 50px;
+  display: table;
+  margin: 8px auto;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.button.block, .button-main.block {
+  width: 65%;
+  padding: 8px 16px;
+  display: block;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.button {
+  background-color: #3d3d3d;
+}
+
+.button-main {
+  background-color: #535353;
+}
+
+.button:hover, .button-main:hover {
+  background-color: #007dff;
+}
+
+.button-transparent:hover {
+  color: #969696;
+}
+
+.hide {
+  display: none;
+}
+
+.error-container > div {
+  color: #fff;
+  background-color: rgba(255, 0, 0, .2);
+  border: 1px solid rgba(255, 0, 0, .5);
+  border-radius: 4px;
+  text-align: center;
+  width: 80%;
+  box-sizing: border-box;
+  margin: 0 auto 24px;
+  padding: 8px;
+}
+
+#loader {
+  width: 40px;
+  height: 40px;
+  background-color: #666;
+  margin: 20px auto;
+  -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+  animation: sk-rotateplane 1.2s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-rotateplane {
+  0% {
+    -webkit-transform: perspective(120px)
+  }
+  50% {
+    -webkit-transform: perspective(120px) rotateY(180deg)
+  }
+  100% {
+    -webkit-transform: perspective(120px) rotateY(180deg) rotateX(180deg)
+  }
+}
+
+@keyframes sk-rotateplane {
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
+  }
+  50% {
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
+  }
+  100% {
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
+}

@@ -1,0 +1,37 @@
+{
+    "Description": "Créez vos touches",
+    "Name": "Bibliothèque d’icônes Stream Deck",
+    "Category": "Modèles",
+    "IconMenuItem": "Ouvrir la bibliothèque d’icônes Stream Deck",
+    "com.elgato.keycreator.action": {
+        "Name": "Action",
+        "Tooltip": "Ceci est la seule action de ce plug-in"
+    },
+    "Localization": {
+        "Close": "Fermer",
+        "Done": "Terminé",
+        "More info": "En savoir plus",
+        "Message": "Message",
+        "Click Me": "Cliquez ici",
+        "Button": "Bouton",
+        "Color": "Couleur",
+        "Opacity": "Opacité",
+        "Stroke": "Trait",
+        "Angle": "Angle",
+        "Font": "Police",
+        "Layer": "Calque",
+        "Layers": "Calques",
+        "Inspector": "Inspecteur",
+        "Filter": "Filtre",
+        "Find Font": "Trouver une police",
+        "Custom Fonts": "Polices personnalisées",
+        "System Fonts": "Polices système",
+        "Search...": "Rechercher…",
+        "Search in icons": "Rechercher dans les icônes…",
+        "Search in iconpacks": "Rechercher dans les packs d’icônes…",
+        "More Actions...": "Plus d’actions…",
+        "Get more icon packs...": "Obtenir d’autres packs d’icônes…",
+        "Acknowledgements": "Remerciements",
+        "Settings": "Réglages"
+    }
+}

@@ -1,0 +1,25 @@
+{
+  "Description": "Control YouTube.", 
+  "Name": "YouTube", 
+  "com.elgato.youtube.chatmessage": {
+    "Name": "Chat Message", 
+    "Tooltip": "Post a precomposed YouTube chat message"
+  }, 
+  "com.elgato.youtube.playad": {
+    "Name": "Play Ad", 
+    "Tooltip": "Play ad"
+  }, 
+  "com.elgato.youtube.viewers": {
+    "Name": "Viewers", 
+    "Tooltip": "Show number of YouTube live stream viewers"
+  }, 
+  "Localization": {
+    "PI": {
+      "Account": "Account",
+      "NoAccounts": "No Accounts",
+      "AddAccount": "Add New",
+      "Message": "Message",
+      "MessagePlaceholder": "Enter YouTube chat message here."
+    }
+  }
+}

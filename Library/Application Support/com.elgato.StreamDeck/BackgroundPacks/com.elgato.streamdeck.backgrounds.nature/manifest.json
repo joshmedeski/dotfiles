@@ -1,0 +1,16 @@
+{
+  "Name": "Nature",
+  "Icon": "Nature.svg",
+  "Images": [
+    "Backgrounds/Panoramic_Water.png",
+    "Backgrounds/Panoramic_Trees.png",
+    "Backgrounds/Panoramic_Mountains_Sunset.png",
+    "Backgrounds/Panoramic_Trees_Water.png",
+    "Backgrounds/Panoramic_Mountains_Clouds.png",
+    "Backgrounds/Landscape 4.png",
+    "Backgrounds/Landscape 3.png",
+    "Backgrounds/Landscape 2.png",
+    "Backgrounds/Landscape 1.png",
+    "Backgrounds/Full Background.png"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "Name": "Gradient",
+  "Icon": "Gradient.svg",
+  "Images": [
+    "Backgrounds/Paint_Feather.png",
+    "Backgrounds/Paint_Colorful.png",
+    "Backgrounds/Gradient.png",
+    "Backgrounds/Gradient 6.png",
+    "Backgrounds/Gradient 5.png",
+    "Backgrounds/Gradient 4.png",
+    "Backgrounds/Gradient 3.png",
+    "Backgrounds/Gradient 2.png",
+    "Backgrounds/Glass.png"
+  ]
+}

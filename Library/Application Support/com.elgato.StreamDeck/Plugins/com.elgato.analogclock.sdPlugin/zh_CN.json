@@ -1,0 +1,19 @@
+{
+  "Description": "总是准时。", 
+  "Name": "Analog Clock", 
+  "com.elgato.analogclock.action": {
+    "Name": "Analog Clock", 
+    "Tooltip": "显示为精准的模拟时钟"
+  },
+  
+  "Localization": {
+      "Face": "钟面",
+      "Black" : "黑色",
+      "Blue" : "蓝色",
+      "Blueish" : "浅蓝",
+      "Green" : "绿色",
+      "Red": "红色",
+      "White": "白色",
+      "Transparent": "透明"
+  }
+}

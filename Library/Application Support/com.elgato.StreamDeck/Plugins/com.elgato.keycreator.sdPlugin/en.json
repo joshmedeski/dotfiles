@@ -1,0 +1,37 @@
+{
+    "Description": "Create Your Keys",
+    "Name": "Stream Deck Icon Library",
+    "Category": "Templates",
+    "IconMenuItem": "Open Stream Deck Icon Library",
+    "com.elgato.keycreator.action": {
+        "Name": "Action",
+        "Tooltip": "This is the only action in this plugin"
+    },
+    "Localization": {
+        "Close": "Close",
+        "Done": "Done",
+        "More info": "More info",
+        "Message": "Message",
+        "Click Me": "Click Me",
+        "Button": "Button",
+        "Color": "Color",
+        "Opacity": "Opacity",
+        "Stroke": "Stroke",
+        "Angle": "Angle",
+        "Font": "Font",
+        "Layer": "Layer",
+        "Layers": "Layers",
+        "Inspector": "Inspector",
+        "Filter": "Filter",
+        "Find Font": "Find Font",
+        "Custom Fonts": "Custom Fonts",
+        "System Fonts": "System Fonts",
+        "Search...": "Search...",
+        "Search in icons": "Search in icons...",
+        "Search in iconpacks": "Search in iconpacks...",
+        "More Actions...": "More Actions...",
+        "Get more icon packs...": "Get more icon packs...",
+        "Acknowledgements": "Acknowledgements",
+        "Settings": "Settings"
+    }
+}

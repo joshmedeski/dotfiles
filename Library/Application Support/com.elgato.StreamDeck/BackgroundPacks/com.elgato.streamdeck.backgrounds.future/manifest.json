@@ -1,0 +1,12 @@
+{
+  "Name": "Future",
+  "Icon": "Future.svg",
+  "Images": [
+    "Backgrounds/Spectre.png",
+    "Backgrounds/Slate.png",
+    "Backgrounds/Recon.png",
+    "Backgrounds/Kinetic.png",
+    "Backgrounds/DotWave.png",
+    "Backgrounds/Carbon.png"
+  ]
+}

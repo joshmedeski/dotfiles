@@ -1,0 +1,13 @@
+{
+    "SelectContexts": "This will save your composition to Stream Deck",
+    "SaveComposition": "This will save your composition to Stream Deck",
+    "SavedCompositionsList": "If you saved your compositions, they will show up here. Click one, to load it into the Composition-View.",
+    "ShowHideLayer": "This shows or hides layer '%s'.",
+    "DeleteLayer": "This removes layer '%s' from the composition.",
+    "DeleteAllLayers": "This will delete all layers from the compositions. It's a quick way to start-over...",
+    "LayersList": "This is a list of layers of the current composition. It lets you re-arrange, delete and show/hide layers.",
+    "CopyAllCompositions": "Copy all compositions to the clipboard.",
+    "CopyComposition": "Copy this composition to the clipboard.",
+    "DeleteAllCompositions": "Delete all compositions.",
+    "DeleteComposition": "Delete this composition."
+}

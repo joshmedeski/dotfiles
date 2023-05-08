@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13">
+  <g fill="none">
+    <path fill="#9C9C9C" d="M13,13 L1.77635684e-15,13 L1.77635684e-15,1 L13,1 L13,13 Z M4,6 L4,7 L5,7 L5,6 L4,6 Z M6,6 L6,7 L7,7 L7,6 L6,6 Z M8,6 L8,7 L9,7 L9,6 L8,6 Z M10,6 L10,7 L11,7 L11,6 L10,6 Z M2,8 L2,9 L3,9 L3,8 L2,8 Z M4,8 L4,9 L5,9 L5,8 L4,8 Z M6,8 L6,9 L7,9 L7,8 L6,8 Z M8,8 L8,9 L9,9 L9,8 L8,8 Z M10,8 L10,9 L11,9 L11,8 L10,8 Z M2,10 L2,11 L3,11 L3,10 L2,10 Z M4,10 L4,11 L5,11 L5,10 L4,10 Z M6,10 L6,11 L7,11 L7,10 L6,10 Z M8,10 L8,11 L9,11 L9,10 L8,10 Z M12,4 L12,2 L1,2 L1,4 L12,4 Z"/>
+    <polygon fill="#3D3D3D" points="2 6 2 7 3 7 3 6"/>
+    <polygon fill="#3D3D3D" points="10 10 10 11 11 11 11 10"/>
+    <rect width="1" height="1" x="2" fill="#9C9C9C"/>
+    <rect width="1" height="1" x="10" fill="#9C9C9C"/>
+  </g>
+</svg>

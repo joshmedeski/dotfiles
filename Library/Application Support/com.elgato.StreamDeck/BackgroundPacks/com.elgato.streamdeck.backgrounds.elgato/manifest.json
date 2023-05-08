@@ -1,0 +1,12 @@
+{
+  "Name": "Elgato",
+  "Icon": "Elgato.svg",
+  "Images": [
+    "Backgrounds/White.png",
+    "Backgrounds/White Grid.png",
+    "Backgrounds/Pattern.png",
+    "Backgrounds/Minimal.png",
+    "Backgrounds/Dark Grid.png",
+    "Backgrounds/Black.png"
+  ]
+}

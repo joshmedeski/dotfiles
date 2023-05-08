@@ -1,0 +1,63 @@
+{
+    "Description": "Contrôlez Twitch Studio.",
+    "Name": "Twitch Studio",
+    "Category": "Twitch Studio",
+    "tv.twitch.studio.layout": {
+        "Name": "Sélectionner une scène",
+        "Tooltip": "Sélectionner une scène"
+    },
+    "tv.twitch.studio.layer": {
+        "Name": "Afficher/Masquer un layer",
+        "Tooltip": "Afficher/Masquer un layer",
+        "States": [
+			{
+				"Name": "Afficher"
+			}, 
+			{
+				"Name": "Masquer"
+			}
+		]
+    },
+    "tv.twitch.studio.audio": {
+        "Name": "Source Audio",
+        "Tooltip": "Couper/Réactiver une source audio",
+        "States": [
+			{
+				"Name": "Activer le son"
+			}, 
+			{
+				"Name": "Couper le son"
+			}
+		]
+    },
+    "tv.twitch.studio.stream": {
+        "Name": "Diffuser",
+        "Tooltip": "Démarrer/Arrêter la diffusion en direct",
+        "States": [
+			{
+				"Name": "Démarrer"
+			}, 
+			{
+				"Name": "Arrêter"
+			}
+		]
+    },
+    "tv.twitch.studio.record": {
+        "Name": "Enregistrer",
+        "Tooltip": "Démarrer/Arrêter l’enregistrement",
+        "States": [
+			{
+				"Name": "Démarrer"
+			}, 
+			{
+				"Name": "Arrêter"
+			}
+		]
+    },
+    "Localization": {
+        "Please launch Twitch Studio": "Veuillez ouvrir Twitch Studio",
+        "Audio Source": "Source audio",
+        "Layout": "Scène",
+        "Layer": "Layer"
+    }
+}

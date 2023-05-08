@@ -1,0 +1,25 @@
+{
+  "Description": "YouTubeをコントロール。", 
+  "Name": "YouTube", 
+  "com.elgato.youtube.chatmessage": {
+    "Name": "チャットメッセージ", 
+    "Tooltip": "事前に作成したYouTubeチャットメッセージを投稿"
+  }, 
+  "com.elgato.youtube.playad": {
+    "Name": "広告を再生", 
+    "Tooltip": "広告を再生"
+  }, 
+  "com.elgato.youtube.viewers": {
+    "Name": "視聴者", 
+    "Tooltip": "YouTubeライブストリームの視聴者数を表示"
+  }, 
+  "Localization": {
+    "PI": {
+      "Account": "アカウント",
+      "NoAccounts": "アカウントがありません",
+      "AddAccount": "新規を追加",
+      "Message": "メッセージ",
+      "MessagePlaceholder": "YouTubeチャットメッセージをこちらに入力してください。"
+    }
+  }
+}

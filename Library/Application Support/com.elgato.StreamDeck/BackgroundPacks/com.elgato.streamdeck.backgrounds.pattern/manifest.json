@@ -1,0 +1,9 @@
+{
+  "Name": "Pattern",
+  "Icon": "Pattern.svg",
+  "Images": [
+    "Backgrounds/Pattern.png",
+    "Backgrounds/Full Background.png",
+    "Backgrounds/Film-BG.jpg"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "Description": "Always be on time.", 
+  "Name": "Analog Clock", 
+  "com.elgato.analogclock.action": {
+    "Name": "Analog Clock", 
+    "Tooltip": "Show a nice analog clock"
+  },
+  
+  "Localization": {
+      "Face": "Face",
+      "Black" : "Black",
+      "Blue" : "Blue",
+      "Blueish" : "Blueish",
+      "Green" : "Green",
+      "Red": "Red",
+      "White": "White",
+      "Transparent": "Transparent"
+  }
+}

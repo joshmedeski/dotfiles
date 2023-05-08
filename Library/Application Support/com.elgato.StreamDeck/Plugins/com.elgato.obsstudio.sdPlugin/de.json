@@ -1,0 +1,234 @@
+{
+	"Author": "Corsair Memory Inc.",
+	"Name": "OBS Studio",
+	"Description": "Elgato Stream Deck-Plugin für OBS Studio",
+	"Category": "OBS Studio",
+	"com.elgato.obsstudio.record": {
+		"Name": "Aufnehmen",
+		"Tooltip": "Aufnahme in Datei starten/stoppen",
+		"States": [
+			{
+				"Name": "Start"
+			},
+			{
+				"Name": "Stopp"
+			}
+		]
+	},
+	"com.elgato.obsstudio.record.pause": {
+		"Name": "Aufnahme pausieren",
+		"States": [
+			{
+				"Name": "Pause"
+			},
+			{
+				"Name": "Fortsetzen"
+			}
+		],
+		"Tooltip": "Pausiere eine laufende Aufnahme"
+	},
+	"com.elgato.obsstudio.stream": {
+		"Name": "Stream",
+		"States": [
+			{
+				"Name": "Start"
+			},
+			{
+				"Name": "Stopp"
+			}
+		],
+		"Tooltip": "Streamen starten/stoppen"
+	},
+	"com.elgato.obsstudio.virtualcam": {
+		"Name": "Virtuelle Kamera",
+		"States": [
+			{
+				"Name": "Start"
+			},
+			{
+				"Name": "Stopp"
+			}
+		],
+		"Tooltip": "Virtuelle Kamera starten/stoppen"
+	},
+	"com.elgato.obsstudio.replaybuffer": {
+		"Name": "Wiederholungspuffer",
+		"States": [
+			{
+				"Name": "Start"
+			},
+			{
+				"Name": "Stopp"
+			}
+		],
+		"Tooltip": "Schalte den Wiederholungspuffer ein/aus"
+	},
+	"com.elgato.obsstudio.replaybuffer.save": {
+		"Name": "Wiederholungspuffer speichern",
+		"Tooltip": "Speichere den aktiven Wiederholungspuffer"
+	},
+	"com.elgato.obsstudio.scenecollection": {
+		"Name": "Szenensammlung",
+		"Tooltip": "Szenensammlung wechseln"
+	},
+	"com.elgato.obsstudio.profile": {
+		"Name": "Profil",
+		"Tooltip": "OBS-Profil wechseln"
+	},
+	"com.elgato.obsstudio.scene": {
+		"Name": "Szene",
+		"Tooltip": "Szene wechseln"
+	},
+	"com.elgato.obsstudio.source": {
+		"Name": "Sichtbarkeit der Quelle",
+		"States": [
+			{
+				"Name": "Einblenden"
+			},
+			{
+				"Name": "Ausblenden"
+			}
+		],
+		"Tooltip": "Quelle ein-/ausblenden"
+	},
+	"com.elgato.obsstudio.mixeraudio": {
+		"Name": "Audiomixer",
+		"Tooltip": "Schalte eine Audioquelle stumm oder hebe die Stummschaltung auf"
+	},
+	"com.elgato.obsstudio.mixeraudio.volume": {
+		"Name": "Lautstärke Audiomixer",
+		"States": [
+			{
+				"Name": "Stumm aus"
+			},
+			{
+				"Name": "Stumm"
+			}
+		],
+		"Tooltip": "Passe die Audiolautstärke einer Quelle an",
+		"Encoder": {
+			"TriggerDescription": {
+				"Rotate": "Lautstärke anpassen",
+				"Push": "Stumm ein/aus",
+				"Touch": "Stumm ein/aus"
+			}
+		}
+	},
+	"com.elgato.obsstudio.source.media": {
+		"Name": "Medienquellensteuerung",
+		"States": [
+			{
+				"Name": "Abspielen"
+			},
+			{
+				"Name": "Pause"
+			},
+			{
+				"Name": "Stopp"
+			},
+			{
+				"Name": "Neu starten"
+			}
+		],
+		"Tooltip": "Wiedergabesteuerung für Medienquellen"
+	},
+	"com.elgato.obsstudio.studiomode": {
+		"Name": "Studio-Modus",
+		"States": [
+			{
+				"Name": "Aktivieren"
+			},
+			{
+				"Name": "Deaktivieren"
+			}
+		],
+		"Tooltip": "Studio-Modus ein/aus"
+	},
+	"com.elgato.obsstudio.transitionstudio": {
+		"Name": "Übergang",
+		"Tooltip": "Im Studio-Modus von der Vorschauszene zur Programmszene übergehen"
+	},
+	"com.elgato.obsstudio.filter.state": {
+		"Name": "Filter",
+		"States": [
+			{
+				"Name": "Aktivieren"
+			},
+			{
+				"Name": "Deaktivieren"
+			}
+		],
+		"Tooltip": "Blende einen Filter ein/aus"
+	},
+	"com.elgato.obsstudio.screenshot": {
+		"Name": "Bildschirmfoto",
+		"Tooltip": "Nimm ein Bildschirmfoto der aktiven Szene auf"
+	},
+	"com.elgato.obsstudio.transition": {
+		"Name": "Szenenübergang",
+		"Tooltip": "Szenenübergang einstellen"
+	},
+	"Localization": {
+		"Source": "Quelle",
+		"Filter": "Filter",
+		"Long Press": "Gedrückt halten",
+		"Scene": "Szene",
+		"Keep Same": "Beibehalten",
+		"Target": "Ziel",
+		"Preview": "Vorschau",
+		"Program": "Programm",
+		"Collection": "Sammlung",
+		"Action": "Aktion",
+		"Play/Pause": "Abspielen/Pause",
+		"Play/Stop": "Abspielen/Stopp",
+		"Play/Restart": "Abspielen/Neu starten",
+		"Stop": "Stopp",
+		"Transition": "Übergang",
+		"Duration (ms)": "Dauer (ms)",
+		"OBS Studio is not connected.": "OBS Studio ist nicht verbunden.",
+		"Studio mode is not enabled.": "Studio-Modus ist nicht aktiviert.",
+		"The source is no longer valid.": "Die Quelle ist nicht mehr gültig.",
+		"Source is invalid.": "Quelle ist ungültig.",
+		"Missing parameters": "Fehlende Parameter",
+		"Disconnected from OBS Studio.": "Von OBS Studio getrennt.",
+		"To pause a recording start recording first.": "Um die Aufnahme zu pausieren, starte zuerst eine Aufnahme.",
+		"Replay Buffer is not enabled!": "Wiederholungspuffer ist nicht aktiviert!",
+		"Replay Buffer must be started for saving to work.": "Wiederholungspuffer muss gestartet werden, damit das Speichern funktioniert.",
+		"Action is not configured for the active scene collection": "Aktion ist für die aktive Szenensammlung nicht aktiviert",
+		"Unknown (Load collection %s to load)": "Unbekannt (Lade Sammlung „%s“ zum Laden)",
+		"Waiting for OBS...": "Auf OBS warten …",
+		"Waiting for settings...": "Auf Einstellungen warten …",
+		"Waiting for sources...": "Auf Quellen warten …",
+		"Waiting for filters...": "Auf Filter warten …",
+		"Waiting for scenes...": "Auf Szenen warten …",
+		"Waiting for collections...": "Auf Sammlungen warten …",
+		"Changing collection...": "Sammlung wird gewechselt …",
+		"Error": "Fehler",
+		"Finished": "Fertig",
+		"This action only works while OBS is in studio mode.": "Für diese Aktion muss sich OBS im Studio-Modus befinden.",
+		"Waiting for profiles...": "Auf Profile warten …",
+		"Waiting for transitions...": "Auf Übergänge warten …",
+		"Profile": "Profil",
+		"Media Playback Time Display": "Zeitanzeige bei Medienwiedergabe",
+		"While Playing": "Bei der Wiedergabe",
+		"Only show source name": "Nur Namen der Quelle anzeigen",
+		"Show time counting up": "Verstrichene Laufzeit anzeigen",
+		"Show time counting down": "Verbleibende Laufzeit anzeigen",
+		"Title must be empty for time display to show on key.": "Der Titel muss leer sein, damit die Zeit auf der Taste angezeigt wird.",
+		"Type": "Typ",
+		"Set": "Festlegen",
+		"Adjust": "Anpassen",
+		"Mute": "Stumm",
+		"Unmute": "Stumm aus",
+		"Icon Style": "Icon-Stil",
+		"Static": "Statisch",
+		"Fader (Vertical)": "Fader (vertikal)",
+		"Fader (Horizontal)": "Fader (horizontal)",
+		"Step Size": "Stufengröße",
+		"Volume": "Lautstärke",
+		"Mode": "Modus",
+		"Toggle Mute": "Stumm ein/aus",
+		"Push to Mute": "Push-to-Mute",
+		"Push to Talk": "Push-to-Talk"
+	}
+}

@@ -1,0 +1,106 @@
+{
+    "Description": "Contrôlez Elgato Key Light et d’autres appareils.",
+    "Name": "Control Center",
+    "Category": "Control Center",
+    "com.elgato.controlcenter.lights-on-off": {
+        "Name": "Activer/Désactiver",
+        "Tooltip": "Allumer ou éteindre la lumière",
+        "States": [
+            {
+                "Name": "Activer"
+            },
+            {
+                "Name": "Désactiver"
+            }
+        ]
+    },
+    "com.elgato.controlcenter.brightness-slider": {
+        "Name": "Régler la luminosité",
+        "Tooltip": "Réglez la luminosité de la lumière sur une valeur prédéfinie"
+    },
+    "com.elgato.controlcenter.brightness-stepper": {
+        "Name": "Ajuster la luminosité",
+        "Tooltip": "Ajustez manuellement la luminosité de la lumière",
+        "Encoder": {
+            "TriggerDescription": {
+                "Rotate": "Régler la propriété",
+                "Touch": "Allumer ou éteindre les lumières"
+            }
+        }
+    },
+    "com.elgato.controlcenter.temperature-slider": {
+        "Name": "Régler la température",
+        "Tooltip": "Réglez la température de couleur de la lumière sur une valeur prédéfinie"
+    },
+    "com.elgato.controlcenter.temperature-stepper": {
+        "Name": "Ajuster la température",
+        "Tooltip": "Ajustez manuellement la température de couleur de la lumière",
+        "Encoder": {
+            "TriggerDescription": {
+                "Rotate": "Régler la propriété",
+                "Touch": "Allumer ou éteindre les lumières"
+            }
+        }
+    },
+    "com.elgato.controlcenter.color-picker": {
+        "Name": "Régler la couleur",
+        "Tooltip": "Réglez la couleur de votre lumière sur une valeur prédéfinie"
+    },
+    "com.elgato.controlcenter.battery": {
+        "Name": "Batterie",
+        "Tooltip": "Afficher l'état de la batterie"
+    },
+    "com.elgato.controlcenter.scene": {
+        "Name": "Définir une scène",
+        "Tooltip": "Réglez la scène de votre lumière sur une valeur prédéfinie",
+        "Encoder": {
+            "TriggerDescription": {
+                "Rotate": "Régler la scène/luminosité",
+                "Touch": "Allumer ou éteindre les lumières"
+            }
+        }
+    },
+    "Localization": {
+        "Brighter": "Plus clair",
+        "Darker": "Plus sombre",
+        "Warmer": "Plus chaud",
+        "Cooler": "Plus froid",
+        "Steps": "Pas",
+        "Accessory": "Accessoire",
+        "Step Size": "Taille des pas",
+        "Brightness": "Luminosité",
+        "Temperature": "Température",
+        "Set Brightness": "Régler la luminosité",
+        "Set Temperature": "Régler la température",
+        "Adjust Temperature": "Ajuster la température",
+        "Adjust Brightness": "Ajuster la luminosité",
+        "Range": "Plage",
+        "On/Off": "Activer/Désactiver",
+        "On": "Activer",
+        "Off": "Désactiver",
+        "Toggle": "Inverser",
+        "Up": "Haut",
+        "Down": "Bas",
+        "Untitled": "Sans titre",
+        "%s not found": "%s est introuvable",
+        "%s not available": "%s n’est pas disponible",
+        "%s not connected": "%s n’est pas connecté",
+        "%s not running": "%s n’est pas en cours d’exécution",
+        "No connection to %s": "Pas de connexion à %s",
+        "Please launch %s": "Veuillez ouvrir %s",
+        "More info": "En savoir plus",
+        "Show in Title": "Afficher dans le titre",
+        "Icon shows": "État affiché par l’icône",
+        "Value": "Valeur",
+        "Step": "Pas",
+        "Device State": "État de l’appareil",
+        "Desired State": "État souhaité",
+        "All": "Tout",
+        "Color": "Couleur",
+        "Scene": "Scène",
+        "No Scene": "Aucune scène",
+        "Untitled Scene": "Scène sans titre",
+        "Switch Scenes": "Changer de scène",
+        "Dial Action": "Action du bouton"
+    }
+}

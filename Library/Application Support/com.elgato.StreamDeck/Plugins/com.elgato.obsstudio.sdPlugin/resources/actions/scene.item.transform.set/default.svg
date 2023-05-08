@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 144 144">
+
+<g id="setTransform" fill="none" fill-rule="evenodd" stroke="none">
+<rect id="background" fill="#263838" fill-rule="nonzero" x="0" y="0" width="144" height="144"/>
+<path fill="#999" d="M52,48l0,-8l-12,0l0,12l8,0l0,40l-8,0l0,12l12,0l0,-8l40,0l0,8l12,0l0,-12l-8,0l0,-40l8,0l0,-12l-12,0l0,8l-40,-0Zm40,4l-40,-0l0,40l40,0l0,-40Z"/>
+<path fill="#999" fill-rule="nonzero" d="M61.757,79.414l7.314,-7.313l2.828,2.828l-7.313,7.314l4.242,4.242l-11.313,0l-0,-11.313l4.242,4.242Z"/>
+<path fill="#999" fill-rule="nonzero" d="M79.172,62l-4.243,-4.243l11.314,0l-0,11.314l-4.243,-4.243l-7.314,7.314l-2.828,-2.828l7.314,-7.314Z"/></g></svg>

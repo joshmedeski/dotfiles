@@ -1,0 +1,106 @@
+{
+  "Name": "Philips Hue",
+  "Category": "Philips Hue",
+  "Description": "Controla tus luces Philips Hue.",
+  "com.elgato.philips-hue.power": {
+    "Name": "On / Off",
+    "Tooltip": "Encender o apagar las luces.",
+    "States": [
+      {
+        "Name": "On"
+      },
+      {
+        "Name": "Off"
+      }
+    ]
+  },
+  "com.elgato.philips-hue.color": {
+    "Name": "Color",
+    "Tooltip": "Ajusta el color de tu luz."
+  },
+  "com.elgato.philips-hue.cycle": {
+    "Name": "Transición de color",
+    "Tooltip": "Hacer transición entre los colores de tu luz."
+  },
+  "com.elgato.philips-hue.brightness": {
+    "Name": "Brillo",
+    "Tooltip": "Ajusta el brillo de tu luz.",
+    "Encoder": {
+      "TriggerDescription": {
+        "Rotate": "Ajustar brillo",
+        "Touch": "Encender/apagar luces"
+      }
+    }
+  },
+  "com.elgato.philips-hue.brightness-rel": {
+    "Name": "Brillo relativo",
+    "Tooltip": "Ajusta el brillo de la luz con respecto al brillo actual."
+  },
+  "com.elgato.philips-hue.scene": {
+    "Name": "Escena",
+    "Tooltip": "Activa una escena."
+  },
+  "Localization": {
+    "PI": {
+      "Bridge": "Bridge",
+      "NoBridges": "No hay Bridges",
+      "AddBridge": "Añadir",
+      "Lights": "Luces",
+      "Group": "Grupo",
+      "LightsTitle": "Luces",
+      "GroupsTitle": "Grupos",
+      "NoLights": "No hay luces",
+      "NoGroups": "No hay grupos",
+      "Color": "Color",
+      "Colors": "Colores",
+      "Temperature": "Temperatura",
+      "Brightness": "Brillo",
+      "Steps": "Pasos",
+      "Scene": "Escena",
+      "NoScenes": "No hay escenas"
+    },
+    "Setup": {
+      "Intro": {
+        "Title": "Añadir Bridge",
+        "Description": "Enlaza con un Bridge Philips Hue para controlar tus luces.",
+        "Start": "Detectar Bridge",
+        "Manual": "Añadir Bridge a mano",
+        "Close": "Ahora no"
+      },
+      "Discovery": {
+        "Title": "Detectando Bridges …",
+        "TitleNone": "No se han detectado Bridges",
+        "TitleOne": "Se ha detectado un Bridge",
+        "TitleMultiple": "{{ number }} Bridges detectados",
+        "DescriptionFound": "¿Empezar a enlazar ahora?",
+        "DescriptionNone": "Comprueba que el Bridge está encendido y conectado a la red.",
+        "Pair": "Enlazar",
+        "Close": "Cerrar",
+        "Retry": "Volver a intentar"
+      },
+      "Manual": {
+        "Title": "Añadir Bridge a mano",
+        "Description": "Añade tu Philips Hue Bridge manualmente (mediante la dirección IP) a tu red, en los casos en los que la detección automática no se puede usar.",
+        "IPAddress": "Dirección IP del Bridge",
+        "Check": "Validar entrada",
+        "Close": "Cerrar",
+        "Error": {
+          "Empty": "Añade la dirección IP de tu Bridge.",
+          "Invalid": "El formato de la dirección IP no es válido. Comprueba lo que has introducido.",
+          "Unreachable": "Nose puede conectar con el Bridge. Comprueba la dirección IP."
+        }
+      },
+      "Pairing": {
+        "Title": "Enlazando...",
+        "Description": "Pulsa ahora el botón de enlace en el Bridge.",
+        "Close": "Cerrar",
+        "Retry": "Volver a intentar"
+      },
+      "Save": {
+        "Title": "Bridge añadido",
+        "Description": "El Bridge se ha enlazado correctamente.",
+        "Save": "OK"
+      }
+    }
+  }
+}

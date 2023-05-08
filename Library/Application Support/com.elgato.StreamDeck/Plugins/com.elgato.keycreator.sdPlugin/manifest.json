@@ -1,0 +1,28 @@
+{
+    "SDKVersion": 2,
+    "Author": "Elgato",
+    "IconEditorPath": "index.html",
+    "IconMenuItem": "Open Stream Deck Icon Library",
+    "Description": "The only tool you'll ever need to customize Stream Deck keys.",
+    "Name": "Stream Deck Icon Library",
+    "URL": "https://www.elgato.com/de/gaming/stream-deck",
+    "Icon": "static/icons/kc-logo",
+    "DefaultWindowSize": [
+        520,
+        424
+    ],
+    "Version": "2.0.0.135",
+    "OS": [
+        {
+            "Platform": "mac",
+            "MinimumVersion": "10.11"
+        },
+        {
+            "Platform": "windows",
+            "MinimumVersion": "10"
+        }
+    ],
+    "Software": {
+        "MinimumVersion": "5.0"
+    }
+}
