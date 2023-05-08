@@ -14,7 +14,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = { ".yabairc" },
-  command = "!brew services restart yabai",
+  command = "!yabai --restart-service",
 })
 
 vim.api.nvim_create_autocmd("BufWritePost", {
