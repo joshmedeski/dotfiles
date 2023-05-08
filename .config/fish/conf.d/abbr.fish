@@ -1,5 +1,6 @@
 # https://fishshell.com/docs/current/cmds/abbr.html
 abbr :GoToFile "nvim +GoToFile"
+abbr :GoToCommand fzf-history-widget
 abbr :bd exit
 abbr :q "tmux kill-server"
 abbr ast "aw set -t (aw list | fzf-tmux -p --reverse --preview 'aw set -t {}')"
