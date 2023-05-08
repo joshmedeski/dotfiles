@@ -36,7 +36,7 @@ yabai -m config mouse_action2 resize
 yabai -m config mouse_drop_action swap
 
 # general space settings
-yabai -m config layout bsp
+yabai -m config layout stack
 yabai -m config top_padding 15
 yabai -m config bottom_padding 15
 yabai -m config left_padding 15
