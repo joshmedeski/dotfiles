@@ -1,3 +1,4 @@
+# cSpell:words bifc claer clera dcdv
 # https://fishshell.com/docs/current/cmds/abbr.html
 abbr :GoToFile "nvim +GoToFile"
 abbr :GoToCommand fzf-history-widget
