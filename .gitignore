@@ -41,3 +41,16 @@ logs
 npm-debug.log
 pids
 run
+Library/Application Support/com.elgato.StreamDeck
+Library/Application Support/com.elgato.StreamDeck
+Library/Application Support/com.elgato.StreamDeck
+Library/Application Support/activitywatch
+Library/Application Support/com.elgato.StreamDeck
+Library/Application Support/com.elgato.StreamDeck/Cache.db
+Library/Group Containers/com.apple.PreviewLegacySignaturesConversion/Library/Preferences/com.apple.PreviewLegacySignaturesConversion.plist
+Library/Preferences/ZoomChat.plist
+Library/Preferences/com.colliderli.iina.plist
+Library/Preferences/us.zoom.Transcode.plist
+Library/Preferences/us.zoom.ZoomAutoUpdater.plist
+Library/Preferences/us.zoom.xos.Hotkey.plist
+Library/Preferences/us.zoom.xos.plist
