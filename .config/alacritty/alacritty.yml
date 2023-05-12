@@ -67,5 +67,5 @@ key_bindings:
   - { key: Key8, mods: Command, chars: "\x028" } #                ... 8
   - { key: Key9, mods: Command, chars: "\x029" } #                ... 9
 
-import:
-  - ~/.config/alacritty/aw/current.yml
+# import:
+# - ~/.config/alacritty/aw/current.yml
