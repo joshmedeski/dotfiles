@@ -66,6 +66,7 @@ key_bindings:
   - { key: Key7, mods: Command, chars: "\x027" } #                ... 7
   - { key: Key8, mods: Command, chars: "\x028" } #                ... 8
   - { key: Key9, mods: Command, chars: "\x029" } #                ... 9
+  - { key: Key0, mods: Command, chars: "\x02P" } #                ... Toggle Pomodoro
 
 # import:
 # - ~/.config/alacritty/aw/current.yml
