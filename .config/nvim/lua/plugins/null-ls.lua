@@ -1,5 +1,6 @@
 return {
   "jose-elias-alvarez/null-ls.nvim",
+  dependencies = "neovim/nvim-lspconfig",
   config = function()
     local null_ls = require("null-ls")
     null_ls.setup({
@@ -19,7 +20,6 @@ return {
         null_ls.builtins.formatting.shfmt,
         null_ls.builtins.formatting.stylua,
         null_ls.builtins.code_actions.gitsigns,
-
         null_ls.builtins.diagnostics.selene.with({
           condition = function(utils)
             return utils.root_has_file({ "selene.toml" })
