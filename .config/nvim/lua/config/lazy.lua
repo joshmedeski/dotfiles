@@ -11,6 +11,10 @@ vim.opt.statuscolumn = "%s %l %C"
 vim.cmd([[command! -nargs=0 GoToFile :Telescope find_files]])
 vim.cmd([[command! -nargs=0 GoToCommand :Telescope commands]])
 
+vim.g.code_action_menu_show_details = false
+vim.g.code_action_menu_show_diff = true
+vim.g.code_action_menu_show_action_kind = false
+
 require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
@@ -18,7 +22,6 @@ require("lazy").setup({
     -- import any extras modules here
     { import = "lazyvim.plugins.extras.lang.typescript" },
     { import = "lazyvim.plugins.extras.lang.json" },
-    -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
     -- import/override with your plugins
     { import = "plugins" },
   },
