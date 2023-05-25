@@ -54,5 +54,4 @@ Library/Preferences/us.zoom.Transcode.plist
 Library/Preferences/us.zoom.ZoomAutoUpdater.plist
 Library/Preferences/us.zoom.xos.Hotkey.plist
 Library/Preferences/us.zoom.xos.plist
-Library/Application Support/com.elgato.StreamDeck/Sentry
-Library/Application Support/com.elgato.StreamDeck/STREAMDECKINTERNALSHM
+Library/Application Support/com.elgato.StreamDeck
