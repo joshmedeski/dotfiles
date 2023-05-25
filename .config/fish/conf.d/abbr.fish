@@ -152,6 +152,9 @@ abbr yt "yarn test"
 abbr yu "yarn ui"
 abbr yw "yarn web"
 
+abbr za "zoxide add"
+abbr ze "zoxide edit"
+
 abbr :GoToCommand fzf-history-widget
 abbr :GoToFile "nvim +GoToFile"
 abbr :bd exit
