@@ -47,6 +47,7 @@ key_bindings:
   - { key: Q, mods: Command, chars: ":q\n" } # quit vim
   - { key: S, mods: Command, chars: "\x1b\x3a\x77\x0a" } # save vim buffer
   - { key: T, mods: Command, chars: "\x02c" } # create a new tmux window
+  - { key: T, mods: Command|Shift, chars: "\x02P" } #                ... Toggle Pomodoro
   - { key: W, mods: Command, chars: "\x02x" } # kill the current pane
   - { key: Z, mods: Command, chars: "\x02z" } # toggle zoom state of the current tmux pane
   - { key: Tab, mods: Control, chars: "\x02n" } # switch to next tmux window
@@ -66,7 +67,6 @@ key_bindings:
   - { key: Key7, mods: Command, chars: "\x027" } #                ... 7
   - { key: Key8, mods: Command, chars: "\x028" } #                ... 8
   - { key: Key9, mods: Command, chars: "\x029" } #                ... 9
-  - { key: Key0, mods: Command, chars: "\x02P" } #                ... Toggle Pomodoro
 
 # import:
 # - ~/.config/alacritty/aw/current.yml
