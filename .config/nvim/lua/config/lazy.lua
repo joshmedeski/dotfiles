@@ -38,6 +38,7 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
+  -- cSpell:word tokyonight habamax
   install = { colorscheme = { "tokyonight", "habamax" } },
   ui = {
     border = "single",
