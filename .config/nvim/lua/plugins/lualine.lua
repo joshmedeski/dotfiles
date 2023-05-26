@@ -8,15 +8,6 @@ return {
 
     local icons = require("config.icons")
 
-    local navic = {
-      function()
-        return require("nvim-navic").get_location()
-      end,
-      cond = function()
-        return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
-      end,
-    }
-
     local diagnostics = {
       "diagnostics",
       sources = { "nvim_diagnostic" },
@@ -44,6 +35,15 @@ return {
       always_visible = false,
     }
 
+    -- local navic = {
+    --   function()
+    --     return require("nvim-navic").get_location()
+    --   end,
+    --   cond = function()
+    --     return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
+    --   end,
+    -- }
+
     return {
       options = {
         theme = "auto",
@@ -54,7 +54,7 @@ return {
       sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = { diff, diagnostics, navic },
+        lualine_c = { diff, diagnostics },
         lualine_x = {},
         lualine_y = {},
         lualine_z = {},
