@@ -38,7 +38,6 @@ vim.opt.smartindent = true
 vim.opt.backup = false
 vim.opt.swapfile = false
 vim.opt.undodir = os.getenv("HOME") .. "/.local/state/nvim/undo"
-"
 vim.opt.undofile = true
 
 -- spelling
