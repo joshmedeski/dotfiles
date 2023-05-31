@@ -37,7 +37,7 @@ key_bindings:
   - { key: F, mods: Command, chars: "lfcd\n" } # open file manager 'gokcehan/lf'
   - { key: F, mods: Command|Shift, chars: "\x02\x5b\x2f" } # start tmux search mode
   - { key: G, mods: Command, chars: "\x02g" } # open git manager 'jesseduffield/lazygit'
-  - { key: G, mods: Command|Shift, chars: "\x02G" } # open git manager 'jesseduffield/lazygit'
+  - { key: G, mods: Command|Shift, chars: "\x02G" } # open github dash 'dlvhdr/gh-dash'
   - { key: J, mods: Command, chars: "\x02\x54" } # open t - tmux smart session manager
   - { key: K, mods: Command, chars: ":GoToCommand\n" } # run command
   - { key: L, mods: Command, chars: "\x02L" } # switch to the last tmux session
