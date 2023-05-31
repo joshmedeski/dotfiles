@@ -1,14 +1,16 @@
-#!/usr/bin/env zx
+#!/usr/bin/env bash
 
-await $`brew update`;
-let outdated = await $`brew outdated`;
-if (outdated.stdout.length) {
-  let upgrade = await question("Upgrade the listed above (y/N)? ");
-  if (upgrade === "y") {
-    await $`arch -arm64 brew upgrade`;
-    await $`brew cleanup --prune=all`;
-    await $`brew doctor`;
-  }
-} else {
-    console.log("No brew packages need upgraded at this time.");
-}
+brew update
+outdated=$(brew outdated)
+if [[ -n "$outdated" ]]; then
+	read -rp "Upgrade the listed above (y/N)? " upgrade
+	if [[ "$upgrade" = "y" ]]; then
+		brew upgrade
+		brew cleanup --prune=all
+		brew doctor
+	else
+		echo "Upgrading brew packages cancelled."
+	fi
+else
+	echo "No brew packages need upgraded at this time."
+fi
