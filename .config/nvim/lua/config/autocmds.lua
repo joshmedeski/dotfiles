@@ -22,12 +22,12 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   command = "!brew services restart skhd",
 })
 
-vim.api.nvim_create_autocmd({ "BufNewFile", "BufFilePre", "BufRead" }, {
-  pattern = { "bubu" },
-  callback = function()
-    vim.cmd([[set filetype=javascript]])
-  end,
-})
+-- vim.api.nvim_create_autocmd({ "BufNewFile", "BufFilePre", "BufRead" }, {
+--   pattern = { "bubu" },
+--   callback = function()
+--     vim.cmd([[set filetype=javascript]])
+--   end,
+-- })
 
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufFilePre", "BufRead" }, {
   pattern = { "*.mdx", "*.md" },
