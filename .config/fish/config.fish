@@ -27,7 +27,6 @@ set -Ux GOPATH (go env GOPATH) # https://golang.google.cn/
 set -Ux KIT_EDITOR /opt/homebrew/bin/nvim # https://www.scriptkit.com/
 set -Ux LANG en_US.UTF-8
 set -Ux LC_ALL en_US.UTF-8
-set -Ux NODE_PATH "~/.nvm/versions/node/v16.19.0/bin/node" # 'nvm-sh/nvm'
 set -Ux PAGER ~/.local/bin/nvimpager # 'lucc/nvimpager'
 set -Ux VISUAL nvim
 
