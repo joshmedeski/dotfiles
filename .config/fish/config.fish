@@ -18,6 +18,7 @@ set -gx PKG_CONFIG_PATH /opt/homebrew/opt/sqlite/lib/pkgconfig
 set -gx PNPM_HOME /Users/joshmedeski/Library/pnpm # https://pnpm.io/
 set -gx RIPGREP_CONFIG_PATH "$HOME/.config/rg/ripgreprc"
 
+set -U fish_key_bindings fish_vi_key_bindings
 set -Ux BAT_THEME Nord # 'sharkdp/bat' cat clone 
 set -Ux EDITOR nvim # 'neovim/neovim' text editor 
 set -Ux fish_greeting # disable fish greeting
