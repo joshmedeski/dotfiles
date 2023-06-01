@@ -13,19 +13,28 @@ live_config_reload: true
 env:
   TERM: xterm-256color
 
+window:
+  decorations: buttonless
+  dynamic_padding: false
+  opacity: 0.75
+  padding:
+    x: 14
+    y: 10
+
 font:
   normal:
     family: "SFMono Nerd Font"
     style: Medium
-  size: 22.0
-
-window:
-  opacity: 0.8
-  padding:
-    x: 14
-    y: 10
-  dynamic_padding: false
-  decorations: buttonless
+  italic:
+    family: "SFMono Nerd Font"
+    style: Medium Italic
+  bold:
+    family: "SFMono Nerd Font"
+    style: Heavy
+  bold_italic:
+    family: "SFMono Nerd Font"
+    style: Heavy Italic
+  size: 20.0
 
 # NOTE: helpful hex codes
 # \x1b = escape (useful for vim-related keybindings)
