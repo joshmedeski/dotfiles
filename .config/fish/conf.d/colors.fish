@@ -1,4 +1,4 @@
-set -U fish_color_autosuggestion black
+set -U fish_color_autosuggestion grey
 set -U fish_color_command normal
 set -U fish_color_error red
 set -U fish_color_param cyan
