@@ -33,9 +33,9 @@
   "window.titleBarStyle": "native",
   "window.zoomLevel": -1,
   "workbench.colorCustomizations": {
-    "statusBar.background": "#5f0000",
-    "statusBar.debuggingBackground": "#5f0000",
-    "statusBar.noFolderBackground": "#5f0000"
+    "statusBar.background": "#005f5f",
+    "statusBar.debuggingBackground": "#005f5f",
+    "statusBar.noFolderBackground": "#005f5f"
   },
   "workbench.colorTheme": "Catppuccin Mocha",
   "workbench.iconTheme": "vscode-icons",
