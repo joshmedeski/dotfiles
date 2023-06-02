@@ -19,10 +19,11 @@ set -gx PNPM_HOME /Users/joshmedeski/Library/pnpm # https://pnpm.io/
 set -gx RIPGREP_CONFIG_PATH "$HOME/.config/rg/ripgreprc"
 
 set -U fish_key_bindings fish_vi_key_bindings
-set -U FZF_DEFAULT_COMMAND "fd -H -E '.git'"
+
 set -Ux BAT_THEME Nord # 'sharkdp/bat' cat clone 
 set -Ux EDITOR nvim # 'neovim/neovim' text editor 
 set -Ux fish_greeting # disable fish greeting
+set -Ux FZF_DEFAULT_COMMAND "fd -H -E '.git'"
 set -Ux GOPATH (go env GOPATH) # https://golang.google.cn/
 set -Ux KIT_EDITOR /opt/homebrew/bin/nvim # https://www.scriptkit.com/
 set -Ux LANG en_US.UTF-8
