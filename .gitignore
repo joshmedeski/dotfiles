@@ -15,13 +15,21 @@ basement_dist
 config.local.js
 coverage/
 dist
+Library/Application Support/activitywatch
 Library/Application Support/Adobe
+Library/Application Support/com.elgato.StreamDeck
+Library/Application Support/com.elgato.StreamDeck
+Library/Application Support/com.elgato.StreamDeck
+Library/Application Support/com.elgato.StreamDeck
+Library/Application Support/com.elgato.StreamDeck
+Library/Application Support/com.elgato.StreamDeck/Cache.db
 Library/Application Support/Loopback/Devices.plist
 Library/Application Support/mkcert
 Library/Application Support/obs-studio
 Library/Application Support/Rocket/rocket.db
 Library/Application Support/zoxide/db.zo
 Library/Developer/Xcode/UserData/KeyBindings
+Library/Group Containers/com.apple.PreviewLegacySignaturesConversion/Library/Preferences/com.apple.PreviewLegacySignaturesConversion.plist
 Library/Preferences/com.adobe.illustrator.plist
 Library/Preferences/com.adobe.Photoshop.plist
 Library/Preferences/com.apple.dt.Xcode.plist
@@ -29,6 +37,7 @@ Library/Preferences/com.apple.Music.eq.plist
 Library/Preferences/com.apple.Music.plist
 Library/Preferences/com.apple.symbolichotkeys.plist
 Library/Preferences/com.apple.Terminal.plist
+Library/Preferences/com.colliderli.iina.plist
 Library/Preferences/com.knollsoft.Rectangle.plist
 Library/Preferences/com.logitech.manager.setting.ffff.plist
 Library/Preferences/com.obsproject.obs-studio.plist
@@ -37,21 +46,12 @@ Library/Preferences/com.rogueamoeba.Loopback.plist
 Library/Preferences/com.spotify.client.plist
 Library/Preferences/name.guoc.SpaceLauncher.plist
 Library/Preferences/net.matthewpalmer.Rocket.plist
+Library/Preferences/us.zoom.Transcode.plist
+Library/Preferences/us.zoom.xos.Hotkey.plist
+Library/Preferences/us.zoom.xos.plist
+Library/Preferences/us.zoom.ZoomAutoUpdater.plist
+Library/Preferences/ZoomChat.plist
 logs
 npm-debug.log
 pids
 run
-Library/Application Support/com.elgato.StreamDeck
-Library/Application Support/com.elgato.StreamDeck
-Library/Application Support/com.elgato.StreamDeck
-Library/Application Support/activitywatch
-Library/Application Support/com.elgato.StreamDeck
-Library/Application Support/com.elgato.StreamDeck/Cache.db
-Library/Group Containers/com.apple.PreviewLegacySignaturesConversion/Library/Preferences/com.apple.PreviewLegacySignaturesConversion.plist
-Library/Preferences/ZoomChat.plist
-Library/Preferences/com.colliderli.iina.plist
-Library/Preferences/us.zoom.Transcode.plist
-Library/Preferences/us.zoom.ZoomAutoUpdater.plist
-Library/Preferences/us.zoom.xos.Hotkey.plist
-Library/Preferences/us.zoom.xos.plist
-Library/Application Support/com.elgato.StreamDeck
