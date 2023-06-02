@@ -6,28 +6,28 @@
 # ██║     ██║███████║██║  ██║
 # ╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝
 # A smart and user-friendly command line
-# https://fishshell.com
-# cSpell:words ajeetdsouza cppflags ldflags pkgconfig pnpm nvim Nord gopath nvimpager ripgreprc ripgrep zoxide joshmedeski sharkdp neovim lucc
+# https://fishshell.com/
 
 starship init fish | source # https://starship.rs/
 zoxide init fish | source # 'ajeetdsouza/zoxide'
 
-set -U BAT_THEME Nord # 'sharkdp/bat' cat clone 
-set -U CPPFLAGS -I/opt/homebrew/opt/sqlite/include
-set -U EDITOR nvim # 'neovim/neovim' text editor 
 set -U fish_greeting # disable fish greeting
 set -U fish_key_bindings fish_vi_key_bindings
-set -U FZF_DEFAULT_COMMAND "fd -H -E '.git'"
-set -U GOPATH (go env GOPATH) # https://golang.google.cn/
-set -U KIT_EDITOR /opt/homebrew/bin/nvim # https://www.scriptkit.com/
 set -U LANG en_US.UTF-8
 set -U LC_ALL en_US.UTF-8
-set -U LDFLAGS -L/opt/homebrew/opt/sqlite/lib
-set -U PAGER ~/.local/bin/nvimpager # 'lucc/nvimpager'
-set -U PKG_CONFIG_PATH /opt/homebrew/opt/sqlite/lib/pkgconfig
-set -U PNPM_HOME /Users/joshmedeski/Library/pnpm # https://pnpm.io/
-set -U RIPGREP_CONFIG_PATH "$HOME/.config/rg/ripgreprc"
-set -U VISUAL nvim
+
+set -Ux BAT_THEME Nord # 'sharkdp/bat' cat clone
+set -Ux CPPFLAGS -I/opt/homebrew/opt/sqlite/include
+set -Ux EDITOR nvim # 'neovim/neovim' text editor
+set -Ux FZF_DEFAULT_COMMAND "fd -H -E '.git'"
+set -Ux GOPATH (go env GOPATH) # https://golang.google.cn/
+set -Ux KIT_EDITOR /opt/homebrew/bin/nvim # https://www.scriptkit.com/
+set -Ux LDFLAGS -L/opt/homebrew/opt/sqlite/lib
+set -Ux PAGER ~/.local/bin/nvimpager # 'lucc/nvimpager'
+set -Ux PKG_CONFIG_PATH /opt/homebrew/opt/sqlite/lib/pkgconfig
+set -Ux PNPM_HOME /Users/joshmedeski/Library/pnpm # https://pnpm.io/
+set -Ux RIPGREP_CONFIG_PATH "$HOME/.config/rg/ripgreprc"
+set -Ux VISUAL nvim
 
 # ordered by priority - bottom up
 fish_add_path /opt/homebrew/bin # https://brew.sh/
