@@ -16,14 +16,14 @@ set -U fish_key_bindings fish_vi_key_bindings
 set -U LANG en_US.UTF-8
 set -U LC_ALL en_US.UTF-8
 
-set -Ux BAT_THEME Nord # 'sharkdp/bat' cat clone
+set -Ux BAT_THEME Catppuccin-mocha # 'sharkdp/bat' cat clone
 set -Ux CPPFLAGS -I/opt/homebrew/opt/sqlite/include
 set -Ux EDITOR nvim # 'neovim/neovim' text editor
 set -Ux FZF_DEFAULT_COMMAND "fd -H -E '.git'"
 set -Ux GOPATH (go env GOPATH) # https://golang.google.cn/
 set -Ux KIT_EDITOR /opt/homebrew/bin/nvim # https://www.scriptkit.com/
 set -Ux LDFLAGS -L/opt/homebrew/opt/sqlite/lib
-set -Ux PAGER ~/.local/bin/nvimpager # 'lucc/nvimpager'
+# set -e PAGER ~/.local/bin/nvimpager # 'lucc/nvimpager'
 set -Ux PKG_CONFIG_PATH /opt/homebrew/opt/sqlite/lib/pkgconfig
 set -Ux PNPM_HOME /Users/joshmedeski/Library/pnpm # https://pnpm.io/
 set -Ux RIPGREP_CONFIG_PATH "$HOME/.config/rg/ripgreprc"
