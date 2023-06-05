@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
 brew update
-outdated=$(brew outdated)
-if [[ -n "$outdated" ]]; then
+OUTDATED=$(brew outdated)
+if [[ -n "$OUTDATED" ]]; then
+	# TODO: show releases URLS for each apps
+	echo "$OUTDATED"
 	read -rp "Upgrade the listed above (y/N)? " upgrade
 	if [[ "$upgrade" = "y" ]]; then
 		brew upgrade
