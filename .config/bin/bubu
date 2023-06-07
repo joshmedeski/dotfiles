@@ -19,21 +19,13 @@ OUTDATED=$(gum spin --show-output --spinner minidot --title "Checking for outdat
 
 if [[ -n "$OUTDATED" ]]; then
 	echo "$OUTDATED"
-	CONFIRM=$(gum confirm "Upgrade the outdated formulae above? (y/N)")
-
-	if [[ $CONFIRM -eq 0 ]]; then
-		printf "\n"
-		gum spin --show-output --spinner minidot --title "Upgrading brew packages..." -- brew upgrade
-		printf "\n"
-
-		gum spin --show-output --spinner minidot --title "Cleaning up brew..." -- brew cleanup --prune=all
-		printf "\n"
-	else
-		echo "Upgrading brew packages cancelled."
-	fi
+	gum confirm --selected.background=2 --selected.foreground=0 "Upgrade the outdated formulae above?" && brew upgrade
+	printf "\n"
+	brew cleanup --prune=all
+	printf "\n"
 else
-	echo "No brew packages need upgraded at this time."
+	echo "All brew packages are up to date."
+	printf "\n"
 fi
 
-printf "\n"
 gum spin --show-output --spinner minidot --title "Checking for brew issues..." -- brew doctor
