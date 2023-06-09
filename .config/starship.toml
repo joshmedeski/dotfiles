@@ -13,10 +13,10 @@ success_symbol = "[](white)"
 error_symbol = "[](red)"
 vicmd_symbol = "[](green)"
 
-[directory.substitutions]
-"dotfiles/.config/fish" = "fish 🐠"
-"dotfiles/.config/alacritty" = "alacritty 🖥️"
-"dotfiles/.config/nvim" = "nvim 🎹"
+# [directory.substitutions]
+# "dotfiles/.config/fish" = "fish 🐠"
+# "dotfiles/.config/alacritty" = "alacritty 🖥️"
+# "dotfiles/.config/nvim" = "nvim 🎹"
 
 [directory]
 style = "blue bold"
