@@ -5,9 +5,7 @@ return {
   opts = {
     winblend = 0,
     highlights = { NormalFloat = { guibg = "NONE" } },
-    border = "double", -- border kind: single double shadow curved
-    height = 0.70,
-    width = 0.85,
+    border = "single", -- border kind: single double shadow curved
     escape_quit = true,
   },
   keys = {
