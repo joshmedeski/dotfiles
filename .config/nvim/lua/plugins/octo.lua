@@ -1,6 +1,5 @@
 return {
   "pwntester/octo.nvim",
-  lazy = false,
   cmd = "Octo",
   dependencies = {
     "nvim-lua/plenary.nvim",
@@ -152,12 +151,42 @@ return {
       },
     })
 
-    local wk = require("which-key")
-    wk.register({
-      mode = { "n", "v" },
-      ["<leader>i"] = { name = "+issue" },
-    })
-
     vim.cmd([[hi OctoEditable guibg=none]])
+  end,
+  keys = function()
+    local wk = require("which-key")
+    wk.register({ mode = { "n" }, ["<leader>o"] = { name = "+Octo" } })
+    wk.register({ mode = { "n" }, ["<leader>oi"] = { name = "+issue" } })
+    wk.register({ mode = { "n" }, ["<leader>op"] = { name = "+pr" } })
+
+    return {
+      -- issues
+      { "<leader>oi/", "<cmd>Octo issue search<cr>", desc = "Search issues" },
+      { "<leader>oii", "<cmd>Octo issue create<cr>", desc = "Create issue" },
+      { "<leader>oil", "<cmd>Octo issue list<cr>", desc = "List issues" },
+      { "<leader>oio", "<cmd>Octo issue browser<cr>", desc = "Open issue in browser" },
+      { "<leader>oiy", "<cmd>Octo issue url<cr>", desc = "Copy issue URL" },
+
+      -- Paste
+      { "<leader>oP", "<cmd>Octo !pbpaste<cr>", desc = "Octo (pbpaste)" },
+
+      -- PRs
+      { "<leader>op/", "<cmd>Octo pr search<cr>", desc = "Search prs" },
+      { "<leader>opi", "<cmd>Octo pr create<cr>", desc = "Create pr" },
+      { "<leader>opl", "<cmd>Octo pr list<cr>", desc = "List prs" },
+      { "<leader>opo", "<cmd>Octo pr browser<cr>", desc = "Open pr in browser" },
+      { "<leader>opy", "<cmd>Octo pr url<cr>", desc = "Copy pr URL" },
+      { "<leader>opc", "<cmd>Octo pr commits<cr>", desc = "PR commits" },
+      { "<leader>opd", "<cmd>Octo pr diff<cr>", desc = "PR diff" },
+
+      -- review
+      { "<leader>orC", "<cmd>Octo review comments<cr>", desc = "Pick commit" },
+      { "<leader>orc", "<cmd>Octo review commit<cr>", desc = "View comments" },
+      { "<leader>orD", "<cmd>Octo review discard<cr>", desc = "Discard pending review" },
+      { "<leader>orr", "<cmd>Octo review resume<cr>", desc = "Resume review" },
+      { "<leader>ors", "<cmd>Octo review start<cr>", desc = "Start review" },
+      { "<leader>orS", "<cmd>Octo review submit<cr>", desc = "Submit review" },
+      { "<leader>orX", "<cmd>Octo review close<cr>", desc = "Close review" },
+    }
   end,
 }
