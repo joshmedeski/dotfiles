@@ -12,7 +12,7 @@ vim.cmd([[
 ]])
 
 -- lsp
-vim.keymap.set("n", "<leader><space>", "<cmd>CodeActionMenu<cr>", { desc = "CodeActionMenu" })
+vim.keymap.set("n", "<leader><space>", "<cmd>CodeActionMenu<cr>", { desc = "Code Action Menu" })
 
 -- harpoon
 vim.keymap.set("n", "<leader>'", "<cmd>lua require('harpoon.mark').add_file()<cr>", { desc = "Add to Harpoon" })
@@ -28,6 +28,8 @@ vim.keymap.set("n", "<leader>8", "<cmd>lua require('harpoon.ui').nav_file(8)<cr>
 vim.keymap.set("n", "<leader>9", "<cmd>lua require('harpoon.ui').nav_file(9)<cr>", { desc = "Harpoon Buffer 9" })
 
 -- buffer
+vim.keymap.set("n", "<leader>n", "<cmd>bn<cr>", { desc = "Next" })
+vim.keymap.set("n", "<leader>p", "<cmd>bp<cr>", { desc = "Previous" })
 vim.keymap.set("n", "<leader>bb", "<cmd>Telescope buffers<cr>", { desc = "Telescope" })
 vim.keymap.set("n", "<leader>bj", "<cmd>bn<cr>", { desc = "Next" })
 vim.keymap.set("n", "<leader>bk", "<cmd>bp<cr>", { desc = "Previous" })
