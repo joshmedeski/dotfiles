@@ -11,6 +11,9 @@ vim.opt.termguicolors = true
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- clipboard
+vim.opt.clipboard = ""
+
 -- default position
 vim.opt.scrolloff = 5
 

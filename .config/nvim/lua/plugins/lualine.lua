@@ -35,6 +35,13 @@ return {
       always_visible = false,
     }
 
+    local todo = {
+      function()
+        require("todo-comments.search").search()
+      end,
+    }
+
+
     -- local navic = {
     --   function()
     --     return require("nvim-navic").get_location()

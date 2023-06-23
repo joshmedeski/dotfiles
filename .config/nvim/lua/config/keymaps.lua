@@ -37,3 +37,6 @@ vim.keymap.set("n", "<leader>bk", "<cmd>bp<cr>", { desc = "Previous" })
 vim.keymap.set("n", "<leader>bn", "<cmd>bn<cr>", { desc = "Next" })
 vim.keymap.set("n", "<leader>bp", "<cmd>bp<cr>", { desc = "Previous" })
 vim.keymap.set("n", "<leader>bsd", "<cmd>%bd|e#|bd#<cr>|'<cr>", { desc = "Delete surrounding" })
+
+-- clipboard
+vim.keymap.set("v", "<leader>y", '"+y', { desc = "Yank to clipboard" })
