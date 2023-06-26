@@ -27,6 +27,7 @@ return {
     end
 
     return {
+      ---@class bufferline.Options
       options = {
         separator_style = { "", "" },
         offsets = { { text_align = "left", separator = false } },
