@@ -1,9 +1,13 @@
 return {
   "axkirillov/hbac.nvim",
-  config = function()
-    require("hbac").setup({
-      autoclose = true,
-      threshold = 60,
-    })
-  end,
+  dependencies = {
+    "nvim-telescope/telescope.nvim",
+    "nvim-lua/plenary.nvim",
+    "nvim-tree/nvim-web-devicons",
+  },
+  name = "hbac",
+  opts = {
+    autoclose = true,
+    threshold = 900, -- 15 minutes
+  },
 }

@@ -5,6 +5,7 @@ return {
     vim.opt.laststatus = 3
     vim.opt.splitkeep = "screen"
   end,
+  ---@class Edgy.Config
   opts = {
     bottom = {
       -- toggleterm / lazyterm at the bottom with a height of 40% of the screen

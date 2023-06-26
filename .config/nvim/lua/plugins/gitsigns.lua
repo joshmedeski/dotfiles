@@ -4,7 +4,8 @@ return {
   event = "BufReadPre",
   opts = function()
     local icons = require("config.icons")
-    return {
+    --- @type Gitsigns.Config
+    local C = {
       signs = {
         add = { text = icons.git.added },
         change = { text = icons.git.changed },
@@ -38,5 +39,6 @@ return {
         map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
       end,
     }
+    return C
   end,
 }

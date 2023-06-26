@@ -1,17 +1,10 @@
 return {
   "nvim-neotest/neotest",
   dependencies = {
-    "nvim-lua/plenary.nvim",
-    "nvim-treesitter/nvim-treesitter",
-    "antoinemadec/FixCursorHold.nvim",
     "marilari88/neotest-vitest",
   },
   config = function()
-    require("neotest").setup({
-      adapters = {
-        require("neotest-vitest"),
-      },
-    })
+    require("neotest").setup({ adapters = { require("neotest-vitest") } })
   end,
   keys = {
     -- { "<leader>t", "<cmd><cr>", desc = "" },
