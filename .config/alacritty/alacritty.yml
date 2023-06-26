@@ -62,6 +62,7 @@ key_bindings:
   - { key: Tab, mods: Control, chars: "\x02n" } # switch to next tmux window
   - { key: Grave, mods: Control, chars: "\x02p" } # switch to previous tmux window
   - { key: Comma, mods: Command, chars: "\x02," } # rename the current tmux window
+  - { key: Period, mods: Command, chars: ":ZenMode\n" } # toggle zen mode
   - { key: LBracket, mods: Command, chars: "\x0f" } # navigate back in vim (ctrl+o)
   - { key: LBracket, mods: Command|Shift, chars: "\x02p" } # switch to next tmux window
   - { key: RBracket, mods: Command, chars: "\x09" } # navigate forward in vim (ctrl+i)
