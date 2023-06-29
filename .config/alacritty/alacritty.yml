@@ -41,6 +41,7 @@ font:
 # \x02 = control-b (the default tmux prefix)
 
 key_bindings:
+  - { key: C, mods: Command|Shift, chars: "\x02\x20" } # enter thumb mode
   - { key: E, mods: Command, chars: "\x02\"" } # split tmux window vertically
   - { key: E, mods: Command|Shift, chars: "\x02%" } # split tmux window horizontally
   - { key: F, mods: Command, chars: "lfcd\n" } # open file manager 'gokcehan/lf'
@@ -56,6 +57,7 @@ key_bindings:
   - { key: Q, mods: Command, chars: ":q\n" } # quit vim
   - { key: S, mods: Command, chars: "\x1b\x3a\x77\x0a" } # save vim buffer
   - { key: T, mods: Command, chars: "\x02c" } # create a new tmux window
+  - { key: V, mods: Command|Shift, chars: "\x02]" } # paste last tmux buffer
   - { key: T, mods: Command|Shift, chars: "\x02P" } #                ... Toggle Pomodoro
   - { key: W, mods: Command, chars: "\x02x" } # kill the current pane
   - { key: Z, mods: Command, chars: "\x02z" } # toggle zoom state of the current tmux pane
