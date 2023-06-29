@@ -4,11 +4,11 @@
 
 This is the home of all my dotfiles. These are files that add custom configurations to my computer and applications, primarily the terminal.
 
-# How to install
+## How to install
 
 Instructions coming soon.
 
-# Software
+## Software
 
 - Terminal: [Alacritty](https://alacritty.org)
 - Font: [SFMono Nerd Font](https://github.com/epk/SF-Mono-Nerd-Font)
@@ -21,7 +21,7 @@ Instructions coming soon.
 - npm package manager: [pnpm](https://pnpm.io/)
 - music accessory: [Sleeve](https://replay.software/sleeve)
 
-# Hardware
+## Hardware
 
 - Laptop: [MacBook Pro](https://www.apple.com/macbook-pro-14-and-16/) (16-inch, 2021, Apple M1 Pro Chip, 16GB RAM)
 - Keyboard: [Moonlander](https://www.zsa.io/moonlander/)
