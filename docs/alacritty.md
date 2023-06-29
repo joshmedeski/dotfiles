@@ -1,0 +1,5 @@
+---
+id: "alacritty"
+aliases: []
+tags: []
+---

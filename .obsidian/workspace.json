@@ -1,0 +1,157 @@
+{
+  "main": {
+    "id": "73f9f0d4ddb2b737",
+    "type": "split",
+    "children": [
+      {
+        "id": "5a2fe1d60e2671a2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9cb5386af077bf0e",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "16b08a8e66c32b5b",
+    "type": "split",
+    "children": [
+      {
+        "id": "18e5509ef3a76457",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4955705ecc7359b9",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "3e081ee40b460955",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "0f600559b8e8224a",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "23db5e71b31f4a9d",
+    "type": "split",
+    "children": [
+      {
+        "id": "d955f34b1734defa",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ea7df493b663bcef",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "9c51630cf9aedae1",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "02eb5197926e0335",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "c192bc24d19f5ad3",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "9cb5386af077bf0e",
+  "lastOpenFiles": [
+    "Library/Application Support/activitywatch/aw-server/peewee-sqlite.v2.db-journal",
+    "docs/1687789532-PJAE.md",
+    "docs/alacritty.md",
+    "docs/fish.md",
+    "docs/neovim.md",
+    "docs/1687788667-USPT.md",
+    "docs/tmux.md",
+    "tmux.md",
+    "docs/start-here.md",
+    "docs",
+    "Untitled.md",
+    "README.md",
+    "screenshot.png"
+  ]
+}
