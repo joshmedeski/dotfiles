@@ -2,7 +2,7 @@
 return {
   "xiyaowong/nvim-transparent",
   opts = {
-    extra_groups = {
+    groups = {
       "NormalFloat",
       "OctoEditable",
     },
