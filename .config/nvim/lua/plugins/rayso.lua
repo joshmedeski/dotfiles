@@ -14,4 +14,7 @@ return {
       theme = "raindrop", -- Theme
     },
   },
+  keys = {
+    { "<leader>rs", "<cmd>Rayso<cr>", desc = "Share with Rayso" },
+  },
 }
