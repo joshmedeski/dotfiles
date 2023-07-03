@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+# TODO: show releases URLS for each apps
+
+gum style \
+	--foreground 12 --border-foreground 12 --border double \
+	--align center --width 50 --margin "1 1" --padding "1 2" \
+	'██████╗ ██████╗ ███████╗██╗    ██╗
+██╔══██╗██╔══██╗██╔════╝██║    ██║
+██████╔╝██████╔╝█████╗  ██║ █╗ ██║
+██╔══██╗██╔══██╗██╔══╝  ██║███╗██║
+██████╔╝██║  ██║███████╗╚███╔███╔╝
+╚═════╝ ╚═╝  ╚═╝╚══════╝ ╚══╝╚══╝'
+
+gum spin --show-output --spinner minidot --title "Updating brew..." -- brew update
+printf "\n"
+
+OUTDATED=$(gum spin --show-output --spinner minidot --title "Checking for outdated brew packages" -- brew outdated)
+
+if [[ -n "$OUTDATED" ]]; then
+	echo "$OUTDATED"
+	gum confirm --selected.background=2 --selected.foreground=0 "Upgrade the outdated formulae above?" && brew upgrade
+	printf "\n"
+	brew cleanup --prune=all
+	printf "\n"
+else
+	echo "All brew packages are up to date."
+	printf "\n"
+fi
+
+gum spin --show-output --spinner minidot --title "Checking for brew issues..." -- brew doctor

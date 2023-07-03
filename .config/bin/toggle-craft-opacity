@@ -1,0 +1,16 @@
+#!/bin/bash
+
+function increments {
+	start=0.05
+	end=1.0
+	step=0.05
+	current=$start
+	while (($(bc <<<"$current <= $end"))); do
+		echo "$current"
+		current=$(bc <<<"$current + $step")
+	done
+}
+
+chosen_opacity_amount=$(increments | gum filter --placeholder "Change the opacity level of Craft to...")
+id=$(yabai -m query --windows | jq '.[] | select(.app == "Craft") | .id')
+yabai -m window "$id" --opacity "$chosen_opacity_amount"
