@@ -7,9 +7,20 @@ tags: []
 
 # Start Here
 
-## Topics
+## Terminal
 
 [[tmux]]
 [[neovim]]
 [[fish]]
 [[alacritty]]
+
+## JavaScript
+
+[[Node]]
+[[pnpm]
+[[TypeScript]]
+[[React]]
+
+## Frameworks
+
+[[Remix]]
