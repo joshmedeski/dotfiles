@@ -24,7 +24,7 @@ set -Ux FZF_DEFAULT_COMMAND "fd -H -E '.git'"
 set -Ux GOPATH (go env GOPATH) # https://golang.google.cn/
 set -Ux KIT_EDITOR /opt/homebrew/bin/nvim # https://www.scriptkit.com/
 set -Ux LDFLAGS -L/opt/homebrew/opt/sqlite/lib
-# set -e PAGER ~/.local/bin/nvimpager # 'lucc/nvimpager'
+set -Ux PAGER "~/.local/bin/nvimpager" # 'lucc/nvimpager'
 set -Ux PKG_CONFIG_PATH /opt/homebrew/opt/sqlite/lib/pkgconfig
 set -Ux PNPM_HOME /Users/joshmedeski/Library/pnpm # https://pnpm.io/
 set -Ux RIPGREP_CONFIG_PATH "$HOME/.config/rg/ripgreprc"
