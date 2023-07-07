@@ -8,6 +8,7 @@
 # A smart and user-friendly command line
 # https://fishshell.com/
 
+eval (/opt/homebrew/bin/brew shellenv)
 starship init fish | source # https://starship.rs/
 zoxide init fish | source # 'ajeetdsouza/zoxide'
 
@@ -30,10 +31,6 @@ set -Ux RIPGREP_CONFIG_PATH "$HOME/.config/rg/ripgreprc"
 set -Ux VISUAL nvim
 
 # ordered by priority - bottom up
-fish_add_path /opt/homebrew/bin # https://brew.sh/
-fish_add_path /opt/homebrew/sbin
-fish_add_path /opt/homebrew/opt/sqlite/bin
-fish_add_path /opt/homebrew/opt/openjdk/bi
 fish_add_path $GOPATH/bin
 fish_add_path $PNPM_HOME
 fish_add_path $HOME/.local/bin
