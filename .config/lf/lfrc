@@ -8,7 +8,7 @@
 # Terminal file manager
 # https://github.com/gokcehan/lf
 
-set hidden on
+set hidden true
 set icons
 set previewer ~/.config/lf/previewer.sh
 set promptfmt "\033[34;1m%d\033[0m\033[1m%f\033[0m"
