@@ -1,1 +1,1 @@
-fnm env --use-on-cd | source
+fnm --log-level quiet env --use-on-cd | source
