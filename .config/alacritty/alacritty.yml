@@ -56,6 +56,7 @@ key_bindings:
   - { key: P, mods: Command|Shift, chars: ":GoToCommand\n" } # run command
   - { key: Q, mods: Command, chars: ":q\n" } # quit vim
   - { key: S, mods: Command, chars: "\x1b\x3a\x77\x0a" } # save vim buffer
+  - { key: S, mods: Command|Shift, chars: "\x1b\x3a\x77\x71\x0a" } # save vim buffer (and close)
   - { key: T, mods: Command, chars: "\x02c" } # create a new tmux window
   - { key: V, mods: Command|Shift, chars: "\x02]" } # paste last tmux buffer
   - { key: T, mods: Command|Shift, chars: "\x02P" } #                ... Toggle Pomodoro
