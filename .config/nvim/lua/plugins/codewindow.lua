@@ -3,7 +3,7 @@ return {
   config = function()
     local codewindow = require("codewindow")
     codewindow.setup({
-      auto_enable = true, -- Automatically open the minimap when entering a (non-excluded) buffer (accepts a table of filetypes)
+      auto_enable = false, -- Automatically open the minimap when entering a (non-excluded) buffer (accepts a table of filetypes)
       active_in_terminals = false, -- Should the minimap activate for terminal buffers
       exclude_filetypes = { "help", "oil", "octo" }, -- Choose certain filetypes to not show minimap on
       max_minimap_height = nil, -- The maximum height the minimap can take (including borders)
