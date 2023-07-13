@@ -102,6 +102,7 @@ abbr pt "pnpm test"
 abbr pu "pnpm update"
 abbr pul "pnpm unlink"
 abbr pw "pnpm web"
+abbr pwdc "pwd | pbcopy"
 
 abbr rmr "rm -rf"
 
