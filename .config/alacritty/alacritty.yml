@@ -18,7 +18,7 @@ window:
   dynamic_padding: false
   opacity: 0.9
   padding:
-    x: 30
+    x: 25
     y: 20
 
 font:
