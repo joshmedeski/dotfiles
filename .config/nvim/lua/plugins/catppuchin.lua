@@ -1,7 +1,7 @@
 return {
   "catppuccin/nvim",
   name = "catppuccin",
-  event = "VeryLazy",
+  priority = 1000,
   ---@class CatppuccinOptions
   opts = {
     flavour = "mocha",
@@ -47,14 +47,5 @@ return {
         },
       },
     },
-    -- color_overrides = {
-    --   all = {
-    --     surface0 = "#444444",
-    --     surface1 = "#666666",
-    --     surface2 = "#a3a7bc",
-    --     surface3 = "#a3a7bc",
-    --   },
-    -- },
   },
-  priority = 1000,
 }
