@@ -16,7 +16,7 @@ set previewer ~/repos/dotfiles/.config/lf/lf-previewer.sh
 set relativenumber
 set shell fish
 
-# set promptfmt "\033[34;1m%d\033[0m\033[1m%f\033[0m"
+set promptfmt "\033[34;1m%d\033[0m\033[1m%f\033[0m"
 # set shellopts '-eu'
 # set ifs "\n"
 # set scrolloff 10
