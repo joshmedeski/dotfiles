@@ -11,6 +11,8 @@ vim.cmd([[
   noremap <silent> <c-\> :<C-U>TmuxNavigatePrevious<cr>
 ]])
 
+vim.keymap.set("n", "*", "*zz")
+
 -- lsp
 vim.keymap.set("n", "<leader><space>", "<cmd>CodeActionMenu<cr>", { desc = "Code Action Menu" })
 
