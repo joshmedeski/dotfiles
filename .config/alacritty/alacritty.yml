@@ -44,7 +44,7 @@ key_bindings:
   - { key: C, mods: Command|Shift, chars: "\x02\x20" } # enter thumb mode
   - { key: E, mods: Command, chars: "\x02\"" } # split tmux window vertically
   - { key: E, mods: Command|Shift, chars: "\x02%" } # split tmux window horizontally
-  - { key: F, mods: Command, chars: "lfcd\n" } # open file manager 'gokcehan/lf'
+  - { key: F, mods: Command, chars: ":Grep\n" } # open file manager 'gokcehan/lf'
   - { key: F, mods: Command|Shift, chars: "\x02\x5b\x2f" } # start tmux search mode
   - { key: G, mods: Command, chars: "\x02g" } # open git manager 'jesseduffield/lazygit'
   - { key: G, mods: Command|Shift, chars: "\x02G" } # open github dash 'dlvhdr/gh-dash'

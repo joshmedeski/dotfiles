@@ -10,6 +10,7 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 vim.opt.statuscolumn = "%s %l %C"
 vim.cmd([[command! -nargs=0 GoToFile :Telescope find_files]])
 vim.cmd([[command! -nargs=0 GoToCommand :Telescope commands]])
+vim.cmd([[command! -nargs=0 Grep :Telescope live_grep]])
 -- cSpell:word cursorlineopt
 vim.o.cursorlineopt = "number"
 
