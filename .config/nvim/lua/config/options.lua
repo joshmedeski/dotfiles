@@ -23,7 +23,7 @@ vim.o.ls = 0
 vim.o.ch = 0
 
 -- search
-vim.opt.hlsearch = false
+vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.opt.ignorecase = true
 
