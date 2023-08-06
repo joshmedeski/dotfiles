@@ -11,4 +11,19 @@ return {
       api_key_cmd = "op read op://Personal/ChatGPT/api_key --no-newline",
     })
   end,
+  keys = function()
+    local chatgpt = require("chatgpt")
+    local wk = require("which-key")
+    wk.register({
+      a = {
+        function()
+          chatgpt.edit_with_instructions()
+        end,
+        "Edit with instructions",
+      },
+    }, {
+      prefix = "<leader>",
+      mode = "v",
+    })
+  end,
 }
