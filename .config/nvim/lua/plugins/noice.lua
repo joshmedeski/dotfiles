@@ -7,6 +7,22 @@ return {
   event = "VeryLazy",
   ---@class NoiceConfig
   opts = {
+    ---@type NoicePresets
     presets = { inc_rename = true },
+    ---@type NoiceConfigViews
+    views = {
+      cmdline_popup = {
+        position = {
+          row = 10,
+          col = "55%",
+        },
+      },
+      cmdline_popupmenu = {
+        position = {
+          row = 10,
+          col = "55%",
+        },
+      },
+    },
   },
 }
