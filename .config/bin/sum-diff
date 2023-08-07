@@ -1,0 +1,13 @@
+#!/bin/sh
+
+CONTEXT="Summarize this git diff in short bullet points"
+GIT_DIFF=$(git diff)
+DIFF_SUMMARY=$(
+	gum spin \
+		--show-output \
+		--title "Summarizing git diff..." \
+		--spinner="minidot" -- \
+		echo $CONTEXT + $GIT_DIFF | ~/repos/openai-cli/openai
+)
+
+echo $DIFF_SUMMARY
