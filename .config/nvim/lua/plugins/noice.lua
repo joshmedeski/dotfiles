@@ -13,13 +13,13 @@ return {
     views = {
       cmdline_popup = {
         position = {
-          row = 10,
+          row = 7,
           col = "55%",
         },
       },
       cmdline_popupmenu = {
         position = {
-          row = 10,
+          row = 7,
           col = "55%",
         },
       },
