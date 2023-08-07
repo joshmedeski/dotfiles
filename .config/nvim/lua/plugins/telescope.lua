@@ -30,12 +30,12 @@ return {
       path_display = { "smart" },
       prompt_position = "top",
       prompt_prefix = " ",
-      selection_caret = " ",
+      selection_caret = " ",
       sorting_strategy = "ascending",
     },
     pickers = {
       buffers = {
-        prompt_prefix = "﬘ ",
+        prompt_prefix = "󰸩 ",
       },
       commands = {
         prompt_prefix = " ",
@@ -45,22 +45,22 @@ return {
         },
       },
       command_history = {
-        prompt_prefix = " ",
+        prompt_prefix = " ",
         layout_config = {
           height = 0.63,
           width = 0.58,
         },
       },
       git_files = {
-        prompt_prefix = " ",
+        prompt_prefix = "󰊢 ",
         show_untracked = true,
       },
       find_files = {
-        prompt_prefix = " ",
+        prompt_prefix = " ",
         find_command = { "fd", "-H" },
       },
       live_grep = {
-        prompt_prefix = " ",
+        prompt_prefix = "󰱽 ",
       },
     },
     extensions = {
