@@ -2,12 +2,9 @@ return {
   "hrsh7th/nvim-cmp",
   dependencies = {
     { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
-    { "zbirenbaum/copilot-cmp" },
   },
   ---@class cmp.Config
   opts = function(_, opts)
-    local cmp = require("cmp")
-    opts.sources = cmp.config.sources(vim.list_extend(opts.sources, { { name = "copilot" } }))
     opts.formatting = {
       fields = { "kind", "abbr", "menu" },
       format = function(_, item)
@@ -18,7 +15,6 @@ return {
         return item
       end,
     }
-    vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
     vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "NONE", bg = "#000000" })
     vim.cmd([[highlight! link CmpItemAbbrMatchFuzzy CmpItemAbbrMatch]])
     vim.cmd([[highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080]])
