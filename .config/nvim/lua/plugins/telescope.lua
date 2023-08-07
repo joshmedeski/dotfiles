@@ -2,9 +2,10 @@ return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
     "AckslD/nvim-neoclip.lua",
+    "danielvolchek/tailiscope.nvim",
+    "debugloop/telescope-undo.nvim",
     "natecraddock/telescope-zf-native.nvim",
     "ThePrimeagen/harpoon",
-    "debugloop/telescope-undo.nvim",
   },
   -- apply the config and additionally load fzf-native
   config = function(_, opts)
@@ -13,9 +14,11 @@ return {
     telescope.load_extension("harpoon")
     telescope.load_extension("neoclip")
     telescope.load_extension("notify")
+    telescope.load_extension("tailiscope")
     telescope.load_extension("undo")
     telescope.load_extension("zf-native")
   end,
+
   opts = {
     defaults = {
       file_ignore_patterns = { ".git/", "node_modules" },
