@@ -1,0 +1,21 @@
+#!/bin/sh
+
+CONTEXT="Create a simple branch name from the following github issue content. Make sure to use 'title: ' as the main focus of the branch name and prepend the branch name with 'jam/{issue_number}' replacing '{issue_number}' with the issue number. Make sure to always use dashes to separate the words and don't use more than 5 words and only output the branch name you come up with and nothing else with no description, spaces, or line breaks. Never include the word 'title', or any filler words like 'is', 'and', 'are', etc... Here is the content of the GitHub issue: "
+PR_NUMBER=$1
+PR_CONTENT=$(gh issue view $PR_NUMBER)
+BRANCH_NAME=$(
+	gum spin \
+		--show-output \
+		--title "Generating branch name..." \
+		--title.margin="2" --title.width="60" --title.align="center" \
+		--spinner="minidot" --spinner.align="center" --spinner.margin="2" --spinner.width="60" -- \
+		echo $CONTEXT + $PR_CONTENT | ~/repos/openai-cli/openai
+)
+
+gum confirm \
+	--affirmative="Checkout" --negative="Cancel" \
+	--prompt.margin="2" --prompt.width="60" --prompt.align="center" \
+	--selected.align="center" --unselected.align="center" \
+	--selected.background=2 --selected.foreground=0 \
+	"Generated branch: $BRANCH_NAME" &&
+	git checkout main && git pull origin main && git checkout -b $BRANCH_NAME
