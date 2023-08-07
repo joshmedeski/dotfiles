@@ -23,16 +23,16 @@ window:
 
 font:
   normal:
-    family: "SFMono Nerd Font"
+    family: "JetBrainsMono Nerd Font"
     style: Medium
   italic:
-    family: "SFMono Nerd Font"
+    family: "JetBrainsMono Nerd Font"
     style: Medium Italic
   bold:
-    family: "SFMono Nerd Font"
+    family: "JetBrainsMono Nerd Font"
     style: Heavy
   bold_italic:
-    family: "SFMono Nerd Font"
+    family: "JetBrainsMono Nerd Font"
     style: Heavy Italic
   size: 20.0
 
