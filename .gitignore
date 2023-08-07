@@ -55,3 +55,4 @@ logs
 npm-debug.log
 pids
 run
+.config/fish/conf.d/openai.fish
