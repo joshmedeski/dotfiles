@@ -56,3 +56,4 @@ npm-debug.log
 pids
 run
 .config/fish/conf.d/openai.fish
+.config/fish/conf.d/nu.fish
