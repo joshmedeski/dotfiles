@@ -1,6 +1,8 @@
 return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
+    "kkharji/sqlite.lua",
+    { "prochri/telescope-all-recent.nvim", opts = {} },
     "AckslD/nvim-neoclip.lua",
     "danielvolchek/tailiscope.nvim",
     "debugloop/telescope-undo.nvim",
