@@ -37,6 +37,17 @@ return {
       prompt_prefix = " ",
       selection_caret = " ",
       sorting_strategy = "ascending",
+      vimgrep_arguments = {
+        "rg",
+        "--color=never",
+        "--no-heading",
+        "--hidden",
+        "--with-filename",
+        "--line-number",
+        "--column",
+        "--smart-case",
+        "--trim", -- add this value
+      },
     },
     pickers = {
       buffers = {
@@ -67,6 +78,9 @@ return {
       live_grep = {
         prompt_prefix = "󰱽 ",
       },
+      grep_string = {
+        prompt_prefix = "󰱽 ",
+      },
     },
     extensions = {
       ["zf-native"] = {
@@ -84,6 +98,8 @@ return {
     },
   },
   keys = function()
-    return {}
+    return {
+      { "<leader>*", "<cmd>Telescope grep_string<cr>", { silent = true, desc = "Grep Word Under Cursor" } },
+    }
   end,
 }
