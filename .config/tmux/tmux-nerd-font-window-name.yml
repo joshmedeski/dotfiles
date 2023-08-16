@@ -1,0 +1,7 @@
+config:
+  fallback-icon: "?" # icon to use if no definition is found
+  show-name: true # show the window name with the icon
+
+icons:
+  zsh: "" # overwrite with your own symbol (Nerd Font icon, emoji, whatever!)
+  cmatrix: "🤯" # add new entries that aren't included
