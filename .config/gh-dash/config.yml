@@ -1,0 +1,69 @@
+qprSections:
+  - title: My Pull Requests
+    filters: is:open author:@me -user:Nutiliti
+  - title: Needs My Review
+    filters: is:open review-requested:@me -user:Nutiliti
+  - title: Involved
+    filters: is:open involves:@me -author:@me -user:Nutiliti
+issuesSections:
+  - title: My Issues
+    filters: is:open author:@me -user:Nutiliti
+  - title: Assigned
+    filters: is:open assignee:@me -user:Nutiliti
+  - title: Involved
+    filters: is:open involves:@me -author:@me -user:Nutiliti
+defaults:
+  preview:
+    open: true
+    width: 50
+  prsLimit: 20
+  issuesLimit: 20
+  view: prs
+  layout:
+    prs:
+      updatedAt:
+        width: 7
+      repo:
+        width: 15
+      author:
+        width: 15
+      assignees:
+        width: 20
+        hidden: true
+      base:
+        width: 15
+        hidden: true
+      lines:
+        width: 16
+    issues:
+      updatedAt:
+        width: 7
+      repo:
+        width: 15
+      creator:
+        width: 10
+      assignees:
+        width: 20
+        hidden: true
+  refetchIntervalMinutes: 30
+keybindings:
+  issues:
+    - key: B
+      command: >
+        tmux display-popup -d {{.RepoPath}} -w 65 -h 10 -E 'ghprb {{.IssueNumber}}'
+    - key: e
+      command: >
+        tmux display-popup -d {{.RepoPath}} -w 80% -h 90% -E 'nvim -c ":Octo issue edit {{.IssueNumber}}"'
+    - key: i
+      command: >
+        tmux display-popup -d {{.RepoPath}} -w 80% -h 90% -E 'nvim -c ":Octo issue create"'
+  prs: []
+repoPaths:
+  Nutiliti/nutiliti: ~/repos/nutiliti
+  raycast/extensions: ~/repos/raycast-extensions
+theme:
+  ui:
+    table:
+      showSeparator: true
+pager:
+  diff: ""
