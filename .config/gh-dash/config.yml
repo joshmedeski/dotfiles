@@ -57,7 +57,10 @@ keybindings:
     - key: i
       command: >
         tmux display-popup -d {{.RepoPath}} -w 80% -h 90% -E 'nvim -c ":Octo issue create"'
-  prs: []
+  prs:
+    - key: O
+      command: >
+        tmux new-window -c {{.RepoPath}} 'nvim -c ":Octo pr edit {{.PrNumber}}"'
 repoPaths:
   joshmedeski/*: ~/repos/*
   joshmedeski/t-smart-tmux-session-manager: ~/.config/tmux/plugins/t-smart-tmux-session-manager
