@@ -9,4 +9,4 @@ echo " Updating tpm plugins"
 echo "🐠 Updating fisher plugins"
 fisher update
 
-./b
+~/.config/bin/b
