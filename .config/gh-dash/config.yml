@@ -59,6 +59,9 @@ keybindings:
         tmux display-popup -d {{.RepoPath}} -w 80% -h 90% -E 'nvim -c ":Octo issue create"'
   prs: []
 repoPaths:
+  joshmedeski/*: ~/repos/*
+  joshmedeski/t-smart-tmux-session-manager: ~/.config/tmux/plugins/t-smart-tmux-session-manager
+  joshmedeski/tmux-nerd-font-window-name: ~/.config/tmux/plugins/tmux-nerd-font-window-name
   Nutiliti/nutiliti: ~/repos/nutiliti
   raycast/extensions: ~/repos/raycast-extensions
 theme:
