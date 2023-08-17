@@ -122,8 +122,6 @@ abbr tr "tldr --list | fzf --header 'tldr (tealdeer)' --reverse --preview 'tldr 
 abbr tn "tmux new -s (basename (pwd))"
 abbr tt "t -d pwd"
 
-abbr u "~/bin/update.sh"
-
 abbr v "nvim +GoToFile"
 abbr vfzf "nvim (fd --type f --hidden --follow --exclude .git | fzf-tmux -p -w 100 --reverse --preview 'bat --color=always --style=numbers --line-range=:500 {}')"
 abbr va "nvim ~/.config/alacritty/alacritty.yml"
