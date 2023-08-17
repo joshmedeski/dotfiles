@@ -11,7 +11,7 @@ Instructions coming soon.
 ## Software
 
 - Terminal: [Alacritty](https://alacritty.org)
-- Font: [SFMono Nerd Font](https://github.com/epk/SF-Mono-Nerd-Font)
+- Font: [JetbrainsMono Nerd Font](https://www.nerdfonts.com/)
 - Colors: [catppuccin](https://github.com/catppuccin/catppuccin)
 - Shell: [fish](https://fishshell.com)
 - Multiplexer: [tmux](https://github.com/tmux/tmux/wiki)
@@ -19,7 +19,6 @@ Instructions coming soon.
 - Git: [lazygit](https://github.com/jesseduffield/lazygit)
 - macOS package manager: [Homebrew](https://brew.sh)
 - npm package manager: [pnpm](https://pnpm.io/)
-- music accessory: [Sleeve](https://replay.software/sleeve)
 
 ## Hardware
 
