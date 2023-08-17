@@ -1,0 +1,12 @@
+#!/usr/bin/env fish
+
+echo "😺 Upgrade gh extensions"
+gh extension upgrade --all
+
+echo " Updating tpm plugins"
+~/.config/tmux/plugins/tpm/bin/update_plugins all
+
+echo "🐠 Updating fisher plugins"
+fisher update
+
+./b
