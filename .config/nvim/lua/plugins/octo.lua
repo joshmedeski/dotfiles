@@ -158,8 +158,10 @@ return {
     wk.register({ mode = { "n" }, ["<leader>o"] = { name = "+Octo" } })
     wk.register({ mode = { "n" }, ["<leader>oi"] = { name = "+issue" } })
     wk.register({ mode = { "n" }, ["<leader>op"] = { name = "+pr" } })
+    wk.register({ mode = { "n" }, ["<leader>or"] = { name = "+review" } })
 
     return {
+      { "<leader>oo", "<cmd>Octo<cr>", desc = "Octo" },
       -- issues
       { "<leader>oi/", "<cmd>Octo issue search<cr>", desc = "Search issues" },
       { "<leader>oii", "<cmd>Octo issue create<cr>", desc = "Create issue" },
