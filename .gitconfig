@@ -23,3 +23,6 @@
 	path = nvim
 [init]
 	defaultBranch = main
+[commit]
+  gpgsign = true
+  gpgprogram = /opt/homebrew/bin/gpg
