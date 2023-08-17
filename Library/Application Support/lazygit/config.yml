@@ -99,6 +99,11 @@ customCommands:
     context: "files"
     loadingText: "Commitizen prompt"
     subprocess: true
+  - key: "o"
+    command: "nvim -c ':Octo pr create'"
+    context: "localBranches"
+    loadingText: "Opening Octo"
+    subprocess: true
 keybinding:
   universal:
     quit: "q"
@@ -175,8 +180,8 @@ keybinding:
     fetch: "f"
     toggleTreeView: "`"
   branches:
-    createPullRequest: "o"
-    viewPullRequestOptions: "O"
+    createPullRequest: "O"
+    # viewPullRequestOptions: "O"
     checkoutBranchByName: "c"
     forceCheckoutBranch: "F"
     rebaseBranch: "r"
