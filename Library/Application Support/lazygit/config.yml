@@ -89,6 +89,12 @@ customCommands:
     command: "git difftool -y {{.SelectedLocalCommit.Sha}} -- {{.SelectedCommitFile.Name}}"
     context: "commitFiles"
     description: "Compare (difftool) with local copy"
+  - key: "o"
+    command: "nvim -c ':Octo pr create'"
+    context: "localBranches"
+    loadingText: "Loading Octo"
+    description: "Open pull request with Octo"
+    subprocess: true
   - key: "E"
     context: "files"
     command: "gitmoji -c"
@@ -175,8 +181,8 @@ keybinding:
     fetch: "f"
     toggleTreeView: "`"
   branches:
-    createPullRequest: "o"
-    viewPullRequestOptions: "O"
+    createPullRequest: "O"
+    # viewPullRequestOptions: "O"
     checkoutBranchByName: "c"
     forceCheckoutBranch: "F"
     rebaseBranch: "r"
