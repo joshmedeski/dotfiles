@@ -9,4 +9,7 @@ echo " Updating tpm plugins"
 echo "🐠 Updating fisher plugins"
 fisher update
 
+echo "📝 Updating Neovim Lazy packages"
+nvim --headless "+Lazy! sync" +qa
+
 ~/.config/bin/b
