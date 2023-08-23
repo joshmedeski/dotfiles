@@ -5,3 +5,5 @@ config:
 icons:
   fish: "🐠"
   nvim: "📝"
+  stripe: "💳"
+  stripe-mock: "💳"
