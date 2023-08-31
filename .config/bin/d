@@ -3,7 +3,7 @@
 if [ -z "$TMUX" ]; then
 	echo 'Not in tmux'
 else
-	tmux rename-window ''
+	tmux rename-window '🤖'
 fi
 
 if [ -f package-lock.json ]; then
