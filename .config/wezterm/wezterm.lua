@@ -1,6 +1,6 @@
 local wezterm = require("wezterm")
 
-local wezdir = os.getenv("HOME") .. "/.config/wezterm"
+local wez_dir = os.getenv("HOME") .. "/.config/wezterm"
 local act = wezterm.action
 
 local function group_action(keys)
@@ -153,10 +153,10 @@ local config = {
 		},
 	},
 	window_padding = {
-		left = 20,
-		right = 20,
+		left = 30,
+		right = 30,
 		top = 20,
-		bottom = 20,
+		bottom = 10,
 	},
 	send_composed_key_when_left_alt_is_pressed = true,
 	send_composed_key_when_right_alt_is_pressed = false,
@@ -183,21 +183,34 @@ if appearance:find("Dark") then
 			},
 			width = "100%",
 			height = "100%",
-			opacity = 0.75,
+			opacity = 0.85,
 		},
 		{
 			source = {
-				File = { path = wezdir .. "/blob_blue.gif", speed = 0.3 },
+				File = { path = wez_dir .. "/blob_blue.gif", speed = 0.3 },
 			},
 			repeat_x = "Mirror",
 			height = "100%",
-			opacity = 0.40,
+			opacity = 0.50,
 			hsb = {
 				hue = 0.9,
 				saturation = 0.9,
 				brightness = 0.3,
 			},
 		},
+		-- {
+		-- 	source = {
+		-- 		File = { path = wez_dir .. "/wavy-lines.gif", speed = 0.05 },
+		-- 	},
+		-- 	height = "100%",
+		-- 	width = "100%",
+		-- 	opacity = 0.20,
+		-- 	hsb = {
+		-- 		hue = 0.9,
+		-- 		saturation = 0.9,
+		-- 		brightness = 0.3,
+		-- 	},
+		-- },
 	}
 else
 	config.color_scheme = "Catppuccin Latte"
