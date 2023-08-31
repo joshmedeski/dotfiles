@@ -1,8 +1,7 @@
 return {
   "epwalsh/obsidian.nvim",
-  event = { "BufReadPre /Users/joshmedeski/repos/dotfiles/**.md" },
+  event = { "BufReadPre /Users/josh/Library/Mobile Documents/iCloud~md~obsidian/Documents/second-brain" },
   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand':
-  -- event = { "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md" },
   dependencies = {
     "nvim-lua/plenary.nvim",
     "hrsh7th/nvim-cmp",
@@ -11,8 +10,8 @@ return {
     -- "preservim/vim-markdown",
   },
   opts = {
-    dir = "~/repos/dotfiles",
-    notes_subdir = "docs",
+    dir = "/Users/josh/Library/Mobile Documents/iCloud~md~obsidian/Documents/second-brain",
+    -- notes_subdir = "docs",
     completion = { nvim_cmp = true },
     -- Optional, alternatively you can customize the frontmatter data.
     note_frontmatter_func = function(note)
