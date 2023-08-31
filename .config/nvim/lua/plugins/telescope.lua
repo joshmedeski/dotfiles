@@ -8,6 +8,7 @@ return {
     "debugloop/telescope-undo.nvim",
     "natecraddock/telescope-zf-native.nvim",
     "ThePrimeagen/harpoon",
+    "joshmedeski/telescope-smart-goto.nvim",
   },
   -- apply the config and additionally load fzf-native
   config = function(_, opts)
@@ -19,6 +20,7 @@ return {
     telescope.load_extension("tailiscope")
     telescope.load_extension("undo")
     telescope.load_extension("zf-native")
+    telescope.load_extension("smart-goto")
   end,
 
   opts = {
