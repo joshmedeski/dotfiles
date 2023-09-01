@@ -9,6 +9,9 @@ return {
           yaml = { keyOrdering = false },
         },
       },
+      graphql = {
+        filetypes = { "graphql", "typescript", "typescriptreact" },
+      },
     },
   },
   init = function()
