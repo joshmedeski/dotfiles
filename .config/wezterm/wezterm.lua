@@ -1,7 +1,31 @@
 local wezterm = require("wezterm")
-
 local wez_dir = os.getenv("HOME") .. "/.config/wezterm"
 local act = wezterm.action
+
+local function get_random_entry(tbl)
+	local keys = {}
+	for key, _ in ipairs(tbl) do
+		table.insert(keys, key)
+	end
+	local randomKey = keys[math.random(1, #keys)]
+	return tbl[randomKey]
+end
+
+local function get_wallpaper()
+	local wallpapers = {}
+	local wallpapers_glob = os.getenv("HOME")
+		.. "/Library/Mobile Documents/com~apple~CloudDocs/PARA/3 Resources 🛠️/Wallpapers - macOS 💻/**"
+
+	for _, v in ipairs(wezterm.glob(wallpapers_glob)) do
+		table.insert(wallpapers, v)
+	end
+	return {
+		source = { File = { path = get_random_entry(wallpapers) } },
+		height = "100%",
+		width = "100%",
+		opacity = 1,
+	}
+end
 
 local function multiple_actions(keys)
 	local actions = {}
@@ -48,6 +72,17 @@ local config = {
 	keys = {
 		-- TODO: figure out how this works
 		-- cmd_tmux_key("c", "\x20"),
+		-- FIX: this doesn't work
+		-- cmd_tmux_key("\x7b", "p"),
+		-- cmd_tmux_key("\x7d", "n"),
+
+		cmd_key(
+			"s",
+			act.Multiple({
+				act.SendKey({ key = "\x1b" }), -- escape
+				multiple_actions(":w"),
+			})
+		),
 
 		cmd_key(".", multiple_actions(":ZenMode")),
 		cmd_key("[", act.SendKey({ mods = "CTRL", key = "o" })),
@@ -77,16 +112,6 @@ local config = {
 		cmd_tmux_key("t", "c"),
 		cmd_tmux_key("w", "x"),
 		cmd_tmux_key("z", "z"),
-		cmd_tmux_key("{", "p"),
-		cmd_tmux_key("}", "n"),
-
-		cmd_key(
-			"s",
-			act.Multiple({
-				act.SendKey({ key = "\x1b" }), -- escape
-				multiple_actions(":w"),
-			})
-		),
 	},
 
 	send_composed_key_when_left_alt_is_pressed = true,
@@ -102,6 +127,7 @@ local appearance = wezterm.gui.get_appearance()
 if appearance:find("Dark") then
 	config.color_scheme = "Catppuccin Mocha"
 	config.background = {
+		get_wallpaper(),
 		{
 			source = {
 				Gradient = {
@@ -114,7 +140,7 @@ if appearance:find("Dark") then
 			},
 			width = "100%",
 			height = "100%",
-			opacity = 0.90,
+			opacity = 0.6,
 		},
 		{
 			source = { File = { path = wez_dir .. "/blob_blue.gif", speed = 0.3 } },
@@ -126,18 +152,29 @@ if appearance:find("Dark") then
 				brightness = 0.3,
 			},
 		},
-		-- {
-		-- 	source = { File = { path = wez_dir .. "/wallpapers/03-Blue_Purple_DM-4K.png" } },
-		-- 	height = "100%",
-		-- 	width = "100%",
-		-- 	opacity = 0.30,
-		-- },
 	}
 else
 	config.color_scheme = "Catppuccin Latte"
 	-- config.window_background_opacity = 0.9
 	config.set_environment_variables = {
 		THEME_FLAVOUR = "latte",
+	}
+	config.background = {
+		get_wallpaper(),
+		{
+			source = {
+				Gradient = {
+					orientation = "Horizontal",
+					colors = { "#FFFDF3", "#ffffff", "#FFFDF3" },
+					interpolation = "CatmullRom",
+					blend = "Rgb",
+					noise = 10,
+				},
+			},
+			width = "100%",
+			height = "100%",
+			opacity = 0.90,
+		},
 	}
 end
 
