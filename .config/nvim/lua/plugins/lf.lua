@@ -1,14 +1,17 @@
 return {
   "lmburns/lf.nvim",
   cmd = "Lf",
-  dependencies = { "nvim-lua/plenary.nvim", "akinsho/toggleterm.nvim" },
+  dependencies = {
+    "akinsho/toggleterm.nvim",
+    "nvim-lua/plenary.nvim",
+  },
   opts = {
-    winblend = 0,
-    highlights = { NormalFloat = { guibg = "NONE" } },
-    border = "single", -- border kind: single double shadow curved
+    border = "single",
     escape_quit = true,
+    highlights = { NormalFloat = { guibg = "NONE" } },
+    winblend = 0,
   },
   keys = {
-    { "<leader>ff", "<cmd>Lf<cr>", desc = "NeoTree" },
+    { "<leader>ff", "<cmd>Lf<cr>", desc = "Lf" },
   },
 }
