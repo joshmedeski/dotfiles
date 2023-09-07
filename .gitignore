@@ -1,6 +1,8 @@
 .aws/credentials
 .azure
 .basement
+.config/fish/conf.d/nu.fish
+.config/fish/conf.d/openai.fish
 .config/fish/fish_variables
 .config/fish/functions/fzf_key_bindings.fish
 .config/karabiner/
@@ -18,11 +20,6 @@ dist
 Library/Application Support/activitywatch
 Library/Application Support/Adobe
 Library/Application Support/com.elgato.StreamDeck
-Library/Application Support/com.elgato.StreamDeck
-Library/Application Support/com.elgato.StreamDeck
-Library/Application Support/com.elgato.StreamDeck
-Library/Application Support/com.elgato.StreamDeck
-Library/Application Support/com.elgato.StreamDeck/Cache.db
 Library/Application Support/Loopback/Devices.plist
 Library/Application Support/mkcert
 Library/Application Support/obs-studio
@@ -55,5 +52,3 @@ logs
 npm-debug.log
 pids
 run
-.config/fish/conf.d/openai.fish
-.config/fish/conf.d/nu.fish
