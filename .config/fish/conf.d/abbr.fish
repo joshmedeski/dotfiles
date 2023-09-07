@@ -79,6 +79,7 @@ abbr nt "npm run test"
 abbr nxdg "nx dep-graph"
 
 abbr os "overmind start"
+abbr o "open ."
 
 abbr p "pnpm run (jq -r '.scripts|to_entries[]|((.key))' package.json | fzf-tmux -p --border-label='pnpm run')"
 abbr pa "pnpm add"
