@@ -1,8 +1,0 @@
-{
-  "Description": "Displays the current CPU usage.", 
-  "Name": "CPU", 
-  "com.elgato.cpu.cpu": {
-    "Name": "CPU", 
-    "Tooltip": "This action displays the CPU usage"
-  }
-}

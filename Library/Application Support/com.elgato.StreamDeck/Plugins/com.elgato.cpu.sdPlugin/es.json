@@ -1,8 +1,0 @@
-{
-  "Description": "Muestra el uso actual del procesador.", 
-  "Name": "Procesador", 
-  "com.elgato.cpu.cpu": {
-    "Name": "Procesador", 
-    "Tooltip": "Esta acción muestra el uso del procesador"
-  }
-}

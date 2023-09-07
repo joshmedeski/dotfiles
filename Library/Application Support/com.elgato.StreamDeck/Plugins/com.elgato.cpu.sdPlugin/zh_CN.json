@@ -1,8 +1,0 @@
-{
-  "Description": "显示当前的 CPU使用率。", 
-  "Name": "CPU", 
-  "com.elgato.cpu.cpu": {
-    "Name": "CPU", 
-    "Tooltip": "该操作可显示 CPU 使用率"
-  }
-}

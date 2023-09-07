@@ -1,8 +1,0 @@
-{
-  "Description": "Affiche la consommation actuelle de ressources processeur.", 
-  "Name": "Processeur", 
-  "com.elgato.cpu.cpu": {
-    "Name": "Processeur", 
-    "Tooltip": "Cette action affiche la consommation de ressources processeur"
-  }
-}
