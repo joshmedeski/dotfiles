@@ -22,7 +22,7 @@ local function get_wallpaper()
 	return {
 		source = { File = { path = get_random_entry(wallpapers) } },
 		height = "100%",
-		width = "100%",
+		horizontal_align = "Center",
 		opacity = 1,
 	}
 end
@@ -59,7 +59,14 @@ local function cmd_tmux_key(key, tmux_key)
 end
 
 local config = {
-	font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Medium" }),
+	-- debug_key_events = true,
+	font = wezterm.font_with_fallback({
+		{
+			family = "JetBrainsMono Nerd Font",
+			weight = "Medium",
+		},
+		-- { family = "Apple Color Emoji", weight = "Regular" },
+	}),
 	font_size = 18,
 
 	window_padding = {
@@ -84,9 +91,36 @@ local config = {
 			})
 		),
 
+		{
+			mods = "CMD",
+			key = "}",
+			action = act.Multiple({
+				act.SendKey({ mods = "CTRL", key = "b" }),
+				act.SendKey({ key = "n" }),
+			}),
+		},
+
+		{
+			mods = "CTRL",
+			key = "Tab",
+			action = act.Multiple({
+				act.SendKey({ mods = "CTRL", key = "b" }),
+				act.SendKey({ key = "n" }),
+			}),
+		},
+
+		{
+			mods = "CTRL|SHIFT",
+			key = "Tab",
+			action = act.Multiple({
+				act.SendKey({ mods = "CTRL", key = "b" }),
+				act.SendKey({ key = "n" }),
+			}),
+		},
+
 		cmd_key(".", multiple_actions(":ZenMode")),
-		cmd_key("[", act.SendKey({ mods = "CTRL", key = "o" })),
-		cmd_key("]", act.SendKey({ mods = "CTRL", key = "i" })),
+		-- cmd_key("[", act.SendKey({ mods = "CTRL", key = "o" })),
+		-- cmd_key("]", act.SendKey({ mods = "CTRL", key = "i" })),
 		cmd_key("f", multiple_actions(":Grep")),
 		cmd_key("P", multiple_actions(":GoToCommand")),
 		cmd_key("p", multiple_actions(":GoToFile")),
@@ -100,8 +134,8 @@ local config = {
 		cmd_tmux_key("7", "7"),
 		cmd_tmux_key("8", "8"),
 		cmd_tmux_key("9", "9"),
-		cmd_tmux_key("e", "%"),
-		cmd_tmux_key("E", '"'),
+		cmd_tmux_key("e", '"'),
+		cmd_tmux_key("E", "%"),
 		cmd_tmux_key("n", "%"),
 		cmd_tmux_key("N", '"'),
 		cmd_tmux_key("G", "G"),
@@ -145,6 +179,7 @@ if appearance:find("Dark") then
 		{
 			source = { File = { path = wez_dir .. "/blob_blue.gif", speed = 0.3 } },
 			height = "100%",
+			horizontal_align = "Center",
 			opacity = 0.50,
 			hsb = {
 				hue = 0.9,
@@ -161,14 +196,24 @@ else
 	}
 	config.background = {
 		get_wallpaper(),
+		-- {
+		-- 	source = {
+		-- 		File = {
+		-- 			path = "/Users/josh/Downloads/tatooine-star-wars-concept.png",
+		-- 		},
+		-- 	},
+		-- 	height = "Cover",
+		-- 	horizontal_align = "Center",
+		-- 	opacity = 1,
+		-- },
 		{
 			source = {
 				Gradient = {
-					orientation = "Horizontal",
-					colors = { "#FFFDF3", "#ffffff", "#FFFDF3" },
+					orientation = { Linear = { angle = 45.0 } },
+					colors = { "#fdf6cf", "#fdfdf8", "#ffffff" },
 					interpolation = "CatmullRom",
 					blend = "Rgb",
-					noise = 10,
+					noise = 50,
 				},
 			},
 			width = "100%",
