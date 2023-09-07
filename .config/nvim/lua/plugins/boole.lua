@@ -4,9 +4,13 @@ return {
     mappings = {
       increment = "<C-a>",
       decrement = "<C-x>",
+      -- true
+      -- no
+      -- 6
     },
     additions = {
-      -- { "tic", "tac", "toe" },
+      { "production", "development", "test" },
+      --- production
     },
   },
 }
