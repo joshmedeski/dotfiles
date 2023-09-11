@@ -14,7 +14,7 @@ end
 local function get_wallpaper()
 	local wallpapers = {}
 	local wallpapers_glob = os.getenv("HOME")
-		.. "/Library/Mobile Documents/com~apple~CloudDocs/PARA/3 Resources 🛠️/Wallpapers - macOS 💻/**"
+		.. "/Library/Mobile Documents/com~apple~CloudDocs/PARA/3 Resources 🛠️/Wallpapers - macOS 💻/active/**"
 
 	for _, v in ipairs(wezterm.glob(wallpapers_glob)) do
 		table.insert(wallpapers, v)
@@ -92,7 +92,7 @@ local config = {
 		),
 
 		{
-			mods = "CMD",
+			mods = "CMD|SHIFT",
 			key = "}",
 			action = act.Multiple({
 				act.SendKey({ mods = "CTRL", key = "b" }),
@@ -206,14 +206,15 @@ else
 		-- 	horizontal_align = "Center",
 		-- 	opacity = 1,
 		-- },
+		--
 		{
 			source = {
 				Gradient = {
 					orientation = { Linear = { angle = 45.0 } },
-					colors = { "#fdf6cf", "#fdfdf8", "#ffffff" },
+					colors = { "#ffffff", "#fdfdf8", "#ffffff" },
 					interpolation = "CatmullRom",
 					blend = "Rgb",
-					noise = 50,
+					noise = 20,
 				},
 			},
 			width = "100%",
