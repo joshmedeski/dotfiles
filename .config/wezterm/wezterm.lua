@@ -99,6 +99,14 @@ local config = {
 				act.SendKey({ key = "n" }),
 			}),
 		},
+		{
+			mods = "CMD|SHIFT",
+			key = "{",
+			action = act.Multiple({
+				act.SendKey({ mods = "CTRL", key = "b" }),
+				act.SendKey({ key = "p" }),
+			}),
+		},
 
 		{
 			mods = "CTRL",
@@ -115,6 +123,24 @@ local config = {
 			action = act.Multiple({
 				act.SendKey({ mods = "CTRL", key = "b" }),
 				act.SendKey({ key = "n" }),
+			}),
+		},
+
+		{
+			mods = "CMD",
+			key = "`",
+			action = act.Multiple({
+				act.SendKey({ mods = "CTRL", key = "b" }),
+				act.SendKey({ key = "n" }),
+			}),
+		},
+
+		{
+			mods = "CMD",
+			key = "~",
+			action = act.Multiple({
+				act.SendKey({ mods = "CTRL", key = "b" }),
+				act.SendKey({ key = "p" }),
 			}),
 		},
 
