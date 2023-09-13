@@ -9,18 +9,20 @@ return {
     "natecraddock/telescope-zf-native.nvim",
     "ThePrimeagen/harpoon",
     "joshmedeski/telescope-smart-goto.nvim",
+    "piersolenski/telescope-import.nvim",
   },
   -- apply the config and additionally load fzf-native
   config = function(_, opts)
     local telescope = require("telescope")
     telescope.setup(opts)
     telescope.load_extension("harpoon")
+    telescope.load_extension("import")
     telescope.load_extension("neoclip")
     telescope.load_extension("notify")
+    telescope.load_extension("smart-goto")
     telescope.load_extension("tailiscope")
     telescope.load_extension("undo")
     telescope.load_extension("zf-native")
-    telescope.load_extension("smart-goto")
   end,
 
   opts = {
