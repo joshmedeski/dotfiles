@@ -32,7 +32,7 @@ return {
         height = 0.90,
         width = 0.90,
         preview_cutoff = 0,
-        preview_width = 0.60,
+        horizontal = { preview_width = 0.60 },
         vertical = { width = 0.55, height = 0.9, preview_cutoff = 0 },
         prompt_position = "top",
       },
