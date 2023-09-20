@@ -21,8 +21,10 @@ local function get_wallpaper()
 	end
 	return {
 		source = { File = { path = get_random_entry(wallpapers) } },
-		height = "100%",
-		horizontal_align = "Center",
+		height = "Contain",
+		width = "Contain",
+		repeat_x = "Repeat",
+		repeat_y = "Repeat",
 		opacity = 1,
 	}
 end
@@ -192,7 +194,7 @@ if appearance:find("Dark") then
 			source = {
 				Gradient = {
 					orientation = "Horizontal",
-					colors = { "#00000C", "#000026", "#00000C" },
+					colors = { "#1e1e2e", "#18181e" },
 					interpolation = "CatmullRom",
 					blend = "Rgb",
 					noise = 0,
@@ -200,19 +202,19 @@ if appearance:find("Dark") then
 			},
 			width = "100%",
 			height = "100%",
-			opacity = 0.6,
+			opacity = 0.9,
 		},
-		{
-			source = { File = { path = wez_dir .. "/blob_blue.gif", speed = 0.3 } },
-			height = "100%",
-			horizontal_align = "Center",
-			opacity = 0.50,
-			hsb = {
-				hue = 0.9,
-				saturation = 0.9,
-				brightness = 0.3,
-			},
-		},
+		-- {
+		-- 	source = { File = { path = wez_dir .. "/blob_blue.gif", speed = 0.3 } },
+		-- 	height = "100%",
+		-- 	horizontal_align = "Center",
+		-- 	opacity = 0.50,
+		-- 	hsb = {
+		-- 		hue = 0.9,
+		-- 		saturation = 0.9,
+		-- 		brightness = 0.3,
+		-- 	},
+		-- },
 	}
 else
 	config.color_scheme = "Catppuccin Latte"
