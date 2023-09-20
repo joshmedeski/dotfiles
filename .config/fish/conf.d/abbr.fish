@@ -13,6 +13,8 @@ abbr blr "brew leaves --installed-on-request"
 abbr blp "brew leaves --installed-as-dependency"
 abbr bs "brew search"
 
+abbr bni "bun i"
+
 abbr c clear
 abbr cl clear
 abbr claer clear
@@ -135,6 +137,8 @@ abbr vpi "nvim +PlugInstall"
 abbr vpu "nvim +PlugUpdate"
 abbr vpug "nvim +PlugUpgrade"
 abbr vt "nvim ~/.config/tmux/tmux.conf"
+
+abbr x "chmod +x (ls | gum filter --limit 1 --header 'chmod +x')"
 
 abbr y yarn
 abbr ya "yarn add"
