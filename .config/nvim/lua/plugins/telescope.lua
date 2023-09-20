@@ -19,7 +19,7 @@ return {
     telescope.load_extension("import")
     telescope.load_extension("neoclip")
     telescope.load_extension("notify")
-    telescope.load_extension("smart-goto")
+    telescope.load_extension("smart_goto")
     telescope.load_extension("tailiscope")
     telescope.load_extension("undo")
     telescope.load_extension("zf-native")
