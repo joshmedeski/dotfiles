@@ -1,7 +1,5 @@
 return {
   "epwalsh/obsidian.nvim",
-  event = { "BufReadPre /Users/josh/Library/Mobile Documents/iCloud~md~obsidian/Documents/second-brain" },
-  -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand':
   dependencies = {
     "nvim-lua/plenary.nvim",
     "hrsh7th/nvim-cmp",
@@ -9,10 +7,38 @@ return {
     "nvim-treesitter/nvim-treesitter",
     -- "preservim/vim-markdown",
   },
+
+  lazy = true,
+  event = {
+    "BufReadPre " .. vim.fn.expand("~") .. "/repos/second-brain/**.md",
+    "BufNewFile " .. vim.fn.expand("~") .. "/repos/second-brain/**.md",
+  },
+  commands = {
+    "ObsidianOpen",
+    "ObsidianNew",
+    "ObsidianQuickSwitch",
+    "ObsidianFollowLink",
+    "ObsidianBacklinks",
+    "ObsidianToday",
+    "ObsidianYesterday",
+    "ObsidianTemplate",
+    "ObsidianSearch",
+    "ObsidianLink",
+    "ObsidianLinkNew",
+  },
+
   opts = {
-    dir = "/Users/josh/Library/Mobile Documents/iCloud~md~obsidian/Documents/second-brain",
-    -- notes_subdir = "docs",
+    dir = "~/repos/second-brain", -- no need to call 'vim.fn.expand' here
     completion = { nvim_cmp = true },
+
+    daily_notes = {
+      folder = "Calendar 🗓️/days",
+      -- Optional, if you want to change the date format for the ID of daily notes.
+      -- date_format = "%Y-%m-%d",
+      -- Optional, if you want to change the date format of the default alias of daily notes.
+      -- alias_format = "%B %-d, %Y",
+    },
+
     -- Optional, alternatively you can customize the frontmatter data.
     note_frontmatter_func = function(note)
       -- This is equivalent to the default frontmatter function.
@@ -43,8 +69,13 @@ return {
     use_advanced_uri = true,
 
     -- Optional, set to true to force ':ObsidianOpen' to bring the app to the foreground.
-    open_app_foreground = false,
+    open_app_foreground = true,
   },
+
+  -- mappings = {
+  --   ["gf"] = require("obsidian.mapping").gf_passthrough(),
+  -- },
+
   config = function(_, opts)
     require("obsidian").setup(opts)
     vim.keymap.set("n", "gd", function()
