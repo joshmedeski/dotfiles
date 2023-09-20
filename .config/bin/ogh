@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+if [ -z "$1" ]; then
+	echo "Please provide a GitHub URL"
+	exit 1
+fi
+
+GITHUB_URL=$1
+
+if [[ $GITHUB_URL =~ ^https://github.com/([^/]+)/(.+)$ ]]; then
+	USERNAME="${BASH_REMATCH[1]}"
+	REPO="${BASH_REMATCH[2]}"
+else
+	echo "Invalid argument format. Expected format: https://github.com/<username>/<repository>"
+	exit 1
+fi
+
+REPOS="$HOME/repos/second-brain/repos"
+
+if [ ! -d "$REPOS/$USERNAME" ]; then
+	mkdir -p "$REPOS/$USERNAME"
+fi
+
+NOTE="$HOME/repos/second-brain/repos/$USERNAME/$REPO.md"
+
+if [ -f "$NOTE" ]; then
+	echo "Repo note already exists: $NOTE"
+else
+	touch "$NOTE"
+	echo "---" >>"$NOTE"
+	echo "url: $GITHUB_URL" >>"$NOTE"
+	echo "---" >>"$NOTE"
+	echo "Repo note created: $NOTE"
+fi
+
+open -a Obsidian "obsidian://open?vault=second-brain&file=repos%2F$USERNAME%2F$REPO"
