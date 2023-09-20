@@ -1,5 +1,0 @@
----
-id: "fish"
-aliases: []
-tags: []
----

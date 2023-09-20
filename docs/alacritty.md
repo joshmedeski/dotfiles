@@ -1,5 +1,0 @@
----
-id: "alacritty"
-aliases: []
-tags: []
----
