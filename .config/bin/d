@@ -24,6 +24,12 @@ if [ -f pnpm-lock.yaml ]; then
 	exit 0
 fi
 
+if [ -f bun.lockb ]; then
+	echo 'bun dev'
+	pnpm run dev
+	exit 0
+fi
+
 BASE_NAME="$(basename "$(pwd)")"
 
 cd ..
