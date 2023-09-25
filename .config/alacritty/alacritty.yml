@@ -1,9 +1,5 @@
-#
-#  █████╗ ██╗      █████╗  ██████╗██████╗ ██╗████████╗████████╗██╗   ██╗
 # ██╔══██╗██║     ██╔══██╗██╔════╝██╔══██╗██║╚══██╔══╝╚══██╔══╝╚██╗ ██╔╝
 # ███████║██║     ███████║██║     ██████╔╝██║   ██║      ██║    ╚████╔╝
-# ██╔══██║██║     ██╔══██║██║     ██╔══██╗██║   ██║      ██║     ╚██╔╝
-# ██║  ██║███████╗██║  ██║╚██████╗██║  ██║██║   ██║      ██║      ██║
 # ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚═╝   ╚═╝      ╚═╝      ╚═╝
 # A cross-platform, OpenGL terminal emulator.
 # https://alacritty.org
@@ -14,7 +10,7 @@ env:
   TERM: xterm-256color
 
 window:
-  decorations: buttonless
+  decorations: none
   dynamic_padding: false
   opacity: 0.9
   padding:
@@ -23,17 +19,8 @@ window:
 
 font:
   normal:
-    family: "JetBrainsMono Nerd Font"
+    family: "JetBrainsMono Nerd Font Mono"
     style: Medium
-  italic:
-    family: "JetBrainsMono Nerd Font"
-    style: Medium Italic
-  bold:
-    family: "JetBrainsMono Nerd Font"
-    style: Heavy
-  bold_italic:
-    family: "JetBrainsMono Nerd Font"
-    style: Heavy Italic
   size: 20.0
 
 # NOTE: helpful hex codes
@@ -46,40 +33,40 @@ key_bindings:
   - { key: E, mods: Command|Shift, chars: "\x02%" } # split tmux window horizontally
   - { key: F, mods: Command, chars: ":Grep\n" } # open file manager 'gokcehan/lf'
   - { key: F, mods: Command|Shift, chars: "\x02\x5b\x2f" } # start tmux search mode
-  - { key: G, mods: Command, chars: "\x02g" } # open git manager 'jesseduffield/lazygit'
-  - { key: G, mods: Command|Shift, chars: "\x02G" } # open github dash 'dlvhdr/gh-dash'
-  - { key: J, mods: Command, chars: "\x02\x54" } # open t - tmux smart session manager
-  - { key: K, mods: Command, chars: "\x02\x54" } # open t - tmux smart session manager
-  - { key: L, mods: Command, chars: "\x02L" } # switch to the last tmux session
-  - { key: O, mods: Command, chars: "\x02u" } # open URLs 'joshmedeski/tmux-fzf-url'
-  - { key: P, mods: Command, chars: ":GoToFile\n" } # go to file
-  - { key: P, mods: Command|Shift, chars: ":GoToCommand\n" } # run command
+  - { key: G, mods: Control, chars: "\x02g" } # open git manager 'jesseduffield/lazygit'
+  - { key: G, mods: Control|Shift, chars: "\x02G" } # open github dash 'dlvhdr/gh-dash'
+  # - { key: J, mods: Control, chars: "\x02\x54" } # open t - tmux smart session manager
+  - { key: K, mods: Control, chars: "\x02\x54" } # open t - tmux smart session manager
+  - { key: L, mods: Control, chars: "\x02L" } # switch to the last tmux session
+  - { key: O, mods: Control, chars: "\x02u" } # open URLs 'joshmedeski/tmux-fzf-url'
+  - { key: P, mods: Control, chars: ":GoToFile\n" } # go to file
+  - { key: P, mods: Control|Shift, chars: ":GoToCommand\n" } # run command
   - { key: Q, mods: Command, chars: ":q\n" } # quit vim
-  - { key: S, mods: Command, chars: "\x1b\x3a\x77\x0a" } # save vim buffer
+  - { key: S, mods: Control, chars: "\x1b\x3a\x77\x0a" } # save vim buffer
   - { key: S, mods: Command|Shift, chars: "\x1b\x3a\x77\x71\x0a" } # save vim buffer (and close)
-  - { key: T, mods: Command, chars: "\x02c" } # create a new tmux window
+  - { key: T, mods: Control, chars: "\x02c" } # create a new tmux window
   - { key: V, mods: Command|Shift, chars: "\x02]" } # paste last tmux buffer
-  - { key: T, mods: Command|Shift, chars: "\x02P" } #                ... Toggle Pomodoro
-  - { key: W, mods: Command, chars: "\x02x" } # kill the current pane
-  - { key: Z, mods: Command, chars: "\x02z" } # toggle zoom state of the current tmux pane
+  # - { key: T, mods: Command|Shift, chars: "\x02P" } #                ... Toggle Pomodoro
+  - { key: W, mods: Control, chars: "\x02x" } # kill the current pane
+  - { key: Z, mods: Control, chars: "\x02z" } # toggle zoom state of the current tmux pane
   - { key: Tab, mods: Control, chars: "\x02n" } # switch to next tmux window
   - { key: Grave, mods: Control, chars: "\x02p" } # switch to previous tmux window
-  - { key: Comma, mods: Command, chars: "\x02," } # rename the current tmux window
-  - { key: Period, mods: Command, chars: ":ZenMode\n" } # toggle zen mode
-  - { key: LBracket, mods: Command, chars: "\x0f" } # navigate back in vim (ctrl+o)
-  - { key: LBracket, mods: Command|Shift, chars: "\x02p" } # switch to next tmux window
-  - { key: RBracket, mods: Command, chars: "\x09" } # navigate forward in vim (ctrl+i)
-  - { key: RBracket, mods: Command|Shift, chars: "\x02n" } # switch to previous tmux window
-  - { key: Semicolon, mods: Command, chars: "\x02:" } # enter the tmux command prompt
-  - { key: Key1, mods: Command, chars: "\x021" } # select tmux window 1
-  - { key: Key2, mods: Command, chars: "\x022" } #                ... 2
-  - { key: Key3, mods: Command, chars: "\x023" } #                ... 3
-  - { key: Key4, mods: Command, chars: "\x024" } #                ... 4
-  - { key: Key5, mods: Command, chars: "\x025" } #                ... 5
-  - { key: Key6, mods: Command, chars: "\x026" } #                ... 6
-  - { key: Key7, mods: Command, chars: "\x027" } #                ... 7
-  - { key: Key8, mods: Command, chars: "\x028" } #                ... 8
-  - { key: Key9, mods: Command, chars: "\x029" } #                ... 9
+  - { key: Comma, mods: Control, chars: "\x02," } # rename the current tmux window
+  - { key: Period, mods: Control, chars: ":ZenMode\n" } # toggle zen mode
+  - { key: LBracket, mods: Control, chars: "\x0f" } # navigate back in vim (ctrl+o)
+  - { key: LBracket, mods: Control|Shift, chars: "\x02p" } # switch to next tmux window
+  - { key: RBracket, mods: Control, chars: "\x09" } # navigate forward in vim (ctrl+i)
+  - { key: RBracket, mods: Control|Shift, chars: "\x02n" } # switch to previous tmux window
+  - { key: Semicolon, mods: Control, chars: "\x02:" } # enter the tmux command prompt
+  - { key: Key1, mods: Control, chars: "\x021" } # select tmux window 1
+  - { key: Key2, mods: Control, chars: "\x022" } #                ... 2
+  - { key: Key3, mods: Control, chars: "\x023" } #                ... 3
+  - { key: Key4, mods: Control, chars: "\x024" } #                ... 4
+  - { key: Key5, mods: Control, chars: "\x025" } #                ... 5
+  - { key: Key6, mods: Control, chars: "\x026" } #                ... 6
+  - { key: Key7, mods: Control, chars: "\x027" } #                ... 7
+  - { key: Key8, mods: Control, chars: "\x028" } #                ... 8
+  - { key: Key9, mods: Control, chars: "\x029" } #                ... 9
 
 import:
   - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
