@@ -1,0 +1,16 @@
+{
+    "com.github.friday.ulauncher-clipboard": {
+        "id": "com.github.friday.ulauncher-clipboard",
+        "url": "https://github.com/friday/ulauncher-clipboard",
+        "updated_at": "2023-09-24T11:25:06.724539",
+        "last_commit": "73420cf4816f925321db15379c9c981c8f28c6fe",
+        "last_commit_time": "2022-08-03T20:22:13"
+    },
+    "com.github.ulauncher.ulauncher-emoji": {
+        "id": "com.github.ulauncher.ulauncher-emoji",
+        "url": "https://github.com/Ulauncher/ulauncher-emoji",
+        "updated_at": "2023-09-25T11:28:15.854248",
+        "last_commit": "4c6af50d1c9a24d5aad2c597634ff0c634972a5c",
+        "last_commit_time": "2021-08-08T19:19:59"
+    }
+}
