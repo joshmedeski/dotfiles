@@ -12,7 +12,7 @@ env:
 window:
   decorations: none
   dynamic_padding: false
-  opacity: 0.9
+  opacity: 0.99
   padding:
     x: 25
     y: 20
@@ -47,7 +47,7 @@ key_bindings:
   - { key: T, mods: Control, chars: "\x02c" } # create a new tmux window
   - { key: V, mods: Command|Shift, chars: "\x02]" } # paste last tmux buffer
   # - { key: T, mods: Command|Shift, chars: "\x02P" } #                ... Toggle Pomodoro
-  - { key: W, mods: Control, chars: "\x02x" } # kill the current pane
+  - { key: W, mods: Command, chars: "\x02x" } # kill the current pane
   - { key: Z, mods: Control, chars: "\x02z" } # toggle zoom state of the current tmux pane
   - { key: Tab, mods: Control, chars: "\x02n" } # switch to next tmux window
   - { key: Grave, mods: Control, chars: "\x02p" } # switch to previous tmux window
