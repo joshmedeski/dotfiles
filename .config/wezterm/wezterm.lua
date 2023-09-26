@@ -13,8 +13,7 @@ end
 
 local function get_wallpaper()
 	local wallpapers = {}
-	local wallpapers_glob = os.getenv("HOME")
-		.. "/Library/Mobile Documents/com~apple~CloudDocs/PARA/3 Resources 🛠️/Wallpapers - macOS 💻/active/**"
+	local wallpapers_glob = "/usr/share/backgrounds/pop/**"
 
 	for _, v in ipairs(wezterm.glob(wallpapers_glob)) do
 		table.insert(wallpapers, v)
@@ -47,7 +46,7 @@ local function key_table(mods, key, action)
 end
 
 local function cmd_key(key, action)
-	return key_table("CMD", key, action)
+	return key_table("SUPER", key, action)
 end
 
 local function cmd_tmux_key(key, tmux_key)
@@ -64,7 +63,7 @@ local config = {
 	-- debug_key_events = true,
 	font = wezterm.font_with_fallback({
 		{
-			family = "JetBrainsMono Nerd Font",
+			family = "JetBrainsMono Nerd Font Mono",
 			weight = "Medium",
 		},
 		-- { family = "Apple Color Emoji", weight = "Regular" },
@@ -94,7 +93,7 @@ local config = {
 		),
 
 		{
-			mods = "CMD|SHIFT",
+			mods = "SUPER|SHIFT",
 			key = "}",
 			action = act.Multiple({
 				act.SendKey({ mods = "CTRL", key = "b" }),
@@ -102,7 +101,7 @@ local config = {
 			}),
 		},
 		{
-			mods = "CMD|SHIFT",
+			mods = "SUPER|SHIFT",
 			key = "{",
 			action = act.Multiple({
 				act.SendKey({ mods = "CTRL", key = "b" }),
@@ -129,7 +128,7 @@ local config = {
 		},
 
 		{
-			mods = "CMD",
+			mods = "SUPER",
 			key = "`",
 			action = act.Multiple({
 				act.SendKey({ mods = "CTRL", key = "b" }),
@@ -138,7 +137,7 @@ local config = {
 		},
 
 		{
-			mods = "CMD",
+			mods = "SUPER",
 			key = "~",
 			action = act.Multiple({
 				act.SendKey({ mods = "CTRL", key = "b" }),
@@ -189,7 +188,7 @@ local appearance = wezterm.gui.get_appearance()
 if appearance:find("Dark") then
 	config.color_scheme = "Catppuccin Mocha"
 	config.background = {
-		get_wallpaper(),
+		-- get_wallpaper(),
 		{
 			source = {
 				Gradient = {
@@ -223,7 +222,7 @@ else
 		THEME_FLAVOUR = "latte",
 	}
 	config.background = {
-		get_wallpaper(),
+		-- get_wallpaper(),
 		-- {
 		-- 	source = {
 		-- 		File = {
