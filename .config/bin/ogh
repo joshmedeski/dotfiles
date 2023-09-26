@@ -15,13 +15,13 @@ else
 	exit 1
 fi
 
-REPOS="$HOME/repos/second-brain/repos"
+REPOS="$HOME/repos/second-brain/Repos 🐙/"
 
 if [ ! -d "$REPOS/$USERNAME" ]; then
 	mkdir -p "$REPOS/$USERNAME"
 fi
 
-NOTE="$HOME/repos/second-brain/repos/$USERNAME/$REPO.md"
+NOTE="$HOME/repos/second-brain/Repos 🐙/$USERNAME/$REPO.md"
 
 if [ -f "$NOTE" ]; then
 	echo "Repo note already exists: $NOTE"
