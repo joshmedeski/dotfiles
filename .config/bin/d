@@ -1,5 +1,23 @@
 #!/bin/sh
 
+# Get argument for script key/name, default to dev
+DEV_SCRIPT="${1:-dev}"
+
+# First, check if the jq command is available
+# AND there is a package.json file in the current directory
+if command -v jq &>/dev/null && [[ -f "package.json" ]]; then
+  # if we have jq,
+  # then use it to extract the first occurence of a key in package.json's scripts object
+  # that starts with the argument passed in (or dev)
+  DEV_SCRIPT="$(jq \
+    -r \
+    --arg ds "$DEV_SCRIPT" \
+    'first(.scripts | keys[] | select(. | test("^\($ds)[^\"]*")))' \
+    package.json)"
+  # if this didn't match anything, fallback to dev
+  DEV_SCRIPT="${DEV_SCRIPT:-dev}"
+fi
+
 if [ -z "$TMUX" ]; then
 	echo 'Not in tmux'
 else
@@ -7,26 +25,26 @@ else
 fi
 
 if [ -f package-lock.json ]; then
-	echo 'npm run dev'
-	npm run dev
+	echo 'npm run $DEV_SCRIPT'
+	npm run "$DEV_SCRIPT"
 	exit 0
 fi
 
 if [ -f yarn.lock ]; then
-	echo 'yarn dev'
-	yarn dev
+	echo 'yarn $DEV_SCRIPT'
+	yarn "$DEV_SCRIPT"
 	exit 0
 fi
 
 if [ -f pnpm-lock.yaml ]; then
-	echo 'pnpm run dev'
-	pnpm run dev
+	echo 'pnpm run $DEV_SCRIPT'
+	pnpm run "$DEV_SCRIPT"
 	exit 0
 fi
 
 if [ -f bun.lockb ]; then
-	echo 'bun dev'
-	pnpm run dev
+	echo 'bun $DEV_SCRIPT'
+	pnpm run "$DEV_SCRIPT"
 	exit 0
 fi
 
@@ -35,7 +53,7 @@ BASE_NAME="$(basename "$(pwd)")"
 cd ..
 if [ -f pnpm-lock.yaml ]; then
 	cd "$BASE_NAME" || exit
-	pnpm run dev
+	pnpm run "$DEV_SCRIPT"
 	exit 0
 fi
 
@@ -45,7 +63,7 @@ cd ..
 if [ -f pnpm-lock.yaml ]; then
 	cd "$PARENT_BASE_NAME" || exit
 	cd "$BASE_NAME" || exit
-	pnpm run dev
+	pnpm run "$DEV_SCRIPT"
 	exit 0
 fi
 
