@@ -1,5 +1,10 @@
 #!/bin/sh
 
+if [ -f "d" ]; then
+	./d
+	exit 0
+fi
+
 if [ -z "$TMUX" ]; then
 	echo 'Not in tmux'
 else
