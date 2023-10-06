@@ -11,6 +11,7 @@ vim.opt.statuscolumn = "%s %l %C"
 vim.cmd([[command! -nargs=0 GoToFile :Telescope find_files]])
 vim.cmd([[command! -nargs=0 GoToCommand :Telescope commands]])
 vim.cmd([[command! -nargs=0 Grep :Telescope live_grep]])
+vim.cmd([[command! -nargs=0 SmartGoTo :Telescope smart_goto]])
 -- cSpell:word cursorlineopt
 vim.o.cursorlineopt = "number"
 

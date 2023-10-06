@@ -161,6 +161,7 @@ abbr ze "zoxide edit"
 
 abbr :GoToCommand fzf-history-widget
 abbr :GoToFile "nvim +GoToFile"
+abbr :SmartGoTo "nvim +SmartGoTo"
 abbr :Grep "nvim +Grep"
 abbr :bd exit
 abbr :q "tmux kill-server"
