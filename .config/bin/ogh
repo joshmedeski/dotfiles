@@ -29,8 +29,11 @@ else
 	touch "$NOTE"
 	echo "---" >>"$NOTE"
 	echo "url: $GITHUB_URL" >>"$NOTE"
+	echo "aliases:" >>"$NOTE"
+	echo "  - $USERNAME/$REPO" >>"$NOTE"
 	echo "---" >>"$NOTE"
 	echo "Repo note created: $NOTE"
+	# TODO: add description using GH API
 fi
 
 open -a Obsidian "obsidian://open?vault=second-brain&file=repos%2F$USERNAME%2F$REPO"

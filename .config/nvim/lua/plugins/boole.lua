@@ -10,6 +10,7 @@ return {
     },
     additions = {
       { "production", "development", "test" },
+      { "let", "const" },
       --- production
     },
   },

@@ -21,8 +21,9 @@ local function get_wallpaper()
 	end
 	return {
 		source = { File = { path = get_random_entry(wallpapers) } },
-		height = "Contain",
-		width = "Contain",
+		height = "Cover",
+		width = "Cover",
+		horizontal_align = "Center",
 		repeat_x = "Repeat",
 		repeat_y = "Repeat",
 		opacity = 1,
@@ -61,6 +62,7 @@ local function cmd_tmux_key(key, tmux_key)
 end
 
 local config = {
+	window_close_confirmation = "NeverPrompt",
 	-- debug_key_events = true,
 	font = wezterm.font_with_fallback({
 		{
@@ -152,7 +154,9 @@ local config = {
 		cmd_key("f", multiple_actions(":Grep")),
 		cmd_key("P", multiple_actions(":GoToCommand")),
 		cmd_key("p", multiple_actions(":GoToFile")),
+		cmd_key("i", multiple_actions(":SmartGoTo")),
 
+		cmd_tmux_key("`", "n"),
 		cmd_tmux_key("1", "1"),
 		cmd_tmux_key("2", "2"),
 		cmd_tmux_key("3", "3"),

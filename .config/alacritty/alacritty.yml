@@ -82,7 +82,9 @@ key_bindings:
   - { key: Key9, mods: Command, chars: "\x029" } #                ... 9
 
 import:
-  - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
+  - ~/.config/alacritty/theme.yml
+  # - ~/.config/alacritty/catppuccin/openai-sample.yml
+  # - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
   # - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
   # - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
   # - ~/.config/alacritty/catppuccin/catppuccin-latte.yml

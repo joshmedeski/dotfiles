@@ -10,6 +10,10 @@ return {
     "ThePrimeagen/harpoon",
     "joshmedeski/telescope-smart-goto.nvim",
     "piersolenski/telescope-import.nvim",
+    {
+      "nvim-telescope/telescope-live-grep-args.nvim",
+      version = "^1.0.0",
+    },
   },
   -- apply the config and additionally load fzf-native
   config = function(_, opts)
@@ -23,6 +27,7 @@ return {
     telescope.load_extension("tailiscope")
     telescope.load_extension("undo")
     telescope.load_extension("zf-native")
+    telescope.load_extension("live_grep_args")
   end,
 
   opts = {

@@ -3,6 +3,7 @@
 # https://fishshell.com/docs/current/cmds/abbr.html
 
 abbr ast "aw set -t (aw list | fzf-tmux -p --reverse --preview 'aw set -t {}')"
+abbr av "NVIM_APPNAME=astronvim nvim"
 
 abbr bi "brew install"
 abbr bic "brew install --cask"
@@ -161,6 +162,7 @@ abbr ze "zoxide edit"
 
 abbr :GoToCommand fzf-history-widget
 abbr :GoToFile "nvim +GoToFile"
+abbr :SmartGoTo "nvim +SmartGoTo"
 abbr :Grep "nvim +Grep"
 abbr :bd exit
 abbr :q "tmux kill-server"
