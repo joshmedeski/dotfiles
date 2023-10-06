@@ -3,6 +3,7 @@
 # https://fishshell.com/docs/current/cmds/abbr.html
 
 abbr ast "aw set -t (aw list | fzf-tmux -p --reverse --preview 'aw set -t {}')"
+abbr av "NVIM_APPNAME=astronvim nvim"
 
 abbr bi "brew install"
 abbr bic "brew install --cask"
