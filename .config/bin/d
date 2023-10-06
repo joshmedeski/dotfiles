@@ -16,7 +16,8 @@ if command -v jq &>/dev/null && [[ -f "package.json" ]]; then
     package.json)"
   # if this didn't match anything, fallback to dev
   DEV_SCRIPT="${DEV_SCRIPT:-dev}"
-
+fi
+							
 if [ -f "d" ]; then
 	./d "$@"
 	exit 0
