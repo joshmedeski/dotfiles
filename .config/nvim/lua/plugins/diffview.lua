@@ -8,10 +8,6 @@ return {
     "DiffviewFocusFiles",
     "DiffviewRefresh",
   },
-  keys = {
-    { "<leader>do", "<cmd>DiffviewOpen<cr>", desc = "NeoTree" },
-    { "<leader>dx", "<cmd>DiffviewClose<cr>", desc = "NeoTree" },
-  },
   opts = {
     view = {
       use_icons = true,
