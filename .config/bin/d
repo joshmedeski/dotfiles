@@ -18,7 +18,7 @@ if command -v jq &>/dev/null && [[ -f "package.json" ]]; then
   DEV_SCRIPT="${DEV_SCRIPT:-dev}"
 
 if [ -f "d" ]; then
-	./d
+	./d "$@"
 	exit 0
 fi
 
