@@ -30,25 +30,25 @@ else
 fi
 
 if [ -f package-lock.json ]; then
-	echo 'npm run $DEV_SCRIPT'
+	echo "npm run $DEV_SCRIPT"
 	npm run "$DEV_SCRIPT"
 	exit 0
 fi
 
 if [ -f yarn.lock ]; then
-	echo 'yarn $DEV_SCRIPT'
+	echo "yarn $DEV_SCRIPT"
 	yarn "$DEV_SCRIPT"
 	exit 0
 fi
 
 if [ -f pnpm-lock.yaml ]; then
-	echo 'pnpm run $DEV_SCRIPT'
+	echo "pnpm run $DEV_SCRIPT"
 	pnpm run "$DEV_SCRIPT"
 	exit 0
 fi
 
 if [ -f bun.lockb ]; then
-	echo 'bun $DEV_SCRIPT'
+	echo "bun $DEV_SCRIPT"
 	pnpm run "$DEV_SCRIPT"
 	exit 0
 fi
@@ -72,4 +72,5 @@ if [ -f pnpm-lock.yaml ]; then
 	exit 0
 fi
 
-echo ' Node package not detected'
+echo " Node package not detected"
+exit 1
