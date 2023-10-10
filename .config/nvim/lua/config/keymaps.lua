@@ -13,6 +13,9 @@ vim.cmd([[
 
 vim.keymap.set("n", "*", "*zz")
 
+vim.keymap.set("n", "n", "nzz")
+vim.keymap.set("n", "N", "Nzz")
+
 -- lsp
 vim.keymap.set("n", "<leader><space>", "<cmd>CodeActionMenu<cr>", { desc = "Code Action Menu" })
 
