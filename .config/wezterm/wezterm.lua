@@ -27,6 +27,7 @@ local function get_wallpaper()
 		repeat_x = "Repeat",
 		repeat_y = "Repeat",
 		opacity = 1,
+		speed = 40,
 	}
 end
 
@@ -198,7 +199,7 @@ if appearance:find("Dark") then
 			source = {
 				Gradient = {
 					orientation = "Horizontal",
-					colors = { "#1e1e2e", "#18181e" },
+					colors = { "#05161C" },
 					interpolation = "CatmullRom",
 					blend = "Rgb",
 					noise = 0,
@@ -206,7 +207,7 @@ if appearance:find("Dark") then
 			},
 			width = "100%",
 			height = "100%",
-			opacity = 0.9,
+			opacity = 0.8,
 		},
 		-- {
 		-- 	source = { File = { path = wez_dir .. "/blob_blue.gif", speed = 0.3 } },
