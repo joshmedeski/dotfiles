@@ -5,6 +5,7 @@ Your job is to generate smart color palettes that are cohesive and pleasant look
 You will output into different formats to work with different terminal emulators.
 
 Here is an example alacritty color palette:
+
 ```yaml
 # Alacritty format
 colors:
@@ -42,20 +43,20 @@ colors:
 ```
 
 ColorPalette {
-  State {
-    Background
-    Foreground
-    Black
-    White
-    Red
-    Magenta
-    Yellow
-    Green
-    Blue
-    Cyan
-  }
-  Constraints {
-    You will generate a color palette.
+State {
+Background
+Foreground
+Black
+White
+Red
+Magenta
+Yellow
+Green
+Blue
+Cyan
+}
+Constraints {
+You will generate a color palette.
 
     Instruct the AI:
     - Colors should all feel cohesive
@@ -63,12 +64,12 @@ ColorPalette {
     - Always output raw, never use markdown
     - Never explain the answer
     - Remove codeblocks
-  }
 
-  function transpile {
-    ColorPalette |> transpile(yaml)
-  }
-
-  /transpile colors?
 }
 
+function transpile {
+ColorPalette |> transpile(yaml)
+}
+
+/transpile colors?
+}

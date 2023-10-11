@@ -1,5 +1,6 @@
 config:
   fallback-icon: "?"
+  multi-pane-icon: ""
   show-name: false
 
 icons:
