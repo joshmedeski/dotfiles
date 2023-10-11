@@ -27,7 +27,7 @@ local function get_wallpaper()
 		repeat_x = "Repeat",
 		repeat_y = "Repeat",
 		opacity = 1,
-		speed = 40,
+		speed = 200,
 	}
 end
 
