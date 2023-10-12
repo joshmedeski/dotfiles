@@ -1,5 +1,6 @@
 return {
   "nvimtools/none-ls.nvim",
+  enabled = false,
   dependencies = "neovim/nvim-lspconfig",
   config = function()
     local null_ls = require("null-ls")
