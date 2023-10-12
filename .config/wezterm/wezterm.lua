@@ -68,11 +68,11 @@ local config = {
 	font = wezterm.font_with_fallback({
 		{
 			family = "JetBrainsMono Nerd Font",
-			weight = "Medium",
+			weight = "Bold",
 		},
 		-- { family = "Apple Color Emoji", weight = "Regular" },
 	}),
-	font_size = 18,
+	font_size = 16,
 
 	window_padding = {
 		left = 30,
