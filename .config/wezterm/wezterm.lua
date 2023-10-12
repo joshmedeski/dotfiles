@@ -27,7 +27,7 @@ local function get_wallpaper()
 		repeat_x = "Repeat",
 		repeat_y = "Repeat",
 		opacity = 1,
-		speed = 200,
+		-- speed = 200,
 	}
 end
 
@@ -156,6 +156,7 @@ local config = {
 		cmd_key("P", multiple_actions(":GoToCommand")),
 		cmd_key("p", multiple_actions(":GoToFile")),
 		cmd_key("i", multiple_actions(":SmartGoTo")),
+		cmd_key("q", multiple_actions(":qa!")),
 
 		cmd_tmux_key("1", "1"),
 		cmd_tmux_key("2", "2"),
