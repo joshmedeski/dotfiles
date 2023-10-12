@@ -8,6 +8,8 @@ return {
       debounce = 150,
       save_after_format = false,
       sources = {
+        -- TODO: migrate linters to nvim-lint
+        -- TODO: migrate formatters to conform.nvim
         null_ls.builtins.code_actions.cspell,
         null_ls.builtins.code_actions.refactoring,
         null_ls.builtins.diagnostics.cspell,
