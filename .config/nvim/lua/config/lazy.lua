@@ -8,36 +8,43 @@ end
 
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 vim.opt.statuscolumn = "%s %l %C"
-vim.cmd([[command! -nargs=0 GoToFile :Telescope find_files]])
 vim.cmd([[command! -nargs=0 GoToCommand :Telescope commands]])
+vim.cmd([[command! -nargs=0 GoToFile :Telescope find_files]])
 vim.cmd([[command! -nargs=0 Grep :Telescope live_grep]])
 vim.cmd([[command! -nargs=0 SmartGoTo :Telescope smart_goto]])
--- cSpell:word cursorlineopt
 vim.o.cursorlineopt = "number"
-
 vim.g.code_action_menu_show_details = false
 vim.g.code_action_menu_show_diff = true
 vim.g.code_action_menu_show_action_kind = false
 
 require("lazy").setup({
   spec = {
-    -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
 
-    -- additional plugins
+    -- ui
+    { import = "lazyvim.plugins.extras.ui.edgy" },
+
+    -- extras
     { import = "lazyvim.plugins.extras.coding.copilot" },
+    { import = "lazyvim.plugins.extras.coding.yanky" },
     { import = "lazyvim.plugins.extras.dap.core" },
     { import = "lazyvim.plugins.extras.dap.nlua" },
+    { import = "lazyvim.plugins.extras.editor.aerial" },
+    { import = "lazyvim.plugins.extras.editor.leap" },
+    { import = "lazyvim.plugins.extras.formatting.prettier" },
+    { import = "lazyvim.plugins.extras.lang.docker" },
     { import = "lazyvim.plugins.extras.lang.go" },
     { import = "lazyvim.plugins.extras.lang.json" },
+    { import = "lazyvim.plugins.extras.lang.python" },
     { import = "lazyvim.plugins.extras.lang.tailwind" },
     { import = "lazyvim.plugins.extras.lang.typescript" },
+    { import = "lazyvim.plugins.extras.lang.yaml" },
+    { import = "lazyvim.plugins.extras.linting.eslint" },
     { import = "lazyvim.plugins.extras.test.core" },
-    { import = "lazyvim.plugins.extras.dap.nlua" },
-    -- { import = "lazyvim.plugins.extras.ui.edgy" },
+    { import = "lazyvim.plugins.extras.util.dot" },
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
 
-    -- import all plugins from the plugins folder
+    -- my plugins
     { import = "plugins" },
   },
   defaults = {
@@ -49,11 +56,8 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  -- cSpell:word tokyonight habamax
   install = { colorscheme = { "catppuccin", "tokyonight", "habamax" } },
-  ui = {
-    border = "single",
-  },
+  ui = { border = "single" },
   checker = { enabled = true }, -- automatically check for plugin updates
   performance = {
     rtp = {
