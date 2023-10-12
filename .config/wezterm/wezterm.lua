@@ -173,6 +173,7 @@ local config = {
 		cmd_tmux_key("e", '"'),
 		cmd_tmux_key("G", "G"),
 		cmd_tmux_key("g", "g"),
+		cmd_tmux_key("j", "O"),
 		cmd_tmux_key("k", "T"),
 		cmd_tmux_key("l", "L"),
 		cmd_tmux_key("n", "%"),

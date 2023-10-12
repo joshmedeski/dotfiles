@@ -81,8 +81,12 @@ abbr ni "npm install"
 abbr nt "npm run test"
 abbr nxdg "nx dep-graph"
 
-abbr os "overmind start"
 abbr o "open ."
+abbr oc "overmind connect (overmind ps | fzf | awk '{print $1}')"
+abbr ok "overmind kill"
+abbr or "overmind restart"
+abbr os "overmind start -D"
+abbr osl "overmind start -l"
 
 abbr p "pnpm run (jq -r '.scripts|to_entries[]|((.key))' package.json | fzf-tmux -p --border-label='pnpm run')"
 abbr pa "pnpm add"
