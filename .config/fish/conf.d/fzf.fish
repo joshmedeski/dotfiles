@@ -1,5 +1,4 @@
 set -Ux FZF_DEFAULT_OPTS "\
---exact \
 --reverse \
 --border rounded \
 --no-info \
