@@ -6,6 +6,11 @@ return {
   },
   cmd = "Neogit",
   opts = {
+    signs = {
+      hunk = { "", "" },
+      item = { "", "" },
+      section = { "", "" },
+    },
     integrations = {
       diffview = true,
     },
