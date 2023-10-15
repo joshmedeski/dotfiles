@@ -32,6 +32,13 @@ return {
 
   opts = {
     defaults = {
+      mappings = {
+        i = {
+          ["<C-p>"] = require("telescope.actions.layout").toggle_preview,
+          ["<C-j>"] = require("telescope.actions").cycle_history_next,
+          ["<C-k>"] = require("telescope.actions").cycle_history_prev,
+        },
+      },
       file_ignore_patterns = { ".git/", "node_modules" },
       layout_config = {
         height = 0.90,
