@@ -1,0 +1,2 @@
+#!/usr/bin/env fish
+fzf --preview 'kitty icat --clear --transfer-mode=memory --stdin=no --place=$FZF_PREVIEW_COLUMNSx$FZF_PREVIEW_LINES@0x0 {} | sed \$d'
