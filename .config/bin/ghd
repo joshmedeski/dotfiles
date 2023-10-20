@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# https://github.com/dlvhdr/gh-dash
+CONFIG=".gh-dash.yml"
+GIT_ROOT=$(git -C $PWD rev-parse --show-toplevel 2>/dev/null) && echo $GIT_ROOT >/dev/null
+if [[ $? -ne 0 ]]; then # not inside git repository
+	if [ -e "$PWD/$CONFIG" ]; then
+		echo "gh dash with local config"
+		gh dash --config $PWD/$CONFIG
+	else
+		echo "gh dash without config"
+		gh dash
+	fi
+else # is in git repository
+	if [ -e "$GIT_ROOT/$CONFIG" ]; then
+		echo "gh dash with git root config"
+		gh dash --config $GIT_ROOT/$CONFIG
+	else
+		echo "gh dash without config"
+		gh dash
+	fi
+fi
