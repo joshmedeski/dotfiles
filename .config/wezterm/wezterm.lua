@@ -1,5 +1,4 @@
 local wezterm = require("wezterm")
-local wez_dir = os.getenv("HOME") .. "/.config/wezterm"
 local act = wezterm.action
 
 local function get_random_entry(tbl)
@@ -23,13 +22,33 @@ local function get_wallpaper()
 		source = { File = { path = get_random_entry(wallpapers) } },
 		height = "Cover",
 		width = "Cover",
-		horizontal_align = "Center",
+		horizontal_align = "Left",
 		repeat_x = "Repeat",
 		repeat_y = "Repeat",
 		opacity = 1,
 		-- speed = 200,
 	}
 end
+
+local function get_color_scheme()
+	local color_schemes = {}
+	local color_schemes_glob = os.getenv("HOME") .. "/repos/iTerm2-Color-Schemes/wezterm/**"
+	for _, v in ipairs(wezterm.glob(color_schemes_glob)) do
+		local fileName = string.match(v, ".+/([^/]+)%.%w+$")
+		table.insert(color_schemes, fileName)
+	end
+	local color_scheme = get_random_entry(color_schemes)
+	return color_scheme
+end
+
+wezterm.on("user-var-changed", function(window, _, name, value)
+	wezterm.log_info("var", name, value)
+	local overrides = window:get_config_overrides() or {}
+	if string.match(name, "color_scheme") then
+		overrides.color_scheme = value
+	end
+	window:set_config_overrides(overrides)
+end)
 
 local function multiple_actions(keys)
 	local actions = {}
@@ -152,6 +171,10 @@ local config = {
 		cmd_key(".", multiple_actions(":ZenMode")),
 		-- cmd_key("[", act.SendKey({ mods = "CTRL", key = "o" })),
 		-- cmd_key("]", act.SendKey({ mods = "CTRL", key = "i" })),
+		cmd_key("H", act.SendKey({ mods = "CTRL", key = "h" })),
+		cmd_key("J", act.SendKey({ mods = "CTRL", key = "j" })),
+		cmd_key("K", act.SendKey({ mods = "CTRL", key = "k" })),
+		cmd_key("L", act.SendKey({ mods = "CTRL", key = "l" })),
 		cmd_key("f", multiple_actions(":Grep")),
 		cmd_key("P", multiple_actions(":GoToCommand")),
 		cmd_key("p", multiple_actions(":GoToFile")),
@@ -195,7 +218,7 @@ local config = {
 local appearance = wezterm.gui.get_appearance()
 
 if appearance:find("Dark") then
-	config.color_scheme = "Catppuccin Mocha"
+	config.color_scheme = get_color_scheme()
 	config.background = {
 		get_wallpaper(),
 		{
@@ -210,7 +233,7 @@ if appearance:find("Dark") then
 			},
 			width = "100%",
 			height = "100%",
-			opacity = 0.8,
+			opacity = 0.98,
 		},
 		-- {
 		-- 	source = { File = { path = wez_dir .. "/blob_blue.gif", speed = 0.3 } },
@@ -259,5 +282,8 @@ else
 		},
 	}
 end
+
+-- local workspace_switcher = wezterm.plugin.require("https://github.com/MLFlexer/smart_workspace_switcher.wezterm")
+-- workspace_switcher.apply_to_config(config, "i", "ALT")
 
 return config
