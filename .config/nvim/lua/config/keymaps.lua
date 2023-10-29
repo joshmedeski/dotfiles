@@ -33,7 +33,12 @@ vim.keymap.set("n", "<leader>8", "<cmd>lua require('harpoon.ui').nav_file(8)<cr>
 vim.keymap.set("n", "<leader>9", "<cmd>lua require('harpoon.ui').nav_file(9)<cr>", { desc = "Harpoon Buffer 9" })
 
 -- buffer
-vim.keymap.set("n", "<leader>bb", "<cmd>Telescope buffers<cr>", { desc = "Telescope buffers" })
+vim.keymap.set(
+  "n",
+  "<leader>bb",
+  "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>",
+  { desc = "Telescope buffers" }
+)
 
 -- clipboard
 vim.keymap.set("v", "<leader>y", '"+y', { desc = "Yank to clipboard" })
