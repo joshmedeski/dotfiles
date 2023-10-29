@@ -30,6 +30,7 @@ end
 
 return {
   "b0o/incline.nvim",
+  enabled = false,
   config = function()
     require("incline").setup({
       window = {
