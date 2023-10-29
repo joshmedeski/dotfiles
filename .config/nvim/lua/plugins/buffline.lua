@@ -1,5 +1,6 @@
 return {
   "akinsho/bufferline.nvim",
+  enabled = false,
   opts = function()
     local Offset = require("bufferline.offset")
     if not Offset.edgy then
