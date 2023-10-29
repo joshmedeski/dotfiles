@@ -1,0 +1,3 @@
+#!/bin/bash
+printf "\033Ptmux;\033\033]1337;SetUserVar=%s=%s\007\033\\" "color_scheme" $(echo -n "$1" | base64)
+echo "Previewing color scheme $1"
