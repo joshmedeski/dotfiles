@@ -62,7 +62,7 @@ return {
     on_open = function()
       require("noice").disable()
       require("barbecue.ui").toggle(false)
-      require("lualine").hide()
+      require("lualine").hide({ unhide = false, place = { "statusline", "tabline", "winbar" } })
       vim.cmd("IBLToggle")
       vim.g.miniindentscope_disable = true
     end,
@@ -70,7 +70,7 @@ return {
     on_close = function()
       require("noice").enable()
       require("barbecue.ui").toggle(true)
-      require("lualine").hide({ unhide = true })
+      require("lualine").hide({ unhide = true, place = { "statusline", "tabline", "winbar" } })
       vim.cmd("IBLToggle")
       vim.g.miniindentscope_disable = false
     end,
