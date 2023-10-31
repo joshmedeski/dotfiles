@@ -220,7 +220,7 @@ local appearance = wezterm.gui.get_appearance()
 if appearance:find("Dark") then
 	config.color_scheme = get_color_scheme()
 	config.background = {
-		get_wallpaper(),
+		-- get_wallpaper(),
 		{
 			source = {
 				Gradient = {
@@ -233,7 +233,7 @@ if appearance:find("Dark") then
 			},
 			width = "100%",
 			height = "100%",
-			opacity = 0.98,
+			opacity = 0.8,
 		},
 		-- {
 		-- 	source = { File = { path = wez_dir .. "/blob_blue.gif", speed = 0.3 } },
@@ -254,7 +254,7 @@ else
 		THEME_FLAVOUR = "latte",
 	}
 	config.background = {
-		get_wallpaper(),
+		-- get_wallpaper(),
 		-- {
 		-- 	source = {
 		-- 		File = {
@@ -278,7 +278,7 @@ else
 			},
 			width = "100%",
 			height = "100%",
-			opacity = 0.90,
+			opacity = 0.85,
 		},
 	}
 end
