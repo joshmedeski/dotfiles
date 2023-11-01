@@ -11,6 +11,9 @@ return {
     additions = {
       { "production", "development", "test" },
       { "let", "const" },
+      { "start", "end" },
+      { "before", "after" },
+      { "plus", "minus" },
       --- production
     },
   },
