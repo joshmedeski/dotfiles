@@ -218,9 +218,9 @@ local config = {
 local appearance = wezterm.gui.get_appearance()
 
 if appearance:find("Dark") then
-	config.color_scheme = get_color_scheme()
+	config.color_scheme = "Catppuccin Mocha"
 	config.background = {
-		-- get_wallpaper(),
+		get_wallpaper(),
 		{
 			source = {
 				Gradient = {
@@ -233,7 +233,7 @@ if appearance:find("Dark") then
 			},
 			width = "100%",
 			height = "100%",
-			opacity = 0.8,
+			opacity = 0.85,
 		},
 		-- {
 		-- 	source = { File = { path = wez_dir .. "/blob_blue.gif", speed = 0.3 } },
@@ -254,7 +254,7 @@ else
 		THEME_FLAVOUR = "latte",
 	}
 	config.background = {
-		-- get_wallpaper(),
+		get_wallpaper(),
 		-- {
 		-- 	source = {
 		-- 		File = {
@@ -270,7 +270,7 @@ else
 			source = {
 				Gradient = {
 					orientation = { Linear = { angle = 45.0 } },
-					colors = { "#ffffff", "#fdfdf8", "#ffffff" },
+					colors = { "#ffffff" },
 					interpolation = "CatmullRom",
 					blend = "Rgb",
 					noise = 20,
