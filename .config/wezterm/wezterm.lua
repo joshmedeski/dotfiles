@@ -1,98 +1,34 @@
+local k = require("utils/keys")
+local h = require("utils/helpers")
+local w = require("utils/wallpaper")
+local b = require("utils/background")
+local cs = require("utils/color_scheme")
 local wezterm = require("wezterm")
 local act = wezterm.action
 
-local function get_random_entry(tbl)
-	local keys = {}
-	for key, _ in ipairs(tbl) do
-		table.insert(keys, key)
-	end
-	local randomKey = keys[math.random(1, #keys)]
-	return tbl[randomKey]
-end
-
-local function get_wallpaper()
-	local wallpapers = {}
-	local wallpapers_glob = os.getenv("HOME")
-		.. "/Library/Mobile Documents/com~apple~CloudDocs/PARA/3 Resources 🛠️/Wallpapers - macOS 💻/active/**"
-
-	for _, v in ipairs(wezterm.glob(wallpapers_glob)) do
-		table.insert(wallpapers, v)
-	end
-	return {
-		source = { File = { path = get_random_entry(wallpapers) } },
-		height = "Cover",
-		width = "Cover",
-		horizontal_align = "Left",
-		repeat_x = "Repeat",
-		repeat_y = "Repeat",
-		opacity = 1,
-		-- speed = 200,
-	}
-end
-
-local function get_color_scheme()
-	local color_schemes = {}
-	local color_schemes_glob = os.getenv("HOME") .. "/repos/iTerm2-Color-Schemes/wezterm/**"
-	for _, v in ipairs(wezterm.glob(color_schemes_glob)) do
-		local fileName = string.match(v, ".+/([^/]+)%.%w+$")
-		table.insert(color_schemes, fileName)
-	end
-	local color_scheme = get_random_entry(color_schemes)
-	return color_scheme
-end
-
-wezterm.on("user-var-changed", function(window, _, name, value)
-	wezterm.log_info("var", name, value)
-	local overrides = window:get_config_overrides() or {}
-	if string.match(name, "color_scheme") then
-		overrides.color_scheme = value
-	end
-	window:set_config_overrides(overrides)
-end)
-
-local function multiple_actions(keys)
-	local actions = {}
-	for key in keys:gmatch(".") do
-		table.insert(actions, act.SendKey({ key = key }))
-	end
-	table.insert(actions, act.SendKey({ key = "\n" }))
-	return act.Multiple(actions)
-end
-
-local function key_table(mods, key, action)
-	return {
-		mods = mods,
-		key = key,
-		action = action,
-	}
-end
-
-local function cmd_key(key, action)
-	return key_table("CMD", key, action)
-end
-
-local function cmd_tmux_key(key, tmux_key)
-	return cmd_key(
-		key,
-		act.Multiple({
-			act.SendKey({ mods = "CTRL", key = "b" }),
-			act.SendKey({ key = tmux_key }),
-		})
-	)
-end
-
 local config = {
+	-- general options
+	adjust_window_size_when_changing_font_size = false,
+	debug_key_events = false,
+	enable_tab_bar = false,
+	native_macos_fullscreen_mode = false,
 	window_close_confirmation = "NeverPrompt",
-	-- debug_key_events = true,
-	font = wezterm.font_with_fallback({
-		{
-			family = "JetBrainsMono Nerd Font",
-			weight = "Bold",
-		},
-		-- { family = "Apple Color Emoji", weight = "Regular" },
-	}),
+	window_decorations = "RESIZE",
+
+	-- font
+	font = wezterm.font_with_fallback({ { family = "JetBrainsMono Nerd Font", weight = "Bold" } }),
 	font_size = 16,
 
+	-- colors
+	color_scheme = cs.get_color_scheme(),
+
+	-- background
+	background = {
+		w.get_wallpaper(),
+		b.get_background(0.95),
+	},
+
+	-- padding
 	window_padding = {
 		left = 30,
 		right = 30,
@@ -100,18 +36,63 @@ local config = {
 		bottom = 10,
 	},
 
-	keys = {
-		-- TODO: figure out how this works
-		-- cmd_tmux_key("c", "\x20"),
-		-- FIX: this doesn't work
-		-- cmd_tmux_key("\x7b", "p"),
-		-- cmd_tmux_key("\x7d", "n"),
+	set_environment_variables = {
+		-- THEME_FLAVOUR = "latte",
+		BAT_THEME = h.is_dark() and "Catppuccin-mocha" or "Catppuccin-latte",
+	},
 
-		cmd_key(
+	-- keys
+	keys = {
+		k.cmd_key(".", k.multiple_actions(":ZenMode")),
+		k.cmd_key("[", act.SendKey({ mods = "CTRL", key = "o" })),
+		k.cmd_key("]", act.SendKey({ mods = "CTRL", key = "i" })),
+		k.cmd_key("f", k.multiple_actions(":Grep")),
+		k.cmd_key("H", act.SendKey({ mods = "CTRL", key = "h" })),
+		k.cmd_key("i", k.multiple_actions(":SmartGoTo")),
+		k.cmd_key("J", act.SendKey({ mods = "CTRL", key = "j" })),
+		k.cmd_key("K", act.SendKey({ mods = "CTRL", key = "k" })),
+		k.cmd_key("L", act.SendKey({ mods = "CTRL", key = "l" })),
+		k.cmd_key("P", k.multiple_actions(":GoToCommand")),
+		k.cmd_key("p", k.multiple_actions(":GoToFile")),
+		k.cmd_key("q", k.multiple_actions(":qa!")),
+		k.cmd_to_tmux_prefix("1", "1"),
+		k.cmd_to_tmux_prefix("2", "2"),
+		k.cmd_to_tmux_prefix("3", "3"),
+		k.cmd_to_tmux_prefix("4", "4"),
+		k.cmd_to_tmux_prefix("5", "5"),
+		k.cmd_to_tmux_prefix("6", "6"),
+		k.cmd_to_tmux_prefix("7", "7"),
+		k.cmd_to_tmux_prefix("8", "8"),
+		k.cmd_to_tmux_prefix("9", "9"),
+		k.cmd_to_tmux_prefix("`", "n"),
+		k.cmd_to_tmux_prefix("C", "C"),
+		k.cmd_to_tmux_prefix("E", "%"),
+		k.cmd_to_tmux_prefix("e", '"'),
+		k.cmd_to_tmux_prefix("G", "G"),
+		k.cmd_to_tmux_prefix("g", "g"),
+		k.cmd_to_tmux_prefix("j", "O"),
+		k.cmd_to_tmux_prefix("k", "T"),
+		k.cmd_to_tmux_prefix("l", "L"),
+		k.cmd_to_tmux_prefix("n", "%"),
+		k.cmd_to_tmux_prefix("N", '"'),
+		k.cmd_to_tmux_prefix("o", "u"),
+		k.cmd_to_tmux_prefix("t", "c"),
+		k.cmd_to_tmux_prefix("w", "x"),
+		k.cmd_to_tmux_prefix("z", "z"),
+
+		-- cmd_key(
+		-- 	"r",
+		-- 	act.Multiple({
+		-- 		act.SendKey({ key = "\x1b" }), -- escape
+		-- 		multiple_actions(":source %"),
+		-- 	})
+		-- ),
+
+		k.cmd_key(
 			"s",
 			act.Multiple({
 				act.SendKey({ key = "\x1b" }), -- escape
-				multiple_actions(":w"),
+				k.multiple_actions(":w"),
 			})
 		),
 
@@ -150,14 +131,15 @@ local config = {
 			}),
 		},
 
-		{
-			mods = "CMD",
-			key = "`",
-			action = act.Multiple({
-				act.SendKey({ mods = "CTRL", key = "b" }),
-				act.SendKey({ key = "n" }),
-			}),
-		},
+		-- FIX: disable binding
+		-- {
+		-- 	mods = "CMD",
+		-- 	key = "`",
+		-- 	action = act.Multiple({
+		-- 		act.SendKey({ mods = "CTRL", key = "b" }),
+		-- 		act.SendKey({ key = "n" }),
+		-- 	}),
+		-- },
 
 		{
 			mods = "CMD",
@@ -167,123 +149,7 @@ local config = {
 				act.SendKey({ key = "p" }),
 			}),
 		},
-
-		cmd_key(".", multiple_actions(":ZenMode")),
-		-- cmd_key("[", act.SendKey({ mods = "CTRL", key = "o" })),
-		-- cmd_key("]", act.SendKey({ mods = "CTRL", key = "i" })),
-		cmd_key("H", act.SendKey({ mods = "CTRL", key = "h" })),
-		cmd_key("J", act.SendKey({ mods = "CTRL", key = "j" })),
-		cmd_key("K", act.SendKey({ mods = "CTRL", key = "k" })),
-		cmd_key("L", act.SendKey({ mods = "CTRL", key = "l" })),
-		cmd_key("f", multiple_actions(":Grep")),
-		cmd_key("P", multiple_actions(":GoToCommand")),
-		cmd_key("p", multiple_actions(":GoToFile")),
-		cmd_key("i", multiple_actions(":SmartGoTo")),
-		cmd_key("q", multiple_actions(":qa!")),
-
-		cmd_tmux_key("1", "1"),
-		cmd_tmux_key("2", "2"),
-		cmd_tmux_key("3", "3"),
-		cmd_tmux_key("4", "4"),
-		cmd_tmux_key("5", "5"),
-		cmd_tmux_key("6", "6"),
-		cmd_tmux_key("7", "7"),
-		cmd_tmux_key("8", "8"),
-		cmd_tmux_key("9", "9"),
-		cmd_tmux_key("`", "n"),
-		cmd_tmux_key("C", "C"),
-		cmd_tmux_key("E", "%"),
-		cmd_tmux_key("e", '"'),
-		cmd_tmux_key("G", "G"),
-		cmd_tmux_key("g", "g"),
-		cmd_tmux_key("j", "O"),
-		cmd_tmux_key("k", "T"),
-		cmd_tmux_key("l", "L"),
-		cmd_tmux_key("n", "%"),
-		cmd_tmux_key("N", '"'),
-		cmd_tmux_key("o", "u"),
-		cmd_tmux_key("t", "c"),
-		cmd_tmux_key("w", "x"),
-		cmd_tmux_key("z", "z"),
 	},
-
-	send_composed_key_when_left_alt_is_pressed = true,
-	send_composed_key_when_right_alt_is_pressed = false,
-	adjust_window_size_when_changing_font_size = false,
-	enable_tab_bar = false,
-	native_macos_fullscreen_mode = false,
-	window_decorations = "RESIZE",
 }
-
-local appearance = wezterm.gui.get_appearance()
-
-if appearance:find("Dark") then
-	config.color_scheme = "Catppuccin Mocha"
-	config.background = {
-		get_wallpaper(),
-		{
-			source = {
-				Gradient = {
-					orientation = "Horizontal",
-					colors = { "#05161C" },
-					interpolation = "CatmullRom",
-					blend = "Rgb",
-					noise = 0,
-				},
-			},
-			width = "100%",
-			height = "100%",
-			opacity = 0.85,
-		},
-		-- {
-		-- 	source = { File = { path = wez_dir .. "/blob_blue.gif", speed = 0.3 } },
-		-- 	height = "100%",
-		-- 	horizontal_align = "Center",
-		-- 	opacity = 0.50,
-		-- 	hsb = {
-		-- 		hue = 0.9,
-		-- 		saturation = 0.9,
-		-- 		brightness = 0.3,
-		-- 	},
-		-- },
-	}
-else
-	config.color_scheme = "Catppuccin Latte"
-	-- config.window_background_opacity = 0.9
-	config.set_environment_variables = {
-		THEME_FLAVOUR = "latte",
-	}
-	config.background = {
-		get_wallpaper(),
-		-- {
-		-- 	source = {
-		-- 		File = {
-		-- 			path = "/Users/josh/Downloads/tatooine-star-wars-concept.png",
-		-- 		},
-		-- 	},
-		-- 	height = "Cover",
-		-- 	horizontal_align = "Center",
-		-- 	opacity = 1,
-		-- },
-		--
-		{
-			source = {
-				Gradient = {
-					orientation = { Linear = { angle = 45.0 } },
-					colors = { "#ffffff" },
-					interpolation = "CatmullRom",
-					blend = "Rgb",
-					noise = 20,
-				},
-			},
-			width = "100%",
-			height = "100%",
-			opacity = 0.85,
-		},
-	}
-end
-
--- local workspace_switcher = wezterm.plugin.require("https://github.com/MLFlexer/smart_workspace_switcher.wezterm")
--- workspace_switcher.apply_to_config(config, "i", "ALT")
 
 return config
