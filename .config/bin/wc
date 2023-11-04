@@ -1,5 +1,8 @@
 #!/bin/bash
 cd ~/repos/iTerm2-Color-Schemes/wezterm
 SCHEME=$(ls -1 | sed -e 's/\.[^.]*$//' | fzf-tmux -p 50%,80% --preview '~/.config/bin/wcs {}')
+if [ "$SCHEME" = "" ]; then # no result
+	exit 0                     # exit silently
+fi
 ~/.config/bin/wcs $SCHEME
 echo $SCHEME
