@@ -14,6 +14,7 @@ return {
       { "start", "end" },
       { "before", "after" },
       { "plus", "minus" },
+      { "smart", "truncate" },
       --- production
     },
   },
