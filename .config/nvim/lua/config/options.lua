@@ -18,7 +18,8 @@ vim.g.maplocalleader = " "
 vim.opt.clipboard = ""
 
 -- default position
-vim.opt.scrolloff = 5
+vim.opt.scrolloff = 8 -- scroll page when cursor is 8 lines from top/bottom
+vim.opt.sidescrolloff = 8 -- scroll page when cursor is 8 spaces from left/right
 
 -- ex line
 vim.o.ls = 0
