@@ -3,6 +3,9 @@
 -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+vim.keymap.set("n", "<Tab>", ":bn<cr>")
+vim.keymap.set("n", "<S-Tab>", ":bp<cr>")
+
 vim.cmd([[
   noremap <silent> <c-h> :<C-U>TmuxNavigateLeft<cr>
   noremap <silent> <c-j> :<C-U>TmuxNavigateDown<cr>
