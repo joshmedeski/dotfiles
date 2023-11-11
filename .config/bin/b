@@ -1,8 +1,82 @@
 #!/usr/bin/env bash
-brew update
-OUTDATED=$(brew outdated)
-if [[ -n "$OUTDATED" ]]; then
-	brew upgrade
-	brew cleanup --prune=all
+
+# Get argument for script key/name, default to dev
+BUILD_SCRIPT="${1:-build}"
+
+# First, check if the jq command is available
+# AND there is a package.json file in the current directory
+if command -v jq &>/dev/null && [[ -f "package.json" ]]; then
+	# if we have jq,
+	# then use it to extract the first occurence of a key in package.json's scripts object
+	# that starts with the argument passed in (or dev)
+	BUILD_SCRIPT="$(jq \
+		-r \
+		--arg ds "$BUILD_SCRIPT" \
+		'first(.scripts | keys[] | select(. | test("^\($ds)[^\"]*")))' \
+		package.json)"
+	# if this didn't match anything, fallback to dev
+	BUILD_SCRIPT="${BUILD_SCRIPT:-build}"
 fi
-brew doctor
+
+if [ -f ".b" ]; then
+	./.b "$@"
+fi
+
+if [ -z "$TMUX" ]; then
+	echo 'Not in tmux'
+else
+	tmux rename-window '👷'
+fi
+
+if [ -f package-lock.json ]; then
+	echo "npm run $BUILD_SCRIPT"
+	npm run "$BUILD_SCRIPT"
+fi
+
+if [ -f yarn.lock ]; then
+	echo "yarn $BUILD_SCRIPT"
+	yarn "$BUILD_SCRIPT"
+fi
+
+if [ -f pnpm-lock.yaml ]; then
+	echo "pnpm run $BUILD_SCRIPT"
+	pnpm run "$BUILD_SCRIPT"
+fi
+
+if [ -f bun.lockb ]; then
+	echo "bun $BUILD_SCRIPT"
+	pnpm run "$BUILD_SCRIPT"
+fi
+
+BASE_NAME="$(basename "$(pwd)")"
+
+cd ..
+if [ -f pnpm-lock.yaml ]; then
+	cd "$BASE_NAME" || exit
+	pnpm run "$BUILD_SCRIPT"
+fi
+
+PARENT_BASE_NAME="$(basename "$(pwd)")"
+
+cd ..
+if [ -f pnpm-lock.yaml ]; then
+	cd "$PARENT_BASE_NAME" || exit
+	cd "$BASE_NAME" || exit
+	pnpm run "$BUILD_SCRIPT"
+fi
+
+if [ $? -eq 0 ]; then
+	echo "Build successful"
+	tmux rename-window '👷✅'
+else
+	echo "Build failed"
+	tmux rename-window '👷❌'
+fi
+
+echo "Press 'q' or 'esc' to exit"
+while true; do
+	read -rsn1 input # Read a single character without displaying it
+	if [[ $input == "q" || $input == $'\x1b' ]]; then
+		break # Exit the loop when "q" or "esc" is pressed
+	fi
+done
