@@ -12,7 +12,7 @@ local config = {
 	-- background
 	background = {
 		w.get_wallpaper(),
-		b.get_background(0.95),
+		b.get_background(),
 	},
 
 	-- font
