@@ -14,6 +14,15 @@ return {
       "nvim-telescope/telescope-live-grep-args.nvim",
       version = "^1.0.0",
     },
+    {
+      "danielfalk/smart-open.nvim",
+      branch = "0.2.x",
+      config = function() end,
+      dependencies = {
+        "kkharji/sqlite.lua",
+        { "nvim-telescope/telescope-fzy-native.nvim" },
+      },
+    },
     "vuki656/package-info.nvim",
   },
   -- apply the config and additionally load fzf-native
@@ -22,14 +31,15 @@ return {
     telescope.setup(opts)
     telescope.load_extension("harpoon")
     telescope.load_extension("import")
+    telescope.load_extension("live_grep_args")
     telescope.load_extension("neoclip")
     telescope.load_extension("notify")
     telescope.load_extension("package_info")
     telescope.load_extension("smart_goto")
+    telescope.load_extension("smart_open")
     telescope.load_extension("tailiscope")
     telescope.load_extension("undo")
     telescope.load_extension("zf-native")
-    telescope.load_extension("live_grep_args")
   end,
 
   opts = {
@@ -105,6 +115,10 @@ return {
           highlight_results = true, -- highlight matching text in results
           match_filename = false, -- disable zf filename match priority
         },
+      },
+      smart_open = {
+        cwd_only = true,
+        filename_first = true,
       },
     },
   },
