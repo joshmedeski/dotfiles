@@ -1,4 +1,5 @@
 local k = require("utils/keys")
+local f = require("utils/font")
 local h = require("utils/helpers")
 local w = require("utils/wallpaper")
 local b = require("utils/background")
@@ -7,26 +8,18 @@ local wezterm = require("wezterm")
 local act = wezterm.action
 
 local config = {
-	-- general options
-	adjust_window_size_when_changing_font_size = false,
-	debug_key_events = false,
-	enable_tab_bar = false,
-	native_macos_fullscreen_mode = false,
-	window_close_confirmation = "NeverPrompt",
-	window_decorations = "RESIZE",
-
-	-- font
-	font = wezterm.font_with_fallback({ { family = "JetBrainsMono Nerd Font", weight = "Bold" } }),
-	font_size = 16,
-
-	-- colors
-	color_scheme = cs.get_color_scheme(),
-
 	-- background
 	background = {
 		w.get_wallpaper(),
-		b.get_background(0.95),
+		b.get_background(0.85),
 	},
+
+	-- font
+	font = f.get_font(),
+	font_size = 18,
+
+	-- colors
+	color_scheme = cs.get_color_scheme(),
 
 	-- padding
 	window_padding = {
@@ -40,6 +33,14 @@ local config = {
 		-- THEME_FLAVOUR = "latte",
 		BAT_THEME = h.is_dark() and "Catppuccin-mocha" or "Catppuccin-latte",
 	},
+
+	-- general options
+	adjust_window_size_when_changing_font_size = false,
+	debug_key_events = false,
+	enable_tab_bar = false,
+	native_macos_fullscreen_mode = false,
+	window_close_confirmation = "NeverPrompt",
+	window_decorations = "RESIZE",
 
 	-- keys
 	keys = {
@@ -65,7 +66,9 @@ local config = {
 		k.cmd_to_tmux_prefix("8", "8"),
 		k.cmd_to_tmux_prefix("9", "9"),
 		k.cmd_to_tmux_prefix("`", "n"),
+		k.cmd_to_tmux_prefix("b", "B"),
 		k.cmd_to_tmux_prefix("C", "C"),
+		k.cmd_to_tmux_prefix("d", "D"),
 		k.cmd_to_tmux_prefix("E", "%"),
 		k.cmd_to_tmux_prefix("e", '"'),
 		k.cmd_to_tmux_prefix("G", "G"),
@@ -76,6 +79,7 @@ local config = {
 		k.cmd_to_tmux_prefix("n", "%"),
 		k.cmd_to_tmux_prefix("N", '"'),
 		k.cmd_to_tmux_prefix("o", "u"),
+		k.cmd_to_tmux_prefix("T", "!"),
 		k.cmd_to_tmux_prefix("t", "c"),
 		k.cmd_to_tmux_prefix("w", "x"),
 		k.cmd_to_tmux_prefix("z", "z"),
