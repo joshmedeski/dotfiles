@@ -19,6 +19,9 @@ vim.keymap.set("n", "*", "*zz")
 vim.keymap.set("n", "n", "nzz")
 vim.keymap.set("n", "N", "Nzz")
 
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
 -- lsp
 vim.keymap.set("n", "<leader><space>", "<cmd>CodeActionMenu<cr>", { desc = "Code Action Menu" })
 
@@ -49,3 +52,8 @@ vim.keymap.set("v", "<leader>y", '"+y', { desc = "Yank to clipboard" })
 -- gen
 vim.keymap.set("v", "<leader>]", ":Gen<CR>")
 vim.keymap.set("n", "<leader>]", ":Gen<CR>")
+
+vim.keymap.set("v", "<C-s>", ":sort<CR>") -- Sort highlighted text in visual mode with Control+S
+vim.keymap.set("v", "<leader>rr", '"hy:%s/<C-r>h//g<left><left>') -- Replace all instances of highlighted words
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv") -- Move current line down
+vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv") -- Move current line up
