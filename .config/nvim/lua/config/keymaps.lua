@@ -45,3 +45,7 @@ vim.keymap.set(
 
 -- clipboard
 vim.keymap.set("v", "<leader>y", '"+y', { desc = "Yank to clipboard" })
+
+-- gen
+vim.keymap.set("v", "<leader>]", ":Gen<CR>")
+vim.keymap.set("n", "<leader>]", ":Gen<CR>")
