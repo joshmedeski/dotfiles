@@ -1,9 +1,10 @@
-local k = require("utils/keys")
-local f = require("utils/font")
-local h = require("utils/helpers")
-local w = require("utils/wallpaper")
 local b = require("utils/background")
 local cs = require("utils/color_scheme")
+local f = require("utils/font")
+local h = require("utils/helpers")
+local k = require("utils/keys")
+local w = require("utils/wallpaper")
+
 local wezterm = require("wezterm")
 local act = wezterm.action
 
@@ -11,7 +12,7 @@ local config = {
 	-- background
 	background = {
 		w.get_wallpaper(),
-		b.get_background(0.85),
+		b.get_background(0.95),
 	},
 
 	-- font
@@ -84,13 +85,13 @@ local config = {
 		k.cmd_to_tmux_prefix("w", "x"),
 		k.cmd_to_tmux_prefix("z", "z"),
 
-		-- cmd_key(
-		-- 	"r",
-		-- 	act.Multiple({
-		-- 		act.SendKey({ key = "\x1b" }), -- escape
-		-- 		multiple_actions(":source %"),
-		-- 	})
-		-- ),
+		k.cmd_key(
+			"R",
+			act.Multiple({
+				act.SendKey({ key = "\x1b" }), -- escape
+				k.multiple_actions(":source %"),
+			})
+		),
 
 		k.cmd_key(
 			"s",
