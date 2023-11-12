@@ -1,7 +1,7 @@
 local M = {}
 local h = require("utils/helpers")
 
-M.get_background = function(opacity)
+M.get_background = function()
 	return {
 		source = {
 			Gradient = {
