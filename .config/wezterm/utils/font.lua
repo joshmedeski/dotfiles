@@ -7,7 +7,7 @@ M.get_font = function()
 		"Monaspace Argon",
 		"Monaspace Krypton",
 		"Monaspace Neon",
-		"Monaspace Randon",
+		"Monaspace Radon",
 		"Monaspace Xenon",
 	}
 	local family = h.get_random_entry(fonts)
