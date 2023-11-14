@@ -1,5 +1,6 @@
 return {
   "pocco81/auto-save.nvim",
+  enabled = false,
   opts = {
     enabled = true, -- start auto-save when the plugin is loaded (i.e. when your package manager loads it)
     execution_message = {
