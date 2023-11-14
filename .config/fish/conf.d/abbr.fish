@@ -80,10 +80,12 @@ abbr mz "man zoxide"
 
 abbr nb "npm run build"
 abbr nd "npm run dev"
+abbr ne "nvim .env"
 abbr nf neofetch
 abbr ni "npm install"
 abbr nt "npm run test"
 abbr nxdg "nx dep-graph"
+abbr ns "nu seed"
 
 abbr o "open ."
 abbr oc "overmind connect (overmind ps | fzf | awk '{print $1}')"
