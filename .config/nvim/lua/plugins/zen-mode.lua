@@ -15,7 +15,7 @@ return {
       -- by default, no options are changed for the Zen window
       -- uncomment any of the options below, or add other vim.wo options you want to apply
       options = {
-        signcolumn = "no", -- disable signcolumn
+        -- signcolumn = "no", -- disable signcolumn
         number = false, -- disable number column
         relativenumber = false, -- disable relative numbers
         -- cursorline = false, -- disable cursorline
@@ -32,8 +32,8 @@ return {
         ruler = false, -- disables the ruler text in the cmd line area
         showcmd = false, -- disables the command in the last line of the screen
       },
-      twilight = { enabled = true }, -- enable to start Twilight when zen mode opens
-      gitsigns = { enabled = true }, -- disables git signs
+      twilight = { enabled = false }, -- enable to start Twilight when zen mode opens
+      gitsigns = { enabled = false }, -- disables git signs
       tmux = { enabled = true }, -- disables the tmux statusline
       -- this will change the font size on kitty when in zen mode
       -- to make this work, you need to set the following kitty options:
@@ -63,7 +63,7 @@ return {
       require("noice").disable()
       require("barbecue.ui").toggle(false)
       require("lualine").hide({ unhide = false, place = { "statusline", "tabline", "winbar" } })
-      vim.cmd("IBLToggle")
+      -- vim.cmd("IBLToggle")
       vim.g.miniindentscope_disable = true
     end,
     -- callback where you can add custom code when the Zen window closes
@@ -71,7 +71,8 @@ return {
       require("noice").enable()
       require("barbecue.ui").toggle(true)
       require("lualine").hide({ unhide = true, place = { "statusline", "tabline", "winbar" } })
-      vim.cmd("IBLToggle")
+      -- vim.cmd("IBLToggle")
+      -- vim.cmd("SmoothCursorFancyOn")
       vim.g.miniindentscope_disable = false
     end,
   },
