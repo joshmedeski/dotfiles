@@ -7,6 +7,7 @@ return {
     "DiffviewToggleFiles",
     "DiffviewFocusFiles",
     "DiffviewRefresh",
+    "DiffviewFileHistory",
   },
   opts = {
     view = {
