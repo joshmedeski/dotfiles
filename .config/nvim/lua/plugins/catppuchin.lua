@@ -11,6 +11,11 @@ return {
       flavour = "mocha",
       transparent_background = true,
       color_overrides = { all = colors },
+      custom_highlights = function(colors)
+        return {
+          CurSearch = { bg = "#FFCA27" },
+        }
+      end,
       integrations = {
         cmp = true,
         fidget = true,
