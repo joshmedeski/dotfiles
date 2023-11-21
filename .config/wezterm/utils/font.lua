@@ -11,7 +11,7 @@ M.get_font = function()
 		"Monaspace Xenon",
 	}
 	local family = h.get_random_entry(fonts)
-	return wezterm.font_with_fallback({ { family = family, weight = "Bold" } })
+	return wezterm.font_with_fallback({ { family = family, weight = "Bold" }, { family = "Symbols Nerd Font Mono" } })
 end
 
 return M
