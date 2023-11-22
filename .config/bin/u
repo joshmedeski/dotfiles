@@ -33,6 +33,10 @@ gum spin --spinner globe --title "🧰 mason.nvim updating" -- nvim --headless "
 echo "\n" >>/tmp/u-$NOW.txt
 echo "✅ 🧰 mason.nvim updated"
 
+gum spin --spinner globe --title "🌳 nvim-treesitter updating" -- nvim --headless "+TSUpdate" +qa
+echo "\n" >>/tmp/u-$NOW.txt
+echo "✅ 🌳 nvim-treesitter updated"
+
 gum spin --spinner globe --title "🍻 brew updating" --show-output -- brew update >>/tmp/u-$NOW.txt
 echo "\n" >>/tmp/u-$NOW.txt
 echo "✅ 🍻 brew updated"
