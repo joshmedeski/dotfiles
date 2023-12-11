@@ -70,8 +70,6 @@ local config = {
 		k.cmd_to_tmux_prefix("b", "B"),
 		k.cmd_to_tmux_prefix("C", "C"),
 		k.cmd_to_tmux_prefix("d", "D"),
-		k.cmd_to_tmux_prefix("E", "%"),
-		k.cmd_to_tmux_prefix("e", '"'),
 		k.cmd_to_tmux_prefix("G", "G"),
 		k.cmd_to_tmux_prefix("g", "g"),
 		k.cmd_to_tmux_prefix("j", "O"),
