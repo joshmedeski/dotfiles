@@ -1,0 +1,7 @@
+scripts:
+  - dir: /Users/josh/repos/dotfiles/.config/fish
+    script: go-to-file
+  - dir: /Users/josh/repos/joshmedeski.com
+    script: go-to-file-dev
+  - dir: /Users/josh/repos/ComfyUI
+    script: go-to-file-dev

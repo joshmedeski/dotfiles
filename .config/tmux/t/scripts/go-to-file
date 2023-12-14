@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+tmux send-keys -t $1:1 'nvim +GoToFile' Enter
