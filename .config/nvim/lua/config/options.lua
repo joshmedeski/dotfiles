@@ -31,8 +31,8 @@ vim.opt.incsearch = true
 vim.opt.ignorecase = true
 
 -- gutter
-vim.opt.number = true
-vim.opt.relativenumber = true
+vim.opt.number = false
+vim.opt.relativenumber = false
 
 -- indent
 vim.opt.tabstop = 2
