@@ -6,14 +6,6 @@
 vim.keymap.set("n", "<Tab>", ":bn<cr>")
 vim.keymap.set("n", "<S-Tab>", ":bp<cr>")
 
-vim.cmd([[
-  noremap <silent> <c-h> :<C-U>TmuxNavigateLeft<cr>
-  noremap <silent> <c-j> :<C-U>TmuxNavigateDown<cr>
-  noremap <silent> <c-k> :<C-U>TmuxNavigateUp<cr>
-  noremap <silent> <c-l> :<C-U>TmuxNavigateRight<cr>
-  noremap <silent> <c-\> :<C-U>TmuxNavigatePrevious<cr>
-]])
-
 vim.keymap.set("n", "*", "*zz")
 
 vim.keymap.set("n", "n", "nzz")
