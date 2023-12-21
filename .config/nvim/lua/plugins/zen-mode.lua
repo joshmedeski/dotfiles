@@ -1,17 +1,21 @@
 return {
   "folke/zen-mode.nvim",
+  deps = {
+    "b0o/incline.nvim",
+  },
   opts = {
     -- your configuration comes here
     -- or leave it empty to use the default settings
     -- refer to the configuration section below
     window = {
+      zindex = 10,
       backdrop = 1, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
       -- height and width can be:
       -- * an absolute number of cells when > 1
       -- * a percentage of the width / height of the editor when <= 1
       -- * a function that returns the width or the height
-      width = 120, -- width of the Zen window
-      height = 1, -- height of the Zen window
+      width = 0.85, -- width of the Zen window
+      height = 0.85, -- height of the Zen window
       -- by default, no options are changed for the Zen window
       -- uncomment any of the options below, or add other vim.wo options you want to apply
       options = {
@@ -32,8 +36,8 @@ return {
         ruler = false, -- disables the ruler text in the cmd line area
         showcmd = false, -- disables the command in the last line of the screen
       },
-      twilight = { enabled = false }, -- enable to start Twilight when zen mode opens
-      gitsigns = { enabled = false }, -- disables git signs
+      twilight = { enabled = true }, -- enable to start Twilight when zen mode opens
+      gitsigns = { enabled = true }, -- disables git signs
       tmux = { enabled = true }, -- disables the tmux statusline
       -- this will change the font size on kitty when in zen mode
       -- to make this work, you need to set the following kitty options:
@@ -41,7 +45,7 @@ return {
       -- - listen_on unix:/tmp/kitty
       kitty = {
         enabled = false,
-        font = "+4", -- font size increment
+        font = "+2", -- font size increment
       },
       -- this will change the font size on alacritty when in zen mode
       -- requires  Alacritty Version 0.10.0 or higher
@@ -53,27 +57,29 @@ return {
       -- this will change the font size on wezterm when in zen mode
       -- See alse also the Plugins/Wezterm section in this projects README
       wezterm = {
-        enabled = false,
+        enabled = true,
         -- can be either an absolute font size or the number of incremental steps
-        font = "+4", -- (10% increase per step)
+        font = "+2", -- (10% increase per step)
       },
     },
     -- callback where you can add custom code when the Zen window opens
     on_open = function()
       require("noice").disable()
-      require("barbecue.ui").toggle(false)
-      require("lualine").hide({ unhide = false, place = { "statusline", "tabline", "winbar" } })
-      -- vim.cmd("IBLToggle")
+      require("incline").disable()
       vim.g.miniindentscope_disable = true
+      -- require("barbecue.ui").toggle(false)
+      -- require("lualine").hide({ unhide = false, place = { "statusline", "tabline", "winbar" } })
+      -- vim.cmd("IBLToggle")
     end,
     -- callback where you can add custom code when the Zen window closes
     on_close = function()
       require("noice").enable()
-      require("barbecue.ui").toggle(true)
-      require("lualine").hide({ unhide = true, place = { "statusline", "tabline", "winbar" } })
+      require("incline").enable()
+      vim.g.miniindentscope_disable = false
+      -- require("barbecue.ui").toggle(true)
+      -- require("lualine").hide({ unhide = true, place = { "statusline", "tabline", "winbar" } })
       -- vim.cmd("IBLToggle")
       -- vim.cmd("SmoothCursorFancyOn")
-      vim.g.miniindentscope_disable = false
     end,
   },
 }

@@ -1,6 +1,6 @@
 return {
   "nvim-lualine/lualine.nvim",
-  enabled = true,
+  enabled = false,
   event = "VeryLazy",
   opts = function(plugin)
     if plugin.override then
