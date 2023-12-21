@@ -134,6 +134,7 @@ abbr td "t dotfiles"
 abbr tk "tmux kill-server"
 abbr tks "tmux kill-server"
 abbr tr "tldr --list | fzf --header 'tldr (tealdeer)' --reverse --preview 'tldr {1} --color=always' --preview-window=right,80% | xargs tldr"
+abbr tp "t --repo (pbpaste)"
 abbr tn "tmux new -s (basename (pwd))"
 abbr tt "touch .t && chmod +x .t && echo -e '#!/usr/bin/env bash\n' > .t && nvim .t"
 
