@@ -2,5 +2,6 @@
 # Edit at your own risk.
 # <hostname>	<port>	<incl. subdomains>	<created>	<max-age>
 raw.githubusercontent.com	0	0	1700615093	31536000
+api.mason-registry.dev	0	0	1703173529	63072000
 latest-github-tag.redwill.se	0	0	1669505909	63072000
 github.com	0	1	1701708044	31536000
