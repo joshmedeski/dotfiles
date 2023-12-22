@@ -14,6 +14,7 @@ return {
       custom_highlights = function(colors)
         return {
           CurSearch = { bg = "#FFCA27" },
+          Diffchanged = { fg = colors.yellow },
         }
       end,
       integrations = {
