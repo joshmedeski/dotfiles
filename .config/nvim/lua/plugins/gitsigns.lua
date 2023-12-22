@@ -21,8 +21,6 @@ return {
           vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })
         end
 
-        map("n", "]g", gs.next_hunk, "Next Hunk")
-        map("n", "[g", gs.prev_hunk, "Prev Hunk")
         map({ "n", "v" }, "<leader>gg", ":Gitsigns stage_hunk<CR>", "Stage Hunk")
         map({ "n", "v" }, "<leader>gx", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
         map("n", "<leader>gG", gs.stage_buffer, "Stage Buffer")
@@ -38,4 +36,11 @@ return {
     }
     return C
   end,
+  keys = {
+    -- git hunk navigation - previous / next
+    { "gh", ":Gitsigns next_hunk<CR>", desc = "Goto next git hunk" },
+    { "gH", ":Gitsigns prev_hunk<CR>", desc = "Goto previous git hunk" },
+    { "]g", ":Gitsigns next_hunk<CR>", desc = "Goto next git hunk" },
+    { "[g", ":Gitsigns prev_hunk<CR>", desc = "Goto previous git hunk" },
+  },
 }
