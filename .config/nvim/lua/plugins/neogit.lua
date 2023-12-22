@@ -16,6 +16,6 @@ return {
     },
   },
   keys = {
-    { "<leader>gc", "<cmd>lua require('neogit').open({'commit'})" },
+    { "<leader>gc", "<cmd>lua require('neogit').open({'commit'})<CR>", desc = "Git commit" },
   },
 }
