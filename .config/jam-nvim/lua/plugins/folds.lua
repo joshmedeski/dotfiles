@@ -1,6 +1,5 @@
 return {
   "kevinhwang91/nvim-ufo",
-  enabled = true,
   dependencies = { "kevinhwang91/promise-async" },
   event = "BufRead",
   keys = {
@@ -32,6 +31,7 @@ return {
     vim.o.foldlevel = 99
     vim.o.foldlevelstart = 100
     vim.o.foldenable = true
+
     local handler = function(virtText, lnum, endLnum, width, truncate)
       local newVirtText = {}
       local suffix = (" 󰁂 %d "):format(endLnum - lnum)

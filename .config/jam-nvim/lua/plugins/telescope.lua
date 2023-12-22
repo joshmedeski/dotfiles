@@ -26,6 +26,7 @@ return {
     },
     "vuki656/package-info.nvim",
   },
+  cmd = "Telescope",
   -- apply the config and additionally load fzf-native
   config = function(_, opts)
     local telescope = require("telescope")
@@ -34,7 +35,7 @@ return {
     telescope.load_extension("import")
     telescope.load_extension("live_grep_args")
     telescope.load_extension("neoclip")
-    telescope.load_extension("notify")
+    -- telescope.load_extension("notify")
     telescope.load_extension("package_info")
     telescope.load_extension("smart_goto")
     telescope.load_extension("smart_open")
@@ -106,15 +107,15 @@ return {
     },
     extensions = {
       ["zf-native"] = {
-        file = { -- options for sorting file-like items
-          enable = true, -- override default telescope file sorter
+        file = {                    -- options for sorting file-like items
+          enable = true,            -- override default telescope file sorter
           highlight_results = true, -- highlight matching text in results
-          match_filename = true, -- enable zf filename match priority
+          match_filename = true,    -- enable zf filename match priority
         },
-        generic = { -- options for sorting all other items
-          enable = true, -- override default telescope generic item sorter
+        generic = {                 -- options for sorting all other items
+          enable = true,            -- override default telescope generic item sorter
           highlight_results = true, -- highlight matching text in results
-          match_filename = false, -- disable zf filename match priority
+          match_filename = false,   -- disable zf filename match priority
         },
       },
       smart_open = {

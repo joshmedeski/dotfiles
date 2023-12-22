@@ -2,8 +2,10 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.cmd([[command! -nargs=0 GoToFile :Telescope git_files]])
 vim.cmd([[command! -nargs=0 GoToCommand :Telescope commands]])
+vim.cmd([[command! -nargs=0 GoToFile :Telescope smart_open]])
+vim.cmd([[command! -nargs=0 Grep :Telescope live_grep]])
+vim.cmd([[command! -nargs=0 SmartGoTo :Telescope smart_goto]])
 
 -- NOTE: Install `lazy.nvim` plugin manager
 -- https://github.com/folke/lazy.nvim
@@ -73,73 +75,7 @@ require("lazy").setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { "folke/which-key.nvim", opts = {} },
-  {
-    -- Adds git related signs to the gutter, as well as utilities for managing changes
-    "lewis6991/gitsigns.nvim",
-    opts = {
-      -- See `:help gitsigns.txt`
-      signs = {
-        add = { text = "+" },
-        change = { text = "~" },
-        delete = { text = "_" },
-        topdelete = { text = "‾" },
-        changedelete = { text = "~" },
-      },
-      on_attach = function(bufnr)
-        vim.keymap.set(
-          "n",
-          "<leader>hp",
-          require("gitsigns").preview_hunk,
-          { buffer = bufnr, desc = "Preview git hunk" }
-        )
-
-        -- don't override the built-in and fugitive keymaps
-        local gs = package.loaded.gitsigns
-        vim.keymap.set({ "n", "v" }, "]c", function()
-          if vim.wo.diff then
-            return "]c"
-          end
-          vim.schedule(function()
-            gs.next_hunk()
-          end)
-          return "<Ignore>"
-        end, { expr = true, buffer = bufnr, desc = "Jump to next hunk" })
-        vim.keymap.set({ "n", "v" }, "[c", function()
-          if vim.wo.diff then
-            return "[c"
-          end
-          vim.schedule(function()
-            gs.prev_hunk()
-          end)
-          return "<Ignore>"
-        end, { expr = true, buffer = bufnr, desc = "Jump to previous hunk" })
-      end,
-    },
-  },
-
-  {
-    -- Set lualine as statusline
-    "nvim-lualine/lualine.nvim",
-    -- See `:help lualine.txt`
-    opts = {
-      options = {
-        icons_enabled = false,
-        theme = "onedark",
-        component_separators = "|",
-        section_separators = "",
-      },
-    },
-  },
-
-  {
-    -- Add indentation guides even on blank lines
-    "lukas-reineke/indent-blankline.nvim",
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help ibl`
-    main = "ibl",
-    opts = {},
-  },
+  { "folke/which-key.nvim",  opts = {} },
 
   -- "gc" to comment visual regions/lines
   { "numToStr/Comment.nvim", opts = {} },
@@ -197,6 +133,80 @@ vim.o.completeopt = "menuone,noselect"
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
+
+-- cSpell:disable
+-- Options are automatically loaded before lazy.nvim sartup
+-- Default options that are always set: https://github.com/azyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
+-- Add any additional options here
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- colors
+vim.opt.termguicolors = true
+vim.g.syntax = "enable"
+vim.o.winblend = 0
+
+-- clipboard
+vim.opt.clipboard = ""
+
+-- default position
+vim.opt.scrolloff = 8     -- scroll page when cursor is 8 lines from top/bottom
+vim.opt.sidescrolloff = 8 -- scroll page when cursor is 8 spaces from left/right
+
+-- ex line
+vim.o.ls = 0
+vim.o.ch = 0
+
+-- search
+vim.opt.hlsearch = true
+vim.opt.incsearch = true
+vim.opt.ignorecase = true
+
+-- gutter
+vim.opt.number = false
+vim.opt.relativenumber = false
+
+-- indent
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.opt.smartindent = true
+
+-- backup
+vim.opt.backup = false
+vim.opt.swapfile = false
+vim.opt.undodir = os.getenv("HOME") .. "/.local/state/nvim/undo"
+vim.opt.undofile = true
+
+-- spelling
+vim.opt.spell = false
+vim.opt.spelllang = { "en_us" }
+
+-- misc
+vim.opt.guicursor = ""
+vim.opt.isfname:append("@-@")
+vim.opt.signcolumn = "yes"
+vim.opt.updatetime = 50
+
+-- wrapping
+vim.opt.wrap = true
+vim.opt.linebreak = true
+
+-- views can only be fully collapsed with the global statusline
+vim.opt.laststatus = 0
+
+-- hides the tabline, which is the line that displays the tabs at the top of Neovim.
+vim.opt.showtabline = 0
+
+-- Default splitting will cause your main splits to jump when opening an edgebar.
+-- To prevent this, set `splitkeep` to either `screen` or `topline`.
+vim.opt.splitkeep = "screen"
+
+-- open splits in a more natural direction
+-- https://vimtricks.com/p/open-splits-more-naturally/
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
 -- [[ Basic Keymaps ]]
 
@@ -466,3 +476,55 @@ cmp.setup({
 vim.cmd.colorscheme("catppuccin")
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+-- Keymaps are automatically loaded on the VeryLazy event
+-- Default keymaps that are always set:
+-- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
+-- Add any additional keymaps here
+
+vim.keymap.set("n", "<Tab>", ":bn<cr>")
+vim.keymap.set("n", "<S-Tab>", ":bp<cr>")
+
+vim.keymap.set("n", "*", "*zz")
+
+vim.keymap.set("n", "n", "nzz")
+vim.keymap.set("n", "N", "Nzz")
+
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+-- lsp
+vim.keymap.set("n", "<leader><space>", "<cmd>CodeActionMenu<cr>", { desc = "Code Action Menu" })
+
+-- harpoon
+vim.keymap.set("n", "<leader>'", "<cmd>lua require('harpoon.mark').add_file()<cr>", { desc = "Add to Harpoon" })
+vim.keymap.set("n", "<leader>0", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", { desc = "Show Harpoon" })
+vim.keymap.set("n", "<leader>1", "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", { desc = "Harpoon Buffer 1" })
+vim.keymap.set("n", "<leader>2", "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", { desc = "Harpoon Buffer 2" })
+vim.keymap.set("n", "<leader>3", "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", { desc = "Harpoon Buffer 3" })
+vim.keymap.set("n", "<leader>4", "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", { desc = "Harpoon Buffer 4" })
+vim.keymap.set("n", "<leader>5", "<cmd>lua require('harpoon.ui').nav_file(5)<cr>", { desc = "Harpoon Buffer 5" })
+vim.keymap.set("n", "<leader>6", "<cmd>lua require('harpoon.ui').nav_file(6)<cr>", { desc = "Harpoon Buffer 6" })
+vim.keymap.set("n", "<leader>7", "<cmd>lua require('harpoon.ui').nav_file(7)<cr>", { desc = "Harpoon Buffer 7" })
+vim.keymap.set("n", "<leader>8", "<cmd>lua require('harpoon.ui').nav_file(8)<cr>", { desc = "Harpoon Buffer 8" })
+vim.keymap.set("n", "<leader>9", "<cmd>lua require('harpoon.ui').nav_file(9)<cr>", { desc = "Harpoon Buffer 9" })
+
+-- buffer
+vim.keymap.set(
+  "n",
+  "<leader>bb",
+  "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>",
+  { desc = "Telescope buffers" }
+)
+
+-- clipboard
+vim.keymap.set("v", "<leader>y", '"+y', { desc = "Yank to clipboard" })
+
+-- gen
+vim.keymap.set("v", "<leader>]", ":Gen<CR>")
+vim.keymap.set("n", "<leader>]", ":Gen<CR>")
+
+vim.keymap.set("v", "<C-s>", ":sort<CR>")                         -- Sort highlighted text in visual mode with Control+S
+vim.keymap.set("v", "<leader>rr", '"hy:%s/<C-r>h//g<left><left>') -- Replace all instances of highlighted words
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")                      -- Move current line down
+vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv")                      -- Move current line up

@@ -1,19 +1,20 @@
 return {
   {
-    "lewis6991/gitsigns.nvim", -- Git integration for buffers
+    "lewis6991/gitsigns.nvim",
+    -- Git integration for buffers
     event = "BufReadPre",
     opts = function()
-      -- local icons = require 'config.icons'
+      local icons = require 'config.icons'
       --- @type Gitsigns.Config
       local C = {
-        -- signs = {
-        --   add = { text = icons.git.added },
-        --   change = { text = icons.git.changed },
-        --   delete = { text = icons.git.deleted },
-        --   topdelete = { text = icons.git.deleted },
-        --   changedelete = { text = icons.git.changed },
-        --   untracked = { text = icons.git.added },
-        -- },
+        signs = {
+          add = { text = icons.git.added },
+          change = { text = icons.git.changed },
+          delete = { text = icons.git.deleted },
+          topdelete = { text = icons.git.deleted },
+          changedelete = { text = icons.git.changed },
+          untracked = { text = icons.git.added },
+        },
         on_attach = function(buffer)
           local gs = package.loaded.gitsigns
 
@@ -35,15 +36,48 @@ return {
     end,
     keys = {
       -- git stage
-      { "<leader>gg", ":Gitsigns stage_hunk<CR>", desc = "Stage Hunk" },
-      { "<leader>gG", ":Gitsigns stage_buffer<CR>", desc = "Stage Buffer" },
+      { "<leader>gg", ":Gitsigns stage_hunk<CR>",      desc = "Stage Hunk" },
+      { "<leader>gG", ":Gitsigns stage_buffer<CR>",    desc = "Stage Buffer" },
       { "<leader>gu", ":Gitsigns undo_stage_hunk<CR>", desc = "Undo Stage Hunk" },
 
       -- git hunk navigation
-      { "gh", ":Gitsigns next_hunk<CR>", desc = "Goto next git hunk" },
-      { "gH", ":Gitsigns prev_hunk<CR>", desc = "Goto previous git hunk" },
-      { "]g", ":Gitsigns next_hunk<CR>", desc = "Goto next git hunk" },
-      { "[g", ":Gitsigns prev_hunk<CR>", desc = "Goto previous git hunk" },
+      { "gh",         ":Gitsigns next_hunk<CR>",       desc = "Goto next git hunk" },
+      { "gH",         ":Gitsigns prev_hunk<CR>",       desc = "Goto previous git hunk" },
+      { "]g",         ":Gitsigns next_hunk<CR>",       desc = "Goto next git hunk" },
+      { "[g",         ":Gitsigns prev_hunk<CR>",       desc = "Goto previous git hunk" },
     },
   },
+
+  {
+    "NeogitOrg/neogit",
+    -- An interactive and powerful Git interface for Neovim, inspired by Magit
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "sindrets/diffview.nvim",
+    },
+    cmd = "Neogit",
+    opts = {
+      signs = {
+        hunk = { "", "" },
+        item = { "", "" },
+        section = { "", "" },
+      },
+      integrations = {
+        diffview = true,
+      },
+    },
+    keys = {
+      { "<leader>gc", "<cmd>lua require('neogit').open({'commit'})<CR>", desc = "Git commit" },
+    },
+  },
+
+  {
+    "ruifm/gitlinker.nvim",
+    -- A lua neovim plugin to generate shareable file permalinks (with line ranges)
+    -- for several git web frontend hosts. Inspired by tpope/vim-fugitive's :GBrowse
+    -- buffer url with (optional line range)
+    -- `<leader>gy` (for normal and visual mode)
+    dependencies = "nvim-lua/plenary.nvim",
+    opts = {},
+  }
 }
