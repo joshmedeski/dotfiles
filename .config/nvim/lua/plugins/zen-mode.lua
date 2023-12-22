@@ -19,12 +19,8 @@ return {
       -- by default, no options are changed for the Zen window
       -- uncomment any of the options below, or add other vim.wo options you want to apply
       options = {
-        -- signcolumn = "no", -- disable signcolumn
         number = false, -- disable number column
         relativenumber = false, -- disable relative numbers
-        -- cursorline = false, -- disable cursorline
-        -- cursorcolumn = false, -- disable cursor column
-        -- foldcolumn = "0", -- disable fold column
         list = false, -- disable whitespace characters
       },
     },
@@ -54,6 +50,7 @@ return {
         enabled = true,
         font = "22", -- font size
       },
+
       -- this will change the font size on wezterm when in zen mode
       -- See alse also the Plugins/Wezterm section in this projects README
       wezterm = {
@@ -67,19 +64,12 @@ return {
       require("noice").disable()
       require("incline").disable()
       vim.g.miniindentscope_disable = true
-      -- require("barbecue.ui").toggle(false)
-      -- require("lualine").hide({ unhide = false, place = { "statusline", "tabline", "winbar" } })
-      -- vim.cmd("IBLToggle")
     end,
     -- callback where you can add custom code when the Zen window closes
     on_close = function()
       require("noice").enable()
       require("incline").enable()
       vim.g.miniindentscope_disable = false
-      -- require("barbecue.ui").toggle(true)
-      -- require("lualine").hide({ unhide = true, place = { "statusline", "tabline", "winbar" } })
-      -- vim.cmd("IBLToggle")
-      -- vim.cmd("SmoothCursorFancyOn")
     end,
   },
 }
