@@ -15,4 +15,7 @@ return {
       diffview = true,
     },
   },
+  keys = {
+    { "<leader>gc", "<cmd>lua require('neogit').open({'commit'})" },
+  },
 }
