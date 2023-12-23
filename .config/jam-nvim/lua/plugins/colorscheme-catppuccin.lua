@@ -4,6 +4,7 @@ return {
   priority = 1000,
   ---@class CatppuccinOptions
   opts = function()
+    vim.cmd.colorscheme 'catppuccin'
     local colors = require("config.colors")
     return {
       flavour = "mocha",

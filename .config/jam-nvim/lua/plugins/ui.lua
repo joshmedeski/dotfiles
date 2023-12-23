@@ -1,5 +1,52 @@
 return {
   {
+    "folke/which-key.nvim",
+    -- displays a popup with possible keybindings of the command you started typing
+    opts = {}
+  },
+
+  {
+    "folke/noice.nvim",
+    -- 💥 Highly experimental plugin that completely replaces
+    -- the UI for messages, cmdline and the popupmenu.
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+    event = "VeryLazy",
+    ---@class NoiceConfig
+    opts = {
+      ---@type NoicePresets
+      presets = { inc_rename = true },
+      ---@type NoiceConfigViews
+      views = {
+        cmdline_popup = {
+          position = {
+            row = 7,
+            col = "55%",
+          },
+        },
+        cmdline_popupmenu = {
+          position = {
+            row = 7,
+            col = "55%",
+          },
+        },
+      },
+    },
+  },
+
+  {
+    "rcarriga/nvim-notify",
+    opts = {
+      background_colour = "#2E3440",
+      stages = "static",
+      timeout = 1500,
+    },
+  },
+
+
+  {
     "b0o/incline.nvim",
     -- 🎈 Floating statuslines for Neovim
     dependencies = {

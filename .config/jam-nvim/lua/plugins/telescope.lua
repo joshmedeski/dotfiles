@@ -124,9 +124,8 @@ return {
       },
     },
   },
-  keys = function()
-    return {
-      { "<leader>*", "<cmd>Telescope grep_string<cr>", { silent = true, desc = "Grep Word Under Cursor" } },
-    }
-  end,
+  keys = {
+    { "<leader>*",  "<cmd>Telescope grep_string<cr>",                              { desc = "Grep Word Under Cursor" } },
+    { "<leader>bb", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", { desc = "Telescope buffers" } }
+  }
 }
