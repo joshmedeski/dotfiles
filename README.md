@@ -7,7 +7,7 @@ This is the home of all my dotfiles. These are files that add custom configurati
 ## Software
 
 - Terminal: [Wezterm](https://wezfurlong.org/wezterm)
-- Font: [JetbrainsMono Nerd Font](https://www.jetbrains.com/lp/mono/)
+- Font: [Monaspace](https://monaspace.githubnext.com/)
 - Colors: [catppuccin](https://github.com/catppuccin/catppuccin)
 - Shell: [fish](https://fishshell.com)
 - Multiplexer: [tmux](https://github.com/tmux/tmux/wiki)
