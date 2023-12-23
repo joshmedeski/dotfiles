@@ -1,4 +1,4 @@
-return M
+return M = {}
 
 -- Configure nvim-cmp (autocomplete)
 -- See `:help cmp`

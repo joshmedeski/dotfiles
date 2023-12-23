@@ -5,15 +5,15 @@ return {
   ---@class CatppuccinOptions
   opts = function()
     vim.cmd.colorscheme 'catppuccin'
-    local colors = require("config.colors")
     return {
       flavour = "mocha",
       transparent_background = true,
       color_overrides = { all = colors },
       custom_highlights = function(colors)
         return {
-          CurSearch = { bg = "#FFCA27" },
+          CurSearch = { bg = colors.yellow },
           Diffchanged = { fg = colors.yellow },
+          DiffChanged = { fg = colors.yellow },
         }
       end,
       integrations = {
