@@ -1,19 +1,19 @@
-local icons = require("config.icons")
-
 return {
   "catppuccin/nvim",
   name = "catppuccin",
   priority = 1000,
   ---@class CatppuccinOptions
   opts = function()
-    local colors = require("config.colors")
+    -- TODO: generate dynamics colors
+    local theme_colors = require("config.colors")
     return {
       flavour = "mocha",
       transparent_background = true,
-      color_overrides = { all = colors },
+      color_overrides = { all = theme_colors },
       custom_highlights = function(colors)
         return {
-          CurSearch = { bg = "#FFCA27" },
+          CurSearch = { bg = colors.yellow },
+          DiffChanged = { fg = colors.yellow },
           Diffchanged = { fg = colors.yellow },
         }
       end,
