@@ -53,14 +53,14 @@ keybindings:
         tmux display-popup -d {{.RepoPath}} -w 65 -h 10 -E 'ghprb {{.IssueNumber}}'
     - key: e
       command: >
-        tmux display-popup -d {{.RepoPath}} -w 80% -h 90% -E 'nvim -c ":Octo issue edit {{.IssueNumber}}"'
+        tmux new-window -c {{.RepoPath}} 'nvim -c ":silent Octo issue edit {{.IssueNumber}}"'
     - key: i
       command: >
-        tmux display-popup -d {{.RepoPath}} -w 80% -h 90% -E 'nvim -c ":Octo issue create"'
+        tmux display-popup -d {{.RepoPath}} -w 80% -h 90% -E 'nvim -c ":silent Octo issue create"'
   prs:
     - key: O
       command: >
-        tmux new-window -c {{.RepoPath}} 'nvim -c ":Octo pr edit {{.PrNumber}}"'
+        tmux new-window -c {{.RepoPath}} 'nvim -c ":silent Octo pr edit {{.PrNumber}}"'
 repoPaths:
   joshmedeski/*: ~/repos/*
   joshmedeski/t-smart-tmux-session-manager: ~/.config/tmux/plugins/t-smart-tmux-session-manager
