@@ -1,3 +1,7 @@
+-- NOTE: workaround for current bug
+-- https://github.com/pwntester/octo.nvim/issues/466
+vim.g.octo_viewer = "joshmedeski"
+
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.syntax = "enable"

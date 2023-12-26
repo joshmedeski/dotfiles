@@ -1,3 +1,7 @@
+-- NOTE: workaround for current bug
+-- https://github.com/pwntester/octo.nvim/issues/466
+vim.g.octo_viewer = "joshmedeski"
+
 -- cSpell:disable
 -- Options are automatically loaded before lazy.nvim sartup
 -- Default options that are always set: https://github.com/azyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
