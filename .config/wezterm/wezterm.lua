@@ -27,7 +27,7 @@ local config = {
 
 	-- font
 	font = f.get_font(),
-	font_size = 18,
+	font_size = 20,
 
 	-- colors
 	color_scheme = cs.get_color_scheme(),
@@ -66,6 +66,7 @@ local config = {
 		k.cmd_key("L", act.SendKey({ mods = "CTRL", key = "l" })),
 		k.cmd_key("P", k.multiple_actions(":GoToCommand")),
 		k.cmd_key("p", k.multiple_actions(":GoToFile")),
+		k.cmd_key("j", k.multiple_actions(":GoToFile")),
 		k.cmd_key("q", k.multiple_actions(":qa!")),
 		k.cmd_to_tmux_prefix("1", "1"),
 		k.cmd_to_tmux_prefix("2", "2"),
@@ -82,7 +83,6 @@ local config = {
 		k.cmd_to_tmux_prefix("d", "D"),
 		k.cmd_to_tmux_prefix("G", "G"),
 		k.cmd_to_tmux_prefix("g", "g"),
-		k.cmd_to_tmux_prefix("j", "O"),
 		k.cmd_to_tmux_prefix("k", "T"),
 		k.cmd_to_tmux_prefix("l", "L"),
 		k.cmd_to_tmux_prefix("n", '"'),
@@ -166,7 +166,30 @@ local config = {
 }
 
 wezterm.on("user-var-changed", function(window, pane, name, value)
+	-- local appearance = window:get_appearance()
+	-- local is_dark = appearance:find("Dark")
 	local overrides = window:get_config_overrides() or {}
+	wezterm.log_info("name", name)
+	wezterm.log_info("value", value)
+
+	if name == "T_SESSION" then
+		local session = value
+		wezterm.log_info("is session", session)
+		overrides.background = {
+			w.set_tmux_session_wallpaper(value),
+			{
+				source = {
+					Gradient = {
+						colors = { "#000000" },
+					},
+				},
+				width = "100%",
+				height = "100%",
+				opacity = 0.95,
+			},
+		}
+	end
+
 	if name == "ZEN_MODE" then
 		local incremental = value:find("+")
 		local number_value = tonumber(value)
@@ -190,8 +213,23 @@ wezterm.on("user-var-changed", function(window, pane, name, value)
 				window:perform_action(wezterm.action.DecreaseFontSize, pane)
 				number_value = number_value - 1
 			end
+			-- overrides.background = {
+			-- 	w.set_nvim_wallpaper("Diffview.jpeg"),
+			--
+			-- 	{
+			-- 		source = {
+			-- 			Gradient = {
+			-- 				colors = { "#000000" },
+			-- 			},
+			-- 		},
+			-- 		width = "100%",
+			-- 		height = "100%",
+			-- 		opacity = 0.95,
+			-- 	},
+			-- }
 		elseif number_value < 0 then
 			window:perform_action(wezterm.action.ResetFontSize, pane)
+			overrides.background = nil
 			overrides.font_size = nil
 		else
 			overrides.font_size = number_value
