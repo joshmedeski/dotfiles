@@ -25,9 +25,15 @@ local config = {
 		b.get_background(),
 	},
 
-	-- font
-	font = f.get_font(),
 	font_size = 20,
+	font = f.get_font({
+		"CommitMono",
+		-- "Monaspace Argon",
+		-- "Monaspace Krypton",
+		-- "Monaspace Neon",
+		-- "Monaspace Radon",
+		-- "Monaspace Xenon",
+	}),
 
 	-- colors
 	color_scheme = cs.get_color_scheme(),
