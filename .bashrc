@@ -2,3 +2,5 @@
 alias python=python3
 
 source /Users/josh/.config/broot/launcher/bash/br
+
+source /Users/joshmedeski/.config/broot/launcher/bash/br
