@@ -19,7 +19,6 @@ local wezterm = require("wezterm")
 local act = wezterm.action
 
 local config = {
-	-- background
 	background = {
 		w.get_wallpaper(),
 		b.get_background(),
@@ -35,10 +34,8 @@ local config = {
 		-- "Monaspace Xenon",
 	}),
 
-	-- colors
 	color_scheme = cs.get_color_scheme(),
 
-	-- padding
 	window_padding = {
 		left = 30,
 		right = 30,
