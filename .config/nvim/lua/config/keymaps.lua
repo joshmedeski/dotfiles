@@ -3,8 +3,8 @@
 -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
-vim.keymap.set("n", "<Tab>", ":bn<cr>")
-vim.keymap.set("n", "<S-Tab>", ":bp<cr>")
+vim.keymap.set("n", "<Tab>", "<cmd>bn<cr>")
+vim.keymap.set("n", "<S-Tab>", "<cmd>bp<cr>")
 
 vim.keymap.set("n", "*", "*zz")
 
