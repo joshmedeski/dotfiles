@@ -3,6 +3,6 @@ COLORS=$1
 SUDO_LANG_INSTRUCTIONS=$(cat ./co.md)
 COMMAND="$SUDO_LANG_INSTRUCTIONS /transpile $COLORS"
 # echo $COMMAND
-ALACRITTY_THEME=$(echo $COMMAND | ~/repos/openai-cli/openai)
-echo "$ALACRITTY_THEME" > ~/.config/alacritty/theme.yml
+ALACRITTY_THEME=$(echo $COMMAND | ~/c/openai-cli/openai)
+echo "$ALACRITTY_THEME" >~/.config/alacritty/theme.yml
 echo "Alacritty updated!"
