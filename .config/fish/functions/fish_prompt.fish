@@ -11,7 +11,7 @@ function fish_prompt --description 'Write out the prompt'
         set -g __fish_git_prompt_color_branch magenta --bold
     end
     if not set -q __fish_git_prompt_showupstream
-        set -g __fish_git_prompt_showupstream "informative"
+        set -g __fish_git_prompt_showupstream informative
     end
     if not set -q __fish_git_prompt_char_upstream_ahead
         set -g __fish_git_prompt_char_upstream_ahead "↑"
@@ -97,11 +97,11 @@ function fish_prompt --description 'Write out the prompt'
 
     set -l project
 
-    if echo (pwd) | grep -qEi "^/Users/$USER/repos/"
-        set  project (echo (pwd) | sed "s#^/Users/$USER/repos/\\([^/]*\\).*#\\1#")
+    if echo (pwd) | grep -qEi "^/Users/$USER/c/"
+        set project (echo (pwd) | sed "s#^/Users/$USER/c/\\([^/]*\\).*#\\1#")
     else
-        set  project "Fish"
+        set project Fish
     end
 
-    wakatime --write --plugin "fish-wakatime/0.0.1" --entity-type app --project "$project" --entity (echo $history[1] | cut -d ' ' -f1) 2>&1 > /dev/null&
+    wakatime --write --plugin "fish-wakatime/0.0.1" --entity-type app --project "$project" --entity (echo $history[1] | cut -d ' ' -f1) 2>&1 >/dev/null &
 end
