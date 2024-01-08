@@ -8,8 +8,8 @@ return {
     -- "preservim/vim-markdown",
   },
   event = {
-    "BufReadPre " .. vim.fn.expand("~") .. "/repos/second-brain/**.md",
-    "BufNewFile " .. vim.fn.expand("~") .. "/repos/second-brain/**.md",
+    "BufReadPre " .. vim.fn.expand("~") .. "/c/second-brain/**.md",
+    "BufNewFile " .. vim.fn.expand("~") .. "/c/second-brain/**.md",
   },
   commands = {
     "ObsidianOpen",
@@ -26,11 +26,11 @@ return {
   },
 
   opts = {
-    dir = "~/repos/second-brain", -- no need to call 'vim.fn.expand' here
+    dir = "~/c/second-brain", -- no need to call 'vim.fn.expand' here
     completion = { nvim_cmp = true },
 
     daily_notes = {
-      folder = "Calendar 🗓️/Days 🌄",
+      folder = "Periodic 🌄/Days 🌄",
       -- Optional, if you want to change the date format for the ID of daily notes.
       -- date_format = "%Y-%m-%d",
       -- Optional, if you want to change the date format of the default alias of daily notes.
