@@ -7,7 +7,7 @@ DIFF_SUMMARY=$(
 		--show-output \
 		--title "Summarizing git diff..." \
 		--spinner="minidot" -- \
-		echo $CONTEXT + $GIT_DIFF | ~/repos/openai-cli/openai
+		echo $CONTEXT + $GIT_DIFF | ~/c/openai-cli/openai
 )
 
 echo $DIFF_SUMMARY
