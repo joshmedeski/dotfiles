@@ -12,7 +12,7 @@ set hidden
 set icons
 set number
 # set preview
-set previewer ~/repos/dotfiles/.config/lf/lf-previewer.sh
+set previewer ~/c/dotfiles/.config/lf/lf-previewer.sh
 set relativenumber
 set shell fish
 

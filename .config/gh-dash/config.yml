@@ -65,7 +65,7 @@ repoPaths:
   joshmedeski/*: ~/repos/*
   joshmedeski/t-smart-tmux-session-manager: ~/.config/tmux/plugins/t-smart-tmux-session-manager
   joshmedeski/tmux-nerd-font-window-name: ~/.config/tmux/plugins/tmux-nerd-font-window-name
-  Nutiliti/nutiliti: ~/repos/nutiliti
+  Nutiliti/nutiliti: ~/c/nu/main
   raycast/extensions: ~/repos/raycast-extensions
 theme:
   ui:
