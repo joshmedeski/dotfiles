@@ -10,12 +10,9 @@ return {
     "DiffviewFileHistory",
   },
   opts = {
-    view = {
-      use_icons = true,
-      default = {
-        layout = "diff2_horizontal",
-        winbar_info = false, -- See ':h diffview-config-view.x.winbar_info'
-      },
+    file_panel = {
+      position = "bottom",
+      height = 20,
     },
     hooks = {
       view_opened = function()
