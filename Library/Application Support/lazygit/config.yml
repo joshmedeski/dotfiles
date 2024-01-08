@@ -66,10 +66,6 @@ git:
     showGraph: "always"
     # displays the whole git graph by default in the commits panel (equivalent to passing the `--all` argument to `git log`)
     showWholeGraph: true
-os:
-  edit: "nvim"
-  editAtLine: "{{editor}} {{filename}}"
-  open: "open"
 refresher:
   refreshInterval: 10 # file/submodule refresh interval in seconds
   fetchInterval: 60 # re-fetch interval in seconds
