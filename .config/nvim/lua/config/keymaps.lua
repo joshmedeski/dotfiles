@@ -17,6 +17,9 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 -- lsp
 vim.keymap.set("n", "<leader><space>", "<cmd>CodeActionMenu<cr>", { desc = "Code Action Menu" })
 
+-- folds
+vim.keymap.set("n", "<leader>z", "<cmd>normal! zMzv<cr>", { desc = "Fold all others" })
+
 -- harpoon
 vim.keymap.set("n", "<leader>'", "<cmd>lua require('harpoon.mark').add_file()<cr>", { desc = "Add to Harpoon" })
 vim.keymap.set("n", "<leader>0", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", { desc = "Show Harpoon" })
