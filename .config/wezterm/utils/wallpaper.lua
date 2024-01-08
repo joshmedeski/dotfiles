@@ -5,7 +5,7 @@ local M = {}
 M.get_wallpaper = function()
 	local wallpapers = {}
 	local wallpapers_glob = os.getenv("HOME")
-		.. "/Library/Mobile Documents/com~apple~CloudDocs/PARA/3 Resources 🛠️/Wallpapers - macOS 💻/active/**"
+		.. "/Library/Mobile Documents/com~apple~CloudDocs/PARA/Resources 🧰/Wallpapers - macOS 💻/active/**"
 	for _, v in ipairs(wezterm.glob(wallpapers_glob)) do
 		if not string.match(v, "%.DS_Store$") then
 			table.insert(wallpapers, v)
