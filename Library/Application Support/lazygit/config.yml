@@ -39,10 +39,10 @@ gui:
   authorColors: # in case you're not happy with the randomly assigned colour
     "joshmedeski": "#9db5bf"
 git:
-  # paging:
-  # colorArg: always
-  # useConfig: false
-  # pager: delta --dark --color-only --side-by-side
+  paging:
+    useConfig: true
+    colorArg: always
+    pager: delta --dark --color-only --side-by-side
   merging:
     # only applicable to unix users
     manualCommit: false
