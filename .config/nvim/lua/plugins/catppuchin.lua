@@ -1,7 +1,7 @@
 return {
   "catppuccin/nvim",
   name = "catppuccin",
-  priority = 1000,
+  priority = 2000,
   ---@class CatppuccinOptions
   opts = function()
     -- TODO: generate dynamics colors
