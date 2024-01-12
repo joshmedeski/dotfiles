@@ -12,7 +12,7 @@ gui:
       - magenta
       - bold
     inactiveBorderColor:
-      - black
+      - blue
     optionsTextColor:
       - black
     selectedLineBgColor:
