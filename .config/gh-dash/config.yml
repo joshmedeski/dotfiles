@@ -62,11 +62,11 @@ keybindings:
       command: >
         tmux new-window -c {{.RepoPath}} 'nvim -c ":silent Octo pr edit {{.PrNumber}}"'
 repoPaths:
-  joshmedeski/*: ~/repos/*
+  Nutiliti/nutiliti: ~/c/nu/main
+  joshmedeski/*: ~/c/*
   joshmedeski/t-smart-tmux-session-manager: ~/.config/tmux/plugins/t-smart-tmux-session-manager
   joshmedeski/tmux-nerd-font-window-name: ~/.config/tmux/plugins/tmux-nerd-font-window-name
-  Nutiliti/nutiliti: ~/c/nu/main
-  raycast/extensions: ~/repos/raycast-extensions
+  raycast/extensions: ~/c/raycast-extensions
 theme:
   ui:
     table:
