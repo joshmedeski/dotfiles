@@ -7,12 +7,12 @@ return {
     --- @type Gitsigns.Config
     local C = {
       signs = {
-        add = { text = icons.git.added },
-        change = { text = icons.git.changed },
-        delete = { text = icons.git.deleted },
-        topdelete = { text = icons.git.deleted },
-        changedelete = { text = icons.git.changed },
-        untracked = { text = icons.git.added },
+        add = { text = "" },
+        change = { text = "" },
+        delete = { text = "" },
+        topdelete = { text = "" },
+        changedelete = { text = "" },
+        untracked = { text = "" },
       },
       on_attach = function(buffer)
         local gs = package.loaded.gitsigns
