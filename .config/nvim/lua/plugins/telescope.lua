@@ -1,3 +1,4 @@
+-- cSpell:words piersolenski danielfalk vuki
 return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
