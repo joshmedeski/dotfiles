@@ -45,10 +45,10 @@ vim.keymap.set(
 vim.keymap.set("v", "<leader>y", '"+y', { desc = "Yank to clipboard" })
 
 -- gen
-vim.keymap.set("v", "<leader>]", ":Gen<CR>")
-vim.keymap.set("n", "<leader>]", ":Gen<CR>")
+vim.keymap.set("v", "<leader>]", "<cmd>Gen<CR>")
+vim.keymap.set("n", "<leader>]", "<cmd>Gen<CR>")
 
-vim.keymap.set("v", "<C-s>", ":sort<CR>") -- Sort highlighted text in visual mode with Control+S
+vim.keymap.set("v", "<C-s>", "<cmd>sort<CR>") -- Sort highlighted text in visual mode with Control+S
 vim.keymap.set("v", "<leader>rr", '"hy:%s/<C-r>h//g<left><left>') -- Replace all instances of highlighted words
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv") -- Move current line down
 vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv") -- Move current line up
