@@ -121,7 +121,8 @@ abbr pwdc "pwd | pbcopy"
 
 abbr rmr "rm -rf"
 
-abbr s "sesh connect (sesh list | zf --height 24)"
+abbr s sesh_start
+abbr s. "sesh connect ."
 abbr sa "SwitchAudioSource -t output -s (SwitchAudioSource -t output -a | fzf-tmux -p --reverse)"
 abbr sai "SwitchAudioSource -t input -s (SwitchAudioSource -t input -a | fzf-tmux -p --reverse)"
 abbr sao "SwitchAudioSource -t output -s (SwitchAudioSource -t output -a | fzf-tmux -p --reverse)"
