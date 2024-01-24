@@ -8,14 +8,16 @@ return {
         decrement = "<C-x>",
       },
       additions = {
+        { "frappe", "latte", "macchiato", "mocha" },
         { "production", "development", "test" },
-        { "let",        "const" },
-        { "start",      "end" },
-        { "before",     "after" },
-        { "plus",       "minus" },
-        { "smart",      "truncate" },
-        { "left",       "right" },
+        { "production", "development", "test" },
+        { "let", "const" },
+        { "start", "end" },
+        { "before", "after" },
+        { "plus", "minus" },
+        { "smart", "truncate" },
+        { "left", "right" },
       },
     },
-  }
+  },
 }
