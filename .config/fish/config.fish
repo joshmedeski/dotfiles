@@ -10,6 +10,10 @@
 
 eval (/opt/homebrew/bin/brew shellenv)
 
+# TODO: waiting for fish support
+# https://github.com/pkgxdev/pkgx/issues/845
+# source (pkgx --shellcode)
+
 starship init fish | source # https://starship.rs/
 zoxide init fish | source # 'ajeetdsouza/zoxide'
 fnm --log-level quiet env --use-on-cd | source # "Schniz/fnm"
@@ -24,8 +28,7 @@ set -U fish_key_bindings fish_vi_key_bindings
 # set -Ux BAT_THEME Catppuccin-latte # 'sharkdp/bat' cat clone
 set -Ux EDITOR nvim # 'neovim/neovim' text editor
 set -Ux FZF_DEFAULT_COMMAND "fd -H -E '.git'"
-# TODO: find better alternative
-# set -Ux PAGER "~/.local/bin/nvimpager" # 'lucc/nvimpager'
+set -Ux PAGER "~/.local/bin/nvimpager" # 'lucc/nvimpager'
 set -Ux VISUAL nvim
 
 # golang - https://golang.google.cn/
@@ -36,15 +39,15 @@ fish_add_path $HOME/.config/bin # my custom scripts
 
 set copilot_cli_path (which github-copilot-cli)
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-if test -f /opt/homebrew/Caskroom/miniconda/base/bin/conda
-    eval /opt/homebrew/Caskroom/miniconda/base/bin/conda "shell.fish" hook $argv | source
-else
-    if test -f "/opt/homebrew/Caskroom/miniconda/base/etc/fish/conf.d/conda.fish"
-        . "/opt/homebrew/Caskroom/miniconda/base/etc/fish/conf.d/conda.fish"
-    else
-        set -x PATH /opt/homebrew/Caskroom/miniconda/base/bin $PATH
-    end
-end
-# <<< conda initialize <<<
+# # >>> conda initialize >>>
+# # !! Contents within this block are managed by 'conda init' !!
+# if test -f /opt/homebrew/Caskroom/miniconda/base/bin/conda
+#     eval /opt/homebrew/Caskroom/miniconda/base/bin/conda "shell.fish" hook $argv | source
+# else
+#     if test -f "/opt/homebrew/Caskroom/miniconda/base/etc/fish/conf.d/conda.fish"
+#         . "/opt/homebrew/Caskroom/miniconda/base/etc/fish/conf.d/conda.fish"
+#     else
+#         set -x PATH /opt/homebrew/Caskroom/miniconda/base/bin $PATH
+#     end
+# end
+# # <<< conda initialize <<<
