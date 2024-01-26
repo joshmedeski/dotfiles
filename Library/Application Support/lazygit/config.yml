@@ -1,3 +1,4 @@
+# cSpell:words topo maximised
 gui:
   # stuff relating to the UI
   nerdFontsVersion: "3"
@@ -17,8 +18,6 @@ gui:
       - black
     selectedLineBgColor:
       - black
-    selectedRangeBgColor:
-      - yellow
     cherryPickedCommitBgColor:
       - blue
     cherryPickedCommitFgColor:
@@ -40,9 +39,9 @@ gui:
     "joshmedeski": "#9db5bf"
 git:
   paging:
-    useConfig: true
+    useConfig: false
     colorArg: always
-    pager: delta --dark --color-only --side-by-side
+    pager: delta
   merging:
     # only applicable to unix users
     manualCommit: false
@@ -198,7 +197,6 @@ keybinding:
     pickCommit: "p" # pick commit (when mid-rebase)
     revertCommit: "t"
     cherryPickCopy: "c"
-    cherryPickCopyRange: "C"
     pasteCommits: "v"
     tagCommit: "T"
     checkoutCommit: "<space>"
@@ -208,8 +206,6 @@ keybinding:
   commitFiles:
     checkoutCommitFile: "c"
   main:
-    toggleDragSelect: "v"
-    toggleDragSelect-alt: "V"
     toggleSelectHunk: "a"
     pickBothHunks: "b"
   submodules:
