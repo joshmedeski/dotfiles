@@ -16,7 +16,7 @@ M.get_wallpaper = function()
 		source = { File = { path = wallpaper } },
 		height = "Cover",
 		width = "Cover",
-		horizontal_align = "Left",
+		horizontal_align = "Right",
 		repeat_x = "Repeat",
 		repeat_y = "Repeat",
 		opacity = 1,
