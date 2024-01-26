@@ -25,6 +25,8 @@ local config = {
 	},
 
 	font_size = 20,
+
+	line_height = 1.1,
 	font = f.get_font({
 		"CommitMono",
 		-- "Monaspace Argon",
@@ -47,6 +49,7 @@ local config = {
 		-- THEME_FLAVOUR = "latte",
 		BAT_THEME = h.is_dark() and "Catppuccin-mocha" or "Catppuccin-latte",
 		TERM = "xterm-256color",
+		LC_ALL = "en_US.UTF-8",
 	},
 
 	-- general options
@@ -63,11 +66,12 @@ local config = {
 		k.cmd_key("[", act.SendKey({ mods = "CTRL", key = "o" })),
 		k.cmd_key("]", act.SendKey({ mods = "CTRL", key = "i" })),
 		k.cmd_key("f", k.multiple_actions(":Grep")),
-		k.cmd_key("H", act.SendKey({ mods = "CTRL", key = "h" })),
+		-- k.cmd_key("H", act.SendKey({ mods = "CTRL", key = "h" })),
 		k.cmd_key("i", k.multiple_actions(":SmartGoTo")),
-		k.cmd_key("J", act.SendKey({ mods = "CTRL", key = "j" })),
-		k.cmd_key("K", act.SendKey({ mods = "CTRL", key = "k" })),
-		k.cmd_key("L", act.SendKey({ mods = "CTRL", key = "l" })),
+		-- k.cmd_key("J", act.SendKey({ mods = "CTRL", key = "j" })),
+		-- k.cmd_key("K", act.SendKey({ mods = "CTRL", key = "k" })),
+		-- k.cmd_key("K", act.SendKey({ mods = "CTRL", key = "k" })),
+		-- k.cmd_key("L", act.SendKey({ mods = "CTRL", key = "l" })),
 		k.cmd_key("P", k.multiple_actions(":GoToCommand")),
 		k.cmd_key("p", k.multiple_actions(":GoToFile")),
 		k.cmd_key("j", k.multiple_actions(":GoToFile")),
@@ -87,7 +91,8 @@ local config = {
 		k.cmd_to_tmux_prefix("d", "D"),
 		k.cmd_to_tmux_prefix("G", "G"),
 		k.cmd_to_tmux_prefix("g", "g"),
-		k.cmd_to_tmux_prefix("k", "T"),
+		k.cmd_to_tmux_prefix("K", "T"),
+		k.cmd_to_tmux_prefix("k", "K"),
 		k.cmd_to_tmux_prefix("l", "L"),
 		k.cmd_to_tmux_prefix("n", '"'),
 		k.cmd_to_tmux_prefix("N", "%"),
@@ -96,6 +101,7 @@ local config = {
 		k.cmd_to_tmux_prefix("t", "c"),
 		k.cmd_to_tmux_prefix("w", "x"),
 		k.cmd_to_tmux_prefix("z", "z"),
+		k.cmd_to_tmux_prefix("Z", "Z"),
 
 		k.cmd_key(
 			"R",
