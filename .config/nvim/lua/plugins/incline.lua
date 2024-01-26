@@ -13,13 +13,22 @@ end
 local function get_git_diff(props)
   local icons = { removed = "", changed = "", added = "" }
   local labels = {}
-  local signs = vim.api.nvim_buf_get_var(props.buf, "gitsigns_status_dict")
-  for name, icon in pairs(icons) do
-    if tonumber(signs[name]) and signs[name] > 0 then
-      table.insert(labels, { icon .. " " .. signs[name] .. " ", group = "Diff" .. name })
+  local success, signs = pcall(vim.api.nvim_buf_get_var, props.buf, "gitsigns_status_dict")
+  if success then
+    for name, icon in pairs(icons) do
+      if tonumber(signs[name]) and signs[name] > 0 then
+        table.insert(labels, { icon .. " " .. signs[name] .. " ", group = "Diff" .. name })
+      end
     end
+    return labels
+  else
+    for name, icon in pairs(icons) do
+      if tonumber(signs[name]) and signs[name] > 0 then
+        table.insert(labels, { icon .. " " .. signs[name] .. " ", group = "Diff" .. name })
+      end
+    end
+    return labels
   end
-  return labels
 end
 
 return {
