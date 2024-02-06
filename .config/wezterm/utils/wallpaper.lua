@@ -2,11 +2,9 @@ local wezterm = require("wezterm")
 local h = require("utils/helpers")
 local M = {}
 
-M.get_wallpaper = function()
+M.get_wallpaper = function(dir)
 	local wallpapers = {}
-	local wallpapers_glob = os.getenv("HOME")
-		.. "/Library/Mobile Documents/com~apple~CloudDocs/PARA/Resources 🧰/Wallpapers - macOS 💻/active/**"
-	for _, v in ipairs(wezterm.glob(wallpapers_glob)) do
+	for _, v in ipairs(wezterm.glob(dir)) do
 		if not string.match(v, "%.DS_Store$") then
 			table.insert(wallpapers, v)
 		end
@@ -16,7 +14,7 @@ M.get_wallpaper = function()
 		source = { File = { path = wallpaper } },
 		height = "Cover",
 		width = "Cover",
-		horizontal_align = "Right",
+		horizontal_align = "Center",
 		repeat_x = "Repeat",
 		repeat_y = "Repeat",
 		opacity = 1,
@@ -24,7 +22,7 @@ M.get_wallpaper = function()
 	}
 end
 
-M.set_nvim_wallpaper = function(name)
+M.set_nvim_wallpaper = function(dir, name)
 	return {
 		source = { File = { path = os.getenv("HOME") .. "/.config/wezterm/wallpapers/nvim/" .. name } },
 		height = "Cover",

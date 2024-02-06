@@ -17,11 +17,13 @@ local w = require("utils/wallpaper")
 
 local wezterm = require("wezterm")
 local act = wezterm.action
+local wallpapers_glob = os.getenv("HOME")
+	.. "/Library/Mobile Documents/com~apple~CloudDocs/PARA/Resources 🧰/Wallpapers - macOS 💻/active/**"
 
 local config = {
 	background = {
-		w.get_wallpaper(),
-		b.get_background(),
+		w.get_wallpaper(wallpapers_glob),
+		b.get_background(0.8, 0.8),
 	},
 
 	font_size = 20,
