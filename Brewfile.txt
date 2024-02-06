@@ -1,3 +1,4 @@
+# vim:ft=ruby
 tap "aws/tap"
 tap "clementtsang/bottom"
 tap "federico-terzi/espanso"
