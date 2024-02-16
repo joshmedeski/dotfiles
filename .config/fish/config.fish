@@ -7,6 +7,7 @@
 # ╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝
 # A smart and user-friendly command line
 # https://fishshell.com/
+# cSpell:words shellcode pkgx direnv
 
 eval (/opt/homebrew/bin/brew shellenv)
 
