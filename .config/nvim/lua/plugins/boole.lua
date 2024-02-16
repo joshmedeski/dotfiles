@@ -16,7 +16,7 @@ return {
       { "plus", "minus" },
       { "smart", "truncate" },
       { "left", "right" },
-      --- production
+      { "is", "are" },
     },
   },
 }
