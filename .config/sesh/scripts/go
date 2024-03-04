@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+tmux select-pane -t :.+
+tmux send-keys "nvim +GoToFile" Enter
+tmux split-window -v -p 30
+tmux send-keys "go run main.go "
+tmux split-window -h
+tmux send-keys "go test ./..." Enter
+tmux select-pane -t 0
