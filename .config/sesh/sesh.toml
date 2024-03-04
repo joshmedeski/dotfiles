@@ -5,5 +5,5 @@ session_path = "~/c/joshmedeski.com"
 script_path = "~/.config/sesh/scripts/node_dev"
 
 [[startup_scripts]]
-session_path = "~/c/sesh"
-script_path = "~/.config/sesh/scripts/go"
+session_path = "~/c/nu/*"
+script_path = "~/.config/sesh/scripts/nu_dev"
