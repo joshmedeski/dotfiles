@@ -29,13 +29,13 @@ gum spin --spinner globe --title "💤 lazy.nvim syncing..." -- nvim --headless 
 echo "\n" >>/tmp/u-$NOW.txt
 echo "✅ 💤 lazy.nvim synced"
 
-gum spin --spinner globe --title "🧰 mason.nvim updating" -- nvim --headless "+MasonUpdate" +qa
-echo "\n" >>/tmp/u-$NOW.txt
-echo "✅ 🧰 mason.nvim updated"
-
-gum spin --spinner globe --title "🧰 mason.nvim tools updating" -- nvim --headless "+MasonToolsUpdate" +qa
-echo "\n" >>/tmp/u-$NOW.txt
-echo "✅ 🧰 mason.nvim tools updated"
+# FIX: mason update isn't triggering updating of tools
+# gum spin --spinner globe --title "🧰 mason.nvim updating" -- nvim --headless "+MasonUpdate" +qa
+# echo "\n" >>/tmp/u-$NOW.txt
+# echo "✅ 🧰 mason.nvim updated"
+# gum spin --spinner globe --title "🧰 mason.nvim tools updating" -- nvim --headless "+MasonToolsUpdate" +qa
+# echo "\n" >>/tmp/u-$NOW.txt
+# echo "✅ 🧰 mason.nvim tools updated"
 
 gum spin --spinner globe --title "🌳 nvim-treesitter updating" -- nvim --headless "+TSUpdate" +qa
 echo "\n" >>/tmp/u-$NOW.txt
