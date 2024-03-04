@@ -1,7 +1,22 @@
 #!/bin/bash
 
+# Colors
+SESH_LIST=$(sesh list --json)
+
+TMUX_SESSIONS=$(echo "$SESH_LIST" | jq '.[] | select(.Src == "tmux")')
+ZOXIDE_SESSIONS=$(echo "$SESH_LIST" | jq '.[] | select(.Src == "zoxide")')
+
+GRAY_TEXT='\033[1;30m'
+NORMAL_TEXT='\033[0m'
+
+FORMATTED_TMUX_SESSIONS=$(echo "$TMUX_SESSIONS" | jq -r '. | "⚡ " + .Name')
+FORMATTED_ZOXIDE_SESSIONS=$(echo "$ZOXIDE_SESSIONS" | jq -r '. | "📁 " + .Name')
+
+LIST="$FORMATTED_TMUX_SESSIONS $FORMATTED_ZOXIDE_SESSIONS"
+FORMATTED_LIST=$(printf "%s\n" $LIST)
+
 CHOICE=$(
-	sesh list -H | fzf-tmux -p 50%,60% \
+	echo $FORMATTED_LIST | awk 'BEGIN {RS=" "} {c++; if (c % 2 == 0) {printf("%s\n",$0)} else {printf("%s ",$0)}}' | fzf-tmux -p 50%,60% \
 		--no-sort --border-label ' sesh ' --prompt '⚡  ' \
 		--header '  ^a all ^t tmux ^x zoxide ^f find ^d tmux kill ^u zoxide remove' \
 		--bind 'tab:down,btab:up' \
@@ -12,4 +27,4 @@ CHOICE=$(
 		--bind 'ctrl-d:execute(tmux kill-session -t {})+change-prompt(⚡  )+reload(sesh list)'
 )
 
-sesh connect "$CHOICE"
+sesh connect "${CHOICE#* }"

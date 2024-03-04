@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# cSpell:words worktree
+cd ~/c/nu
+BRANCH=$(gum input --placeholder "New branch name")
+git worktree add $BRANCH -b jam/$BRANCH origin/main
+git push --set-upstream origin jam/$BRANCH
+cd $BRANCH
+pnpm i
+ls -d */ | xargs -I {} zoxide add {}
+cd packages
+ls -d */ | xargs -I {} zoxide add {}
+cd ../apps
+ls -d */ | xargs -I {} zoxide add {}
+cd ../
+sesh connect .
