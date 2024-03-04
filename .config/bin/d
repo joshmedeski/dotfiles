@@ -23,12 +23,6 @@ if [ -f "d" ]; then
 	exit 0
 fi
 
-# if [ -z "$TMUX" ]; then
-# 	echo 'Not in tmux'
-# else
-# 	tmux rename-window '🤖'
-# fi
-
 if [ -f package-lock.json ]; then
 	echo "npm run $DEV_SCRIPT"
 	npm run "$DEV_SCRIPT"
