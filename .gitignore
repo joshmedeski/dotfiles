@@ -54,3 +54,4 @@ pids
 run
 .gitconfig
 .config/fish/conf.d/clickup.fish
+Library/Preferences/ru.keepcoder.Telegram.plist
