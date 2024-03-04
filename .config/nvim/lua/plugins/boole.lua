@@ -9,7 +9,7 @@ return {
       -- 6
     },
     additions = {
-      { "production", "development", "test" },
+      { "production", "development", "test", "sandbox" },
       { "let", "const" },
       { "start", "end" },
       { "before", "after" },
