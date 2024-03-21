@@ -87,7 +87,7 @@ abbr ni "npm install"
 abbr nt "npm run test"
 abbr nxdg "nx dep-graph"
 abbr ns "nu seed"
-abbr nt nu_new_worktree
+abbr nw nu_new_worktree
 
 abbr o "open ."
 abbr oc "overmind connect (overmind ps | fzf | awk '{print $1}')"
