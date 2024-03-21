@@ -1,6 +1,12 @@
 return {
   "nvim-neotest/neotest",
-  dependencies = { "marilari88/neotest-vitest" },
+  dependencies = {
+    "antoinemadec/FixCursorHold.nvim",
+    "marilari88/neotest-vitest",
+    "nvim-lua/plenary.nvim",
+    "nvim-neotest/nvim-nio",
+    "nvim-treesitter/nvim-treesitter",
+  },
   opts = function(_, opts)
     table.insert(opts.adapters, require("neotest-vitest"))
   end,
