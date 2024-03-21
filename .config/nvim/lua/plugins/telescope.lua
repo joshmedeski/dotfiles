@@ -2,27 +2,30 @@
 return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
-    "kkharji/sqlite.lua",
-    { "prochri/telescope-all-recent.nvim", opts = {} },
-    "AckslD/nvim-neoclip.lua",
-    "danielvolchek/tailiscope.nvim",
-    "debugloop/telescope-undo.nvim",
-    "natecraddock/telescope-zf-native.nvim",
-    "ThePrimeagen/harpoon",
-    "joshmedeski/telescope-smart-goto.nvim",
-    "piersolenski/telescope-import.nvim",
     {
-      "nvim-telescope/telescope-live-grep-args.nvim",
-      version = "^1.0.0",
+      "prochri/telescope-all-recent.nvim",
+      dependencies = {
+        "kkharji/sqlite.lua",
+      },
+      opts = {},
     },
     {
       "danielfalk/smart-open.nvim",
       branch = "0.2.x",
-      config = function() end,
       dependencies = {
         "kkharji/sqlite.lua",
         { "nvim-telescope/telescope-fzy-native.nvim" },
       },
+    },
+
+    "AckslD/nvim-neoclip.lua",
+    "danielvolchek/tailiscope.nvim",
+    "debugloop/telescope-undo.nvim",
+    "natecraddock/telescope-zf-native.nvim",
+    "piersolenski/telescope-import.nvim",
+    {
+      "nvim-telescope/telescope-live-grep-args.nvim",
+      version = "^1.0.0",
     },
     "vuki656/package-info.nvim",
   },
@@ -30,13 +33,11 @@ return {
   config = function(_, opts)
     local telescope = require("telescope")
     telescope.setup(opts)
-    telescope.load_extension("harpoon")
     telescope.load_extension("import")
     telescope.load_extension("live_grep_args")
     telescope.load_extension("neoclip")
     telescope.load_extension("notify")
     telescope.load_extension("package_info")
-    telescope.load_extension("smart_goto")
     telescope.load_extension("smart_open")
     telescope.load_extension("tailiscope")
     telescope.load_extension("undo")
@@ -125,7 +126,9 @@ return {
   },
   keys = function()
     return {
+      -- TODO: last telescope
       { "<leader>*", "<cmd>Telescope grep_string<cr>", { silent = true, desc = "Grep Word Under Cursor" } },
+      { "<leader>.", "<cmd>Telescope resume<cr>", { silent = true, desc = "Resume Telescope" } },
     }
   end,
 }
