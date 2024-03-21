@@ -64,5 +64,9 @@ gum spin --spinner globe --title "🍻 brew doctoring" --show-output -- brew doc
 echo "\n" >>/tmp/u-$NOW.txt
 echo "✅ 🍻 brew doctored"
 
+gum spin --spinner globe --title "🍎 mas upgrading" --show-output -- mas upgrade >>/tmp/u-$NOW.txt
+echo "\n" >>/tmp/u-$NOW.txt
+echo "✅ 🍎 mas upgraded"
+
 echo "✅ 🧾 logged to /tmp/u-$NOW.txt"
 man /tmp/u-$NOW.txt
