@@ -34,6 +34,7 @@ end
 return {
   "b0o/incline.nvim",
   enabled = true,
+  event = "BufEnter",
   config = function()
     require("incline").setup({
       hide = {
