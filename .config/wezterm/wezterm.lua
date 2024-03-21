@@ -21,9 +21,10 @@ local wallpapers_glob = os.getenv("HOME")
 	.. "/Library/Mobile Documents/com~apple~CloudDocs/PARA/Resources 🧰/Wallpapers - macOS 💻/active/**"
 
 local config = {
+	-- default_prog = { "/opt/homebrew/bin/sesh" },
 	background = {
 		w.get_wallpaper(wallpapers_glob),
-		b.get_background(0.8, 0.8),
+		b.get_background(0.8, 0.9),
 	},
 
 	font_size = 20,
