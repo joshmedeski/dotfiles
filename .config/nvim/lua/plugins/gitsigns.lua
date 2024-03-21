@@ -3,7 +3,7 @@ return {
   "lewis6991/gitsigns.nvim",
   event = "BufReadPre",
   opts = function()
-    local icons = require("config.icons")
+    -- local icons = require("config.icons")
     --- @type Gitsigns.Config
     local C = {
       signs = {
