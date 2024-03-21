@@ -13,8 +13,7 @@ return {
       custom_highlights = function(colors)
         return {
           CurSearch = { bg = colors.yellow },
-          DiffChanged = { fg = colors.yellow },
-          Diffchanged = { fg = colors.yellow },
+          GitSignsChange = { fg = colors.blue },
         }
       end,
       integrations = {
