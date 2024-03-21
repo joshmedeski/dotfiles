@@ -1,5 +1,6 @@
 return {
   "folke/zen-mode.nvim",
+  cmd = "ZenMode",
   deps = {
     "b0o/incline.nvim",
   },
