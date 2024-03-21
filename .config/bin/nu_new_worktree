@@ -2,14 +2,28 @@
 # cSpell:words worktree
 cd ~/c/nu
 BRANCH=$(gum input --placeholder "New branch name")
-git worktree add $BRANCH -b jam/$BRANCH origin/main
-git push --set-upstream origin jam/$BRANCH
+BRANCH=${BRANCH#jam/}
+echo "🌳 Using branch 'jam/$BRANCH'"
+REMOTE_BRANCH=$(git ls-remote --heads origin jam/$BRANCH | wc -l)
+if [ $REMOTE_BRANCH -eq 0 ]; then
+	echo "☁️ Branch 'jam/$BRANCH' does not exist on remote, creating it"
+	git worktree add $BRANCH -b jam/$BRANCH origin/main
+	git push --set-upstream origin jam/$BRANCH
+else
+	echo "☁️ Branch 'jam/$BRANCH' exists on remote, using it"
+	git worktree add $BRANCH -b jam/$BRANCH origin/jam/$BRANCH
+fi
+
 cd $BRANCH
+echo "📦 Installing dependencies"
 pnpm i
+echo "👷 Building"
+pnpm build
 ls -d */ | xargs -I {} zoxide add {}
 cd packages
 ls -d */ | xargs -I {} zoxide add {}
 cd ../apps
 ls -d */ | xargs -I {} zoxide add {}
 cd ../
+echo "🔗 Connecting to session"
 sesh connect .
