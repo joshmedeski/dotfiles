@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+if [ "$(pwd)" = "$HOME/c/sesh" ]; then
+	(cd "$HOME/c/sesh" && go build -o "$GOPATH/bin/sesh")
+	echo "✅ Built to ~/go/bin/sesh"
+fi
+
 # Get argument for script key/name, default to dev
 BUILD_SCRIPT="${1:-build}"
 
