@@ -1,5 +1,5 @@
 [manager]
-layout         = [ 1, 4, 3 ]
+ratio         = [ 1, 2, 4 ]
 sort_by        = "modified"
 sort_sensitive = true
 sort_reverse   = true
@@ -10,8 +10,8 @@ show_symlink   = true
 
 [preview]
 tab_size        = 2
-max_width       = 600
-max_height      = 900
+max_width       = 2000
+max_height      = 1200
 cache_dir       = ""
 ueberzug_scale  = 1
 ueberzug_offset = [ 0, 0, 0, 0 ]
@@ -72,6 +72,9 @@ bizarre_retry = 5
 
 [plugins]
 preload = []
+prepend_previewers = [
+	{ mime = "image/heic", run = "heic" },
+]
 
 [log]
 enabled = false
