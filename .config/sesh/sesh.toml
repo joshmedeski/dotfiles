@@ -1,5 +1,93 @@
-default_startup_script = "~/.config/sesh/scripts/open_files"
+# import = ["~/c/sesh/sesh.toml"]
 
-[[startup_scripts]]
-session_path = "~/c/joshmedeski.com"
+[default_session]
+startup_command = "nvim +GoToFile"
+
+[[session]]
+name = "tmux config"
+path = "~/c/dotfiles/.config/tmux"
+# tmuxp = "~/c/dotfiles/.config/tmux/tmuxp-tmux.yml"
+# tmuxp = "/Users/joshmedeski/c/dotfiles/.config/tmux/tmuxp-tmux.yml"
+startup_command = "nvim tmux.conf"
+
+# [[session]]
+# TODO: update the name fo the session to "update done ✅" when the u script ends
+# name = "update" 
+# path = "~/c/dotfiles"
+# startup_command = "u"
+# TODO: implement "detatched feature"
+# detached = true # never attach to this session, just create it in the background
+
+[[session]]
+name = "neovim config"
+path = "~/c/dotfiles/.config/nvim"
+
+[[session]]
+name = "fish config"
+path = "~/c/dotfiles/.config/fish"
+startup_command = "nvim config.fish"
+
+[[session]]
+name = "wezterm config"
+path = "~/c/dotfiles/.config/wezterm"
+startup_command = "nvim wezterm.lua"
+
+[[session]]
+name = "nutiliti new worktree"
+path = "~/c/nu"
+# TODO: auto-close this session when the worktree has been created successfully?  
+# TODO: append [[session]] ./nu/{name}/package/* to this config for dev mode bonus
+startup_commad = "nu_new_worktree"
+
+[[session]]
+name = "second brain 🧠"
+path = "~/c/second-brain"
+startup_command = "nvim +ObsidianToday"
+
+[[session]]
+name = "sesh cli ⚡"
+path = "~/c/sesh"
+
+[[session]]
+name = "sesh config"
+path = "~/c/dotfiles/.config/sesh"
+startup_command = "nvim sesh.toml"
+
+[[session]]
+name = "my custom binaries"
+path = "~/c/dotfiles/.config/bin"
+
+[[session]]
+name = "update"
+path = "~/c/dotfiles"
+startup_command = "u"
+
+[[session]]
+name = "blog posts"
+path = "~/c/joshmedeski.com/src/content/posts"
+
+[[session]]
+path = "~/c/joshmedeski.com"
+startup_script = "~/.config/sesh/scripts/node_dev"
+# or
+# tmuxp = "~/.config/tmux/tmuxp/joshmedeski.com.yml"
+# or
+# tmuxinator = "~/.config/tmux/tmuxinator/joshmedeski.com.yml"
+
+[[session]]
+session_path = "~/c/nu/main/packages/*"
 script_path = "~/.config/sesh/scripts/node_dev"
+
+
+# TODO: implement this 
+# script_command = "nvim ~/.tmux"
+
+[[session]]
+name = "tmux-fzf-url 🖇️"
+path = "~/.config/tmux/plugins/tmux-fzf-url"
+startup_command = "nvim fzf-url.sh"
+
+[[session]]
+name = "Downloads 📥"
+path = "~/Downloads"
+startup_command = "yazi"
