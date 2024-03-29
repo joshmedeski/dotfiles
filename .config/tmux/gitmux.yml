@@ -11,8 +11,6 @@ tmux:
   symbols:
     branch: " "
     hashprefix: ":"
-    ahead: " "
-    behind: " "
     staged: " "
     conflict: "󰕚 "
     untracked: "󱀶 "
@@ -30,7 +28,7 @@ tmux:
     untracked: "#[fg=gray,nobold]"
     stashed: "#[fg=gray,nobold]"
     clean: "#[fg=green,nobold]"
-    divergence: "#[fg=cyan,nobold]"
+    divergence: "#[fg=yellow,nobold]"
   layout: [stats, flags, divergence, branch]
   options:
     branch_max_len: 0
