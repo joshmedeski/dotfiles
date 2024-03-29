@@ -24,7 +24,7 @@ local config = {
 	-- default_prog = { "/opt/homebrew/bin/sesh" },
 	background = {
 		w.get_wallpaper(wallpapers_glob),
-		b.get_background(0.8, 0.9),
+		b.get_background(0.85, 0.9),
 	},
 
 	font_size = 20,
