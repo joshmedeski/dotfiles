@@ -105,7 +105,6 @@ local config = {
 		k.cmd_to_tmux_prefix("w", "x"),
 		k.cmd_to_tmux_prefix("z", "z"),
 		k.cmd_to_tmux_prefix("Z", "Z"),
-		k.cmd_to_tmux_prefix("q", "Q"),
 
 		k.cmd_key(
 			"R",
