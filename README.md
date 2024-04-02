@@ -17,7 +17,6 @@ My dotfiles are managed by [GNU Stow](https://www.gnu.org/software/stow/).
 stow . -t ~
 ```
 
-
 ## Software
 
 - Terminal: [Wezterm](https://wezfurlong.org/wezterm)
@@ -25,10 +24,12 @@ stow . -t ~
 - Colors: [catppuccin](https://github.com/catppuccin/catppuccin)
 - Shell: [fish](https://fishshell.com)
 - Multiplexer: [tmux](https://github.com/tmux/tmux/wiki)
+  - Session manager: [sesh](https://github.com/joshmedeski/sesh)
 - Editor: [Neovim](https://neovim.io)
+  - Configuration: [LazyVim](https://www.lazyvim.org/)
 - Git: [lazygit](https://github.com/jesseduffield/lazygit)
-- macOS package manager: [Homebrew](https://brew.sh)
 - npm package manager: [pnpm](https://pnpm.io/)
+- macOS package manager: [Homebrew](https://brew.sh)
 
 ## Hardware
 
@@ -37,7 +38,8 @@ stow . -t ~
 
 ## Keyboards
 
-- [Zsa Moonlander](https://www.zsa.io/moonlander/)
-- [NuPhy Air75 (v1)](https://nuphy.com/products/air75-v2)
+- [Zsa Moonlander](https://www.zsa.io/moonlander/) (daily driver)
+- [NuPhy Air75 (v1)](https://nuphy.com/products/air75-v2) (when I'm out)
+- [KBDcraft 001 Adam](https://kbdcraft.store/products/adam)
 - [IQUNIX L80 Cosmic Traveller](https://iqunix.store/collections/80-series/products/iqunix-l80-cosmic-traveller)
 - [Zsa Ergodox EZ](https://ergodox-ez.com)
