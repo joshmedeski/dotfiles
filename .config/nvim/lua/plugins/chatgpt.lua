@@ -1,6 +1,7 @@
 return {
   "jackMort/ChatGPT.nvim",
-  enabled = false,
+  enabled = true,
+  cmd = { "ChatGPT" },
   config = function()
     require("chatgpt").setup({
       api_key_cmd = "op read op://Personal/ChatGPT/api_key --no-newline",

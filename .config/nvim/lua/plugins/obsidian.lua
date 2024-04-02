@@ -7,11 +7,11 @@ return {
     "nvim-treesitter/nvim-treesitter",
     -- "preservim/vim-markdown",
   },
-  event = {
-    "BufReadPre " .. vim.fn.expand("~") .. "/c/second-brain/**.md",
-    "BufNewFile " .. vim.fn.expand("~") .. "/c/second-brain/**.md",
-  },
-  commands = {
+  -- event = {
+  --   "BufReadPre " .. vim.fn.expand("~") .. "/c/second-brain/**.md",
+  --   "BufNewFile " .. vim.fn.expand("~") .. "/c/second-brain/**.md",
+  -- },
+  cmd = {
     "ObsidianOpen",
     "ObsidianNew",
     "ObsidianQuickSwitch",
