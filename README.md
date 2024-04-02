@@ -4,6 +4,17 @@
 
 This is the home of all my dotfiles. These are files that add custom configurations to my computer and applications, primarily the terminal.
 
+## How to install
+
+My dotfiles are managed by [GNU Stow](https://www.gnu.org/software/stow/).
+
+Run this command from inside the cloned repository.
+
+```sh
+stow . -t ~
+```
+
+
 ## Software
 
 - Terminal: [Wezterm](https://wezfurlong.org/wezterm)
