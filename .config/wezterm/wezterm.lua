@@ -8,6 +8,21 @@
 -- A GPU-accelerated cross-platform terminal emulator
 -- https://wezfurlong.org/wezterm/
 
+local dark_opacity = 0.85
+local light_opacity = 0.9
+
+local fonts = {
+	"CommitMono",
+	-- "Monaspace Argon",
+	-- "Monaspace Krypton",
+	-- "Monaspace Neon",
+	-- "Monaspace Radon",
+	-- "Monaspace Xenon",
+}
+
+local wallpapers_glob = os.getenv("HOME")
+	.. "/Library/Mobile Documents/com~apple~CloudDocs/PARA/Resources 🧰/Wallpapers - macOS 💻/active/**"
+
 local b = require("utils/background")
 local cs = require("utils/color_scheme")
 local f = require("utils/font")
@@ -17,27 +32,17 @@ local w = require("utils/wallpaper")
 
 local wezterm = require("wezterm")
 local act = wezterm.action
-local wallpapers_glob = os.getenv("HOME")
-	.. "/Library/Mobile Documents/com~apple~CloudDocs/PARA/Resources 🧰/Wallpapers - macOS 💻/active/**"
 
 local config = {
-	-- default_prog = { "/opt/homebrew/bin/sesh" },
 	background = {
 		w.get_wallpaper(wallpapers_glob),
-		b.get_background(0.85, 0.9),
+		b.get_background(dark_opacity, light_opacity),
 	},
 
 	font_size = 20,
 
 	line_height = 1.1,
-	font = f.get_font({
-		"CommitMono",
-		-- "Monaspace Argon",
-		-- "Monaspace Krypton",
-		-- "Monaspace Neon",
-		-- "Monaspace Radon",
-		-- "Monaspace Xenon",
-	}),
+	font = f.get_font(fonts),
 
 	color_scheme = cs.get_color_scheme(),
 
