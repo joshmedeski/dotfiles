@@ -8,6 +8,11 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 })
 
 vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = { "yazi.toml" },
+  command = "execute 'silent !yazi --clear-cache'",
+})
+
+vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = { "config.fish" },
   command = "execute 'silent !source <afile> --silent'",
 })
