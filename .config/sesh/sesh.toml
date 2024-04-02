@@ -4,6 +4,15 @@
 startup_command = "nvim +GoToFile"
 
 [[session]]
+name = "spotify"
+path = "~/git_repos/dotfiles/spotify-player"
+startup_script = "~/git_repos/dotfiles/sesh/bin/spotify.sh"
+
+[[session]]
+name = "Home 🏡"
+path = "~/"
+
+[[session]]
 name = "tmux config"
 path = "~/c/dotfiles/.config/tmux"
 # tmuxp = "~/c/dotfiles/.config/tmux/tmuxp-tmux.yml"
@@ -26,6 +35,11 @@ path = "~/c/dotfiles/.config/nvim"
 name = "fish config"
 path = "~/c/dotfiles/.config/fish"
 startup_command = "nvim config.fish"
+
+[[session]]
+name = "yazi config"
+path = "~/c/dotfiles/.config/yazi"
+startup_command = "nvim yazi.toml"
 
 [[session]]
 name = "wezterm config"
@@ -58,9 +72,10 @@ name = "my custom binaries"
 path = "~/c/dotfiles/.config/bin"
 
 [[session]]
-name = "update"
+name = "dotfiles"
 path = "~/c/dotfiles"
-startup_command = "u"
+startup_command = "lazygit"
+# startup_command = "u"
 
 [[session]]
 name = "blog posts"

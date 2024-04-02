@@ -1,0 +1,11 @@
+session_name: tmux
+windows:
+  - window_name: dev window
+    layout: tiled
+    panes:
+      - shell_command:
+          - echo hello world
+          - ls
+      - echo second pane
+      - echo third pane
+      - echo forth pane
