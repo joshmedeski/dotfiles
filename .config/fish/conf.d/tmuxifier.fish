@@ -1,2 +1,2 @@
-eval (tmuxifier init - fish)
-fish_add_path ~/.config/tmux/plugins/tmuxifier/bin
+# eval (tmuxifier init - fish)
+# fish_add_path ~/.config/tmux/plugins/tmuxifier/bin
