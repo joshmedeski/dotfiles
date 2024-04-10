@@ -1,15 +1,9 @@
 return {
-  "nvim-neotest/neotest",
-  dependencies = {
-    "antoinemadec/FixCursorHold.nvim",
-    "marilari88/neotest-vitest",
-    "nvim-lua/plenary.nvim",
-    "nvim-neotest/nvim-nio",
-    "nvim-treesitter/nvim-treesitter",
+  { "marilari88/neotest-vitest" },
+  {
+    "nvim-neotest/neotest",
+    opts = { adapters = { "neotest-vitest" } },
   },
-  opts = function(_, opts)
-    table.insert(opts.adapters, require("neotest-vitest"))
-  end,
   keys = {
     { "<leader>ta", "<cmd>lua require('neotest').run.attach()<cr>", desc = "Attach to the nearest test" },
     { "<leader>tl", "<cmd>lua require('neotest').run.run_last()<cr>", desc = "Toggle Test Summary" },
