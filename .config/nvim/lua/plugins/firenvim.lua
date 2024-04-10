@@ -13,4 +13,7 @@ return {
   --     },
   --   }
   -- end,
+  setup = function()
+    vim.g.firenvim_config.localSettings[".*"] = { takeover = "never" }
+  end,
 }
