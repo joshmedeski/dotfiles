@@ -10,10 +10,10 @@ gui:
   language: "auto" # one of 'auto' | 'en' | 'zh' | 'pl' | 'nl'
   theme:
     activeBorderColor:
-      - magenta
+      - white
       - bold
     inactiveBorderColor:
-      - blue
+      - black
     optionsTextColor:
       - black
     selectedLineBgColor:
