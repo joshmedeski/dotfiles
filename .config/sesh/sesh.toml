@@ -3,10 +3,10 @@
 [default_session]
 startup_command = "nvim +GoToFile"
 
-[[session]]
-name = "spotify"
-path = "~/git_repos/dotfiles/spotify-player"
-startup_script = "~/git_repos/dotfiles/sesh/bin/spotify.sh"
+# [[session]]
+# name = "spotify"
+# path = "~/git_repos/dotfiles/spotify-player"
+# startup_script = "~/git_repos/dotfiles/sesh/bin/spotify.sh"
 
 [[session]]
 name = "Home 🏡"
@@ -18,6 +18,11 @@ path = "~/c/dotfiles/.config/tmux"
 # tmuxp = "~/c/dotfiles/.config/tmux/tmuxp-tmux.yml"
 # tmuxp = "/Users/joshmedeski/c/dotfiles/.config/tmux/tmuxp-tmux.yml"
 startup_command = "nvim tmux.conf"
+
+[[session]]
+name = "gitmux config"
+path = "~/c/dotfiles/.config/tmux"
+startup_command = "nvim gitmux.conf"
 
 # [[session]]
 # TODO: update the name fo the session to "update done ✅" when the u script ends
