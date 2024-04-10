@@ -4,7 +4,7 @@ cd ~/c/nu
 BRANCH=$(gum input --placeholder "New branch name")
 BRANCH=${BRANCH#jam/}
 echo "🌳 Using branch 'jam/$BRANCH'"
-REMOTE_BRANCH=$(git ls-remote --heads origin jam/$BRANCH | wc -l)
+REMOTE_BRANCH=$(git ls-remote --heads origin $BRANCH | wc -l)
 if [ $REMOTE_BRANCH -eq 0 ]; then
 	echo "☁️ Branch 'jam/$BRANCH' does not exist on remote, creating it"
 	git worktree add $BRANCH -b jam/$BRANCH origin/main
