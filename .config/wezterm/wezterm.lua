@@ -42,7 +42,10 @@ local config = {
 	font_size = 20,
 
 	line_height = 1.1,
-	font = f.get_font(fonts),
+	font = wezterm.font_with_fallback({
+		"CommitMono",
+		"DengXian",
+	}),
 
 	color_scheme = cs.get_color_scheme(),
 
