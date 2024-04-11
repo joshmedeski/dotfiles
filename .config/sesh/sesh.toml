@@ -13,6 +13,11 @@ name = "Home 🏡"
 path = "~/"
 
 [[session]]
+name = "Code 💻"
+path = "~/c"
+startup_command = "l"
+
+[[session]]
 name = "tmux config"
 path = "~/c/dotfiles/.config/tmux"
 # tmuxp = "~/c/dotfiles/.config/tmux/tmuxp-tmux.yml"
@@ -62,10 +67,6 @@ startup_commad = "nu_new_worktree"
 name = "second brain 🧠"
 path = "~/c/second-brain"
 startup_command = "nvim +ObsidianToday"
-
-[[session]]
-name = "sesh cli ⚡"
-path = "~/c/sesh"
 
 [[session]]
 name = "sesh config"
