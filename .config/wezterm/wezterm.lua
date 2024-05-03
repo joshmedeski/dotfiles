@@ -45,6 +45,7 @@ local config = {
 	font = wezterm.font_with_fallback({
 		"CommitMono",
 		"DengXian",
+		{ family = "Symbols Nerd Font Mono" },
 	}),
 
 	color_scheme = cs.get_color_scheme(),
