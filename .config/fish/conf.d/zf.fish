@@ -1,9 +1,11 @@
-#          _|
-# _  /  |
-#   /   __|
-# ___| _|
-# https://github.com/natecraddock/zf
+# ███████╗███████╗
+# ╚══███╔╝██╔════╝
+#   ███╔╝ █████╗
+#  ███╔╝  ██╔══╝
+# ███████╗██║
+# ╚══════╝╚═╝
 # a commandline fuzzy finder designed for filtering filepaths
+# https://github.com/natecraddock/zf
 
 set -Ux FZ_PROMPT ' '
 set -Ux FZ_HIGHLIGHT green
