@@ -1,4 +1,4 @@
-# import = ["~/c/sesh/sesh.toml"]
+import = ["~/c/deyis-project/.sesh.toml"]
 
 [default_session]
 startup_command = "nvim +GoToFile"
@@ -10,7 +10,8 @@ startup_command = "nvim +GoToFile"
 
 [[session]]
 name = "Home 🏡"
-path = "~/"
+path = "~"
+startup_command = "l"
 
 [[session]]
 name = "Code 💻"
@@ -28,6 +29,10 @@ startup_command = "nvim tmux.conf"
 name = "gitmux config"
 path = "~/c/dotfiles/.config/tmux"
 startup_command = "nvim gitmux.conf"
+
+[[session]]
+name = "hammerspoon config"
+path = "~/c/dotfiles/.hammerspoon"
 
 # [[session]]
 # TODO: update the name fo the session to "update done ✅" when the u script ends
@@ -112,3 +117,8 @@ startup_command = "nvim fzf-url.sh"
 name = "Downloads 📥"
 path = "~/Downloads"
 startup_command = "yazi"
+
+[[session]]
+name = "lazy plugins"
+path = "~/.local/share/nvim/lazy"
+startup_command = "sesh connect (ls | fzf --no-border --preview 'glow -s auto {}/README.md') && exit"
