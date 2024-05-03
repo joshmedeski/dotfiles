@@ -23,12 +23,11 @@ function _fzf_search_variables --argument-names set_show_output set_names_output
     set -f variable_names_selected (
         printf '%s\n' $all_variable_names |
         _fzf_wrapper --preview "_fzf_extract_var_info {} $set_show_output" \
-            --prompt="Search Variables> " \
+            --prompt="Variables> " \
             --preview-window="wrap" \
             --multi \
             --query=$cleaned_curr_token \
-            # $fzf_shell_vars_opts is the deprecated version of $fzf_variables_opts
-            $fzf_shell_vars_opts $fzf_variables_opts
+            $fzf_variables_opts
     )
 
     if test $status -eq 0

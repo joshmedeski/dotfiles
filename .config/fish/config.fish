@@ -19,6 +19,7 @@ starship init fish | source # https://starship.rs/
 zoxide init fish | source # 'ajeetdsouza/zoxide'
 fnm --log-level quiet env --use-on-cd | source # "Schniz/fnm"
 direnv hook fish | source # https://direnv.net/
+fx --comp fish | source # https://fx.wtf/
 set -g direnv_fish_mode eval_on_arrow # trigger direnv at prompt, and on every arrow-based directory change (default)
 
 set -U fish_greeting # disable fish greeting
@@ -37,6 +38,7 @@ set -Ux GOPATH (go env GOPATH)
 fish_add_path $GOPATH/bin
 
 fish_add_path $HOME/.config/bin # my custom scripts
+fish_add_path $HOME/Library/Python/3.9/bin
 
 set copilot_cli_path (which github-copilot-cli)
 
