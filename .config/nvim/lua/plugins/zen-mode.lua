@@ -57,19 +57,21 @@ return {
       wezterm = {
         enabled = true,
         -- can be either an absolute font size or the number of incremental steps
-        font = "+2", -- (10% increase per step)
+        font = "+5", -- (10% increase per step)
       },
     },
     -- callback where you can add custom code when the Zen window opens
     on_open = function()
       require("noice").disable()
       require("incline").disable()
+      require("barbecue.ui").toggle(false)
       vim.g.miniindentscope_disable = true
     end,
     -- callback where you can add custom code when the Zen window closes
     on_close = function()
       require("noice").enable()
       require("incline").enable()
+      require("barbecue.ui").toggle(true)
       vim.g.miniindentscope_disable = false
     end,
   },
