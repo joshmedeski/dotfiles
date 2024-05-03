@@ -1,10 +1,25 @@
-# cSpell:disable
-# NOTE: manage fish abbreviations
+#  █████╗ ██████╗ ██████╗ ██████╗
+# ██╔══██╗██╔══██╗██╔══██╗██╔══██╗
+# ███████║██████╔╝██████╔╝██████╔╝
+# ██╔══██║██╔══██╗██╔══██╗██╔══██╗
+# ██║  ██║██████╔╝██████╔╝██║  ██║
+# ╚═╝  ╚═╝╚═════╝ ╚═════╝ ╚═╝  ╚═╝
+# abbreviations - user-defined words that are replaced with longer phrases when entered
 # https://fishshell.com/docs/current/cmds/abbr.html
+# cSpell:disable
+
+abbr :GoToCommand fzf-history-widget
+abbr :GoToFile "nvim +GoToFile"
+abbr :SmartGoTo "nvim +SmartGoTo"
+abbr :Grep "nvim +Grep"
+abbr :bd exit
+abbr :q "tmux kill-server"
+abbr :qa! "tmux kill-server"
 
 abbr ast "aw set -t (aw list | fzf-tmux -p --reverse --preview 'aw set -t {}')"
 abbr av "NVIM_APPNAME=astronvim nvim"
 
+abbr b build
 abbr bi "brew install"
 abbr bic "brew install --cask"
 abbr bin "brew info"
@@ -13,7 +28,6 @@ abbr bl "brew leaves"
 abbr blr "brew leaves --installed-on-request"
 abbr blp "brew leaves --installed-as-dependency"
 abbr bs "brew search"
-
 abbr bni "bun i"
 
 abbr c clear
@@ -22,6 +36,7 @@ abbr claer clear
 abbr clera clear
 abbr cx "chmod +x"
 
+abbr d dev
 abbr dc "docker compose"
 abbr dcd "docker compose down"
 abbr dcdv "docker compose down -v"
@@ -38,7 +53,7 @@ abbr fr "fisher refresh"
 abbr fu "fisher update"
 abbr fl "fisher list | sed 's/.*/"&"/'"
 
-abbr g "git status"
+abbr g generate
 abbr ga "git add ."
 abbr gb "git branch -v"
 abbr gc "git commit"
@@ -143,6 +158,8 @@ abbr tp "t --repo (pbpaste)"
 abbr tn "tmux new -s (basename (pwd))"
 abbr tt "touch .t && chmod +x .t && echo -e '#!/usr/bin/env bash\n' > .t && nvim .t"
 
+abbr u update
+
 abbr v "nvim +GoToFile"
 abbr vfzf "nvim (fd --type f --hidden --follow --exclude .git | fzf-tmux -p -w 100 --reverse --preview 'bat --color=always --style=numbers --line-range=:500 {}')"
 abbr va "nvim ~/.config/alacritty/alacritty.yml"
@@ -157,30 +174,6 @@ abbr vt "nvim ~/.config/tmux/tmux.conf"
 
 abbr x "chmod +x (ls | gum filter --limit 1 --header 'chmod +x')"
 
-abbr y yarn
-abbr ya "yarn add"
-abbr yad "yarn add -D"
-abbr yb "yarn build"
-abbr yd "yarn dev"
-abbr ye "yarn e2e"
-abbr yg "yarn generate"
-abbr yi "yarn install --frozen-lockfile"
-abbr yl "yarn lint"
-abbr yp "yarn plop"
-abbr ypm "yarn plop model"
-abbr ys "yarn server"
-abbr yt "yarn test"
-abbr yu "yarn ui"
-abbr yw "yarn web"
-
 abbr za "zoxide add"
 abbr zad "ls -d */ | xargs -I {} zoxide add {}"
 abbr ze "zoxide edit"
-
-abbr :GoToCommand fzf-history-widget
-abbr :GoToFile "nvim +GoToFile"
-abbr :SmartGoTo "nvim +SmartGoTo"
-abbr :Grep "nvim +Grep"
-abbr :bd exit
-abbr :q "tmux kill-server"
-abbr :qa! "tmux kill-server"

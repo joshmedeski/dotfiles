@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-tmux rename-session -t $(tmux display-message -p '#S') "🌎 updating"
+# tmux rename-session -t $(tmux display-message -p '#S') "🌎 updating"
 
 gum style \
     --foreground 12 --border-foreground 12 --border double \
@@ -31,15 +31,11 @@ gum spin --spinner globe --title "💤 lazy.nvim syncing..." -- nvim --headless 
 echo "\n" >>/tmp/u-$NOW.txt
 echo "✅ 💤 lazy.nvim synced"
 
-# FIX: mason update isn't triggering updating of tools
-# gum spin --spinner globe --title "🧰 mason.nvim updating" -- nvim --headless "+MasonUpdate" +qa
-# echo "\n" >>/tmp/u-$NOW.txt
-# echo "✅ 🧰 mason.nvim updated"
-# gum spin --spinner globe --title "🧰 mason.nvim tools updating" -- nvim --headless "+MasonToolsUpdate" +qa
+# gum spin --spinner globe --title "🧰 mason.nvim tools updating" -- nvim --headless -c MasonToolsUpdate -c "autocmd User MasonToolsUpdateCompleted quitall!"
 # echo "\n" >>/tmp/u-$NOW.txt
 # echo "✅ 🧰 mason.nvim tools updated"
 
-gum spin --spinner globe --title "🌳 nvim-treesitter updating" -- nvim --headless "+TSUpdate" +qa
+gum spin --spinner globe --title "🌳 nvim-treesitter updating" -- nvim --headless -c TSUpdate +qa
 echo "\n" >>/tmp/u-$NOW.txt
 echo "✅ 🌳 nvim-treesitter updated"
 
@@ -73,4 +69,4 @@ echo "✅ 🍎 mas upgraded"
 echo "✅ 🧾 logged to /tmp/u-$NOW.txt"
 man /tmp/u-$NOW.txt
 
-tmux rename-session -t $(tmux display-message -p '#S') "✅ update done"
+# tmux rename-session -t $(tmux display-message -p '#S') "✅ update done"
