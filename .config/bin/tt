@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-touch t
-chmod +x t
-echo -e '#!/usr/bin/env bash\n' >t
-echo -e 'nvim +GoToFile' >t
-nvim t
