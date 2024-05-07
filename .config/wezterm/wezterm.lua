@@ -84,6 +84,7 @@ local config = {
 		-- k.cmd_key("K", act.SendKey({ mods = "CTRL", key = "k" })),
 		-- k.cmd_key("K", act.SendKey({ mods = "CTRL", key = "k" })),
 		-- k.cmd_key("L", act.SendKey({ mods = "CTRL", key = "l" })),
+		k.cmd_key("O", k.multiple_actions(":GoToSymbol")),
 		k.cmd_key("P", k.multiple_actions(":GoToCommand")),
 		k.cmd_key("p", k.multiple_actions(":GoToFile")),
 		k.cmd_key("j", k.multiple_actions(":GoToFile")),

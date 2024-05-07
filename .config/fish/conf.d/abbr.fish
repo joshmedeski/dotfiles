@@ -10,6 +10,7 @@
 
 abbr :GoToCommand fzf-history-widget
 abbr :GoToFile "nvim +GoToFile"
+abbr :GoToSymbol "nvim +GoToSymbol"
 abbr :SmartGoTo "nvim +SmartGoTo"
 abbr :Grep "nvim +Grep"
 abbr :bd exit
