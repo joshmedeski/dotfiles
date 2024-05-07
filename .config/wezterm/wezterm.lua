@@ -51,10 +51,10 @@ local config = {
 	color_scheme = cs.get_color_scheme(),
 
 	window_padding = {
-		left = 30,
-		right = 30,
-		top = 20,
-		bottom = 10,
+		left = 60,
+		right = 60,
+		top = 60,
+		bottom = 60,
 	},
 
 	set_environment_variables = {
