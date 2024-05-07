@@ -58,10 +58,9 @@ local config = {
 	},
 
 	set_environment_variables = {
-		-- THEME_FLAVOUR = "latte",
 		BAT_THEME = h.is_dark() and "Catppuccin-mocha" or "Catppuccin-latte",
-		TERM = "xterm-256color",
 		LC_ALL = "en_US.UTF-8",
+		-- TODO: audit what other variables are needed
 	},
 
 	-- general options
