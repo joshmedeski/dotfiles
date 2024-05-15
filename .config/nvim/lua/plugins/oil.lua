@@ -4,7 +4,13 @@ return {
   opts = {
     view_options = { show_hidden = true },
   },
-  init = function()
-    vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
-  end,
+  keys = {
+    {
+      "-",
+      function()
+        require("oil").open()
+      end,
+      desc = "Open parent directory with oil",
+    },
+  },
 }
