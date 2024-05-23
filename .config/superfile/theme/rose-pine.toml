@@ -1,0 +1,60 @@
+# Rose Pine
+# Theme create by: https://github.com/tanbinislam43
+# Update by(sort by time):
+# 
+# Thanks for all contributor!!
+
+# If you want to make border display just set it same as sidebar background color
+
+# ========= Border =========
+file_panel_border = "#403d52"
+sidebar_border = "#191724"
+footer_border = "#403d52"
+
+# ========= Border Active =========
+file_panel_border_active = "#6e6e86"
+sidebar_border_active = "#c4a7e7"
+footer_border_active = "#f6c177"
+modal_border_active = "#868686"
+
+# ========= Background (bg) =========
+full_screen_bg = "#191724"
+file_panel_bg = "#191724"
+sidebar_bg = "#191724"
+footer_bg = "#191724"
+modal_bg = "#191724"
+
+# ========= Foreground (fg) =========
+full_screen_fg = "#e0def4"
+file_panel_fg = "#e0def4"
+sidebar_fg = "#e0def4"
+footer_fg = "#e0def4"
+modal_fg = "#e0def4"
+
+# ========= Special Color =========
+cursor = "#9ccfd8"
+correct = "#8ec07c"
+error = "#ff6969"
+hint = "#31784f"
+cancel = "#838383"
+# Gradient color can only have two color!
+gradient_color = ["#31784f", "#eb6f92"]
+
+# ========= File Panel Special Items =========
+file_panel_top_directory_icon = "#9ccfd8"
+file_panel_top_path = "#ebbcba"
+file_panel_item_selected_fg = "#c4a7e7"
+file_panel_item_selected_bg = "#191724"
+
+# ========= Sidebar Special Items =========
+sidebar_title = "#6e6e86"
+sidebar_item_selected_fg = "#f6c177"
+sidebar_item_selected_bg = "#191724"
+sidebar_divider = "#868686"
+
+# ========= Modal Special Items =========
+modal_cancel_fg = "#e0def4"
+modal_cancel_bg = "#524f67"
+
+modal_confirm_fg = "#e0def4"
+modal_confirm_bg = "#eb6f92"

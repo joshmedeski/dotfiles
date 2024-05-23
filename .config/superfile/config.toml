@@ -1,0 +1,11 @@
+transparent_backgroun = true
+metadata = false
+# change your theme
+# theme = 'catpuccin'
+# 
+# useless for now
+# footer_panel_list = ['processessssssssssss', 'metadata', 'clipboard']
+# 
+# ==========PLUGINS========== #
+# 
+# Show more detailed metadata, please install exiftool before enabling this plugin!
