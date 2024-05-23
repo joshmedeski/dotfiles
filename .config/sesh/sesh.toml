@@ -3,10 +3,19 @@ import = ["~/c/deyis-project/.sesh.toml"]
 [default_session]
 startup_command = "nvim +GoToFile"
 
+# TODO: potential feature ideas
 # [[session]]
-# name = "spotify"
-# path = "~/git_repos/dotfiles/spotify-player"
+# name = "session"
+# path = "~/path/to/session"
 # startup_script = "~/git_repos/dotfiles/sesh/bin/spotify.sh"
+# detached = true # never attach to this session, just create it in the background
+# tmuxp = "~/.config/tmux/tmuxp/joshmedeski.com.yml"
+# tmuxinator = "~/.config/tmux/tmuxinator/joshmedeski.com.yml"
+
+[[session]]
+name = "perplexica"
+path = "~/c/perplexica"
+startup_command = "docker compose up -d"
 
 [[session]]
 name = "Home 🏡"
@@ -34,13 +43,10 @@ startup_command = "nvim gitmux.conf"
 name = "hammerspoon config"
 path = "~/c/dotfiles/.hammerspoon"
 
-# [[session]]
-# TODO: update the name fo the session to "update done ✅" when the u script ends
-# name = "update" 
-# path = "~/c/dotfiles"
-# startup_command = "u"
-# TODO: implement "detatched feature"
-# detached = true # never attach to this session, just create it in the background
+[[session]]
+name = "update"
+path = "/tmp"
+startup_command = "update"
 
 [[session]]
 name = "neovim config"
@@ -95,10 +101,6 @@ path = "~/c/joshmedeski.com/src/content/posts"
 [[session]]
 path = "~/c/joshmedeski.com"
 startup_script = "~/.config/sesh/scripts/node_dev"
-# or
-# tmuxp = "~/.config/tmux/tmuxp/joshmedeski.com.yml"
-# or
-# tmuxinator = "~/.config/tmux/tmuxinator/joshmedeski.com.yml"
 
 [[session]]
 session_path = "~/c/nu/main/packages/*"
