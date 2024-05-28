@@ -1,0 +1,31 @@
+{
+  "profiles": [
+    {
+      "name": "Default",
+      "complex_modifications": {
+        "rules": [
+          {
+            "manipulators": [
+              {
+                "to_after_key_up": [
+                  { "set_variable": { "name": "hyper", "value": 0 } }
+                ],
+                "to": [{ "set_variable": { "name": "hyper", "value": 1 } }],
+                "to_if_alone": [{ "key_code": "escape" }],
+                "type": "basic",
+                "from": {
+                  "modifiers": { "optional": ["any"] },
+                  "key_code": "caps_lock"
+                },
+                "description": "Caps Lock -> Hyper Key"
+              }
+            ],
+            "description": "Hyper Key (◆)"
+          }
+        ]
+      }
+    }
+  ],
+  "global": { "show_in_menu_bar": false }
+}
+
