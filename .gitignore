@@ -5,7 +5,6 @@
 .config/fish/conf.d/openai.fish
 .config/fish/fish_variables
 .config/fish/functions/fzf_key_bindings.fish
-.config/karabiner/
 .DS_Store
 .gnupg/trustdb.gpg
 .npmrc
