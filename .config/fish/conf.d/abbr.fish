@@ -138,13 +138,9 @@ abbr pwdc "pwd | pbcopy"
 
 abbr rmr "rm -rf"
 
-abbr s sesh_start
+abbr s "sesh connect \"\$(sesh list -i | gum filter --limit 1 --fuzzy --no-sort --placeholder 'Pick a sesh' --prompt='⚡')\""
 abbr s. "sesh connect ."
-abbr sc "sesh connect"
-abbr sa "SwitchAudioSource -t output -s (SwitchAudioSource -t output -a | fzf-tmux -p --reverse)"
-abbr sai "SwitchAudioSource -t input -s (SwitchAudioSource -t input -a | fzf-tmux -p --reverse)"
-abbr sao "SwitchAudioSource -t output -s (SwitchAudioSource -t output -a | fzf-tmux -p --reverse)"
-abbr sb "sam build"
+abbr sc "sesh clone --cmdDir ~/c (pbpaste)"
 abbr sf "source ~/.config/fish/config.fish"
 abbr st "tmux source ~/.config/tmux/tmux.conf"
 
