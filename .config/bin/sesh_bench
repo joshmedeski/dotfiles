@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# Function to calculate elapsed time in milliseconds
+calculate_elapsed_time() {
+	start_time="$1"
+	end_time="$2"
+	awk "BEGIN {print ($end_time - $start_time) * 1000}"
+}
+
+# Command 1
+start_time=$(date +%s.%N)
+output1=$(sesh list)
+end_time=$(date +%s.%N)
+runtime1=$(calculate_elapsed_time $start_time $end_time)
+echo "Command 1 took $runtime1 milliseconds"
+echo "$output1" >output1.txt
+
+# Command 2
+start_time=$(date +%s.%N)
+output2=$(sesh-v2 list)
+end_time=$(date +%s.%N)
+runtime2=$(calculate_elapsed_time $start_time $end_time)
+echo "Command 2 took $runtime2 milliseconds"
+echo "$output2" >output2.txt
