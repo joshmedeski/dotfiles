@@ -13,6 +13,10 @@ startup_command = "nvim +GoToFile"
 # tmuxinator = "~/.config/tmux/tmuxinator/joshmedeski.com.yml"
 
 [[session]]
+name = "karabiner elements"
+path = "~/c/dotfiles/.config/karabiner"
+
+[[session]]
 name = "perplexica"
 path = "~/c/perplexica"
 startup_command = "docker compose up -d"
