@@ -11,21 +11,11 @@
 local dark_opacity = 0.85
 local light_opacity = 0.9
 
-local fonts = {
-	"CommitMono",
-	-- "Monaspace Argon",
-	-- "Monaspace Krypton",
-	-- "Monaspace Neon",
-	-- "Monaspace Radon",
-	-- "Monaspace Xenon",
-}
-
 local wallpapers_glob = os.getenv("HOME")
 	.. "/Library/Mobile Documents/com~apple~CloudDocs/PARA/Resources 🧰/Wallpapers - macOS 💻/active/**"
 
 local b = require("utils/background")
 local cs = require("utils/color_scheme")
-local f = require("utils/font")
 local h = require("utils/helpers")
 local k = require("utils/keys")
 local w = require("utils/wallpaper")
@@ -45,15 +35,21 @@ local config = {
 	font = wezterm.font_with_fallback({
 		"CommitMono",
 		"DengXian",
+		-- "CommitMono",
+		-- "Monaspace Argon",
+		-- "Monaspace Krypton",
+		-- "Monaspace Neon",
+		-- "Monaspace Radon",
+		-- "Monaspace Xenon",
 		{ family = "Symbols Nerd Font Mono" },
 	}),
 
 	color_scheme = cs.get_color_scheme(),
 
 	window_padding = {
-		left = 20,
+		left = 40,
 		right = 20,
-		top = 20,
+		top = 30,
 		bottom = 20,
 	},
 
