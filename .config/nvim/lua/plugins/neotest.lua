@@ -7,6 +7,9 @@ return {
   opts = {
     adapters = {
       ["neotest-vitest"] = {},
+      ["neotest-go"] = {
+        args = { "-coverprofile=" .. vim.fn.getcwd() .. "/coverage.out" },
+      },
     },
   },
   keys = {
