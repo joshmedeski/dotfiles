@@ -30,5 +30,12 @@ return {
       "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>",
       desc = "Run test the current file",
     },
+    {
+      "<leader>td",
+      function()
+        require("neotest").run.run({ suite = false, strategy = "dap" })
+      end,
+      desc = "Debug nearest test",
+    },
   },
 }
