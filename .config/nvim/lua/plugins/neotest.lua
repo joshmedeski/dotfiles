@@ -3,11 +3,17 @@ return {
   optional = true,
   dependencies = {
     "marilari88/neotest-vitest",
+    {
+      "fredrikaverpil/neotest-golang",
+      dependencies = {
+        "leoluz/nvim-dap-go",
+      },
+    },
   },
   opts = {
     adapters = {
       ["neotest-vitest"] = {},
-      ["neotest-go"] = {
+      ["neotest-golang"] = {
         args = { "-coverprofile=" .. vim.fn.getcwd() .. "/coverage.out" },
       },
     },
@@ -23,6 +29,13 @@ return {
       "<leader>tT",
       "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>",
       desc = "Run test the current file",
+    },
+    {
+      "<leader>td",
+      function()
+        require("neotest").run.run({ suite = false, strategy = "dap" })
+      end,
+      desc = "Debug nearest test",
     },
   },
 }
