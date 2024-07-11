@@ -38,6 +38,7 @@ set -Ux GOPATH (go env GOPATH)
 fish_add_path $GOPATH/bin
 
 fish_add_path $HOME/.config/bin # my custom scripts
+fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/Library/Python/3.9/bin
 
 set copilot_cli_path (which github-copilot-cli)
