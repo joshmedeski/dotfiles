@@ -1,12 +1,17 @@
 #!/usr/bin/env bash
 
-if [ "$(pwd)" = "$HOME/c/sesh" ]; then
-	(cd "$HOME/c/sesh" && go build -o "$GOPATH/bin/sesh")
-	echo "✅ Built to ~/go/bin/sesh"
-fi
+# NOTE: was a placeholder (replacing with Makefile)
+# if [ "$(pwd)" = "$HOME/c/sesh" ]; then
+# 	(cd "$HOME/c/sesh" && go build -o "$GOPATH/bin/sesh")
+# 	echo "✅ Built to ~/go/bin/sesh"
+# fi
 
 # Get argument for script key/name, default to dev
 BUILD_SCRIPT="${1:-build}"
+
+if [ -f Makefile ]; then
+	make "$BUILD_SCRIPT"
+fi
 
 # First, check if the jq command is available
 # AND there is a package.json file in the current directory
