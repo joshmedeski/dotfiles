@@ -23,6 +23,7 @@ local w = require("utils/wallpaper")
 local wezterm = require("wezterm")
 local act = wezterm.action
 
+---@type Config
 local config = {
 	background = {
 		w.get_wallpaper(wallpapers_glob),
