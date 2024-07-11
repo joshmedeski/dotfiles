@@ -5,11 +5,10 @@ return {
     "nvim-tree/nvim-web-devicons",
   },
   name = "barbecue",
-  enabled = true,
+  enabled = false,
   event = "BufEnter",
-  ---@type barbecue.Config
+  -- @type barbecue.Config
   opts = {
-    -- TODO: trouble
     theme = "catppuccin-frappe", -- catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
     show_navic = false,
     symbols = {
