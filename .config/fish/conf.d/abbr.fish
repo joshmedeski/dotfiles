@@ -91,9 +91,11 @@ abbr lg lazygit
 abbr ll "lsd  --group-dirs first -Al"
 abbr lt "lsd  --group-dirs last -A --tree"
 
-abbr mt "man tmux"
-abbr mf "man fzf"
-abbr mz "man zoxide"
+abbr mnf "man fzf"
+abbr mnt "man tmux"
+abbr mnz "man zoxide"
+abbr mb "make build"
+abbr mt "make test"
 
 abbr nb "npm run build"
 abbr nd "npm run dev"
