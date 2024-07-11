@@ -7,3 +7,5 @@ export PATH="~/go/bin:$PATH"
 # source /Users/joshmedeski/.config/broot/launcher/bash/br
 
 source <(pkgx --shellcode)  #docs.pkgx.sh/shellcode
+if [ -f "/Users/joshmedeski/.config/fabric/fabric-bootstrap.inc" ]; then . "/Users/joshmedeski/.config/fabric/fabric-bootstrap.inc"; fi
+
