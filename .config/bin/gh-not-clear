@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+NOTIFICATIONS=$(gh api \
+	-H "Accept: application/vnd.github+json" \
+	-H "X-GitHub-Api-Version: 2022-11-28" \
+	"/repos/ollama/ollama/notifications?all=true")
+
+# print id on the object { id: string} for each notification
+for notification in $(echo "$NOTIFICATIONS" | jq -r '.[] | .id'); do
+	DELETE=$(gh api \
+		--method DELETE \
+		-H "Accept: application/vnd.github+json" \
+		-H "X-GitHub-Api-Version: 2022-11-28" \
+		/notifications/threads/$notification)
+	echo "$notification"
+	echo "$DELETE"
+done
