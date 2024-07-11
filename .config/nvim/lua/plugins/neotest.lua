@@ -3,11 +3,13 @@ return {
   optional = true,
   dependencies = {
     "marilari88/neotest-vitest",
+    "fredrikaverpil/neotest-golang",
   },
   opts = {
     adapters = {
       ["neotest-vitest"] = {},
-      ["neotest-go"] = {
+      ["neotest-golang"] = {
+        -- FIX: doesn't work when in subdirectory of repo (ex: "sesh/v2/namer")
         args = { "-coverprofile=" .. vim.fn.getcwd() .. "/coverage.out" },
       },
     },
