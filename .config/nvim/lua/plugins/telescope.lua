@@ -1,4 +1,3 @@
--- cSpell:words piersolenski danielfalk vuki
 return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
@@ -21,7 +20,7 @@ return {
     "AckslD/nvim-neoclip.lua",
     "danielvolchek/tailiscope.nvim",
     "debugloop/telescope-undo.nvim",
-    "natecraddock/telescope-zf-native.nvim",
+    -- "natecraddock/telescope-zf-native.nvim",
     "piersolenski/telescope-import.nvim",
     {
       "nvim-telescope/telescope-live-grep-args.nvim",
@@ -41,7 +40,7 @@ return {
     telescope.load_extension("smart_open")
     telescope.load_extension("tailiscope")
     telescope.load_extension("undo")
-    telescope.load_extension("zf-native")
+    -- telescope.load_extension("zf-native")
   end,
 
   opts = {
