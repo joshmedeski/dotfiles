@@ -56,3 +56,5 @@ run
 Library/Preferences/ru.keepcoder.Telegram.plist
 .config/fish/completions/poetry.fish
 .config/tmux/plugins
+.config/fish/conf.d/anthropic.fish
+.config/fish/conf.d/youtube.fish
