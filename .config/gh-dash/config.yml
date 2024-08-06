@@ -71,5 +71,6 @@ theme:
   ui:
     table:
       showSeparator: true
+      compact: false
 pager:
   diff: ""
