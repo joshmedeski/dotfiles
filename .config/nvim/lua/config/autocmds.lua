@@ -27,6 +27,11 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   command = "!brew services restart skhd",
 })
 
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = { "aerospace.toml" },
+  command = "!aerospace reload-config",
+})
+
 -- vim.api.nvim_create_autocmd({ "BufNewFile", "BufFilePre", "BufRead" }, {
 --   pattern = { "bubu" },
 --   callback = function()
