@@ -22,6 +22,12 @@ path = "~/c/perplexica"
 startup_command = "docker compose up -d"
 
 [[session]]
+name = "aerospace config"
+path = "~/c/dotfiles/.config/aerospace"
+startup_command = "nvim aerospace.toml"
+
+
+[[session]]
 name = "Home 🏡"
 path = "~"
 startup_command = "l"
