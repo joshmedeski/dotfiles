@@ -15,7 +15,7 @@ after-login-command = []
 after-startup-command = []
 
 # Start AeroSpace at login
-start-at-login = false
+start-at-login = true
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 enable-normalization-flatten-containers = true
@@ -43,6 +43,9 @@ key-mapping.preset = 'qwerty'
 # See https://nikitabobko.github.io/AeroSpace/guide#on-focus-changed-callbacks
 # See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+on-focus-changed = [
+  'move-mouse window-lazy-center',
+] # Mouse lazily follows any focus (window or workspace)
 
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
 # Possible values:
@@ -81,8 +84,8 @@ outer.right = 8
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
 # You can uncomment the following lines to open up terminal with alt + enter shortcut (like in i3)
-# alt-enter = '''exec-and-forget osascript -e '
-# tell application "Terminal"
+# alt-enter = '''exec-and-forget 
+# tell application "Wezterm"
 #     do script
 #     activate
 # end tell'
@@ -93,86 +96,86 @@ alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
+# TODO: integrate with tmux vim navigation
 alt-h = 'focus left'
 alt-j = 'focus down'
 alt-k = 'focus up'
 alt-l = 'focus right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
-alt-shift-h = 'move left'
-alt-shift-j = 'move down'
-alt-shift-k = 'move up'
-alt-shift-l = 'move right'
+# alt-shift-h = 'move left'
+# alt-shift-j = 'move down'
+# alt-shift-k = 'move up'
+# alt-shift-l = 'move right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
 alt-shift-minus = 'resize smart -50'
 alt-shift-equal = 'resize smart +50'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-alt-1 = 'workspace 1'
-alt-2 = 'workspace 2'
-alt-3 = 'workspace 3'
-alt-4 = 'workspace 4'
-alt-5 = 'workspace 5'
-alt-6 = 'workspace 6'
-alt-7 = 'workspace 7'
-alt-8 = 'workspace 8'
-alt-9 = 'workspace 9'
-alt-a = 'workspace A' # In your config, you can drop workspace bindings that you don't need
-alt-b = 'workspace B'
-alt-c = 'workspace C'
-alt-d = 'workspace D'
-alt-e = 'workspace E'
-alt-f = 'workspace F'
-alt-g = 'workspace G'
-alt-i = 'workspace I'
-alt-m = 'workspace M'
-alt-n = 'workspace N'
-alt-o = 'workspace O'
-alt-p = 'workspace P'
-alt-q = 'workspace Q'
-alt-r = 'workspace R'
-alt-s = 'workspace S'
-alt-t = 'workspace T'
-alt-u = 'workspace U'
-alt-v = 'workspace V'
-alt-w = 'workspace W'
-alt-x = 'workspace X'
-alt-y = 'workspace Y'
-alt-z = 'workspace Z'
+# alt-1 = 'workspace 1' # 1Password
+# alt-2 = 'workspace 2' # 2FA
+# alt-3 = 'workspace 3'
+# alt-4 = 'workspace 4'
+# alt-5 = 'workspace 5'
+# alt-6 = 'workspace 6'
+# alt-7 = 'workspace 7'
+# alt-8 = 'workspace 8'
+# alt-9 = 'workspace 9'
+alt-a = 'workspace A' # Terminal
+alt-b = 'workspace B' # Blender
+# alt-c = 'workspace C' # Clipboard manager (Raycast)
+alt-d = 'workspace D' # Discord
+# alt-e = 'workspace E' # Emoji picker (Raycast)
+# alt-f = 'workspace F' # New finder window
+alt-g = 'workspace G' # godot
+alt-i = 'workspace I' # Image Editing
+alt-m = 'workspace M' # messaging
+# alt-n = 'workspace N'
+alt-o = 'workspace O' # OBS
+alt-p = 'workspace P' # Music
+# alt-q = 'workspace Q'
+# alt-r = 'workspace R'
+alt-s = 'workspace S' # Second Brain
+# alt-t = 'workspace T'
+# alt-u = 'workspace U'
+alt-v = 'workspace V' # Video Editing
+alt-w = 'workspace W' # Web
+# alt-x = 'workspace X'
+# alt-y = 'workspace Y'
+alt-z = 'workspace Z' # Zoom
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-alt-shift-1 = 'move-node-to-workspace 1'
-alt-shift-2 = 'move-node-to-workspace 2'
-alt-shift-3 = 'move-node-to-workspace 3'
-alt-shift-4 = 'move-node-to-workspace 4'
-alt-shift-5 = 'move-node-to-workspace 5'
-alt-shift-6 = 'move-node-to-workspace 6'
-alt-shift-7 = 'move-node-to-workspace 7'
-alt-shift-8 = 'move-node-to-workspace 8'
-alt-shift-9 = 'move-node-to-workspace 9'
-alt-shift-a = 'move-node-to-workspace A'
-alt-shift-b = 'move-node-to-workspace B'
-alt-shift-c = 'move-node-to-workspace C'
-alt-shift-d = 'move-node-to-workspace D'
-alt-shift-e = 'move-node-to-workspace E'
-alt-shift-f = 'move-node-to-workspace F'
-alt-shift-g = 'move-node-to-workspace G'
-alt-shift-i = 'move-node-to-workspace I'
-alt-shift-m = 'move-node-to-workspace M'
-alt-shift-n = 'move-node-to-workspace N'
-alt-shift-o = 'move-node-to-workspace O'
-alt-shift-p = 'move-node-to-workspace P'
-alt-shift-q = 'move-node-to-workspace Q'
-alt-shift-r = 'move-node-to-workspace R'
-alt-shift-s = 'move-node-to-workspace S'
-alt-shift-t = 'move-node-to-workspace T'
-alt-shift-u = 'move-node-to-workspace U'
-alt-shift-v = 'move-node-to-workspace V'
-alt-shift-w = 'move-node-to-workspace W'
-alt-shift-x = 'move-node-to-workspace X'
-alt-shift-y = 'move-node-to-workspace Y'
-alt-shift-z = 'move-node-to-workspace Z'
+# alt-shift-1 = 'move-node-to-workspace 1'
+# alt-shift-2 = 'move-node-to-workspace 2'
+# alt-shift-3 = 'move-node-to-workspace 3'
+# alt-shift-4 = 'move-node-to-workspace 4'
+# alt-shift-5 = 'move-node-to-workspace 5'
+# alt-shift-6 = 'move-node-to-workspace 6'
+# alt-shift-7 = 'move-node-to-workspace 7'
+# alt-shift-8 = 'move-node-to-workspace 8'
+# alt-shift-9 = 'move-node-to-workspace 9'
+alt-shift-a = ['move-node-to-workspace A', 'workspace A'] # Terminal
+alt-shift-b = ['move-node-to-workspace B', 'workspace B'] # Terminal
+alt-shift-d = ['move-node-to-workspace D', 'workspace D'] # Discord
+# alt-shift-e = 'move-node-to-workspace E'
+# alt-shift-f = 'move-node-to-workspace F'
+alt-shift-g = ['move-node-to-workspace G', 'workspace G'] # godot
+# alt-shift-i = 'move-node-to-workspace I' # Input (Raycast)
+alt-shift-m = ['move-node-to-workspace M', 'workspace M'] # messaging
+# alt-shift-n = 'move-node-to-workspace N'
+# alt-shift-o = 'move-node-to-workspace O' # Output (Raycast)
+alt-shift-p = ['move-node-to-workspace P', 'workspace P'] # Music
+# alt-shift-q = 'move-node-to-workspace Q'
+# alt-shift-r = 'move-node-to-workspace R'
+alt-shift-s = ['move-node-to-workspace S', 'workspace S'] # Second Brain
+# alt-shift-t = 'move-node-to-workspace T'
+# alt-shift-u = 'move-node-to-workspace U'
+# alt-shift-v = 'move-node-to-workspace V'
+alt-shift-w = ['move-node-to-workspace W', 'workspace W'] # Web
+# alt-shift-x = 'move-node-to-workspace X'
+# alt-shift-y = ['move-node-to-workspace Y', 'workspace Y'] # Fantastical
+alt-shift-z = ['move-node-to-workspace Z', 'workspace Z'] # Zoom
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
@@ -185,6 +188,8 @@ alt-shift-semicolon = 'mode service'
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
+# alt-shift-b = 'move-node-to-workspace B'
+# alt-shift-c = 'move-node-to-workspace C'
 esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main'] # reset layout
 #s = ['layout sticky tiling', 'mode main'] # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
@@ -198,3 +203,23 @@ alt-shift-h = ['join-with left', 'mode main']
 alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
+
+[[on-window-detected]]
+if.app-id = 'com.github.wez.wezterm'
+run = "move-node-to-workspace A"
+
+[[on-window-detected]]
+if.app-id = 'com.hnc.Discord'
+run = "move-node-to-workspace D"
+
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
+run = "move-node-to-workspace S"
+
+[[on-window-detected]]
+if.app-id = 'org.blenderfoundation.blender'
+run = "move-node-to-workspace B"
+
+[[on-window-detected]]
+if.app-id = 'com.obsproject.obs-studio'
+run = "move-node-to-workspace O"
