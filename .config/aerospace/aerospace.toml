@@ -1,3 +1,5 @@
+# TODO: ask about auto-complete lsp support for this file name?
+
 # Place a copy of this config to ~/.aerospace.toml
 # After that, you can edit ~/.aerospace.toml to your liking
 
@@ -18,8 +20,11 @@ after-startup-command = []
 start-at-login = true
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
-enable-normalization-flatten-containers = true
+enable-normalization-flatten-containers = false
 enable-normalization-opposite-orientation-for-nested-containers = true
+
+# TODO: learn what is this?
+# non-empty-workspaces-root-containers-layout-on-startup = 'smart'
 
 # See: https://nikitabobko.github.io/AeroSpace/guide#layouts
 # The 'accordion-padding' specifies the size of accordion padding
@@ -56,11 +61,11 @@ on-focus-changed = [
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
 inner.horizontal = 8
-inner.vertical = 8
-outer.left = 8
-outer.bottom = 8
-outer.top = 8
-outer.right = 8
+inner.vertical = 2
+outer.left = 2
+outer.bottom = 2
+outer.top = 2
+outer.right = 2
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -92,25 +97,34 @@ outer.right = 8
 # '''
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
+# TODO: come up with a more intuitive keybinding for this?
 alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
 # TODO: integrate with tmux vim navigation
-alt-h = 'focus left'
-alt-j = 'focus down'
-alt-k = 'focus up'
-alt-l = 'focus right'
+alt-shift-h = 'focus left'
+alt-shift-j = 'focus down'
+alt-shift-k = 'focus up'
+alt-shift-l = 'focus right'
+alt-shift-0 = 'balance-sizes'
+
+# TODO: is this helpful? How does it work?
+alt-shift-n = 'split opposite'
+alt-shift-ctrl-0 = 'flatten-workspace-tree'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
-# alt-shift-h = 'move left'
-# alt-shift-j = 'move down'
-# alt-shift-k = 'move up'
-# alt-shift-l = 'move right'
+ctrl-alt-shift-h = 'move left'
+ctrl-alt-shift-j = 'move down'
+ctrl-alt-shift-k = 'move up'
+ctrl-alt-shift-l = 'move right'
+ctrl-alt-shift-f = 'fullscreen'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
 alt-shift-minus = 'resize smart -50'
 alt-shift-equal = 'resize smart +50'
+alt-shift-8 = 'resize smart -200'
+alt-shift-9 = 'resize smart +200'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 # alt-1 = 'workspace 1' # 1Password
@@ -132,7 +146,7 @@ alt-g = 'workspace G' # godot
 alt-i = 'workspace I' # Image Editing
 alt-m = 'workspace M' # messaging
 # alt-n = 'workspace N'
-alt-o = 'workspace O' # OBS
+# alt-o = 'workspace O' # OBS
 alt-p = 'workspace P' # Music
 # alt-q = 'workspace Q'
 # alt-r = 'workspace R'
@@ -140,12 +154,16 @@ alt-s = 'workspace S' # Second Brain
 # alt-t = 'workspace T'
 # alt-u = 'workspace U'
 alt-v = 'workspace V' # Video Editing
+# TODO: I use the terminal with the web a lot, so this might not work
 alt-w = 'workspace W' # Web
 # alt-x = 'workspace X'
 # alt-y = 'workspace Y'
 alt-z = 'workspace Z' # Zoom
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
+# TODO: revisit 'primary', 'secondary' and 'tertiary' workspaces
+# I used to do this before with Yabai
+
 # alt-shift-1 = 'move-node-to-workspace 1'
 # alt-shift-2 = 'move-node-to-workspace 2'
 # alt-shift-3 = 'move-node-to-workspace 3'
@@ -156,22 +174,20 @@ alt-z = 'workspace Z' # Zoom
 # alt-shift-8 = 'move-node-to-workspace 8'
 # alt-shift-9 = 'move-node-to-workspace 9'
 alt-shift-a = ['move-node-to-workspace A', 'workspace A'] # Terminal
-alt-shift-b = ['move-node-to-workspace B', 'workspace B'] # Terminal
+alt-shift-b = ['move-node-to-workspace B', 'workspace B'] # Blender
 alt-shift-d = ['move-node-to-workspace D', 'workspace D'] # Discord
 # alt-shift-e = 'move-node-to-workspace E'
 # alt-shift-f = 'move-node-to-workspace F'
 alt-shift-g = ['move-node-to-workspace G', 'workspace G'] # godot
 # alt-shift-i = 'move-node-to-workspace I' # Input (Raycast)
 alt-shift-m = ['move-node-to-workspace M', 'workspace M'] # messaging
-# alt-shift-n = 'move-node-to-workspace N'
-# alt-shift-o = 'move-node-to-workspace O' # Output (Raycast)
 alt-shift-p = ['move-node-to-workspace P', 'workspace P'] # Music
 # alt-shift-q = 'move-node-to-workspace Q'
 # alt-shift-r = 'move-node-to-workspace R'
 alt-shift-s = ['move-node-to-workspace S', 'workspace S'] # Second Brain
 # alt-shift-t = 'move-node-to-workspace T'
 # alt-shift-u = 'move-node-to-workspace U'
-# alt-shift-v = 'move-node-to-workspace V'
+alt-shift-v = ['move-node-to-workspace V', 'workspace V'] # Video editing
 alt-shift-w = ['move-node-to-workspace W', 'workspace W'] # Web
 # alt-shift-x = 'move-node-to-workspace X'
 # alt-shift-y = ['move-node-to-workspace Y', 'workspace Y'] # Fantastical
@@ -183,12 +199,13 @@ alt-tab = 'workspace-back-and-forth'
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
+# TODO: add 'move' mode to free up more `alt-shift` main binding
 alt-shift-semicolon = 'mode service'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
-# alt-shift-b = 'move-node-to-workspace B'
+# alt-shift-b = 'ctrl-node-to-workspace B'
 # alt-shift-c = 'move-node-to-workspace C'
 esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main'] # reset layout
@@ -199,15 +216,16 @@ f = [
 ] # Toggle between floating and tiling layout
 backspace = ['close-all-windows-but-current', 'mode main']
 
-alt-shift-h = ['join-with left', 'mode main']
-alt-shift-j = ['join-with down', 'mode main']
-alt-shift-k = ['join-with up', 'mode main']
-alt-shift-l = ['join-with right', 'mode main']
+# ctrl-alt-shift-h = ['join-with left', 'mode main']
+# ctrl-alt-shift-j = ['join-with down', 'mode main']
+# ctrl-alt-shift-k = ['join-with up', 'mode main']
+# ctrl-alt-shift-l = ['join-with right', 'mode main']
 
-[[on-window-detected]]
-if.app-id = 'com.github.wez.wezterm'
-run = "move-node-to-workspace A"
+# [[on-window-detected]]
+# if.app-id = 'com.github.wez.wezterm'
+# run = "move-node-to-workspace A"
 
+# TODO: submit issue for allowing to focus a workspace when an on-window-dected is triggered
 [[on-window-detected]]
 if.app-id = 'com.hnc.Discord'
 run = "move-node-to-workspace D"
@@ -220,6 +238,7 @@ run = "move-node-to-workspace S"
 if.app-id = 'org.blenderfoundation.blender'
 run = "move-node-to-workspace B"
 
-[[on-window-detected]]
-if.app-id = 'com.obsproject.obs-studio'
-run = "move-node-to-workspace O"
+# TODO: alt-shift-o is used for audio output, so where do I want this to go?
+# [[on-window-detected]]
+# if.app-id = 'com.obsproject.obs-studio'
+# run = "move-node-to-workspace O"
