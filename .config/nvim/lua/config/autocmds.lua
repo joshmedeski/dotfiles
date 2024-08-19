@@ -17,19 +17,24 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   command = "execute 'silent !source <afile> --silent'",
 })
 
-vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = { ".yabairc" },
-  command = "!yabai --restart-service",
-})
-
-vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = { ".skhdrc" },
-  command = "!brew services restart skhd",
-})
+-- TODO: purge all yabai references?
+-- vim.api.nvim_create_autocmd("BufWritePost", {
+--   pattern = { ".yabairc" },
+--   command = "!yabai --restart-service",
+-- })
+-- vim.api.nvim_create_autocmd("BufWritePost", {
+--   pattern = { ".skhdrc" },
+--   command = "!brew services restart skhd",
+-- })
 
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = { "aerospace.toml" },
   command = "!aerospace reload-config",
+})
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = { "sketchybarrc" },
+  command = "!brew services restart sketchybar",
 })
 
 -- vim.api.nvim_create_autocmd({ "BufNewFile", "BufFilePre", "BufRead" }, {
