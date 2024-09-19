@@ -17,6 +17,7 @@ return {
   ---@class PluginLspOpts
   opts = {
     diagnostics = { virtual_text = true },
+    inlay_hints = { enabled = false },
     servers = {
       yamlls = {
         settings = {
