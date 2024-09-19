@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Locations</title>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="../../libs/css/sdpi.css">
+    <style type="text/css">
+        .sdpi-wrapper {
+            overflow-x: hidden;
+            height: 90%;
+            margin-top: 48px;
+        }
+
+        .searchbox {
+            position: fixed;
+            background: inherit;
+            width: 96%;
+            padding: 8px;
+            border-bottom: 1px solid #222;
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, .2);
+        }
+
+        .currentSelection {
+            margin-bottom: 1rem;
+            position: sticky;
+            background-color: inherit;
+            background: inherit;
+            padding: 8px;
+        }
+
+        .selected {
+            padding: 2px 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .selected:hover {
+            background-color: rgba(255, 255, 255, .05);
+        }
+
+        .close-box {
+            --sdpi-closebox-color: #555;
+            cursor: pointer;
+            text-align: center;
+            min-width: 6px !important;
+            min-height: 6px !important;
+            width: 14px !important;
+            height: 14px !important;
+            font-size: 9pt;
+            font-weight: bold;
+            color: #333;
+            border: 1px solid var(--sdpi-closebox-color);
+            border-radius: 50%;
+            background-color: var(--sdpi-closebox-color);
+            padding: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .close-box:hover {
+            color: rgba(255, 255, 255, 1) !important;
+            background-color: rgba(255, 255, 255, .5) !important;
+            fill: white !important;
+        }
+
+        .zones .sdpi-item {
+            margin-top: 0px;
+            min-height: 2px;
+            border-bottom: 1px solid #222;
+        }
+
+        .zones .sdpi-item-label {
+            line-height: 20px;
+        }
+
+        .zones .sdpi-item-child {
+            margin-top: 2px;
+        }
+
+        .zones .sdpi-item-value:last-child {
+            margin-bottom: 0px;
+        }
+
+        .smaller {
+            font-weight: normal;
+            font-size: 0.8em;
+        }
+
+        details {
+            width: 96%;
+            margin: 0 auto;
+            background: #292929;
+            margin-bottom: .5rem;
+            /* box-shadow: 0 .1rem 1rem -.5rem rgba(0, 0, 0, .4); */
+            border-radius: 3px;
+            overflow: hidden;
+            padding: 0px;
+        }
+
+        summary {
+            padding: 0.5rem;
+            display: block;
+            background: #333;
+            padding-left: 2.25rem;
+            position: relative;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+
+        summary:before {
+            content: '';
+            border-width: .5rem;
+            border-style: solid;
+            border-color: transparent transparent transparent #cdcdcd;
+            position: absolute;
+            top: 0.6rem;
+            left: 1rem;
+            transform: rotate(0);
+            transform-origin: .2rem 50%;
+            transition: .25s transform ease;
+        }
+
+        details[open]>summary:before {
+            transform: rotate(90deg);
+        }
+
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sdpi-item searchbox">
+        <div class="label">Filter</div>
+        <input class="sdpi-item-value" type="text" id="zoneFilter" value="" oninput="applyFilter(event)">
+    </div>
+    <div class="sdpi-wrapper">
+        <div class="sdpi-heading">Currently selected:</div>
+        <div class="zones currentSelection"></div>
+        <hr />
+
+        <div class="zones" id="zones"></div>
+    </div>
+
+    <script src="./locations.js"></script>
+    <script src="./locationPicker.js"></script>
+
+</body>
+
+</html>

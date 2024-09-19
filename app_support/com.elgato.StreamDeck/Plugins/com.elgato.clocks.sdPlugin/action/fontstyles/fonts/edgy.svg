@@ -1,0 +1,14 @@
+
+<svg width="26px" height="31px"  translatex="[0, 0, 22, 44, 56, 78, 98, 110, 132, 156]" viewBox="0 0 26 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <path id="0" d="M0,30 L0,0 L18,0 L18,30 L0,30 Z M6,24 L12,24 L12,6 L6,6 L6,24 Z"></path>
+    <polygon id="1" points="18 0 12 0 12 30 18 30"></polygon>
+    <polygon id="2" points="0 12 12 12 12 6 0 6 0 0 18 0 18 18 6 18 6 24 18 24 18 30 0 30"></polygon>
+    <polygon id="3" points="18 0 0 0 0 6 12 6 12 12 0 12 0 18 12 18 12 24 0 24 0 30 18 30"></polygon>
+    <polygon id="4" points="18 12 6 12 6 0 0 0 0 18 12 18 12 30 18 30"></polygon>
+    <polygon id="5" points="18 12 6 12 6 6 18 6 18 0 0 0 0 18 12 18 12 24 0 24 0 30 18 30"></polygon>
+    <path id="6" d="M18,0 L18,6 L6,6 L6,12 L18,12 L18,30 L0,30 L0,0 L18,0 Z M12,18 L6,18 L6,24 L12,24 L12,18 Z"></path>
+    <polygon id="7" points="12 6 0 6 0 0 18 0 18 30 12 30"></polygon>
+    <path id="8" d="M18,0 L18,30 L0,30 L0,0 L18,0 Z M12,18 L6,18 L6,24 L12,24 L12,18 Z M12,6 L6,6 L6,12 L12,12 L12,6 Z"></path>
+    <path id="9" d="M0,30 L0,24 L12,24 L12,18 L0,18 L0,0 L18,0 L18,30 L0,30 Z M6,12 L12,12 L12,6 L6,6 L6,12 Z"></path>
+    <path d="M7,18 L1,18 L1,24 L7,24 L7,18 Z M7,6 L1,6 L1,12 L7,12 L7,6 Z" id="10"></path>
+</svg>

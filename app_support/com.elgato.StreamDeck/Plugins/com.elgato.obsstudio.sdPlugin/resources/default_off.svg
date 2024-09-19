@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="128"
+   height="128"
+   viewBox="0 0 128 128"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="default_off.svg"
+   inkscape:export-filename="D:\Projects\Elgato\streamdeck-obsstudio-plugin\resources\default_off_72@2x.png"
+   inkscape:export-xdpi="108"
+   inkscape:export-ydpi="108">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     viewbox-height="128"
+     viewbox-width="128"
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="3.959798"
+     inkscape:cx="-64.493229"
+     inkscape:cy="58.274068"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     units="px"
+     inkscape:pagecheckerboard="true" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#000080;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;paint-order:markers fill stroke"
+       id="rect10"
+       width="128"
+       height="128"
+       x="0"
+       y="0" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;paint-order:markers fill stroke"
+       id="rect835"
+       width="16"
+       height="16"
+       x="0"
+       y="16" />
+    <rect
+       y="0"
+       x="16"
+       height="16"
+       width="16"
+       id="rect835-3"
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;paint-order:markers fill stroke" />
+    <rect
+       y="16"
+       x="32"
+       height="16"
+       width="16"
+       id="rect835-2"
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;paint-order:markers fill stroke" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;paint-order:markers fill stroke"
+       id="rect835-3-2"
+       width="16"
+       height="16"
+       x="48"
+       y="0" />
+    <rect
+       y="15.999999"
+       x="64"
+       height="16"
+       width="16"
+       id="rect835-27"
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;paint-order:markers fill stroke" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;paint-order:markers fill stroke"
+       id="rect835-3-1"
+       width="16"
+       height="16"
+       x="80"
+       y="0" />
+    <rect
+       y="16"
+       x="96"
+       height="16"
+       width="16"
+       id="rect835-22"
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;paint-order:markers fill stroke" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;paint-order:markers fill stroke"
+       id="rect835-3-6"
+       width="16"
+       height="16"
+       x="112"
+       y="0" />
+    <rect
+       y="48"
+       x="0"
+       height="16"
+       width="16"
+       id="rect835-222"
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;paint-order:markers fill stroke" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;paint-order:markers fill stroke"
+       id="rect835-3-8"
+       width="16"
+       height="16"
+       x="16"
+       y="32" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;paint-order:markers fill stroke"
+       id="rect835-2-3"
+       width="16"
+       height="16"
+       x="32"
+       y="48" />
+    <rect
+       y="32"
+       x="48"
+       height="16"
+       width="16"
+       id="rect835-3-2-3"
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;paint-order:markers fill stroke" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;paint-order:markers fill stroke"
+       id="rect835-27-1"
+       width="16"
+       height="16"
+       x="64"
+       y="48" />
+    <rect
+       y="32"
+       x="80"
+       height="16"
+       width="16"
+       id="rect835-3-1-5"
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;paint-order:markers fill stroke" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;paint-order:markers fill stroke"
+       id="rect835-22-0"
+       width="16"
+       height="16"
+       x="96"
+       y="48" />
+    <rect
+       y="32"
+       x="112.00001"
+       height="16"
+       width="16"
+       id="rect835-3-6-8"
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;paint-order:markers fill stroke" />
+    <rect
+       y="80"
+       x="0"
+       height="16"
+       width="16"
+       id="rect835-6"
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;paint-order:markers fill stroke" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;paint-order:markers fill stroke"
+       id="rect835-3-4"
+       width="16"
+       height="16"
+       x="16.000002"
+       y="64" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;paint-order:markers fill stroke"
+       id="rect835-2-1"
+       width="16"
+       height="16"
+       x="32"
+       y="80" />
+    <rect
+       y="64"
+       x="48"
+       height="16"
+       width="16"
+       id="rect835-3-2-4"
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;paint-order:markers fill stroke" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;paint-order:markers fill stroke"
+       id="rect835-27-6"
+       width="16"
+       height="16"
+       x="64"
+       y="80" />
+    <rect
+       y="64"
+       x="80"
+       height="16"
+       width="16"
+       id="rect835-3-1-54"
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;paint-order:markers fill stroke" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;paint-order:markers fill stroke"
+       id="rect835-22-03"
+       width="16"
+       height="16"
+       x="96"
+       y="80" />
+    <rect
+       y="64"
+       x="112"
+       height="16"
+       width="16"
+       id="rect835-3-6-3"
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;paint-order:markers fill stroke" />
+    <rect
+       y="112"
+       x="0"
+       height="16"
+       width="16"
+       id="rect835-0"
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;paint-order:markers fill stroke" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;paint-order:markers fill stroke"
+       id="rect835-3-0"
+       width="16"
+       height="16"
+       x="16"
+       y="96" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;paint-order:markers fill stroke"
+       id="rect835-2-4"
+       width="16"
+       height="16"
+       x="32"
+       y="112" />
+    <rect
+       y="96"
+       x="48"
+       height="16"
+       width="16"
+       id="rect835-3-2-5"
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;paint-order:markers fill stroke" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;paint-order:markers fill stroke"
+       id="rect835-27-8"
+       width="16"
+       height="16"
+       x="64"
+       y="112" />
+    <rect
+       y="96"
+       x="80"
+       height="16"
+       width="16"
+       id="rect835-3-1-3"
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;paint-order:markers fill stroke" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;paint-order:markers fill stroke"
+       id="rect835-22-3"
+       width="16"
+       height="16"
+       x="96"
+       y="112" />
+    <rect
+       y="96"
+       x="112"
+       height="16"
+       width="16"
+       id="rect835-3-6-6"
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00157;stroke-linecap:round;paint-order:markers fill stroke" />
+  </g>
+</svg>

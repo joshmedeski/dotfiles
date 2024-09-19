@@ -1,0 +1,106 @@
+{
+    "Description": "控制 Elgato Key Light 和其他设备。",
+    "Name": "控制中心",
+    "Category": "控制中心",
+    "com.elgato.controlcenter.lights-on-off": {
+        "Name": "开/关",
+        "Tooltip": "打开或关闭灯",
+        "States": [
+            {
+                "Name": "开"
+            },
+            {
+                "Name": "关"
+            }
+        ]
+    },
+    "com.elgato.controlcenter.brightness-slider": {
+        "Name": "设置亮度",
+        "Tooltip": "将灯的亮度设置为既定值"
+    },
+    "com.elgato.controlcenter.brightness-stepper": {
+        "Name": "调整亮度",
+        "Tooltip": "手动调整灯的亮度",
+        "Encoder": {
+            "TriggerDescription": {
+                "Rotate": "调节属性",
+                "Touch": "打开/关闭灯光"
+            }
+        }
+    },
+    "com.elgato.controlcenter.temperature-slider": {
+        "Name": "设置色温",
+        "Tooltip": "将灯的色温设置为既定值"
+    },
+    "com.elgato.controlcenter.temperature-stepper": {
+        "Name": "调整色温",
+        "Tooltip": "手动调整灯的色温",
+        "Encoder": {
+            "TriggerDescription": {
+                "Rotate": "调节属性",
+                "Touch": "打开/关闭灯光"
+            }
+        }
+    },
+    "com.elgato.controlcenter.color-picker": {
+        "Name": "设置颜色",
+        "Tooltip": "将灯的颜色设置为既定值"
+    },
+    "com.elgato.controlcenter.battery": {
+        "Name": "电池",
+        "Tooltip": "显示电池状态"
+    },
+    "com.elgato.controlcenter.scene": {
+        "Name": "设置场景",
+        "Tooltip": "将灯的场景设置为预定值",
+        "Encoder": {
+            "TriggerDescription": {
+                "Rotate": "调节场景/亮度",
+                "Touch": "打开/关闭灯光"
+            }
+        }
+    },
+    "Localization": {
+        "Brighter": "更亮",
+        "Darker": "更暗",
+        "Warmer": "更暖",
+        "Cooler": "更冷",
+        "Steps": "调整单位",
+        "Accessory": "周边设备",
+        "Step Size": "调整单位",
+        "Brightness": "亮度",
+        "Temperature": "色温",
+        "Set Brightness": "设置亮度",
+        "Set Temperature": "设置色温",
+        "Adjust Temperature": "调整色温",
+        "Adjust Brightness": "调整亮度",
+        "Range": "范围",
+        "On/Off": "开/关",
+        "On": "开",
+        "Off": "关",
+        "Toggle": "切换",
+        "Up": "上",
+        "Down": "下",
+        "Untitled": "无标题的",
+        "%s not found": "未找到 %s",
+        "%s not available": "%s 不可用",
+        "%s not connected": "%s 未连接",
+        "%s not running": "%s 未运行",
+        "No connection to %s": "未连接 %s",
+        "Please launch %s": "请启动 %s",
+        "More info": "更多信息",
+        "Show in Title": "在标题中显示",
+        "Icon shows": "图标显示",
+        "Value": "值",
+        "Step": "调整单位",
+        "Device State": "设备状态",
+        "Desired State": "理想状态",
+        "All": "全部",
+        "Color": "颜色",
+        "Scene": "场景",
+        "No Scene": "没有场景",
+        "Untitled Scene": "无标题的场景",
+        "Switch Scenes": "切换场景",
+        "Dial Action": "旋钮操作"
+    }
+}

@@ -1,0 +1,106 @@
+{
+    "Description": "Controla Elgato Key Light y otros dispositivos.",
+    "Name": "Control Center",
+    "Category": "Control Center",
+    "com.elgato.controlcenter.lights-on-off": {
+        "Name": "On / Off",
+        "Tooltip": "Enciende o apaga la luz",
+        "States": [
+            {
+                "Name": "On"
+            },
+            {
+                "Name": "Off"
+            }
+        ]
+    },
+    "com.elgato.controlcenter.brightness-slider": {
+        "Name": "Definir brillo",
+        "Tooltip": "Fija el brillo de la luz en un valor predefinido"
+    },
+    "com.elgato.controlcenter.brightness-stepper": {
+        "Name": "Ajustar brillo",
+        "Tooltip": "Ajusta el brillo de la luz manualmente",
+        "Encoder": {
+            "TriggerDescription": {
+                "Rotate": "Ajustar propiedad",
+                "Touch": "Encender/apagar luces"
+            }
+        }
+    },
+    "com.elgato.controlcenter.temperature-slider": {
+        "Name": "Definir temperatura",
+        "Tooltip": "Fija la temperatura de color de la luz en un valor predefinido"
+    },
+    "com.elgato.controlcenter.temperature-stepper": {
+        "Name": "Ajustar temperatura",
+        "Tooltip": "Ajusta la temperatura de color de la luz manualmente",
+        "Encoder": {
+            "TriggerDescription": {
+                "Rotate": "Ajustar propiedad",
+                "Touch": "Encender/apagar luces"
+            }
+        }
+    },
+    "com.elgato.controlcenter.color-picker": {
+        "Name": "Configurar color",
+        "Tooltip": "Configura el color de la luz con un valor predefinido"
+    },
+    "com.elgato.controlcenter.battery": {
+        "Name": "Batería",
+        "Tooltip": "Mostrar estado de la batería"
+    },
+    "com.elgato.controlcenter.scene": {
+        "Name": "Definir escena",
+        "Tooltip": "Define la escena de tu luz a un valor predefinido",
+        "Encoder": {
+            "TriggerDescription": {
+                "Rotate": "Ajustar escena/brillo",
+                "Touch": "Encender/apagar luces"
+            }
+        }
+    },
+    "Localization": {
+        "Brighter": "Más brillo",
+        "Darker": "Menos brillo",
+        "Warmer": "Más cálida",
+        "Cooler": "Más fría",
+        "Steps": "Pasos",
+        "Accessory": "Accesorio",
+        "Step Size": "Tamaño del paso",
+        "Brightness": "Brillo",
+        "Temperature": "Temperatura",
+        "Set Brightness": "Definir brillo",
+        "Set Temperature": "Definir temperatura",
+        "Adjust Temperature": "Ajustar temperatura",
+        "Adjust Brightness": "Ajustar brillo",
+        "Range": "Intervalo",
+        "On/Off": "On/Off",
+        "On": "On",
+        "Off": "Off",
+        "Toggle": "Encender/apagar",
+        "Up": "Arriba",
+        "Down": "Abajo",
+        "Untitled": "Sin Nombre",
+        "%s not found": "No se ha encontrado %s",
+        "%s not available": "%s no está disponible",
+        "%s not connected": "%s no se ha conectado",
+        "%s not running": "%s no está en funcionamiento",
+        "No connection to %s": "No hay conexión con %s",
+        "Please launch %s": "Abra %s",
+        "More info": "Más información",
+        "Show in Title": "Mostrar en el título",
+        "Icon shows": "El icono muestra",
+        "Value": "Valor",
+        "Step": "Paso",
+        "Device State": "Estado del dispositivo",
+        "Desired State": "Estado deseado",
+        "All": "Todo",
+        "Color": "Color",
+        "Scene": "Escena",
+        "No Scene": "Sin escena",
+        "Untitled Scene": "Escena sin título",
+        "Switch Scenes": "Cambiar escena",
+        "Dial Action": "Acción del dial"
+    }
+}

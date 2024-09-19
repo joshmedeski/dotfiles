@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<head>
+    <title>com.elgato.clocks PI</title>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="../../../libs/css/sdpi.css">
+    <link rel="stylesheet" href="../../locationPicker/location.css">
+</head>
+
+<body>
+    <div class="sdpi-wrapper hidden">
+        <div type="none" class="sdpi-item">
+            <div class="sdpi-item-label empty"></div>
+            <div class="tabs">
+                <div class="tab selected" id="tab1" data-target="#styleTab" title="Adjust styling of your clock">Style</div>
+                <div class="tab" id="tab2" data-target="#locationTab" title="Select one or multiple time zones">Location</div>
+            </div>
+        </div>
+        <hr class="tab-separator" />
+        <div id="styleTab" class="tab-container">
+            <div class="sdpi-item" id="multi-items">
+                <div class="sdpi-item-label">Settings</div>
+                <div class="sdpi-item-value flex">
+                    <div class="sdpi-item-child">
+                        <input id="longDateAndTime" type="checkbox">
+                        <label for="longDateAndTime" class="sdpi-item-label">
+                            <span></span>Long Time
+                        </label>
+                    </div>
+
+                    <div class="sdpi-item-child">
+                        <input id="hour12" setting="hour12" type="checkbox">
+                        <label for="hour12" class="sdpi-item-label">
+                            <span></span>AM/PM
+                        </label>
+                    </div>
+
+                    <div class="sdpi-item-child">
+                        <div class="flex1">
+                            <input id="color" setting="color" type="color">
+                            <label>Icon</label>
+                        </div>
+                    </div>
+
+                    <div class="sdpi-item-child">
+                        <input id="showTicks" setting="showTicks" type="checkbox">
+                        <label for="showTicks" class="sdpi-item-label">
+                            <span></span>Show Ticks
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="locationTab" class="tab-container">
+            <div class="locations-wrapper">
+                <div class="zones" id="zones"></div>
+            </div>
+            <hr />
+        </div>
+    </div>
+
+    <script src="../../../libs/js/constants.js"></script>
+    <script src="../../../libs/js/prototypes.js"></script>
+    <script src="../../../libs/js/events.js"></script>
+    <script src="../../../libs/js/api.js"></script>
+    <script src="../../../libs/js/property-inspector.js"></script>
+    <script src="../../../libs/js/dynamic-styles.js"></script>
+    <script src="../../../js/utils.js"></script>
+    <script src="../../locationPicker/location_pi.js"></script>
+
+    <script>
+
+        let MSETTINGS = {
+            locations: []
+        };
+
+        const validateSettings = () => {
+            if(!MSETTINGS.locations?.length) {
+                MSETTINGS.locations = [];
+            }
+            if(!MSETTINGS.mode) {
+                MSETTINGS.mode = 0;
+            }
+            if(!MSETTINGS.$timezone) {
+                MSETTINGS.$timezone = MSETTINGS.locations[MSETTINGS.mode] || '';
+            }
+            if(!MSETTINGS.color) {
+                MSETTINGS.color = '#fff';
+            }
+            if(!MSETTINGS.showTicks) {
+                MSETTINGS.showTicks = false;
+            }
+            if(!MSETTINGS.hour12) {
+                MSETTINGS.hour12 = false;
+            }
+            if(!MSETTINGS.longDateAndTime) {
+                MSETTINGS.longDateAndTime = false;
+            }
+        };
+
+        $PI.on('connected', (jsn) => {
+            MSETTINGS = jsn?.actionInfo?.payload?.settings || {};
+            console.log(jsn.actionInfo.payload.settings.activeTab);
+
+            // $PI.loadLocalization('../../../').then(localization => {
+                // validateSettings();
+                const uiElement = document.querySelector('.sdpi-wrapper');
+                console.log('MSETTINGS', MSETTINGS.activeTab, MSETTINGS);
+                activateTabs(MSETTINGS.activeTab);
+                initLocations(uiElement);
+                $PI.localizationLoaded.then(localizeUI);
+                // Finally show the UI
+                document.querySelector('.sdpi-wrapper').classList.remove('hidden');
+            // });
+        });
+
+        $PI.on('com.elgato.worldclock.action.didReceiveSettings', jsn => {
+            MSETTINGS = jsn?.payload?.settings || {};
+            validateSettings();
+            updateLocationTreeSelector();
+        });
+
+        function activateTabs(activeTab) {
+            const allTabs = Array.from(document.querySelectorAll('.tab'));
+            let activeTabEl = null;
+            allTabs.forEach((el, i) => {
+                el.onclick = () => clickTab(el);
+                console.log(el.dataset?.target, activeTab);
+                if(el.dataset?.target === activeTab) {
+                    activeTabEl = el;
+                }
+            });
+            if(activeTabEl) {
+                clickTab(activeTabEl);
+            } else if(allTabs.length) {
+                clickTab(allTabs[0]);
+            }
+        }
+
+        function clickTab(clickedTab) {
+            const allTabs = Array.from(document.querySelectorAll('.tab'));
+            allTabs.forEach((el, i) => el.classList.remove('selected'));
+            clickedTab.classList.add('selected');
+            activeTab = clickedTab.dataset?.target;
+            allTabs.forEach((el, i) => {
+                if(el.dataset.target) {
+                    const t = document.querySelector(el.dataset.target);
+                    if(t) {
+                        t.style.display = el == clickedTab ? 'block' : 'none';
+                    }
+                }
+            });
+            MSETTINGS.activeTab = activeTab;
+            console.log('saving', MSETTINGS, activeTab);
+            $PI.setSettings(MSETTINGS);
+        }
+
+        function localizeUI() {
+            const localize = $PI.localize;
+            console.log('localizing', $PI.localization, localize);
+            const el = document.querySelector('.sdpi-wrapper');
+            const selectors = Array.from(el.querySelectorAll('.sdpi-item-label'));
+            selectors.forEach(e => {
+                const s = e.innerText.trim();
+                e.innerHTML = e.innerHTML.replace(s, $PI.localize(s));
+            });
+            Array.from(el.querySelectorAll('*:not(script)')).forEach(e => {
+                if(selectors.includes(e)) return;
+                if(e.childNodes && e.childNodes.length > 0 && e.childNodes[0].nodeValue && typeof e.childNodes[0].nodeValue === 'string') {
+                    e.childNodes[0].nodeValue = $PI.localize(e.childNodes[0].nodeValue);
+                }
+            });
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,271 @@
+:root {
+    --cp-radius: #0%;
+    --cp-width: 33px;
+    --cp-height: 33px;
+}
+[type='color-picker'] {
+    display: flex;
+    flex: 1 0 0;
+    align-content: space-between;
+    margin-left: 1px;
+    margin-right: 12px;
+    margin-top: 6px;
+    height: 52px;
+    padding: 0px 4px;
+}
+
+/*
+[type="color-picker"] input[type="color"] {
+	min-width: 26px;
+	min-height: 26px;
+	width: 26px;
+	height: 26px;
+	margin: 0 auto;
+	border-radius: 50%;
+	overflow: hidden;
+  }
+ */
+
+.loupe,
+[type='color-picker'] input[type='color'] {
+    min-width: 26px;
+    min-height: 26px;
+    /*
+    width: 36px;
+    height: 36px;
+	margin: 8px;
+	margin-right: 0px; */
+    display: flex;
+    margin: 0px;
+}
+
+[type='color-picker'].single {
+    height: 26px;
+}
+
+[type='color-picker'].double {
+    height: 52px;
+}
+
+[type='color-picker'].triple {
+    height: 78px;
+}
+
+[type='color-picker'].single input[type='color'] {
+    width: 26px;
+    height: 26px;
+    margin: 8px;
+    margin-top: 0px;
+    margin-right: 0px;
+}
+
+[type='color-picker'].double .loupe,
+[type='color-picker'].double input[type='color'] {
+    /*width: 26px;
+    height: 26px;
+	margin: 8px;
+	margin-right: 0px;*/
+    border-radius: var(--cp-radius);
+    margin: 0px;
+    margin-bottom: 3px;
+    height: var(--cp-height);
+    width: var(--cp-width);
+}
+
+[type='color-picker'].triple input[type='color'] {
+    width: 36px;
+    height: 36px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 8px;
+    margin-right: 0px;
+}
+
+::-webkit-color-swatch {
+    min-width: 0px;
+}
+
+[type='color-picker'] input[type='color' i]::-webkit-color-swatch {
+    border: none;
+    border-radius: var(--cp-radius);
+}
+
+[type='color-picker'] input[type='color' i]::-webkit-color-swatch-wrapper {
+    margin: 0;
+    padding: 0;
+}
+
+.spectrum-overlay,
+.spectrum {
+    flex: 1;
+    margin-right: 8px;
+}
+
+.color-picker.spectrum {
+    position: relative;
+    height: inherit;
+    background: linear-gradient(#eeeeee, transparent),
+        linear-gradient(90deg, red, yellow, lime, cyan, blue, magenta, red);
+    -webkit-user-select: none;
+    user-select: none;
+    overflow: hidden;
+    border-radius: 0px;
+}
+.color-picker.spectrum {
+    background: linear-gradient(0deg, #eeeeee, transparent),
+        linear-gradient(90deg, red, yellow, lime, cyan, blue, magenta, red);
+}
+
+.color-picker .spectrum-overlay {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+/*
+ warmColor: '#FFB165',
+    mediumColor: '#FFF2EC',
+	coolColor: '#94D0EC',
+*/
+.white,
+.color-picker.spectrum.white {
+    background: linear-gradient(90deg, rgb(157, 210, 236), rgb(245, 243, 255) 30%, rgb(255, 178, 103));
+}
+
+.color-picker .spectrum.active,
+.color-picker .spectrum.active .color-spot {
+    cursor: none;
+}
+.color-picker .overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.color-picker .color-spot {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    margin-left: -4px;
+    margin-top: -4px;
+    border: 2px solid black;
+    border-radius: 0px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+}
+
+.color-picker.white .color-spot {
+    top: 0px !important;
+    height: 110% !important;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-top: none;
+    border-bottom: none;
+    box-shadow: 0 0px 2px rgba(0, 0, 0, 0.7);
+}
+
+.color-picker .color-spot.round {
+    border-radius: 50%;
+}
+
+.sdpi-item-value.color .color-picker.white .color-spot {
+    display: none;
+}
+
+.sdpi-item-value.temperature .color-picker.color .color-spot {
+    display: none;
+}
+
+.color-options {
+    display: flex;
+    flex-direction: column;
+    margin-left: 8px;
+    align-content: space-between;
+    justify-content: center;
+}
+
+.color-mode-switch {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: center;
+    margin-top: 3px;
+}
+
+.color-mode-switch .rectangle {
+    min-height: 13px;
+    min-width: 14px;
+    box-sizing: border-box;
+}
+
+.color-options .spektrum,
+.white + .color-options .white {
+    border: 1px solid #6699ff;
+}
+
+.white + .color-options .spektrum {
+    border: 1px solid transparent;
+}
+
+.color-mode-switch .rectangle:first-child {
+    /* border-right: 1px solid black; */
+    margin-right: 5px;
+    margin-left: -1px;
+}
+
+.loupe {
+    width: 52px;
+    height: 52px;
+    position: absolute;
+    background-color: red;
+    z-index: 100;
+    /* border: 2px solid white; */
+    /* box-shadow: inset 0 1px 3px rgba(0, 0, 0, .6); */
+}
+
+.color-picker.spectrum {
+    flex: 6;
+    margin-right: 0;
+}
+
+.quickPickers {
+    display: flex;
+    width: 32;
+    flex: 1;
+    flex-direction: column;
+}
+
+/* quickpickers as first element (left of spectrum) */
+.sdpi-item-value > .quickPickers {
+    flex: 0 1 0;
+}
+.quickPickers + .spectrum {
+    margin-right: 5px;
+}
+
+/* quickpickers as after spectrum (right of spectrum) */
+.spectrum + .quickPickers {
+    margin-right: 5px;
+}
+
+.quickPickers .rectangle {
+    width: 20px;
+    height: auto;
+    min-height: 13px;
+}
+
+.black {
+    background-color: black;
+}
+
+.spektrum {
+    background: url(cp_13_e.png) no-repeat center;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+    .spektrum {
+        background: url(cp_13_e@2x.png) no-repeat center;
+    }
+}

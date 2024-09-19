@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="144px" height="144px" viewBox="0 0 144 144" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>211</title>
+    <g id="211" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon id="background" fill="#1551FF" fill-rule="nonzero" opacity="0" points="0 0 144 0 144 144 0 144"></polygon>
+        <path d="M132,26 L132,118 L12,118 L12,26 L132,26 Z M128,31 L16,31 L16,114 L128,114 L128,31 Z" id="frame" fill="#D8D8D8" fill-rule="nonzero"></path>
+        <polygon id="bottom" fill="#D8D8D8" fill-rule="nonzero" points="48 74 98 74 98 110 48 110"></polygon>
+        <polygon id="top" fill="#D8D8D8" fill-rule="nonzero" points="48 34 98 34 98 70 48 70"></polygon>
+    </g>
+</svg>

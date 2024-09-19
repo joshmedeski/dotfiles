@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56">
+  <g fill="none" fill-rule="nonzero">
+    <g stroke="#FFF" stroke-linecap="round" stroke-width="4">
+      <path d="M28 2v7.429M54 28h-7.428M28 54.001v-7.429M2 28h7.428"/>
+    </g>
+     <g stroke="#FFF" stroke-linecap="round" stroke-width="3" transform="rotate(45 28 28)">
+      <path d="M28 2v7.429M54 28h-7.428M28 54.001v-7.429M2 28h7.428"/>
+    </g>
+    <g stroke="#FFF" stroke-linecap="round" stroke-width="5" >
+      <path d="M42 28H28"/>
+      <path d="M28 5.502V28"/>
+    </g>
+    <circle cx="28" cy="28" r="2" fill="#292929" stroke="#EFEFEF" stroke-width="3"/>
+  </g>
+</svg>

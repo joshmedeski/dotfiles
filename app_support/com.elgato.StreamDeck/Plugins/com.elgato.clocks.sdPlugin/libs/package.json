@@ -1,0 +1,14 @@
+{
+  "name": "streamdeck-sdk",
+  "version": "1.0.0",
+  "description": "An API for connecting to Stream Deck WebSockets.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elgatosf/streamdeck-javascript-sdk.git"
+  },
+  "author": "Elgato",
+  "bugs": {
+    "url": "https://github.com/elgatosf/streamdeck-javascript-sdk/issues"
+  },
+  "homepage": "https://github.com/elgatosf/streamdeck-javascript-sdk#readme"
+}

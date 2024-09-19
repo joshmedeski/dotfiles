@@ -1,0 +1,32 @@
+{
+  "id": "DualValue",
+  "items": [
+    {
+      "key": "title",
+      "type": "text",
+      "rect": [16, 10, 176, 26],
+      "font": { "size": 16, "weight": 600 },
+      "alignment": "left"
+    },
+    {
+      "key": "icon",
+      "type": "pixmap",
+      "rect": [16, 40, 48, 48]
+    },
+    {
+      "key": "value",
+      "type": "text",
+      "rect": [76, 40, 108, 30],
+      "font": { "size": 24, "weight": 600 },
+      "alignment": "right"
+    },
+    {
+      "key": "value2",
+      "type": "text",
+      "rect": [76, 71, 108, 26],
+      "font": { "size": 16, "weight": 600 },
+      "alignment": "right",
+      "color": "#999999"
+    }
+  ]
+}

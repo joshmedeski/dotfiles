@@ -1,0 +1,20 @@
+{
+    "Description": "Sin retrasos.",
+    "Name": "Reloj analógico",
+    "com.elgato.clocks.action": {
+        "Name": "Reloj analógico",
+        "Tooltip": "Muestra un bonito reloj"
+    },
+    "Localization": {
+        "Face": "Esfera",
+        "Black": "Negra",
+        "Blue": "Azul",
+        "Blueish": "Azulada",
+        "Green": "Verde",
+        "Red": "Roja",
+        "White": "Blanca",
+        "Transparent": "Transparente",
+        "None": "Ninguno",
+        "Show on": "Mostrar en"
+    }
+}

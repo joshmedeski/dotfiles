@@ -1,0 +1,76 @@
+{
+    "Description": "Sei immer pünktlich.",
+    "Name": "Clocks",
+    "com.elgato.clocks.action": {
+        "Name": "Clocks",
+        "Tooltip": "Viele schöne Uhren anzeigen",
+        "Encoder": {
+            "TriggerDescription": {
+                "Rotate": "Zeitzone einstellen",
+                "Push": "Datum ein/aus",
+                "Touch": "Datum ein/aus",
+                "LongTouch": "Editor öffnen"
+            }
+        }
+    },
+    "com.elgato.worldclock.action": {
+        "Name": "Weltuhr",
+        "Tooltip": "Eine einfache Weltuhr anzeigen",
+        "Encoder": {
+            "TriggerDescription": {
+                "Rotate": "Zeitzone einstellen",
+                "Push": "Datum ein/aus",
+                "Touch": "Datum ein/aus",
+                "LongTouch": "Editor öffnen"
+            }
+        }
+    },
+    "Localization": {
+        "Face": "Zifferblatt",
+        "Black": "Schwarz",
+        "Blue": "Blau",
+        "Blueish": "Bläulich",
+        "Green": "Grün",
+        "Red": "Rot",
+        "White": "Weiß",
+        "Transparent": "Transparent",
+        "None": "Kein",
+        "Show on": "Zeigen auf",
+        "Seconds": "Sekunden",
+        "Time": "Zeit",
+        "Weekday": "Wochentag",
+        "Date": "Datum",
+        "Day": "Tag",
+        "Month": "Monat",
+        "Year": "Jahr",
+        "Clock" : "Uhr",
+        "Style": "Stil",
+        "Location": "Ort",
+        "12 Hour": "12/24h",
+        "Use Timer": "Timer",
+        "Colors": "Farben",
+        "Cities": "Städte",
+        "Default": "Standard",
+        "Long Time": "Lange Zeit",
+        "Settings": "Einstellungen",
+        "Geometric": "Geometrisch",
+        "Show Ticks": "Ticks anzeigen",
+        "Show more...": "Mehr anzeigen...",
+        "Hide Seconds": "Sekunden ausblenden",
+        "Hide Face": "Zifferblatt ausblenden",
+        "Hide Hands": "Zeiger ausblenden",
+        "Hide Shadow": "Schatten ausblenden",
+        "Hide Background": "Hintergrund ausblenden",
+        "Hide Date": "Datum ausblenden",
+        "Hide Day": "Tag ausblenden",
+        "Hide Month": "Monat ausblenden",
+        "Hide Year": "Jahr ausblenden",
+        "Hide Weekday": "Wochentag ausblenden",
+        "Hide": "Ausblenden",
+        "Flash Colons": "Trenner blinken",
+        "Open Editor": "Editor öffnen",
+        "Add a custom name for this location.": "Füge einen benutzerdefinierten Namen für diesen Ort hinzu."
+        
+
+    }
+}

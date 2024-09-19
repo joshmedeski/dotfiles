@@ -1,0 +1,27 @@
+{
+    "scale": {
+        "default": 1,
+        "withSeconds": 0.7,
+        "Keypad": {
+            "default": 0.7,
+            "withSeconds": 0.5
+        }
+    }, 
+    "leftOffset": {
+        "default": 6,
+        "withSeconds": 4,
+        "Keypad": {
+            "withSeconds": 4
+        }
+    },
+    "topOffset": {
+        "default": 15,
+        "withSeconds": 25,
+        "Keypad": {
+            "default": 40,
+            "withSeconds": 60
+        }
+    }
+}
+
+

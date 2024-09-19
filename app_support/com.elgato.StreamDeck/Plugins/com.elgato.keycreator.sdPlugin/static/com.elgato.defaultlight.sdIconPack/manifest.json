@@ -1,0 +1,11 @@
+{
+    "Name": "Elgato Default Light",
+    "Version": "1.0.1",
+    "Description": "This is an icon pack that includes the most practical icons for our daily use with Stream Deck.",
+    "Author": "Elgato Systems",
+    "URL": "https://www.elgato.com",
+    "Icon": "icon.svg",
+    "License": "license.txt",
+    "pinned": "true",
+    "canhide":"true"
+}

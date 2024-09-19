@@ -1,0 +1,44 @@
+{
+    "Description": "Always be on time.",
+    "Name": "Clocks",
+    "com.elgato.clocks.action": {
+        "Name": "Clocks",
+        "Tooltip": "Show a nice clock"
+    },
+    "Localization": {
+        "Face": "Face",
+        "Black": "Black",
+        "Blue": "Blue",
+        "Blueish": "Blueish",
+        "Green": "Green",
+        "Red": "Red",
+        "White": "White",
+        "Transparent": "Transparent",
+        "None": "None",
+        "Show on": "Show on",
+        "Seconds": "Seconds",
+        "Time": "Time",
+        "Weekday": "Weekday",
+        "Date": "Date",
+        "Day": "Day",
+        "Month": "Month",
+        "Year": "Year",
+        "Clock" : "Clock",
+        "Style": "Style",
+        "Location": "Location",
+        "12 Hour": "12 Hour",
+        "Use Timer": "Use Timer",
+        "Colors": "Colors",
+        "Cities": "Cities",
+        "Default": "Default",
+        "Long Time": "Long Time",
+        "Settings": "Settings",
+        "xHide Seconds": "Sekunden ausblenden",
+        "xHide Face": "Zifferblatt ausblenden",
+        "xHide Background": "Hintergrund ausblenden",
+        "xHide Date": "Datum ausblenden",
+        "xFlash Colons": "Doppelpunkte blinken",
+        "xOpen Editor": "Editor öffnen"
+
+    }
+}

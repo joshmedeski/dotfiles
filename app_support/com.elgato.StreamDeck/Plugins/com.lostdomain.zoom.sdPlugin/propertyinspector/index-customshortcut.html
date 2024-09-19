@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>com.lostdomain.zoomPlugin</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="css/sdpi.css">
+</head>
+
+<body>
+  <div class="sdpi-wrapper">
+    <details class="message">
+      <summary><a class="info" href="#" onclick="openWebsite()">More info</a></summary>
+    </details>
+    <details class="message sdpi-item-value">
+      <summary>
+        <h4>Custom Shortcut (macOS only).</h4>
+      </summary>
+    </details>
+    <div class="sdpi-item">
+      <div class="sdpi-item-label">Shortcut to run</div>
+      <input class="sdpi-item-value sdProperty" id="zoomCustomShortcut" placeholder="shift+command+a" oninput="setSettings()">
+    </div>
+    <details class="message sdpi-item-value">
+      <summary>
+        <p>You can use this action to run anything within Zoom.</p>
+        <p>Please separate the shortcut with a + sign. For example: shift+command+a. </p>
+        <p>Available modifiers are: shift, command, control, option</p>
+      </summary>
+    </details>
+  </div>
+
+  <script src="common.js"></script>
+</body>
+
+</html>

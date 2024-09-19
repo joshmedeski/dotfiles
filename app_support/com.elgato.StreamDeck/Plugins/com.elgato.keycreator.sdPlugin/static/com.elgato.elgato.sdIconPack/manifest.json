@@ -1,0 +1,11 @@
+{
+    "Name": "Elgato Legacy Icons",
+    "Version": "1.1",
+    "Description": "Internal Icon Pack",
+    "Author": "Corsair/Elgato",
+    "URL": "https://elgato.com",
+    "Icon": "icon.svg",
+    "License": "license.txt",
+    "pinned": "true",
+    "canhide": "true"
+}

@@ -1,0 +1,211 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>com.elgato.clocks PI</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../libs/css/sdpi.css">
+    <link rel="stylesheet" href="../action/locationPicker/location.css">
+    <style>
+        .fontStyles .default,
+        .activity .default,
+        .activity .presets,
+        .segments .default,
+        .segments .presets,
+        .segments .fontStyles,
+        .segments .withexceptions,
+        .encoder .keypad,
+        .keypad .encoder,
+        .presets .fontStyles,
+        .presets .activity,
+        .presets .segments,
+        .fontStyles .presets,
+        .fontStyles .activity,
+        .fontStyles .segments,
+        .preset .segments,
+        .segments .nosegments,
+        .activity .noactivity,
+        .plugin .withExceptions
+
+        /* .fontStyles .noactivity */
+            {
+            display: none !important;
+        }
+
+        .inlinecolors .sdpi-item-value {
+            flex: 1 0 0;
+            margin-right: 14px;
+            margin-left: 4px;
+            /* justify-content: space-evenly; */
+        }
+
+        .smaller {
+            margin: 0px;
+            display: inline-block;
+        }
+
+        .inlinecolors .sdpi-item-value> :last-of-type,
+        .inlinecolors .sdpi-item-value:last-child {
+            margin-bottom: -2px;
+        }
+
+        input[type="checkbox"]+label[for="secondshideLayer"]:after {
+            content: "Seconds" !important;
+        }
+
+        .activity input[type="checkbox"]+label[for="secondshideLayer"]:after {
+            content: "Time " !important;
+        }
+        #settingsarea{
+            font-size: 8px;
+            height: 80px;
+        }
+   
+    </style>
+</head>
+
+<body>
+    <div class="sdpi-wrapper hidden">
+        <div type="none" class="sdpi-item">
+            <div class="sdpi-item-label empty"></div>
+            <div class="tabs">
+                <div class="tab selected" id="tab1" data-target="#styleTab" title="Adjust styling of your clock">Style</div>
+                <div class="tab" id="tab2" data-target="#locationTab" title="Select one or multiple time zones">Location</div>
+                <div class="tab hidden" id="tab3" data-target="#settingsTab" title="Save and load settings">Settings</div>
+            </div>
+        </div>
+        <hr class="tab-separator" />
+        <div id="styleTab" class="tab-container">
+            <div class="sdpi-item" id="allclocks">
+                <div class="sdpi-item-label versioninfo" title="VersionInfo:">Clock</div>
+                <select class="sdpi-item-value select allclocksSelector" title="Select your favorite clock-face."></select>
+            </div>
+
+            <div type="checkbox" class="sdpi-item tabgroup">
+                <div class="sdpi-item-label empty"></div>
+                <div class="sdpi-item-value min100">
+                    <div class="sdpi-item-child" title="Show/hide the current date">
+                        <input id="dateshowLayer" type="checkbox" data-setting="date.$hideLayer" value="!date.$hideLayer">
+                        <label for="dateshowLayer" class="sdpi-item-label">
+                            <span></span>Date
+                        </label>
+                    </div>
+                    <div class="sdpi-item-child" title="Show/hide seconds">
+                        <input id="secondshideLayer" type="checkbox" data-setting="seconds.$hideLayer" value="!seconds.$hideLayer">
+                        <label for="secondshideLayer" class="sdpi-item-label">
+                            <span></span>
+                        </label>
+                    </div>
+                    <div class="sdpi-item-child presets" title="Show/hide the clock's faceplate">
+                        <input id="facehideLayer" type="checkbox" data-setting="face.$hideLayer" value="!face.$hideLayer">
+                        <label for="facehideLayer" class="sdpi-item-label">
+                            <span></span>Face
+                        </label>
+                    </div>
+                    <div class="sdpi-item-child fontStyles noactivity" title="Make colons flash (if any)">
+                        <input id="flashColons" type="checkbox" data-setting="colons.flashColons" value="colons.flashColons">
+                        <label for="flashColons" class="sdpi-item-label">
+                            <span></span>Flash Colons
+                        </label>
+                    </div>
+                    <div class="sdpi-item-child" title="Show/hide the current weekday">
+                        <input id="showWeekday" type="checkbox" data-setting="date.showWeekday" value="date.showWeekday">
+                        <label for="showWeekday" class="sdpi-item-label">
+                            <span></span>Weekday
+                        </label>
+                    </div>
+                    <div class="sdpi-item-child segments" title="Show/hide colons">
+                        <input id="stripColons" type="checkbox" data-setting="time.stripColons" value="time.stripColons">
+                        <label for="stripColons" class="sdpi-item-label">
+                            <span></span>Strip Colons
+                        </label>
+                    </div>
+
+                    <div class="sdpi-item-child" title="Show clock in 12 or 24 hours format">
+                        <input id="hour12" type="checkbox" data-setting="time.hour12" value="time.hour12">
+                        <label for="hour12" class="sdpi-item-label">
+                            <span></span>12 Hour
+                        </label>
+                    </div>
+                    <div class="sdpi-item-child plugin hidden withexceptions" title="Control countdown with the dial">
+                        <input id="useCountdown" type="checkbox" data-setting="dial.useCountdown" value="dial.useCountdown">
+                        <label for="useCountdown" class="sdpi-item-label">
+                            <span></span>Use Timer
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div type="color" class="sdpi-item inlinecolors">
+                <div class="sdpi-item-label">Colors</div>
+                <div class="sdpi-item-value">
+                    <div class="sdpi-item-child smaller nosegments noactivity" title="Show time in your favorite color.<br />For more options long-press a touch-panel to open a small editor.">
+                        <input id="digitColor" type="color" data-setting="hours.color" value="#ffffff">
+                        <label for="digitColor" class="sdpi-item-label empty">
+                            <span></span>Time
+                        </label>
+                    </div>
+                    <div class="sdpi-item-child smaller segments activity" title="Show time in your favorite color.<br />For more options long-press a touch-panel to open a small editor.">
+                        <input id="timeColor" type="color" data-setting="time.color" value="#ffffff">
+                        <label for="timeColor" class="sdpi-item-label empty">
+                            <span></span>Time
+                        </label>
+                    </div>
+                    <div class="sdpi-item-child smaller" title="Show date in your favorite color">
+                        <input id="dateColor" type="color" data-setting="date.color" value="#000000">
+                        <label for="dateColor" class="sdpi-item-label empty">
+                            <span></span>Date
+                        </label>
+                    </div>
+                    <div class="sdpi-item-child smaller presets" title="Show faceplate in your favorite color">
+                        <input id="faceColor" type="color" data-setting="face.color" value="#000000">
+                        <label for="faceColor" class="sdpi-item-label empty">
+                            <span></span>Face
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="sdpi-item">
+                <div class="sdpi-item-label empty"></div>
+                <div class="sdpi-item-value">
+                        <button id="button-inside" class="sdpi-item-value insidebutton" onclick="$PI.sendToPlugin('openWindow')" title="Show more styling in a window.">Open Editor...</button>
+                    </div>
+            </div>
+        </div>
+        <div id="locationTab" class="tab-container">
+            <div class="locations-wrapper">
+                <div class="zones" id="zones"></div>
+            </div>
+            <hr />
+        </div>
+        <div id="settingsTab" class="tab-container hidden">
+            <div class="sdpi-item">
+                <div class="sdpi-item-label empty"></div>
+                <div class="sdpi-item-value">
+                    <button id="copyButton" class="sdpi-item-value insidebutton" onclick="copySettings('#settingsarea')" title="Copy the current settings to the clipboard.">Load Settings</button>
+                    <button id="loadButton" class="sdpi-item-value insidebutton" onclick="loadSettings('#settingsarea')" title="Load the current settings.">Apply Settings</button>
+                </div>
+            </div>
+            <div type="textarea" class="sdpi-item">
+                <div class="sdpi-item-label">Settings</div>
+                <div class="sdpi-item-value">
+                  <textarea type="textarea" id="settingsarea" title="These are the current settings.<br />Please <b>don't</b> modify them unless you know what you do!!"></textarea>
+                </div>
+              </div>
+        </div>
+    </div>
+    
+    <script src="../libs/js/constants.js"></script>
+    <script src="../libs/js/prototypes.js"></script>
+    <script src="../js/ELGEventEmitter.js"></script>
+    <script src="../js/ELGSDTemplateLoader.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../libs/js/api.js"></script>
+    <script src="../libs/js/property-inspector.js"></script>
+    <script src="../action/fontstyles/index.js"></script>
+    <script src="../action/js/presets.js"></script>
+    <script src="../action/locationPicker/location_pi.js"></script>
+    <script src="pi.js"></script>
+
+</body>
+
+</html>

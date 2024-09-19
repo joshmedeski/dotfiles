@@ -1,0 +1,136 @@
+ input[type="color"] {
+     height: 24px;
+     min-height: 24px;
+     margin: 0px;
+ }
+
+ input[type="color"]+label {
+     font-size: 9pt;
+     color: var(--sdpi-color);
+     font-weight: normal;
+     margin-left: 1px;
+     -webkit-user-select: none;
+     text-align: left;
+ }
+
+ #multi-items {
+     align-items: baseline;
+ }
+
+ .flex {
+     display: flex;
+     flex-direction: row;
+     flex-flow: row wrap;
+     /* align-items: center; */
+     justify-content: flex-start;
+
+ }
+
+ .flex1 {
+     display: flex;
+          align-items: center;
+
+ }
+
+ .flex>.sdpi-item-child {
+     margin-top: 0px;
+     margin-left: 2px;
+     margin-right: 2px;
+ }
+
+ .flex>.sdpi-item-child.smallcolor {
+     margin-top: 4px;
+     margin-left: 0px;
+ }
+
+
+ .zones .sdpi-item {
+     margin-top: 0px;
+     min-height: 20px;
+ }
+
+ .zones .sdpi-item-label {
+     line-height: 20px;
+     white-space: nowrap;
+     text-align: left;
+     text-overflow: ellipsis;
+     overflow-x: clip;
+ }
+
+ .zones .sdpi-item-child {
+     margin-top: 0px;
+ }
+
+ .zones .sdpi-item-value:last-child {
+     margin-bottom: 0px;
+ }
+
+ .zones .sdpi-item-value> :last-of-type,
+ .sdpi-item-value:last-child {
+     margin-bottom: 0px;
+ }
+
+ .zones .sdpi-item>*:not(.sdpi-item-label.empty):not(meter) {
+     min-height: 20px;
+     text-align: right;
+ }
+
+ .zones input[type="radio"]+label,
+ input[type="checkbox"]+label {
+     margin-left: 0px;
+     margin-right: 0px;
+     padding-left: 0px;
+     padding-right: 0px;
+     min-width: 120px;
+ }
+
+ .insidebutton {
+     margin-left: 20px;
+     margin-top: 6px;
+     font-size: 9pt;
+     font-weight: normal;
+     border-radius: 5px;
+     border-color: #555;
+ }
+
+ smaller,
+ .state {
+     color: #999;
+ }
+
+ .smaller {
+     font-weight: normal;
+     font-size: 0.8em;
+ }
+ .sdpi-item-child.current {
+    font-style: oblique;
+ }
+
+ .sdpi-item-child.current>input[type="radio"]+label:after,
+ .sdpi-item-child.current>input[type="checkbox"]+label:after {
+     content: " ✓" !important;
+ }
+
+ .locations-wrapper {
+    padding-top: 4px;
+ }
+
+ .locations-wrapper .sdpi-item-child {
+     display: flex;
+     justify-content: flex-start;
+     /* gap: 20px; */
+ }
+
+ .sdpi-item[type="checkbox"]>.sdpi-item-value>* {
+     margin-top: 0px;
+ }
+
+ .zones .display-inline {
+     display: inline-flex;
+     min-width: 80px;
+     width: 100px;
+ }
+
+ #multi-items:first-of-type {
+     padding-top: 3px;
+ }

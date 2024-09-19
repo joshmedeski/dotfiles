@@ -1,0 +1,370 @@
+:root {
+    --txt-color: #ffffff;
+    --txt-color-grey: #969696;
+    --txt-color-dimmed: #444444;
+    --title-font-weight: 600;
+    --item-font-weight: 400;
+    --content-padding: 2px;
+    --sdpi-letterspacing: 0.25px;
+
+}
+
+body {
+    overflow: hidden;
+}
+
+
+ul {
+    max-height: 100%;
+    padding: 0;
+    overflow: auto;
+}
+
+.no-overflow {
+    overflow-y: hidden;
+}
+
+details {
+    padding: 0px 18px 0px 12px;
+}
+
+table.sdpi-item-value,
+dl.sdpi-item-value,
+ul.sdpi-item-value,
+ol.sdpi-item-value {
+    -webkit-margin-before: 4px;
+    -webkit-margin-after: 8px;
+    -webkit-padding-start: 1em;
+    width: var(--sdpi-width);
+    text-align: left;
+}
+
+table>caption {
+    margin: 2px;
+}
+
+td {
+    max-width: 320px;
+    overflow-x: auto;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+/* LIST */
+
+.list {
+    padding: 0px 12px;
+    margin-top: 2px;
+}
+
+.list .item-content {
+    border-top: 1px solid #333;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    min-height: 32px;
+    padding: 6px 6px;
+    line-height: 20px;
+}
+
+.list .item-content:first-child {
+    border-top: none;
+}
+
+.list .item-content .subitem {
+    min-height: 24px;
+    /* padding: 4px 2px; */
+    padding: 0px 2px;
+
+    /* margin-left: 12px; */
+    margin-left: 32px;
+    line-height: 16px;
+    overflow: auto;
+}
+
+.list .item-content .subitem.with-title::before {
+    content: attr(title);
+    color: var(--txt-color-dimmed);
+}
+
+.list .subitem .item-content {
+    padding: 0px;
+    flex-direction: row;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.list .subitem .item-content.object {
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+
+
+.subitem li:nth-child(even) {
+    background-color: inherit;
+}
+
+.with-title>.item-subtitle,
+.deeper {
+    padding-left: 20px;
+}
+
+.list .item-content:hover {
+    background-color: rgba(206, 198, 198, 0.03);
+}
+
+/* .list .subitem .item-content[type="checkbox"] {
+    display: block;
+} */
+
+.list .item-title {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    align-items: center;
+    /* align-items: flex-start; */
+    font-size: 1em;
+    /* font-style: italic; */
+    font-weight: var(--title-font-weight);
+    color: var(--sdpi-text-color-dimmed);
+    text-align: right;
+    padding-right: 12px;
+    min-width: 120px;
+    justify-content: flex-end;
+}
+
+.list .item-title::after {
+    content: ' : ';
+    margin-left: 4px;
+}
+
+
+.list .subitem .item-content.object>.item-title {
+    min-height: 34px;
+    text-align: left;
+    justify-content: flex-start;
+}
+
+
+.list .subitem .item-content.object>.item-title::after {
+    content: '';
+    margin-left: 0px;
+}
+
+#history .list .item-title {
+    font-size: 9pt;
+}
+
+.list .item-addon,
+.list .item-subtitle {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    font-weight: var(--item-font-weight);
+    color: var(--txt-color-grey);
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+}
+
+.list .item-subtitle,
+.list .item-addon {
+    justify-content: space-between;
+}
+
+.list .item-subtitle[type=checkbox],
+.list details .item-subtitle,
+.list details .item-addon {
+    justify-content: flex-start;
+}
+
+/* .subitem div,
+.subitem span {
+    min-width: 60px;
+    padding-right: 2px 4px;
+} */
+
+.subitem .key {
+    text-align: right;
+}
+
+.italic {
+    font-style: italic;
+}
+
+details li:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.list>div {
+    font-size: 0.8em;
+    text-align: center;
+    font-style: italic;
+    color: #666;
+    padding-bottom: 12px;
+    max-width: 60%;
+    margin: auto;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.subitem span.folder,
+.subitem span .folder {
+    min-width: 16px;
+    margin-right: 0px;
+    /* padding-right: 0px; */
+    padding: 4px;
+}
+
+.list .item-subtitle[type=checkbox],
+input[type=checkbox],
+input[type=text],
+input[type=number] {
+    padding: 6px;
+}
+
+.list .item-subtitle[type=checkbox] {
+    /* left: -92px; */
+    left: -42px;
+}
+
+input:not([type="range"]),
+textarea,
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: auto;
+
+}
+
+input:not([type="range"]),
+textarea {
+    /* min-width: 190px; */
+    min-width: 90px;
+}
+
+textarea {
+    resize: both;
+    overflow: auto;
+}
+
+.list .subitem .item-content.textarea {
+    margin-top: 8px;
+    align-items: flex-start;
+    overflow-x: hidden;
+    flex-direction: column;;
+    /* position: relative; */
+}
+
+.textarea {
+    width: 100%;
+}
+
+.textarea .item-title div,
+.textarea .item-title {
+    text-align: left;
+    min-width: 0px !important;
+}
+
+
+.textarea > .subitem div, 
+.textarea .subitem span
+.textarea .subitem div {
+    min-width: none;
+}
+
+
+
+
+.textarea textarea {
+    min-width: 312px;
+    /* max-width: 352px; */
+    min-height: 400px;
+    /* position: absolute !important; */
+    overflow: auto !important;
+    left: 0px;
+    right: 0px;
+    width: 92%;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--sdpi-color) !important;
+}
+
+input:read-only {
+    background-color: transparent;
+    /* pointer-events: none; */
+}
+
+.previews {
+    padding: 16px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    /* align-content: center; */
+    align-items: baseline;
+    min-height: 144px;
+    background-color: rgba(0,0,0,.2);
+    /* box-shadow: inset 0pt 0pt 6pt rgba(0,0,0,.25); */
+    box-shadow: inset 0pt 2pt 4pt rgb(0 0 0 / 25%)
+}
+
+.folder img,
+.folder {
+    /* background: url(../../libs/assets/caret_closed.svg) no-repeat left center; */
+    /* padding-left: 12px; */
+    transform: rotate(0);
+    transition-duration: 0.2s;
+    transition-property: transform;
+    vertical-align: text-top;
+}
+
+.nofolder {
+    padding-left: 0px;
+    text-transform: capitalize;
+}
+
+.folder.open img,
+.folder.open {
+    /* background: url(../../libs/assets/caret.svg) no-repeat left center; */
+    transform: rotate(90deg);
+    /* transform-origin: 2px 2px; */
+
+}
+
+.previewsvg {
+    width: 80%;
+}
+
+.top {
+    position: sticky;
+    top: 0px;
+    background-color: var(--sdpi-bgcolor);
+    /* background-color: rgba(0,0,0,.2); */
+    min-height: 144px;
+    z-index: 1000;
+}
+
+.item-image {
+    min-height: 144px;
+    max-height: 144px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type="color"],
+input[type="color"]::-webkit-color-swatch-wrapper,
+-webkit-color-swatch-wrapper {
+    max-width: 40px;
+}
+
+/* .nofolder {
+    margin-left: 40px;
+    text-align: left;
+} */

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<!-- TODO: Turn the inspector into a monolithic API based version, instead of this. -->
+
+<head>
+	<title>com.elgato.obsstudio.source.media</title>
+	<meta charset="utf-8" />
+	<meta name=viewport
+		content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui,viewport-fit=cover">
+	<meta name=apple-mobile-web-app-capable content=yes>
+	<meta name=apple-mobile-web-app-status-bar-style content=black>
+	<link rel="stylesheet" href="../../../resources/css/sdpi.css">
+	<link rel="stylesheet" href="../../../resources/css/inspector.css">
+</head>
+
+<body>
+	<div class="sdpi-wrapper">
+		<div class="sdpi-item" id="source">
+			<div class="sdpi-item-label" localize>Source</div>
+			<select class="sdpi-item-value select">
+			</select>
+		</div>
+		<div class="sdpi-item" id="action">
+			<div class="sdpi-item-label" localize>Action</div>
+			<select class="sdpi-item-value select">
+				<option value="play_pause" localize>Play/Pause</option>
+				<option value="play_stop" localize>Play/Stop</option>
+				<option value="play_restart" localize>Play/Restart</option>
+				<option value="stop" localize>Stop</option>
+			</select>
+		</div>
+		<div class="sdpi-heading" id="help_header" localize>Media Playback Time Display</div>
+		<div type="radio" class="sdpi-item" id="countdown">
+			<div class="sdpi-item-label" localize>While Playing</div>
+			<div class="sdpi-item-value ">
+				<span class="sdpi-item-child" style="display: block">
+					<input id="count_none" type="radio" name="rdio">
+					<label for="count_none" class="sdpi-item-label" localize><span></span>Only show source name</label>
+				</span>
+				<span class="sdpi-item-child" style="display: block">
+					<input id="count_up" type="radio" value="off" name="rdio">
+					<label for="count_up" class="sdpi-item-label" localize><span></span>Show time counting up</label>
+				</span>
+				<span class="sdpi-item-child" style="display: block">
+					<input id="count_down" type="radio" value="mute" name="rdio">
+					<label for="count_down" class="sdpi-item-label" localize><span></span>Show time counting down</label>
+				</span>
+			</div>
+		</div>
+		<div class="message" style="font-weight: normal; font-style: italic;" id="help_message" localize>Title must be empty for time display to show on key.</div>
+	</div>
+
+	<!-- Configuration -->
+	<script src='../../config.js'></script>
+	<!-- Libraries -->
+	<script src='../../lib/TypedArray.toHex.js'></script>
+	<script src='../../lib/JSON.js'></script>
+	<script src='../../lib/jsonrpc.js'></script>
+	<script src='../../lib/uuid.js'></script>
+	<script src='../../lib/common.js'></script>
+	<!-- Code -->
+	<script src='../../streamdeck.js'></script>
+	<script src='../iinspector.js'></script>
+	<!-- Self Code -->
+	<script src='action_source_media_inspector.js'></script>
+</body>
+
+</html>

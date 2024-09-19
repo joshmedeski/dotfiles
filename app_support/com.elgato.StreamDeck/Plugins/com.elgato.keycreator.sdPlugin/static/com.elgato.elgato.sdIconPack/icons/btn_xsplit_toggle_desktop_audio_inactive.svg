@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="144" height="144" viewBox="0 0 144 144">
+  <defs>
+    <path id="path-1" d="M64,60 L92,44 L92,100 L64,84 L64,60 Z M52,66 L59.9996461,62 L59.9996461,82 L52,78 L52,66 Z"/>
+  </defs>
+  <g id="btn_xsplit_toggle_desktop_audio_inactive" fill="none" fill-rule="evenodd">
+    <rect id="XSPLIT_Background_inactive" width="144" height="144" fill="#004D73" fill-rule="nonzero" rx="22"/>
+    <mask id="mask-2" fill="#fff">
+      <use xlink:href="#path-1"/>
+    </mask>
+    <use fill="#EFEFEF" xlink:href="#path-1"/>
+  </g>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
+  <defs>
+    <linearGradient id="tool_gradient_icon-a" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFF"/>
+      <stop offset="100%"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <path fill="#8E8E93" d="M0,0 L15,0 L15,15 L0,15 L0,0 Z M1,1 L1,14 L14,14 L14,1 L1,1 Z" opacity=".18"/>
+    <path fill="url(#tool_gradient_icon-a)" fill-opacity=".8" fill-rule="nonzero" d="M1.25,11.4718421 C1.25,12.7300339 2.27292746,13.75 3.52815791,13.75 L11.4718421,13.75 C12.7300339,13.75 13.75,12.7270726 13.75,11.4718421 L13.75,3.52815791 C13.75,2.26996604 12.7270726,1.25 11.4718421,1.25 L3.52815791,1.25 C2.26996604,1.25 1.25,2.27292746 1.25,3.52815791 L1.25,11.4718421 Z"/>
+  </g>
+</svg>

@@ -1,0 +1,11 @@
+{
+    "Name": "Elgato Brand Icons",
+    "Version": "1.0.1",
+    "Description": "This icon pack includes a variety of brand logos.",
+    "Author": "Elgato Systems",
+    "URL": "https://www.elgato.com",
+    "Icon": "icon.svg",
+    "License": "license.txt",
+    "pinned": "true",
+    "canhide": "true"
+}

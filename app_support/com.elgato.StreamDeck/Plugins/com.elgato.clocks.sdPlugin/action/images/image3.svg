@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200">
+    <g  transform="translate(32 0)" >
+    <g id="ticks" stroke-width="8" stroke="#EFEFEF">
+        <circle id="background" cx="100" cy="100" r="98" stroke-width="2" fill="#0490E2" />
+        <line x1="100" y1="5" x2="100" y2="25" stroke="#C8C8C8"></line>
+        <line x1="100" y1="5" x2="100" y2="25" transform="rotate(30, 100, 100)"></line>
+        <line x1="100" y1="5" x2="100" y2="25" transform="rotate(60, 100, 100)"></line>
+        <line x1="100" y1="5" x2="100" y2="25" stroke="#C8C8C8" transform="rotate(90, 100, 100)"></line>
+        <line x1="100" y1="5" x2="100" y2="25" transform="rotate(120, 100, 100)"></line>
+        <line x1="100" y1="5" x2="100" y2="25" transform="rotate(150, 100, 100)"></line>
+        <line x1="100" y1="5" x2="100" y2="25" stroke="#C8C8C8" transform="rotate(180, 100, 100)"></line>
+        <line x1="100" y1="5" x2="100" y2="25" transform="rotate(210, 100, 100)"></line>
+        <line x1="100" y1="5" x2="100" y2="25" transform="rotate(240, 100, 100)"></line>
+        <line x1="100" y1="5" x2="100" y2="25" stroke="#C8C8C8" transform="rotate(270, 100, 100)"></line>
+        <line x1="100" y1="5" x2="100" y2="25" transform="rotate(300, 100, 100)"></line>
+        <line x1="100" y1="5" x2="100" y2="25" transform="rotate(330, 100, 100)"></line>
+        <circle cx="100" cy="100" r="4" stroke-width="2" fill="#0490E2" />
+    </g>
+    <g stroke="#FFFFFF">
+        <line id="hours" x1="100" y1="25" x2="100" y2="96" stroke-width="5" transform="rotate(${hourDeg}, 100, 100)"></line>
+        <line id="minutes" x1="100" y1="12.5" x2="100" y2="96" stroke-width="4" transform="rotate(${minAngle}, 100, 100)"></line>
+        <line id="seconds" x1="100" y1="5" x2="100" y2="96" stroke-width="3" transform="rotate(${secsDeg}, 100, 100)"></line>
+    </g>
+    </g>
+</svg>

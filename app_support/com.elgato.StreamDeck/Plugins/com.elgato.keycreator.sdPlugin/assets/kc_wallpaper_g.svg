@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+  <g fill="none" fill-rule="evenodd">
+    <rect width="26" height="19" x="1" y="5" stroke="#375650" stroke-width="2" rx="3"/>
+    <path fill="#375650" d="M5,13 L8,13 L8,16 L5,16 L5,13 Z M10,13 L13,13 L13,16 L10,16 L10,13 Z M15,13 L18,13 L18,16 L15,16 L15,13 Z M20,13 L23,13 L23,16 L20,16 L20,13 Z M5,18 L8,18 L8,21 L5,21 L5,18 Z M10,18 L13,18 L13,21 L10,21 L10,18 Z M15,18 L18,18 L18,21 L15,21 L15,18 Z M20,18 L23,18 L23,21 L20,21 L20,18 Z M10,8 L13,8 L13,11 L10,11 L10,8 Z M5,8 L8,8 L8,11 L5,11 L5,8 Z M15,8 L18,8 L18,11 L15,11 L15,8 Z M20,8 L23,8 L23,11 L20,11 L20,8 Z"/>
+  </g>
+</svg>

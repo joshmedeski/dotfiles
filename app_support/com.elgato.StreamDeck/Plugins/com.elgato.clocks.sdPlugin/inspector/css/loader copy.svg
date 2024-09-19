@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width='120px' height='120px'
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" preserveAspectRatio="xMidYMid" class="uil-ring-alt">
+    <rect id="background" x="0" y="0" width="100" height="100" fill="none"></rect>
+    <circle cx="48" cy="48" r="40" stroke="#e8e8e8" fill="none" stroke-width="10" stroke-linecap="round"></circle>
+    <circle cx="48" cy="48" r="40" stroke="#4bc4d4" fill="none" stroke-width="8" stroke-linecap="round">
+        <animate attributeName="stroke-dashoffset" dur="2s" repeatCount="indefinite" from="502" to="0"></animate>
+        <animate attributeName="stroke-dasharray" dur="2s" repeatCount="indefinite" values="150.6 100.4;1 250;150.6 100.4"></animate>
+    </circle>
+</svg>

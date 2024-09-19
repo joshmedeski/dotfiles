@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
+    <g id="ticks" stroke-width="1" stroke="#EFEFEF">
+        <!-- <circle id="background" cx="72" cy="72" r="71" stroke-width="2" fill="#0490E2" /> -->
+        <line x1="72" y1="3" x2="72" y2="20" stroke="#C8C8C8"></line>
+        <line x1="72" y1="3" x2="72" y2="20" transform="rotate(30, 72, 72)"></line>
+        <line x1="72" y1="3" x2="72" y2="20" transform="rotate(60, 72, 72)"></line>
+        <line x1="72" y1="3" x2="72" y2="20" stroke="#C8C8C8" transform="rotate(90, 72, 72)"></line>
+        <line x1="72" y1="3" x2="72" y2="20" transform="rotate(120, 72, 72)"></line>
+        <line x1="72" y1="3" x2="72" y2="20" transform="rotate(150, 72, 72)"></line>
+        <line x1="72" y1="3" x2="72" y2="20" stroke="#C8C8C8" transform="rotate(180, 72, 72)"></line>
+        <line x1="72" y1="3" x2="72" y2="20" transform="rotate(210, 72, 72)"></line>
+        <line x1="72" y1="3" x2="72" y2="20" transform="rotate(240, 72, 72)"></line>
+        <line x1="72" y1="3" x2="72" y2="20" stroke="#C8C8C8" transform="rotate(270, 72, 72)"></line>
+        <line x1="72" y1="3" x2="72" y2="20" transform="rotate(300, 72, 72)"></line>
+        <line x1="72" y1="3" x2="72" y2="20" transform="rotate(330, 72, 72)"></line>
+        <circle cx="72" cy="72" r="4" stroke-width="2" fill="#0490E2" />
+    </g>
+    <g  stroke="#FFFFFF">
+    <line id="hours" x1="72" y1="25" x2="72" y2="67" stroke-width="3" transform="rotate(30, 72, 72)"></line>
+    <line id="minutes" x1="72" y1="12.5" x2="72" y2="67" stroke-width="2"  transform="rotate(60, 72, 72)"></line>
+    <line id="seconds" x1="72" y1="5" x2="72" y2="67" stroke-width="1" transform="rotate(90, 72, 72)"></line>
+    </g>
+</svg>

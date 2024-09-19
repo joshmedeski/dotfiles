@@ -1,0 +1,106 @@
+{
+    "Description": "Elgato Key Light 및 기타 장치를 제어합니다.",
+    "Name": "제어 센터",
+    "Category": "제어 센터",
+    "com.elgato.controlcenter.lights-on-off": {
+        "Name": "켬 / 끔",
+        "Tooltip": "조명을 끄거나 켭니다",
+        "States": [
+            {
+                "Name": "켬"
+            },
+            {
+                "Name": "끔"
+            }
+        ]
+    },
+    "com.elgato.controlcenter.brightness-slider": {
+        "Name": "밝기 설정",
+        "Tooltip": "조명의 밝기를 사용자 맞춤값으로 설정합니다"
+    },
+    "com.elgato.controlcenter.brightness-stepper": {
+        "Name": "밝기 조절",
+        "Tooltip": "조명의 밝기를 수동으로 조절합니다",
+        "Encoder": {
+            "TriggerDescription": {
+                "Rotate": "속성 조정",
+                "Touch": "조명 켬/끔"
+            }
+        }
+    },
+    "com.elgato.controlcenter.temperature-slider": {
+        "Name": "색온도 설정",
+        "Tooltip": "조명의 색온도를 사용자 맞춤값으로 조절합니다"
+    },
+    "com.elgato.controlcenter.temperature-stepper": {
+        "Name": "색온도 조절",
+        "Tooltip": "조명의 색온도를 수동으로 조절합니다",
+        "Encoder": {
+            "TriggerDescription": {
+                "Rotate": "속성 조정",
+                "Touch": "조명 켬/끔 토글"
+            }
+        }
+    },
+    "com.elgato.controlcenter.color-picker": {
+        "Name": "색상 설정",
+        "Tooltip": "조명의 색온도를 사용자 맞춤값으로 조절합니다"
+    },
+    "com.elgato.controlcenter.battery": {
+        "Name": "배터리",
+        "Tooltip": "배터리 상태 보기"
+    },
+    "com.elgato.controlcenter.scene": {
+        "Name": "장면 설정",
+        "Tooltip": "조명의 장면을 사용자 맞춤값으로 조절합니다",
+        "Encoder": {
+            "TriggerDescription": {
+                "Rotate": "장면/밝기 조절",
+                "Touch": "조명 켬/끔"
+            }
+        }
+    },
+    "Localization": {
+        "Brighter": "밝게",
+        "Darker": "어둡게",
+        "Warmer": "따뜻하게",
+        "Cooler": "차갑게",
+        "Steps": "단계",
+        "Accessory": "주변기기",
+        "Step Size": "단계 크기",
+        "Brightness": "밝기",
+        "Temperature": "온도",
+        "Set Brightness": "밝기 설정",
+        "Set Temperature": "색온도 설정",
+        "Adjust Temperature": "색온도 조절",
+        "Adjust Brightness": "밝기 조절",
+        "Range": "범위",
+        "On/Off": "켬/끔",
+        "On": "켬",
+        "Off": "끔",
+        "Toggle": "토글",
+        "Up": "위",
+        "Down": "아래",
+        "Untitled": "제목 없음",
+        "%s not found": "%s을(를) 발견하지 못함",
+        "%s not available": "%s을(를) 사용할 수 없음",
+        "%s not connected": "%s이(가) 접속되지 않음",
+        "%s not running": "%s이(가) 실행 중이 아님",
+        "No connection to %s": "%s에 대한 접속 없음",
+        "Please launch %s": "%s을(를) 실행하세요",
+        "More info": "더 많은 정보",
+        "Show in Title": "제목에서 보기",
+        "Icon shows": "아이콘 보기",
+        "Value": "값",
+        "Step": "단계",
+        "Device State": "기기 상태",
+        "Desired State": "원하는 상태",
+        "All": "모두",
+        "Color": "색상",
+        "Scene": "장면",
+        "No Scene": "장면 없음",
+        "Untitled Scene": "제목 없는 장면",
+        "Switch Scenes": "장면 전환",
+        "Dial Action": "다이얼 동작"
+    }
+}

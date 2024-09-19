@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
+  <g id="btn_media_next_track" fill="none" fill-rule="evenodd">
+    <g id="Fill-168622" fill="#EFEFEF" transform="translate(48 46)">
+      <polygon points="8 4 0 8.6 0 43.4 8 48 36 32 36 20"/>
+      <polygon points="48 0 40 5.4 40 46.6 48 52" transform="matrix(-1 0 0 1 88 0)"/>
+    </g>
+  </g>
+</svg>

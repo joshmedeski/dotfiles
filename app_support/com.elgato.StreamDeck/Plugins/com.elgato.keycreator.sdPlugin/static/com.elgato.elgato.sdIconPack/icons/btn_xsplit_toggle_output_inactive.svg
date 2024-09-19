@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
+  <g id="btn_xsplit_toggle_output_inactive" fill="none" fill-rule="evenodd">
+    <rect id="XSPLIT_Background_inactive" width="144" height="144" fill="#004D73" fill-rule="nonzero" rx="22"/>
+    <path fill="#EFEFEF" d="M60,100.5 L64,97 L64,100 L84,100 L84,80 L64,80 L64,83 L60,79.5 L60,76 L88,76 L88,104 L60,104 L60,100.5 Z M60,40 L88,40 L88,68 L60,68 L60,40 Z M64,44 L64,64 L84,64 L84,44 L64,44 Z M52,88 L52,76 L68,90 L52,104 L52,92 L44,92 L44,88 L52,88 Z"/>
+  </g>
+</svg>

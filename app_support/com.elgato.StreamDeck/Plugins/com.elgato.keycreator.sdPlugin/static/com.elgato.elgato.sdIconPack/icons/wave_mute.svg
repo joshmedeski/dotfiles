@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="144px" height="144px" viewBox="0 0 144 144" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>wave_mute</title>
+    <g id="wave_mute" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="background" fill="#1551FF" fill-rule="nonzero" opacity="0" x="0" y="0" width="144" height="144"></rect>
+        <path d="M114,8 L28,8 C15.9712382,8 8.19722475,15.6537257 8.00294735,27.6361897 L8,30 L8,116 C8,128.028762 15.6537258,135.802775 27.6361898,135.997052 L30,136 L116,136 C128.028762,136 135.802775,128.346274 135.997053,116.36381 L136,114 L136,28 C136,15.9712381 128.346274,8.19722475 116.36381,8.00294735 L114,8 Z" id="dimmed-overlay" fill="#000000" fill-rule="nonzero" opacity="0.402154832"></path>
+        <path d="M115.84062,110.183766 C116.621669,110.964815 116.621669,112.231144 115.84062,113.012193 L113.012193,115.84062 C112.231144,116.621669 110.964815,116.621669 110.183766,115.84062 L28.1593795,33.8162338 C27.378331,33.0351852 27.378331,31.7688552 28.1593795,30.9878067 L30.9878067,28.1593795 C31.7688552,27.378331 33.0351852,27.378331 33.8162338,28.1593795 L115.84062,110.183766 Z" id="mute-shadow" fill="#000000" fill-rule="nonzero"></path>
+        <polygon id="mute" fill="#FFFFFF" fill-rule="nonzero" transform="translate(72.000000, 72.000000) rotate(45.000000) translate(-72.000000, -72.000000) " points="130 70 14 70 14 74 130 74"></polygon>
+    </g>
+</svg>

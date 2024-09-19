@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
+  <g id="btn_xsplit_toggle_desktop_audio" fill="#EFEFEF" fill-rule="evenodd" transform="translate(36 42)">
+    <polygon id="speaker_body" points="40 18 12 2 12 58 40 42" transform="matrix(-1 0 0 1 52 0)"/>
+    <path id="outer-elements" d="M71.9996461,24 L71.9996461,36 L64,40 L64,20 L71.9996461,24 Z M18,2 L4,30.1075269 L18,58 L15,60 L-9.09494702e-13,30.1075269 L15,-1.13686838e-13 L18,2 Z M23.5,16 L16.5,30 L23.5,44 L20.5,46 L12.5,30 L20.5,14 L23.5,16 Z" transform="matrix(-1 0 0 1 72 0)"/>
+  </g>
+</svg>

@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>com.elgato.clocks.externalWindow</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+    <link rel="stylesheet" href="../libs/css/sdpi.css">
+    <link rel="stylesheet" href="css/inspector.css">
+    <style>
+        .sdpi-item {
+            max-width: 96%;
+        }
+
+        .fontStyles .default,
+        .encoder .keypad,
+        .keypad .encoder,
+        .presets .fontStyles,
+        .fontStyles .presets {
+            display: none !important;
+        }
+        .tabs {
+            display: none;
+        }
+    </style>
+
+    <script src="js/petite-vue.js"></script>
+    <script src="../libs/js/constants.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/ELGEventEmitter.js"></script>
+    <script src="../js/ELGSDTemplateLoader.js"></script>
+    <script src="../libs/js/api.js"></script>
+    <script src="../action/fontstyles/index.js"></script>
+    <script src="../action/js/presets.js"></script>
+
+    <!-- this is only needed if PI is moved to external window-->
+    <!-- <script src="../libs/js/property-inspector.js"></script> -->
+
+    <template id="json-item-template">
+        <!-- <ul :class="{ subitem: !isRoot }" v-show="open" v-if="isFolder"> -->
+        <ul class="subitem" v-show="open" v-if="isFolder">
+            <li class="item-content" v-for="(item, value, type) in getModel" :class="{ object: isFolder, textarea: isTextArea }" v-scope="TreeItemJSON(item, false, null, value, parent, readonly)">
+                <div class="item-title">
+                    <div @click.prevent="toggle">
+                        <span v-if="isFolder" class="folder" :class="{ open: open }"><img src="../libs/assets/caret_closed.svg" /></span>
+                        <span class="nofolder">{{displayName}}</span>
+                    </div>
+                </div>
+                <template v-if="!isFolder">
+                    <div :class="{ textarea: isTextArea }">
+                        <div v-if="isSVG" class="item-image" v-html="`${item}`"></div>
+                        <img v-else-if="isImage" class="item-image" :src="`${item}`" />
+                        <textarea v-else-if="isTextArea" class="item-subtitle" :value="item" :readonly="readonly=='true' ? 'true'  : null"></textarea>
+                        <input v-else :step="step" :type="itemType" :name="name" :checked="test" class="item-subtitle" :value="item" :readonly="readonly=='true' ? 'true'  : null" @change="updateModel"></input> <!-- item, value, parent-->
+                    </div>
+                </template>
+            </li>
+        </ul>
+    </template>
+
+</head>
+
+<body onload="loaded()">
+    <div v.cloak id="app" class="sdpi-wrapper" v-scope>
+        <div class="top">
+            <div class="previews">
+                <template v-for="preview in data.previews">
+                    <img class="item-image previewsvg" :src="`${preview}`" />
+                </template>
+            </div>
+            <div class="tabs">
+                <div v-for="(member) in tabs" class="tab" :data-target="`#tab-${member}`">{{member}}</div>
+                <!-- <div class="tab" data-target="#pi">PI</div> -->
+            </div>
+        </div>
+        <div class="page-content sdpi-wrapper">
+            <div v-for="(member) in tabs" :id="`tab-${member}`" class="list hidden" v-scope="TreeItemJSON(data, true,`${member}`, null, null, `${member == 'context'}`)"></div>
+        </div>
+    </div>
+
+
+    </div>
+    <div class="loader show"></div>
+
+    <style>
+        .sdpi-item {
+            max-width: 96%;
+        }
+
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(20, 20, 20, 0.75) url(./css/loader.svg) no-repeat center;
+            background-size: 120px;
+            transition: opacity 0.2s;
+            z-index: 9999;
+        }
+
+        .loader img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%);
+        }
+
+        .loader {
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        .loader.show {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+    <script src="js/inspector.js"></script>
+
+</body>
+
+</html>

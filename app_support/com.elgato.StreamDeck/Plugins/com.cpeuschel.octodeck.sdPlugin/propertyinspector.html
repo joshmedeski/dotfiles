@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>StreamDeck - Octoprint</title>
+    <link rel="stylesheet" href="sdpi.css">
+    <script src="common.js"></script>
+</head>
+
+<body>
+<div class="sdpi-wrapper">
+    <div class="sdpi-item">
+        <div class="sdpi-item-label">OctoPrint URL</div>
+        <input class="sdpi-item-value sdProperty" placeholder="Enter the OctoPrint address (http://192.168.178.13)" value="" id="octoUrl" oninput="setSettings()">
+    </div>
+
+    <div class="sdpi-item">
+        <div class="sdpi-item-label">OctoPrint API-Key</div>
+        <input class="sdpi-item-value sdProperty" placeholder="Enter your OctoPrint API Key" value="" id="octoKey" oninput="setSettings()">
+    </div>
+
+    <div type="select" class="sdpi-item">
+        <div class="sdpi-item-label">Update interval</div>
+        <select class="sdpi-item-value select setvalueSelect sdProperty" id="octoInterval" onchange="setSettings()">
+            <option value="30">30 seconds</option>
+            <option value="60">1 minute</option>
+            <option value="300">5 minutes</option>
+        </select>
+    </div>
+
+    <div type="select" class="sdpi-item">
+        <div class="sdpi-item-label">Background</div>
+        <select class="sdpi-item-value select setvalueSelect sdProperty" id="octoBackground" onchange="setSettings()">
+            <option value="default">Default</option>
+            <option value="black">Black</option>
+            <option value="green">Green</option>
+            <option value="white">White</option>
+            <option value="blue">Blue</option>
+            <option value="red">Red</option>
+        </select>
+    </div>
+</div>
+</body>
+</html>

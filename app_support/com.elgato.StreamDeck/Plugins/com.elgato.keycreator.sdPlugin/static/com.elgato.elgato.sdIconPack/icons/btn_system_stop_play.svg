@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
+  <g id="btn_system_stop_play" fill="none" fill-rule="evenodd">
+    <g id="soundboard" transform="translate(32 38)">
+      <path id="soundboard_frame" fill="#EFEFEF" d="M3,0 L77,0 C78.6568542,-3.04359188e-16 80,1.34314575 80,3 L80,65 C80,66.6568542 78.6568542,68 77,68 L3,68 C1.34314575,68 2.02906125e-16,66.6568542 0,65 L0,3 C-2.02906125e-16,1.34314575 1.34314575,3.04359188e-16 3,0 Z M6,4 C4.8954305,4 4,4.8954305 4,6 L4,62 C4,63.1045695 4.8954305,64 6,64 L74,64 C75.1045695,64 76,63.1045695 76,62 L76,6 C76,4.8954305 75.1045695,4 74,4 L6,4 Z"/>
+      <rect id="large_display" width="24" height="4" x="8" y="8" fill="#21D330"/>
+      <rect id="display2" width="8" height="4" x="64" y="8" fill="#7ED321" rx="1"/>
+      <rect id="display" width="8" height="4" x="52" y="8" fill="#0865D1" rx="1"/>
+    </g>
+    <rect id="btn_stop_play" width="28" height="28" x="58" y="58" fill="#EFEFEF" rx="1.75"/>
+  </g>
+</svg>

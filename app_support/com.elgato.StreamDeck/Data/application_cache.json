@@ -1,0 +1,76 @@
+{
+  "notifications": [
+    {
+      "data": "com.elgato.applemusic",
+      "message": "It can be found in your Actions List.",
+      "status": "success",
+      "timestamp": 11616387756791,
+      "title": "\"Apple Music\" plugin installed.",
+      "type": "plugin"
+    },
+    {
+      "data": "com.elgato.clocks",
+      "message": "It can be found in your Actions List.",
+      "status": "success",
+      "timestamp": 11659053497666,
+      "title": "\"Clocks\" plugin installed.",
+      "type": "plugin"
+    },
+    {
+      "data": "de.perdoctus.streamdeck.homeassistant",
+      "message": "Try again or get help troubleshooting.",
+      "status": "info",
+      "timestamp": 11747330638166,
+      "title": "Unable to install \"Home Assistant\" plugin.",
+      "type": "plugin"
+    },
+    {
+      "data": "de.perdoctus.streamdeck.homeassistant",
+      "message": "It can be found in your Actions List.",
+      "status": "success",
+      "timestamp": 11748023452416,
+      "title": "\"Home Assistant\" plugin installed.",
+      "type": "plugin"
+    },
+    {
+      "data": "com.elgato.controlcenter",
+      "message": "It can be found in your Actions List.",
+      "status": "success",
+      "timestamp": 11898447552791,
+      "title": "\"Control Center\" plugin installed.",
+      "type": "plugin"
+    },
+    {
+      "data": "com.elgato.cpu",
+      "message": "It can be found in your Actions List.",
+      "status": "success",
+      "timestamp": 12011503177583,
+      "title": "\"CPU\" plugin installed.",
+      "type": "plugin"
+    },
+    {
+      "data": "com.elgato.obsstudio",
+      "message": "It can be found in your Actions List.",
+      "status": "success",
+      "timestamp": 67859661359875,
+      "title": "\"OBS Studio\" plugin installed.",
+      "type": "plugin"
+    },
+    {
+      "data": "com.lostdomain.zoom",
+      "message": "It can be found in your Actions List.",
+      "status": "success",
+      "timestamp": 266979798434416,
+      "title": "\"Zoom Plugin\" plugin installed.",
+      "type": "plugin"
+    },
+    {
+      "data": "com.cpeuschel.octodeck",
+      "message": "It can be found in your Actions List.",
+      "status": "success",
+      "timestamp": 1390348431314875,
+      "title": "\"OctoDeck\" plugin installed.",
+      "type": "plugin"
+    }
+  ]
+}
