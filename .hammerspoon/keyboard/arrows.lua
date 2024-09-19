@@ -1,10 +1,10 @@
-local function altShift(bindKey, mapKey)
-	hs.hotkey.bind({ "alt", "shift" }, bindKey, function()
+local function alt(bindKey, mapKey)
+	hs.hotkey.bind({ "alt" }, bindKey, function()
 		hs.eventtap.keyStroke({}, mapKey)
 	end)
 end
 
-altShift("h", "left")
-altShift("j", "down")
-altShift("k", "up")
-altShift("l", "right")
+alt("h", "left")
+alt("j", "down")
+alt("k", "up")
+alt("l", "right")
