@@ -18,11 +18,11 @@ on-focus-changed = ['move-mouse window-lazy-center']
 
 [gaps]
 inner.horizontal = 8
-inner.vertical = 2
-outer.left = 2
-outer.bottom = 2
-outer.top = 2
-outer.right = 2
+inner.vertical = 8
+outer.left = 0
+outer.bottom = 0
+outer.top = 0
+outer.right = 0
 
 [mode.main.binding]
 # TODO: come up with a more intuitive keybinding for this?
