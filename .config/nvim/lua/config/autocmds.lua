@@ -57,9 +57,17 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
     vim.cmd([[set filetype=sh]])
   end,
 })
+
 vim.api.nvim_create_autocmd({ "BufRead" }, {
   pattern = { "*.conf" },
   callback = function()
     vim.cmd([[set filetype=sh]])
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufRead" }, {
+  pattern = { "config" },
+  callback = function()
+    vim.cmd([[set filetype=toml]])
   end,
 })
