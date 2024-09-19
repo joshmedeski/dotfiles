@@ -1,16 +1,15 @@
-# cSpell:words topo maximised
 gui:
   # stuff relating to the UI
   nerdFontsVersion: "3"
   scrollHeight: 2 # how many lines you scroll by
   scrollPastBottom: true # enable scrolling past the bottom
-  sidePanelWidth: 0.3333 # number from 0 to 1
-  expandFocusedSidePanel: false
+  sidePanelWidth: 0.25 # number from 0 to 1
+  expandFocusedSidePanel: true
   mainPanelSplitMode: "flexible" # one of 'horizontal' | 'flexible' | 'vertical'
   language: "auto" # one of 'auto' | 'en' | 'zh' | 'pl' | 'nl'
   theme:
     activeBorderColor:
-      - white
+      - blue
       - bold
     inactiveBorderColor:
       - black
@@ -140,7 +139,7 @@ keybinding:
     scrollDownMain-alt1: "J" # main panel scroll down
     scrollUpMain-alt2: "<c-u>" # main panel scroll up
     scrollDownMain-alt2: "<c-d>" # main panel scroll down
-    executeCustomCommand: ":"
+    executeShellCommand: ":"
     createRebaseOptionsMenu: "m"
     pushFiles: "P"
     pullFiles: "p"

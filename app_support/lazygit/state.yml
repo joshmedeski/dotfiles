@@ -1,0 +1,14 @@
+lastupdatecheck: 0
+recentrepos:
+    - /Users/joshmedeski/c/dotfiles
+startuppopupversion: 5
+lastversion: 0.44.1
+customcommandshistory: []
+hidecommandlog: false
+ignorewhitespaceindiffview: false
+diffcontextsize: 3
+renamesimilaritythreshold: 50
+localbranchsortorder: recency
+remotebranchsortorder: alphabetical
+gitlogorder: topo-order
+gitlogshowgraph: always
