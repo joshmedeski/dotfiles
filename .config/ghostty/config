@@ -1,0 +1,22 @@
+theme = catppuccin-latte
+window-decoration = false
+window-padding-x = 16
+window-padding-y = 10
+macos-window-shadow = false
+clipboard-read = "allow"
+font-size = 20
+cursor-style = block
+font-family = "CommitMono"
+font-family = "Symbols Nerd Font Mono"
+
+keybind = super+g=text:\x02\x67
+keybind = super+k=text:\x02\x4b
+keybind = super+l=text:\x02\x4c
+keybind = super+s=text:\x3a\x77\x0a
+keybind = super+t=text:\x02\x63
+keybind = super+w=text:\x02\x78
+keybind = super+p=text:\x3a\x47\x6f\x54\x6f\x46\x69\x6c\x65\x0a
+
+# FIX: figure out how to bind to "{" and "}" keys
+keybind = super+}=text:\x02\x6e
+
