@@ -141,6 +141,7 @@ abbr pwdc "pwd | pbcopy"
 abbr rmr "rm -rf"
 
 abbr s "sesh connect \"\$(sesh list -i | gum filter --limit 1 --fuzzy --no-sort --placeholder 'Pick a sesh' --prompt='⚡')\""
+abbr sdd "sesh-dev connect \"\$(sesh-dev list -i | gum filter --limit 1 --fuzzy --no-sort --placeholder 'Pick a sesh' --prompt='⚡')\""
 abbr s. "sesh connect ."
 abbr sc "sesh clone --cmdDir ~/c (pbpaste)"
 abbr sf "source ~/.config/fish/config.fish"
