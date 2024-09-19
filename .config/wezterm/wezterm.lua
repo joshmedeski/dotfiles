@@ -9,7 +9,7 @@
 -- https://wezfurlong.org/wezterm/
 
 local dark_opacity = 0.85
-local light_opacity = 0.9
+local light_opacity = 0.90
 
 local wallpapers_glob = os.getenv("HOME")
 	.. "/Library/Mobile Documents/com~apple~CloudDocs/PARA/Resources 🧰/Wallpapers - macOS 💻/active/**"
@@ -24,6 +24,7 @@ local wezterm = require("wezterm")
 local act = wezterm.action
 
 ---@type Config
+---@diagnostic disable: missing-fields
 local config = {
 	background = {
 		w.get_wallpaper(wallpapers_glob),
@@ -34,9 +35,9 @@ local config = {
 
 	line_height = 1.1,
 	font = wezterm.font_with_fallback({
+		-- "GohuFont uni14 Nerd Font Mono",
 		"CommitMono",
-		"DengXian",
-		-- "CommitMono",
+		-- "DengXian",
 		-- "Monaspace Argon",
 		-- "Monaspace Krypton",
 		-- "Monaspace Neon",
@@ -50,7 +51,7 @@ local config = {
 	window_padding = {
 		left = 40,
 		right = 20,
-		top = 30,
+		top = 15,
 		bottom = 20,
 	},
 
