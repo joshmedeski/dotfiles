@@ -11,21 +11,32 @@ startup_command = "nvim +GoToFile"
 # detached = true # never attach to this session, just create it in the background
 # tmuxp = "~/.config/tmux/tmuxp/joshmedeski.com.yml"
 # tmuxinator = "~/.config/tmux/tmuxinator/joshmedeski.com.yml"
+#
+[[session]]
+name = "macmon"
+path = "~/"
+startup_command = "macmon"
 
 [[session]]
-name = "karabiner elements"
-path = "~/c/dotfiles/.config/karabiner"
+name = "update"
+path = "/tmp"
+startup_command = "update"
 
-[[session]]
-name = "perplexica"
-path = "~/c/perplexica"
-startup_command = "docker compose up -d"
 
 [[session]]
 name = "aerospace config"
 path = "~/c/dotfiles/.config/aerospace"
 startup_command = "nvim aerospace.toml"
 
+[[session]]
+name = "ghostty config"
+path = "~/c/dotfiles/.config/ghostty"
+startup_command = "nvim config"
+
+[[session]]
+name = "nutiliti reviews"
+path = "~/c/nu/main"
+startup_command = "gh dash"
 
 [[session]]
 name = "Home 🏡"
@@ -52,11 +63,6 @@ startup_command = "nvim gitmux.conf"
 [[session]]
 name = "hammerspoon config"
 path = "~/c/dotfiles/.hammerspoon"
-
-[[session]]
-name = "update"
-path = "/tmp"
-startup_command = "update"
 
 [[session]]
 name = "neovim config"
@@ -101,7 +107,6 @@ path = "~/c/dotfiles/.config/bin"
 [[session]]
 name = "dotfiles"
 path = "~/c/dotfiles"
-startup_command = "lazygit"
 # startup_command = "u"
 
 [[session]]
@@ -134,3 +139,12 @@ startup_command = "yazi"
 name = "lazy plugins"
 path = "~/.local/share/nvim/lazy"
 startup_command = "sesh connect (ls | fzf --no-border --preview 'glow -s auto {}/README.md') && exit"
+
+[[session]]
+name = "karabiner elements"
+path = "~/c/dotfiles/.config/karabiner"
+
+[[session]]
+name = "perplexica"
+path = "~/c/perplexica"
+startup_command = "docker compose up -d"
