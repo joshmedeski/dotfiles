@@ -15,11 +15,18 @@ gum style \
 set -l NOW (date +"%Y-%m-%d-%H-%M-%S")
 echo -e "$NOW\n" >>/tmp/u-$NOW.txt
 
-gum spin --spinner globe --title "🐙 gh extensions upgrading..." --show-output -- gh extension upgrade --all >>/tmp/u-$NOW.txt
-echo "\n" >>/tmp/u-$NOW.txt
-echo "✅ 🐙 gh extensions upgraded"
+# gh cli extensions
+set GH_EXTENSION_UPDATE $(gum spin --spinner globe --title "🐙 gh extensions upgrading..." --show-output -- gh extension upgrade --all)
 
+echo "✅ 🐙 gh extensions upgraded"
+echo "$GH_EXTENSION_UPDATE" | mods --role updates_gh_dash --no-cache -q
+
+echo $GH_EXTENSION_UPDATE >>/tmp/u-$NOW.txt
+echo "\n" >>/tmp/u-$NOW.txt
+
+# tpm plugins
 gum spin --spinner globe --title "🪟 tpm plugins updating..." --show-output -- ~/.config/tmux/plugins/tpm/bin/update_plugins all >>/tmp/u-$NOW.txt
+
 echo "\n" >>/tmp/u-$NOW.txt
 echo "✅ 🪟 tpm plugins updated"
 
