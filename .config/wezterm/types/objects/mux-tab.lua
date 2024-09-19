@@ -1,0 +1,16 @@
+---@meta
+
+---@class MuxTabObj
+---@field activate fun(self: MuxTabObj): nil Activates (focuses) the tab.
+---@field active_pane fun(self): Pane A convenience accessor for returning the active pane in the tab.
+---@field get_pane_direction fun(self: MuxTabObj, direction: "Left" | "Right" | "Up" | "Down" | "Prev" | "Next"): MuxTabObj Returns pane adjacent to the active pane in tab in the direction direction.
+---@field get_size fun(self: MuxTabObj): {rows: number, cols: number, pixel_width: number, pixel_height: number, dpi: number} Returns the overall size of the tab, taking into account all of the contained panes.
+---@field get_title fun(self: MuxTabObj): string Returns the tab title as set by `tab:set_title()`.
+---@field panes fun(self: MuxTabObj): Pane[] Returns an array table containing the set of Pane objects contained by this tab.
+---@field panes_with_info fun(self: MuxTabObj): {index: number, is_active: boolean, is_zoomed: boolean, left: number, top: number, width: number, height: number, pixel_width: number, pixel_height: number, pane: Pane}[] Returns an array table containing an extended info entry for each of the panes contained by this tab.
+---@field rotate_clockwise fun(self: MuxTabObj): nil Rotates the panes in the clockwise direction.
+---@field rotate_counter_clockwise fun(self: MuxTabObj): nil Rotates the panes in the counter-clockwise direction.
+---@field set_title fun(self: MuxTabObj, title: string): nil Sets the tab title to the provided string.
+---@field set_zoomed fun(self: MuxTabObj, state: boolean): boolean Sets the zoomed state for the active pane within this tab. A zoomed pane takes up all available space in the tab, hiding all other panes while it is zoomed. Switching its zoom state off will restore the prior split arrangement. Setting the zoom state to true zooms the pane if it wasn't already zoomed. Setting the zoom state to false un-zooms the pane if it was zoomed. Returns the prior zoom state.
+---@field tab_id fun(self: MuxTabObj): number Returns the tab id.
+---@field window fun(self: MuxTabObj): MuxWindow Returns the MuxWindow object that contains this tab.
