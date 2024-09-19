@@ -1,4 +1,4 @@
-import = ["~/c/deyis-project/.sesh.toml"]
+import = []
 
 [default_session]
 startup_command = "nvim +GoToFile"
