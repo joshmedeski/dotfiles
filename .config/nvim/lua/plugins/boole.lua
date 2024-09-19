@@ -13,6 +13,7 @@ return {
       { "production", "development", "test", "sandbox" },
       { "let", "const" },
       { "start", "end" },
+      { "import", "export" },
       { "before", "after" },
       { "plus", "minus" },
       { "smart", "truncate" },
