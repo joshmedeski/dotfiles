@@ -2,6 +2,10 @@
 -- https://github.com/pwntester/octo.nvim/issues/466
 vim.g.octo_viewer = "joshmedeski"
 
+-- Enable the option to require a Prettier config file
+-- If no prettier config file is found, the formatter will not be used
+vim.g.lazyvim_prettier_needs_config = false
+
 -- cSpell:disable
 -- Options are automatically loaded before lazy.nvim sartup
 -- Default options that are always set: https://github.com/azyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
