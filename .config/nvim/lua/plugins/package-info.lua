@@ -3,18 +3,18 @@ return {
   dependencies = { "folke/which-key.nvim", "MunifTanjim/nui.nvim" },
   ft = { "json" },
   opts = {
-    colors = {
-      -- TODO: add to catppuccin
-      up_to_date = "#B1D99C", -- Text color for up to date dependency virtual text
-      outdated = "#EAAC86", -- Text color for outdated dependency virtual text
-    },
+    -- FIX: colors don't render in wezterm (inside tmux)
+    -- colors = {
+    --   up_to_date = "#B1D99C", -- Text color for up to date dependency virtual text
+    --   outdated = "#EAAC86", -- Text color for outdated dependency virtual text
+    -- },
     autostart = true,
     hide_up_to_date = true,
     hide_unstable_versions = false,
     package_manager = "pnpm",
   },
   keys = function()
-    require("which-key").register({ n = { name = "+PackageInfo" } }, { prefix = "<leader>" })
+    require("which-key").add({ { "<leader>n", group = "PackageInfo", icon = "" } })
     local function map(key, cmd, desc)
       vim.keymap.set({ "n" }, "<LEADER>n" .. key, cmd, { desc = desc, silent = true, noremap = true })
     end
