@@ -16,6 +16,7 @@ return {
     },
     hooks = {
       view_opened = function()
+        ---@diagnostic disable-next-line: undefined-field
         local stdout = vim.loop.new_tty(1, false)
         if stdout ~= nil then
           stdout:write(
@@ -25,6 +26,7 @@ return {
         end
       end,
       view_closed = function()
+        ---@diagnostic disable-next-line: undefined-field
         local stdout = vim.loop.new_tty(1, false)
         if stdout ~= nil then
           stdout:write(
