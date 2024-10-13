@@ -123,7 +123,7 @@
 ---@field serial_ports SerialDomain[]
 ---@field unix_domains UnixDomain[]
 --     -- The set of unix domains
----@field ssh_domains SshDomain[]
+---@field ssh_domains SSHDomainObj[]
 ---@field ssh_backend SshBackend
 ---@field tls_servers TlsDomainServer[]
 --     -- When running in server mode, defines configuration for
@@ -317,7 +317,7 @@
 --     -- to the terminal.
 ---@field use_ime bool
 ---@field xim_im_name String
----@field ime_preedit_rendering ImePreeditRendering
+---@field ime_preedit_rendering "Builtin" | "System" Control IME preedit rendering. IME preedit is an area that is used to display the string being preedited in IME.
 ---@field use_dead_keys bool
 ---@field launch_menu SpawnCommand[]
 ---@field use_box_model_render bool
@@ -332,7 +332,7 @@
 --     -- in http://www.leonerd.org.uk/hacks/fixterms/
 --     -- This is off by default because @wez and @jsgf find the shift-space
 --     -- mapping annoying in vim :-p
----@field window_close_confirmation WindowCloseConfirmation
+---@field window_close_confirmation "AlwaysPrompt" | "NeverPrompt" Whether to display a confirmation prompt when the window is closed by the windowing environment, either because the user closed it with the window decorations, or instructed their window manager to close it. Set this to "NeverPrompt" if you don't like confirming closing windows every time.
 ---@field native_macos_fullscreen_mode bool
 ---@field selection_word_boundary String
 ---@field enq_answerback String

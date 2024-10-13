@@ -1,0 +1,20 @@
+---@meta
+
+---@class PaneInformation
+---@field pane_id number The pane idenfitier number.
+---@field pane_index number The logical position of the pane within its containing layout.
+---@field is_active boolean Is true if the pane is the active pane within its containing tab.
+---@field is_zoomed boolean Is true if the pane is in the zoomed state.
+---@field left number The cell x coordinate of the left edge of the pane.
+---@field top number The cell y coordinate of the top edge of the pane.
+---@field width number The width of the pane in cells.
+---@field height number The height of the pane in cells.
+---@field pixel_width number The width of the pane in pixels.
+---@field pixel_height number The height of the pane in pixels.
+---@field title string The title of the pane, per `pane:get_title()` at the time the pane information was captured.
+---@field user_vars table<string, string> The user variables defined for the pane, per `pane:get_user_vars()` at the time the pane information was captured.
+---@field foreground_process_name string The path to the executable image per `pane:get_foreground_process_name()`, or an empty string if unavailable.
+---@field current_working_dir string The current working directory, per `pane:get_current_working_dir()`.
+---@field has_unseen_output boolean Is true if the there has been output in the pane since the last time it was focused.
+---@field domain_name string The name of the domain with which the pane is associated.
+---@field tty_name string The tty name with the same constraints as described in `pane:get_tty_name()`.

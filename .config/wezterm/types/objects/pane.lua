@@ -2,7 +2,7 @@
 
 ---@class Pane
 ---@field activate fun(self: Pane): nil Activates (focuses) the pane and its containing tab.
----@field get_current_working_dir fun(self: Pane): string Returns the current working directory of the pane, if known. The current directory can be specified by an application sending OSC 7.
+---@field get_current_working_dir fun(self: Pane): string | Url Returns the current working directory of the pane, if known. The current directory can be specified by an application sending OSC 7. On newer versions of wezterm, it returns a `Url` object.
 ---@field get_cursor_position fun(self: Pane): StableCursorPosition Returns a lua representation of the StableCursorPosition struct that identifies the cursor position, visibility and shape.
 ---@field get_dimensions fun(self: Pane): RenderableDimensions Returns a lua representation of the RenderableDimensions struct that identifies the dimensions and position of the viewport as well as the scrollback for the pane.
 ---@field get_domain_name fun(self: Pane): string Returns the name of the domain with which the pane is associated.

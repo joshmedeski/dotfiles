@@ -158,72 +158,72 @@
 ---@field quick_select_match_fg ColorSpec
 ---@field quick_select_match_bg ColorSpec
 local Palette = {
-	---@class TabBar :TabBarColors
-	--  Configure the color and styling for the tab bar
-	tab_bar = {
-		-- The color of the strip that goes along the top of the window
-		-- (does not apply when fancy tab bar is in use)
-		background = "#0b0022",
+  ---@class TabBar :TabBarColors
+  --  Configure the color and styling for the tab bar
+  tab_bar = {
+    -- The color of the strip that goes along the top of the window
+    -- (does not apply when fancy tab bar is in use)
+    background = "#0b0022",
 
-		---@type TabBarColor
-		-- The active tab is the one that has focus in the window
-		active_tab = {
-			-- The color of the background area for the tab
-			bg_color = "#2b2042",
-			-- The color of the text for the tab
-			fg_color = "#c0c0c0",
+    ---@type TabBarColor
+    -- The active tab is the one that has focus in the window
+    active_tab = {
+      -- The color of the background area for the tab
+      bg_color = "#2b2042",
+      -- The color of the text for the tab
+      fg_color = "#c0c0c0",
 
-			-- Specify whether you want "Half", "Normal" or "Bold" intensity for the
-			-- label shown for this tab.
-			-- The default is "Normal"
-			intensity = "Normal",
+      -- Specify whether you want "Half", "Normal" or "Bold" intensity for the
+      -- label shown for this tab.
+      -- The default is "Normal"
+      intensity = "Normal",
 
-			-- Specify whether you want "None", "Single" or "Double" underline for
-			-- label shown for this tab.
-			-- The default is "None"
-			underline = "None",
+      -- Specify whether you want "None", "Single" or "Double" underline for
+      -- label shown for this tab.
+      -- The default is "None"
+      underline = "None",
 
-			-- Specify whether you want the text to be italic (true) or not (false)
-			-- for this tab.  The default is false.
-			italic = false,
+      -- Specify whether you want the text to be italic (true) or not (false)
+      -- for this tab.  The default is false.
+      italic = false,
 
-			-- Specify whether you want the text to be rendered with strikethrough (true)
-			-- or not for this tab.  The default is false.
-			strikethrough = false,
-		},
+      -- Specify whether you want the text to be rendered with strikethrough (true)
+      -- or not for this tab.  The default is false.
+      strikethrough = false,
+    },
 
-		---@type TabBarColor
-		-- Inactive tabs are the tabs that do not have focus
-		inactive_tab = {
-			bg_color = "#1b1032",
-			fg_color = "#808080",
-		},
+    ---@type TabBarColor
+    -- Inactive tabs are the tabs that do not have focus
+    inactive_tab = {
+      bg_color = "#1b1032",
+      fg_color = "#808080",
+    },
 
-		---@type TabBarColor
-		-- You can configure some alternate styling when the mouse pointer
-		-- moves over inactive tabs
-		inactive_tab_hover = {
-			bg_color = "#3b3052",
-			fg_color = "#909090",
-			italic = true,
-		},
+    ---@type TabBarColor
+    -- You can configure some alternate styling when the mouse pointer
+    -- moves over inactive tabs
+    inactive_tab_hover = {
+      bg_color = "#3b3052",
+      fg_color = "#909090",
+      italic = true,
+    },
 
-		---@type TabBarColor
-		-- The new tab button that let you create new tabs
-		new_tab = {
-			bg_color = "#1b1032",
-			fg_color = "#808080",
-		},
+    ---@type TabBarColor
+    -- The new tab button that let you create new tabs
+    new_tab = {
+      bg_color = "#1b1032",
+      fg_color = "#808080",
+    },
 
-		---@type TabBarColor
-		-- You can configure some alternate styling when the mouse pointer
-		-- moves over the new tab button
-		new_tab_hover = {
-			bg_color = "#3b3052",
-			fg_color = "#909090",
-			italic = true,
-		},
-	},
+    ---@type TabBarColor
+    -- You can configure some alternate styling when the mouse pointer
+    -- moves over the new tab button
+    new_tab_hover = {
+      bg_color = "#3b3052",
+      fg_color = "#909090",
+      italic = true,
+    },
+  },
 }
 
 ---@alias FontWeight "Thin" | "ExtraLight" | "Light" | "DemiLight" | "Book" | "Regular" | "Medium" | "DemiBold" | "Bold" | "ExtraBold" | "Black" | "ExtraBlack"
@@ -243,23 +243,23 @@ local Palette = {
 ---@field assume_emoji_presentation boolean
 ---@field scale number
 local FontAttributes = {
-	-- The font family name
-	family = "JetBrains Mono",
-	---@type FontWeight
-	-- Whether the font should be a bold variant
-	weight = "Regular",
-	---@type FontStretch
-	stretch = "Normal",
-	---@type FontStyle
-	-- Whether the font should be an italic variant
-	style = "Normal",
-	---@type FreeTypeLoadTarget
-	freetype_load_target = "Normal",
-	---@type FreeTypeLoadTarget
-	freetype_render_target = "Normal",
-	---@type FreeTypeLoadFlags
-	-- you can combine the flags like 'NO_HINTING|MONOCHROME' -- probably would not want to
-	freetype_load_flags = "DEFAUlT",
+  -- The font family name
+  family = "JetBrains Mono",
+  ---@type FontWeight
+  -- Whether the font should be a bold variant
+  weight = "Regular",
+  ---@type FontStretch
+  stretch = "Normal",
+  ---@type FontStyle
+  -- Whether the font should be an italic variant
+  style = "Normal",
+  ---@type FreeTypeLoadTarget
+  freetype_load_target = "Normal",
+  ---@type FreeTypeLoadTarget
+  freetype_render_target = "Normal",
+  ---@type FreeTypeLoadFlags
+  -- you can combine the flags like 'NO_HINTING|MONOCHROME' -- probably would not want to
+  freetype_load_flags = "DEFAUlT",
 }
 
 ---@class WindowFrameConfig
@@ -379,7 +379,7 @@ local FontAttributes = {
 ---@alias CallbackWindowPane fun(window: Window, pane: Pane)
 ---@alias EventAugmentCommandPalette fun(event: "augment-command-palette", callback: fun(window: Window, pane: Window): AugmentCommandPaletteReturn): nil This event is emitted when the Command Palette is shown. It's purpose is to enable you to add additional entries to the list of commands shown in the palette. This hook is synchronous; calling asynchronous functions will not succeed.
 ---@alias EventBell fun(event: "augment-command-palette", callback: CallbackWindowPane) The bell event is emitted when the ASCII BEL sequence is emitted to a pane in the window. Defining an event handler doesn't alter wezterm's handling of the bell; the event supplements it and allows you to take additional action over the configured behavior.
----@alias EventFormatTabTitle fun(event: "format-tab-title", callback: fun(tab: MuxTabObj, tabs: MuxTabObj[], panes: Pane[], config: Config, hover: boolean, max_width: number): string) TODO
+---@alias EventFormatTabTitle fun(event: "format-tab-title", callback: fun(tab: TabInformation, tabs: TabInformation[], panes: PaneInformation[], config: Config, hover: boolean, max_width: number): string | FormatItem) When the tab bar is computed, this event is called twice for each tab; on the first pass, `hover` will be `false` and `max_width` will be set to tab_max_width. WezTerm will then compute the tab widths that will fit in the tab bar, and then call the event again for the set of tabs, this time with appropriate `hover` and `max_width` values.
 ---@alias EventFormatWindowTitle fun(event: "format-window-title", callback: fun(window: Window, pane: Pane, tabs: MuxTabObj[], panes: Pane[], config: Config)) TODO
 ---@alias EventNewTabButtonClick fun(event: "new-tab-button-click", callback: fun(window: Window, pane: Pane, button: "Left" | "Middle" | "Right", default_action: KeyAssignment): nil) TODO
 ---@alias EventOpenUri fun(event: "open-uri", callback: fun(window: Window, pane: Pane, uri: string): nil) TODO
@@ -416,6 +416,11 @@ local FontAttributes = {
 ---@field noise? number
 ---@field segment_size? number
 ---@field segment_smoothness? number
+
+---@class HsbTransform
+---@field hue number
+---@field saturation number
+---@field brightness number
 
 ---@class ColorSchemeMetaData
 ---@field name? string
