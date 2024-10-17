@@ -11,6 +11,7 @@
     "lazyvim.plugins.extras.formatting.prettier",
     "lazyvim.plugins.extras.lang.astro",
     "lazyvim.plugins.extras.lang.docker",
+    "lazyvim.plugins.extras.lang.elixir",
     "lazyvim.plugins.extras.lang.go",
     "lazyvim.plugins.extras.lang.json",
     "lazyvim.plugins.extras.lang.markdown",
