@@ -60,3 +60,5 @@ require("lazy").setup({
     },
   },
 })
+
+-- require("avante_lib").load()
