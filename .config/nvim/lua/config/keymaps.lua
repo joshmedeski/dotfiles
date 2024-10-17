@@ -60,3 +60,23 @@ vim.keymap.set("v", "<C-s>", "<cmd>sort<CR>") -- Sort highlighted text in visual
 vim.keymap.set("v", "<leader>rr", '"hy:%s/<C-r>h//g<left><left>') -- Replace all instances of highlighted words
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv") -- Move current line down
 vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv") -- Move current line up
+
+-- DiffView
+DiffViewToggle = function()
+  local lib = require("diffview.lib")
+  local view = lib.get_current_view()
+  if view then
+    -- Current tabpage is a Diffview; close it
+    vim.cmd.DiffviewClose()
+  else
+    -- No open Diffview exists: open a new one
+    vim.cmd.DiffviewOpen()
+  end
+end
+
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>gd",
+  "<cmd>lua DiffViewToggle()<CR>",
+  { noremap = true, silent = true, desc = "Toggle DiffView" }
+)
