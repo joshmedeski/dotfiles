@@ -64,6 +64,7 @@ keybindings:
 repoPaths:
   Nutiliti/nutiliti: ~/c/nu/main
   joshmedeski/*: ~/c/*
+  Learn-Build-Teach/deals-for-devs: ~/c/deals-for-devs
   joshmedeski/t-smart-tmux-session-manager: ~/.config/tmux/plugins/t-smart-tmux-session-manager
   joshmedeski/tmux-nerd-font-window-name: ~/.config/tmux/plugins/tmux-nerd-font-window-name
   raycast/extensions: ~/c/raycast-extensions
