@@ -145,6 +145,7 @@ abbr sdd "sesh-dev connect \"\$(sesh-dev list -i | gum filter --limit 1 --fuzzy 
 abbr s. "sesh connect ."
 abbr sc "sesh clone --cmdDir ~/c (pbpaste)"
 abbr sf "source ~/.config/fish/config.fish"
+abbr sr "sesh root"
 abbr st "tmux source ~/.config/tmux/tmux.conf"
 
 abbr th things-cli
