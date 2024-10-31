@@ -64,14 +64,14 @@ return {
     on_open = function()
       require("noice").disable()
       require("incline").disable()
-      require("barbecue.ui").toggle(false)
+      -- require("barbecue.ui").toggle(false)
       vim.g.miniindentscope_disable = true
     end,
     -- callback where you can add custom code when the Zen window closes
     on_close = function()
       require("noice").enable()
       require("incline").enable()
-      require("barbecue.ui").toggle(true)
+      -- require("barbecue.ui").toggle(true)
       vim.g.miniindentscope_disable = false
     end,
   },
