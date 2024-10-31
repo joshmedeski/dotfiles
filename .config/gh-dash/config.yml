@@ -62,7 +62,7 @@ keybindings:
       command: >
         tmux new-window -c {{.RepoPath}} 'nvim -c ":silent Octo pr edit {{.PrNumber}}"'
 repoPaths:
-  Nutiliti/nutiliti: ~/c/nu/main
+  Nutiliti/nutiliti: ~/c/nu/review
   joshmedeski/*: ~/c/*
   Learn-Build-Teach/deals-for-devs: ~/c/deals-for-devs
   joshmedeski/t-smart-tmux-session-manager: ~/.config/tmux/plugins/t-smart-tmux-session-manager
