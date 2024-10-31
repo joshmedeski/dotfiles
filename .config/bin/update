@@ -73,7 +73,12 @@ gum spin --spinner globe --title "🍎 mas upgrading" --show-output -- mas upgra
 echo "\n" >>/tmp/u-$NOW.txt
 echo "✅ 🍎 mas upgraded"
 
+gum spin --spinner globe --title "🧶 fabric upgrading" --show-output -- go install github.com/danielmiessler/fabric@latest >>/tmp/u-$NOW.txt
+echo "\n" >>/tmp/u-$NOW.txt
+echo "✅ 🧶 fabric upgraded"
+
 echo "✅ 🧾 logged to /tmp/u-$NOW.txt"
 man /tmp/u-$NOW.txt
 
-# tmux rename-session -t $(tmux display-message -p '#S') "✅ update done"
+# TODO: create fabric prompt to summarize all the updates
+# TODO: output summmary with glow (already done?)
