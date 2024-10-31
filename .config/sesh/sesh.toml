@@ -1,4 +1,4 @@
-import = []
+import = ["~/.config/sesh/configs/nu-sesh.toml"]
 
 [default_session]
 startup_command = "nvim +GoToFile"
@@ -12,6 +12,12 @@ startup_command = "nvim +GoToFile"
 # tmuxp = "~/.config/tmux/tmuxp/joshmedeski.com.yml"
 # tmuxinator = "~/.config/tmux/tmuxinator/joshmedeski.com.yml"
 #
+
+[[session]]
+startup_command = 'OLLAMA_ORIGINS="app://obsidian.md*" ollama serve'
+
+name = "ollama"
+path = "~"
 [[session]]
 name = "macmon"
 path = "~/"
@@ -21,7 +27,6 @@ startup_command = "macmon"
 name = "update"
 path = "/tmp"
 startup_command = "update"
-
 
 [[session]]
 name = "aerospace config"
@@ -34,8 +39,13 @@ path = "~/c/dotfiles/.config/ghostty"
 startup_command = "nvim config"
 
 [[session]]
+name = "nutiliti worktrees"
+path = "~/c/nu"
+startup_command = "nu-worktree-picker.sh"
+
+[[session]]
 name = "nutiliti reviews"
-path = "~/c/nu/main"
+path = "~/c/nu/review"
 startup_command = "gh dash"
 
 [[session]]
@@ -148,3 +158,8 @@ path = "~/c/dotfiles/.config/karabiner"
 name = "perplexica"
 path = "~/c/perplexica"
 startup_command = "docker compose up -d"
+
+[[session]]
+name = "/ect/hosts"
+path = "/etc"
+startup_command = "sudo nvim hosts"
