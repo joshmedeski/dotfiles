@@ -101,7 +101,7 @@ local config = {
 		k.cmd_to_tmux_prefix("G", "G"),
 		k.cmd_to_tmux_prefix("g", "g"),
 		k.cmd_to_tmux_prefix("j", "J"),
-		k.cmd_to_tmux_prefix("K", "T"),
+		k.cmd_to_tmux_prefix("K", "R"),
 		k.cmd_to_tmux_prefix("k", "K"),
 		k.cmd_to_tmux_prefix("l", "L"),
 		k.cmd_to_tmux_prefix("n", "%"),
@@ -113,6 +113,7 @@ local config = {
 		k.cmd_to_tmux_prefix("w", "x"),
 		k.cmd_to_tmux_prefix("z", "z"),
 		k.cmd_to_tmux_prefix("Z", "Z"),
+		k.cmd_to_tmux_prefix("9", "9"),
 		k.cmd_ctrl_to_tmux_prefix("t", "J"),
 
 		k.cmd_key(
