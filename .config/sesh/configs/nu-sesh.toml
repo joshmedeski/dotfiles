@@ -1,0 +1,9 @@
+[[session]]
+name = "nu/pm-prog-refactor"
+path = "~/c/nu/pm-prog-refactor"
+startup_command = "pr"
+
+[[session]]
+name = "nu/tasks"
+path = "~/c/nu/tasks"
+startup_command = "pr"
