@@ -148,7 +148,7 @@ startup_command = "yazi"
 [[session]]
 name = "lazy plugins"
 path = "~/.local/share/nvim/lazy"
-startup_command = "sesh connect (ls | fzf --no-border --preview 'glow -s auto {}/README.md') && exit"
+startup_command = "sesh connect (ls | fzf --ansi --no-border --preview 'glow -s light {}/README.md' --preview-window=right:85,border-none) && exit"
 
 [[session]]
 name = "karabiner elements"
