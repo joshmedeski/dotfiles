@@ -61,8 +61,6 @@ startup_command = "l"
 [[session]]
 name = "tmux config"
 path = "~/c/dotfiles/.config/tmux"
-# tmuxp = "~/c/dotfiles/.config/tmux/tmuxp-tmux.yml"
-# tmuxp = "/Users/joshmedeski/c/dotfiles/.config/tmux/tmuxp-tmux.yml"
 startup_command = "nvim tmux.conf"
 
 [[session]]
@@ -163,3 +161,13 @@ startup_command = "docker compose up -d"
 name = "/ect/hosts"
 path = "/etc"
 startup_command = "sudo nvim hosts"
+
+[[session]]
+name = "ssh"
+path = "~/.config/ssh"
+startup_command = "sudo nvim config"
+
+[[session]]
+name = "steam deck"
+path = "~/.ssh"
+startup_command = "ssh deck@steamdeck"
