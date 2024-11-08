@@ -91,13 +91,38 @@ return {
             .. "```{{filetype}}\n{{selection}}\n```\n\n"
             .. "Please analyze for code smells and suggest improvements."
           local agent = gp.get_chat_agent()
-          gp.Prompt(params, gp.Target.enew("markdown"), nil, agent.model, template, agent.system_prompt)
+          gp.Prompt(params, gp.Target.enew("markdown"), agent, template)
         end,
         -- example of making :%GpChatNew a dedicated command which
         -- opens new chat with the entire current buffer as a context
         BufferChatNew = function(gp, _)
           -- call GpChatNew command in range mode on whole buffer
           vim.api.nvim_command("%" .. gp.config.cmd_prefix .. "ChatNew")
+        end,
+        ReactIconSvg = function(gp, params)
+          local template = "The following SVG code needs to be converted into a valid React component:\n\n"
+            .. "```tsx\n{{selection}}\n```\n\n"
+            .. "  - Remove the `width` and `height` props from the `<svg>` element\n"
+            .. "  - Add `{...props}` to the bottom of the `<svg>` element\n"
+            .. "  - Replace all `fill` values with `currentColor`\n"
+            .. "  - Replace all props that are dash-separated (ex: `fill-rule`) with camelCase (ex: `fillRule`)\n"
+            .. "  - Don't remove any other props or attributes\n"
+            .. "  - Preserve the indentation rules\n"
+            .. "  - Only include the code snippet, no additional context or explanation is needed."
+          local agent = gp.get_command_agent()
+          gp.logger.info("Updating React SVG: " .. agent.name)
+          gp.Prompt(params, gp.Target.rewrite, agent, template, nil)
+        end,
+        UiIconExport = function(gp, params)
+          local template = "The following React modules need to be refactored and properly exported:\n\n"
+            .. "```tsx\n{{selection}}\n```\n\n"
+            .. "  - Take the unused import at the bottom of the file and move it up to the other imports in the alphabetical orrder\n"
+            .. "  - Export the unsed import in the `icons` array in alphabetical order\n"
+            .. "  - Export the unsed import in the `export {` object in alphabetical order\n"
+            .. "  - Only include the code snippet, no additional context or explanation is needed."
+          local agent = gp.get_command_agent()
+          gp.logger.info("Updating React SVG: " .. agent.name)
+          gp.Prompt(params, gp.Target.rewrite, agent, template, nil)
         end,
       },
     })
