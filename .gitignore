@@ -60,3 +60,4 @@ Library/Preferences/ru.keepcoder.Telegram.plist
 .config/fish/conf.d/youtube.fish
 .config/yazi/flavors/
 .config/fish/conf.d/hass.fish
+app_support/lazygit/state.yml
