@@ -71,3 +71,14 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
     vim.cmd([[set filetype=toml]])
   end,
 })
+
+vim.api.nvim_create_augroup("HelpSplitRight", { clear = true })
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  group = "HelpSplitRight",
+  pattern = "*",
+  callback = function()
+    if vim.bo.buftype == "help" then
+      vim.cmd("wincmd L")
+    end
+  end,
+})
