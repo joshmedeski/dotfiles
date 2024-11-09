@@ -36,6 +36,7 @@ require("lazy").setup({
 
     -- my plugins
     { import = "plugins" },
+    { import = "plugins/ai" },
   },
   defaults = {
     lazy = true,

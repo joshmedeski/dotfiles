@@ -100,8 +100,14 @@ return {
           vim.api.nvim_command("%" .. gp.config.cmd_prefix .. "ChatNew")
         end,
         ReactIconSvg = function(gp, params)
+          local buf = vim.api.nvim_get_current_buf()
+          local lines = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
+          local content = table.concat(lines, "\n")
           local template = "The following SVG code needs to be converted into a valid React component:\n\n"
-            .. "```tsx\n{{selection}}\n```\n\n"
+            .. "INPUT:\n"
+            .. "```tsx\n"
+            .. content
+            .. "```\n\n"
             .. "  - Remove the `width` and `height` props from the `<svg>` element\n"
             .. "  - Add `{...props}` to the bottom of the `<svg>` element\n"
             .. "  - Replace all `fill` values with `currentColor`\n"

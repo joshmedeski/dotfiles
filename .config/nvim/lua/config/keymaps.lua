@@ -3,9 +3,6 @@
 -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
-vim.g.copilot_no_tab_map = true
-vim.api.nvim_set_keymap("i", "<Tab>", 'copilot#Accept("\\<CR>")', { expr = true, silent = true })
-
 vim.keymap.set("n", "<Tab>", "<cmd>bn<cr>")
 vim.keymap.set("n", "<S-Tab>", "<cmd>bp<cr>")
 
