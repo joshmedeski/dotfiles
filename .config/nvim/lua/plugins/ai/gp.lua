@@ -1,12 +1,28 @@
--- TODO: put this in my Obsidian vault instead
--- chat_dir = vim.fn.stdpath("data"):gsub("/$", "") .. "/gp/chats",
--- TODO: create git commit summary from diff (in commit window)
--- TODO: add unit tests (to a new file?)
+--[[
+--
+ ██████╗ ██████╗ ███╗   ██╗██╗   ██╗██╗███╗   ███╗
+██╔════╝ ██╔══██╗████╗  ██║██║   ██║██║████╗ ████║
+██║  ███╗██████╔╝██╔██╗ ██║██║   ██║██║██╔████╔██║
+██║   ██║██╔═══╝ ██║╚██╗██║╚██╗ ██╔╝██║██║╚██╔╝██║
+╚██████╔╝██║██╗  ██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║
+ ╚═════╝ ╚═╝╚═╝  ╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝
+Gp.nvim (GPT prompt) Neovim AI plugin: ChatGPT sessions & Instructable text/code operations & Speech to text
+[OpenAI, Ollama, Anthropic, ..]
+
+ TODO: put this in my Obsidian vault instead
+ chat_dir = vim.fn.stdpath("data"):gsub("/$", "") .. "/gp/chats",
+ TODO: create git commit summary from diff (in commit window)
+ TODO: add unit tests (to a new file?)
+
+--]]
+
 return {
   "robitx/gp.nvim",
-  lazy = false,
+  name = "gp",
+  event = "BufEnter",
   config = function()
     require("gp").setup({
+      openai_api_key = os.getenv("OPENAI_API_KEY"),
       providers = {
         openai = {
           endpoint = "https://api.openai.com/v1/chat/completions",
@@ -28,7 +44,47 @@ return {
           secret = os.getenv("ANTHROPIC_API_KEY"),
         },
       },
+      whisper = {
+        -- you can disable whisper completely by whisper = {disable = true}
+        disable = false,
+
+        -- OpenAI audio/transcriptions api endpoint to transcribe audio to text
+        endpoint = "https://api.openai.com/v1/audio/transcriptions",
+        -- directory for storing whisper files
+        store_dir = (os.getenv("TMPDIR") or os.getenv("TEMP") or "/tmp") .. "/gp_whisper",
+        -- multiplier of RMS level dB for threshold used by sox to detect silence vs speech
+        -- decibels are negative, the recording is normalized to -3dB =>
+        -- increase this number to pick up more (weaker) sounds as possible speech
+        -- decrease this number to pick up only louder sounds as possible speech
+        -- you can disable silence trimming by setting this a very high number (like 1000.0)
+        silence = "1.75",
+        -- whisper tempo (1.0 is normal speed)
+        tempo = "1.75",
+        -- The language of the input audio, in ISO-639-1 format.
+        language = "en",
+        -- command to use for recording can be nil (unset) for automatic selection
+        -- string ("sox", "arecord", "ffmpeg") or table with command and arguments:
+        -- sox is the most universal, but can have start/end cropping issues caused by latency
+        -- arecord is linux only, but has no cropping issues and is faster
+        -- ffmpeg in the default configuration is macos only, but can be used on any platform
+        -- (see https://trac.ffmpeg.org/wiki/Capture/Desktop for more info)
+        -- below is the default configuration for all three commands:
+        -- whisper_rec_cmd = {"sox", "-c", "1", "--buffer", "32", "-d", "rec.wav", "trim", "0", "60:00"},
+        -- whisper_rec_cmd = {"arecord", "-c", "1", "-f", "S16_LE", "-r", "48000", "-d", "3600", "rec.wav"},
+        -- whisper_rec_cmd = {"ffmpeg", "-y", "-f", "avfoundation", "-i", ":0", "-t", "3600", "rec.wav"},
+        rec_cmd = nil,
+      },
       agents = {
+        {
+          name = "Qwen2.5:32b",
+          chat = true,
+          command = true,
+          provider = "ollama",
+          model = { model = "qwen2.5:32b" },
+          system_prompt = "I am an AI meticulously crafted to provide programming guidance and code assistance. "
+            .. "To best serve you as a computer programmer, please provide detailed inquiries and code snippets when necessary, "
+            .. "and expect precise, technical responses tailored to your development needs.\n",
+        },
         {
           name = "Codellama",
           chat = true,
@@ -142,35 +198,35 @@ return {
         mode = { "v" },
         nowait = true,
         remap = false,
-        { "<C-g><C-t>", ":<C-u>'<,'>GpChatNew tabnew<cr>", desc = "ChatNew tabnew" },
-        { "<C-g><C-v>", ":<C-u>'<,'>GpChatNew vsplit<cr>", desc = "ChatNew vsplit" },
-        { "<C-g><C-x>", ":<C-u>'<,'>GpChatNew split<cr>", desc = "ChatNew split" },
-        { "<C-g>a", ":<C-u>'<,'>GpAppend<cr>", desc = "Visual Append (after)" },
-        { "<C-g>b", ":<C-u>'<,'>GpPrepend<cr>", desc = "Visual Prepend (before)" },
-        { "<C-g>c", ":<C-u>'<,'>GpChatNew<cr>", desc = "Visual Chat New" },
-        { "<C-g>g", group = "generate into new .." },
-        { "<C-g>ge", ":<C-u>'<,'>GpEnew<cr>", desc = "Visual GpEnew" },
-        { "<C-g>gn", ":<C-u>'<,'>GpNew<cr>", desc = "Visual GpNew" },
-        { "<C-g>gp", ":<C-u>'<,'>GpPopup<cr>", desc = "Visual Popup" },
-        { "<C-g>gt", ":<C-u>'<,'>GpTabnew<cr>", desc = "Visual GpTabnew" },
-        { "<C-g>gv", ":<C-u>'<,'>GpVnew<cr>", desc = "Visual GpVnew" },
-        { "<C-g>i", ":<C-u>'<,'>GpImplement<cr>", desc = "Implement selection" },
-        { "<C-g>n", "<cmd>GpNextAgent<cr>", desc = "Next Agent" },
-        { "<C-g>p", ":<C-u>'<,'>GpChatPaste<cr>", desc = "Visual Chat Paste" },
-        { "<C-g>r", ":<C-u>'<,'>GpRewrite<cr>", desc = "Visual Rewrite" },
-        { "<C-g>s", "<cmd>GpStop<cr>", desc = "GpStop" },
-        { "<C-g>t", ":<C-u>'<,'>GpChatToggle<cr>", desc = "Visual Toggle Chat" },
-        { "<C-g>w", group = "Whisper" },
-        { "<C-g>wa", ":<C-u>'<,'>GpWhisperAppend<cr>", desc = "Whisper Append" },
-        { "<C-g>wb", ":<C-u>'<,'>GpWhisperPrepend<cr>", desc = "Whisper Prepend" },
-        { "<C-g>we", ":<C-u>'<,'>GpWhisperEnew<cr>", desc = "Whisper Enew" },
-        { "<C-g>wn", ":<C-u>'<,'>GpWhisperNew<cr>", desc = "Whisper New" },
-        { "<C-g>wp", ":<C-u>'<,'>GpWhisperPopup<cr>", desc = "Whisper Popup" },
-        { "<C-g>wr", ":<C-u>'<,'>GpWhisperRewrite<cr>", desc = "Whisper Rewrite" },
-        { "<C-g>wt", ":<C-u>'<,'>GpWhisperTabnew<cr>", desc = "Whisper Tabnew" },
-        { "<C-g>wv", ":<C-u>'<,'>GpWhisperVnew<cr>", desc = "Whisper Vnew" },
-        { "<C-g>ww", ":<C-u>'<,'>GpWhisper<cr>", desc = "Whisper" },
-        { "<C-g>x", ":<C-u>'<,'>GpContext<cr>", desc = "Visual GpContext" },
+        { "<C-g><C-t>", ":<C-u>'<,'>GpChatNew tabnew<cr>", desc = "ChatNew tabnew", icon = "󰗋" },
+        { "<C-g><C-v>", ":<C-u>'<,'>GpChatNew vsplit<cr>", desc = "ChatNew vsplit", icon = "󰗋" },
+        { "<C-g><C-x>", ":<C-u>'<,'>GpChatNew split<cr>", desc = "ChatNew split", icon = "󰗋" },
+        { "<C-g>a", ":<C-u>'<,'>GpAppend<cr>", desc = "Visual Append (after)", icon = "󰗋" },
+        { "<C-g>b", ":<C-u>'<,'>GpPrepend<cr>", desc = "Visual Prepend (before)", icon = "󰗋" },
+        { "<C-g>c", ":<C-u>'<,'>GpChatNew<cr>", desc = "Visual Chat New", icon = "󰗋" },
+        { "<C-g>g", group = "generate into new ..", icon = "󰗋" },
+        { "<C-g>ge", ":<C-u>'<,'>GpEnew<cr>", desc = "Visual GpEnew", icon = "󰗋" },
+        { "<C-g>gn", ":<C-u>'<,'>GpNew<cr>", desc = "Visual GpNew", icon = "󰗋" },
+        { "<C-g>gp", ":<C-u>'<,'>GpPopup<cr>", desc = "Visual Popup", icon = "󰗋" },
+        { "<C-g>gt", ":<C-u>'<,'>GpTabnew<cr>", desc = "Visual GpTabnew", icon = "󰗋" },
+        { "<C-g>gv", ":<C-u>'<,'>GpVnew<cr>", desc = "Visual GpVnew", icon = "󰗋" },
+        { "<C-g>i", ":<C-u>'<,'>GpImplement<cr>", desc = "Implement selection", icon = "󰗋" },
+        { "<C-g>n", "<cmd>GpNextAgent<cr>", desc = "Next Agent", icon = "󰗋" },
+        { "<C-g>p", ":<C-u>'<,'>GpChatPaste<cr>", desc = "Visual Chat Paste", icon = "󰗋" },
+        { "<C-g>r", ":<C-u>'<,'>GpRewrite<cr>", desc = "Visual Rewrite", icon = "󰗋" },
+        { "<C-g>s", "<cmd>GpStop<cr>", desc = "GpStop", icon = "󰗋" },
+        { "<C-g>t", ":<C-u>'<,'>GpChatToggle<cr>", desc = "Visual Toggle Chat", icon = "󰗋" },
+        { "<C-g>w", group = "Whisper", icon = "󰗋" },
+        { "<C-g>wa", ":<C-u>'<,'>GpWhisperAppend<cr>", desc = "Whisper Append", icon = "󰗋" },
+        { "<C-g>wb", ":<C-u>'<,'>GpWhisperPrepend<cr>", desc = "Whisper Prepend", icon = "󰗋" },
+        { "<C-g>we", ":<C-u>'<,'>GpWhisperEnew<cr>", desc = "Whisper Enew", icon = "󰗋" },
+        { "<C-g>wn", ":<C-u>'<,'>GpWhisperNew<cr>", desc = "Whisper New", icon = "󰗋" },
+        { "<C-g>wp", ":<C-u>'<,'>GpWhisperPopup<cr>", desc = "Whisper Popup", icon = "󰗋" },
+        { "<C-g>wr", ":<C-u>'<,'>GpWhisperRewrite<cr>", desc = "Whisper Rewrite", icon = "󰗋" },
+        { "<C-g>wt", ":<C-u>'<,'>GpWhisperTabnew<cr>", desc = "Whisper Tabnew", icon = "󰗋" },
+        { "<C-g>wv", ":<C-u>'<,'>GpWhisperVnew<cr>", desc = "Whisper Vnew", icon = "󰗋" },
+        { "<C-g>ww", ":<C-u>'<,'>GpWhisper<cr>", desc = "Whisper", icon = "󰗋" },
+        { "<C-g>x", ":<C-u>'<,'>GpContext<cr>", desc = "Visual GpContext", icon = "󰗋" },
       },
 
       -- NORMAL mode mappings
@@ -195,16 +251,16 @@ return {
         { "<C-g>r", "<cmd>GpRewrite<cr>", desc = "Inline Rewrite" },
         { "<C-g>s", "<cmd>GpStop<cr>", desc = "GpStop" },
         { "<C-g>t", "<cmd>GpChatToggle<cr>", desc = "Toggle Chat" },
-        { "<C-g>w", group = "Whisper" },
-        { "<C-g>wa", "<cmd>GpWhisperAppend<cr>", desc = "Whisper Append (after)" },
-        { "<C-g>wb", "<cmd>GpWhisperPrepend<cr>", desc = "Whisper Prepend (before)" },
-        { "<C-g>we", "<cmd>GpWhisperEnew<cr>", desc = "Whisper Enew" },
-        { "<C-g>wn", "<cmd>GpWhisperNew<cr>", desc = "Whisper New" },
-        { "<C-g>wp", "<cmd>GpWhisperPopup<cr>", desc = "Whisper Popup" },
-        { "<C-g>wr", "<cmd>GpWhisperRewrite<cr>", desc = "Whisper Inline Rewrite" },
-        { "<C-g>wt", "<cmd>GpWhisperTabnew<cr>", desc = "Whisper Tabnew" },
-        { "<C-g>wv", "<cmd>GpWhisperVnew<cr>", desc = "Whisper Vnew" },
-        { "<C-g>ww", "<cmd>GpWhisper<cr>", desc = "Whisper" },
+        { "<C-g>w", group = "Whisper", icon = "󰗋" },
+        { "<C-g>wa", "<cmd>GpWhisperAppend<cr>", desc = "[W]hisper [A]ppend" },
+        { "<C-g>wb", "<cmd>GpWhisperPrepend<cr>", desc = "[W]hisper [P]repend" },
+        { "<C-g>we", "<cmd>GpWhisperEnew<cr>", desc = "[W]hisper Enew" },
+        { "<C-g>wn", "<cmd>GpWhisperNew<cr>", desc = "[W]hisper New" },
+        { "<C-g>wp", "<cmd>GpWhisperPopup<cr>", desc = "[W]hisper Popup" },
+        { "<C-g>wr", "<cmd>GpWhisperRewrite<cr>", desc = "[W]hisper Inline Rewrite" },
+        { "<C-g>wt", "<cmd>GpWhisperTabnew<cr>", desc = "[W]hisper Tabnew" },
+        { "<C-g>wv", "<cmd>GpWhisperVnew<cr>", desc = "[W]hisper Vnew" },
+        { "<C-g>ww", "<cmd>GpWhisper<cr>", desc = "[W]hisper" },
         { "<C-g>x", "<cmd>GpContext<cr>", desc = "Toggle GpContext" },
       },
 

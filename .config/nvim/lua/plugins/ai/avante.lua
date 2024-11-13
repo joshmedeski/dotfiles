@@ -1,5 +1,5 @@
 return {
-  enabled = true,
+  enabled = false,
   "yetone/avante.nvim",
   event = "VeryLazy",
   lazy = false,
@@ -34,5 +34,11 @@ return {
   opts = {
     ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
     provider = "claude",
+    windows = {
+      sidebar_header = {
+        align = "left",
+        rounded = false,
+      },
+    },
   },
 }
