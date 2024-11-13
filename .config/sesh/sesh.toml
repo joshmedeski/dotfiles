@@ -34,14 +34,23 @@ path = "~/c/dotfiles/.config/aerospace"
 startup_command = "nvim aerospace.toml"
 
 [[session]]
+name = "neovim in ai"
+path = "~/c/dotfiles"
+
+[[session]]
 name = "ghostty config"
 path = "~/c/dotfiles/.config/ghostty"
 startup_command = "nvim config"
 
+# [[session]]
+# name = "nutiliti worktrees"
+# path = "~/c/nu"
+# startup_command = "nu-worktree-picker.sh"
+
 [[session]]
-name = "nutiliti worktrees"
+name = "new nutiliti worktree"
 path = "~/c/nu"
-startup_command = "nu-worktree-picker.sh"
+startup_command = "nu_new_worktree"
 
 [[session]]
 name = "nutiliti reviews"
@@ -92,13 +101,6 @@ path = "~/c/dotfiles/.config/wezterm"
 startup_command = "nvim wezterm.lua"
 
 [[session]]
-name = "nutiliti new worktree"
-path = "~/c/nu"
-# TODO: auto-close this session when the worktree has been created successfully?  
-# TODO: append [[session]] ./nu/{name}/package/* to this config for dev mode bonus
-startup_commad = "nu_new_worktree"
-
-[[session]]
 name = "second brain 🧠"
 path = "~/c/second-brain"
 startup_command = "nvim +ObsidianToday"
@@ -147,6 +149,16 @@ startup_command = "yazi"
 name = "lazy plugins"
 path = "~/.local/share/nvim/lazy"
 startup_command = "sesh connect (ls | fzf --ansi --no-border --preview 'glow -s light {}/README.md' --preview-window=right:85,border-none) && exit"
+
+[[session]]
+name = "obsidian plugins"
+path = "~/c/second-brain/.obsidian/plugins"
+startup_command = "sesh connect (ls | fzf --ansi --no-border --preview 'glow -s light {}/README.md' --preview-window=right:85,border-none) && exit"
+
+[[session]]
+name = "cava"
+path = "~/.config/cava"
+startup_command = "tmux set-option -t cava status off && cava"
 
 [[session]]
 name = "karabiner elements"
