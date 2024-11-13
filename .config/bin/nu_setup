@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+echo "📦 Installing dependencies"
+pnpm i
+echo "👷 Building"
+pnpm build
+find . -maxdepth 1 -type d -print0 | xargs -0 zoxide add
+cd packages || return
+find . -maxdepth 1 -type d -print0 | xargs -0 zoxide add
+cd ../apps || return
+find . -maxdepth 1 -type d -print0 | xargs -0 zoxide add
+echo "NODE_ENV=production" >./server/.env
+echo "NODE_ENV=production" >./web/.env
+cd ./packages/ui || return
+mkcert localhost
