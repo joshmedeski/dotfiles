@@ -1,4 +1,4 @@
-theme = catppuccin-latte
+theme = catppuccin-mocha
 window-decoration = false
 window-padding-x = 16
 window-padding-y = 10
@@ -18,5 +18,7 @@ keybind = super+w=text:\x02\x78
 keybind = super+p=text:\x3a\x47\x6f\x54\x6f\x46\x69\x6c\x65\x0a
 
 # FIX: figure out how to bind to "{" and "}" keys
-keybind = super+}=text:\x02\x6e
+# keybind = super+}=text:\x02\x6e
+keybind = super+shift+left_bracket=text:\x02\x6e
+keybind = super+shift+right_bracket=text:\x02\x70
 
