@@ -3,6 +3,13 @@ return {
   ---@class wk.Opts
   opts = {
     preset = "modern",
+    ---@type wk.IconRule[]|false
+    rules = {
+      {
+        pattern = "^Whisper[a-zA-Z0-9_]+$", -- match strings that begin with 'Whisper' followed by alphanumeric and underscores only
+        icon = "",
+      },
+    },
     plugins = {
       marks = true, -- shows a list of your marks on ' and `
       registers = false, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
