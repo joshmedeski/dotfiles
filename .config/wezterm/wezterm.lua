@@ -8,7 +8,7 @@
 -- A GPU-accelerated cross-platform terminal emulator
 -- https://wezfurlong.org/wezterm/
 
-local dark_opacity = 0.75
+local dark_opacity = 0.85
 local light_opacity = 0.90
 
 local wallpapers_glob = os.getenv("HOME")
@@ -35,14 +35,16 @@ local config = {
 
 	line_height = 1.1,
 	font = wezterm.font_with_fallback({
-		-- "GohuFont uni14 Nerd Font Mono",
-		"CommitMono",
+		-- "CommitMono",
 		-- "DengXian",
+		"Departure Mono",
+		-- "GohuFont uni14 Nerd Font Mono",
 		-- "Monaspace Argon",
 		-- "Monaspace Krypton",
 		-- "Monaspace Neon",
 		-- "Monaspace Radon",
 		-- "Monaspace Xenon",
+		-- NOTE: fallback font for Nerd Font icons
 		{ family = "Symbols Nerd Font Mono" },
 	}),
 
