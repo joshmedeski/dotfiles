@@ -34,8 +34,9 @@ path = "~/c/dotfiles/.config/aerospace"
 startup_command = "nvim aerospace.toml"
 
 [[session]]
-name = "neovim in ai"
-path = "~/c/dotfiles"
+name = "mactop"
+path = "/tmp"
+startup_command = "sudo mactop"
 
 [[session]]
 name = "ghostty config"
