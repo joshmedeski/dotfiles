@@ -18,6 +18,7 @@ return {
       end,
       integrations = {
         cmp = true,
+        copilot_vim = true,
         fidget = true,
         gitsigns = true,
         harpoon = true,

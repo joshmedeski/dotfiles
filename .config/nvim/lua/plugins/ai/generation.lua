@@ -1,18 +1,20 @@
 --[[
---
- ██████╗ ██████╗ ███╗   ██╗██╗   ██╗██╗███╗   ███╗
-██╔════╝ ██╔══██╗████╗  ██║██║   ██║██║████╗ ████║
-██║  ███╗██████╔╝██╔██╗ ██║██║   ██║██║██╔████╔██║
-██║   ██║██╔═══╝ ██║╚██╗██║╚██╗ ██╔╝██║██║╚██╔╝██║
-╚██████╔╝██║██╗  ██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║
- ╚═════╝ ╚═╝╚═╝  ╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝
-Gp.nvim (GPT prompt) Neovim AI plugin: ChatGPT sessions & Instructable text/code operations & Speech to text
-[OpenAI, Ollama, Anthropic, ..]
+ ██████╗ ███████╗███╗   ██╗███████╗██████╗  █████╗ ████████╗██╗ ██████╗ ███╗   ██╗
+██╔════╝ ██╔════╝████╗  ██║██╔════╝██╔══██╗██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║
+██║  ███╗█████╗  ██╔██╗ ██║█████╗  ██████╔╝███████║   ██║   ██║██║   ██║██╔██╗ ██║
+██║   ██║██╔══╝  ██║╚██╗██║██╔══╝  ██╔══██╗██╔══██║   ██║   ██║██║   ██║██║╚██╗██║
+╚██████╔╝███████╗██║ ╚████║███████╗██║  ██║██║  ██║   ██║   ██║╚██████╔╝██║ ╚████║
+ ╚═════╝ ╚══════╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
+AI code generation is a feature that allows you to generate code snippets using AI models.
+This can be helpful for
+writing code faster and with fewer errors.
 
- TODO: put this in my Obsidian vault instead
- chat_dir = vim.fn.stdpath("data"):gsub("/$", "") .. "/gp/chats",
- TODO: create git commit summary from diff (in commit window)
- TODO: add unit tests (to a new file?)
+My Choice:
+- [gp.nvim](https://github.com/robitx/gp.nvim) Sessions & Instructable text/code operations
+
+Alternatives:
+- [gen.nvim](https://github.com/David-Kunz/gen.nvim) Generate text using LLMs with customizable prompts
+- [model.nvim](https://github.com/gsuuon/model.nvim) Interacting with LLM's
 
 --]]
 
@@ -24,9 +26,9 @@ return {
     require("gp").setup({
       openai_api_key = os.getenv("OPENAI_API_KEY"),
       providers = {
-        openai = {
-          endpoint = "https://api.openai.com/v1/chat/completions",
-          secret = os.getenv("OPENAI_API_KEY"),
+        anthropic = {
+          endpoint = "https://api.anthropic.com/v1/messages",
+          secret = os.getenv("ANTHROPIC_API_KEY"),
         },
         copilot = {
           endpoint = "https://api.githubcopilot.com/chat/completions",
@@ -39,9 +41,9 @@ return {
         ollama = {
           endpoint = "http://localhost:11434/v1/chat/completions",
         },
-        anthropic = {
-          endpoint = "https://api.anthropic.com/v1/messages",
-          secret = os.getenv("ANTHROPIC_API_KEY"),
+        openai = {
+          endpoint = "https://api.openai.com/v1/chat/completions",
+          secret = vim.fn.getenv("OPENAI_API_KEY"),
         },
       },
       whisper = {
