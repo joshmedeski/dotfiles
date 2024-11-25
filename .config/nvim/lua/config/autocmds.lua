@@ -17,6 +17,11 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   command = "execute 'silent !source <afile> --silent'",
 })
 
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = { "aerospace.toml" },
+  command = "execute 'silent !aerospace reload-config'",
+})
+
 -- TODO: purge all yabai references?
 -- vim.api.nvim_create_autocmd("BufWritePost", {
 --   pattern = { ".yabairc" },
