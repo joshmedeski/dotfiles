@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+IN_PROGRESS=$(gh project item-list --owner nutiliti 4 --format json --jq '.items[] | select(.status == "In Progress" and (.assignees | index("joshmedeski")))')
+
+# function show_in_progress_content {
+#   local SELECTION="$1"
+#   echo "$IN_PROGRESS" | jq -r "select(.title == \"$SELECTION\") | .content.body" | glow --style light
+# }
+
+if [ -z "$IN_PROGRESS" ]; then
+  echo "No in progress items"
+else
+  TITLES=$(echo "$IN_PROGRESS" | jq -r '.title')
+  SELECTION=$(echo "$TITLES" | fzf --preview "echo $IN_PROGRESS | jq -r \"select(.title == \"{}\") | .content.body\" | glow --style light")
+  # SELECTION=$(echo "$TITLES" | fzf)
+  # echo "$IN_PROGRESS" | jq -r "select(.title == \"$SELECTION\") | .content.body" | glow --style light
+  echo $SELECTION
+fi

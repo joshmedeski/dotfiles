@@ -1,14 +1,22 @@
 #!/usr/bin/env bash
-echo "📦 Installing dependencies"
-pnpm i
-echo "👷 Building"
-pnpm build
 find . -maxdepth 1 -type d -print0 | xargs -0 zoxide add
+
 cd packages || return
 find . -maxdepth 1 -type d -print0 | xargs -0 zoxide add
-cd ../apps || return
+
+echo "🔐 Generating SSL certificates for Ladle"
+cd ./ui || return
+mkcert localhost
+
+cd ../../apps || return
 find . -maxdepth 1 -type d -print0 | xargs -0 zoxide add
+cd ../
+echo "🔗 Setting NODE_ENV to production for server and web"
 echo "NODE_ENV=production" >./server/.env
 echo "NODE_ENV=production" >./web/.env
-cd ./packages/ui || return
-mkcert localhost
+
+echo "📦 Installing dependencies"
+pnpm i
+
+echo "👷 Building"
+pnpm build

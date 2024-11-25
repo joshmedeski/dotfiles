@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# cSpell:words worktree
 cd ~/c/nu || return
+# TODO: show fzf list of issues I'm assigned to via the gh cli?
 BRANCH=$(gum input --placeholder "New branch name")
 BRANCH=${BRANCH#jam/}
 echo "🌳 Using branch 'jam/$BRANCH'"
@@ -8,10 +8,10 @@ REMOTE_BRANCH=$(git ls-remote --heads origin "$BRANCH" | wc -l)
 if [ "$REMOTE_BRANCH" -eq 0 ]; then
   echo "☁️ Branch 'jam/$BRANCH' does not exist on remote, creating it"
   git worktree add "$BRANCH" -b "jam/$BRANCH" origin/main
-  git push --set-upstream origin "jam/$BRANCH"
+  git branch --set-upstream-to=origin/"jam/$BRANCH"
 else
   echo "☁️ Branch 'jam/$BRANCH' exists on remote, using it"
   git worktree add "$BRANCH" -b "jam/$BRANCH" origin/jam/"$BRANCH"
 fi
 cd "$BRANCH" || return
-sesh connect . --command "nu_setup"
+sesh connect --command "nu_setup" .
