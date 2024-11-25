@@ -1,39 +1,39 @@
 #!/usr/bin/env bash
 
 if [ -z "$1" ]; then
-	echo "Please provide a GitHub URL"
-	exit 1
+  echo "Please provide a GitHub URL"
+  exit 1
 fi
 
 GITHUB_URL=$1
 
-if [[ $GITHUB_URL =~ ^https://github.com/([^/]+)/(.+)$ ]]; then
-	USERNAME="${BASH_REMATCH[1]}"
-	REPO="${BASH_REMATCH[2]}"
+if [[ $GITHUB_URL =~ ^https://github.com/([^/]+)/([^?]+) ]]; then
+  USERNAME="${BASH_REMATCH[1]}"
+  REPO="${BASH_REMATCH[2]}"
 else
-	echo "Invalid argument format. Expected format: https://github.com/<username>/<repository>"
-	exit 1
+  echo "Invalid argument format. Expected format: https://github.com/<username>/<repository>"
+  exit 1
 fi
 
 REPOS="$HOME/c/second-brain/Resources 🛠️/Repos 🐙"
 
 if [ ! -d "$REPOS/$USERNAME" ]; then
-	mkdir -p "$REPOS/$USERNAME"
+  mkdir -p "$REPOS/$USERNAME"
 fi
 
 NOTE="$HOME/c/second-brain/Resources 🛠️/Repos 🐙/$USERNAME/$REPO.md"
 
 if [ -f "$NOTE" ]; then
-	echo "Repo note already exists: $NOTE"
+  echo "Repo note already exists: $NOTE"
 else
-	touch "$NOTE"
-	echo "---" >>"$NOTE"
-	echo "url: $GITHUB_URL" >>"$NOTE"
-	echo "aliases:" >>"$NOTE"
-	echo "  - $USERNAME/$REPO" >>"$NOTE"
-	echo "---" >>"$NOTE"
-	echo "Repo note created: $NOTE"
-	# TODO: add description using GH API
+  touch "$NOTE"
+  echo "---" >>"$NOTE"
+  echo "url: $GITHUB_URL" >>"$NOTE"
+  echo "aliases:" >>"$NOTE"
+  echo "  - $USERNAME/$REPO" >>"$NOTE"
+  echo "---" >>"$NOTE"
+  echo "Repo note created: $NOTE"
+  # TODO: add description using GH API
 fi
 
 open -a Obsidian "obsidian://open?vault=second-brain&file=Resources%20%F0%9F%9B%A0%EF%B8%8F%2FRepos%20%F0%9F%90%99%2F$USERNAME%2F$REPO"
