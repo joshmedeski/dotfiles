@@ -77,6 +77,10 @@ disableStartupPopups: false
 notARepository: "prompt" # one of: 'prompt' | 'create' | 'skip'
 promptToReturnFromSubprocess: false # display confirmation when subprocess terminates
 customCommands:
+  - key: "o"
+    command: "sesh connect '{{.SelectedWorktree.Path}}'"
+    context: "worktrees"
+    description: "Open with sesh"
   - key: "f"
     command: "git difftool -y {{.SelectedLocalCommit.Sha}} -- {{.SelectedCommitFile.Name}}"
     context: "commitFiles"
