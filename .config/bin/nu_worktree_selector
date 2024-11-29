@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-WORKTREE=$(ls ~/c/nu | fzf)
-
-echo "selected worktree"
-echo $WORKTREE

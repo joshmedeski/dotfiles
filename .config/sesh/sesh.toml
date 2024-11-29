@@ -49,7 +49,12 @@ startup_command = "nvim config"
 # startup_command = "nu-worktree-picker.sh"
 
 [[session]]
-name = "new nutiliti worktree"
+name = "nutiliti pick worktree"
+path = "~/c/nu"
+startup_command = "sesh connect (find . -maxdepth 1 -type d | gum filter --limit 1 --fuzzy --no-sort --placeholder 'Pick a worktree' --prompt='🌲') && exit"
+
+[[session]]
+name = "nutiliti new worktree"
 path = "~/c/nu"
 startup_command = "nu_new_worktree"
 
