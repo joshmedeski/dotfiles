@@ -1,3 +1,5 @@
+[general]
+
 import = [
   "/Users/joshmedeski/.config/alacritty/catppuccin/catppuccin-mocha.toml",
 ]
