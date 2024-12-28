@@ -11,19 +11,19 @@
 
 # general
 clipboard-read = "allow"
-clipboard-write = "allow"
 clipboard-trim-trailing-spaces = true
+clipboard-write = "allow"
 mouse-hide-while-typing = true
 
 # visuals
 font-family = "CommitMono"
 font-family = "Symbols Nerd Font Mono" # fallback
 font-size = 20
+macos-window-shadow = false
 theme = light:catppuccin-latte,dark:catppuccin-mocha
+window-decoration = false
 window-padding-x = 16
 window-padding-y = 10
-macos-window-shadow = false
-window-decoration = false
 
 # keybindings
 # a-z
