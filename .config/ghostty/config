@@ -1,4 +1,4 @@
-theme = catppuccin-mocha
+theme = light:catppuccin-latte,dark:catppuccin-mocha
 window-decoration = false
 window-padding-x = 16
 window-padding-y = 10
@@ -18,4 +18,6 @@ keybind = super+w=text:\x02\x78
 keybind = super+p=text:\x3a\x47\x6f\x54\x6f\x46\x69\x6c\x65\x0a
 keybind = super+shift+left_bracket=text:\x02\x6e
 keybind = super+shift+right_bracket=text:\x02\x70
+keybind = super+left_bracket=text:<C-o>
+keybind = super+right_bracket=text:<C-i>
 
