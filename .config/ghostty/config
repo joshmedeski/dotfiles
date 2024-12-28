@@ -11,11 +11,9 @@
 
 # general
 clipboard-read = "allow"
-cursor-style = block
-macos-auto-secure-input = true
+clipboard-write = "allow"
+clipboard-trim-trailing-spaces = true
 mouse-hide-while-typing = true
-quit-after-last-window-closed = true
-shell-integration = detect
 
 # visuals
 font-family = "CommitMono"
