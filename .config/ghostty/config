@@ -1,23 +1,32 @@
+clipboard-read = "allow"
+cursor-style = block
+
+font-family = "CommitMono"
+font-family = "Symbols Nerd Font Mono"
+font-size = 20
 theme = light:catppuccin-latte,dark:catppuccin-mocha
+
+macos-window-shadow = false
 window-decoration = false
 window-padding-x = 16
 window-padding-y = 10
-macos-window-shadow = false
-clipboard-read = "allow"
-font-size = 20
-cursor-style = block
-font-family = "CommitMono"
-font-family = "Symbols Nerd Font Mono"
 
+keybind = super+f=text:\x3a\x47\x72\x65\x70\x0a
 keybind = super+g=text:\x02\x67
 keybind = super+k=text:\x02\x4b
 keybind = super+l=text:\x02\x4c
+keybind = super+o=text:\x02\x75
+keybind = super+p=text:\x3a\x47\x6f\x54\x6f\x46\x69\x6c\x65\x0a
+keybind = super+q=text:\x3a\x1b\x1b\x3a\x71\x61\x21\x0a
 keybind = super+s=text:\x3a\x77\x0a
 keybind = super+t=text:\x02\x63
 keybind = super+w=text:\x02\x78
-keybind = super+p=text:\x3a\x47\x6f\x54\x6f\x46\x69\x6c\x65\x0a
-keybind = super+shift+left_bracket=text:\x02\x6e
-keybind = super+shift+right_bracket=text:\x02\x70
+
 keybind = super+left_bracket=text:<C-o>
 keybind = super+right_bracket=text:<C-i>
 
+keybind = super+shift+o=text:\x3a\x47\x6f\x54\x6f\x53\x79\x6d\x62\x6f\x6c\x0a
+keybind = super+shift+p=text:\x3a\x47\x6f\x54\x6f\x43\x6f\x6d\x6d\x61\x6e\x64\x0a
+
+keybind = super+shift+left_bracket=text:\x02\x6e
+keybind = super+shift+right_bracket=text:\x02\x70
