@@ -1,23 +1,33 @@
-quit-after-last-window-closed = true
-shell-integration = detect
-mouse-hide-while-typing = true
-macos-auto-secure-input = true
+#
+#  ██████╗ ██╗  ██╗ ██████╗ ███████╗████████╗████████╗██╗   ██╗
+# ██╔════╝ ██║  ██║██╔═══██╗██╔════╝╚══██╔══╝╚══██╔══╝╚██╗ ██╔╝
+# ██║  ███╗███████║██║   ██║███████╗   ██║      ██║    ╚████╔╝
+# ██║   ██║██╔══██║██║   ██║╚════██║   ██║      ██║     ╚██╔╝
+# ╚██████╔╝██║  ██║╚██████╔╝███████║   ██║      ██║      ██║
+#  ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝   ╚═╝      ╚═╝      ╚═╝
+#
+# Ghostty is a fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration.
+# https://ghostty.org/docs/config/reference
 
+# general
 clipboard-read = "allow"
 cursor-style = block
+macos-auto-secure-input = true
+mouse-hide-while-typing = true
+quit-after-last-window-closed = true
+shell-integration = detect
 
+# visuals
 font-family = "CommitMono"
 font-family = "Symbols Nerd Font Mono" # fallback
-
 font-size = 20
 theme = light:catppuccin-latte,dark:catppuccin-mocha
-
-# macos-window-shadow = false
-# window-decoration = false
-macos-titlebar-style = hidden
 window-padding-x = 16
 window-padding-y = 10
+macos-window-shadow = false
+window-decoration = false
 
+# keybindings
 keybind = super+f=text:\x3a\x47\x72\x65\x70\x0a
 keybind = super+g=text:\x02\x67
 keybind = super+k=text:\x02\x4b
@@ -37,9 +47,3 @@ keybind = super+shift+p=text:\x3a\x47\x6f\x54\x6f\x43\x6f\x6d\x6d\x61\x6e\x64\x0
 
 keybind = super+shift+left_bracket=text:\x02\x6e
 keybind = super+shift+right_bracket=text:\x02\x70
-
-# FIX: command doesn't work
-# initial-command="/Users/joshmedeski/c/dotfiles/.config/bin/sesh_start"
-
-# FIX: doesn't work when inside tmux
-# macos-secure-input-indication = true
