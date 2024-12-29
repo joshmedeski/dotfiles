@@ -1,6 +1,6 @@
 [manager]
 ratio = [1, 2, 4]
-sort_by = "modified"
+sort_by = "mtime"
 sort_sensitive = true
 sort_reverse = true
 sort_dir_first = true
@@ -65,7 +65,7 @@ rules = [
     "play",
     "reveal",
   ] },
-  { mime = "inode/x-empty", use = [
+  { mime = "inode/empty", use = [
     "edit",
     "reveal",
   ] },
@@ -87,23 +87,23 @@ rules = [
     "extract",
     "reveal",
   ] },
-  { mime = "application/x-tar", use = [
+  { mime = "application/r", use = [
     "extract",
     "reveal",
   ] },
-  { mime = "application/x-bzip", use = [
+  { mime = "application/bzip", use = [
     "extract",
     "reveal",
   ] },
-  { mime = "application/x-bzip2", use = [
+  { mime = "application/bzip2", use = [
     "extract",
     "reveal",
   ] },
-  { mime = "application/x-7z-compressed", use = [
+  { mime = "application/7z-compressed", use = [
     "extract",
     "reveal",
   ] },
-  { mime = "application/x-rar", use = [
+  { mime = "application/rar", use = [
     "extract",
     "reveal",
   ] },
