@@ -14,6 +14,9 @@ local light_opacity = 0.90
 local wallpapers_glob = os.getenv("HOME")
 	.. "/Library/Mobile Documents/com~apple~CloudDocs/PARA/Resources 🧰/Wallpapers - macOS 💻/active/**"
 
+local wallpapers_gif_glob = os.getenv("HOME")
+	.. "/Library/Mobile Documents/com~apple~CloudDocs/PARA/Resources 🧰/Wallpapers - macOS 💻/active/animated/**"
+
 local b = require("utils/background")
 local cs = require("utils/color_scheme")
 local h = require("utils/helpers")
@@ -28,6 +31,7 @@ local act = wezterm.action
 local config = {
 	background = {
 		w.get_wallpaper(wallpapers_glob),
+		w.get_gif_wallpaper(wallpapers_gif_glob),
 		b.get_background(dark_opacity, light_opacity),
 	},
 
@@ -35,9 +39,9 @@ local config = {
 
 	line_height = 1.1,
 	font = wezterm.font_with_fallback({
-		-- "CommitMono",
+		"CommitMono",
 		-- "DengXian",
-		"Departure Mono",
+		-- "Departure Mono",
 		-- "GohuFont uni14 Nerd Font Mono",
 		-- "Monaspace Argon",
 		-- "Monaspace Krypton",
@@ -51,10 +55,10 @@ local config = {
 	color_scheme = cs.get_color_scheme(),
 
 	window_padding = {
-		left = 40,
-		right = 20,
-		top = 15,
-		bottom = 20,
+		left = 60,
+		right = 60,
+		top = 40,
+		bottom = 40,
 	},
 
 	set_environment_variables = {
@@ -78,7 +82,7 @@ local config = {
 		k.cmd_key("]", act.SendKey({ mods = "CTRL", key = "i" })),
 		k.cmd_key("f", k.multiple_actions(":Grep")),
 		-- k.cmd_key("H", act.SendKey({ mods = "CTRL", key = "h" })),
-		k.cmd_key("i", k.multiple_actions(":SmartGoTo")),
+		-- k.cmd_key("i", k.multiple_actions(":SmartGoTo")),
 		-- k.cmd_key("J", act.SendKey({ mods = "CTRL", key = "j" })),
 		-- k.cmd_key("K", act.SendKey({ mods = "CTRL", key = "k" })),
 		-- k.cmd_key("K", act.SendKey({ mods = "CTRL", key = "k" })),
@@ -87,6 +91,8 @@ local config = {
 		k.cmd_key("P", k.multiple_actions(":GoToCommand")),
 		k.cmd_key("p", k.multiple_actions(":GoToFile")),
 		k.cmd_key("q", k.multiple_actions(":qa!")),
+
+		k.cmd_to_tmux_prefix("`", "n"),
 		k.cmd_to_tmux_prefix("1", "1"),
 		k.cmd_to_tmux_prefix("2", "2"),
 		k.cmd_to_tmux_prefix("3", "3"),
@@ -96,26 +102,26 @@ local config = {
 		k.cmd_to_tmux_prefix("7", "7"),
 		k.cmd_to_tmux_prefix("8", "8"),
 		k.cmd_to_tmux_prefix("9", "9"),
-		k.cmd_to_tmux_prefix("`", "n"),
+		k.cmd_to_tmux_prefix("9", "9"),
 		k.cmd_to_tmux_prefix("b", "b"),
 		k.cmd_to_tmux_prefix("C", "C"),
 		k.cmd_to_tmux_prefix("d", "D"),
 		k.cmd_to_tmux_prefix("G", "G"),
 		k.cmd_to_tmux_prefix("g", "g"),
 		k.cmd_to_tmux_prefix("j", "J"),
-		k.cmd_to_tmux_prefix("K", "R"),
 		k.cmd_to_tmux_prefix("k", "K"),
+		k.cmd_to_tmux_prefix("K", "R"),
 		k.cmd_to_tmux_prefix("l", "L"),
 		k.cmd_to_tmux_prefix("n", "%"),
 		k.cmd_to_tmux_prefix("N", '"'),
 		k.cmd_to_tmux_prefix("o", "u"),
 		k.cmd_to_tmux_prefix("T", "B"),
-		k.cmd_to_tmux_prefix("Y", "Y"),
 		k.cmd_to_tmux_prefix("t", "c"),
 		k.cmd_to_tmux_prefix("w", "x"),
-		k.cmd_to_tmux_prefix("z", "z"),
+		k.cmd_to_tmux_prefix("Y", "Y"),
 		k.cmd_to_tmux_prefix("Z", "Z"),
-		k.cmd_to_tmux_prefix("9", "9"),
+		k.cmd_to_tmux_prefix("z", "z"),
+
 		k.cmd_ctrl_to_tmux_prefix("t", "J"),
 
 		k.cmd_key(
@@ -212,6 +218,28 @@ wezterm.on("user-var-changed", function(window, pane, name, value)
 				height = "100%",
 				opacity = 0.95,
 			},
+		}
+	end
+
+	if name == "SESH_SESSION" and value == "test" then
+		overrides.background = {
+			w.set_tmux_session_wallpaper(value),
+			{
+				source = {
+					Gradient = {
+						colors = { "#000000" },
+					},
+				},
+				width = "100%",
+				height = "100%",
+				opacity = 0.85,
+			},
+		}
+	else
+		overrides.background = {
+			w.get_wallpaper(wallpapers_glob),
+			w.get_gif_wallpaper(wallpapers_gif_glob),
+			b.get_background(dark_opacity, light_opacity),
 		}
 	end
 
