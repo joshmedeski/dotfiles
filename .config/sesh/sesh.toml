@@ -14,10 +14,10 @@ startup_command = "nvim +GoToFile"
 #
 
 [[session]]
-startup_command = 'OLLAMA_ORIGINS="app://obsidian.md*" ollama serve'
-
 name = "ollama"
 path = "~"
+startup_command = 'OLLAMA_ORIGINS="app://obsidian.md*" ollama serve'
+
 [[session]]
 name = "macmon"
 path = "~/"
@@ -154,7 +154,7 @@ startup_command = "yazi"
 [[session]]
 name = "lazy plugins"
 path = "~/.local/share/nvim/lazy"
-startup_command = "sesh connect (ls | fzf --ansi --no-border --preview 'glow -s light {}/README.md' --preview-window=right:85,border-none) && exit"
+startup_command = "sesh connect (ls | fzf --ansi --no-border --preview 'glow -s light {}/README.md' --preview-window=right:70,border-none) && exit"
 
 [[session]]
 name = "obsidian plugins"
