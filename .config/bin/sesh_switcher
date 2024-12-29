@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Function to send escape sequence to set user variable in WezTerm
+set_sesh() {
+  local value=$1
+  printf "\x1bPtmux;\x1b\x1b]1337;SetUserVar=SESH_SESSION=%s\x07\x1b\\" "$(echo -n "$value" | base64)"
+}
+
+set_sesh "$1"
