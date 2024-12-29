@@ -1,2 +1,2 @@
 #!/usr/bin/env fish
-sesh connect "$(sesh list -i | gum filter --no-sort --fuzzy --limit 1 --placeholder "Pick a sesh" --prompt="⚡")"
+sesh connect "$(sesh list -i | gum filter --limit 1 --fuzzy --no-sort --placeholder 'Pick a sesh' --prompt='⚡')"
