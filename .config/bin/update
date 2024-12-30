@@ -1,6 +1,15 @@
 #!/usr/bin/env fish
+# ██╗   ██╗██████╗ ██████╗  █████╗ ████████╗███████╗
+# ██║   ██║██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝██╔════╝
+# ██║   ██║██████╔╝██║  ██║███████║   ██║   █████╗
+# ██║   ██║██╔═══╝ ██║  ██║██╔══██║   ██║   ██╔══╝
+# ╚██████╔╝██║     ██████╔╝██║  ██║   ██║   ███████╗
+#  ╚═════╝ ╚═╝     ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚══════╝
+#  A script to update all the things
 
-# tmux rename-session -t $(tmux display-message -p '#S') "🌎 updating"
+# TODO: update to use AI to summarize
+
+tmux rename-session -t $(tmux display-message -p '#S') "🌎 updating"
 
 gum style \
     --foreground 12 --border-foreground 12 --border double \
@@ -19,7 +28,7 @@ echo -e "$NOW\n" >>/tmp/u-$NOW.txt
 set GH_EXTENSION_UPDATE $(gum spin --spinner globe --title "🐙 gh extensions upgrading..." --show-output -- gh extension upgrade --all)
 
 echo "✅ 🐙 gh extensions upgraded"
-echo "$GH_EXTENSION_UPDATE" | mods --role updates_gh_dash --no-cache -q
+# echo "$GH_EXTENSION_UPDATE" | mods --role updates_gh_dash --no-cache -q
 
 echo $GH_EXTENSION_UPDATE >>/tmp/u-$NOW.txt
 echo "\n" >>/tmp/u-$NOW.txt
@@ -82,3 +91,5 @@ man /tmp/u-$NOW.txt
 
 # TODO: create fabric prompt to summarize all the updates
 # TODO: output summmary with glow (already done?)
+
+tmux rename-session -t $(tmux display-message -p '#S') "🌎 updated"
