@@ -45,19 +45,20 @@ return {
 
   opts = {
     defaults = {
+      border = false,
       file_ignore_patterns = { ".git/", "node_modules" },
       layout_config = {
-        height = 0.90,
-        width = 0.90,
+        height = 0.999,
+        width = 0.999,
         preview_cutoff = 0,
-        horizontal = { preview_width = 0.60 },
-        vertical = { width = 0.55, height = 0.9, preview_cutoff = 0 },
+        horizontal = { preview_width = 0.80 },
+        vertical = { width = 0.999, height = 0.9999, preview_cutoff = 0 },
         prompt_position = "top",
       },
       path_display = { "smart" },
       prompt_position = "top",
       prompt_prefix = " ",
-      selection_caret = " ",
+      selection_caret = "👉",
       sorting_strategy = "ascending",
       vimgrep_arguments = {
         "rg",
@@ -78,15 +79,15 @@ return {
       commands = {
         prompt_prefix = " ",
         layout_config = {
-          height = 0.63,
-          width = 0.78,
+          height = 0.99,
+          width = 0.99,
         },
       },
       command_history = {
         prompt_prefix = " ",
         layout_config = {
-          height = 0.63,
-          width = 0.58,
+          height = 0.99,
+          width = 0.99,
         },
       },
       git_files = {
@@ -96,6 +97,10 @@ return {
       find_files = {
         prompt_prefix = " ",
         find_command = { "fd", "-H" },
+        layout_config = {
+          height = 0.999,
+          width = 0.999,
+        },
       },
       live_grep = {
         prompt_prefix = "󰱽 ",
