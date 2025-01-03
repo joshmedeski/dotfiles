@@ -9,10 +9,40 @@
 # Ghostty is a fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration.
 # https://ghostty.org/docs/config/reference
 
+# BUG: Improper handling of window title sequences can lead to arbitrary command execution
+# https://github.com/ghostty-org/ghostty/security/advisories/GHSA-5hcq-3j4q-4v6p
+title = Ghostty
+
+###########
+## shell ##
+###########
+command = "/opt/homebrew/bin/fish --login"
+initial-command = "/opt/homebrew/bin/fish --login -c 'sesh_start'"
+shell-integration = fish
+shell-integration-features = "no-cursor,sudo,title"
+
+#################
+## UI / window ##
+#################
+bold-is-bright = true
+macos-titlebar-style = hidden
+macos-window-shadow = false
+mouse-hide-while-typing = true
+window-decoration = false
+window-padding-balance = true
+window-padding-x = 2
+window-padding-y = 4
+window-save-state = always
+window-theme = auto
+# maximise by default
+window-width = 9999
+window-height = 9999
+
+
 # visuals
 font-family = "CommitMono"
-# fallback
-font-family = "Symbols Nerd Font Mono"
+# fallback (not needed?)
+# font-family = "Symbols Nerd Font Mono"
 font-size = 20
 macos-window-shadow = false
 mouse-hide-while-typing = true
@@ -21,12 +51,32 @@ window-decoration = false
 window-padding-x = 16
 window-padding-y = 10
 
-# clipboard
+###############
+## clipboard ##
+###############
 clipboard-read = "allow"
 clipboard-trim-trailing-spaces = true
 clipboard-write = "allow"
 
-# keybindings
+#################
+## keybindings ##
+#################
+# Some useful encoded characters:
+# \x0a = Enter/Return
+# \x1b = Esc
+# \x02 = <C-b> (tmux prefix)
+macos-option-as-alt = true
+
+# switch to window by index (1-based)
+keybind = super+physical:one=text:\x021
+keybind = super+physical:two=text:\x022
+keybind = super+physical:three=text:\x023
+keybind = super+physical:four=text:\x024
+keybind = super+physical:five=text:\x025
+keybind = super+physical:six=text:\x026
+keybind = super+physical:seven=text:\x027
+keybind = super+physical:eight=text:\x028
+keybind = super+physical:nine=text:\x029
 
 # a-z
 # select all?
@@ -34,7 +84,8 @@ clipboard-write = "allow"
 # build?
 # keybind = super+b= 
 # copy
-# keybind = super+c= 
+# Change to tmux copy mode
+keybind = super+c=text:\x02[
 # keybind = super+d=
 # keybind = super+e=
 # :Grep (find)
