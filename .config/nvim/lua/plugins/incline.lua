@@ -1,6 +1,6 @@
 return {
   "b0o/incline.nvim",
-  enabled = true,
+  enabled = false,
   event = "BufEnter",
   config = function()
     local function get_diagnostic_label(props)
