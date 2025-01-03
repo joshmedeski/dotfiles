@@ -7,6 +7,7 @@ gui:
   expandFocusedSidePanel: true
   mainPanelSplitMode: "flexible" # one of 'horizontal' | 'flexible' | 'vertical'
   language: "auto" # one of 'auto' | 'en' | 'zh' | 'pl' | 'nl'
+  border: hidden
   theme:
     activeBorderColor:
       - blue
