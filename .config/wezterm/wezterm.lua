@@ -29,6 +29,11 @@ local act = wezterm.action
 ---@type Config
 ---@diagnostic disable: missing-fields
 local config = {
+	-- rendering
+	front_end = "WebGpu",
+	max_fps = 120,
+	webgpu_power_preference = "HighPerformance",
+
 	background = {
 		w.get_wallpaper(wallpapers_glob),
 		w.get_gif_wallpaper(wallpapers_gif_glob),
