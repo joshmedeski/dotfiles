@@ -3,8 +3,8 @@ return {
   -- TODO: ensure this is correct name
   dependencies = {
     { 'folke/trouble.nvim' },
-    { 'bezhermoso/todos-lualine.nvim' },
-    { 'folke/todo-comments.nvim' },
+    -- { 'bezhermoso/todos-lualine.nvim' },
+    -- { 'folke/todo-comments.nvim' },
   },
   enabled = true,
   event = 'VeryLazy',
