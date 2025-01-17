@@ -22,32 +22,10 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   command = "execute 'silent !aerospace reload-config'",
 })
 
--- TODO: purge all yabai references?
--- vim.api.nvim_create_autocmd("BufWritePost", {
---   pattern = { ".yabairc" },
---   command = "!yabai --restart-service",
--- })
--- vim.api.nvim_create_autocmd("BufWritePost", {
---   pattern = { ".skhdrc" },
---   command = "!brew services restart skhd",
--- })
-
-vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = { "aerospace.toml" },
-  command = "!aerospace reload-config",
-})
-
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = { "sketchybarrc" },
   command = "!brew services restart sketchybar",
 })
-
--- vim.api.nvim_create_autocmd({ "BufNewFile", "BufFilePre", "BufRead" }, {
---   pattern = { "bubu" },
---   callback = function()
---     vim.cmd([[set filetype=javascript]])
---   end,
--- })
 
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufFilePre", "BufRead" }, {
   pattern = { "*.mdx", "*.md" },
@@ -62,13 +40,6 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
     vim.cmd([[set filetype=sh]])
   end,
 })
-
--- vim.api.nvim_create_autocmd({ "BufRead" }, {
---   pattern = { "kanata.kdb" },
---   callback = function()
---     vim.cmd([[set filetype=kdb]])
---   end,
--- })
 
 vim.api.nvim_create_augroup("HelpSplitRight", { clear = true })
 vim.api.nvim_create_autocmd("BufWinEnter", {
