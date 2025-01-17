@@ -8,8 +8,8 @@
 -- A GPU-accelerated cross-platform terminal emulator
 -- https://wezfurlong.org/wezterm/
 
-local dark_opacity = 0.85
-local light_opacity = 0.90
+local dark_opacity = 0.95
+local light_opacity = 0.80
 
 local wallpapers_glob = os.getenv("HOME")
 	.. "/Library/Mobile Documents/com~apple~CloudDocs/PARA/Resources 🧰/Wallpapers - macOS 💻/active/**"
@@ -60,10 +60,10 @@ local config = {
 	color_scheme = cs.get_color_scheme(),
 
 	window_padding = {
-		left = 60,
-		right = 60,
-		top = 40,
-		bottom = 40,
+		left = 30,
+		right = 30,
+		top = 30,
+		bottom = 30,
 	},
 
 	set_environment_variables = {
@@ -243,7 +243,7 @@ wezterm.on("user-var-changed", function(window, pane, name, value)
 	else
 		overrides.background = {
 			w.get_wallpaper(wallpapers_glob),
-			w.get_gif_wallpaper(wallpapers_gif_glob),
+			-- w.get_gif_wallpaper(wallpapers_gif_glob),
 			b.get_background(dark_opacity, light_opacity),
 		}
 	end
