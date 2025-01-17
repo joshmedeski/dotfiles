@@ -8,7 +8,7 @@
 --]]
 
 vim.cmd [[command! -nargs=0 GoToCommand :lua Snacks.picker.command_history()]]
-vim.cmd [[command! -nargs=0 GoToFile :lua Snacks.picker.smart()]]
+vim.cmd [[command! -nargs=0 GoToFile :lua Snacks.picker.files()]]
 vim.cmd [[command! -nargs=0 GoToSymbol :lua Snacks.picker.lsp_symbols()]]
 vim.cmd [[command! -nargs=0 Grep :lua Snacks.picker.grep()]]
 
@@ -452,7 +452,7 @@ require('lazy').setup({
       -- Automatically install LSPs and related tools to stdpath for Neovim
       -- Mason must be loaded before its dependents so we need to set it up here.
       -- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
-      { 'williamboman/mason.nvim', opts = {} },
+      { 'williamboman/mason.nvim', lazy = false, opts = {} },
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
@@ -620,7 +620,16 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
-        ts_ls = {},
+        ts_ls = {
+          filetypes = {
+            'javascript',
+            'javascriptreact',
+            'javascript.jsx',
+            'typescript',
+            'typescriptreact',
+            'typescript.tsx',
+          },
+        },
         --
 
         lua_ls = {
@@ -655,6 +664,7 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+        'typescript-language-server',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
