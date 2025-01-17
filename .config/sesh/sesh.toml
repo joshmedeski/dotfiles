@@ -7,8 +7,7 @@ import = ["~/.config/sesh/configs/nu-sesh.toml"]
 # startup_command = "sesh connect \"$(sesh list --icons | fzf)\""
 
 [default_session]
-# startup_command = "nvim +GoToFile"
-startup_command = "nvim_picker"
+startup_command = "nvim +GoToFile"
 startup_command_ignore_dirs = ["~/repos", "~/.config"]
 preview_command = "eza --all --git --icons --color=always {}"
 
