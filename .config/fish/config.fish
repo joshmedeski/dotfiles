@@ -23,6 +23,16 @@ fx --comp fish | source # https://fx.wtf/
 set -g direnv_fish_mode eval_on_arrow # trigger direnv at prompt, and on every arrow-based directory change (default)
 
 set -U fish_greeting # disable fish greeting
+# FIX: sesh connect won't actually start tmux
+# function fish_greeting
+#     if test -n "$TMUX"
+#         return
+#     else
+#       sesh connect \"\$(sesh list -i | fzf --no-sort --ansi --prompt '⚡  ' --no-border --bind 'tab:down,btab:up' --preview-window 'right:60%:noborder' --preview 'sesh preview {}')\"
+#     end
+# end
+
+
 set -U fish_key_bindings fish_vi_key_bindings
 # set -U LANG en_US.UTF-8
 # set -U LC_ALL en_US.UTF-8
@@ -30,8 +40,12 @@ set -U fish_key_bindings fish_vi_key_bindings
 # set -Ux BAT_THEME Catppuccin-latte # 'sharkdp/bat' cat clone
 set -Ux EDITOR nvim # 'neovim/neovim' text editor
 set -Ux FZF_DEFAULT_COMMAND "fd -H -E '.git'"
-set -Ux PAGER "~/.local/bin/nvimpager" # 'lucc/nvimpager'
-set -Ux VISUAL nvim
+
+# TODO: fix colors of nvimpager
+# set -Ux PAGER "~/.local/bin/nvimpager" # 'lucc/nvimpager'
+
+# NOTE: "noborus/ov" 🎑Feature-rich terminal-based text viewer. It is a so-called terminal pager.
+set -Ux PAGER ov
 
 # golang - https://golang.google.cn/
 set -Ux GOPATH (go env GOPATH)

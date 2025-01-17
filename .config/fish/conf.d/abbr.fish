@@ -142,24 +142,15 @@ abbr pwdc "pwd | pbcopy"
 
 abbr rmr "rm -rf"
 
-abbr s "sesh connect \"\$(sesh list -i | gum filter --limit 1 --fuzzy --no-sort --placeholder 'Pick a sesh' --prompt='⚡')\""
-abbr sdd "sesh-dev connect \"\$(sesh-dev list -i | gum filter --limit 1 --fuzzy --no-sort --placeholder 'Pick a sesh' --prompt='⚡')\""
+abbr s "sesh connect \"\$(sesh list -i | fzf --no-sort --ansi --prompt '⚡  ' --no-border --bind 'tab:down,btab:up' --preview-window 'right:60%:noborder' --preview 'sesh preview {}')\""
 abbr s. "sesh connect ."
 abbr sc "sesh clone --cmdDir ~/c (pbpaste)"
 abbr sf "source ~/.config/fish/config.fish"
 abbr sr "sesh root"
-abbr st "tmux source ~/.config/tmux/tmux.conf"
 
-abbr th things-cli
-abbr ta "tmux a"
-abbr tat "tmux attach -t"
-abbr td "t dotfiles"
+abbr ta "tmux attach"
 abbr tk "tmux kill-server"
-abbr tks "tmux kill-server"
 abbr tr "tldr --list | fzf --header 'tldr (tealdeer)' --reverse --preview 'tldr {1} --color=always' --preview-window=right,80% | xargs tldr"
-abbr tp "t --repo (pbpaste)"
-abbr tn "tmux new -s (basename (pwd))"
-abbr tt "touch .t && chmod +x .t && echo -e '#!/usr/bin/env bash\n' > .t && nvim .t"
 
 abbr u update
 
