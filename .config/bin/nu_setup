@@ -11,9 +11,10 @@ mkcert localhost
 cd ../../apps || return
 find . -maxdepth 1 -type d -print0 | xargs -0 zoxide add
 cd ../
-echo "🔗 Setting NODE_ENV to production for server and web"
+echo "🔗 Setting NODE_ENV to production for server, web, and cli"
 echo "NODE_ENV=production" >./server/.env
 echo "NODE_ENV=production" >./web/.env
+echo "NODE_ENV=production" >./apps/cli/.env
 
 echo "📦 Installing dependencies"
 pnpm i
