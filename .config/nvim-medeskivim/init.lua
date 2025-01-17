@@ -175,6 +175,23 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
+-- clipboard
+vim.keymap.set('v', '<leader>y', '"+y', { desc = 'Yank to clipboard' })
+
+vim.keymap.set('n', '<Tab>', '<cmd>bn<cr>')
+vim.keymap.set('n', '<S-Tab>', '<cmd>bp<cr>')
+
+vim.keymap.set('n', '*', '*zz')
+
+vim.keymap.set('n', 'n', 'nzz')
+vim.keymap.set('n', 'N', 'Nzz')
+
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
+
+-- folds
+vim.keymap.set('n', '<leader>z', '<cmd>normal! zMzv<cr>', { desc = 'Fold all others' })
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
