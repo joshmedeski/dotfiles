@@ -63,12 +63,12 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "BufRead" }, {
-  pattern = { "config" },
-  callback = function()
-    vim.cmd([[set filetype=toml]])
-  end,
-})
+-- vim.api.nvim_create_autocmd({ "BufRead" }, {
+--   pattern = { "kanata.kdb" },
+--   callback = function()
+--     vim.cmd([[set filetype=kdb]])
+--   end,
+-- })
 
 vim.api.nvim_create_augroup("HelpSplitRight", { clear = true })
 vim.api.nvim_create_autocmd("BufWinEnter", {
@@ -78,5 +78,14 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
     if vim.bo.buftype == "help" then
       vim.cmd("wincmd L")
     end
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufRead" }, {
+  -- https://ghostty.org/docs/config/reference
+  pattern = { "config" },
+  callback = function()
+    vim.cmd([[set filetype=toml]])
+    vim.cmd([[LspStop]])
   end,
 })

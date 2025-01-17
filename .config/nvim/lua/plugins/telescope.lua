@@ -48,10 +48,10 @@ return {
       border = false,
       file_ignore_patterns = { ".git/", "node_modules" },
       layout_config = {
-        height = 0.999,
-        width = 0.999,
+        height = 0.9999999,
+        width = 0.99999999,
         preview_cutoff = 0,
-        horizontal = { preview_width = 0.80 },
+        horizontal = { preview_width = 0.60 },
         vertical = { width = 0.999, height = 0.9999, preview_cutoff = 0 },
         prompt_position = "top",
       },

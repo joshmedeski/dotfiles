@@ -22,6 +22,7 @@ Alternatives:
 
 return {
   "github/copilot.vim",
+  enabled = true,
   dependencies = { "catppuccin/nvim" },
   event = "VimEnter",
   init = function()
