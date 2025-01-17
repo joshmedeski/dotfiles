@@ -1,5 +1,6 @@
 return {
   'folke/snacks.nvim',
+  lazy = false,
   opts = {
     picker = {},
   },
@@ -28,7 +29,7 @@ return {
     {
       '<leader><space>',
       function()
-        Snacks.picker.files()
+        Snacks.picker.smart()
       end,
       desc = 'Find Files',
     },

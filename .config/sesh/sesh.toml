@@ -123,6 +123,10 @@ name = "neovim config"
 path = "~/c/dotfiles/.config/nvim"
 
 [[session]]
+name = "lazyvim config (legacy)"
+path = "~/c/dotfiles/.config/lazyvim"
+
+[[session]]
 name = "fish config"
 path = "~/c/dotfiles/.config/fish"
 preview_command = "bat --language=fish --style=snip --color=always ~/c/dotfiles/.config/fish/config.fish"
