@@ -39,8 +39,9 @@ preview_command = "bat --language=toml --style=snip --color=always ~/c/dotfiles/
 
 [[session]]
 name = "ollama"
-path = "~"
-startup_command = 'OLLAMA_ORIGINS="app://obsidian.md*" ollama serve'
+path = "~/.ollama"
+startup_command = 'grc tail -f ~/.ollama/logs/server.log'
+# startup_command = 'OLLAMA_ORIGINS="app://obsidian.md*" ollama serve'
 
 [[session]]
 name = "macmon"
@@ -128,7 +129,7 @@ path = "~/c/dotfiles/.config/lazyvim"
 
 [[session]]
 name = "fish config"
-path = "~/c/dotfiles/.config/fish"
+path = "/Users/joshmedeski/c/dotfiles/.config/fish"
 preview_command = "bat --language=fish --style=snip --color=always ~/c/dotfiles/.config/fish/config.fish"
 
 [[session]]
@@ -177,7 +178,7 @@ path = "~/.config/tmux/plugins/tmux-fzf-url"
 startup_command = "nvim fzf-url.sh"
 
 [[session]]
-name = "Downloads 📥"
+name = "Downloads"
 path = "~/Downloads"
 startup_command = "yazi"
 
