@@ -36,7 +36,7 @@ M.get_gif_wallpaper = function(dir)
 		horizontal_align = "Center",
 		repeat_x = "Repeat",
 		repeat_y = "Repeat",
-		opacity = 0.12,
+		opacity = 0.32,
 		-- speed = 1000,
 	}
 end
