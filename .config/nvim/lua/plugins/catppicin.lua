@@ -33,6 +33,7 @@ return {
 
   ---@class CatppuccinOptions
   opts = function()
+    vim.g.catppuccin_debug = true
     -- TODO: generate dynamics colors
     return {
       flavour = 'mocha',
@@ -46,6 +47,10 @@ return {
         }
       end,
       integrations = {
+        avante = {
+          enabled = true,
+          windows_sidebar_header_rounded = true,
+        },
         cmp = true,
         copilot_vim = true,
         fidget = true,

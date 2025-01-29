@@ -37,7 +37,7 @@ return {
       sidebar_header = {
         enabled = true,
         align = 'center',
-        rounded = false,
+        rounded = true,
       },
       input = {
         prefix = ' ',
