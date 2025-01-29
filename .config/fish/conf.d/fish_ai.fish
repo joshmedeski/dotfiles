@@ -10,7 +10,7 @@ set -g supported_versions 3.9 3.10 3.11 3.12 3.13
 ## your needs. You can get the key binding escape sequence for a keyboard shortcut
 ## using the command `fish_key_reader`.
 ##
-bind \cP _fish_ai_codify_or_explain
+bind \cO _fish_ai_codify_or_explain
 bind -k nul _fish_ai_autocomplete_or_fix
 
 ##
@@ -145,7 +145,12 @@ function autoconfig_gh_models --description "Deploy configuration for GitHub Mod
 end
 
 function show_progess_indicator --description "Show a progress indicator."
+    if type -q fish_right_prompt
+        set rplen (string length -v (fish_right_prompt)[-1])
+    else
+        set rplen 0
+    end
     # Move the cursor to the end of the line and insert progress indicator
-    tput hpa (math $COLUMNS - (string length -v (fish_right_prompt)[-1]) - 2)
+    tput hpa (math $COLUMNS - $rplen - 2)
     echo -n '⏳'
 end
