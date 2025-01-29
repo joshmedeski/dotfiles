@@ -40,7 +40,6 @@ return { -- Collection of various small independent plugins/modules
   -- },
   'echasnovski/mini.nvim',
   dependencies = { 'JoosepAlviste/nvim-ts-context-commentstring' },
-  enabled = false,
   event = 'VeryLazy',
   config = function()
     require('mini.surround').setup {
@@ -70,107 +69,107 @@ return { -- Collection of various small independent plugins/modules
       n_lines = 500,
     }
 
-    require('mini.basics').setup {
-      options = {
-        -- Basic options ('number', 'ignorecase', and many more)
-        basic = true,
+    -- require('mini.basics').setup {
+    --   options = {
+    --     -- Basic options ('number', 'ignorecase', and many more)
+    --     basic = true,
+    --
+    --     -- Extra UI features ('winblend', 'cmdheight=0', ...)
+    --     extra_ui = false,
+    --
+    --     -- Presets for window borders ('single', 'double', ...)
+    --     win_borders = 'default',
+    --   },
+    --
+    --   -- Mappings. Set to `false` to disable.
+    --   mappings = {
+    --     -- Basic mappings (better 'jk', save with Ctrl+S, ...)
+    --     basic = true,
+    --
+    --     -- Prefix for mappings that toggle common options ('wrap', 'spell', ...).
+    --     -- Supply empty string to not create these mappings.
+    --     option_toggle_prefix = '',
+    --
+    --     -- Window navigation with <C-hjkl>, resize with <C-arrow>
+    --     windows = true,
+    --
+    --     -- Move cursor in Insert, Command, and Terminal mode with <M-hjkl>
+    --     move_with_alt = true,
+    --   },
+    --
+    --   -- Autocommands. Set to `false` to disable
+    --   autocommands = {
+    --     -- Basic autocommands (highlight on yank, start Insert in terminal, ...)
+    --     basic = true,
+    --
+    --     -- Set 'relativenumber' only in linewise and blockwise Visual mode
+    --     relnum_in_visual_mode = false,
+    --   },
+    --
+    --   -- Whether to disable showing non-error feedback
+    --   silent = false,
+    -- }
 
-        -- Extra UI features ('winblend', 'cmdheight=0', ...)
-        extra_ui = false,
+    -- require('mini.bracketed').setup()
 
-        -- Presets for window borders ('single', 'double', ...)
-        win_borders = 'default',
-      },
+    -- require('mini.comment').setup {
+    --   options = {},
+    -- }
 
-      -- Mappings. Set to `false` to disable.
-      mappings = {
-        -- Basic mappings (better 'jk', save with Ctrl+S, ...)
-        basic = true,
+    -- require('mini.diff').setup()
 
-        -- Prefix for mappings that toggle common options ('wrap', 'spell', ...).
-        -- Supply empty string to not create these mappings.
-        option_toggle_prefix = '',
+    -- require('mini.git').setup()
+    -- vim.keymap.set({ 'n', 'x' }, '<leader>gs', '<CMD>lua MiniGit.show_at_cursor()<CR>', { desc = 'Show at cursor' })
 
-        -- Window navigation with <C-hjkl>, resize with <C-arrow>
-        windows = true,
+    -- require('mini.icons').setup()
 
-        -- Move cursor in Insert, Command, and Terminal mode with <M-hjkl>
-        move_with_alt = true,
-      },
+    -- require('mini.move').setup()
 
-      -- Autocommands. Set to `false` to disable
-      autocommands = {
-        -- Basic autocommands (highlight on yank, start Insert in terminal, ...)
-        basic = true,
-
-        -- Set 'relativenumber' only in linewise and blockwise Visual mode
-        relnum_in_visual_mode = false,
-      },
-
-      -- Whether to disable showing non-error feedback
-      silent = false,
-    }
-
-    require('mini.bracketed').setup()
-
-    require('mini.comment').setup {
-      options = {},
-    }
-
-    require('mini.diff').setup()
-
-    require('mini.git').setup()
-    vim.keymap.set({ 'n', 'x' }, '<leader>gs', '<CMD>lua MiniGit.show_at_cursor()<CR>', { desc = 'Show at cursor' })
-
-    require('mini.icons').setup()
-
-    require('mini.move').setup()
-
-    require('mini.operators').setup {
-      -- Each entry configures one operator.
-      -- `prefix` defines keys mapped during `setup()`: in Normal mode
-      -- to operate on textobject and line, in Visual - on selection.
-
-      -- Evaluate text and replace with output
-      evaluate = {
-        prefix = 'g=',
-
-        -- Function which does the evaluation
-        func = nil,
-      },
-
-      -- Exchange text regions
-      exchange = {
-        prefix = 'gx',
-
-        -- Whether to reindent new text to match previous indent
-        reindent_linewise = true,
-      },
-
-      -- Multiply (duplicate) text
-      multiply = {
-        prefix = 'gm',
-
-        -- Function which can modify text before multiplying
-        func = nil,
-      },
-
-      -- Replace text with register
-      replace = {
-        prefix = 'gr',
-
-        -- Whether to reindent new text to match previous indent
-        reindent_linewise = true,
-      },
-
-      -- Sort text
-      sort = {
-        prefix = 'go',
-
-        -- Function which does the sort
-        func = nil,
-      },
-    }
+    -- require('mini.operators').setup {
+    --   -- Each entry configures one operator.
+    --   -- `prefix` defines keys mapped during `setup()`: in Normal mode
+    --   -- to operate on textobject and line, in Visual - on selection.
+    --
+    --   -- Evaluate text and replace with output
+    --   evaluate = {
+    --     prefix = 'g=',
+    --
+    --     -- Function which does the evaluation
+    --     func = nil,
+    --   },
+    --
+    --   -- Exchange text regions
+    --   exchange = {
+    --     prefix = 'gx',
+    --
+    --     -- Whether to reindent new text to match previous indent
+    --     reindent_linewise = true,
+    --   },
+    --
+    --   -- Multiply (duplicate) text
+    --   multiply = {
+    --     prefix = 'gm',
+    --
+    --     -- Function which can modify text before multiplying
+    --     func = nil,
+    --   },
+    --
+    --   -- Replace text with register
+    --   replace = {
+    --     prefix = 'gr',
+    --
+    --     -- Whether to reindent new text to match previous indent
+    --     reindent_linewise = true,
+    --   },
+    --
+    --   -- Sort text
+    --   sort = {
+    --     prefix = 'go',
+    --
+    --     -- Function which does the sort
+    --     func = nil,
+    --   },
+    -- }
 
     -- require('mini.statusline').setup {
     --   use_icons = vim.g.have_nerd_font,
