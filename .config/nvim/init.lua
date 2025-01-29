@@ -7,8 +7,8 @@
 ╚═╝     ╚═╝╚══════╝╚═════╝ ╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝  ╚═╝╚═╝     ╚═╝
 --]]
 
-require 'utils.lazy_nvim' -- ensures lazy.nvim is installed
 require 'utils.options'
 require 'utils.commands'
 require 'utils.auto_commands'
+require 'utils.lazy_nvim'
 require 'utils.lazy'
