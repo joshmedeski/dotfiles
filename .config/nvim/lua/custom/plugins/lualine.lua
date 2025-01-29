@@ -28,16 +28,17 @@ return {
     -- })
 
     -- local icons = require 'config.icons'
+    local lspIcons = require('icons').lsp
 
     local diagnostics = {
       'diagnostics',
       sources = { 'nvim_diagnostic' },
       sections = { 'error', 'warn', 'info', 'hint' },
       symbols = {
-        error = '🚨',
-        hint = '🤔',
-        info = '💁',
-        warn = '🚧',
+        error = lspIcons.error,
+        hint = lspIcons.hint,
+        info = lspIcons.info,
+        warn = lspIcons.warn,
       },
       colored = true,
       update_in_insert = false,
@@ -47,10 +48,10 @@ return {
     local diff = {
       'diff',
       symbols = {
-        added = ' ' .. ' ',
-        untracked = '󱀶 ' .. ' ',
-        modified = ' ' .. ' ',
-        removed = ' ' .. ' ',
+        added = ' ',
+        untracked = '󱀶 ',
+        modified = ' ',
+        removed = ' ',
       },
       colored = true,
       always_visible = false,

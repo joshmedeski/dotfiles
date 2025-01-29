@@ -1,8 +1,12 @@
+---@module 'snacks'
 return {
   'folke/snacks.nvim',
   lazy = false,
+  ---@type snacks.Config
   opts = {
     picker = {},
+    notifier = {},
+    bigfile = {},
   },
   keys = {
     {
@@ -15,7 +19,10 @@ return {
     {
       '<leader>/',
       function()
-        Snacks.picker.grep()
+        ---@diagnostic disable-next-line: missing-fields
+        Snacks.picker.grep {
+          hidden = true,
+        }
       end,
       desc = 'Grep',
     },
@@ -25,13 +32,6 @@ return {
         Snacks.picker.command_history()
       end,
       desc = 'Command History',
-    },
-    {
-      '<leader><space>',
-      function()
-        Snacks.picker.smart()
-      end,
-      desc = 'Find Files',
     },
     -- find
     {
@@ -44,7 +44,8 @@ return {
     {
       '<leader>fc',
       function()
-        Snacks.picker.files { cwd = vim.fn.stdpath 'config' }
+        ---@diagnostic disable-next-line: missing-fields
+        Snacks.picker.files { cwd = print(vim.fn.stdpath 'config') }
       end,
       desc = 'Find Config File',
     },
