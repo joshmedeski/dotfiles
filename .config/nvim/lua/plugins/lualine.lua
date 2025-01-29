@@ -28,7 +28,7 @@ return {
     -- })
 
     -- local icons = require 'config.icons'
-    local lspIcons = require('icons').lsp
+    local lspIcons = require('utils.icons').lsp
 
     local diagnostics = {
       'diagnostics',

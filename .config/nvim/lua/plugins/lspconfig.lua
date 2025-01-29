@@ -10,6 +10,12 @@ return {
     'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
 
+    {
+      'folke/lazydev.nvim',
+      ft = 'lua',
+      opts = { library = { { path = '${3rd}/luv/library', words = { 'vim%.uv' } } } },
+    },
+
     -- Useful status updates for LSP.
     { 'j-hui/fidget.nvim', opts = {} },
 
@@ -107,7 +113,7 @@ return {
       end,
     })
 
-    local lspIcons = require('icons').lsp
+    local lspIcons = require('utils.icons').lsp
     vim.diagnostic.config {
       virtual_text = {
         virt_text_pos = 'eol',
@@ -131,6 +137,12 @@ return {
         },
       },
     }
+
+    -- Disable underline for diagnostics
+    vim.api.nvim_set_hl(0, 'DiagnosticUnderlineError', { undercurl = false, underline = false })
+    vim.api.nvim_set_hl(0, 'DiagnosticUnderlineWarn', { undercurl = false, underline = false })
+    vim.api.nvim_set_hl(0, 'DiagnosticUnderlineInfo', { undercurl = false, underline = false })
+    vim.api.nvim_set_hl(0, 'DiagnosticUnderlineHint', { undercurl = false, underline = false })
 
     -- don't show diagnostic signs in the gutter
     vim.fn.sign_define('DiagnosticSignError', { text = '', numhl = 'DiagnosticError' })

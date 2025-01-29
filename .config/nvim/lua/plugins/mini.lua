@@ -40,6 +40,7 @@ return { -- Collection of various small independent plugins/modules
   -- },
   'echasnovski/mini.nvim',
   dependencies = { 'JoosepAlviste/nvim-ts-context-commentstring' },
+  enabled = false,
   event = 'VeryLazy',
   config = function()
     require('mini.surround').setup {

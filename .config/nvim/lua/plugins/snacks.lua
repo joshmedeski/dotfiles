@@ -1,6 +1,7 @@
 ---@module 'snacks'
 return {
   'folke/snacks.nvim',
+  enabled = false,
   lazy = false,
   ---@type snacks.Config
   opts = {
