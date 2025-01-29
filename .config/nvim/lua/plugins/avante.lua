@@ -1,3 +1,28 @@
+--[[
+
+lOOOOOO.
+  0,,,,;O,'.
+  O,,,,ld,,,,dlllllllllllllllllllc.
+ .xlllld:,,,lx,,,,,,,,,,,,,,,,,,dl''.
+    ......,,xc,,,,,,,,,,,,,,,,,,O,'''.
+     ;;;;;;:0,,,,;Olcccccckc,,,,0''''
+    .O::::::;,,,,oo'......O;,,,cx''''
+    lo,,,,,,,,,,,k;'''...'0,,,,dc''''
+    k;,,,,,,,,,,,klllllllod,,,,0''''.
+    0,,,,,,,,,,,,,,,,,,,,,,,,,;O''''
+   ,k,,,,,,,,,,,,,,,,,,,,,,,,,cd''''
+   oo,,,,,,,,,,,kllllllllk,,,,x:''''
+   O;,,,,,,,,,,,0'......:x,,,,0''''.
+  .0,,,,,,,,,,,cx'''.   xc,,,;O''''
+  ;k,,,,,,,,,,,dc''''   0,,,,lo''''.
+  ;ollllllllllld''''.   dllllo,'''''..
+    ...............'      .......'''''
+                            .......'''
+                              .......'
+
+Use your Neovim like using Cursor AI IDE!
+--]]
+
 return {
   'yetone/avante.nvim',
   event = 'VeryLazy',
@@ -8,11 +33,15 @@ return {
     provider = 'copilot',
     windows = {
       postion = 'right',
-      width = 30,
+      width = 40,
       sidebar_header = {
         enabled = true,
         align = 'center',
         rounded = false,
+      },
+      input = {
+        prefix = ' ',
+        height = 12, -- Height of the input window in vertical layout
       },
     },
     file_selector = {
