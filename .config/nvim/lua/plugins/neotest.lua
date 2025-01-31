@@ -10,9 +10,18 @@ return {
   },
 
   config = function()
+    ---@diagnostic disable-next-line: missing-fields
     require('neotest').setup {
       adapters = {
-        require 'neotest-golang' {},
+        require 'neotest-golang' {
+          runner = 'go',
+          go_test_args = {
+            '-v',
+            '-race',
+            '-count=1',
+            '-coverprofile=' .. vim.fn.getcwd() .. '/coverage.out',
+          },
+        },
       },
     }
   end,
