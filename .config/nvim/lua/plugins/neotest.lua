@@ -8,15 +8,15 @@ return {
     'marilari88/neotest-vitest',
     { 'fredrikaverpil/neotest-golang', version = '*' },
   },
+
   config = function()
-    local neotest_golang_opts = {} -- Specify custom configuration
-    ---@diagnostic disable-next-line: missing-fields
     require('neotest').setup {
       adapters = {
-        require 'neotest-golang'(neotest_golang_opts), -- Registration
+        require 'neotest-golang' {},
       },
     }
   end,
+
   keys = {
     { '<leader>ta', "<cmd>lua require('neotest').run.attach()<cr>", desc = 'Attach to the nearest test' },
     { '<leader>tl', "<cmd>lua require('neotest').run.run_last()<cr>", desc = 'Toggle Test Summary' },

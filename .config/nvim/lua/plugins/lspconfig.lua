@@ -7,8 +7,14 @@ return {
     -- Mason must be loaded before its dependents so we need to set it up here.
     -- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
     { 'williamboman/mason.nvim', lazy = false, opts = {} },
-    'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
+
+    -- lsp
+    'williamboman/mason-lspconfig.nvim',
+
+    -- dap
+    'mfussenegger/nvim-dap',
+    { 'jay-babu/mason-nvim-dap.nvim' },
 
     {
       'folke/lazydev.nvim',
@@ -269,8 +275,10 @@ return {
       'stylua', -- Used to format Lua code
       'typescript-language-server',
       'gopls',
+      'delve',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
+    require('mason-nvim-dap').setup()
 
     ---@diagnostic disable-next-line: missing-fields
     require('mason-lspconfig').setup {
