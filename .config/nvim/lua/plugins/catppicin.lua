@@ -44,6 +44,8 @@ return {
         return {
           CurSearch = { bg = colors.yellow },
           GitSignsChange = { fg = colors.blue },
+          CoverageCovered = { fg = colors.green },
+          CoverageUncovered = { fg = colors.red },
         }
       end,
       integrations = {

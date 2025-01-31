@@ -72,6 +72,9 @@ return {
         -- or a suggestion from your LSP for this to activate.
         map('<leader><space>', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
 
+        -- Incremental rename
+        -- map('<leader>rN', require('inc_rename').rename(vim.fn.expand '<cword>'), 'Incremental LSP renaming', { 'n' })
+
         -- The following two autocommands are used to highlight references of the
         -- word under your cursor when your cursor rests there for a little while.
         --    See `:help CursorHold` for information about when this is executed
@@ -216,6 +219,20 @@ return {
         },
       },
 
+      eslint = {
+        settings = {
+          workingDirectories = { mode = 'auto' },
+        },
+        filetypes = {
+          'javascript',
+          'javascriptreact',
+          'javascript.jsx',
+          'typescript',
+          'typescriptreact',
+          'typescript.tsx',
+        },
+      },
+
       lua_ls = {
         -- cmd = { ... },
         -- filetypes = { ... },
@@ -230,6 +247,8 @@ return {
           },
         },
       },
+
+      gopls = {},
     }
 
     -- Ensure the servers and tools above are installed
@@ -249,6 +268,7 @@ return {
     vim.list_extend(ensure_installed, {
       'stylua', -- Used to format Lua code
       'typescript-language-server',
+      'gopls',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
