@@ -64,7 +64,7 @@ vim.opt.ignorecase = true
 -- gutter
 vim.opt.number = false
 vim.opt.relativenumber = false
-vim.opt.signcolumn = 'yes:3'
+-- vim.opt.signcolumn = 'yes:3'
 
 -- indent
 vim.opt.tabstop = 2
@@ -95,6 +95,7 @@ vim.opt.linebreak = true
 
 -- views can only be fully collapsed with the global statusline
 vim.opt.laststatus = 0
+-- vim.opt.laststatus = 3 -- for avante
 
 -- hides the tabline, which is the line that displays the tabs at the top of Neovim.
 vim.opt.showtabline = 0
@@ -125,9 +126,9 @@ vim.opt.showmode = false
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-vim.schedule(function()
-  vim.opt.clipboard = 'unnamedplus'
-end)
+-- vim.schedule(function()
+--   vim.opt.clipboard = 'unnamedplus'
+-- end)
 
 -- Enable break indent
 vim.opt.breakindent = true
