@@ -36,7 +36,7 @@ local config = {
 
 	background = {
 		w.get_wallpaper(wallpapers_glob),
-		w.get_gif_wallpaper(wallpapers_gif_glob),
+		-- w.get_gif_wallpaper(wallpapers_gif_glob),
 		b.get_background(dark_opacity, light_opacity),
 	},
 
@@ -53,6 +53,8 @@ local config = {
 		-- "Monaspace Neon",
 		-- "Monaspace Radon",
 		-- "Monaspace Xenon",
+		-- { family = "Apple Color Emoji" },
+		-- { family = "Noto Color Emoji" }, -- default?
 		-- NOTE: fallback font for Nerd Font icons
 		{ family = "Symbols Nerd Font Mono" },
 	}),
@@ -82,7 +84,7 @@ local config = {
 
 	-- keys
 	keys = {
-		k.cmd_key(".", k.multiple_actions(":ZenMode")),
+		k.cmd_key(".", k.multiple_actions(":Zen")),
 		k.cmd_key("[", act.SendKey({ mods = "CTRL", key = "o" })),
 		k.cmd_key("]", act.SendKey({ mods = "CTRL", key = "i" })),
 		k.cmd_key("f", k.multiple_actions(":Grep")),
@@ -123,6 +125,7 @@ local config = {
 		k.cmd_to_tmux_prefix("o", "u"),
 		k.cmd_to_tmux_prefix("T", "B"),
 		k.cmd_to_tmux_prefix("t", "c"),
+		k.cmd_to_tmux_prefix("W", "x"),
 		k.cmd_to_tmux_prefix("Y", "Y"),
 		k.cmd_to_tmux_prefix("Z", "Z"),
 		k.cmd_to_tmux_prefix("z", "z"),
