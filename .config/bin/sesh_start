@@ -1,7 +1,12 @@
 #!/usr/bin/env fish
-sesh list -i | fzf \
-    --no-sort --ansi --prompt '⚡  ' --no-border \
-    --header '  ^a all ^t tmux ^g configs ^x zoxide ^d tmux kill ^f find' \
+sesh connect \"\$(
+  sesh list --icons --hide-duplicates | fzf --no-border \
+    --ansi \
+    --list-border \
+    --no-sort --prompt '⚡  ' \
+    --color 'list-border:6,input-border:3,preview-border:2,header-bg:-1,header-border:6' \
+    --input-border \
+    --header-border \
     --bind 'tab:down,btab:up' \
     --bind 'ctrl-a:change-prompt(⚡  )+reload(sesh list --icons)' \
     --bind 'ctrl-t:change-prompt(🪟  )+reload(sesh list -t --icons)' \
@@ -9,6 +14,7 @@ sesh list -i | fzf \
     --bind 'ctrl-x:change-prompt(📁  )+reload(sesh list -z --icons)' \
     --bind 'ctrl-f:change-prompt(🔎  )+reload(fd -H -d 2 -t d -E .Trash . ~)' \
     --bind 'ctrl-d:execute(tmux kill-session -t {2..})+change-prompt(⚡  )+reload(sesh list --icons)' \
-    --preview-window 'right:60%:noborder' \
-    --preview 'sesh preview {}'
-) \"
+    --preview-window 'right:70%' \
+    --preview 'sesh preview {}' \
+)\"
+

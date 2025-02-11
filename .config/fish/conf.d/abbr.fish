@@ -143,26 +143,7 @@ abbr pwdc "pwd | pbcopy"
 
 abbr rmr "rm -rf"
 
-abbr s "sesh connect \"\$(
-  sesh list --icons --hide-duplicates | fzf --no-border \
-    --ansi \
-    --list-border \
-    --no-sort --prompt '⚡  ' \
-    --color 'list-border:6,input-border:3,preview-border:2,header-bg:-1,header-border:6' \
-    --input-border \
-    --header-border \
-    --bind 'tab:down,btab:up' \
-    --bind 'ctrl-a:change-prompt(⚡  )+reload(sesh list --icons)' \
-    --bind 'ctrl-t:change-prompt(🪟  )+reload(sesh list -t --icons)' \
-    --bind 'ctrl-g:change-prompt(⚙️  )+reload(sesh list -c --icons)' \
-    --bind 'ctrl-x:change-prompt(📁  )+reload(sesh list -z --icons)' \
-    --bind 'ctrl-f:change-prompt(🔎  )+reload(fd -H -d 2 -t d -E .Trash . ~)' \
-    --bind 'ctrl-d:execute(tmux kill-session -t {2..})+change-prompt(⚡  )+reload(sesh list --icons)' \
-    --preview-window 'right:70%' \
-    --preview 'sesh preview {}' \
-)\""
-
-
+abbr s sesh_start
 abbr s. "sesh connect ."
 abbr sc "sesh clone --cmdDir ~/c (pbpaste)"
 abbr sf "source ~/.config/fish/config.fish"
