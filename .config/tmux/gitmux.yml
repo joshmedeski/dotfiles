@@ -9,7 +9,9 @@
 
 tmux:
   symbols:
-    branch: " "
+    ahead: "👆"
+    behind: "👇"
+    branch: "🌳"
     hashprefix: ":"
     staged: " "
     conflict: "󰕚 "
