@@ -11,6 +11,7 @@ tmux:
   symbols:
     ahead: "👆"
     behind: "👇"
+    clean: "👍 "
     branch: "🌳"
     hashprefix: ":"
     staged: " "
@@ -18,7 +19,6 @@ tmux:
     untracked: "󱀶 "
     modified: " "
     stashed: " "
-    clean: " "
     insertions: " "
     deletions: " "
   styles:
@@ -34,4 +34,4 @@ tmux:
   layout: [branch, divergence, flags, stats]
   options:
     branch_max_len: 0
-    hide_clean: true
+    hide_clean: false
