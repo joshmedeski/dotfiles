@@ -5,10 +5,35 @@ return {
   lazy = false,
   ---@type snacks.Config
   opts = {
-    picker = {},
-    notifier = {},
-    input = {},
-    bigfile = {},
+    picker = { enabled = true },
+    notifier = { enabled = true },
+    input = { enabled = true },
+    bigfile = { enabled = true },
+    zen = {
+      ---@type table<string, boolean>
+      toggles = {
+        dim = false,
+        git_signs = false,
+        mini_diff_signs = false,
+        diagnostics = false,
+        inlay_hints = false,
+      },
+      ---@type table<string, boolean>
+      show = {
+        statusline = false,
+        tabline = false,
+      },
+      ---@type snacks.win.Config
+      win = { style = 'zen', relative = 'editor' },
+      zoom = {
+        toggles = {},
+        show = { statusline = true, tabline = true },
+        win = {
+          backdrop = false,
+          -- width = 0, -- full width
+        },
+      },
+    },
   },
   keys = {
     {
