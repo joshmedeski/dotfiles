@@ -1,5 +1,5 @@
-#!/usr/bin/env fish
-sesh connect \"\$(
+#!/usr/bin/env bash
+sesh connect "$(
   sesh list --icons --hide-duplicates | fzf --no-border \
     --ansi \
     --list-border \
@@ -16,5 +16,4 @@ sesh connect \"\$(
     --bind 'ctrl-d:execute(tmux kill-session -t {2..})+change-prompt(⚡  )+reload(sesh list --icons)' \
     --preview-window 'right:70%' \
     --preview 'sesh preview {}' \
-)\"
-
+)"
