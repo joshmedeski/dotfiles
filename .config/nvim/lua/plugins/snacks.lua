@@ -1,12 +1,13 @@
 ---@module 'snacks'
 return {
   'folke/snacks.nvim',
-  enabled = false,
+  enabled = true,
   lazy = false,
   ---@type snacks.Config
   opts = {
     picker = {},
     notifier = {},
+    input = {},
     bigfile = {},
   },
   keys = {
