@@ -152,33 +152,19 @@ return {
           return string.format('%s %s', icons[diagnostic.severity], diagnostic.message)
         end,
       },
-      signs = {
-        text = {
-          ERROR = lspIcons.error,
-          WARN = lspIcons.warn,
-          INFO = lspIcons.info,
-          HINT = lspIcons.help,
-        },
-      },
+      signs = { text = { ERROR = '', WARN = '', INFO = '', HINT = '' } },
     }
 
-    -- Disable underline for diagnostics
-    vim.api.nvim_set_hl(0, 'DiagnosticUnderlineError', { undercurl = false, underline = false })
-    vim.api.nvim_set_hl(0, 'DiagnosticUnderlineWarn', { undercurl = false, underline = false })
-    vim.api.nvim_set_hl(0, 'DiagnosticUnderlineInfo', { undercurl = false, underline = false })
-    vim.api.nvim_set_hl(0, 'DiagnosticUnderlineHint', { undercurl = false, underline = false })
+    -- TODO: color the underline
+    -- vim.api.nvim_set_hl(0, 'DiagnosticUnderlineError', { undercurl = true, underline = true, sp = 'DiagnosticError' })
+    -- vim.api.nvim_set_hl(0, 'DiagnosticUnderlineWarn', { undercurl = true, underline = true, sp = 'DiagnosticWarn' })
+    -- vim.api.nvim_set_hl(0, 'DiagnosticUnderlineInfo', { undercurl = true, underline = true, sp = 'DiagnosticInfo' })
+    -- vim.api.nvim_set_hl(0, 'DiagnosticUnderlineHint', { undercurl = true, underline = true, sp = 'DiagnosticHint' })
 
-    -- don't show diagnostic signs in the gutter
-    vim.fn.sign_define('DiagnosticSignError', { text = '', numhl = 'DiagnosticError' })
-    vim.fn.sign_define('DiagnosticSignWarn', { text = '', numhl = 'DiagnosticWarn' })
-    vim.fn.sign_define('DiagnosticSignInfo', { text = '', numhl = 'DiagnosticInfo' })
-    vim.fn.sign_define('DiagnosticSignHint', { text = '', numhl = 'DiagnosticHint' })
-
-    -- use icons for diagnostic signs in the gutter
-    -- vim.fn.sign_define('DiagnosticSignError', { text = lspIcons.error, numhl = 'DiagnosticError' })
-    -- vim.fn.sign_define('DiagnosticSignWarn', { text = lspIcons.warn, numhl = 'DiagnosticWarn' })
-    -- vim.fn.sign_define('DiagnosticSignInfo', { text = lspIcons.info, numhl = 'DiagnosticInfo' })
-    -- vim.fn.sign_define('DiagnosticSignHint', { text = lspIcons.help, numhl = 'DiagnosticHint' })
+    vim.api.nvim_set_hl(0, 'DiagnosticUnderlineError', { undercurl = true, underline = true })
+    vim.api.nvim_set_hl(0, 'DiagnosticUnderlineWarn', { undercurl = true, underline = true })
+    vim.api.nvim_set_hl(0, 'DiagnosticUnderlineInfo', { undercurl = true, underline = true })
+    vim.api.nvim_set_hl(0, 'DiagnosticUnderlineHint', { undercurl = true, underline = true })
 
     -- LSP servers and clients are able to communicate to each other what features they support.
     --  By default, Neovim doesn't support everything that is in the LSP specification.
