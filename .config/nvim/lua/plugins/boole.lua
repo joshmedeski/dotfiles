@@ -11,6 +11,7 @@ return {
     },
     additions = {
       { 'production', 'development', 'test', 'sandbox' },
+      { 'around', 'between' },
       { 'let', 'const' },
       { 'start', 'end' },
       { 'import', 'export' },
