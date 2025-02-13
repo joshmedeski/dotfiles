@@ -35,6 +35,12 @@ return {
     --  into multiple repos for maintenance purposes.
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
+    {
+      'catgoose/nvim-colorizer.lua',
+      event = 'BufReadPre',
+      opts = { -- set to setup table
+      },
+    },
   },
   config = function()
     -- See `:help cmp`
