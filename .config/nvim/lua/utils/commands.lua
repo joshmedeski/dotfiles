@@ -8,6 +8,7 @@
 --]]
 
 -- telescope pickers
+vim.cmd [[command! -nargs=0 Commit :Neogit commit]]
 vim.cmd [[command! -nargs=0 GoToCommand :Telescope commands]]
 vim.cmd [[command! -nargs=0 GoToFile :Telescope smart_open]]
 vim.cmd [[command! -nargs=0 GoToSymbol :Telescope lsp_document_symbols]]
