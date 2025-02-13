@@ -66,6 +66,8 @@ vim.opt.number = false
 vim.opt.relativenumber = false
 -- vim.opt.signcolumn = 'yes:3'
 
+vim.opt.conceallevel = 2
+
 -- indent
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
