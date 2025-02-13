@@ -11,8 +11,10 @@ return {
   },
   opts = {
     file_panel = {
-      position = 'bottom',
-      height = 20,
+      win_config = {
+        position = 'bottom',
+        height = 20,
+      },
     },
     hooks = {
       view_opened = function()
