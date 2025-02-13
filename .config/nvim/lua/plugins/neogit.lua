@@ -31,7 +31,7 @@ return {
     },
   },
   keys = {
-    { '<leader>gg', '<cmd>Neogit<cr>', desc = 'Neogit' },
-    { '<leader>gc', '<cmd>Neogit commit<cr>', desc = 'Neogit' },
+    { '<leader>gg', '<cmd>Neogit<cr>', desc = 'Neo[g]it Dashboard' },
+    { '<leader>gc', '<cmd>Neogit commit<cr>', desc = 'Neo[g]it [c]ommit' },
   },
 }
