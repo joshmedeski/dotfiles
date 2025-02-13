@@ -109,6 +109,7 @@ return {
           group_index = 0,
         },
         { name = 'nvim_lsp' },
+        { name = 'render-markdown' },
         { name = 'luasnip' },
         { name = 'path' },
       },
