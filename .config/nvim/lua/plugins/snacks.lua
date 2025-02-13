@@ -99,11 +99,11 @@ return {
     },
     -- git
     {
-      '<leader>gc',
+      '<leader>gl',
       function()
         Snacks.picker.git_log()
       end,
-      desc = 'Git Log',
+      desc = '[g]it [l]og',
     },
     {
       '<leader>gs',
