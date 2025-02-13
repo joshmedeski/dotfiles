@@ -1,23 +1,20 @@
-import = ["~/.config/sesh/configs/nu-sesh.toml"]
-blacklist = ["scratch"]
+#  ███████╗███████╗███████╗██╗  ██╗     ██████╗ ██████╗ ███╗   ██╗███████╗██╗ ██████╗ 
+#  ██╔════╝██╔════╝██╔════╝██║  ██║    ██╔════╝██╔═══██╗████╗  ██║██╔════╝██║██╔════╝ 
+#  ███████╗█████╗  ███████╗███████║    ██║     ██║   ██║██╔██╗ ██║█████╗  ██║██║  ███╗
+#  ╚════██║██╔══╝  ╚════██║██╔══██║    ██║     ██║   ██║██║╚██╗██║██╔══╝  ██║██║   ██║
+#  ███████║███████╗███████║██║  ██║    ╚██████╗╚██████╔╝██║ ╚████║██║     ██║╚██████╔╝
+#  ╚══════╝╚══════╝╚══════╝╚═╝  ╚═╝     ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝     ╚═╝ ╚═════╝ 
+#
+#  Smart session manager for the terminal
+#  https://github.com/joshmedeski/sesh
+
+# ideas / tasks
 
 # TODO: experiment with long-living sesh picker (as session)
 # [[session]]
 # name = "sesh"
 # path = "~/c/dotfiles/.config/sesh"
 # startup_command = "sesh connect \"$(sesh list --icons | fzf)\""
-
-[default_session]
-startup_command = "nvim +GoToFile"
-startup_command_ignore_dirs = ["~/repos", "~/.config"]
-preview_command = "eza --all --git --icons --color=always {}"
-
-[[session]]
-name = "lazy plugins"
-path = "~/.local/share/nvim/lazy"
-startup_command = "sesh connect (ls | fzf --ansi --no-border --preview 'glow -s light {}/README.md' --preview-window=right:70,border-none) && exit"
-# TODO: add `--hide-tmux` to fzf command (or switch to sesh preview)
-# startup_command = "sesh connect (ls | fzf --ansi --no-border --preview 'glow -s light {}/README.md' --preview-window=right:70,border-none --hide-tmux) && exit"
 
 # TODO: implement?
 # [[session_preview]]
@@ -33,22 +30,32 @@ startup_command = "sesh connect (ls | fzf --ansi --no-border --preview 'glow -s 
 # tmuxp = "~/.config/tmux/tmuxp/joshmedeski.com.yml"
 # tmuxinator = "~/.config/tmux/tmuxinator/joshmedeski.com.yml"
 
-[[session]]
-name = "sesh config"
-path = "~/c/dotfiles/.config/sesh"
-startup_command = "nvim sesh.toml"
-preview_command = "bat --language=toml --style=snip --color=always ~/c/dotfiles/.config/sesh/sesh.toml"
+# TODO: support wildcard paths
+# [[session_wildcard]]
+# session_path = "~/c/nu/main/packages/*"
+# script_path = "~/.config/sesh/scripts/node_dev"
+
+# notes
+
+# NOTE: bat styles (--style)
+# full, auto, plain, changes, header, header-filename,
+
+import = ["~/.config/sesh/configs/nu-sesh.toml"]
+blacklist = ["scratch"]
+
+# default
+
+[default_session]
+startup_command = "nvim +GoToFile"
+startup_command_ignore_dirs = ["~/repos", "~/.config"]
+preview_command = "eza --all --git --icons --color=always {}"
+
+# common
 
 [[session]]
-name = "ollama"
-path = "~/.ollama"
-startup_command = 'grc tail -f ~/.ollama/logs/server.log'
-# startup_command = 'OLLAMA_ORIGINS="app://obsidian.md*" ollama serve'
-
-[[session]]
-name = "macmon"
-path = "~/"
-startup_command = "macmon"
+name = "second brain"
+path = "~/c/second-brain"
+startup_command = "nvim +ObsidianToday"
 
 [[session]]
 name = "update"
@@ -57,27 +64,21 @@ startup_command = "update"
 preview_command = "bat --language=fish --style=snip --color=always ~/c/dotfiles/.config/bin/update"
 
 [[session]]
-name = "aerospace config"
-path = "~/c/dotfiles/.config/aerospace"
-startup_command = "nvim aerospace.toml"
-preview_command = "bat --style='full' --color=always ~/c/dotfiles/.config/aerospace/aerospace.toml"
-
-# NOTE: bat styles (--style)
-# full, auto, plain, changes, header, header-filename,
-[[session]]
-name = "mactop"
-path = "/"
-startup_command = "sudo mactop"
+name = "Downloads"
+path = "~/Downloads"
+startup_command = "yazi"
 
 [[session]]
-name = "ghostty config"
-path = "~/c/dotfiles/.config/ghostty"
-startup_command = "nvim config"
+name = "repositories (c)"
+path = "~/c"
+startup_command = "l"
 
-# [[session]]
-# name = "nutiliti worktrees"
-# path = "~/c/nu"
-# startup_command = "nu-worktree-picker.sh"
+[[session]]
+name = "home (~)"
+path = "~"
+startup_command = "l"
+
+# nutilti
 
 [[session]]
 name = "nutiliti pick worktree"
@@ -94,26 +95,43 @@ name = "nutiliti reviews"
 path = "~/c/nu/review"
 startup_command = "gh dash"
 
-[[session]]
-name = "Home 🏡"
-path = "~"
-startup_command = "l"
+# josh medeski
 
 [[session]]
-name = "Code 💻"
-path = "~/c"
-startup_command = "l"
+path = "~/c/joshmedeski.com"
+startup_script = "~/.config/sesh/scripts/node_dev"
+
+# configs
+
+[[session]]
+name = "dotfiles"
+path = "~/c/dotfiles"
+
+[[session]]
+name = "wezterm config"
+path = "~/c/dotfiles/.config/wezterm"
+startup_command = "nvim wezterm.lua"
+
+[[session]]
+name = "neovim config"
+path = "~/c/dotfiles/.config/nvim"
+
+[[session]]
+name = "fish config"
+path = "/Users/joshmedeski/c/dotfiles/.config/fish"
+preview_command = "bat --language=fish --style=snip --color=always ~/c/dotfiles/.config/fish/config.fish"
+
+[[session]]
+name = "sesh config"
+path = "~/c/dotfiles/.config/sesh"
+startup_command = "nvim sesh.toml"
+preview_command = "bat --language=toml --style=snip --color=always ~/c/dotfiles/.config/sesh/sesh.toml"
 
 [[session]]
 name = "tmux config"
 path = "~/c/dotfiles/.config/tmux"
 startup_command = "nvim tmux.conf"
 preview_command = "bat --language=bash --style=snip --color=always ~/c/dotfiles/.config/tmux/tmux.conf"
-
-[[session]]
-name = "tmux plugins"
-path = "~/.config/tmux/plugins"
-startup_command = "sesh connect (ls | fzf --ansi --no-border --preview 'glow -s light {}/README.md' --preview-window=right:70,border-none) && exit"
 
 [[session]]
 name = "gitmux config"
@@ -125,86 +143,28 @@ name = "hammerspoon config"
 path = "~/c/dotfiles/.hammerspoon"
 
 [[session]]
-name = "neovim config"
-path = "~/c/dotfiles/.config/nvim"
-
-[[session]]
-name = "lazyvim config (legacy)"
-path = "~/c/dotfiles/.config/lazyvim"
-
-[[session]]
-name = "fish config"
-path = "/Users/joshmedeski/c/dotfiles/.config/fish"
-preview_command = "bat --language=fish --style=snip --color=always ~/c/dotfiles/.config/fish/config.fish"
-
-[[session]]
 name = "yazi config"
 path = "~/c/dotfiles/.config/yazi"
 startup_command = "nvim yazi.toml"
-
-[[session]]
-name = "wezterm config"
-path = "~/c/dotfiles/.config/wezterm"
-startup_command = "nvim wezterm.lua"
-
-[[session]]
-name = "second brain"
-path = "~/c/second-brain"
-startup_command = "nvim +ObsidianToday"
 
 [[session]]
 name = "my custom binaries"
 path = "~/c/dotfiles/.config/bin"
 
 [[session]]
-name = "dotfiles"
-path = "~/c/dotfiles"
-# startup_command = "u"
+name = "ghostty config"
+path = "~/c/dotfiles/.config/ghostty"
+startup_command = "nvim config"
 
 [[session]]
-name = "blog posts"
-path = "~/c/joshmedeski.com/src/content/posts"
-
-[[session]]
-path = "~/c/joshmedeski.com"
-startup_script = "~/.config/sesh/scripts/node_dev"
-
-[[session]]
-session_path = "~/c/nu/main/packages/*"
-script_path = "~/.config/sesh/scripts/node_dev"
-
-
-# TODO: implement this 
-# script_command = "nvim ~/.tmux"
-
-[[session]]
-name = "tmux-fzf-url 🖇️"
-path = "~/.config/tmux/plugins/tmux-fzf-url"
-startup_command = "nvim fzf-url.sh"
-
-[[session]]
-name = "Downloads"
-path = "~/Downloads"
-startup_command = "yazi"
-
-[[session]]
-name = "obsidian plugins"
-path = "~/c/second-brain/.obsidian/plugins"
-startup_command = "sesh connect (ls | fzf --ansi --no-border --preview 'glow -s light {}/README.md' --preview-window=right:85,border-none) && exit"
-
-[[session]]
-name = "cava"
-path = "~/.config/cava"
-startup_command = "tmux set-option -t cava status off && cava"
-
-[[session]]
-name = "karabiner elements"
+name = "karabiner elements config"
 path = "~/c/dotfiles/.config/karabiner"
 
 [[session]]
-name = "perplexica"
-path = "~/c/perplexica"
-startup_command = "docker compose up -d"
+name = "aerospace config"
+path = "~/c/dotfiles/.config/aerospace"
+startup_command = "nvim aerospace.toml"
+preview_command = "bat --style='full' --color=always ~/c/dotfiles/.config/aerospace/aerospace.toml"
 
 [[session]]
 name = "/ect/hosts"
@@ -212,9 +172,56 @@ path = "/etc"
 startup_command = "sudo nvim hosts"
 
 [[session]]
-name = "ssh"
-path = "~/.config/ssh"
-startup_command = "sudo nvim config"
+name = "lazyvim config (legacy)"
+path = "~/c/dotfiles/.config/lazyvim"
+
+# plugins
+
+[[session]]
+name = "lazy plugins"
+path = "~/.local/share/nvim/lazy"
+startup_command = "sesh connect (ls | fzf --ansi --no-border --preview 'glow -s light {}/README.md' --preview-window=right:70,border-none) && exit"
+# TODO: add `--hide-tmux` to fzf command (or switch to sesh preview)
+# startup_command = "sesh connect (ls | fzf --ansi --no-border --preview 'glow -s light {}/README.md' --preview-window=right:70,border-none --hide-tmux) && exit"
+
+[[session]]
+name = "tmux plugins"
+path = "~/.config/tmux/plugins"
+startup_command = "sesh connect (ls | fzf --ansi --no-border --preview 'glow -s light {}/README.md' --preview-window=right:70,border-none) && exit"
+
+[[session]]
+name = "obsidian plugins"
+path = "~/c/second-brain/.obsidian/plugins"
+startup_command = "sesh connect (ls | fzf --ansi --no-border --preview 'glow -s light {}/README.md' --preview-window=right:85,border-none) && exit"
+
+# tools
+
+[[session]]
+name = "mactop"
+path = "/"
+startup_command = "sudo mactop"
+
+[[session]]
+name = "ollama"
+path = "~/.ollama"
+startup_command = 'grc tail -f ~/.ollama/logs/server.log'
+
+[[session]]
+name = "macmon"
+path = "~/"
+startup_command = "macmon"
+
+[[session]]
+name = "cava (audio visualizer)"
+path = "~/.config/cava"
+startup_command = "tmux set-option -t cava status off && cava"
+
+# other
+
+[[session]]
+name = "perplexica"
+path = "~/c/perplexica"
+startup_command = "docker compose up -d"
 
 [[session]]
 name = "steam deck"
