@@ -78,6 +78,11 @@ disableStartupPopups: false
 notARepository: "prompt" # one of: 'prompt' | 'create' | 'skip'
 promptToReturnFromSubprocess: false # display confirmation when subprocess terminates
 customCommands:
+  - key: "C"
+    subprocess: true
+    command: "nvim +Commit"
+    context: "files"
+    description: "Commit"
   - key: "o"
     command: "sesh connect '{{.SelectedWorktree.Path}}'"
     context: "worktrees"
@@ -167,10 +172,10 @@ keybinding:
     checkForUpdate: "u"
     recentRepos: "<enter>"
   files:
-    # commitChanges: 'c'
+    commitChanges: 'c'
     commitChangesWithoutHook: "w" # commit changes without pre-commit hook
     amendLastCommit: "A"
-    commitChangesWithEditor: "C"
+    # commitChangesWithEditor: "C"
     ignoreFile: "i"
     refreshFiles: "r"
     stashAllChanges: "s"
