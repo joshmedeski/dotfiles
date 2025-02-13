@@ -23,6 +23,9 @@ return {
       item = { '▸', '▾' },
       section = { '▷', '▽' },
     },
+    popup = {
+      kind = 'floating',
+    },
     sections = {
       recent = {
         folded = false,
