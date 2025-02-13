@@ -5,12 +5,11 @@ return {
     'hrsh7th/nvim-cmp',
     'nvim-telescope/telescope.nvim',
     'nvim-treesitter/nvim-treesitter',
-    -- "preservim/vim-markdown",
   },
-  -- event = {
-  --   "BufReadPre " .. vim.fn.expand("~") .. "/c/second-brain/**.md",
-  --   "BufNewFile " .. vim.fn.expand("~") .. "/c/second-brain/**.md",
-  -- },
+  event = {
+    'BufReadPre ' .. vim.fn.expand '~' .. '/c/second-brain/**.md',
+    'BufNewFile ' .. vim.fn.expand '~' .. '/c/second-brain/**.md',
+  },
   cmd = {
     'ObsidianOpen',
     'ObsidianNew',
@@ -26,8 +25,38 @@ return {
   },
 
   opts = {
-    dir = '~/c/second-brain', -- no need to call 'vim.fn.expand' here
-    completion = { nvim_cmp = true },
+    workspaces = {
+      {
+        name = 'second-brain',
+        path = '~/c/second-brain',
+      },
+    },
+
+    completion = { nvim_cmp = true, min_chars = 2 },
+
+    mappings = {
+      -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
+      ['gf'] = {
+        action = function()
+          return require('obsidian').util.gf_passthrough()
+        end,
+        opts = { noremap = false, expr = true, buffer = true },
+      },
+      -- Toggle check-boxes.
+      ['<leader>ch'] = {
+        action = function()
+          return require('obsidian').util.toggle_checkbox()
+        end,
+        opts = { buffer = true },
+      },
+      -- Smart action depending on context, either follow link or toggle checkbox.
+      ['<cr>'] = {
+        action = function()
+          return require('obsidian').util.smart_action()
+        end,
+        opts = { buffer = true, expr = true },
+      },
+    },
 
     daily_notes = {
       folder = 'Periodic 🌄/Days 🌄',
@@ -56,7 +85,7 @@ return {
 
     -- Optional, for templates (see below).
     templates = {
-      subdir = 'templates',
+      subdir = 'Resources 🛠️/Templates 📋',
       date_format = '%Y-%m-%d-%a',
       time_format = '%H:%M',
     },
@@ -107,19 +136,4 @@ return {
       },
     },
   },
-
-  -- mappings = {
-  --   ["gf"] = require("obsidian.mapping").gf_passthrough(),
-  -- },
-
-  config = function(_, opts)
-    require('obsidian').setup(opts)
-    vim.keymap.set('n', 'gd', function()
-      if require('obsidian').util.cursor_on_markdown_link() then
-        return '<cmd>ObsidianFollowLink<CR>'
-      else
-        return 'gd'
-      end
-    end, { noremap = false, expr = true })
-  end,
 }
