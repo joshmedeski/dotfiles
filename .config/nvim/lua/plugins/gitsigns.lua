@@ -22,21 +22,23 @@ return {
         end
 
         -- Navigation
-        map('n', ']g', function()
+        map('n', ']h', function()
           if vim.wo.diff then
             vim.cmd.normal { ']c', bang = true }
           else
             gitsigns.nav_hunk 'next'
+            vim.cmd 'normal! zt'
           end
-        end, { desc = 'Jump to next git [c]hange' })
+        end, { desc = 'Next git [h]unk' })
 
-        map('n', '[g', function()
+        map('n', '[h', function()
           if vim.wo.diff then
             vim.cmd.normal { '[c', bang = true }
           else
             gitsigns.nav_hunk 'prev'
+            vim.cmd 'normal! zt'
           end
-        end, { desc = 'Jump to previous git [c]hange' })
+        end, { desc = 'Previous git [h]unk' })
 
         -- Actions
         -- visual mode
