@@ -8,8 +8,8 @@
 -- A GPU-accelerated cross-platform terminal emulator
 -- https://wezfurlong.org/wezterm/
 
-local dark_opacity = 0.95
-local light_opacity = 0.80
+local dark_opacity = 0.97
+local light_opacity = 0.70
 
 local wallpapers_glob = os.getenv("HOME")
 	.. "/Library/Mobile Documents/com~apple~CloudDocs/PARA/Resources 🧰/Wallpapers - macOS 💻/active/**"
