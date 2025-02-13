@@ -20,7 +20,7 @@ return {
     },
     signs = {
       hunk = { '', '' },
-      item = { '▷', '▽' },
+      item = { '▸', '▾' },
       section = { '▷', '▽' },
     },
     sections = {
