@@ -4,7 +4,7 @@ sesh connect "$(
     --ansi \
     --list-border \
     --no-sort --prompt '⚡  ' \
-    --color 'list-border:6,input-border:3,preview-border:2,header-bg:-1,header-border:6' \
+    --color 'list-border:6,input-border:3,preview-border:4,header-bg:-1,header-border:6' \
     --input-border \
     --header-border \
     --bind 'tab:down,btab:up' \
