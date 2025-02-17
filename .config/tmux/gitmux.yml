@@ -12,7 +12,7 @@ tmux:
     ahead: "👆"
     behind: "👇"
     clean: "👍 "
-    branch: "🌳"
+    branch: ""
     hashprefix: ":"
     staged: " "
     conflict: "󰕚 "
