@@ -46,6 +46,10 @@ return {
           GitSignsChange = { fg = colors.blue },
           CoverageCovered = { fg = colors.green },
           CoverageUncovered = { fg = colors.red },
+          NormalFloat = { bg = 'NONE' },
+          LspHoverNormal = { bg = 'NONE' },
+          LspHoverBorder = { bg = 'NONE' },
+          RenderMarkdownCode = { bg = 'NONE' },
         }
       end,
       integrations = {
