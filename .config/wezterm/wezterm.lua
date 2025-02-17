@@ -245,7 +245,7 @@ wezterm.on("user-var-changed", function(window, pane, name, value)
 		}
 	else
 		overrides.background = {
-			w.get_wallpaper(wallpapers_glob),
+			-- w.get_wallpaper(wallpapers_glob),
 			-- w.get_gif_wallpaper(wallpapers_gif_glob),
 			b.get_background(dark_opacity, light_opacity),
 		}
