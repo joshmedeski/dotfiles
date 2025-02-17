@@ -9,5 +9,13 @@ return {
     heading = {
       enabled = false,
     },
+    code = {
+      disable_background = true,
+      style = 'normal',
+      border = 'none',
+    },
+    dash = {
+      icon = '󰇘',
+    },
   },
 }
