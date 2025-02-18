@@ -36,7 +36,7 @@ local config = {
 
 	background = {
 		w.get_wallpaper(wallpapers_glob),
-		-- w.get_gif_wallpaper(wallpapers_gif_glob),
+		w.get_gif_wallpaper(wallpapers_gif_glob),
 		b.get_background(dark_opacity, light_opacity),
 	},
 
@@ -62,10 +62,10 @@ local config = {
 	color_scheme = cs.get_color_scheme(),
 
 	window_padding = {
-		left = 30,
-		right = 30,
-		top = 30,
-		bottom = 30,
+		left = 60,
+		right = 60,
+		top = 60,
+		bottom = 60,
 	},
 
 	set_environment_variables = {
@@ -245,8 +245,8 @@ wezterm.on("user-var-changed", function(window, pane, name, value)
 		}
 	else
 		overrides.background = {
-			-- w.get_wallpaper(wallpapers_glob),
-			-- w.get_gif_wallpaper(wallpapers_gif_glob),
+			w.get_wallpaper(wallpapers_glob),
+			w.get_gif_wallpaper(wallpapers_gif_glob),
 			b.get_background(dark_opacity, light_opacity),
 		}
 	end
