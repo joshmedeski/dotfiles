@@ -194,6 +194,7 @@ return {
       },
       tailwindcss = {
         filetypes = {
+          'astro',
           'javascript',
           'javascriptreact',
           'javascript.jsx',
