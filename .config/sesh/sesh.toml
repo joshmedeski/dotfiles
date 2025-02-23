@@ -8,38 +8,6 @@
 #  Smart session manager for the terminal
 #  https://github.com/joshmedeski/sesh
 
-# ideas / tasks
-
-# TODO: experiment with long-living sesh picker (as session)
-# [[session]]
-# name = "sesh"
-# path = "~/c/dotfiles/.config/sesh"
-# startup_command = "sesh connect \"$(sesh list --icons | fzf)\""
-
-# TODO: implement?
-# [[session_preview]]
-# pattern_folder_has = "README.md"
-# preview_command = "glow -s light {}"
-
-# TODO: potential feature ideas
-# [[session]]
-# name = "session"
-# path = "~/path/to/session"
-# startup_script = "~/git_repos/dotfiles/sesh/bin/spotify.sh"
-# detached = true # never attach to this session, just create it in the background
-# tmuxp = "~/.config/tmux/tmuxp/joshmedeski.com.yml"
-# tmuxinator = "~/.config/tmux/tmuxinator/joshmedeski.com.yml"
-
-# TODO: support wildcard paths
-# [[session_wildcard]]
-# session_path = "~/c/nu/main/packages/*"
-# script_path = "~/.config/sesh/scripts/node_dev"
-
-# notes
-
-# NOTE: bat styles (--style)
-# full, auto, plain, changes, header, header-filename,
-
 import = ["~/.config/sesh/configs/nu-sesh.toml"]
 blacklist = ["scratch"]
 
@@ -51,6 +19,16 @@ startup_command_ignore_dirs = ["~/repos", "~/.config"]
 preview_command = "eza --all --git --icons --color=always {}"
 
 # common
+
+[[session]]
+name = "wallpaper"
+path = "~/.config/wezterm/wallpapers"
+startup_command = "wezterm_wallpaper_picker.sh && exit"
+
+[[session]]
+name = "color scheme"
+path = "~/c/iTerm2-Color-Schemes/wezterm"
+startup_command = "wezterm_color_scheme_picker.sh && exit"
 
 [[session]]
 name = "second brain"
@@ -77,6 +55,11 @@ startup_command = "l"
 name = "home (~)"
 path = "~"
 startup_command = "l"
+
+[[session]]
+name = "colima"
+path = "~/.colima"
+startup_command = "colima start"
 
 # nutilti
 
@@ -227,3 +210,35 @@ startup_command = "docker compose up -d"
 name = "steam deck"
 path = "~/.ssh"
 startup_command = "ssh deck@steamdeck"
+
+# ideas / tasks
+
+# TODO: experiment with long-living sesh picker (as session)
+# [[session]]
+# name = "sesh"
+# path = "~/c/dotfiles/.config/sesh"
+# startup_command = "sesh connect \"$(sesh list --icons | fzf)\""
+
+# TODO: implement?
+# [[session_preview]]
+# pattern_folder_has = "README.md"
+# preview_command = "glow -s light {}"
+
+# TODO: potential feature ideas
+# [[session]]
+# name = "session"
+# path = "~/path/to/session"
+# startup_script = "~/git_repos/dotfiles/sesh/bin/spotify.sh"
+# detached = true # never attach to this session, just create it in the background
+# tmuxp = "~/.config/tmux/tmuxp/joshmedeski.com.yml"
+# tmuxinator = "~/.config/tmux/tmuxinator/joshmedeski.com.yml"
+
+# TODO: support wildcard paths
+# [[session_wildcard]]
+# session_path = "~/c/nu/main/packages/*"
+# script_path = "~/.config/sesh/scripts/node_dev"
+
+# notes
+
+# NOTE: bat styles (--style)
+# full, auto, plain, changes, header, header-filename,
