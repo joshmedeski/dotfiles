@@ -4,7 +4,7 @@ local M = {}
 
 local function get_color_scheme()
 	local color_schemes = {}
-	local color_schemes_glob = os.getenv("HOME") .. "/repos/iTerm2-Color-Schemes/wezterm/**"
+	local color_schemes_glob = os.getenv("HOME") .. "/c/iTerm2-Color-Schemes/wezterm/**"
 	for _, v in ipairs(wezterm.glob(color_schemes_glob)) do
 		local fileName = string.match(v, ".+/([^/]+)%.%w+$")
 		table.insert(color_schemes, fileName)
@@ -14,6 +14,7 @@ local function get_color_scheme()
 end
 
 M.get_color_scheme = function()
+	-- TODO: integrate dynamic color switcher (with dark/light mode)
 	-- return get_color_scheme()
 	return h.is_dark() and "Catppuccin Mocha" or "Catppuccin Latte"
 end

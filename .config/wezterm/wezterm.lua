@@ -9,13 +9,10 @@
 -- https://wezfurlong.org/wezterm/
 
 local dark_opacity = 0.97
-local light_opacity = 0.70
+local light_opacity = 0.65
 
-local wallpapers_glob = os.getenv("HOME")
-	.. "/Library/Mobile Documents/com~apple~CloudDocs/PARA/Resources 🧰/Wallpapers - macOS 💻/active/**"
-
-local wallpapers_gif_glob = os.getenv("HOME")
-	.. "/Library/Mobile Documents/com~apple~CloudDocs/PARA/Resources 🧰/Wallpapers - macOS 💻/active/animated/**"
+local wallpapers_glob = os.getenv("HOME") .. "/.config/wezterm/wallpapers/**"
+local animations = os.getenv("HOME") .. "/.config/wezterm/animations/**"
 
 local b = require("utils/background")
 local cs = require("utils/color_scheme")
@@ -26,23 +23,39 @@ local w = require("utils/wallpaper")
 local wezterm = require("wezterm")
 local act = wezterm.action
 
+-- TODO: config saving / loading
+-- local config_file_path = os.getenv("HOME") .. "/.wezterm_config"
+--
+-- local function save_config_to_file(config)
+-- 	local file = io.open(config_file_path, "w")
+-- 	if file then
+-- 		file:write(wezterm.serde.json_encode(config))
+-- 		file:close()
+-- 	else
+-- 		wezterm.log_error("Failed to open config file for writing")
+-- 	end
+-- end
+
 ---@type Config
 ---@diagnostic disable: missing-fields
 local config = {
 	-- rendering
 	front_end = "WebGpu",
 	max_fps = 120,
+	-- TODO: change this when unplugged?
 	webgpu_power_preference = "HighPerformance",
 
+	-- text
+	font_size = 20,
+	line_height = 1.1,
+
+	-- TODO: add binding to move from forward and backward with my pictures
 	background = {
 		w.get_wallpaper(wallpapers_glob),
-		w.get_gif_wallpaper(wallpapers_gif_glob),
+		-- w.get_gif_wallpaper(animations),
 		b.get_background(dark_opacity, light_opacity),
 	},
 
-	font_size = 20,
-
-	line_height = 1.1,
 	font = wezterm.font_with_fallback({
 		"CommitMono",
 		-- "DengXian",
@@ -62,10 +75,10 @@ local config = {
 	color_scheme = cs.get_color_scheme(),
 
 	window_padding = {
-		left = 60,
-		right = 60,
-		top = 60,
-		bottom = 60,
+		left = 40,
+		right = 40,
+		top = 40,
+		bottom = 15,
 	},
 
 	set_environment_variables = {
@@ -211,44 +224,36 @@ wezterm.on("user-var-changed", function(window, pane, name, value)
 	wezterm.log_info("name", name)
 	wezterm.log_info("value", value)
 
-	if name == "T_SESSION" then
-		local session = value
-		wezterm.log_info("is session", session)
+	-- TODO: remove?
+	-- if name == "T_SESSION" then
+	-- 	local session = value
+	-- 	wezterm.log_info("is session", session)
+	-- 	overrides.background = {
+	-- 		w.set_tmux_session_wallpaper(value),
+	-- 		{
+	-- 			source = {
+	-- 				Gradient = {
+	-- 					colors = { "#000000" },
+	-- 				},
+	-- 			},
+	-- 			width = "100%",
+	-- 			height = "100%",
+	-- 			opacity = 0.95,
+	-- 		},
+	-- 	}
+	-- end
+
+	if name == "WALLPAPER" then
 		overrides.background = {
-			w.set_tmux_session_wallpaper(value),
-			{
-				source = {
-					Gradient = {
-						colors = { "#000000" },
-					},
-				},
-				width = "100%",
-				height = "100%",
-				opacity = 0.95,
-			},
+			w.get_path_wallpaper(value),
+			b.get_background(dark_opacity, light_opacity),
 		}
 	end
 
-	if name == "SESH_SESSION" and value == "test" then
-		overrides.background = {
-			w.set_tmux_session_wallpaper(value),
-			{
-				source = {
-					Gradient = {
-						colors = { "#000000" },
-					},
-				},
-				width = "100%",
-				height = "100%",
-				opacity = 0.85,
-			},
-		}
-	else
-		overrides.background = {
-			w.get_wallpaper(wallpapers_glob),
-			w.get_gif_wallpaper(wallpapers_gif_glob),
-			b.get_background(dark_opacity, light_opacity),
-		}
+	if name == "COLOR_SCHEME" then
+		print("COLOR_SCHEME")
+		print(value)
+		overrides.color_scheme = value
 	end
 
 	if name == "ZEN_MODE" then
@@ -266,6 +271,7 @@ wezterm.on("user-var-changed", function(window, pane, name, value)
 			overrides.font_size = number_value
 		end
 	end
+
 	if name == "DIFF_VIEW" then
 		local incremental = value:find("+")
 		local number_value = tonumber(value)
