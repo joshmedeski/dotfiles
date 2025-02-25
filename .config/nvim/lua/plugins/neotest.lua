@@ -22,6 +22,9 @@ return {
             '-coverprofile=' .. vim.fn.getcwd() .. '/coverage.out',
           },
         },
+        require 'neotest-vitest' {
+          args = { '--coverage' },
+        },
       },
     }
   end,
