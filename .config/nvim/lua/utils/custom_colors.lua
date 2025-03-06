@@ -1,0 +1,29 @@
+return {}
+-- return {
+--   rosewater = '#eae3ce', -- normal white
+--   flamingo = '#cb1e2d', -- normal red
+--   pink = '#c0236f', -- normal magenta
+--   mauve = '#5c5db2', -- bright magenta
+--   red = '#d4605a', -- bright red
+--   maroon = '#d4605a', -- bright red (same as red due to matching color)
+--   peach = '#b7ab9b', -- normal yellow
+--   yellow = '#a86671', -- bright yellow
+--   green = '#edb8ac', -- normal green
+--   teal = '#309186', -- normal cyan
+--   sky = '#819090', -- bright cyan
+--   sapphire = '#2e78c2', -- normal blue
+--   blue = '#7c85c4', -- bright blue
+--   lavender = '#fcf4df', -- bright white
+--   text = '#dbdae0', -- primary foreground
+--   subtext1 = '#ffffff', -- selection text
+--   subtext0 = '#eae3ce', -- normal white
+--   overlay2 = '#eae3ce', -- normal white
+--   overlay1 = '#eae3ce', -- normal white
+--   overlay0 = '#eae3ce', -- normal white
+--   surface2 = '#092028', -- bright black
+--   surface1 = '#eae3ce', -- normal white
+--   surface0 = '#eae3ce', -- normal white
+--   base = '#292f33', -- primary background
+--   mantle = '#efb8ac', -- selection background
+--   crust = '#292f33', -- normal black
+-- }
