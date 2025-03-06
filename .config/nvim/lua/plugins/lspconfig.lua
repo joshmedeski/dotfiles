@@ -181,7 +181,20 @@ return {
       -- Some languages (like typescript) have entire language plugins that can be useful:
       --    https://github.com/pmizio/typescript-tools.nvim
       --
-      -- But for many setups, the LSP (`ts_ls`) will work just fine
+      eslint = {
+        settings = {
+          workingDirectories = { mode = 'auto' },
+        },
+        filetypes = {
+          'javascript',
+          'javascriptreact',
+          'javascript.jsx',
+          'typescript',
+          'typescriptreact',
+          'typescript.tsx',
+        },
+      },
+
       ts_ls = {
         filetypes = {
           'javascript',
@@ -207,20 +220,6 @@ return {
       graphql = {
         filetypes = {
           'graphql',
-          'javascript',
-          'javascriptreact',
-          'javascript.jsx',
-          'typescript',
-          'typescriptreact',
-          'typescript.tsx',
-        },
-      },
-
-      eslint = {
-        settings = {
-          workingDirectories = { mode = 'auto' },
-        },
-        filetypes = {
           'javascript',
           'javascriptreact',
           'javascript.jsx',
