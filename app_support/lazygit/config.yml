@@ -83,6 +83,10 @@ customCommands:
     command: "nvim +Commit"
     context: "files"
     description: "Commit"
+  - key: "f"
+    command: "git fetch --prune --all"
+    context: "files"
+    description: "Fetch with prune all"
   - key: "o"
     command: "sesh connect '{{.SelectedWorktree.Path}}'"
     context: "worktrees"
@@ -182,7 +186,7 @@ keybinding:
     viewStashOptions: "S"
     toggleStagedAll: "a" # stage/unstage all
     viewResetOptions: "D"
-    fetch: "f"
+    # fetch: "f" # custom fetch command
     toggleTreeView: "`"
   branches:
     createPullRequest: "o"
