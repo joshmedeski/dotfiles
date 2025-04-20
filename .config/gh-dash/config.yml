@@ -68,6 +68,7 @@ repoPaths:
   joshmedeski/t-smart-tmux-session-manager: ~/.config/tmux/plugins/t-smart-tmux-session-manager
   joshmedeski/tmux-nerd-font-window-name: ~/.config/tmux/plugins/tmux-nerd-font-window-name
   raycast/extensions: ~/c/raycast-extensions
+  joshmedeski/sesh: ~/c/sesh/review
 theme:
   ui:
     table:
