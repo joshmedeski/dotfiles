@@ -62,3 +62,4 @@ Library/Preferences/ru.keepcoder.Telegram.plist
 .config/fish/conf.d/hass.fish
 app_support/lazygit/state.yml
 .aider*
+.config/yazi/plugins
