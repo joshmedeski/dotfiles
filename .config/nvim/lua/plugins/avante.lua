@@ -31,6 +31,10 @@ return {
 
   opts = {
     provider = 'copilot',
+    cursor_applying_provider = nil,
+    behaviour = {
+      enable_cursor_planning_mode = true,
+    },
     windows = {
       postion = 'right',
       width = 40,
