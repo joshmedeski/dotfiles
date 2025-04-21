@@ -5,6 +5,7 @@ return {
   lazy = false,
   ---@type snacks.Config
   opts = {
+    image = { enabled = true },
     picker = { enabled = true },
     notifier = { enabled = true },
     input = { enabled = true },
