@@ -1,4 +1,4 @@
-
+#
 # ███████╗████████╗ █████╗ ██████╗ ███████╗██╗  ██╗██╗██████╗
 # ██╔════╝╚══██╔══╝██╔══██╗██╔══██╗██╔════╝██║  ██║██║██╔══██╗
 # ███████╗   ██║   ███████║██████╔╝███████╗███████║██║██████╔╝
@@ -13,11 +13,22 @@ success_symbol = ""
 vicmd_symbol = ""
 error_symbol = "󰩈"
 
+# FIX: too slow
+# [custom.pnpm]
+# when = """
+# test -f pnpm-lock.yaml
+# """
+# command = """
+# pnpm --version
+# """
+# format = "via [ v$output](red)"
+# ignore_timeout = true
+
 [directory]
 style = "blue bold"
 
 [package]
-disabled = true
+disabled = false
 
 [username]
 disabled = true
