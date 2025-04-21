@@ -96,6 +96,8 @@ Alternatives:
 return {
   {
     'zbirenbaum/copilot-cmp',
+    enabled = false,
+    optional = true,
     dependencies = { 'zbirenbaum/copilot.lua' },
     event = 'InsertEnter',
     config = true,
@@ -113,6 +115,7 @@ return {
   {
     {
       'CopilotC-Nvim/CopilotChat.nvim',
+      enabled = false,
       build = 'make tiktoken',
       branch = 'main',
       dependencies = {
