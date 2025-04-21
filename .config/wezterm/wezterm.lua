@@ -57,7 +57,8 @@ local config = {
 	},
 
 	font = wezterm.font_with_fallback({
-		"CommitMono",
+		"Maple Mono",
+		-- "CommitMono",
 		-- "DengXian",
 		-- "Departure Mono",
 		-- "GohuFont uni14 Nerd Font Mono",
