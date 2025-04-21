@@ -12,6 +12,9 @@ return {
     -- lsp
     'williamboman/mason-lspconfig.nvim',
 
+    -- autocomplete
+    'saghen/blink.cmp',
+
     -- dap
     'mfussenegger/nvim-dap',
     { 'jay-babu/mason-nvim-dap.nvim' },
@@ -39,9 +42,6 @@ return {
         },
       },
     },
-
-    -- Allows extra capabilities provided by nvim-cmp
-    'hrsh7th/cmp-nvim-lsp',
   },
   config = function()
     vim.api.nvim_create_autocmd('LspAttach', {
@@ -88,10 +88,6 @@ return {
         -- Rename the variable under your cursor.
         --  Most Language Servers support renaming across files, etc.
         map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-
-        -- Execute a code action, usually your cursor needs to be on top of an error
-        -- or a suggestion from your LSP for this to activate.
-        map('<leader><space>', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
 
         -- Incremental rename
         -- map('<leader>rN', require('inc_rename').rename(vim.fn.expand '<cword>'), 'Incremental LSP renaming', { 'n' })
@@ -140,6 +136,8 @@ return {
     local lspIcons = require('utils.icons').lsp
     vim.diagnostic.config {
       virtual_text = {
+        -- TODO: setup neovim plugin that allows the value to be toggled based on the comment line above it (or LSP value?)
+        -- 'eol', 'inline', 'overlay', 'right_align'
         virt_text_pos = 'eol',
         prefix = '',
         format = function(diagnostic)
@@ -160,7 +158,7 @@ return {
     --  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
     --  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
     local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+    capabilities = vim.tbl_deep_extend('force', capabilities, require('blink.cmp').get_lsp_capabilities())
 
     -- Enable the following language servers
     --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
