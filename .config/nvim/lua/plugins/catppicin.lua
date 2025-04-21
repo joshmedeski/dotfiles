@@ -57,8 +57,13 @@ return {
           enabled = true,
           windows_sidebar_header_rounded = true,
         },
+        blink_cmp = true,
         cmp = true,
         copilot_vim = true,
+        dropbar = {
+          enabled = true,
+          color_mode = true,
+        },
         fidget = true,
         gitsigns = true,
         lsp_trouble = true,
