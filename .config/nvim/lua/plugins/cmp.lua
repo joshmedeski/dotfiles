@@ -1,5 +1,6 @@
 -- Autocompletion
 return {
+  enabled = false, -- using blink.cmp instead
   -- TODO: switch to blink?
   'hrsh7th/nvim-cmp',
   event = 'InsertEnter',
