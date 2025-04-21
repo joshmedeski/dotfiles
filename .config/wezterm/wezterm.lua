@@ -9,7 +9,7 @@
 -- https://wezfurlong.org/wezterm/
 
 local dark_opacity = 0.97
-local light_opacity = 0.65
+local light_opacity = 0.85
 
 local wallpapers_glob = os.getenv("HOME") .. "/.config/wezterm/wallpapers/**"
 local animations = os.getenv("HOME") .. "/.config/wezterm/animations/**"
