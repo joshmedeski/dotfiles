@@ -10,7 +10,7 @@
 
 [character]
 success_symbol = ""
-vicmd_symbol = ""
+vimcmd_symbol = ""
 error_symbol = "󰩈"
 
 # FIX: too slow
