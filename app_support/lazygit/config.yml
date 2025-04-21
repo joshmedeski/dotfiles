@@ -115,6 +115,21 @@ customCommands:
     context: "files"
     loadingText: "Commitizen prompt"
     subprocess: true
+  - key: '<c-g>'
+    context: 'files'
+    command: 'lumen draft | tee >(pbcopy)'
+    loadingText: 'Generating message...'
+    showOutput: true
+  - key: '<c-G>'
+    context: 'files'
+    command: 'lumen draft -c {{.Form.Context | quote}} | tee >(pbcopy)'
+    loadingText: 'Generating message...'
+    showOutput: true
+    prompts:
+          - type: 'input'
+            title: 'Context'
+            key: 'Context'
+
 keybinding:
   universal:
     quit: "q"
