@@ -8,8 +8,12 @@
 #  Smart session manager for the terminal
 #  https://github.com/joshmedeski/sesh
 
-import = ["~/.config/sesh/configs/nu-sesh.toml"]
+import = [
+  "~/.config/sesh/configs/nu-sesh.toml",
+]
 blacklist = ["scratch"]
+
+sort_order = ["tmux", "config", "tmuxinator", "zoxide"]
 
 # default
 
@@ -54,7 +58,8 @@ startup_command = "l"
 [[session]]
 name = "home (~)"
 path = "~"
-startup_command = "l"
+disable_startup_command = true
+# startup_command = "l"
 
 [[session]]
 name = "colima"
@@ -62,6 +67,11 @@ path = "~/.colima"
 startup_command = "colima start"
 
 # nutilti
+
+[[wildcard]]
+pattern = "~/c/nu/*"
+disable_startup_command = true
+# startup_command = "lazygit"
 
 [[session]]
 name = "nutiliti pick worktree"
@@ -103,12 +113,19 @@ path = "~/c/dotfiles/.config/nvim"
 name = "fish config"
 path = "/Users/joshmedeski/c/dotfiles/.config/fish"
 preview_command = "bat --language=fish --style=snip --color=always ~/c/dotfiles/.config/fish/config.fish"
+startup_command = "nvim config.fish"
 
 [[session]]
 name = "sesh config"
 path = "~/c/dotfiles/.config/sesh"
 startup_command = "nvim sesh.toml"
 preview_command = "bat --language=toml --style=snip --color=always ~/c/dotfiles/.config/sesh/sesh.toml"
+
+[[session]]
+name = "new sesh git worktree"
+path = "~/c/sesh"
+startup_command = "git worktree add (gum input --placeholder 'Enter new worktree name')"
+
 
 [[session]]
 name = "tmux config"
@@ -161,6 +178,11 @@ path = "~/c/dotfiles/.config/lazyvim"
 # plugins
 
 [[session]]
+name = "3js"
+path = "~/c/threejs-journey"
+startup_command = "sesh connect (ls | fzf --ansi --no-border --preview 'glow -s light {}/README.md' --preview-window=right:70,border-none) && exit"
+
+[[session]]
 name = "lazy plugins"
 path = "~/.local/share/nvim/lazy"
 startup_command = "sesh connect (ls | fzf --ansi --no-border --preview 'glow -s light {}/README.md' --preview-window=right:70,border-none) && exit"
@@ -175,6 +197,11 @@ startup_command = "sesh connect (ls | fzf --ansi --no-border --preview 'glow -s 
 [[session]]
 name = "obsidian plugins"
 path = "~/c/second-brain/.obsidian/plugins"
+startup_command = "sesh connect (ls | fzf --ansi --no-border --preview 'glow -s light {}/README.md' --preview-window=right:85,border-none) && exit"
+
+[[session]]
+name = "obs plugins"
+path = "~/Library/Application Support/obs-studio/plugins"
 startup_command = "sesh connect (ls | fzf --ansi --no-border --preview 'glow -s light {}/README.md' --preview-window=right:85,border-none) && exit"
 
 # tools
@@ -205,6 +232,7 @@ startup_command = "tmux set-option -t cava status off && cava"
 name = "perplexica"
 path = "~/c/perplexica"
 startup_command = "docker compose up -d"
+windows = ["git"]
 
 [[session]]
 name = "steam deck"
@@ -242,3 +270,9 @@ startup_command = "ssh deck@steamdeck"
 
 # NOTE: bat styles (--style)
 # full, auto, plain, changes, header, header-filename,
+
+# windows
+
+[[window]]
+name = "git"
+startup_script = "git pull && lazygit"
