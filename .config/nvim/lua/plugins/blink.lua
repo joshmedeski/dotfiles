@@ -77,23 +77,13 @@ return {
     },
 
     sources = {
-      default = { 'avante', 'codecompanion', 'git', 'lazydev', 'lsp', 'path', 'snippets', 'buffer', 'emoji', 'nerdfont' },
+      default = { 'avante', 'codecompanion', 'git', 'lazydev', 'lsp', 'path', 'snippets', 'buffer' },
+      -- NOTE: disable emoji and nerdfont for now
+      -- default = { 'avante', 'codecompanion', 'git', 'lazydev', 'lsp', 'path', 'snippets', 'buffer', 'emoji', 'nerdfont' },
       providers = {
         avante = {
           module = 'blink-cmp-avante',
           name = 'Avante',
-          -- TODO: figure out how to render custom kind_icon
-          -- command = {
-          --   get_kind_name = function(_)
-          --     return 'AvanteCmd'
-          --   end,
-          -- },
-          -- mention = {
-          --   get_kind_name = function(_)
-          --     return 'AvanteMention'
-          --   end,
-          -- },
-          opts = {},
         },
         git = {
           module = 'blink-cmp-git',
