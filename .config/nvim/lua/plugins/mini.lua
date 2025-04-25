@@ -59,6 +59,8 @@ return { -- Collection of various small independent plugins/modules
       },
     }
 
+    -- require('mini.diff').setup()
+
     require('mini.ai').setup {
       -- Better Around/Inside textobjects
       --
@@ -115,8 +117,6 @@ return { -- Collection of various small independent plugins/modules
     -- require('mini.comment').setup {
     --   options = {},
     -- }
-
-    -- require('mini.diff').setup()
 
     -- require('mini.git').setup()
     -- vim.keymap.set({ 'n', 'x' }, '<leader>gs', '<CMD>lua MiniGit.show_at_cursor()<CR>', { desc = 'Show at cursor' })
