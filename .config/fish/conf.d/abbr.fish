@@ -8,6 +8,7 @@
 # https://fishshell.com/docs/current/cmds/abbr.html
 # cSpell:disable
 
+abbr :FindAndReplace "nvim +FindAndReplace"
 abbr :GoToCommand fzf-history-widget
 abbr :GoToFile "nvim +GoToFile"
 abbr :GoToSymbol "nvim +GoToSymbol"
