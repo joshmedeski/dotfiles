@@ -55,9 +55,31 @@ vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufFilePre', 'BufRead' }, {
 })
 
 vim.api.nvim_create_autocmd({ 'BufRead' }, {
+  pattern = { 'gitcommit' },
+  callback = function()
+    vim.cmd [[set wrap linebreak]]
+  end,
+})
+
+vim.api.nvim_create_autocmd({ 'BufRead' }, {
   pattern = { '*.conf' },
   callback = function()
     vim.cmd [[set filetype=sh]]
+  end,
+})
+
+vim.api.nvim_create_autocmd({ 'BufRead' }, {
+  pattern = { '*.glsl' },
+  callback = function()
+    vim.cmd [[set shiftwidth=4]]
+    vim.cmd [[set tabstop=4]]
+  end,
+})
+
+vim.api.nvim_create_autocmd({ 'BufRead' }, {
+  pattern = { '*.gltf' },
+  callback = function()
+    vim.cmd [[set filetype=json]]
   end,
 })
 
