@@ -52,8 +52,8 @@ vim.g.maplocalleader = ' '
 vim.opt.clipboard = ''
 
 -- default position
-vim.opt.scrolloff = 8 -- scroll page when cursor is 8 lines from top/bottom
-vim.opt.sidescrolloff = 8 -- scroll page when cursor is 8 spaces from left/right
+vim.opt.scrolloff = 3 -- scroll page when cursor is 3 lines from top/bottom
+vim.opt.sidescrolloff = 3 -- scroll page when cursoreis 3 spaces from left/right
 
 -- ex line
 vim.o.ls = 0
@@ -169,6 +169,3 @@ vim.opt.inccommand = 'split'
 
 -- Show which line your cursor is on
 vim.opt.cursorline = true
-
--- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 10
