@@ -9,7 +9,7 @@ enable-normalization-opposite-orientation-for-nested-containers = true
 # non-empty-workspaces-root-containers-layout-on-startup = 'smart'
 
 accordion-padding = 0
-default-root-container-layout = 'tiles'
+default-root-container-layout = 'accordion'
 default-root-container-orientation = 'auto'
 key-mapping.preset = 'qwerty'
 
@@ -40,30 +40,20 @@ alt-shift-l = 'focus right'
 alt-shift-minus = 'resize smart -100'
 alt-shift-equal = 'resize smart +100'
 
-alt-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
-alt-shift-2 = ['move-node-to-workspace 2', 'workspace 2']
-alt-shift-3 = ['move-node-to-workspace 3', 'workspace 3']
-alt-shift-4 = ['move-node-to-workspace 4', 'workspace 4']
-alt-shift-5 = ['move-node-to-workspace 5', 'workspace 5']
-alt-shift-6 = ['move-node-to-workspace 6', 'workspace 6']
-alt-shift-7 = ['move-node-to-workspace 7', 'workspace 7']
-alt-shift-8 = ['move-node-to-workspace 8', 'workspace 8']
-alt-shift-9 = ['move-node-to-workspace 9', 'workspace 9']
-
-alt-1 = 'workspace 1'
-alt-2 = 'workspace 2'
-alt-3 = 'workspace 3'
-alt-4 = 'workspace 4'
-alt-5 = 'workspace 5'
-alt-6 = 'workspace 6'
-alt-7 = 'workspace 7'
-alt-8 = 'workspace 8'
-alt-9 = 'workspace 9'
-
 alt-tab = 'workspace-back-and-forth'
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
 alt-shift-semicolon = 'mode layout'
+
+alt-shift-z = 'mode move'
+
+[mode.move.binding]
+esc = ['mode main']
+w = ['move-node-to-workspace w', 'workspace w']
+a = ['move-node-to-workspace a', 'workspace a']
+s = ['move-node-to-workspace s', 'workspace s']
+d = ['move-node-to-workspace d', 'workspace d']
+g = ['move-node-to-workspace g', 'workspace g']
 
 # TODO: come up with a mode that works for me (resizing, moving?)
 [mode.layout.binding]
@@ -82,3 +72,36 @@ f = 'fullscreen'
 g = ['layout floating tiling', 'mode main']
 minus = 'resize smart -100'
 equal = 'resize smart +100'
+
+[workspace-to-monitor-force-assignment]
+g = ['secondary']
+
+[[on-window-detected]]
+if.app-id = 'com.github.wez.wezterm'
+run = ['layout tiling', 'move-node-to-workspace a']
+
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
+run = ['layout tiling', 'move-node-to-workspace s']
+
+[[on-window-detected]]
+if.app-id = 'com.hnc.Discord'
+run = ['layout tiling', 'move-node-to-workspace d']
+
+[[on-window-detected]]
+if.app-id = 'company.thebrowser.Browser'
+run = ['layout tiling', 'move-node-to-workspace w']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.MobileSMS'
+run = ['layout tiling', 'move-node-to-workspace m']
+
+[[on-window-detected]]
+if.app-id = 'com.obsproject.obs-studio'
+run = ['layout tiling', 'move-node-to-workspace o']
+
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run = ['layout tiling', 'move-node-to-workspace g']
+
+# zoom to move to `s` and tile top 1/3
