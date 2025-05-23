@@ -8,10 +8,10 @@
 -- A GPU-accelerated cross-platform terminal emulator
 -- https://wezfurlong.org/wezterm/
 
-local dark_opacity = 0.97
-local light_opacity = 0.85
+local dark_opacity = 0.95
+local light_opacity = 0.75
 
-local wallpapers_glob = os.getenv("HOME") .. "/.config/wezterm/wallpapers/**"
+-- local wallpapers_glob = os.getenv("HOME") .. "/.config/wezterm/wallpapers/**"
 local animations = os.getenv("HOME") .. "/.config/wezterm/animations/**"
 
 local b = require("utils/background")
@@ -47,11 +47,11 @@ local config = {
 
 	-- text
 	font_size = 20,
-	line_height = 1.1,
+	line_height = 1.0,
 
 	-- TODO: add binding to move from forward and backward with my pictures
 	background = {
-		w.get_wallpaper(wallpapers_glob),
+		-- w.get_wallpaper(wallpapers_glob),
 		-- w.get_gif_wallpaper(animations),
 		b.get_background(dark_opacity, light_opacity),
 	},
@@ -104,6 +104,7 @@ local config = {
 		k.cmd_key("[", act.SendKey({ mods = "CTRL", key = "o" })),
 		k.cmd_key("]", act.SendKey({ mods = "CTRL", key = "i" })),
 		k.cmd_key("f", k.multiple_actions(":Grep")),
+		k.cmd_key("F", k.multiple_actions(":FindAndReplace")),
 		k.cmd_key("w", act.SendKey({ mods = "CTRL", key = "q" })),
 		-- k.cmd_key("H", act.SendKey({ mods = "CTRL", key = "h" })),
 		-- k.cmd_key("i", k.multiple_actions(":SmartGoTo")),
