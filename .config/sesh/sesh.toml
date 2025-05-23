@@ -10,6 +10,7 @@
 
 import = [
   "~/.config/sesh/configs/nu-sesh.toml",
+  "~/.config/sesh/configs/raycast-extensions.toml",
 ]
 blacklist = ["scratch"]
 
@@ -23,6 +24,12 @@ startup_command_ignore_dirs = ["~/repos", "~/.config"]
 preview_command = "eza --all --git --icons --color=always {}"
 
 # common
+
+[[session]]
+name = "fastfetch"
+path = "~/.config/fastfetch"
+startup_command = "fastfetch"
+preview_command = "fastfetch"
 
 [[session]]
 name = "wallpaper"
@@ -113,7 +120,6 @@ path = "~/c/dotfiles/.config/nvim"
 name = "fish config"
 path = "/Users/joshmedeski/c/dotfiles/.config/fish"
 preview_command = "bat --language=fish --style=snip --color=always ~/c/dotfiles/.config/fish/config.fish"
-startup_command = "nvim config.fish"
 
 [[session]]
 name = "sesh config"
