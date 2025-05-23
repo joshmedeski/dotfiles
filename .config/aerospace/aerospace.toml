@@ -1,3 +1,5 @@
+# TODO: setup music on p
+
 # after-login-command = []
 # after-startup-command = []
 start-at-login = true
@@ -49,11 +51,41 @@ alt-shift-z = 'mode move'
 
 [mode.move.binding]
 esc = ['mode main']
-w = ['move-node-to-workspace w', 'workspace w']
+1 = ['move-node-to-workspace 1', 'workspace 1']
+2 = ['move-node-to-workspace 2', 'workspace 2']
+3 = ['move-node-to-workspace 3', 'workspace 3']
+4 = ['move-node-to-workspace 4', 'workspace 4']
+5 = ['move-node-to-workspace 5', 'workspace 5']
+6 = ['move-node-to-workspace 6', 'workspace 6']
+7 = ['move-node-to-workspace 7', 'workspace 7']
+8 = ['move-node-to-workspace 8', 'workspace 8']
+9 = ['move-node-to-workspace 9', 'workspace 9']
 a = ['move-node-to-workspace a', 'workspace a']
-s = ['move-node-to-workspace s', 'workspace s']
+b = ['move-node-to-workspace b', 'workspace b']
+c = ['move-node-to-workspace c', 'workspace c']
 d = ['move-node-to-workspace d', 'workspace d']
+e = ['move-node-to-workspace e', 'workspace e']
+f = ['move-node-to-workspace f', 'workspace f']
 g = ['move-node-to-workspace g', 'workspace g']
+h = ['move-node-to-workspace h', 'workspace h']
+i = ['move-node-to-workspace i', 'workspace i']
+j = ['move-node-to-workspace j', 'workspace j']
+k = ['move-node-to-workspace k', 'workspace k']
+l = ['move-node-to-workspace l', 'workspace l']
+m = ['move-node-to-workspace m', 'workspace m']
+n = ['move-node-to-workspace n', 'workspace n']
+o = ['move-node-to-workspace o', 'workspace o']
+p = ['move-node-to-workspace p', 'workspace p']
+q = ['move-node-to-workspace q', 'workspace q']
+r = ['move-node-to-workspace r', 'workspace r']
+s = ['move-node-to-workspace s', 'workspace s']
+t = ['move-node-to-workspace t', 'workspace t']
+u = ['move-node-to-workspace u', 'workspace u']
+v = ['move-node-to-workspace v', 'workspace v']
+w = ['move-node-to-workspace w', 'workspace w']
+x = ['move-node-to-workspace x', 'workspace x']
+y = ['move-node-to-workspace y', 'workspace y']
+z = ['move-node-to-workspace z', 'workspace z']
 
 # TODO: come up with a mode that works for me (resizing, moving?)
 [mode.layout.binding]
@@ -101,7 +133,27 @@ if.app-id = 'com.obsproject.obs-studio'
 run = ['layout tiling', 'move-node-to-workspace o']
 
 [[on-window-detected]]
+if.app-id = 'com.apple.Music'
+run = ['layout tiling', 'move-node-to-workspace p']
+
+[[on-window-detected]]
+if.app-id = 'br.com.marcosatanaka.musicbox'
+run = ['layout tiling', 'move-node-to-workspace p']
+
+[[on-window-detected]]
 if.app-id = 'com.google.Chrome'
 run = ['layout tiling', 'move-node-to-workspace g']
+
+[[on-window-detected]]
+if.app-id = 'com.figma.Desktop'
+run = ['move-node-to-workspace f']
+
+[[on-window-detected]]
+if.app-id = 'com.flexibits.fantastical2.mac'
+run = ['move-node-to-workspace y']
+
+[[on-window-detected]]
+if.app-id = ' io.robbie.HomeAssistant'
+run = ['move-node-to-workspace h']
 
 # zoom to move to `s` and tile top 1/3
