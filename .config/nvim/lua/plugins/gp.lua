@@ -47,9 +47,6 @@ return {
         },
       },
       whisper = {
-        -- you can disable whisper completely by whisper = {disable = true}
-        disable = false,
-
         -- OpenAI audio/transcriptions api endpoint to transcribe audio to text
         endpoint = 'https://api.openai.com/v1/audio/transcriptions',
         -- directory for storing whisper files

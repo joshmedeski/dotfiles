@@ -114,18 +114,18 @@ return {
       end,
 
       -- If you are using the builtin Neovim server, you might have to disable the following tools in your avante config to avoid any conflicts.
-      disabled_tools = {
-        'list_files',
-        'search_files',
-        'read_file',
-        'create_file',
-        'rename_file',
-        'delete_file',
-        'create_dir',
-        'rename_dir',
-        'delete_dir',
-        'bash',
-      },
+      -- disabled_tools = {
+      --   'list_files',
+      --   'search_files',
+      --   'read_file',
+      --   'create_file',
+      --   'rename_file',
+      --   'delete_file',
+      --   'create_dir',
+      --   'rename_dir',
+      --   'delete_dir',
+      --   'bash',
+      -- },
     }
   end,
 }

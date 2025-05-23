@@ -17,6 +17,10 @@ vim.cmd [[command! -nargs=0 SmartGoTo :Telescope smart_goto]]
 vim.cmd [[command! -nargs=0 Zen :lua Snacks.zen()]]
 vim.cmd [[command! -nargs=0 FindAndReplace :lua require('grug-far').open()]]
 
+-- TODO: implement command for grabbing window id for aerospace
+-- aerospace list-apps | fzf --delimiter '|' --with-nth '{3}{2}' --accept-nth '{2}' | sed 's/^[ ]*//' | tr -d '\n'
+-- pass this fzf command into a neovim fzf picker
+
 -- snacks picker
 -- vim.cmd [[command! -nargs=0 GoToCommand :lua Snacks.picker.command_history()]]
 -- vim.cmd [[command! -nargs=0 GoToFile :lua Snacks.picker.smart()]]

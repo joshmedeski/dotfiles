@@ -11,6 +11,7 @@ return {
     },
     additions = {
       { 'production', 'development', 'test', 'sandbox' },
+      { 'fatal', 'error', 'warn', 'info', 'debug', 'trace' },
       { 'around', 'between' },
       { 'let', 'const' },
       { 'start', 'end' },

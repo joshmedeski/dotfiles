@@ -262,6 +262,7 @@ return {
     vim.list_extend(ensure_installed, {
       'stylua', -- Used to format Lua code
       'typescript-language-server',
+      'js-debug-adapter',
       'gopls',
       'delve',
     })
