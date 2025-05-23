@@ -63,3 +63,4 @@ Library/Preferences/ru.keepcoder.Telegram.plist
 app_support/lazygit/state.yml
 .aider*
 .config/yazi/plugins
+.config/nvim/mcpservers.json
