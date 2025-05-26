@@ -8,11 +8,11 @@
 -- A GPU-accelerated cross-platform terminal emulator
 -- https://wezfurlong.org/wezterm/
 
-local dark_opacity = 0.95
+local dark_opacity = 0.85
 local light_opacity = 0.75
 
--- local wallpapers_glob = os.getenv("HOME") .. "/.config/wezterm/wallpapers/**"
-local animations = os.getenv("HOME") .. "/.config/wezterm/animations/**"
+local wallpapers_glob = os.getenv("HOME") .. "/.config/wezterm/wallpapers/**"
+-- local animations = os.getenv("HOME") .. "/.config/wezterm/animations/**"
 
 local b = require("utils/background")
 local cs = require("utils/color_scheme")
@@ -51,7 +51,7 @@ local config = {
 
 	-- TODO: add binding to move from forward and backward with my pictures
 	background = {
-		-- w.get_wallpaper(wallpapers_glob),
+		w.get_wallpaper(wallpapers_glob),
 		-- w.get_gif_wallpaper(animations),
 		b.get_background(dark_opacity, light_opacity),
 	},
