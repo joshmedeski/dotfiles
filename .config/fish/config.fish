@@ -17,6 +17,7 @@ eval (/opt/homebrew/bin/brew shellenv)
 
 starship init fish | source # https://starship.rs/
 zoxide init fish | source # 'ajeetdsouza/zoxide'
+fzf --fish | source
 fnm --log-level quiet env --use-on-cd | source # "Schniz/fnm"
 direnv hook fish | source # https://direnv.net/
 fx --comp fish | source # https://fx.wtf/

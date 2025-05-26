@@ -7,8 +7,6 @@
 # 🌸 A command-line fuzzy finder
 # https://github.com/junegunn/fzf
 
-fzf --fish | source
-
 set -Ux FZF_DEFAULT_OPTS "\
 --ansi \
 --border rounded \
