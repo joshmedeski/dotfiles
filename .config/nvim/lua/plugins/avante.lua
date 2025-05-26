@@ -86,20 +86,17 @@ return {
       },
 
       provider = 'copilot',
-      copilot = {
-        model = 'claude-3.7-sonnet',
-      },
-      ollama = {
-        model = 'qwen2.5-coder:7b',
-      },
+      copilot = { model = 'claude-3.7-sonnet' },
+      ollama = { model = 'devstral:latest' },
 
       -- TODO: research what value this provides and setup correctly
       -- rag_service = {
       --   enabled = true, -- Enables the RAG service
-      --   host_mount = os.getenv 'HOME' .. '/github',
-      --   provider = 'ollama',
-      --   llm_model = 'deepseek-r1:8b',
-      --   endpoint = 'http://localhost:11434',
+      --   host_mount = os.getenv 'HOME' .. '/github', -- Host mount path for the rag service (subfolder under home)
+      --   provider = 'ollama', -- The provider to use for RAG service (e.g. openai or ollama)
+      --   llm_model = 'devstral:latest',
+      --   embed_model = '', -- default: nomic-embed-text
+      --   endpoint = 'http://localhost:11434', -- The API endpoint for RAG service
       -- },
 
       system_prompt = function()
