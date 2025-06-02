@@ -153,7 +153,7 @@ if.app-id = 'com.flexibits.fantastical2.mac'
 run = ['move-node-to-workspace y']
 
 [[on-window-detected]]
-if.app-id = ' io.robbie.HomeAssistant'
+if.app-id = 'io.robbie.HomeAssistant'
 run = ['move-node-to-workspace h']
 
 # zoom to move to `s` and tile top 1/3
