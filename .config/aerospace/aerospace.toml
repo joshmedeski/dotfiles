@@ -134,7 +134,11 @@ run = ['layout tiling', 'move-node-to-workspace w']
 
 [[on-window-detected]]
 if.app-id = 'com.apple.MobileSMS'
-run = ['layout tiling', 'move-node-to-workspace m']
+run = ['move-node-to-workspace m']
+
+[[on-window-detected]]
+if.app-id = 'net.whatsapp.WhatsApp'
+run = ['move-node-to-workspace m']
 
 [[on-window-detected]]
 if.app-id = 'com.obsproject.obs-studio'
