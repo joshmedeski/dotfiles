@@ -118,19 +118,27 @@ g = ['secondary']
 
 [[on-window-detected]]
 if.app-id = 'com.github.wez.wezterm'
+run = ['move-node-to-workspace a']
+
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
 run = ['layout tiling', 'move-node-to-workspace a']
 
 [[on-window-detected]]
+if.app-id = 'org.blenderfoundation.blender'
+run = ['move-node-to-workspace b']
+
+[[on-window-detected]]
 if.app-id = 'md.obsidian'
-run = ['layout tiling', 'move-node-to-workspace s']
+run = ['move-node-to-workspace s']
 
 [[on-window-detected]]
 if.app-id = 'com.hnc.Discord'
-run = ['layout tiling', 'move-node-to-workspace d']
+run = ['move-node-to-workspace d']
 
 [[on-window-detected]]
 if.app-id = 'company.thebrowser.Browser'
-run = ['layout tiling', 'move-node-to-workspace w']
+run = ['move-node-to-workspace w']
 
 [[on-window-detected]]
 if.app-id = 'com.apple.MobileSMS'
@@ -142,11 +150,11 @@ run = ['move-node-to-workspace m']
 
 [[on-window-detected]]
 if.app-id = 'com.obsproject.obs-studio'
-run = ['layout tiling', 'move-node-to-workspace o']
+run = ['move-node-to-workspace o']
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Music'
-run = ['layout tiling', 'move-node-to-workspace p']
+run = ['move-node-to-workspace p']
 
 [[on-window-detected]]
 if.app-id = 'br.com.marcosatanaka.musicbox'
@@ -154,7 +162,7 @@ run = ['layout tiling', 'move-node-to-workspace p']
 
 [[on-window-detected]]
 if.app-id = 'com.google.Chrome'
-run = ['layout tiling', 'move-node-to-workspace g']
+run = ['move-node-to-workspace g']
 
 [[on-window-detected]]
 if.app-id = 'com.figma.Desktop'
