@@ -86,8 +86,10 @@ return {
       },
 
       provider = 'copilot',
-      copilot = { model = 'claude-3.7-sonnet' },
-      ollama = { model = 'devstral:latest' },
+      providers = {
+        copilot = { model = 'claude-3.7-sonnet' },
+        ollama = { model = 'devstral:latest' },
+      },
 
       -- TODO: research what value this provides and setup correctly
       -- rag_service = {
