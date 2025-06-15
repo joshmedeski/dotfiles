@@ -128,6 +128,7 @@ local config = {
 		k.cmd_to_tmux_prefix("8", "8"),
 		k.cmd_to_tmux_prefix("9", "9"),
 		k.cmd_to_tmux_prefix("9", "9"),
+		k.cmd_to_tmux_prefix("a", "A"),
 		k.cmd_to_tmux_prefix("b", "b"),
 		k.cmd_to_tmux_prefix("C", "C"),
 		k.cmd_to_tmux_prefix("d", "D"),
