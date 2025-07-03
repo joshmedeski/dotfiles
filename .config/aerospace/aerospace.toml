@@ -8,6 +8,9 @@
 # https://github.com/nikitabobko/AeroSpace
 # https://nikitabobko.github.io/AeroSpace/guide
 
+# TODO: setup leaderkey to do transformations
+# TODO: come up with a good way to merge windows for better splitting
+
 # after-login-command = []
 # after-startup-command = []
 start-at-login = true
@@ -23,8 +26,8 @@ default-root-container-layout = 'accordion'
 default-root-container-orientation = 'auto'
 key-mapping.preset = 'qwerty'
 
-on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
-on-focus-changed = ['move-mouse window-lazy-center']
+# on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+# on-focus-changed = ['move-mouse window-lazy-center']
 
 [gaps]
 inner.horizontal = 8
@@ -147,6 +150,10 @@ run = ['move-node-to-workspace m']
 [[on-window-detected]]
 if.app-id = 'net.whatsapp.WhatsApp'
 run = ['move-node-to-workspace m']
+
+[[on-window-detected]]
+if.app-id = 'notion.id'
+run = ['move-node-to-workspace n']
 
 [[on-window-detected]]
 if.app-id = 'com.obsproject.obs-studio'
