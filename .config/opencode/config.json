@@ -1,0 +1,49 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "ollama": {
+      "name": "OpenRouter",
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "http://localhost:11434/v1"
+      },
+      "models": {
+        "qwen3": {},
+        "deepseek-r1": {},
+        "devstral": {}
+      }
+    }
+  },
+  "mcp": {
+    "mcp-obsidian": {
+      "type": "local",
+      "command": ["uvx", "mcp-obsidian"],
+      "environment": {
+        "OBSIDIAN_API_KEY": "{env:OBSIDIAN_REST_API_KEY }"
+      }
+    }
+  },
+  "mode": {
+    "build": {
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
+    },
+    "plan": {
+      "tools": {
+        "write": false,
+        "edit": false,
+        "bash": false
+      }
+    },
+    "review": {
+      "tools": {
+        "write": false,
+        "edit": false,
+        "bash": false
+      }
+    }
+  }
+}
