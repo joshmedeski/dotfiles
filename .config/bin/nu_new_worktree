@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 cd ~/c/nu || return
-BRANCH=$(gum input --placeholder "Worktree name (keep it short)")
-git worktree add "$BRANCH" -b "$BRANCH" origin/main
-cd "$BRANCH" || return
+WORKTREE=$(gum input --placeholder "Worktree name (keep it short)")
+if [[ -z "$WORKTREE" ]]; then
+  echo "Worktree name cannot be empty."
+  exit 1
+fi
+git worktree add "$WORKTREE" -b "tmp_$WORKTREE" --no-track origin/main
+cd "$WORKTREE" || return
 sesh connect --command "nu_setup" .

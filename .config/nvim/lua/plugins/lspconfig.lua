@@ -235,6 +235,27 @@ return {
           },
         },
       },
+
+      jsonls = {
+        -- filetypes = {
+        --   'json',
+        -- },
+        -- settings = {
+        --   json = {
+        --     format = { enable = true },
+        --     validate = { enable = true },
+        --   },
+        -- },
+      },
+
+      arduino_language_server = {
+        filetypes = {
+          'arduino',
+          'cpp',
+          'c',
+          'ino',
+        },
+      },
     }
 
     ---@type MasonLspconfigSettings

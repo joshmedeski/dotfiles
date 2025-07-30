@@ -9,6 +9,19 @@ return {
     icons = {
       -- set icon mappings to true if you have a Nerd Font
       mappings = vim.g.have_nerd_font,
+
+      --- See `lua/which-key/icons.lua` for more details
+      --- Set to `false` to disable keymap icons from rules
+      ---@type wk.IconRule[]|false
+      rules = {
+        { pattern = '^[Aa]ccept', icon = '✅' },
+        { pattern = '^[Dd]eny', icon = '❌' },
+        { pattern = '^[Ff]ocus', icon = '👀' },
+        { pattern = '^[Cc]ontinue', icon = '▶️' },
+        { pattern = '^[Rr]esume', icon = '▶️' },
+        { pattern = '^[Aa]dd', icon = '➕' },
+      },
+
       -- If you are using a Nerd Font: set icons.keys to an empty table which will use the
       -- default which-key.nvim defined Nerd Font icons, otherwise define a string table
       keys = vim.g.have_nerd_font and {} or {
@@ -45,6 +58,7 @@ return {
 
     -- Document existing key chains
     spec = {
+      { '<leader>a', group = 'ai', icon = '🤖' },
       { '<leader>c', group = '[c]ode', mode = { 'n', 'x' } },
       { '<leader>d', group = '[d]ocument' },
       { '<leader>g', group = '[g]it', icon = { icon = '󰊢', color = 'green' } },

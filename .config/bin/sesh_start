@@ -1,10 +1,8 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 sesh connect "$(
-  sesh list --icons --hide-duplicates | fzf --no-border \
-    --ansi \
+  sesh list | fzf --no-border \
     --list-border \
     --no-sort --prompt '⚡  ' \
-    --color 'list-border:6,input-border:3,preview-border:4,header-bg:-1,header-border:6' \
     --input-border \
     --header-border \
     --bind 'tab:down,btab:up' \

@@ -18,7 +18,7 @@ return {
     'nvim-tree/nvim-web-devicons',
   },
   cmd = { 'Octo' },
-  config = {
+  opts = {
     enable_builtin = true,
     mappings = {
       review_diff = {

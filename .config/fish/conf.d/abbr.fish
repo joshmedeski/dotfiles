@@ -51,6 +51,7 @@ abbr ee "espanso edit"
 abbr er "espanso restart"
 
 abbr fi "fisher install"
+abbr ff "fastfetch"
 abbr fr "fisher refresh"
 abbr fu "fisher update"
 abbr fl "fisher list | sed 's/.*/"&"/'"

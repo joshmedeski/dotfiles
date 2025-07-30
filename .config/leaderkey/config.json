@@ -1,79 +1,79 @@
 {
-  "actions": [
+  "actions" : [
     {
-      "actions": [
+      "actions" : [
         {
-          "iconPath": "/Applications/Raycast.app",
-          "key": "a",
-          "label": "Search AI Commands",
-          "type": "command",
-          "value": "open \"raycast://extensions/raycast/raycast-ai/search-ai-commands\" && osascript -e 'tell application \"System Events\" to keystroke space using command down'"
+          "iconPath" : "/Applications/Raycast.app",
+          "key" : "a",
+          "label" : "Search AI Commands",
+          "type" : "command",
+          "value" : "open \"raycast://extensions/raycast/raycast-ai/search-ai-commands\" && osascript -e 'tell application \"System Events\" to keystroke space using command down'"
         },
         {
-          "key": "s",
-          "label": "Second Brain AI",
-          "type": "url",
-          "value": "raycast://extensions/raycast/raycast-ai/ai-chat?context=%7B%22preset%22:%22CA08B67A-C1B2-4B21-857F-B14821B2288F%22%7D"
+          "key" : "s",
+          "label" : "Second Brain AI",
+          "type" : "url",
+          "value" : "raycast://extensions/raycast/raycast-ai/ai-chat?context=%7B%22preset%22:%22CA08B67A-C1B2-4B21-857F-B14821B2288F%22%7D"
         }
       ],
-      "key": "a",
-      "label": "AI",
-      "type": "group"
+      "key" : "a",
+      "label" : "AI",
+      "type" : "group"
     },
     {
-      "actions": [
+      "actions" : [
         {
-          "key": "n",
-          "label": "GitHub Notifications",
-          "type": "url",
-          "value": "raycast://extensions/raycast/github/notifications"
+          "key" : "n",
+          "label" : "GitHub Notifications",
+          "type" : "url",
+          "value" : "raycast://extensions/raycast/github/notifications"
         }
       ],
-      "key": "g",
-      "label": "git",
-      "type": "group"
+      "key" : "g",
+      "label" : "git",
+      "type" : "group"
     },
     {
-      "actions": [
+      "actions" : [
         {
-          "iconPath": "/Applications/Raycast.app",
-          "key": "c",
-          "label": "callout",
-          "type": "url",
-          "value": "raycast://ai-commands/markdown-callout-generator"
+          "iconPath" : "/Applications/Raycast.app",
+          "key" : "c",
+          "label" : "callout",
+          "type" : "url",
+          "value" : "raycast://ai-commands/markdown-callout-generator"
         },
         {
-          "iconPath": "/Applications/Raycast.app",
-          "key": "d",
-          "label": "details",
-          "type": "url",
-          "value": "raycast://ai-commands/markdown-details-generator"
+          "iconPath" : "/Applications/Raycast.app",
+          "key" : "d",
+          "label" : "details",
+          "type" : "url",
+          "value" : "raycast://ai-commands/markdown-details-generator"
         },
         {
-          "iconPath": "/Applications/Raycast.app",
-          "key": "e",
-          "label": "emoji",
-          "type": "url",
-          "value": "raycast://ai-commands/emoji-enhancer"
+          "iconPath" : "/Applications/Raycast.app",
+          "key" : "e",
+          "label" : "emoji",
+          "type" : "url",
+          "value" : "raycast://ai-commands/emoji-enhancer"
         }
       ],
-      "key": "m",
-      "label": "markdown",
-      "type": "group"
+      "key" : "m",
+      "label" : "markdown",
+      "type" : "group"
     },
     {
-      "actions": [
+      "actions" : [
         {
-          "key": "m",
-          "label": "Markdown Link",
-          "type": "url",
-          "value": "raycast://ai-commands/url-markdown-link"
+          "key" : "m",
+          "label" : "Markdown Link",
+          "type" : "url",
+          "value" : "raycast://ai-commands/url-markdown-link"
         }
       ],
-      "key": "u",
-      "label": "URLs",
-      "type": "group"
+      "key" : "u",
+      "label" : "URLs",
+      "type" : "group"
     }
   ],
-  "type": "group"
+  "type" : "group"
 }

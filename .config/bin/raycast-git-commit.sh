@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-git diff --cached ~/c/dotfiles | pbcopy
+git diff --cached | pbcopy
 open raycast://ai-commands/gitmoji-generator

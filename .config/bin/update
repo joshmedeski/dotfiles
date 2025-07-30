@@ -43,9 +43,10 @@ gum spin --spinner globe --title "🐠 fisher plugins updating..." --show-output
 echo "\n" >>/tmp/u-$NOW.txt
 echo "✅ 🐠 fisher plugins updated"
 
-gum spin --spinner globe --title "💤 lazy.nvim syncing..." -- nvim --headless "+Lazy! sync" +qa
-echo "\n" >>/tmp/u-$NOW.txt
-echo "✅ 💤 lazy.nvim synced"
+# TODO: auto-open neovim instead?
+# gum spin --spinner globe --title "💤 lazy.nvim syncing..." -- nvim --headless "+Lazy! sync" +qa
+# echo "\n" >>/tmp/u-$NOW.txt
+# echo "✅ 💤 lazy.nvim synced"
 
 # gum spin --spinner globe --title "🧰 mason.nvim tools updating" -- nvim --headless -c MasonToolsUpdate -c "autocmd User MasonToolsUpdateCompleted quitall!"
 # echo "\n" >>/tmp/u-$NOW.txt

@@ -21,3 +21,4 @@ pnpm i
 
 echo "👷 Building"
 pnpm build
+say "All done setting up the new nutiliti workspace"

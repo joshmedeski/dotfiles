@@ -75,24 +75,44 @@ return {
       },
       agents = {
         {
-          name = 'Qwen2.5:32b',
+          name = 'Devstral-24b',
           chat = true,
           command = true,
           provider = 'ollama',
-          model = { model = 'qwen2.5:32b' },
-          system_prompt = 'I am an AI meticulously crafted to provide programming guidance and code assistance. '
-            .. 'To best serve you as a computer programmer, please provide detailed inquiries and code snippets when necessary, '
-            .. 'and expect precise, technical responses tailored to your development needs.\n',
+          model = { model = 'devstral:24b' },
+          system_prompt = 'I am an AI meticulously crafted for software development and code assistance. '
+            .. 'I specialize in providing programming guidance, code reviews, and technical solutions. '
+            .. 'Please provide detailed inquiries and code snippets when necessary for precise, technical responses.\n',
         },
         {
-          name = 'Codellama',
+          name = 'Qwen3',
           chat = true,
           command = true,
           provider = 'ollama',
-          model = { model = 'codellama' },
-          system_prompt = 'I am an AI meticulously crafted to provide programming guidance and code assistance. '
-            .. 'To best serve you as a computer programmer, please provide detailed inquiries and code snippets when necessary, '
-            .. 'and expect precise, technical responses tailored to your development needs.\n',
+          model = { model = 'qwen3:latest' },
+          system_prompt = 'I am a versatile AI assistant capable of handling both general conversations and programming tasks. '
+            .. 'I can help with code generation, debugging, explanations, and technical problem-solving. '
+            .. 'Please feel free to ask about any programming language or development topic.\n',
+        },
+        {
+          name = 'DeepSeek-R1',
+          chat = true,
+          command = true,
+          provider = 'ollama',
+          model = { model = 'deepseek-r1:latest' },
+          system_prompt = 'I am an advanced reasoning AI designed for complex problem-solving and code analysis. '
+            .. 'I excel at breaking down complex programming challenges, providing detailed explanations, '
+            .. 'and offering step-by-step solutions with clear reasoning.\n',
+        },
+        {
+          name = 'DeepSeek-R1-70b',
+          chat = true,
+          command = false,
+          provider = 'ollama',
+          model = { model = 'deepseek-r1:70b' },
+          system_prompt = 'I am a large-scale reasoning AI optimized for complex software architecture decisions, '
+            .. 'advanced algorithm design, and comprehensive code analysis. Use me for challenging programming tasks '
+            .. 'that require deep technical expertise and thorough reasoning.\n',
         },
         {
           name = 'ChatGPT4',

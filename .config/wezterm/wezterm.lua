@@ -277,36 +277,37 @@ wezterm.on("user-var-changed", function(window, pane, name, value)
 		end
 	end
 
-	if name == "DIFF_VIEW" then
-		local incremental = value:find("+")
-		local number_value = tonumber(value)
-		if incremental ~= nil then
-			while number_value > 0 do
-				window:perform_action(wezterm.action.DecreaseFontSize, pane)
-				number_value = number_value - 1
-			end
-			-- overrides.background = {
-			-- 	w.set_nvim_wallpaper("Diffview.jpeg"),
-			--
-			-- 	{
-			-- 		source = {
-			-- 			Gradient = {
-			-- 				colors = { "#000000" },
-			-- 			},
-			-- 		},
-			-- 		width = "100%",
-			-- 		height = "100%",
-			-- 		opacity = 0.95,
-			-- 	},
-			-- }
-		elseif number_value < 0 then
-			window:perform_action(wezterm.action.ResetFontSize, pane)
-			overrides.background = nil
-			overrides.font_size = nil
-		else
-			overrides.font_size = number_value
-		end
-	end
+	-- NOTE: disabled for now
+	-- if name == "DIFF_VIEW" then
+	-- 	local incremental = value:find("+")
+	-- 	local number_value = tonumber(value)
+	-- 	if incremental ~= nil then
+	-- 		while number_value > 0 do
+	-- 			window:perform_action(wezterm.action.DecreaseFontSize, pane)
+	-- 			number_value = number_value - 1
+	-- 		end
+	-- 		-- overrides.background = {
+	-- 		-- 	w.set_nvim_wallpaper("Diffview.jpeg"),
+	-- 		--
+	-- 		-- 	{
+	-- 		-- 		source = {
+	-- 		-- 			Gradient = {
+	-- 		-- 				colors = { "#000000" },
+	-- 		-- 			},
+	-- 		-- 		},
+	-- 		-- 		width = "100%",
+	-- 		-- 		height = "100%",
+	-- 		-- 		opacity = 0.95,
+	-- 		-- 	},
+	-- 		-- }
+	-- 	elseif number_value < 0 then
+	-- 		window:perform_action(wezterm.action.ResetFontSize, pane)
+	-- 		overrides.background = nil
+	-- 		overrides.font_size = nil
+	-- 	else
+	-- 		overrides.font_size = number_value
+	-- 	end
+	-- end
 	window:set_config_overrides(overrides)
 end)
 

@@ -9,20 +9,32 @@
 # Smart session manager for the terminal
 # https://github.com/joshmedeski/sesh
 
+strict_mode = false
+
 import = [
   "~/.config/sesh/configs/nu-sesh.toml",
   "~/.config/sesh/configs/raycast-extensions.toml",
 ]
-blacklist = ["scratch"]
 
-sort_order = ["tmux", "config", "tmuxinator", "zoxide"]
+# [marker]
+# inactivity_threshold = 10    # Seconds before alerts start
+# alert_level_1_time = 60      # Light alert duration
+# alert_level_2_time = 300     # Medium alert duration
+# alert_level_3_time = 600     # Urgent alert duration
+
+blacklist = [
+  "^scratch$",
+  "^_"
+]
+
+# sort_order = ["tmux", "config", "tmuxinator", "zoxide"]
 
 # default
 
 [default_session]
 startup_command = "nvim +GoToFile"
-startup_command_ignore_dirs = ["~/repos", "~/.config"]
 preview_command = "eza --all --git --icons --color=always {}"
+# startup_command_ignore_dirs = ["~/repos", "~/.config"]
 
 # common
 
@@ -45,7 +57,7 @@ startup_command = "wezterm_color_scheme_picker.sh && exit"
 [[session]]
 name = "second brain"
 path = "~/c/second-brain"
-startup_command = "nvim +ObsidianToday"
+# startup_command = "nvim +ObsidianToday"
 
 [[session]]
 name = "update"
@@ -69,16 +81,11 @@ path = "~"
 disable_startup_command = true
 # startup_command = "l"
 
-[[session]]
-name = "colima"
-path = "~/.colima"
-startup_command = "colima start"
-
 # nutilti
 
-[[wildcard]]
-pattern = "~/c/nu/*"
-disable_startup_command = true
+# [[wildcard]]
+# pattern = "~/c/nu/*"
+# disable_startup_command = true
 # startup_command = "lazygit"
 
 [[session]]
@@ -99,6 +106,7 @@ startup_command = "gh dash"
 # josh medeski
 
 [[session]]
+name = "joshmedeski.com"
 path = "~/c/joshmedeski.com"
 startup_script = "~/.config/sesh/scripts/node_dev"
 
@@ -116,6 +124,12 @@ startup_command = "nvim wezterm.lua"
 [[session]]
 name = "neovim config"
 path = "~/c/dotfiles/.config/nvim"
+
+[[session]]
+name = "aerospace config"
+path = "~/c/dotfiles/.config/aerospace"
+startup_command = "nvim aerospace.toml"
+preview_command = "bat --language=bash --style=snip --color=always ~/c/dotfiles/.config/aerospace/aerospace.toml"
 
 [[session]]
 name = "fish config"
@@ -139,6 +153,10 @@ name = "tmux config"
 path = "~/c/dotfiles/.config/tmux"
 startup_command = "nvim tmux.conf"
 preview_command = "bat --language=bash --style=snip --color=always ~/c/dotfiles/.config/tmux/tmux.conf"
+
+[[session]]
+name = "leaderkey config"
+path = "nvim ~/c/dotfiles/.config/leaderkey/config.json"
 
 [[session]]
 name = "gitmux config"
@@ -168,12 +186,6 @@ name = "karabiner elements config"
 path = "~/c/dotfiles/.config/karabiner"
 
 [[session]]
-name = "aerospace config"
-path = "~/c/dotfiles/.config/aerospace"
-startup_command = "nvim aerospace.toml"
-preview_command = "bat --style='full' --color=always ~/c/dotfiles/.config/aerospace/aerospace.toml"
-
-[[session]]
 name = "/ect/hosts"
 path = "/etc"
 startup_command = "sudo nvim hosts"
@@ -183,11 +195,6 @@ name = "lazyvim config (legacy)"
 path = "~/c/dotfiles/.config/lazyvim"
 
 # plugins
-
-[[session]]
-name = "3js"
-path = "~/c/threejs-journey"
-startup_command = "sesh connect (ls | fzf --ansi --no-border --preview 'glow -s light {}/README.md' --preview-window=right:70,border-none) && exit"
 
 [[session]]
 name = "lazy plugins"
@@ -224,6 +231,11 @@ path = "~/.ollama"
 startup_command = 'grc tail -f ~/.ollama/logs/server.log'
 
 [[session]]
+name = "blender mcp logs"
+path = "~/Library/Logs/Claude/"
+startup_command = "grc tail -f ~/Library/Logs/Claude/mcp-server-blender.log"
+
+[[session]]
 name = "macmon"
 path = "~/"
 startup_command = "macmon"
@@ -238,7 +250,7 @@ startup_command = "tmux set-option -t cava status off && cava"
 [[session]]
 name = "perplexica"
 path = "~/c/perplexica"
-startup_command = "docker compose up -d"
+# startup_command = "docker compose up -d"
 windows = ["git"]
 
 [[session]]

@@ -77,9 +77,7 @@ return {
     },
 
     sources = {
-      default = { 'avante', 'codecompanion', 'git', 'lazydev', 'lsp', 'path', 'snippets', 'buffer' },
-      -- NOTE: disable emoji and nerdfont for now
-      -- default = { 'avante', 'codecompanion', 'git', 'lazydev', 'lsp', 'path', 'snippets', 'buffer', 'emoji', 'nerdfont' },
+      default = { 'avante', 'codecompanion', 'git', 'lazydev', 'lsp', 'path', 'snippets', 'buffer', 'emoji', 'nerdfont' },
       providers = {
         avante = {
           module = 'blink-cmp-avante',

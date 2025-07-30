@@ -1,12 +1,12 @@
 return {
   'nvim-lualine/lualine.nvim',
+  enabled = true,
   -- TODO: ensure this is correct name
   dependencies = {
     { 'folke/trouble.nvim' },
     -- { 'bezhermoso/todos-lualine.nvim' },
     -- { 'folke/todo-comments.nvim' },
   },
-  enabled = true,
   event = 'VeryLazy',
   opts = function(plugin)
     if plugin.override then
@@ -123,25 +123,25 @@ return {
           --   --   directory = "", -- Text to show when the buffer is a directory
           --   -- },
           -- },
-          {
-            'filename',
-            file_status = true, -- Displays file status (readonly status, modified status)
-            newfile_status = false, -- Display new file status (new file means no write after created)
-            -- 0: Just the filename
-            -- 1: Relative path
-            -- 2: Absolute path
-            -- 3: Absolute path, with tilde as the home directory
-            -- 4: Filename and parent dir, with tilde as the home directory
-            path = 1,
-
-            -- shorting_target = 40,
-            symbols = {
-              modified = '[+]', -- Text to show when the file is modified.
-              readonly = '🔒', -- Text to show when the file is non-modifiable or readonly.
-              unnamed = '[No Name]', -- Text to show for unnamed buffers.
-              newfile = '[New]', -- Text to show for newly created file before first write
-            },
-          },
+          -- {
+          --   'filename',
+          --   file_status = true, -- Displays file status (readonly status, modified status)
+          --   newfile_status = false, -- Display new file status (new file means no write after created)
+          --   -- 0: Just the filename
+          --   -- 1: Relative path
+          --   -- 2: Absolute path
+          --   -- 3: Absolute path, with tilde as the home directory
+          --   -- 4: Filename and parent dir, with tilde as the home directory
+          --   path = 1,
+          --
+          --   -- shorting_target = 40,
+          --   symbols = {
+          --     modified = '[+]', -- Text to show when the file is modified.
+          --     readonly = '🔒', -- Text to show when the file is non-modifiable or readonly.
+          --     unnamed = '[No Name]', -- Text to show for unnamed buffers.
+          --     newfile = '[New]', -- Text to show for newly created file before first write
+          --   },
+          -- },
           -- { trouble_symbols.get, cond = trouble_symbols.has },
           diff,
           diagnostics,

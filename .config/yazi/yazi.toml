@@ -1,4 +1,4 @@
-[manager]
+[mgr]
 ratio = [1, 2, 4]
 sort_by = "mtime"
 sort_sensitive = true
