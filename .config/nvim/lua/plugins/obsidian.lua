@@ -1,38 +1,27 @@
 return {
-  'epwalsh/obsidian.nvim',
+  'obsidian-nvim/obsidian.nvim',
+  version = '*',
+  ft = 'markdown',
   dependencies = {
     'nvim-lua/plenary.nvim',
-    'hrsh7th/nvim-cmp',
     'nvim-telescope/telescope.nvim',
     'nvim-treesitter/nvim-treesitter',
   },
-  event = {
-    'BufReadPre ' .. vim.fn.expand '~' .. '/c/second-brain/**.md',
-    'BufNewFile ' .. vim.fn.expand '~' .. '/c/second-brain/**.md',
-  },
-  cmd = {
-    'ObsidianOpen',
-    'ObsidianNew',
-    'ObsidianQuickSwitch',
-    'ObsidianFollowLink',
-    'ObsidianBacklinks',
-    'ObsidianToday',
-    'ObsidianYesterday',
-    'ObsidianTemplate',
-    'ObsidianSearch',
-    'ObsidianLink',
-    'ObsidianLinkNew',
-  },
-
+  cmds = { 'Obsidian' },
+  ---@module 'obsidian'
+  ---@type obsidian.config
   opts = {
     workspaces = {
       {
-        name = 'second-brain',
+        name = 'personal',
         path = '~/c/second-brain',
       },
     },
-
-    completion = { nvim_cmp = true, min_chars = 2 },
+    completion = {
+      blink = true,
+      nvim_cmp = false,
+      min_chars = 2,
+    },
 
     mappings = {
       -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
@@ -98,8 +87,12 @@ return {
     -- https://github.com/Vinzent03/obsidian-advanced-uri
     use_advanced_uri = true,
 
-    -- Optional, set to true to force ':ObsidianOpen' to bring the app to the foreground.
-    open_app_foreground = true,
+    open = {
+      func = function(uri)
+        vim.ui.open(uri, { cmd = { 'open', '-a', '/Applications/Obsidian.app' } })
+      end,
+    },
+
     ui = {
       enable = true, -- set to false to disable all additional syntax features
       update_debounce = 200, -- update delay after a text change (in milliseconds)
