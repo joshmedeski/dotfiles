@@ -108,6 +108,9 @@ return {
           score_offset = 15,
           opts = { insert = true },
         },
+        opencode = {
+          module = 'opencode.cmp.blink',
+        },
         emoji = {
           -- TODO: update appearance to only show emoji and not lsp symbol
           module = 'blink-emoji',
@@ -115,6 +118,9 @@ return {
           score_offset = 25,
           opts = { insert = true },
         },
+      },
+      per_filetype = {
+        opencode_ask = { 'opencode', 'buffer' },
       },
     },
     fuzzy = { implementation = 'prefer_rust_with_warning' },
