@@ -114,7 +114,7 @@ abbr ns "nu seed"
 abbr nw nu_new_worktree
 
 abbr o "open ."
-abbr oc "overmind connect (overmind ps | fzf | awk '{print $1}')"
+abbr oc "opencode"
 abbr ok "overmind kill"
 abbr or "overmind restart"
 abbr os "overmind start -D"
