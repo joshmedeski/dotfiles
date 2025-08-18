@@ -1,0 +1,45 @@
+{
+  "$schema": "https://charm.land/crush.json",
+  "providers": {
+    "ollama": {
+      "name": "Ollama",
+      "base_url": "http://localhost:11434/v1/",
+      "type": "openai",
+      "models": [
+        {
+          "name": "gpt-oss (20b)",
+          "id": "gpt-oss:20b",
+          "context_window": 256000,
+          "default_max_tokens": 20000,
+          "cost_per_1m_in": 0,
+          "cost_per_1m_out": 0,
+          "cost_per_1m_out_cached": 0,
+          "cost_per_1m_in_cached": 0,
+          "can_reason": true,
+          "has_reasoning_efforts": true,
+          "supports_attachments": true
+        }
+      ]
+    }
+  },
+  "lsp": {
+    "go": {
+      "command": "gopls"
+    },
+    "typescript": {
+      "command": "typescript-language-server",
+      "args": ["--stdio"]
+    },
+    "json": {
+      "command": "vscode-json-language-server",
+      "args": ["--stdio"]
+    }
+  },
+  "mcp": {
+    "Context7": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"]
+    }
+  }
+}
