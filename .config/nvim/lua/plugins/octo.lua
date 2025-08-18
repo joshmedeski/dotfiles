@@ -31,6 +31,6 @@ return {
   keys = {
     -- TODO: add Snacks support to Octo.nvim
     -- TODO: add this to the LazyVim extra (`<leader>go`?)
-    { '<leader>o', '<cmd>Octo<cr>', desc = 'Octo' },
+    { '<leader>O', '<cmd>Octo<cr>', desc = 'Octo' },
   },
 }
