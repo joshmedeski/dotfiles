@@ -42,13 +42,14 @@ return {
       -- color_overrides = { all = theme_colors },
       custom_highlights = function(colors)
         return {
-          CurSearch = { bg = colors.yellow },
-          GitSignsChange = { fg = colors.blue },
           CoverageCovered = { fg = colors.green },
           CoverageUncovered = { fg = colors.red },
-          NormalFloat = { bg = 'NONE' },
-          LspHoverNormal = { bg = 'NONE' },
+          CurSearch = { bg = colors.yellow },
+          FloatBorder = { bg = 'NONE' },
+          GitSignsChange = { fg = colors.blue },
           LspHoverBorder = { bg = 'NONE' },
+          LspHoverNormal = { bg = 'NONE' },
+          NormalFloat = { bg = 'NONE' },
           RenderMarkdownCode = { bg = 'NONE' },
         }
       end,
