@@ -52,6 +52,7 @@ set -Ux PAGER nvimpager
 # golang - https://golang.google.cn/
 set -Ux GOPATH (go env GOPATH)
 fish_add_path $GOPATH/bin
+fish_add_path $HOME/.rustup/toolchains/nightly-aarch64-apple-darwin/bin
 
 fish_add_path $HOME/.config/bin # my custom scripts
 fish_add_path $HOME/.cargo/bin
