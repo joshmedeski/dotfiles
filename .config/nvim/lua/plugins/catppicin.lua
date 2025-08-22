@@ -51,6 +51,9 @@ return {
           LspHoverNormal = { bg = 'NONE' },
           NormalFloat = { bg = 'NONE' },
           RenderMarkdownCode = { bg = 'NONE' },
+          Added = { fg = colors.green },
+          Removed = { fg = colors.red },
+          Changed = { fg = colors.blue },
         }
       end,
       integrations = {
