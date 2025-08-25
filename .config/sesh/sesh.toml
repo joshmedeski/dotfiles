@@ -45,6 +45,12 @@ startup_command = "fastfetch"
 preview_command = "fastfetch"
 
 [[session]]
+name = "rift"
+path = "~/c/rift"
+startup_command = "cargo run --bin rift --release"
+preview_command = "bat --language=toml --style=snip --color=always ~/.rift.toml"
+
+[[session]]
 name = "wallpaper"
 path = "~/.config/wezterm/wallpapers"
 startup_command = "wezterm_wallpaper_picker.sh && exit"
