@@ -2,18 +2,29 @@
   "$schema": "https://opencode.ai/config.json",
   "provider": {
     "ollama": {
-      "name": "OpenRouter",
+      "name": "Ollama (local)",
       "npm": "@ai-sdk/openai-compatible",
       "options": {
         "baseURL": "http://localhost:11434/v1"
       },
       "models": {
-        "qwen3": {},
-        "deepseek-r1": {},
-        "devstral": {}
+        "deepseek-r1": { "name": "DeepSeek R1" },
+        "devstral": { "name": "Devstral" },
+        "gpt-oss:20b": { "name": "gpt-oss" },
+        "qwen3": { "name": "Qwen3" },
+        "qwen3-coder": { "name": "Qwen3 Coder" }
       }
     }
   },
+
+  "mcp": {
+    "context7": {
+      "type": "local",
+      "command": ["npx", "-y", "@upstash/context7-mcp"],
+      "enabled": true
+    }
+  },
+
   "mode": {
     "build": {
       "tools": {
