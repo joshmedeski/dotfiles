@@ -1,0 +1,15 @@
+# Example Configuration
+repos:
+  # Repository name
+  nu:
+    # Default branch used when no base branch is specified
+    defaultBranch: main
+    #where should treekanga put the worktrees, assumes starting in the $HOME directory
+    worktreeTargetDir: /c/nu
+    # Folders to register with zoxide for quick navigation
+    zoxideFolders:
+      - packages/*
+      - apps/*
+      - server
+      - web
+      - web-e2e
