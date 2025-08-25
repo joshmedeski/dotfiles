@@ -65,3 +65,5 @@ app_support/lazygit/state.yml
 .config/yazi/plugins
 .config/nvim/mcpservers.json
 .crush
+.config/fish/conf.d/obsidian-api.fish
+.config/fish/conf.d/tmuxai.fish
