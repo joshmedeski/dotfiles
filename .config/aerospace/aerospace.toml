@@ -118,6 +118,7 @@ equal = 'resize smart +100'
 
 [workspace-to-monitor-force-assignment]
 g = ['secondary']
+q = 'deskpad display'
 
 [[on-window-detected]]
 if.app-id = 'com.github.wez.wezterm'
