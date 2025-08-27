@@ -32,10 +32,10 @@ key-mapping.preset = 'qwerty'
 [gaps]
 inner.horizontal = 8
 inner.vertical = 8
-outer.bottom = 0
-outer.left = 0
-outer.right = 0
-outer.top = 0
+outer.bottom = 8
+outer.left = 8
+outer.right = 8
+outer.top = 8
 
 [mode.main.binding]
 # TODO: come up with a more intuitive keybinding for this?
