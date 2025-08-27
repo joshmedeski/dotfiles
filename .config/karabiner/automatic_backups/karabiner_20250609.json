@@ -88,22 +88,6 @@
                                 ],
                                 "to_if_alone": [{ "key_code": "escape" }],
                                 "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "caps_lock",
-                                    "modifiers": { "mandatory": ["left_command"] }
-                                },
-                                "to": [{ "key_code": "escape" }],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "caps_lock",
-                                    "modifiers": { "mandatory": ["left_option"] }
-                                },
-                                "to": [{ "key_code": "escape" }],
-                                "type": "basic"
                             }
                         ]
                     }
@@ -133,26 +117,6 @@
                         "is_pointing_device": true,
                         "product_id": 6505,
                         "vendor_id": 12951
-                    },
-                    "ignore": false
-                },
-                {
-                    "identifiers": {
-                        "is_game_pad": true,
-                        "is_keyboard": true,
-                        "is_pointing_device": true,
-                        "product_id": 3616,
-                        "vendor_id": 13364
-                    },
-                    "ignore": false
-                },
-                {
-                    "disable_built_in_keyboard_if_exists": true,
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "is_pointing_device": true,
-                        "product_id": 3616,
-                        "vendor_id": 13364
                     },
                     "ignore": false
                 }
