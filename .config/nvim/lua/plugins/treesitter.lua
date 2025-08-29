@@ -28,6 +28,7 @@ return {
       'c',
       'diff',
       'html',
+      'json5',
       'lua',
       'luadoc',
       'markdown',
