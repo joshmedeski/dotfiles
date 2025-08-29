@@ -45,6 +45,7 @@ return {
       graphql = { 'prettierd', 'prettier', stop_after_first = true },
       md = { 'prettierd', 'prettier', stop_after_first = true },
       mdx = { 'prettierd', 'prettier', stop_after_first = true },
+      astro = { 'prettierd', 'prettier', stop_after_first = true },
       gofumpt = { 'gofumpt' },
       glsl = { 'glslangValidator' },
     },
