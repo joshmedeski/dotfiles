@@ -1,0 +1,181 @@
+#!/bin/bash
+
+# This script loops through the provided JSON array of voices and uses the 'say' command
+# to speak each greeting with the corresponding voice.
+# Requires 'jq' to be installed for JSON parsing.
+
+JSON='[
+  {
+    "name": "Albert",
+    "greeting": "Greetings, my dear friend. I'\''ve got a brilliant idea brewing, just like Einstein would!"
+  },
+  {
+    "name": "Bad News",
+    "greeting": "I'\''m sorry to say this, but I'\''ve got some bad news: it'\''s going to rain on your parade today."
+  },
+  {
+    "name": "Bahh",
+    "greeting": "Bahh! Come on over to the pasture, little lamb, and let'\''s graze the day away together."
+  },
+  {
+    "name": "Bells",
+    "greeting": "Ding-dong! The bells are ringing to announce good tidings and joyful news for all."
+  },
+  {
+    "name": "Boing",
+    "greeting": "Boing! Let'\''s bounce right into some fun adventures and spring through the day with energy."
+  },
+  {
+    "name": "Bubbles",
+    "greeting": "Bubble bubble, pop pop! I'\''m floating with excitement to chat and make some bubbly memories."
+  },
+  {
+    "name": "Cellos",
+    "greeting": "Let me serenade you with a deep, resonant melody on the cellos—it's music to soothe your soul."
+  },
+  {
+    "name": "Eddy (English (US))",
+    "greeting": "Hey there, I'\''m Eddy, swirling into your day like a gentle whirlpool—ready to go with the flow?"
+  },
+  {
+    "name": "Flo (English (US))",
+    "greeting": "Hi, I'\''m Flo, here to keep things flowing smoothly. Need a hand with insurance or just a chat?"
+  },
+  {
+    "name": "Fred",
+    "greeting": "Howdy, folks! I'\''m Fred, your friendly neighbor, ready to lend a hand or share a good story."
+  },
+  {
+    "name": "Good News",
+    "greeting": "Great news everyone! The sun is shining, and everything'\''s looking up—let'\''s celebrate the positives."
+  },
+  {
+    "name": "Grandma (English (US))",
+    "greeting": "Oh, hello my sweet grandchild! Come give Grandma a hug, and let'\''s bake some cookies together."
+  },
+  {
+    "name": "Grandpa (English (US))",
+    "greeting": "Well, hello there, kiddo! Grandpa'\''s got some tall tales from the old days to share with you."
+  },
+  {
+    "name": "Jester",
+    "greeting": "Hee hee, welcome to the court of fun! I'\''m the Jester, here to juggle jokes and make you laugh."
+  },
+  {
+    "name": "Junior",
+    "greeting": "Hey, big sis or bro! I'\''m Junior, excited to play games and learn new tricks from you today."
+  },
+  {
+    "name": "Kathy",
+    "greeting": "Hi everyone, I'\''m Kathy! Let'\''s catch up over coffee and talk about life'\''s little adventures."
+  },
+  {
+    "name": "Organ",
+    "greeting": "Feel the majestic pipes resonate! I'\''m the Organ, playing a grand hymn to uplift your spirits."
+  },
+  {
+    "name": "Ralph",
+    "greeting": "Woof woof! Wait, no—I'\''m Ralph, your average guy, just here to chat and keep things real."
+  },
+  {
+    "name": "Reed (English (US))",
+    "greeting": "Greetings from the marshes! I'\''m Reed, swaying gently in the breeze, ready for a calm conversation."
+  },
+  {
+    "name": "Rocko (English (US))",
+    "greeting": "Rock on, dude! I'\''m Rocko, pumping up the volume with some rockstar energy for your day."
+  },
+  {
+    "name": "Samantha",
+    "greeting": "Hello, how can I help you today? I'\''m Samantha, your reliable assistant for all things tech and talk."
+  },
+  {
+    "name": "Sandy (English (US))",
+    "greeting": "Hey there, beach lover! I'\''m Sandy, bringing the warmth of the shore and waves of fun ideas."
+  },
+  {
+    "name": "Shelley (English (US))",
+    "greeting": "Shh, listen to the ocean'\''s whisper! I'\''m Shelley, collecting seashells and sharing seaside stories."
+  },
+  {
+    "name": "Superstar",
+    "greeting": "Lights, camera, action! I'\''m the Superstar, ready to shine bright and make your moment legendary."
+  },
+  {
+    "name": "Trinoids",
+    "greeting": "Beep boop, initiating contact! We'\''re the Trinoids, three robotic voices uniting for futuristic fun."
+  },
+  {
+    "name": "Whisper",
+    "greeting": "Psst, come closer... I have a secret to share, but let'\''s keep it between us in this quiet whisper."
+  },
+  {
+    "name": "Wobble",
+    "greeting": "Whoa, steady now! I'\''m Wobble, jiggling through life with a fun, unsteady vibe—let'\''s shake things up."
+  },
+  {
+    "name": "Zarvox",
+    "greeting": "Greetings, Earthling! I'\''m Zarvox, your alien companion from the stars, beaming in for cosmic chats."
+  },
+  {
+    "name": "Daniel",
+    "greeting": "Good day to you! I'\''m Daniel, here for a proper chat over tea—how may I be of service?"
+  },
+  {
+    "name": "Eddy (English (UK))",
+    "greeting": "Cheers, mate! I'\''m Eddy, swirling about like a British eddy in the Thames—fancy a natter?"
+  },
+  {
+    "name": "Flo (English (UK))",
+    "greeting": "Hello there! I'\''m Flo, keeping the conversation flowing like the River Thames on a sunny day."
+  },
+  {
+    "name": "Grandma (English (UK))",
+    "greeting": "Come here, my dear! Grandma'\''s baked some scones—let'\''s have a cuppa and a lovely chinwag."
+  },
+  {
+    "name": "Grandpa (English (UK))",
+    "greeting": "Ah, hello lad or lass! Grandpa'\''s got stories from the war—pull up a chair and listen in."
+  },
+  {
+    "name": "Reed (English (UK))",
+    "greeting": "Salutations from the reeds! I'\''m Reed, rustling in the English countryside breeze, ready to converse."
+  },
+  {
+    "name": "Rocko (English (UK))",
+    "greeting": "Oi, rock and roll! I'\''m Rocko, cranking up the amps for a proper British punk vibe today."
+  },
+  {
+    "name": "Sandy (English (UK))",
+    "greeting": "G'\''day from the seaside! I'\''m Sandy, evoking Brighton Beach vibes with tales of the shore."
+  },
+  {
+    "name": "Shelley (English (UK))",
+    "greeting": "Listen to the waves! I'\''m Shelley, inspired by the poet, sharing verses from the English coast."
+  },
+  {
+    "name": "Karen",
+    "greeting": "G'\''day mate! I'\''m Karen, firing up the barbie—let'\''s have a yarn about the outback adventures."
+  },
+  {
+    "name": "Moira",
+    "greeting": "Top o'\'' the mornin'\'' to ya! I'\''m Moira, with a wee bit of Irish charm—fancy a chat by the fireside?"
+  },
+  {
+    "name": "Rishi",
+    "greeting": "Namaste! I'\''m Rishi, wise like the sages—let'\''s discuss life'\''s wisdom over a cup of chai."
+  },
+  {
+    "name": "Tessa",
+    "greeting": "Howzit! I'\''m Tessa, bringing the spirit of the veld—let'\''s braai and share stories under the stars."
+  }
+]'
+
+# Loop through each JSON object in the array
+echo "${JSON}" | jq -c '.[]' | while read -r row; do
+    name=$(echo "${row}" | jq -r '.name')
+    greeting=$(echo "${row}" | jq -r '.greeting')
+    echo "Speaking with voice: ${name}"
+    say -v "${name}" "${greeting}"
+done
+
