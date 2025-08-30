@@ -27,6 +27,18 @@ return {
 
         local stats = {}
 
+        if gitsigns_stats.modified and gitsigns_stats.modified > 0 then
+          table.insert(
+            stats,
+            bar.dropbar_symbol_t:new {
+              icon = ' ',
+              icon_hl = 'Changed',
+              name = tostring(gitsigns_stats.modified),
+              name_hl = 'Changed',
+            }
+          )
+        end
+
         if gitsigns_stats.added and gitsigns_stats.added > 0 then
           table.insert(
             stats,
@@ -47,18 +59,6 @@ return {
               icon_hl = 'Removed',
               name = tostring(gitsigns_stats.removed),
               name_hl = 'Removed',
-            }
-          )
-        end
-
-        if gitsigns_stats.modified and gitsigns_stats.modified > 0 then
-          table.insert(
-            stats,
-            bar.dropbar_symbol_t:new {
-              icon = ' ',
-              icon_hl = 'Changed',
-              name = tostring(gitsigns_stats.modified),
-              name_hl = 'Changed',
             }
           )
         end
