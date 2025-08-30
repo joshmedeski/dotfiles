@@ -25,11 +25,11 @@ tmux:
     deletions: " "
   styles:
     state: "#[fg=red,nobold]"
-    branch: "#[fg=cyan,nobold]"
+    branch: "#[fg=cyan,bold]"
     staged: "#[fg=green,nobold]"
     conflict: "#[fg=red,nobold]"
     modified: "#[fg=blue,nobold]"
-    untracked: "#[fg=gray,nobold]"
+    untracked: "#[fg=magenta,nobold]"
     stashed: "#[fg=gray,nobold]"
     clean: "#[fg=green,nobold]"
     divergence: "#[fg=yellow,nobold]"
