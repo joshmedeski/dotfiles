@@ -18,47 +18,57 @@ return {
   config = function()
     local bar = require 'dropbar.bar'
 
-    local gitsigns_stats = {
-      get_symbols = function(_, _, _)
-        local gitsigns_stats = get_gitsigns_stats()
-        if not gitsigns_stats then
-          return {}
-        end
+    ---@class dropbar_source_t
+    local mini_diff_stats = {
+      get_symbols = function(buff, _, _)
+        local summary = vim.b[buff].minidiff_summary
 
         local stats = {}
 
-        if gitsigns_stats.modified and gitsigns_stats.modified > 0 then
+        if summary.n_ranges and summary.n_ranges > 0 then
           table.insert(
             stats,
             bar.dropbar_symbol_t:new {
-              icon = ' ',
-              icon_hl = 'Changed',
-              name = tostring(gitsigns_stats.modified),
-              name_hl = 'Changed',
+              icon = ' ',
+              icon_hl = 'Modified',
+              name = tostring(summary.n_ranges),
+              name_hl = 'Modified',
             }
           )
         end
 
-        if gitsigns_stats.added and gitsigns_stats.added > 0 then
-          table.insert(
-            stats,
-            bar.dropbar_symbol_t:new {
-              icon = ' ',
-              icon_hl = 'Added',
-              name = tostring(gitsigns_stats.added),
-              name_hl = 'Added',
-            }
-          )
-        end
-
-        if gitsigns_stats.removed and gitsigns_stats.removed > 0 then
+        if summary.delete and summary.delete > 0 then
           table.insert(
             stats,
             bar.dropbar_symbol_t:new {
               icon = ' ',
               icon_hl = 'Removed',
-              name = tostring(gitsigns_stats.removed),
+              name = tostring(summary.delete),
               name_hl = 'Removed',
+            }
+          )
+        end
+
+        if summary.change and summary.change > 0 then
+          table.insert(
+            stats,
+            bar.dropbar_symbol_t:new {
+              icon = ' ',
+              icon_hl = 'Changed',
+              name = tostring(summary.change),
+              name_hl = 'Changed',
+            }
+          )
+        end
+
+        if summary.add and summary.add > 0 then
+          table.insert(
+            stats,
+            bar.dropbar_symbol_t:new {
+              icon = ' ',
+              icon_hl = 'Added',
+              name = tostring(summary.add),
+              name_hl = 'Added',
             }
           )
         end
