@@ -51,9 +51,17 @@ return {
           LspHoverNormal = { bg = 'NONE' },
           NormalFloat = { bg = 'NONE' },
           RenderMarkdownCode = { bg = 'NONE' },
+
           Added = { fg = colors.green },
           Removed = { fg = colors.red },
           Changed = { fg = colors.blue },
+
+          OilGitAdded = { fg = colors.green },
+          OilGitDeleted = { fg = colors.red },
+          OilGitModified = { fg = colors.yellow },
+          OilGitRenamed = { fg = colors.yellow },
+          OilGitUntracked = { fg = colors.pink },
+          OilGitIgnored = { fg = colors.overlay0 },
         }
       end,
       integrations = {
