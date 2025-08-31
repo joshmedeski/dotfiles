@@ -12,6 +12,10 @@ return {
       get_symbols = function(buff, _, _)
         local summary = vim.b[buff].minidiff_summary
 
+        if not summary then
+          return {}
+        end
+
         local stats = {}
 
         if summary.n_ranges and summary.n_ranges > 0 then
