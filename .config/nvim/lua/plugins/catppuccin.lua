@@ -54,7 +54,7 @@ return {
 
           Added = { fg = colors.green },
           Removed = { fg = colors.red },
-          Changed = { fg = colors.blue },
+          Changed = { fg = colors.yellow },
 
           OilGitAdded = { fg = colors.green },
           OilGitDeleted = { fg = colors.red },
@@ -62,6 +62,19 @@ return {
           OilGitRenamed = { fg = colors.yellow },
           OilGitUntracked = { fg = colors.pink },
           OilGitIgnored = { fg = colors.overlay0 },
+
+          FFFGitSignDeleted = { fg = colors.red },
+          FFFGitSignDeletedSelected = { fg = colors.red, bg = colors.surface0 },
+          FFFGitSignIgnored = { fg = colors.overlay0 },
+          FFFGitSignIgnoredSelected = { fg = colors.overlay0, bg = colors.surface0 },
+          FFFGitSignModified = { fg = colors.yellow },
+          FFFGitSignModifiedSelected = { fg = colors.yellow, bg = colors.surface0 },
+          FFFGitSignRenamed = { fg = colors.yellow },
+          FFFGitSignRenamedSelected = { fg = colors.yellow, bg = colors.surface0 },
+          FFFGitSignStaged = { fg = colors.green },
+          FFFGitSignStagedSelected = { fg = colors.green, bg = colors.surface0 },
+          FFFGitSignUntracked = { fg = colors.pink },
+          FFFGitSignUntrackedSelected = { fg = colors.pink, bg = colors.surface0 },
         }
       end,
       integrations = {
