@@ -98,7 +98,7 @@ return {
           table.insert(
             stats,
             bar.dropbar_symbol_t:new {
-              icon = lspIcons.error,
+              icon = lspIcons.warn,
               icon_hl = 'DiagnosticWarn',
               name = tostring(#warnings),
               name_hl = 'DiagnosticWarn',
