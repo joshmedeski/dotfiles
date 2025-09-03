@@ -67,3 +67,5 @@ app_support/lazygit/state.yml
 .crush
 .config/fish/conf.d/obsidian-api.fish
 .config/fish/conf.d/tmuxai.fish
+.config/wezterm/wallpapers
+.config/ghostty/shaders
