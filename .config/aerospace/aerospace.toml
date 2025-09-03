@@ -42,6 +42,8 @@ outer.top = 8
 alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
 
+alt-d = 'layout floating tiling'
+
 # TODO: integrate with tmux vim navigation
 alt-shift-h = 'focus left'
 alt-shift-j = 'focus down'
