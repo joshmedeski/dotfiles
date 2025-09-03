@@ -12,11 +12,11 @@ return {
   build = 'cargo build --release',
   opts = {
     layout = {
-      height = 0.8,
+      height = 0.9,
       width = 0.8,
       prompt_position = 'top',
       preview_position = 'right',
-      preview_size = 0.5,
+      preview_size = 0.6,
     },
   },
   keys = {
