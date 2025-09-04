@@ -76,6 +76,10 @@ return {
           FFFGitSignStagedSelected = { fg = colors.green, bg = colors.surface0 },
           FFFGitSignUntracked = { fg = colors.pink },
           FFFGitSignUntrackedSelected = { fg = colors.pink, bg = colors.surface0 },
+
+          PackageInfoOutdatedVersion = { fg = colors.yellow },
+          PackageInfoUpToDateVersion = { fg = colors.green },
+          PackageInfoInErrorVersion = { fg = colors.red },
         }
       end,
       integrations = {
