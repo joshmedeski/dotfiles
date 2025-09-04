@@ -18,6 +18,18 @@ return {
 
         local stats = {}
 
+        if not summary.add and not summary.change and not summary.delete and not summary.n_ranges then
+          table.insert(
+            stats,
+            bar.dropbar_symbol_t:new {
+              icon = '󱀶 ',
+              icon_hl = 'Untracked',
+              name = '',
+              name_hl = 'Untracked',
+            }
+          )
+        end
+
         if summary.n_ranges and summary.n_ranges > 0 then
           table.insert(
             stats,
