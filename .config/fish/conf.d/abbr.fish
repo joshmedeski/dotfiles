@@ -20,6 +20,7 @@ abbr :qa! "tmux kill-server"
 
 abbr ast "aw set -t (aw list | fzf-tmux -p --reverse --preview 'aw set -t {}')"
 abbr av "NVIM_APPNAME=astronvim nvim"
+abbr ai "opencode"
 
 abbr b build
 abbr bi "brew install"
@@ -46,6 +47,7 @@ abbr dcr "docker compose restart"
 abbr dcu "docker compose up -d"
 abbr dps "docker ps --format 'table {{.Names}}\t{{.Status}}'"
 
+abbr editor "nvim +GoToFile"
 abbr e exit
 abbr ee "espanso edit"
 abbr er "espanso restart"

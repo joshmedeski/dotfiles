@@ -11,3 +11,4 @@ alias aw "~/.config/aw/bin/run"
 alias pn pnpm
 alias python python3
 alias godot "/Applications/Godot.app/Contents/MacOS/Godot"
+alias ai "opencode"
