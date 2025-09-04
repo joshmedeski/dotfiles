@@ -52,6 +52,9 @@ return {
           NormalFloat = { bg = 'NONE' },
           RenderMarkdownCode = { bg = 'NONE' },
 
+          FileName = { fg = colors.text, bold = true },
+          FilePath = { fg = colors.surface2, italic = true },
+
           Added = { fg = colors.green },
           Removed = { fg = colors.red },
           Changed = { fg = colors.yellow },
