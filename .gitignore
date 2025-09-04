@@ -69,3 +69,4 @@ app_support/lazygit/state.yml
 .config/fish/conf.d/tmuxai.fish
 .config/wezterm/wallpapers
 .config/ghostty/shaders
+.config/fish/conf.d/firecrawl.fish
