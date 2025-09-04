@@ -148,6 +148,15 @@ return {
 
     ---@class dropbar_source_t
     require('dropbar').setup {
+      icons = {
+        enabled = true,
+        ui = {
+          bar = {
+            separator = ' ',
+            extends = '…',
+          },
+        },
+      },
       bar = {
         sources = function()
           local sources = require 'dropbar.sources'
