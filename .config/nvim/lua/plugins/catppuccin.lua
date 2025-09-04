@@ -55,6 +55,7 @@ return {
           Added = { fg = colors.green },
           Removed = { fg = colors.red },
           Changed = { fg = colors.yellow },
+          Untracked = { fg = colors.pink },
 
           OilGitAdded = { fg = colors.green },
           OilGitDeleted = { fg = colors.red },
