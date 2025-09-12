@@ -42,6 +42,8 @@ set -Ux BAT_THEME "Catppuccin Latte" # 'sharkdp/bat' cat clone
 set -Ux EDITOR nvim # 'neovim/neovim' text editor
 set -Ux FZF_DEFAULT_COMMAND "fd -H -E '.git'"
 
+set -Ux FZF_DEFAULT_OPTS '--layout=reverse --ansi'
+
 # TODO: fix colors of nvimpager
 # set -Ux PAGER "~/.local/bin/nvimpager" # 'lucc/nvimpager'
 set -Ux PAGER nvimpager
