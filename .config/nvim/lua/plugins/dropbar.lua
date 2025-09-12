@@ -177,12 +177,13 @@ return {
             }
           )
         else
+          local formatted_abs_path = vim.fn.fnamemodify(abs_path, ':~')
           table.insert(
             stats,
             bar.dropbar_symbol_t:new {
               icon = ' ',
               icon_hl = '',
-              name = abs_path,
+              name = formatted_abs_path,
               name_hl = '',
             }
           )
