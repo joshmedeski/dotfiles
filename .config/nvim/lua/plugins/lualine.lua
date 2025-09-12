@@ -1,6 +1,6 @@
 return {
   'nvim-lualine/lualine.nvim',
-  enabled = true,
+  enabled = false,
   -- TODO: ensure this is correct name
   dependencies = {
     { 'folke/trouble.nvim' },
