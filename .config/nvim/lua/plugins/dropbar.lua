@@ -170,7 +170,7 @@ return {
           table.insert(
             stats,
             bar.dropbar_symbol_t:new {
-              icon = '',
+              icon = ' ',
               icon_hl = 'FilePath',
               name = pathOnly,
               name_hl = 'FilePath',
