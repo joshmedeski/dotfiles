@@ -1,4 +1,5 @@
 return {
+  enabled = false,
   'sindrets/diffview.nvim',
   dependencies = 'nvim-lua/plenary.nvim',
   lazy = false,

@@ -59,7 +59,7 @@ return { -- Collection of various small independent plugins/modules
       },
     }
 
-    -- require('mini.diff').setup()
+    require('mini.diff').setup()
 
     require('mini.ai').setup {
       -- Better Around/Inside textobjects
