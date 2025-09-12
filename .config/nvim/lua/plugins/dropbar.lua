@@ -167,15 +167,17 @@ return {
               name_hl = 'FileName',
             }
           )
-          table.insert(
-            stats,
-            bar.dropbar_symbol_t:new {
-              icon = ' ',
-              icon_hl = 'FilePath',
-              name = pathOnly,
-              name_hl = 'FilePath',
-            }
-          )
+          if pathOnly ~= '.' then
+            table.insert(
+              stats,
+              bar.dropbar_symbol_t:new {
+                icon = ' ',
+                icon_hl = 'FilePath',
+                name = pathOnly,
+                name_hl = 'FilePath',
+              }
+            )
+          end
         else
           local formatted_abs_path = vim.fn.fnamemodify(abs_path, ':~')
           table.insert(
