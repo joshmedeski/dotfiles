@@ -146,6 +146,52 @@ return {
       end,
     }
 
+    local smart_path = {
+      get_symbols = function(buff, _, _)
+        local stats = {}
+
+        local abs_path = vim.api.nvim_buf_get_name(buff) -- Get absolute path of current buffer
+        local cwd = vim.fn.getcwd()
+        local rel_path = vim.fs.relpath(cwd, abs_path)
+
+        if rel_path then
+          -- TODO: split path
+          local fileName = vim.fn.fnamemodify(rel_path, ':t')
+          local pathOnly = vim.fn.fnamemodify(rel_path, ':h')
+          table.insert(
+            stats,
+            bar.dropbar_symbol_t:new {
+              icon = '',
+              icon_hl = 'FileName',
+              name = fileName,
+              name_hl = 'FileName',
+            }
+          )
+          table.insert(
+            stats,
+            bar.dropbar_symbol_t:new {
+              icon = '',
+              icon_hl = 'FilePath',
+              name = pathOnly,
+              name_hl = 'FilePath',
+            }
+          )
+        else
+          table.insert(
+            stats,
+            bar.dropbar_symbol_t:new {
+              icon = ' ',
+              icon_hl = '',
+              name = abs_path,
+              name_hl = '',
+            }
+          )
+        end
+
+        return stats
+      end,
+    }
+
     ---@class dropbar_source_t
     require('dropbar').setup {
       icons = {
@@ -159,8 +205,7 @@ return {
       },
       bar = {
         sources = function()
-          local sources = require 'dropbar.sources'
-          return { sources.path, mini_diff_stats, lsp_diagnostics }
+          return { smart_path, mini_diff_stats, lsp_diagnostics }
         end,
       },
     }
