@@ -1,3 +1,6 @@
+# Nerd font window name plugin 
+# https://github.com/joshmedeski/tmux-nerd-font-window-name
+
 config:
   fallback-icon: "❓"
   multi-pane-icon: "🪟"
