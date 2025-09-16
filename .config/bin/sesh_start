@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 sesh connect "$(
-  sesh list | fzf --no-border \
+  sesh list --icons | fzf --no-border \
     --list-border \
     --no-sort --prompt '⚡  ' \
     --input-border \
