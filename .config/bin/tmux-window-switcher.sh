@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# NOTE: use this instead, the -S flag will switch the the window name if it exists
+# bind -N "⌘+g lazygit" g new-window -S -n '🌳' 'lazygit'
+
 WINDOW_NAME="$1"
 CMD="$2"
 
