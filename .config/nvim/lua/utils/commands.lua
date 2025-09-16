@@ -10,7 +10,7 @@
 -- telescope pickers
 vim.cmd [[command! -nargs=0 Commit :Neogit commit]]
 vim.cmd [[command! -nargs=0 GoToCommand :Telescope commands]]
-vim.cmd [[command! -nargs=0 GoToFile :Telescope smart_open]]
+vim.cmd [[command! -nargs=0 GoToFile :lua vim.defer_fn(function() require('fff').find_files() end, 100)]]
 vim.cmd [[command! -nargs=0 GoToSymbol :Telescope lsp_document_symbols]]
 vim.cmd [[command! -nargs=0 Grep :Telescope live_grep]]
 vim.cmd [[command! -nargs=0 SmartGoTo :Telescope smart_goto]]
