@@ -37,6 +37,7 @@ return {
       documentation = { auto_show = true },
       list = { selection = { preselect = true, auto_insert = true } },
       menu = {
+        -- auto_show_delay_ms = 500,
         draw = {
           components = {
             kind_icon = {
