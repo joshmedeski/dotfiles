@@ -1,4 +1,5 @@
 return {
+  enabled = false,
   'vuki656/package-info.nvim',
   dependencies = { 'folke/which-key.nvim', 'MunifTanjim/nui.nvim' },
   ft = { 'json' },

@@ -27,7 +27,7 @@ return {
       'nvim-telescope/telescope-live-grep-args.nvim',
       version = '^1.0.0',
     },
-    'vuki656/package-info.nvim',
+    { 'vuki656/package-info.nvim', optional = true },
   },
   -- apply the config and additionally load fzf-native
   config = function(_, opts)
@@ -36,7 +36,8 @@ return {
     telescope.load_extension 'import'
     telescope.load_extension 'live_grep_args'
     telescope.load_extension 'neoclip'
-    telescope.load_extension 'package_info'
+    -- TODO: figure out how to load this conditionally
+    -- telescope.load_extension 'package_info'
     telescope.load_extension 'smart_open'
     telescope.load_extension 'tailiscope'
     telescope.load_extension 'undo'
