@@ -1,4 +1,4 @@
--- TODO: Deprioritize specific LSP (ex: eslint, biome)
+-- TODO: Deprioritize specific LSP (ex: eslint, biome)nk,
 -- TODO: style with lspkind?
 -- TODO: get tailwindcss colors working on autocomplete
 
@@ -78,7 +78,7 @@ return {
     },
 
     sources = {
-      default = { 'avante', 'codecompanion', 'git', 'lazydev', 'lsp', 'path', 'snippets', 'buffer', 'emoji', 'nerdfont' },
+      default = { 'avante', 'codecompanion', 'git', 'lsp', 'path', 'snippets', 'buffer', 'emoji', 'nerdfont' },
       providers = {
         avante = {
           module = 'blink-cmp-avante',
@@ -122,6 +122,7 @@ return {
       },
       per_filetype = {
         opencode_ask = { 'opencode', 'buffer' },
+        lua = { inherit_defaults = true, 'lazydev' },
       },
     },
     fuzzy = { implementation = 'prefer_rust_with_warning' },
