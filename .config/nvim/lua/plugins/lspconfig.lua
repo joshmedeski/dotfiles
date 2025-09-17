@@ -1,7 +1,7 @@
 return {
   -- Main LSP Configuration
   'neovim/nvim-lspconfig',
-  event = { 'BufReadPre', 'BufNewFile' },
+  event = { 'BufReadPre', 'BufNewFile', 'BufWritePre' },
   dependencies = {
     { 'mason-org/mason.nvim', opts = {} },
     'mason-org/mason-lspconfig.nvim',
