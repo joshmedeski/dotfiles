@@ -167,7 +167,17 @@ return {
               name_hl = 'FileName',
             }
           )
-          if pathOnly ~= '.' then
+          if pathOnly:match '^octo' then
+            table.insert(
+              stats,
+              bar.dropbar_symbol_t:new {
+                icon = ' ',
+                icon_hl = 'FilePath',
+                name = '',
+                name_hl = 'FilePath',
+              }
+            )
+          elseif pathOnly ~= '.' then
             table.insert(
               stats,
               bar.dropbar_symbol_t:new {
