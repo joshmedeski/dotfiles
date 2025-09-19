@@ -24,8 +24,10 @@ gum style \
 set -l NOW (date +"%Y-%m-%d-%H-%M-%S")
 echo -e "$NOW\n" >>/tmp/u-$NOW.txt
 
+tmux split-window -h "tail -f /tmp/u-$NOW.txt"
+
 # gh cli extensions
-set GH_EXTENSION_UPDATE $(gum spin --spinner globe --title "🐙 gh extensions upgrading..." --show-output -- gh extension upgrade --all)
+set GH_EXTENSION_UPDATE $(gum spin --spinner globe --title "🐙 gh extensions upgrading..." -- gh extension upgrade --all)
 
 echo "✅ 🐙 gh extensions upgraded"
 # echo "$GH_EXTENSION_UPDATE" | mods --role updates_gh_dash --no-cache -q
@@ -34,12 +36,12 @@ echo $GH_EXTENSION_UPDATE >>/tmp/u-$NOW.txt
 echo "\n" >>/tmp/u-$NOW.txt
 
 # tpm plugins
-gum spin --spinner globe --title "🪟 tpm plugins updating..." --show-output -- ~/.config/tmux/plugins/tpm/bin/update_plugins all >>/tmp/u-$NOW.txt
+gum spin --spinner globe --title "🪟 tpm plugins updating..." -- ~/.config/tmux/plugins/tpm/bin/update_plugins all >>/tmp/u-$NOW.txt
 
 echo "\n" >>/tmp/u-$NOW.txt
 echo "✅ 🪟 tpm plugins updated"
 
-gum spin --spinner globe --title "🐠 fisher plugins updating..." --show-output -- fisher update >>/tmp/u-$NOW.txt
+gum spin --spinner globe --title "🐠 fisher plugins updating..." -- fisher update >>/tmp/u-$NOW.txt
 echo "\n" >>/tmp/u-$NOW.txt
 echo "✅ 🐠 fisher plugins updated"
 
@@ -56,7 +58,7 @@ gum spin --spinner globe --title "🌳 nvim-treesitter updating" -- nvim --headl
 echo "\n" >>/tmp/u-$NOW.txt
 echo "✅ 🌳 nvim-treesitter updated"
 
-gum spin --spinner globe --title "🍻 brew updating" --show-output -- brew update >>/tmp/u-$NOW.txt
+gum spin --spinner globe --title "🍻 brew updating" -- brew update >>/tmp/u-$NOW.txt
 echo "\n" >>/tmp/u-$NOW.txt
 echo "✅ 🍻 brew updated"
 
@@ -64,33 +66,33 @@ set -l OUTDATED (brew outdated)
 echo $OUTDATED >>/tmp/u-$NOW.txt
 
 if test -n "$OUTDATED"
-    gum spin --spinner globe --title "🍻 brew upgrading" --show-output -- brew upgrade >>/tmp/u-$NOW.txt
+    gum spin --spinner globe --title "🍻 brew upgrading" -- brew upgrade >>/tmp/u-$NOW.txt
     echo "\n" >>/tmp/u-$NOW.txt
     echo "✅ 🍻 brew upgraded"
 
-    gum spin --spinner globe --title "🍻 brew cleaning up" --show-output -- brew cleanup --prune=all >>/tmp/u-$NOW.txt
+    gum spin --spinner globe --title "🍻 brew cleaning up" -- brew cleanup --prune=all >>/tmp/u-$NOW.txt
     echo "\n" >>/tmp/u-$NOW.txt
     echo "✅ 🍻 brew cleaned up"
 else
     echo "No outdated brew packages" >>/tmp/u-$NOW.txt
 end
 
-gum spin --spinner globe --title "🍻 brew doctoring" --show-output -- brew doctor >>/tmp/u-$NOW.txt
+gum spin --spinner globe --title "🍻 brew doctoring" -- brew doctor >>/tmp/u-$NOW.txt
 echo "\n" >>/tmp/u-$NOW.txt
 echo "✅ 🍻 brew doctored"
 
-gum spin --spinner globe --title "🍎 mas upgrading" --show-output -- mas upgrade >>/tmp/u-$NOW.txt
+gum spin --spinner globe --title "🍎 mas upgrading" -- mas upgrade >>/tmp/u-$NOW.txt
 echo "\n" >>/tmp/u-$NOW.txt
 echo "✅ 🍎 mas upgraded"
 
-gum spin --spinner globe --title "🧶 fabric upgrading" --show-output -- go install github.com/danielmiessler/fabric@latest >>/tmp/u-$NOW.txt
+gum spin --spinner globe --title "🧶 fabric upgrading" -- go install github.com/danielmiessler/fabric@latest >>/tmp/u-$NOW.txt
 echo "\n" >>/tmp/u-$NOW.txt
 echo "✅ 🧶 fabric upgraded"
 
 echo "✅ 🧾 logged to /tmp/u-$NOW.txt"
-man /tmp/u-$NOW.txt
 
 # TODO: create fabric prompt to summarize all the updates
 # TODO: output summmary with glow (already done?)
 
-tmux rename-session -t $(tmux display-message -p '#S') "🌎 updated"
+# tmux rename-session -t $(tmux display-message -p '#S') "🌎 updated"
+say "	All modules updated. Handing control back to operator."
