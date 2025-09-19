@@ -1,14 +1,9 @@
 -- Highlight, edit, and navigate code
 return {
-  enabled = true,
   'nvim-treesitter/nvim-treesitter',
-  branch = 'main',
-  version = false,
-  lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
-  event = { 'VeryLazy' },
-  cmd = { 'TSUpdate', 'TSInstall', 'TSLog', 'TSUninstall' },
+  lazy = false,
   build = ':TSUpdate',
-  -- main = 'nvim-treesitter.configs', -- Sets main module to use for opts
+  main = 'nvim-treesitter.configs', -- Sets main module to use for opts
 
   dependencies = {
     {
