@@ -109,6 +109,13 @@ name = "nutiliti reviews"
 path = "~/c/nu/review"
 startup_command = "gh dash"
 
+# sesh
+
+[[session]]
+name = "sesh pick worktree"
+path = "~/c/sesh"
+startup_command = "sesh connect (find . -maxdepth 1 -type d | gum filter --limit 1 --fuzzy --no-sort --placeholder 'Pick a worktree' --prompt='🌲') && exit"
+
 # josh medeski
 
 [[session]]
