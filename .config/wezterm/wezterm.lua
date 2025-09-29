@@ -36,8 +36,8 @@ local act = wezterm.action
 -- 	end
 -- end
 
+-- Types come from https://github.com/DrKJeff16/wezterm-types
 ---@type Config
----@diagnostic disable: missing-fields
 local config = {
 	-- rendering
 	front_end = "WebGpu",
