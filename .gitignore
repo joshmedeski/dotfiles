@@ -71,3 +71,4 @@ app_support/lazygit/state.yml
 .config/ghostty/shaders
 .config/fish/conf.d/firecrawl.fish
 .config/fish/conf.d/exa.fish
+.config/wezterm/wezterm-types
