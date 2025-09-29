@@ -179,6 +179,14 @@ if.app-id = 'com.figma.Desktop'
 run = ['move-node-to-workspace f']
 
 [[on-window-detected]]
+if.app-id = 'org.yanex.marta'
+run = ['move-node-to-workspace f']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = ['move-node-to-workspace f']
+
+[[on-window-detected]]
 if.app-id = 'com.flexibits.fantastical2.mac'
 run = ['move-node-to-workspace y']
 
