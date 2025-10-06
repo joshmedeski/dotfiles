@@ -98,6 +98,7 @@ abbr ld lazydocker
 abbr lg lazygit
 abbr ll "lsd  --group-dirs first -Al"
 abbr lt "lsd  --group-dirs last -A --tree"
+abbr lvim "NVIM_APPNAME=lazyvim nvim"
 
 abbr mnf "man fzf"
 abbr mnt "man tmux"
