@@ -73,6 +73,7 @@ local config = {
 		{ family = "Symbols Nerd Font Mono" },
 	}),
 
+	color_schemes = cs.get_color_schemes(),
 	color_scheme = cs.get_color_scheme(),
 
 	window_padding = {

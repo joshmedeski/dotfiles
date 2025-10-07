@@ -13,10 +13,25 @@ local function get_color_scheme()
 	return color_scheme
 end
 
+local mocha_scheme = wezterm.get_builtin_color_schemes()["Catppuccin Mocha"]
+-- mocha_scheme.black = "#8289a2"
+-- mocha_scheme.brightblack = "#8289a2"
+
+local latte_scheme = wezterm.get_builtin_color_schemes()["Catppuccin Latte"]
+-- latte_scheme.white = "#9fa5b6"
+-- latte_scheme.brightwhite = "#9fa5b6"
+
 M.get_color_scheme = function()
 	-- TODO: integrate dynamic color switcher (with dark/light mode)
 	-- return get_color_scheme()
 	return h.is_dark() and "Catppuccin Mocha" or "Catppuccin Latte"
+end
+
+M.get_color_schemes = function()
+	return {
+		["Catppuccin Mocha"] = mocha_scheme,
+		["Catppuccin Latte"] = latte_scheme,
+	}
 end
 
 -- wezterm.on("user-var-changed", function(window, _, name, value)
