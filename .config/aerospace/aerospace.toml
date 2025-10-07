@@ -119,7 +119,6 @@ minus = 'resize smart -100'
 equal = 'resize smart +100'
 
 [workspace-to-monitor-force-assignment]
-g = ['secondary']
 q = 'deskpad display'
 
 [[on-window-detected]]
