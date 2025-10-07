@@ -98,11 +98,10 @@ vim.opt.updatetime = 50
 vim.opt.wrap = true
 vim.opt.linebreak = true
 
--- views can only be fully collapsed with the global statusline
+-- bottom bar
 vim.opt.laststatus = 0
--- vim.opt.laststatus = 3 -- for avante
-
--- hides the tabline, which is the line that displays the tabs at the top of Neovim.
+vim.o.ls = 0
+vim.o.stl = "%{repeat('─',winwidth('.'))}"
 vim.opt.showtabline = 0
 
 -- Default splitting will cause your main splits to jump when opening an edgebar.
