@@ -37,11 +37,13 @@ return {
     -- TODO: generate dynamics colors
     return {
       flavour = 'mocha',
+      term_colors = true,
       transparent_background = true,
       -- TODO: add sesh custom color scheme overrides 👀
       -- color_overrides = { all = theme_colors },
       custom_highlights = function(colors)
         return {
+          StatusLine = { fg = colors.overlay0 },
           CoverageCovered = { fg = colors.green },
           CoverageUncovered = { fg = colors.red },
           CurSearch = { bg = colors.yellow },
@@ -53,7 +55,7 @@ return {
           RenderMarkdownCode = { bg = 'NONE' },
 
           FileName = { fg = colors.text, bold = true },
-          FilePath = { fg = colors.surface2, italic = true },
+          FilePath = { fg = colors.overlay0, italic = true },
 
           Added = { fg = colors.green },
           Removed = { fg = colors.red },
