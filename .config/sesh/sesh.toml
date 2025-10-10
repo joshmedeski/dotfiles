@@ -119,9 +119,9 @@ startup_command = "sesh connect (find . -maxdepth 1 -type d | gum filter --limit
 # josh medeski
 
 [[session]]
-name = "joshmedeski.com"
+name = "joshmedeski_com"
 path = "~/c/joshmedeski.com"
-startup_script = "~/.config/sesh/scripts/node_dev"
+startup_command = "~/.config/sesh/scripts/node_dev"
 
 # configs
 
