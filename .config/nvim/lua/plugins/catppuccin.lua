@@ -55,7 +55,7 @@ return {
           RenderMarkdownCode = { bg = 'NONE' },
 
           FileName = { fg = colors.text, bold = true },
-          FilePath = { fg = colors.overlay0, italic = true },
+          FilePath = { fg = colors.overlay1, italic = true },
 
           Added = { fg = colors.green },
           Removed = { fg = colors.red },
