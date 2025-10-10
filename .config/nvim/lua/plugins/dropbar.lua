@@ -146,6 +146,7 @@ return {
       end,
     }
 
+    ---@class dropbar_source_t
     local smart_path = {
       get_symbols = function(buff, _, _)
         local stats = {}
