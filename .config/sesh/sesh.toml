@@ -145,6 +145,12 @@ startup_command = "nvim aerospace.toml"
 preview_command = "bat --language=bash --style=snip --color=always ~/c/dotfiles/.config/aerospace/aerospace.toml"
 
 [[session]]
+name = "opencode config"
+path = "/Users/joshmedeski/c/dotfiles/.config/opencode/config.json"
+startup_command = "nvim config.json"
+preview_command = "bat --language=json --style=snip --color=always ~/c/dotfiles/.config/opencode/config.json"
+
+[[session]]
 name = "fish config"
 path = "/Users/joshmedeski/c/dotfiles/.config/fish"
 preview_command = "bat --language=fish --style=snip --color=always ~/c/dotfiles/.config/fish/config.fish"
