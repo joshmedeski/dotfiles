@@ -47,6 +47,7 @@ set -Ux FZF_DEFAULT_OPTS (printf '%s ' \
     '--info=hidden' \
     '--ansi' \
     '--pointer=👉' \
+    '--gutter=" "' \
     '--color=current-bg:-1' \
     '--color=current-fg:blue' \
     '--color=gutter:-1' \
