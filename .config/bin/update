@@ -85,7 +85,7 @@ gum spin --spinner globe --title "🍎 mas upgrading" -- mas upgrade >>/tmp/u-$N
 echo "\n" >>/tmp/u-$NOW.txt
 echo "✅ 🍎 mas upgraded"
 
-gum spin --spinner globe --title "🧶 fabric upgrading" -- go install github.com/danielmiessler/fabric@latest >>/tmp/u-$NOW.txt
+gum spin --spinner globe --title "🧶 fabric upgrading" -- go install github.com/danielmiessler/fabric/cmd/fabric@latest >>/tmp/u-$NOW.txt
 echo "\n" >>/tmp/u-$NOW.txt
 echo "✅ 🧶 fabric upgraded"
 
