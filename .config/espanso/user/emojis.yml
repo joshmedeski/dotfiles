@@ -1,0 +1,12 @@
+name: emojis
+parent: default
+
+matches:
+  - trigger: "check;"
+    replace: "✅"
+  - trigger: "cross;"
+    replace: "❌"
+  - trigger: "gear;"
+    replace: "⚙️"
+  - trigger: "eyes;"
+    replace: "👀"

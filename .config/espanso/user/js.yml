@@ -1,0 +1,12 @@
+name: js
+parent: default
+
+matches:
+  - trigger: "l3"
+    replace: "http://localhost:3000/"
+  - trigger: "l5"
+    replace: "http://localhost:5000/"
+  - trigger: "l4"
+    replace: "http://localhost:4200/"
+  - trigger: "l9"
+    replace: "http://localhost:9695/"

@@ -1,0 +1,12 @@
+name: emails
+parent: default
+
+matches:
+  - trigger: "l8"
+    replace: "http://localhost:8080/"
+  - trigger: "l3"
+    replace: "http://localhost:3000/"
+  - trigger: "l5"
+    replace: "http://localhost:5000/"
+  - trigger: "l4"
+    replace: "http://localhost:4200/"
