@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+git worktree list --porcelain | awk '
+  /^worktree / { path=$2 }
+  /^HEAD / { head=$2; 
+    cmd = "git log -1 --format=%ct " head " 2>/dev/null"
+    cmd | getline timestamp
+    close(cmd)
+    print timestamp "\t" path
+  }
+' | sort -rn | cut -f2-
+
+
