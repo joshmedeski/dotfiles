@@ -87,6 +87,8 @@ abbr grau "git remote add upstream"
 abbr grv "git remote -v"
 abbr gs "git status"
 abbr gst "git status"
+abbr gwl "git_worktree_list"
+abbr gwr "git worktree remove"
 
 abbr hd "history delete --exact --case-sensitive \'(history | fzf-tmux -p -m)\'"
 
