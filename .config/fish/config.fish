@@ -92,4 +92,3 @@ set copilot_cli_path (which github-copilot-cli)
 # # <<< conda initialize <<<
 export PATH="/Users/joshmedeski/.gdvm/bin/current_godot:/Users/joshmedeski/.gdvm/bin:$PATH"
 
-alias claude="/Users/joshmedeski/.claude/local/claude"
