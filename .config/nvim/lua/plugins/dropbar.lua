@@ -8,6 +8,47 @@ return {
     local bar = require 'dropbar.bar'
 
     ---@class dropbar_source_t
+    local sidekick = {
+      get_symbols = function(buff, _, _)
+        local status = require('sidekick.status').get()
+        if status then
+          return status.kind == 'Error' and 'DiagnosticError' or status.busy and 'DiagnosticWarn' or 'Special'
+        end
+
+        local status = require('sidekick.status').get()
+        if not status then
+          return {}
+        end
+
+        local lspIcons = require('utils.icons').lsp
+
+        if status.kind == 'Error' then
+          return {
+            bar.dropbar_symbol_t:new {
+              icon = lspIcons.error,
+              icon_hl = 'DiagnosticError',
+              name = status.message,
+              name_hl = 'DiagnosticError',
+            },
+          }
+        end
+
+        if status.busy then
+          return {
+            bar.dropbar_symbol_t:new {
+              icon = lspIcons.warn,
+              icon_hl = 'DiagnosticWarn',
+              name = status.message,
+              name_hl = 'DiagnosticWarn',
+            },
+          }
+        end
+
+        return {}
+      end,
+    }
+
+    ---@class dropbar_source_t
     local mini_diff_stats = {
       get_symbols = function(buff, _, _)
         local summary = vim.b[buff].minidiff_summary
