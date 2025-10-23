@@ -43,6 +43,7 @@ return {
       -- color_overrides = { all = theme_colors },
       custom_highlights = function(colors)
         return {
+          Visual = { bg = colors.yellow, fg = colors.base },
           StatusLine = { fg = colors.overlay0 },
           CoverageCovered = { fg = colors.green },
           CoverageUncovered = { fg = colors.red },
