@@ -11,10 +11,10 @@
 
 tmux:
   symbols:
-    ahead: "👆"
-    behind: "👇"
+    ahead: "↑"
+    behind: "↓"
     clean: ""
-    branch: " "
+    branch: ""
     hashprefix: ":"
     staged: " "
     conflict: "󰕚 "
@@ -28,11 +28,11 @@ tmux:
     branch: "#[fg=white,italics]"
     staged: "#[fg=green,nobold]"
     conflict: "#[fg=red,nobold]"
-    modified: "#[fg=blue,nobold]"
+    modified: "#[fg=yellow,nobold]"
     untracked: "#[fg=magenta,nobold]"
     stashed: "#[fg=gray,nobold]"
     clean: "#[fg=green,nobold]"
-    divergence: "#[fg=yellow,nobold]"
+    divergence: "#[fg=cyan,nobold]"
   layout: [branch, divergence, flags, stats]
   options:
     branch_max_len: 0
