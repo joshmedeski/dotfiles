@@ -27,7 +27,8 @@ blacklist = [
   "^_"
 ]
 
-# sort_order = ["tmux", "config", "tmuxinator", "zoxide"]
+sort_order = ["tmux", "tmuxinator", "config", "zoxide"]
+dir_length = 3
 
 # default
 
@@ -43,6 +44,11 @@ name = "fastfetch"
 path = "~/.config/fastfetch"
 startup_command = "fastfetch"
 preview_command = "fastfetch"
+
+[[session]]
+name = "OpenSuperWhisper"
+path = "~/c/OpenSuperWhisper"
+startup_command = "./run.sh"
 
 [[session]]
 name = "rift"
