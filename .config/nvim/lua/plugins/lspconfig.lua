@@ -263,6 +263,10 @@ return {
       openscad_lsp = {
         filetypes = { 'openscad' },
       },
+
+      vue_ls = {
+        filetypes = { 'vue' },
+      },
     }
 
     ---@type MasonLspconfigSettings
