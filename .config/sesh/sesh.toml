@@ -27,6 +27,8 @@ blacklist = [
   "^_"
 ]
 
+wezterm_wallpapers_dir = "/Users/joshmedeski/.config/wezterm/wallpapers"
+
 sort_order = ["tmux", "tmuxinator", "config", "zoxide"]
 dir_length = 3
 
@@ -38,6 +40,22 @@ preview_command = "eza --all --git --icons --color=always {}"
 # startup_command_ignore_dirs = ["~/repos", "~/.config"]
 
 # common
+
+[[session]]
+name = "second brain"
+path = "~/c/second-brain"
+startup_command = "nvim +ObsidianToday"
+
+[[session]]
+name = "plugins"
+path = "~"
+startup_command = "~/.config/bin/plugin_picker.sh && exit"
+
+[[session]]
+name = "godot projects"
+path = "~/c/godot/"
+startup_command = "lsd  --group-dirs first -A"
+preview_command = "lsd  --group-dirs first -A"
 
 [[session]]
 name = "fastfetch"
@@ -65,11 +83,6 @@ startup_command = "wezterm_wallpaper_picker.sh && exit"
 name = "color scheme"
 path = "~/c/iTerm2-Color-Schemes/wezterm"
 startup_command = "wezterm_color_scheme_picker.sh && exit"
-
-[[session]]
-name = "second brain"
-path = "~/c/second-brain"
-# startup_command = "nvim +ObsidianToday"
 
 [[session]]
 name = "update"
@@ -218,30 +231,6 @@ startup_command = "sudo nvim hosts"
 [[session]]
 name = "lazyvim config (legacy)"
 path = "~/c/dotfiles/.config/lazyvim"
-
-# plugins
-
-[[session]]
-name = "lazy plugins"
-path = "~/.local/share/nvim/lazy"
-startup_command = "sesh connect (ls | fzf --ansi --no-border --preview 'glow -s light {}/README.md' --preview-window=right:70,border-none) && exit"
-# TODO: add `--hide-tmux` to fzf command (or switch to sesh preview)
-# startup_command = "sesh connect (ls | fzf --ansi --no-border --preview 'glow -s light {}/README.md' --preview-window=right:70,border-none --hide-tmux) && exit"
-
-[[session]]
-name = "tmux plugins"
-path = "~/.config/tmux/plugins"
-startup_command = "sesh connect (ls | fzf --ansi --no-border --preview 'glow -s light {}/README.md' --preview-window=right:70,border-none) && exit"
-
-[[session]]
-name = "obsidian plugins"
-path = "~/c/second-brain/.obsidian/plugins"
-startup_command = "sesh connect (ls | fzf --ansi --no-border --preview 'glow -s light {}/README.md' --preview-window=right:85,border-none) && exit"
-
-[[session]]
-name = "obs plugins"
-path = "~/Library/Application Support/obs-studio/plugins"
-startup_command = "sesh connect (ls | fzf --ansi --no-border --preview 'glow -s light {}/README.md' --preview-window=right:85,border-none) && exit"
 
 # tools
 
