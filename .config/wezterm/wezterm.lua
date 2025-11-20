@@ -118,6 +118,9 @@ local config = {
 		k.cmd_key("p", k.multiple_actions(":GoToFile")),
 		k.cmd_key("q", k.multiple_actions(":qa!")),
 
+		k.cmd_key("UpArrow", act.EmitEvent("increase-opacity")),
+		k.cmd_key("DownArrow", act.EmitEvent("decrease-opacity")),
+
 		k.cmd_to_tmux_prefix("`", "n"),
 		k.cmd_to_tmux_prefix("1", "1"),
 		k.cmd_to_tmux_prefix("2", "2"),
@@ -310,6 +313,42 @@ wezterm.on("user-var-changed", function(window, pane, name, value)
 	-- 		overrides.font_size = number_value
 	-- 	end
 	-- end
+	window:set_config_overrides(overrides)
+end)
+
+wezterm.on("increase-opacity", function(window, pane)
+	local overrides = window:get_config_overrides() or {}
+	local appearance = window:get_appearance()
+	local is_dark = appearance:find("Dark")
+
+	if is_dark then
+		dark_opacity = math.min(1.0, dark_opacity + 0.02)
+	else
+		light_opacity = math.min(1.0, light_opacity + 0.02)
+	end
+
+	overrides.background = {
+		(overrides.background and overrides.background[1]) or config.background[1],
+		b.get_background(dark_opacity, light_opacity),
+	}
+	window:set_config_overrides(overrides)
+end)
+
+wezterm.on("decrease-opacity", function(window, pane)
+	local overrides = window:get_config_overrides() or {}
+	local appearance = window:get_appearance()
+	local is_dark = appearance:find("Dark")
+
+	if is_dark then
+		dark_opacity = math.max(0.0, dark_opacity - 0.02)
+	else
+		light_opacity = math.max(0.0, light_opacity - 0.02)
+	end
+
+	overrides.background = {
+		(overrides.background and overrides.background[1]) or config.background[1],
+		b.get_background(dark_opacity, light_opacity),
+	}
 	window:set_config_overrides(overrides)
 end)
 
