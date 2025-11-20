@@ -8,8 +8,8 @@
 -- A GPU-accelerated cross-platform terminal emulator
 -- https://wezfurlong.org/wezterm/
 
-local dark_opacity = 0.95
-local light_opacity = 0.75
+local dark_opacity = 0.85
+local light_opacity = 0.65
 
 local wallpapers_glob = os.getenv("HOME") .. "/.config/wezterm/wallpapers/**"
 -- local animations = os.getenv("HOME") .. "/.config/wezterm/animations/**"
@@ -43,7 +43,7 @@ local config = {
 	front_end = "WebGpu",
 	max_fps = 120,
 	-- TODO: change this when unplugged?
-	webgpu_power_preference = "HighPerformance",
+	webgpu_power_preference = "HighPerformance", -- LowPower | HighPerformance
 
 	-- text
 	font_size = 20,
