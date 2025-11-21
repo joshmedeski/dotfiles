@@ -118,8 +118,8 @@ local config = {
 		k.cmd_key("p", k.multiple_actions(":GoToFile")),
 		k.cmd_key("q", k.multiple_actions(":qa!")),
 
-		k.cmd_key("UpArrow", act.EmitEvent("increase-opacity")),
-		k.cmd_key("DownArrow", act.EmitEvent("decrease-opacity")),
+		k.cmd_key("UpArrow", act.EmitEvent("decrease-opacity")),
+		k.cmd_key("DownArrow", act.EmitEvent("increase-opacity")),
 
 		k.cmd_to_tmux_prefix("`", "n"),
 		k.cmd_to_tmux_prefix("1", "1"),
