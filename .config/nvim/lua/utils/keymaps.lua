@@ -37,11 +37,12 @@ vim.keymap.set('n', 'N', 'Nzz')
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 
+vim.keymap.set('n', 'z0', '<CMD>setlocal foldlevel=0<CR>', { desc = 'Fold level 0' })
 vim.keymap.set('n', 'z1', '<CMD>setlocal foldlevel=1<CR>', { desc = 'Fold level 1' })
 vim.keymap.set('n', 'z2', '<CMD>setlocal foldlevel=2<CR>', { desc = 'Fold level 2' })
 vim.keymap.set('n', 'z3', '<CMD>setlocal foldlevel=3<CR>', { desc = 'Fold level 3' })
 vim.keymap.set('n', 'z4', '<CMD>setlocal foldlevel=4<CR>', { desc = 'Fold level 4' })
-vim.keymap.set('n', 'z0', '<CMD>setlocal foldlevel=99<CR>', { desc = 'Fold level reset (99)' })
+vim.keymap.set('n', 'z9', '<CMD>setlocal foldlevel=99<CR>', { desc = 'Fold level reset (99)' })
 
 -- folds
 vim.keymap.set('n', '<leader>z', '<cmd>normal! zMzv<cr>', { desc = 'Fold all others' })
