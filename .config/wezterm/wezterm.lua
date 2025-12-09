@@ -118,6 +118,7 @@ local config = {
 		k.cmd_key("p", k.multiple_actions(":GoToFile")),
 		k.cmd_key("q", k.multiple_actions(":qa!")),
 
+		k.cmd_key("r", act.EmitEvent("random-wallpaper")),
 		k.cmd_key("UpArrow", act.EmitEvent("decrease-opacity")),
 		k.cmd_key("DownArrow", act.EmitEvent("increase-opacity")),
 
@@ -322,9 +323,9 @@ wezterm.on("increase-opacity", function(window, pane)
 	local is_dark = appearance:find("Dark")
 
 	if is_dark then
-		dark_opacity = math.min(1.0, dark_opacity + 0.02)
+		dark_opacity = math.min(1.0, dark_opacity + 0.01)
 	else
-		light_opacity = math.min(1.0, light_opacity + 0.02)
+		light_opacity = math.min(1.0, light_opacity + 0.01)
 	end
 
 	overrides.background = {
@@ -340,14 +341,32 @@ wezterm.on("decrease-opacity", function(window, pane)
 	local is_dark = appearance:find("Dark")
 
 	if is_dark then
-		dark_opacity = math.max(0.0, dark_opacity - 0.02)
+		if (dark_opacity - 0.01) < 0.0 then
+			wezterm.log_info("Minimum dark opacity reached")
+			return
+		end
+		dark_opacity = math.max(0.0, dark_opacity - 0.01)
 	else
-		light_opacity = math.max(0.0, light_opacity - 0.02)
+		if (light_opacity - 0.01) < 0.0 then
+			wezterm.log_info("Minimum light opacity reached")
+			return
+		end
+		light_opacity = math.max(0.0, light_opacity - 0.01)
 	end
 
 	overrides.background = {
 		(overrides.background and overrides.background[1]) or config.background[1],
 		b.get_background(dark_opacity, light_opacity),
+	}
+	window:set_config_overrides(overrides)
+end)
+
+wezterm.on("random-wallpaper", function(window, pane)
+	local overrides = window:get_config_overrides() or {}
+
+	overrides.background = {
+		w.get_wallpaper(wallpapers_glob),
+		(overrides.background and overrides.background[2]) or b.get_background(dark_opacity, light_opacity),
 	}
 	window:set_config_overrides(overrides)
 end)
