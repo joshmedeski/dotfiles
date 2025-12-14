@@ -20,6 +20,7 @@ local h = require("utils/helpers")
 local k = require("utils/keys")
 local w = require("utils/wallpaper")
 
+---@type Wezterm
 local wezterm = require("wezterm")
 local act = wezterm.action
 
@@ -49,11 +50,10 @@ local config = {
 	font_size = 20,
 	line_height = 1.0,
 
-	-- TODO: add binding to move from forward and backward with my pictures
 	background = {
 		w.get_wallpaper(wallpapers_glob),
 		-- w.get_gif_wallpaper(animations),
-		b.get_background(dark_opacity, light_opacity),
+		b.get_background(nil, dark_opacity, light_opacity),
 	},
 
 	font = wezterm.font_with_fallback({
@@ -84,7 +84,7 @@ local config = {
 	},
 
 	set_environment_variables = {
-		BAT_THEME = h.is_dark() and "Catppuccin-mocha" or "Catppuccin-latte",
+		BAT_THEME = h.is_dark(nil) and "Catppuccin-mocha" or "Catppuccin-latte",
 		LC_ALL = "en_US.UTF-8",
 		-- TODO: audit what other variables are needed
 	},
@@ -229,8 +229,6 @@ local config = {
 }
 
 wezterm.on("user-var-changed", function(window, pane, name, value)
-	-- local appearance = window:get_appearance()
-	-- local is_dark = appearance:find("Dark")
 	local overrides = window:get_config_overrides() or {}
 	wezterm.log_info("name", name)
 	wezterm.log_info("value", value)
@@ -257,7 +255,7 @@ wezterm.on("user-var-changed", function(window, pane, name, value)
 	if name == "WALLPAPER" then
 		overrides.background = {
 			w.get_path_wallpaper(value),
-			b.get_background(dark_opacity, light_opacity),
+			b.get_background(apperance, dark_opacity, light_opacity),
 		}
 	end
 
@@ -317,10 +315,10 @@ wezterm.on("user-var-changed", function(window, pane, name, value)
 	window:set_config_overrides(overrides)
 end)
 
-wezterm.on("increase-opacity", function(window, pane)
+wezterm.on("increase-opacity", function(window)
 	local overrides = window:get_config_overrides() or {}
 	local appearance = window:get_appearance()
-	local is_dark = appearance:find("Dark")
+	local is_dark = h.is_dark(appearance)
 
 	if is_dark then
 		dark_opacity = math.min(1.0, dark_opacity + 0.01)
@@ -330,7 +328,7 @@ wezterm.on("increase-opacity", function(window, pane)
 
 	overrides.background = {
 		(overrides.background and overrides.background[1]) or config.background[1],
-		b.get_background(dark_opacity, light_opacity),
+		b.get_background(appearance, dark_opacity, light_opacity),
 	}
 	window:set_config_overrides(overrides)
 end)
@@ -338,7 +336,7 @@ end)
 wezterm.on("decrease-opacity", function(window, pane)
 	local overrides = window:get_config_overrides() or {}
 	local appearance = window:get_appearance()
-	local is_dark = appearance:find("Dark")
+	local is_dark = h.is_dark(appearance)
 
 	if is_dark then
 		if (dark_opacity - 0.01) < 0.0 then
@@ -356,18 +354,23 @@ wezterm.on("decrease-opacity", function(window, pane)
 
 	overrides.background = {
 		(overrides.background and overrides.background[1]) or config.background[1],
-		b.get_background(dark_opacity, light_opacity),
+		b.get_background(nil, dark_opacity, light_opacity),
 	}
 	window:set_config_overrides(overrides)
 end)
 
-wezterm.on("random-wallpaper", function(window, pane)
+wezterm.on("random-wallpaper", function(window)
 	local overrides = window:get_config_overrides() or {}
 
 	overrides.background = {
 		w.get_wallpaper(wallpapers_glob),
-		(overrides.background and overrides.background[2]) or b.get_background(dark_opacity, light_opacity),
+		(overrides.background and overrides.background[2]) or b.get_background(nil, dark_opacity, light_opacity),
 	}
+	window:set_config_overrides(overrides)
+end)
+
+wezterm.on("window-config-reloaded", function(window)
+	local overrides = window:get_config_overrides() or {}
 	window:set_config_overrides(overrides)
 end)
 

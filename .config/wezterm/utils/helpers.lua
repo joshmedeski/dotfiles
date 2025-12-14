@@ -1,9 +1,10 @@
 local wezterm = require("wezterm")
 local M = {}
 
-local appearance = wezterm.gui.get_appearance()
-
-M.is_dark = function()
+M.is_dark = function(appearance)
+	if appearance == nil then
+		appearance = wezterm.gui.get_appearance()
+	end
 	return appearance:find("Dark")
 end
 
