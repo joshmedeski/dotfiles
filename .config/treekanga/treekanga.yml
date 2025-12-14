@@ -6,10 +6,25 @@ repos:
     defaultBranch: main
     #where should treekanga put the worktrees, assumes starting in the $HOME directory
     worktreeTargetDir: /c/nu
+    postScript: ~/.config/bin/nu_setup
+    autoRunPostScript: true
     # Folders to register with zoxide for quick navigation
+    # TODO: allow -p always pull config to be allowed
+    #  -p
+    # TODO: add .bare support?
     zoxideFolders:
+      # TODO: add this support?
+      # - /*
       - packages/*
       - apps/*
+      - web-e2e
+      - server
       - server
       - web
-      - web-e2e
+
+  treekanga:
+    defaultBranch: main
+    worktreeTargetDir: /c/treekanga
+    # postScript: ~/.config/bin/treekanga_setup
+    zoxideFolders:
+      - /*
