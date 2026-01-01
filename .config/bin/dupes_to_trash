@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+DIR=$(pwd)
+NOW=$(date +"%Y-%m-%d-%H-%M-%S")
+FILE="/tmp/dupes_to_trash_$NOW.json"
+
+ddh -v quiet -f json -o "$FILE" -d "$DIR"
+
+DUPES=$(cat $FILE | jq '[.[] | select(.file_paths | length > 1) | .file_paths[1:]] | flatten')
+
+# Show what will be deleted
+echo
+echo "The following files will be moved to trash:"
+echo "$DUPES" | jq -r '.[]'
+echo
+
+# Ask for confirmation
+read -p "Do you want to move these files to the trash? (y/N): " CONFIRMATION
+if [[ "$CONFIRMATION" =~ ^[Yy]$ ]]; then
+    echo "$DUPES" | jq -r '.[]' | while IFS= read -r FILE; do
+      echo "Moving to trash: $FILE"
+      trash "$FILE"
+    done
+    echo "All files moved to trash."
+else
+    echo "Cancelled."
+    exit 0
+fi
