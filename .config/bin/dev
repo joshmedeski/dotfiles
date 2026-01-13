@@ -17,6 +17,11 @@ if command -v jq &>/dev/null && [[ -f "package.json" ]]; then
   # if this didn't match anything, fallback to dev
   DEV_SCRIPT="${DEV_SCRIPT:-dev}"
 fi
+
+if [ -f .fgvm-version ]; then
+	fgvm godot --attached
+	exit 0
+fi
 							
 if [ -f "d" ]; then
 	./d "$@"
@@ -41,9 +46,9 @@ if [ -f pnpm-lock.yaml ]; then
 	exit 0
 fi
 
-if [ -f bun.lockb ]; then
+if [ -f bun.lock ]; then
 	echo "bun $DEV_SCRIPT"
-	pnpm run "$DEV_SCRIPT"
+	bun "$DEV_SCRIPT"
 	exit 0
 fi
 
@@ -66,5 +71,5 @@ if [ -f pnpm-lock.yaml ]; then
 	exit 0
 fi
 
-echo " Node package not detected"
+tmux display-message "No dev script found"
 exit 1
