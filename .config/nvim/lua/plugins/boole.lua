@@ -16,6 +16,7 @@ return {
       { 'let', 'const' },
       { 'start', 'end' },
       { 'import', 'export' },
+      { 'increase', 'decrease' },
       { 'before', 'after' },
       { 'plus', 'minus' },
       { 'smart', 'truncate' },
