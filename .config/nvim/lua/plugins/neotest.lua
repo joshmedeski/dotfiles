@@ -6,6 +6,7 @@ return {
     'antoinemadec/FixCursorHold.nvim',
     'nvim-treesitter/nvim-treesitter',
     'marilari88/neotest-vitest',
+    'thenbe/neotest-playwright',
     { 'fredrikaverpil/neotest-golang', version = '*' },
   },
 
@@ -24,6 +25,12 @@ return {
         },
         require 'neotest-vitest' {
           args = { '--coverage' },
+        },
+        require('neotest-playwright').adapter {
+          options = {
+            persist_project_selection = true,
+            enable_dynamic_test_discovery = true,
+          },
         },
       },
     }
