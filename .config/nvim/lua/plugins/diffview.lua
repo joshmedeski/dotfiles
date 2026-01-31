@@ -1,8 +1,7 @@
 return {
-  enabled = false,
+  enabled = true,
   'sindrets/diffview.nvim',
   dependencies = 'nvim-lua/plenary.nvim',
-  lazy = false,
   cmd = {
     'DiffviewOpen',
     'DiffviewClose',
@@ -14,8 +13,9 @@ return {
   opts = {
     file_panel = {
       win_config = {
-        position = 'bottom',
-        height = 20,
+        position = 'left',
+        width = 20,
+        -- height = 20,
       },
     },
     hooks = {
