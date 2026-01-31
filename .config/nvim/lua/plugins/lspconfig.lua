@@ -149,6 +149,7 @@ return {
       float = { border = 'rounded', source = 'if_many' },
       underline = { severity = vim.diagnostic.severity.ERROR },
       signs = { text = { ERROR = '', WARN = '', INFO = '', HINT = '' } },
+      -- virtal_text = true,
       virtual_text = {
         -- TODO: setup neovim plugin that allows the value to be toggled based on the comment line above it (or LSP value?)
         -- 'eol', 'inline', 'overlay', 'right_align'
@@ -239,17 +240,7 @@ return {
         },
       },
 
-      jsonls = {
-        -- filetypes = {
-        --   'json',
-        -- },
-        -- settings = {
-        --   json = {
-        --     format = { enable = true },
-        --     validate = { enable = true },
-        --   },
-        -- },
-      },
+      jsonls = {},
 
       arduino_language_server = {
         filetypes = {
@@ -260,6 +251,38 @@ return {
         },
       },
 
+      astro = {
+        filetypes = {
+          'javascript',
+          'typescript',
+          'json',
+          'jsonc',
+          'javascriptreact',
+          'typescriptreact',
+          'astro',
+          'svelte',
+          'vue',
+          'css',
+        },
+        root_dir = require('lspconfig.util').root_pattern 'astro.config.mjs',
+      },
+
+      biome = {
+        filetypes = {
+          'javascript',
+          'typescript',
+          'json',
+          'jsonc',
+          'javascriptreact',
+          'typescriptreact',
+          'astro',
+          'svelte',
+          'vue',
+          'css',
+        },
+        root_dir = require('lspconfig.util').root_pattern 'biome.json',
+      },
+
       openscad_lsp = {
         filetypes = { 'openscad' },
       },
@@ -267,6 +290,46 @@ return {
       vue_ls = {
         filetypes = { 'vue' },
       },
+
+      gdtoolkit = {
+        filetypes = { 'gdscript' },
+      },
+
+      actionlint = {
+        filetypes = { 'yaml' },
+      },
+
+      shellcheck = {
+        filetypes = { 'sh', 'bash' },
+      },
+
+      docker_compose_language_service = {
+        filetypes = {
+          'yaml',
+        },
+      },
+
+      cucumber_language_server = {
+        filetypes = {
+          'cucumber',
+        },
+      },
+
+      cssls = {
+        filetypes = { 'css' },
+      },
+
+      svelte = {
+        filetypes = { 'svelte' },
+      },
+
+      black = {
+        filetypes = { 'python' },
+      },
+
+      -- css_variables = {
+      --   filetypes = { 'css' },
+      -- },
     }
 
     ---@type MasonLspconfigSettings
@@ -290,7 +353,7 @@ return {
     -- for you, so that they are available from within Neovim.
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
-      'stylua', -- Used to format Lua code
+      'stylua',
       'typescript-language-server',
       'js-debug-adapter',
       'gopls',
@@ -304,13 +367,15 @@ return {
       vim.lsp.config(server_name, config)
     end
 
-    vim.lsp.inline_completion.enable()
-
-    vim.keymap.set('i', '<Tab>', function()
-      if not vim.lsp.inline_completion.get() then
-        return '<Tab>'
-      end
-    end, { expr = true, desc = 'Accept the current inline completion' })
+    -- if vim.lsp.inline_completion then
+    --   vim.lsp.inline_completion.enable()
+    -- end
+    --
+    -- vim.keymap.set('i', '<Tab>', function()
+    --   if not vim.lsp.inline_completion.get() then
+    --     return '<Tab>'
+    --   end
+    -- end, { expr = true, desc = 'Accept the current inline completion' })
 
     require('mason-nvim-dap').setup()
   end,
