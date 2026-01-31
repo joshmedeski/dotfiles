@@ -3,7 +3,7 @@ return {
   tag = '1.1.0',
   event = 'LspAttach',
   keys = {
-    { '<leader>L', '<cmd>LenslineToggle<cr>', desc = 'Toggle Lensline' },
+    { '<leader>L', '<cmd>LenslineToggleView<cr>', desc = 'Toggle Lensline' },
   },
   config = function()
     require('lensline').setup {
@@ -25,10 +25,12 @@ return {
             local start_line = func_info.line
             local end_line = start_line + #function_lines - 1
             local total_lines = end_line - start_line
-            callback {
-              line = func_info.line,
-              text = string.format('%d:%d (%d)', start_line, end_line, total_lines),
-            }
+            if total_lines > 1 then
+              callback {
+                line = func_info.line,
+                text = string.format('%d:%d (%d)', start_line, end_line, total_lines),
+              }
+            end
           end,
         },
 
@@ -44,19 +46,11 @@ return {
               if references then
                 local count = #references
                 local icon, text
-
-                if count == 0 then
-                  icon = utils.if_nerdfont_else('⚠️ ', 'WARN ')
-                  text = icon .. 'No references'
-                else
+                if count ~= 0 then
                   icon = utils.if_nerdfont_else('󰌹 ', '')
-                  local suffix = utils.if_nerdfont_else('', ' refs')
-                  text = icon .. count .. suffix
+                  text = icon .. count
+                  callback { line = func_info.line, text = text }
                 end
-
-                callback { line = func_info.line, text = text }
-              else
-                callback(nil)
               end
             end)
           end,
