@@ -7,14 +7,14 @@ return {
   },
   config = function(_, opts)
     require('nvim-highlight-colors').setup(opts)
-    Snacks.toggle({
-      name = 'Highlight Colors',
-      get = function()
-        return require('nvim-highlight-colors').is_active()
-      end,
-      set = function(_)
-        require('nvim-highlight-colors').toggle()
-      end,
-    }):map [[\H]]
+    -- Snacks.toggle({
+    --   name = 'Highlight Colors',
+    --   get = function()
+    --     return require('nvim-highlight-colors').is_active()
+    --   end,
+    --   set = function(_)
+    --     require('nvim-highlight-colors').toggle()
+    --   end,
+    -- }):map [[\H]]
   end,
 }
