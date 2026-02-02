@@ -92,6 +92,11 @@ abbr gwr "git worktree remove"
 
 abbr hd "history delete --exact --case-sensitive \'(history | fzf-tmux -p -m)\'"
 
+abbr j "just"
+abbr jb "just build"
+abbr jl "just --list"
+abbr jt "just test"
+
 abbr ka killall
 abbr kn "killall node"
 
