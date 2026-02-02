@@ -164,7 +164,9 @@ abbr sf "source ~/.config/fish/config.fish"
 abbr sr "sesh root"
 
 abbr ta "tmux attach"
-abbr tk "tmux kill-server"
+abbr tk "treekanga"
+abbr tka "treekanga add"
+abbr tkl "treekanga list"
 abbr tr "tldr --list | fzf --header 'tldr (tealdeer)' --reverse --preview 'tldr {1} --color=always' --preview-window=right,80% | xargs tldr"
 
 abbr u update
