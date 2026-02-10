@@ -302,6 +302,9 @@ live_wallpaper.apply_to_config(config, {
 	light_opacity = 0.65,
 	live = {
 		url = "https://cdn.star.nesdis.noaa.gov/GOES16/ABI/CONUS/GEOCOLOR/2500x1500.jpg",
+		refresh_interval = 300, -- seconds between refetches (default: 300)
+		dark_opacity = 0.78,
+		light_opacity = 0.6,
 	},
 })
 

@@ -123,6 +123,14 @@ M.apply_to_config = function(config, opts)
 		local url = live.url
 		local refresh_interval = live.refresh_interval or DEFAULTS.refresh_interval
 
+		-- Override opacity when live wallpaper is active
+		if live.dark_opacity then
+			state.dark_opacity = live.dark_opacity
+		end
+		if live.light_opacity then
+			state.light_opacity = live.light_opacity
+		end
+
 		local function do_download()
 			download(cache_dir, cache_path, tmp_path, url)
 		end
