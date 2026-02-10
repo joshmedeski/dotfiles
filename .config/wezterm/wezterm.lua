@@ -8,21 +8,14 @@
 -- A GPU-accelerated cross-platform terminal emulator
 -- https://wezfurlong.org/wezterm/
 
-local dark_opacity = 0.85
-local light_opacity = 0.65
-
-local wallpapers_glob = os.getenv("HOME") .. "/.config/wezterm/wallpapers/**"
--- local animations = os.getenv("HOME") .. "/.config/wezterm/animations/**"
-
-local b = require("utils/background")
 local cs = require("utils/color_scheme")
 local h = require("utils/helpers")
 local k = require("utils/keys")
-local w = require("utils/wallpaper")
 
 ---@type Wezterm
 local wezterm = require("wezterm")
 local act = wezterm.action
+local live_wallpaper = dofile(os.getenv("HOME") .. "/.config/wezterm/plugins/wezterm-live-wallpaper/plugin/init.lua")
 
 -- TODO: config saving / loading
 -- local config_file_path = os.getenv("HOME") .. "/.wezterm_config"
@@ -38,6 +31,7 @@ local act = wezterm.action
 -- end
 
 -- Types come from https://github.com/DrKJeff16/wezterm-types
+
 ---@type Config
 local config = {
 	-- rendering
@@ -49,12 +43,6 @@ local config = {
 	-- text
 	font_size = 20,
 	line_height = 1.0,
-
-	background = {
-		w.get_wallpaper(wallpapers_glob),
-		-- w.get_gif_wallpaper(animations),
-		b.get_background(nil, dark_opacity, light_opacity),
-	},
 
 	font = wezterm.font_with_fallback({
 		"Maple Mono",
@@ -252,13 +240,6 @@ wezterm.on("user-var-changed", function(window, pane, name, value)
 	-- 	}
 	-- end
 
-	if name == "WALLPAPER" then
-		overrides.background = {
-			w.get_path_wallpaper(value),
-			b.get_background(apperance, dark_opacity, light_opacity),
-		}
-	end
-
 	if name == "COLOR_SCHEME" then
 		print("COLOR_SCHEME")
 		print(value)
@@ -315,63 +296,13 @@ wezterm.on("user-var-changed", function(window, pane, name, value)
 	window:set_config_overrides(overrides)
 end)
 
-wezterm.on("increase-opacity", function(window)
-	local overrides = window:get_config_overrides() or {}
-	local appearance = window:get_appearance()
-	local is_dark = h.is_dark(appearance)
-
-	if is_dark then
-		dark_opacity = math.min(1.0, dark_opacity + 0.01)
-	else
-		light_opacity = math.min(1.0, light_opacity + 0.01)
-	end
-
-	overrides.background = {
-		(overrides.background and overrides.background[1]) or config.background[1],
-		b.get_background(appearance, dark_opacity, light_opacity),
-	}
-	window:set_config_overrides(overrides)
-end)
-
-wezterm.on("decrease-opacity", function(window, pane)
-	local overrides = window:get_config_overrides() or {}
-	local appearance = window:get_appearance()
-	local is_dark = h.is_dark(appearance)
-
-	if is_dark then
-		if (dark_opacity - 0.01) < 0.0 then
-			wezterm.log_info("Minimum dark opacity reached")
-			return
-		end
-		dark_opacity = math.max(0.0, dark_opacity - 0.01)
-	else
-		if (light_opacity - 0.01) < 0.0 then
-			wezterm.log_info("Minimum light opacity reached")
-			return
-		end
-		light_opacity = math.max(0.0, light_opacity - 0.01)
-	end
-
-	overrides.background = {
-		(overrides.background and overrides.background[1]) or config.background[1],
-		b.get_background(nil, dark_opacity, light_opacity),
-	}
-	window:set_config_overrides(overrides)
-end)
-
-wezterm.on("random-wallpaper", function(window)
-	local overrides = window:get_config_overrides() or {}
-
-	overrides.background = {
-		w.get_wallpaper(wallpapers_glob),
-		(overrides.background and overrides.background[2]) or b.get_background(nil, dark_opacity, light_opacity),
-	}
-	window:set_config_overrides(overrides)
-end)
-
-wezterm.on("window-config-reloaded", function(window)
-	local overrides = window:get_config_overrides() or {}
-	window:set_config_overrides(overrides)
-end)
+live_wallpaper.apply_to_config(config, {
+	wallpapers_glob = os.getenv("HOME") .. "/.config/wezterm/wallpapers/**",
+	dark_opacity = 0.85,
+	light_opacity = 0.65,
+	live = {
+		url = "https://cdn.star.nesdis.noaa.gov/GOES16/ABI/CONUS/GEOCOLOR/2500x1500.jpg",
+	},
+})
 
 return config
