@@ -1,0 +1,71 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+OPEN_URL=""
+
+# Parse flags
+while [[ $# -gt 0 ]]; do
+	case "$1" in
+	--open-url)
+		OPEN_URL="${2:?--open-url requires a URL argument}"
+		shift 2
+		;;
+	-*)
+		echo "Unknown option: $1"
+		exit 1
+		;;
+	*)
+		URL="$1"
+		shift
+		;;
+	esac
+done
+
+URL="${URL:?Usage: gh-watch-action <github-actions-url> [--open-url <url>]}"
+
+# Parse GitHub Actions URL to extract repo and run ID
+if [[ "$URL" =~ github\.com/([^/]+/[^/]+)/actions/runs/([0-9]+) ]]; then
+	REPO="${BASH_REMATCH[1]}"
+	RUN_ID="${BASH_REMATCH[2]}"
+else
+	echo "Error: Invalid GitHub Actions URL"
+	echo "Expected: https://github.com/OWNER/REPO/actions/runs/12345"
+	exit 1
+fi
+
+echo "Watching run $RUN_ID in $REPO..."
+
+# Watch the run (don't exit on failure, capture exit code)
+set +e
+gh run watch "$RUN_ID" -R "$REPO" --exit-status
+WATCH_EXIT=$?
+set -e
+
+# Get run details for the notification
+RUN_JSON=$(gh run view "$RUN_ID" -R "$REPO" --json conclusion,displayTitle,workflowName)
+CONCLUSION=$(echo "$RUN_JSON" | jq -r '.conclusion')
+TITLE=$(echo "$RUN_JSON" | jq -r '.workflowName')
+MESSAGE=$(echo "$RUN_JSON" | jq -r '.displayTitle')
+
+ICON_DIR="$(dirname "$0")/icons"
+
+if [[ "$CONCLUSION" == "success" ]]; then
+	terminal-notifier \
+		-title "$TITLE" \
+		-message "$MESSAGE succeeded" \
+		-contentImage "$ICON_DIR/check.png" \
+		-sound default \
+		-open "$URL"
+	if [[ -n "$OPEN_URL" ]]; then
+		open "$OPEN_URL"
+	fi
+else
+	terminal-notifier \
+		-title "$TITLE" \
+		-message "$MESSAGE failed" \
+		-contentImage "$ICON_DIR/x.png" \
+		-sound default \
+		-open "$URL"
+fi
+
+exit $WATCH_EXIT
