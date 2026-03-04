@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Smart qmd search - re-indexes if vault has changed, then searches
+
+VAULT="$HOME/c/second-brain"
+STAMP="$HOME/.cache/qmd/.last-index"
+NEEDS_INDEX=false
+
+mkdir -p "$(dirname "$STAMP")"
+
+# Check if any .md files are newer than last index
+if [ ! -f "$STAMP" ]; then
+  NEEDS_INDEX=true
+elif [ -n "$(find "$VAULT" -name '*.md' -newer "$STAMP" -print -quit)" ]; then
+  NEEDS_INDEX=true
+fi
+
+if [ "$NEEDS_INDEX" = true ]; then
+  qmd update >/dev/null 2>&1
+  qmd embed >/dev/null 2>&1
+  touch "$STAMP"
+fi
+
+qmd query "$@"
