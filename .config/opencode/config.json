@@ -1,5 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "theme": "transparent",
   "provider": {
     "ollama": {
       "name": "Ollama (local)",
@@ -19,8 +20,12 @@
 
   "mcp": {
     "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp"
+    },
+    "playwriter": {
       "type": "local",
-      "command": ["npx", "-y", "@upstash/context7-mcp"],
+      "command": ["npx", "playwriter@latest"],
       "enabled": true
     }
   },
