@@ -72,3 +72,6 @@ app_support/lazygit/state.yml
 .config/fish/conf.d/firecrawl.fish
 .config/fish/conf.d/exa.fish
 .config/wezterm/wezterm-types
+.config/fish/conf.d/context7.fish
+.config/fish/conf.d/github.fish
+# .config/wezterm/plugins

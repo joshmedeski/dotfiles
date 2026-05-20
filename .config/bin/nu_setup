@@ -13,6 +13,7 @@ find . -maxdepth 1 -type d -print0 | xargs -0 zoxide add
 cd ../
 echo "🔗 Setting NODE_ENV to production for server, web, and cli"
 echo "NODE_ENV=production" >./server/.env
+echo "MONGODB_URI=mongodb://localhost:30001,localhost:30002,localhost:30003/?replicaSet=nutiliti-repl-set" >>./server/.env
 echo "NODE_ENV=production" >./web/.env
 echo "NODE_ENV=production" >./apps/cli/.env
 
@@ -21,4 +22,3 @@ pnpm i
 
 echo "👷 Building"
 pnpm build
-say "All done setting up the new nutiliti workspace"

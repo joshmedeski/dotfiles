@@ -7,9 +7,16 @@ FILE="/tmp/dupes_to_trash_$NOW.json"
 ddh -v quiet -f json -o "$FILE" -d "$DIR"
 
 DUPES=$(cat $FILE | jq '[.[] | select(.file_paths | length > 1) | .file_paths[1:]] | flatten')
+echo
+
+COUNT=$(echo "$DUPES" | jq 'length')
+
+if [ "$COUNT" -eq 0 ]; then
+    echo "No duplicates found"
+    exit 0
+fi
 
 # Show what will be deleted
-echo
 echo "The following files will be moved to trash:"
 echo "$DUPES" | jq -r '.[]'
 echo
@@ -21,8 +28,8 @@ if [[ "$CONFIRMATION" =~ ^[Yy]$ ]]; then
       echo "Moving to trash: $FILE"
       trash "$FILE"
     done
-    echo "All files moved to trash."
+    echo "$COUNT files moved to trash"
 else
-    echo "Cancelled."
+    echo "Cancelled"
     exit 0
 fi

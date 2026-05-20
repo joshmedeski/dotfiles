@@ -20,8 +20,11 @@ fi
 #   ISSUE_CONTENT=""
 # fi
 
+# TODO: address issue comment by passing URL?
+# ex: https://github.com/user/repo/issues/1234#issuecomment-4789235117
+
 # Get commits with clear formatting for AI parsing
-COMMITS="$(git log main...HEAD --format="- %s%n%b")"
+COMMITS="$(git log main..HEAD --format="- %s%n%b")"
 
 echo "## Commits for #$ISSUE_NUMBER\n
 $COMMITS

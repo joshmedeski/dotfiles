@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+# Track a Domino's pizza order and notify on status changes
+
+if [[ -z "$1" ]]; then
+	echo "Usage: pizza-tracker <tracker-url>"
+	echo ""
+	echo "Example:"
+	echo "  pizza-tracker /v3/orders/stores/1234/orderkeys/123456789012/pulseorderguids/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+	exit 1
+fi
+
+# Parse store ID and order key from the URL path
+TRACKER_PATH="$1"
+STORE_ID=$(echo "$TRACKER_PATH" | grep -o 'stores/[^/]*' | cut -d/ -f2)
+ORDER_KEY=$(echo "$TRACKER_PATH" | grep -o 'orderkeys/[^/]*' | cut -d/ -f2)
+
+if [[ -z "$STORE_ID" || -z "$ORDER_KEY" ]]; then
+	echo "Error: Could not parse store ID or order key from URL"
+	echo "Expected format: /v3/orders/stores/<id>/orderkeys/<key>/..."
+	exit 1
+fi
+
+POLL_INTERVAL=30
+TRACKER_URL="https://order.dominos.com/orderstorage/GetTrackerData?StoreID=${STORE_ID}&OrderKey=${ORDER_KEY}"
+LAST_STATUS=""
+
+echo "Tracking Domino's order: Store ${STORE_ID}, Key ${ORDER_KEY}"
+echo "Polling every ${POLL_INTERVAL}s..."
+echo ""
+
+while true; do
+	response=$(curl -s "$TRACKER_URL" 2>/dev/null)
+
+	if [[ -z "$response" ]]; then
+		echo "[$(date '+%H:%M:%S')] Failed to fetch order status"
+		sleep "$POLL_INTERVAL"
+		continue
+	fi
+
+	# Extract fields from XML response
+	status=$(echo "$response" | grep -o '<OrderStatus>[^<]*</OrderStatus>' | tail -1 | sed 's/<[^>]*>//g')
+	description=$(echo "$response" | grep -o '<OrderDescription>[^<]*</OrderDescription>' | sed 's/<[^>]*>//g')
+	driver=$(echo "$response" | grep -o '<DriverName>[^<]*</DriverName>' | sed 's/<[^>]*>//g' | xargs)
+
+	if [[ "$status" != "$LAST_STATUS" && -n "$status" ]]; then
+		msg="$status"
+		[[ -n "$driver" ]] && msg="$msg (Driver: $driver)"
+		echo "[$(date '+%H:%M:%S')] $msg"
+		[[ -n "$description" ]] && echo "  Order: $description"
+		osascript -e "display notification \"$msg\" with title \"Pizza Tracker\"" 2>/dev/null
+		LAST_STATUS="$status"
+
+		if [[ "$status" == *"Complete"* || "$status" == *"Delivered"* ]]; then
+			delivered_msg="Your pizza has been delivered!"
+			[[ -n "$driver" ]] && delivered_msg="$delivered_msg Driver: $driver"
+			osascript -e "display notification \"$delivered_msg\" with title \"Pizza Tracker\"" 2>/dev/null
+			echo "Order delivered! Enjoy your pizza."
+			exit 0
+		fi
+	fi
+
+	sleep "$POLL_INTERVAL"
+done

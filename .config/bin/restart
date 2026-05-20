@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# FIX: kills onwatch unintentionally
+# npx port-whisperer clean
+killall node
+pkill -9 -f "nvim --embed"
+tmux kill-server

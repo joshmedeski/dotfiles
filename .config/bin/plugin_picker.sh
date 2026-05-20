@@ -7,8 +7,11 @@
 #########################################
 PLUGIN_MAP=(
   "neovim:$HOME/.local/share/nvim/lazy"
-  "tmux:$HOME/.config/tmux/plugins"
+  "lazy:$HOME/.local/share/nvim/lazy"
+  "stream_deck:$HOME/c/std/plugins"
   "obsidian:$HOME/c/second-brain/.obsidian/plugins"
+  "tmux:$HOME/.config/tmux/plugins"
+  "obs:$HOME/Library/Application Support/obs-studio/plugins"
 )
 
 ############################
@@ -63,7 +66,7 @@ PLUGIN=$(ls -1 "$PLUGINS_DIR" |
   --header-border \
   --bind "tab:down,btab:up" \
   --preview-window "right:70%" \
-  --preview "CLICOLOR_FORCE=1 glow -s dark $PLUGINS_DIR/{}/README.md"
+  --preview "CLICOLOR_FORCE=1 COLORTERM=truecolor glow -s dark $PLUGINS_DIR/{}/README.md 2>/dev/null || lsd --icon=always --color=always --tree --depth 2 $PLUGINS_DIR/{}"
 ) || exit 0
 FULL="$PLUGINS_DIR/$PLUGIN"
 

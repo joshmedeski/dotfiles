@@ -34,33 +34,49 @@ if [[ ${#wt_paths[@]} -eq 0 ]]; then
   exit 0
 fi
 
-echo "🔍 Checking ${#wt_paths[@]} worktree(s) for merged PRs..."
+echo "📋 Worktrees (${#wt_paths[@]}):"
+for i in "${!wt_paths[@]}"; do
+  echo "  • ${wt_branches[$i]}"
+  echo "    ${wt_paths[$i]}"
+done
 
-declare -a merged_lines=() merged_paths=() merged_branches=()
+echo
+echo "🔍 Checking worktree status..."
+
+declare -a merged_lines=() merged_paths=() merged_branches=() active_lines=()
+pr_jq='.[0] | select(.) | "\(.number)\t\(.title)"'
 
 for i in "${!wt_paths[@]}"; do
   path="${wt_paths[$i]}"
   branch="${wt_branches[$i]}"
 
-  pr_info="$(gh pr list --head "$branch" --state merged --limit 1 \
-    --json number,title \
-    --jq '.[0] | select(.) | "\(.number)\t\(.title)"' 2>/dev/null || true)"
+  pr_info="$(gum spin --spinner dot --title "Checking ${branch}" -- \
+    bash -c 'gh pr list --head "$1" --state merged --limit 1 --json number,title --jq "$2" 2>/dev/null || true' _ "$branch" "$pr_jq")"
 
   if [[ -n "$pr_info" ]]; then
     pr_number="${pr_info%%$'\t'*}"
     pr_title="${pr_info#*$'\t'}"
-    merged_lines+=("#${pr_number} │ ${branch} │ ${pr_title}")
+    merged_lines+=("✅ #${pr_number} │ ${branch} │ ${pr_title}")
     merged_paths+=("$path")
     merged_branches+=("$branch")
+    echo "  ✅ ${branch} — merged, ready to delete (#${pr_number})"
+  else
+    active_lines+=("${branch} │ ${path}")
+    echo "  🚧 ${branch} — still in progress"
   fi
+  echo "     ${path}"
 done
 
+echo
+if [[ ${#active_lines[@]} -gt 0 ]]; then
+  echo "🚧 Still in progress: ${#active_lines[@]}"
+fi
 if [[ ${#merged_lines[@]} -eq 0 ]]; then
   echo "✅ No worktrees with merged PRs found"
   exit 0
 fi
 
-echo "🧹 Found ${#merged_lines[@]} worktree(s) with merged PRs"
+echo "🧹 Ready for deletion: ${#merged_lines[@]}"
 
 selected="$(printf '%s\n' "${merged_lines[@]}" \
   | gum choose --no-limit --header "Select worktrees to delete (space to select, enter to confirm):")"

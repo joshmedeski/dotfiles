@@ -47,9 +47,13 @@ if [ -f pnpm-lock.yaml ]; then
 fi
 
 if [ -f bun.lock ]; then
-	echo "bun $DEV_SCRIPT"
-	bun "$DEV_SCRIPT"
-	exit 0
+  DIR=$(git rev-parse --git-common-dir)
+  # if the git common dir's parent dir has a bun.lock, use that
+  if [ -f "$DIR/../bun.lock" ]; then
+    echo "bun run $DEV_SCRIPT"
+    bun "$DEV_SCRIPT"
+    exit 0
+  fi  
 fi
 
 BASE_NAME="$(basename "$(pwd)")"

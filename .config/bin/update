@@ -35,8 +35,11 @@ echo "✅ 🐙 gh extensions upgraded"
 echo $GH_EXTENSION_UPDATE >>/tmp/u-$NOW.txt
 echo "\n" >>/tmp/u-$NOW.txt
 
-# tpm plugins
-gum spin --spinner globe --title "🪟 tpm plugins updating..." -- ~/.config/tmux/plugins/tpm/bin/update_plugins all >>/tmp/u-$NOW.txt
+# tpm
+# gum spin --spinner globe --title "🪟 tpm plugins updating..." -- ~/.config/tmux/plugins/tpm/bin/update_plugins all >>/tmp/u-$NOW.txt
+
+# tpm redux plugins
+gum spin --spinner globe --title "🪟 tpm redux plugins updating..." -- ~/.config/tmux/plugins/tpm-redux/bin/update >>/tmp/u-$NOW.txt
 
 echo "\n" >>/tmp/u-$NOW.txt
 echo "✅ 🪟 tpm plugins updated"

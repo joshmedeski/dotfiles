@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+usage() {
+	echo "Usage: img-to-avif --input <dir> --output <dir>"
+	echo ""
+	echo "Convert all images in the input directory to AVIF format."
+	echo ""
+	echo "Options:"
+	echo "  --input    Input directory containing images"
+	echo "  --output   Output directory for converted AVIF files"
+	exit 1
+}
+
+while [[ $# -gt 0 ]]; do
+	case "$1" in
+	--input)
+		input_dir="$2"
+		shift 2
+		;;
+	--output)
+		output_dir="$2"
+		shift 2
+		;;
+	*)
+		usage
+		;;
+	esac
+done
+
+if [[ -z "${input_dir:-}" || -z "${output_dir:-}" ]]; then
+	usage
+fi
+
+if [[ ! -d "$input_dir" ]]; then
+	echo "Error: Input directory '$input_dir' does not exist."
+	exit 1
+fi
+
+mkdir -p "$output_dir"
+
+count=0
+for f in "$input_dir"/*.{png,jpg,jpeg,heic,tiff,tif,bmp,gif,webp,avif,PNG,JPG,JPEG,HEIC,TIFF,TIF,BMP,GIF,WEBP,AVIF}; do
+	[[ -f "$f" ]] || continue
+	basename="$(basename "$f")"
+	name="${basename%.*}"
+	ext="${basename##*.}"
+	ext_lower="$(echo "$ext" | tr '[:upper:]' '[:lower:]')"
+	if [[ "$ext_lower" == "avif" ]]; then
+		echo "Copying: $basename (already AVIF)"
+		cp "$f" "$output_dir/$basename"
+	else
+		echo "Converting: $basename -> $name.avif"
+		sips -s format avif "$f" --out "$output_dir/$name.avif"
+	fi
+	count=$((count + 1))
+done
+
+echo "Done. Converted $count image(s) to AVIF."

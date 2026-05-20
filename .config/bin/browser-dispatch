@@ -3,7 +3,7 @@
 # Map GitHub "org/repo" -> local repo directory
 declare -A REPO_DIRS=(
   ["Nutiliti/nutiliti"]="$HOME/c/nu"
-  ["joshmedeski/joshmedeski.com"]="$HOME/c/jm"
+  ["joshmedeski/joshmedeski.com"]="$HOME/c/joshmedeski_com"
   ["joshmedeski/sesh"]="$HOME/c/sesh"
 )
 
@@ -12,9 +12,17 @@ declare -A REPO_BRANCH_PREFIXES=(
   ["nutiliti/nutiliti"]="jam"
 )
 
+# Map GitHub "org/repo" -> worktree base directory (optional).
+# Relative paths are resolved from the repo root; absolute paths are used as-is.
+declare -A REPO_WORKTREE_DIRS=(
+  ["Nutiliti/nutiliti"]=".wk"
+  ["joshmedeski/joshmedeski.com"]="w"
+)
+
 # Map GitHub "org/repo" -> sesh setup command to run on new worktree (optional)
 declare -A REPO_SETUP_CMDS=(
   ["Nutiliti/nutiliti"]="nu_setup"
+  ["joshmedeski/joshmedeski.com"]="pnpm i"
 )
 
 github_worktree() {
@@ -31,6 +39,7 @@ github_worktree() {
   fi
 
   local branch_prefix="${REPO_BRANCH_PREFIXES[$repo_key]}"
+  local worktree_base="${REPO_WORKTREE_DIRS[$repo_key]}"
   local setup_cmd="${REPO_SETUP_CMDS[$repo_key]}"
   local issue
   local use_pr_checkout=0
@@ -64,7 +73,17 @@ github_worktree() {
   echo "Issue #$issue in $repo_key"
 
   cd "$repo_dir" || exit 1
-  local target="$repo_dir/.wk/$issue"
+
+  local worktree_root
+  if [[ -z "$worktree_base" ]]; then
+    worktree_root="$repo_dir/.wk"
+  elif [[ "$worktree_base" = /* ]]; then
+    worktree_root="$worktree_base"
+  else
+    worktree_root="$repo_dir/$worktree_base"
+  fi
+
+  local target="$worktree_root/$issue"
 
   if [[ -d "$target" ]]; then
     if [[ "$use_pr_checkout" == "1" ]]; then
@@ -74,8 +93,9 @@ github_worktree() {
     fi
     sesh connect --switch "$target"
   else
+    mkdir -p "$worktree_root"
     if [[ "$use_pr_checkout" == "1" ]]; then
-      git worktree add --detach ".wk/$issue" origin/main
+      git worktree add --detach "$target" origin/main
       cd "$target" || exit 1
       gh pr checkout "$number" --repo "$repo_key"
     else
@@ -85,7 +105,7 @@ github_worktree() {
       else
         branch_name="$issue"
       fi
-      git worktree add ".wk/$issue" -b "$branch_name" --no-track origin/main
+      git worktree add "$target" -b "$branch_name" --no-track origin/main
       cd "$target" || exit 1
     fi
     if [[ -n "$setup_cmd" ]]; then

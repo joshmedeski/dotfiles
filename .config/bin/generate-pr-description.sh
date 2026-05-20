@@ -1,5 +1,24 @@
 #!/bin/bash
 
+# TODO: read the issue and smartly compare it to the work
+# TODO: call out any work that might be missing and ask clarifying questions
+# TODO: generate a concise PR description based on the issue and commits
+# TODO: make it clear if it's follow up work from issue comments (seeing if there are any previous PRs linked to the issue)
+# TODO: automatically move the issue to the "In Review" column on PR creation (using GitHub Actions?)
+# TODO: genreate a title
+# TODO: have the script automatically generate the PR instead of a popup
+# TODO: create a PR chat instead of a command (to ask clarifying questions and be able to hit the github MPC when done.
+# TODO: ask me who might be a good reviewer based on past PRs on this issue or files changed
+# TODO: open the PR web page once everything is done
+# TODO: verify if any of the suggested tests have been written
+# TODO: audit to make sure nothing important was missing
+# TODO: do code review on the diff to make sure nothing looks out of place (like debug statements, or incomplete work, or potential bugs)
+# TODO: run build and tests locally before confirming PR is ready
+# TODO: automatically fix any ovious issues (like linting errors, or debug statements)
+# TODO: audit the commit history and suggest squashing or reordering commits for clarity
+# TODO: move all of this to an CLI skill
+# TODO: automatically capture screenshots of the integration test(s) and upload to the PR description (if relevant)
+
 # Required parameters:
 # @raycast.schemaVersion 1
 # @raycast.title Generate PR Description
@@ -39,7 +58,7 @@ fi
 # fi
 
 # Get commits with clear formatting for AI parsing
-COMMITS="$(git log main...HEAD --format="- %s%n%b")"
+COMMITS="$(git log main..HEAD --format="- %s%n%b")"
 
 echo "## Commits for #$ISSUE_NUMBER\n
 $COMMITS
