@@ -1,0 +1,122 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [[ $# -lt 1 || "$1" == "." ]]; then
+  REPO_DIR="$PWD"
+else
+  REPO_DIR="$1"
+fi
+
+for cmd in gum gh git; do
+  if ! command -v "$cmd" >/dev/null 2>&1; then
+    echo "❌ Missing required command: $cmd" >&2
+    exit 1
+  fi
+done
+
+if [[ ! -d "$REPO_DIR" ]]; then
+  echo "❌ Directory does not exist: $REPO_DIR" >&2
+  exit 1
+fi
+
+cd "$REPO_DIR"
+main_dir="$(git rev-parse --show-toplevel)"
+
+declare -a wt_paths=() wt_branches=()
+
+current_path=""
+while IFS= read -r line; do
+  case "$line" in
+    "worktree "*) current_path="${line#worktree }" ;;
+    "branch refs/heads/"*)
+      branch="${line#branch refs/heads/}"
+      if [[ "$current_path" != "$main_dir" ]]; then
+        wt_paths+=("$current_path")
+        wt_branches+=("$branch")
+      fi
+      ;;
+  esac
+done < <(git worktree list --porcelain)
+
+if [[ ${#wt_paths[@]} -eq 0 ]]; then
+  echo "✅ No additional worktrees found"
+  exit 0
+fi
+
+echo "📋 Worktrees (${#wt_paths[@]}):"
+for i in "${!wt_paths[@]}"; do
+  echo "  • ${wt_branches[$i]}"
+  echo "    ${wt_paths[$i]}"
+done
+
+echo
+echo "🔍 Checking worktree status..."
+
+declare -a merged_lines=() merged_paths=() merged_branches=() active_lines=()
+pr_jq='.[0] | select(.) | "\(.number)\t\(.title)"'
+
+for i in "${!wt_paths[@]}"; do
+  path="${wt_paths[$i]}"
+  branch="${wt_branches[$i]}"
+
+  pr_info="$(gum spin --spinner dot --title "Checking ${branch}" -- \
+    bash -c 'gh pr list --head "$1" --state merged --limit 1 --json number,title --jq "$2" 2>/dev/null || true' _ "$branch" "$pr_jq")"
+
+  if [[ -n "$pr_info" ]]; then
+    pr_number="${pr_info%%$'\t'*}"
+    pr_title="${pr_info#*$'\t'}"
+    merged_lines+=("✅ #${pr_number} │ ${branch} │ ${pr_title}")
+    merged_paths+=("$path")
+    merged_branches+=("$branch")
+    echo "  ✅ ${branch} — merged, ready to delete (#${pr_number})"
+  else
+    active_lines+=("${branch} │ ${path}")
+    echo "  🚧 ${branch} — still in progress"
+  fi
+  echo "     ${path}"
+done
+
+echo
+if [[ ${#active_lines[@]} -gt 0 ]]; then
+  echo "🚧 Still in progress: ${#active_lines[@]}"
+fi
+if [[ ${#merged_lines[@]} -eq 0 ]]; then
+  echo "✅ No worktrees with merged PRs found"
+  exit 0
+fi
+
+echo "🧹 Ready for deletion: ${#merged_lines[@]}"
+
+selected="$(printf '%s\n' "${merged_lines[@]}" \
+  | gum choose --no-limit --header "Select worktrees to delete (space to select, enter to confirm):")"
+
+if [[ -z "$selected" ]]; then
+  echo "ℹ️  Nothing selected, exiting"
+  exit 0
+fi
+
+while IFS= read -r selected_line; do
+  [[ -z "$selected_line" ]] && continue
+  for i in "${!merged_lines[@]}"; do
+    if [[ "${merged_lines[$i]}" == "$selected_line" ]]; then
+      path="${merged_paths[$i]}"
+      branch="${merged_branches[$i]}"
+
+      echo "🗑️  Removing worktree: $path"
+      if ! git worktree remove "$path" 2>/tmp/git_worktree_cleanup_err; then
+        echo "❌ Failed to remove worktree $path:" >&2
+        cat /tmp/git_worktree_cleanup_err >&2
+        echo "   (re-run with --force manually if you want to discard changes)" >&2
+        rm -f /tmp/git_worktree_cleanup_err
+        continue 2
+      fi
+      rm -f /tmp/git_worktree_cleanup_err
+
+      echo "🌿 Deleting branch: $branch"
+      git branch -D "$branch"
+      break
+    fi
+  done
+done <<< "$selected"
+
+echo "✅ Cleanup complete"
