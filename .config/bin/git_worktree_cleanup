@@ -85,10 +85,23 @@ if [[ ${#merged_lines[@]} -eq 0 ]]; then
   exit 0
 fi
 
-echo "🧹 Ready for deletion: ${#merged_lines[@]}"
+echo
+echo "🧹 The following worktrees are candidates for deletion."
+echo "   Reason: their associated PRs have been merged on GitHub,"
+echo "   so the branches and worktrees are no longer needed."
+echo
+for i in "${!merged_lines[@]}"; do
+  echo "  ${merged_lines[$i]}"
+  echo "     ↳ ${merged_paths[$i]}"
+done
+echo
+
+default_selected="$(IFS=,; echo "${merged_lines[*]}")"
 
 selected="$(printf '%s\n' "${merged_lines[@]}" \
-  | gum choose --no-limit --header "Select worktrees to delete (space to select, enter to confirm):")"
+  | gum choose --no-limit \
+      --selected="$default_selected" \
+      --header "All merged worktrees are pre-selected. Space to toggle, enter to confirm:")"
 
 if [[ -z "$selected" ]]; then
   echo "ℹ️  Nothing selected, exiting"
