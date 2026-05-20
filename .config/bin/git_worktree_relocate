@@ -1,0 +1,87 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [[ $# -ge 1 && "$1" != "." ]]; then
+  REPO_DIR="$1"
+else
+  REPO_DIR="$PWD"
+fi
+
+if ! command -v git >/dev/null 2>&1; then
+  echo "❌ Missing required command: git" >&2
+  exit 1
+fi
+
+if [[ ! -d "$REPO_DIR" ]]; then
+  echo "❌ Directory does not exist: $REPO_DIR" >&2
+  exit 1
+fi
+
+cd "$REPO_DIR"
+main_dir="$(git rev-parse --show-toplevel)"
+
+OLD_DIR="$main_dir/.wk"
+NEW_DIR="$main_dir/w"
+
+if [[ ! -d "$OLD_DIR" ]]; then
+  echo "ℹ️  No $OLD_DIR directory found, nothing to relocate"
+  exit 0
+fi
+
+mkdir -p "$NEW_DIR"
+
+declare -a wt_paths=()
+current_path=""
+while IFS= read -r line; do
+  case "$line" in
+    "worktree "*)
+      current_path="${line#worktree }"
+      if [[ "$current_path" == "$OLD_DIR"/* && "$current_path" != "$main_dir" ]]; then
+        wt_paths+=("$current_path")
+      fi
+      ;;
+  esac
+done < <(git worktree list --porcelain)
+
+if [[ ${#wt_paths[@]} -eq 0 ]]; then
+  echo "✅ No worktrees under $OLD_DIR to relocate"
+  exit 0
+fi
+
+echo "📦 Relocating ${#wt_paths[@]} worktree(s) from $OLD_DIR → $NEW_DIR"
+
+failed=0
+for old_path in "${wt_paths[@]}"; do
+  name="${old_path#$OLD_DIR/}"
+  new_path="$NEW_DIR/$name"
+
+  if [[ -e "$new_path" ]]; then
+    echo "⚠️  Skipping $name — destination already exists: $new_path" >&2
+    failed=$((failed + 1))
+    continue
+  fi
+
+  echo "  → $name"
+  echo "     $old_path"
+  echo "     $new_path"
+
+  mkdir -p "$(dirname "$new_path")"
+
+  if ! git worktree move "$old_path" "$new_path"; then
+    echo "❌ Failed to move $old_path" >&2
+    failed=$((failed + 1))
+    continue
+  fi
+done
+
+if [[ -d "$OLD_DIR" ]] && [[ -z "$(ls -A "$OLD_DIR" 2>/dev/null)" ]]; then
+  rmdir "$OLD_DIR"
+  echo "🧹 Removed empty $OLD_DIR"
+fi
+
+if [[ $failed -gt 0 ]]; then
+  echo "⚠️  Done with $failed failure(s)"
+  exit 1
+fi
+
+echo "✅ Relocation complete"
