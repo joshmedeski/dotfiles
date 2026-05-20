@@ -1,0 +1,247 @@
+#!/usr/bin/env python3
+
+import json
+import os
+import subprocess
+import sys
+from datetime import datetime, UTC
+from pathlib import Path
+from tempfile import NamedTemporaryFile
+
+CONFIG_ROOT = Path.home() / ".config" / "aerospace"
+STATE_PATH = Path(os.environ.get("AEROSPACE_HELPERS_STATE_PATH", CONFIG_ROOT / "state" / "gather.json"))
+WINDOW_FORMAT = "%{window-id}\x1f%{workspace}\x1f%{app-bundle-id}\x1f%{app-name}\x1f%{window-title}"
+
+
+class AeroSpaceHelpersError(Exception):
+    pass
+
+
+def run_command(args: list[str], *, capture_output: bool = True) -> str:
+    try:
+        result = subprocess.run(
+            args,
+            check=True,
+            text=True,
+            capture_output=capture_output,
+        )
+    except FileNotFoundError as exc:
+        raise AeroSpaceHelpersError(f"command not found: {args[0]}") from exc
+    except subprocess.CalledProcessError as exc:
+        stderr = (exc.stderr or "").strip()
+        stdout = (exc.stdout or "").strip()
+        details = stderr or stdout or f"command exited with code {exc.returncode}"
+        raise AeroSpaceHelpersError(details) from exc
+    return result.stdout if capture_output else ""
+
+
+def aerospace(*args: str, capture_output: bool = True) -> str:
+    return run_command(["aerospace", *args], capture_output=capture_output)
+
+
+def aerospace_json(*args: str):
+    output = aerospace(*args)
+    try:
+        return json.loads(output)
+    except json.JSONDecodeError as exc:
+        raise AeroSpaceHelpersError(f"failed to parse JSON from: aerospace {' '.join(args)}") from exc
+
+
+def list_windows() -> list[dict]:
+    output = aerospace("list-windows", "--all", "--format", WINDOW_FORMAT)
+    windows = []
+    for line in output.splitlines():
+        if not line.strip():
+            continue
+        parts = line.split("\x1f", 4)
+        if len(parts) != 5:
+            raise AeroSpaceHelpersError(f"unexpected list-windows output: {line}")
+        window_id, workspace, app_bundle_id, app_name, window_title = parts
+        windows.append(
+            {
+                "window_id": int(window_id),
+                "workspace": workspace,
+                "app_bundle_id": app_bundle_id,
+                "app_name": app_name,
+                "window_title": window_title,
+            }
+        )
+    return windows
+
+
+def focused_workspace() -> str:
+    workspaces = aerospace_json("list-workspaces", "--focused", "--json")
+    if not workspaces:
+        raise AeroSpaceHelpersError("unable to determine the focused workspace")
+    workspace = workspaces[0].get("workspace")
+    if not workspace:
+        raise AeroSpaceHelpersError("focused workspace response did not include a workspace name")
+    return workspace
+
+
+def state_exists() -> bool:
+    return STATE_PATH.exists()
+
+
+def load_state() -> dict:
+    try:
+        return json.loads(STATE_PATH.read_text())
+    except FileNotFoundError as exc:
+        raise AeroSpaceHelpersError("no active gather session") from exc
+    except json.JSONDecodeError as exc:
+        raise AeroSpaceHelpersError(f"invalid state file: {STATE_PATH}") from exc
+
+
+def save_state(data: dict) -> None:
+    STATE_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with NamedTemporaryFile("w", dir=STATE_PATH.parent, delete=False) as tmp:
+        json.dump(data, tmp, indent=2)
+        tmp.write("\n")
+        tmp_path = Path(tmp.name)
+    tmp_path.replace(STATE_PATH)
+
+
+def clear_state() -> None:
+    if STATE_PATH.exists():
+        STATE_PATH.unlink()
+
+
+def gather(target_workspace: str | None = None) -> int:
+    if state_exists():
+        raise AeroSpaceHelpersError(
+            f"an active gather session already exists at {STATE_PATH}. Run 'aerospace-helpers restore' first."
+        )
+
+    windows = list_windows()
+    if not windows:
+        print("No open windows to gather.")
+        return 0
+
+    target = target_workspace or focused_workspace()
+    state = {
+        "version": 1,
+        "created_at": datetime.now(UTC).isoformat(),
+        "target_workspace": target,
+        "window_count": len(windows),
+        "windows": windows,
+    }
+    save_state(state)
+
+    moved = 0
+    for window in windows:
+        if window["workspace"] == target:
+            continue
+        aerospace(
+            "move-node-to-workspace",
+            "--window-id",
+            str(window["window_id"]),
+            target,
+            capture_output=True,
+        )
+        moved += 1
+
+    print(f"Gathered {len(windows)} windows into workspace '{target}' ({moved} moved).")
+    return 0
+
+
+def restore() -> int:
+    state = load_state()
+    current_windows = {window["window_id"] for window in list_windows()}
+
+    restored = 0
+    skipped = 0
+    failures: list[tuple[int, str]] = []
+
+    for window in state.get("windows", []):
+        window_id = window["window_id"]
+        original_workspace = window["workspace"]
+        if window_id not in current_windows:
+            skipped += 1
+            continue
+        try:
+            aerospace(
+                "move-node-to-workspace",
+                "--window-id",
+                str(window_id),
+                original_workspace,
+                capture_output=True,
+            )
+            restored += 1
+        except AeroSpaceHelpersError as exc:
+            failures.append((window_id, str(exc)))
+
+    if failures:
+        print(f"Restore partially failed for {len(failures)} window(s). Keeping state file: {STATE_PATH}", file=sys.stderr)
+        for window_id, message in failures:
+            print(f"  - window {window_id}: {message}", file=sys.stderr)
+        return 1
+
+    clear_state()
+    print(f"Restored {restored} windows; skipped {skipped} closed/missing window(s).")
+    return 0
+
+
+def status() -> int:
+    if not state_exists():
+        print("No active gather session.")
+        return 0
+
+    state = load_state()
+    windows = state.get("windows", [])
+    target = state.get("target_workspace", "?")
+    created_at = state.get("created_at", "?")
+    print(f"Active gather session: {len(windows)} window(s) gathered into workspace '{target}'.")
+    print(f"State file: {STATE_PATH}")
+    print(f"Created: {created_at}")
+    return 0
+
+
+def toggle(target_workspace: str | None = None) -> int:
+    if state_exists():
+        return restore()
+    return gather(target_workspace)
+
+
+def usage() -> str:
+    return f"""Usage:
+  aerospace-helpers gather [workspace]
+  aerospace-helpers restore
+  aerospace-helpers toggle [workspace]
+  aerospace-helpers status
+
+Notes:
+  - gather stores window state in: {STATE_PATH}
+  - gather defaults to the currently focused workspace
+  - restore sends tracked windows back to their saved workspaces
+"""
+
+
+def main(argv: list[str]) -> int:
+    if len(argv) < 2 or argv[1] in {"-h", "--help", "help"}:
+        print(usage().strip())
+        return 0
+
+    command = argv[1]
+
+    if command == "gather":
+        workspace = argv[2] if len(argv) > 2 else None
+        return gather(workspace)
+    if command == "restore":
+        return restore()
+    if command == "toggle":
+        workspace = argv[2] if len(argv) > 2 else None
+        return toggle(workspace)
+    if command == "status":
+        return status()
+
+    print(f"Unknown command: {command}", file=sys.stderr)
+    print(usage().strip(), file=sys.stderr)
+    return 1
+
+
+if __name__ == "__main__":
+    try:
+        raise SystemExit(main(sys.argv))
+    except AeroSpaceHelpersError as exc:
+        print(f"aerospace-helpers: {exc}", file=sys.stderr)
+        raise SystemExit(1)

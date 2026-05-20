@@ -18,6 +18,7 @@ if status --is-interactive
     end
 end
 
+eval (tmuxifier init - fish)
 command -q starship; and starship init fish | source # https://starship.rs/
 command -q zoxide; and zoxide init fish | source # 'ajeetdsouza/zoxide'
 command -q fzf; and fzf --fish | source
@@ -26,12 +27,15 @@ command -q direnv; and direnv hook fish | source # https://direnv.net/
 command -q fx; and fx --comp fish | source # https://fx.wtf/
 set -g direnv_fish_mode eval_on_arrow # trigger direnv at prompt, and on every arrow-based directory change (default)
 
-set -g fish_greeting # disable fish greeting
-set -Ux BAT_THEME "Catppuccin Latte" # 'sharkdp/bat' cat clone
-set -Ux EDITOR nvim # 'neovim/neovim' text editor
-set -Ux FZF_DEFAULT_COMMAND "fd -H -E '.git'"
+# For debugging memory leaks
+set -x MAC_M NITOR_MEM_DEBUG 1
 
-set -Ux FZF_DEFAULT_OPTS (printf '%s ' \
+set -g fish_greeting # disable fish greeting
+set -x BAT_THEME "Catppuccin Latte" # 'sharkdp/bat' cat clone
+set -x EDITOR nvim # 'neovim/neovim' text editor
+set -x FZF_DEFAULT_COMMAND "fd -H -E '.git'"
+
+set -x FZF_DEFAULT_OPTS (printf '%s ' \
     '--layout=reverse' \
     '--info=hidden' \
     '--ansi' \
@@ -51,18 +55,19 @@ set -Ux FZF_DEFAULT_OPTS (printf '%s ' \
 
 set -e PAGER nvimpager
 
-
 # golang - https://golang.google.cn/
-set -Ux GOPATH "$HOME/go"
+set -x GOPATH "$HOME/go"
+fish_add_path /opt/homebrew/bin
 fish_add_path $GOPATH/bin
 fish_add_path $HOME/.rustup/toolchains/nightly-aarch64-apple-darwin/bin
 
 fish_add_path $HOME/.config/bin # my custom scripts
+fish_add_path $HOME/.config/aerospace/helpers # aerospace helper scripts
 fish_add_path $HOME/Library/Python/3.9/bin
 fish_add_path $HOME/.local/share/bob/nvim-bin
+fish_add_path $HOME/.config/tmux/plugins/tmuxifier/bin
 
 fish_add_path $HOME/.gdvm/bin/current_godot $HOME/.gdvm/bin
-
 
 # Mole completions cached in completions/mole.fish
 # Regenerate with: mole completion fish > ~/.config/fish/completions/mole.fish

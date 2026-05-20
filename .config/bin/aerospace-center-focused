@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+export PATH="/opt/homebrew/bin:$PATH"
+
+log=/tmp/aerospace-center-focused-logs
+log() { printf '[%s] %s\n' "$(date '+%H:%M:%S')" "$*" >> "$log"; }
+
+log "---- triggered ----"
+
+cache=/tmp/aerospace-max-display-width
+cache_ttl=30
+if [[ -f "$cache" ]] && (( $(date +%s) - $(stat -f %m "$cache") < cache_ttl )); then
+  max_width=$(cat "$cache")
+else
+  max_width=$(system_profiler SPDisplaysDataType 2>/dev/null \
+    | grep -oE '[0-9]+ x [0-9]+' \
+    | awk '{print $1}' \
+    | sort -nr \
+    | head -1)
+  echo "${max_width:-0}" > "$cache"
+fi
+log "max display width: ${max_width:-0}"
+if (( ${max_width:-0} <= 10000 )); then
+  log "skip: display not > 10000px"
+  exit 0
+fi
+
+focused_id=$(aerospace list-windows --focused --format '%{window-id}' 2>/dev/null || true)
+if [[ -z "$focused_id" ]]; then
+  log "skip: no focused window"
+  exit 0
+fi
+log "focused id: $focused_id"
+
+n=$(aerospace list-windows --workspace focused --count)
+log "window count: $n"
+if (( n < 2 )); then
+  log "skip: fewer than 2 windows"
+  exit 0
+fi
+
+# Strategy: drive the focused window to the left edge, then right to center.
+# `--boundaries-action stop` makes moves past the edge a safe no-op.
+# All loops are hard-bounded by the known window count — no walking, no recursion.
+
+push_left=$(( n - 1 ))
+step_right=$(( n / 2 ))
+log "pushing left $push_left time(s), then right $step_right time(s)"
+
+for _ in $(seq 1 "$push_left"); do
+  aerospace move --window-id "$focused_id" --boundaries-action stop left 2>>"$log" || true
+done
+
+for _ in $(seq 1 "$step_right"); do
+  aerospace move --window-id "$focused_id" --boundaries-action stop right 2>>"$log" || true
+done
+
+log "done"

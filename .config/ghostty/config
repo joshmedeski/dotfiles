@@ -10,35 +10,45 @@
 # Ghostty is a fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration.
 # https://ghostty.org/docs/config/reference
 
-# BUG: Improper handling of window title sequences can lead to arbitrary command execution
-# https://github.com/ghostty-org/ghostty/security/advisories/GHSA-5hcq-3j4q-4v6p
 title = Ghostty
 
-# custom-shader = shaders/starfield-colors.glsl
-custom-shader = ./shaders/starfield.glsl
-custom-shader-animation = true
+background-image-fit = cover
+background-image = ~/c/second-brain/resources/Wallpapers/Mt Hood Wallpaper.jpeg
 
+background-image-opacity = 0.1
+# background
+# shader
+# custom-shader = ./shaders/starfield.glsl
+# custom-shader = ./shaders/matrix-hallway.glsl
+# custom-shader = ./shaders/nebula.glsl
+# custom-shader = ./shaders/planar-light-tunnel.glsl
+# custom-shader = ./shaders/globe.glsl
+# BUG: Improper handling of window title sequences can lead to arbitrary command execution
+# https://github.com/ghostty-org/ghostty/security/advisories/GHSA-5hcq-3j4q-4v6p
+# custom-shader-animation = true
+
+
+shell-integration = fish
 ###########
 ## shell ##
 ###########
 command = "/opt/homebrew/bin/fish --login"
 initial-command = "/opt/homebrew/bin/fish --login -c 'sesh_start'"
-shell-integration = fish
 shell-integration-features = "no-cursor,sudo,title"
 
+macos-titlebar-style = hidden
+window-save-state = always
+window-theme = auto
 #################
 ## UI / window ##
 #################
 bold-is-bright = true
-macos-titlebar-style = hidden
 macos-window-shadow = false
 mouse-hide-while-typing = true
 window-decoration = false
 window-padding-balance = true
-window-padding-x = 2
-window-padding-y = 4
-window-save-state = always
-window-theme = auto
+window-padding-x = 20
+window-padding-y = 20
 # maximise by default
 window-width = 9999
 window-height = 9999
@@ -53,7 +63,7 @@ font-size = 20
 adjust-cell-height = 20
 macos-window-shadow = false
 mouse-hide-while-typing = true
-theme = dark:Catppuccin Frappe,light:Catppuccin Latte
+# theme = dark:Catppuccin Frappe,light:Catppuccin Latte
 window-decoration = false
 window-padding-x = 16
 window-padding-y = 10
@@ -74,7 +84,6 @@ clipboard-write = "allow"
 # \x02 = <C-b> (tmux prefix)
 macos-option-as-alt = true
 
-# switch to window by index (1-based)
 keybind = super+physical:one=text:\x021
 keybind = super+physical:two=text:\x022
 keybind = super+physical:three=text:\x023
@@ -85,6 +94,20 @@ keybind = super+physical:seven=text:\x027
 keybind = super+physical:eight=text:\x028
 keybind = super+physical:nine=text:\x029
 
+keybind = super+c=text:\x02[
+keybind = super+f=text:\x3a\x47\x72\x65\x70\x0a
+keybind = super+g=text:\x02\x67
+keybind = super+k=text:\x02\x4b
+keybind = super+l=text:\x02\x4c
+keybind = super+n=text:\x02\x25
+keybind = super+o=text:\x02\x75
+keybind = super+p=text:\x3a\x47\x6f\x54\x6f\x46\x69\x6c\x65\x0a
+keybind = super+q=text:\x3a\x1b\x1b\x3a\x71\x61\x21\x0a
+keybind = super+r=reload_config
+keybind = super+s=text:\x3a\x77\x0a
+keybind = super+t=text:\x02\x63
+keybind = super+w=text:\x02\x78
+# switch to window by index (1-based)
 # a-z
 # select all?
 # keybind = super+a= 
@@ -92,47 +115,37 @@ keybind = super+physical:nine=text:\x029
 # keybind = super+b= 
 # copy
 # Change to tmux copy mode
-keybind = super+c=text:\x02[
 # keybind = super+d=
 # keybind = super+e=
 # :Grep (find)
-keybind = super+f=text:\x3a\x47\x72\x65\x70\x0a
 # <perfix>+g (open lazygit window)
-keybind = super+g=text:\x02\x67
 # hide?
 # keybind = super+h= 
 # keybind = super+i=
 # keybind = super+j=
 # <perfix>+k (open sesh picker)
-keybind = super+k=text:\x02\x4b
 # <perfix>+l (switch to last session)
-keybind = super+l=text:\x02\x4c
 # minimize?
 # keybind = super+m= 
 # new?
-keybind = super+n=text:\x02\x25
 # <perfix>+u (open url)
-keybind = super+o=text:\x02\x75
 # :GotoFile
-keybind = super+p=text:\x3a\x47\x6f\x54\x6f\x46\x69\x6c\x65\x0a
 # :qa!
-keybind = super+q=text:\x3a\x1b\x1b\x3a\x71\x61\x21\x0a
 # :w (write buffer)
-keybind = super+r=reload_config
-keybind = super+s=text:\x3a\x77\x0a
 # <perfix>+c (new window)
-keybind = super+t=text:\x02\x63
 # keybind = super+u=
 # paste
 # keybind = super+v= 
 # <perfix>+x (close window)
-keybind = super+w=text:\x02\x78
 # cut
 # keybind = super+x= 
 # keybind = super+y=
 # undo?
 # keybind = super+z= 
 
+keybind = super+shift+k=text:\x02\x52
+keybind = super+shift+o=text:\x3a\x47\x6f\x54\x6f\x53\x79\x6d\x62\x6f\x6c\x0a
+keybind = super+shift+p=text:\x3a\x47\x6f\x54\x6f\x43\x6f\x6d\x6d\x61\x6e\x64\x0a
 # A-Z
 # keybind = super+shift+a=
 # keybind = super+shift+b=
@@ -145,14 +158,11 @@ keybind = super+w=text:\x02\x78
 # keybind = super+shift+i=
 # secondary sesh
 # keybind = super+shift+j=
-keybind = super+shift+k=text:\x02\x52
 # keybind = super+shift+l=
 # keybind = super+shift+m=
 # keybind = super+shift+n=
 # :GotoSymbol
-keybind = super+shift+o=text:\x3a\x47\x6f\x54\x6f\x53\x79\x6d\x62\x6f\x6c\x0a
 # :GotoCommand
-keybind = super+shift+p=text:\x3a\x47\x6f\x54\x6f\x43\x6f\x6d\x6d\x61\x6e\x64\x0a
 # keybind = super+shift+q=
 # keybind = super+shift+r=
 # keybind = super+shift+s=
@@ -164,14 +174,14 @@ keybind = super+shift+p=text:\x3a\x47\x6f\x54\x6f\x43\x6f\x6d\x6d\x61\x6e\x64\x0
 # keybind = super+shift+y=
 # keybind = super+shift+z= (redo?)
 
-# special characters
-# jump forward
 keybind = super+right_bracket=text:<C-o>
-# jump back
 keybind = super+left_bracket=text:<C-i>
 
+keybind = super+shift+left_bracket=text:\x02\x6e
+keybind = super+shift+right_bracket=text:\x02\x70
+# special characters
+# jump forward
+# jump back
 # special characters (shift)
 # <perfix>+n (next window)
-keybind = super+shift+left_bracket=text:\x02\x6e
 # <perfix>+p (previous window)
-keybind = super+shift+right_bracket=text:\x02\x70

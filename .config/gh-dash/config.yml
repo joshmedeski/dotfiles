@@ -1,7 +1,7 @@
-qprSections:
-  - title: My Pull Requests
-    filters: is:open author:@me
-  - title: Needs My Review
+prSections:
+  - title: My PRs
+    filters: is:open author:@me draft:false -label:"Do Not Merge"
+  - title: Review Requests
     filters: is:open review-requested:@me
   - title: Involved
     filters: is:open involves:@me -author:@me
@@ -62,7 +62,7 @@ keybindings:
       command: >
         tmux new-window -c {{.RepoPath}} 'nvim -c ":silent Octo pr edit {{.PrNumber}}"'
 repoPaths:
-  Nutiliti/nutiliti: ~/c/nu/review
+  Nutiliti/nutiliti: ~/c/nu
   joshmedeski/*: ~/c/*
   Learn-Build-Teach/deals-for-devs: ~/c/deals-for-devs
   joshmedeski/t-smart-tmux-session-manager: ~/.config/tmux/plugins/t-smart-tmux-session-manager

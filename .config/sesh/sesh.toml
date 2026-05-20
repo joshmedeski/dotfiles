@@ -1,4 +1,5 @@
-#
+#:schema file:///Users/joshmedeski/c/sesh/main/sesh.schema.json
+
 # ███████╗███████╗███████╗██╗  ██╗     ██████╗ ██████╗ ███╗   ██╗███████╗██╗ ██████╗ 
 # ██╔════╝██╔════╝██╔════╝██║  ██║    ██╔════╝██╔═══██╗████╗  ██║██╔════╝██║██╔════╝ 
 # ███████╗█████╗  ███████╗███████║    ██║     ██║   ██║██╔██╗ ██║█████╗  ██║██║  ███╗
@@ -10,11 +11,33 @@
 # https://github.com/joshmedeski/sesh
 
 strict_mode = false
+cache = false
+separator_aware = true
+dir_length = 2
+# git_namer_use_worktree_root = true
+# git_dir_length = 2
 
 import = [
-  "~/.config/sesh/configs/nu-sesh.toml",
-  "~/.config/sesh/configs/raycast-extensions.toml",
+  # "~/.config/sesh/configs/nu-sesh.toml",
+  # "~/.config/sesh/configs/raycast-extensions.toml",
+  "~/.config/sesh/configs/windows.toml",
 ]
+
+[tui]
+show_icons = true
+prompt = "🌲"
+placeholder = "Pick a seshhhhh"
+
+
+# sort_order = ["tmux", "config", "tmuxinator", "zoxide"]
+# sort_order = ["tmux", "config", "tmuxinator", "zoxide"]
+# blacklist_sources = ["tmux", "zoxide"]
+
+
+# projects
+# project_roots = ["~/c"]
+# max_depth = 2
+# sort_order = ["tmux", "projects"]
 
 # [marker]
 # inactivity_threshold = 10    # Seconds before alerts start
@@ -22,29 +45,82 @@ import = [
 # alert_level_2_time = 300     # Medium alert duration
 # alert_level_3_time = 600     # Urgent alert duration
 
-blacklist = [
-  "^scratch$",
-  "^_"
-]
+blacklist = ["^scratch$", "^_", '^~/\.config(?:/.*)?$']
 
-wezterm_wallpapers_dir = "/Users/joshmedeski/.config/wezterm/wallpapers"
 
-sort_order = ["tmux", "tmuxinator", "config", "zoxide"]
-dir_length = 3
+# wezterm_wallpapers_dir = "/Users/joshmedeski/.config/wezterm/wallpapers"
+
+# nutilti
+
+[[session]]
+name = "nutiliti"
+path = "~/c/nu"
+
+[[session]]
+name = "nu cleanup worktrees"
+path = "~/c/nu"
+startup_command = "nu_cleanup_worktrees"
+
 
 # default
 
 [default_session]
-startup_command = "nvim +GoToFile"
+startup_command = "nvim"
 preview_command = "eza --all --git --icons --color=always {}"
 # startup_command_ignore_dirs = ["~/repos", "~/.config"]
+
+[[session]]
+name = "exit immediately"
+path = "~"
+startup_command = "exit"
+
+[[session]]
+name = "home"
+path = "~"
+windows = ["obsidian"]
+
+[[window]]
+name = "obsidian"
+startup_script = "nvim"
+path = "~/c/second-brain"
 
 # common
 
 [[session]]
-name = "second brain"
-path = "~/c/second-brain"
-startup_command = "nvim +ObsidianToday"
+name = "start conversation"
+path = "$HOME/c/second-brain/"
+startup_command = "claude (gum input --placeholder 'What do you want to do?' | string escape)"
+
+[[session]]
+name = "pick code"
+path = "~/c"
+startup_command = "pick-code.sh"
+
+[[session]]
+name = "discordo"
+path = "~/.config/discordo"
+startup_command = "discordo"
+
+[[session]]
+name = "update"
+path = "/tmp"
+startup_command = "update"
+preview_command = "bat --language=fish --style=snip --color=always ~/c/dotfiles/.config/bin/update"
+
+[[session]]
+name = "claude code config"
+path = "~/.claude"
+
+[[session]]
+name = "pick wallpaper"
+path = "~/.config/wezterm/wallpapers"
+startup_command = "tmux set-option status off && wezterm_wallpaper_picker.sh && exit"
+
+# [[session]]
+# name = "stormy"
+# path = "~/.config/stormy"
+# preview_command = "stormy"
+# startup_command = "stormy"
 
 [[session]]
 name = "plugins"
@@ -54,7 +130,7 @@ startup_command = "~/.config/bin/plugin_picker.sh && exit"
 [[session]]
 name = "godot projects"
 path = "~/c/godot/"
-startup_command = "lsd  --group-dirs first -A"
+startup_command = "sesh connect \"$(ls | fzf)\" && exit"
 preview_command = "lsd  --group-dirs first -A"
 
 [[session]]
@@ -63,32 +139,23 @@ path = "~/.config/fastfetch"
 startup_command = "fastfetch"
 preview_command = "fastfetch"
 
-[[session]]
-name = "OpenSuperWhisper"
-path = "~/c/OpenSuperWhisper"
-startup_command = "./run.sh"
+# [[session]]
+# name = "OpenSuperWhisper"
+# path = "~/c/OpenSuperWhisper"
+# startup_command = "./run.sh"
 
-[[session]]
-name = "rift"
-path = "~/c/rift"
-startup_command = "cargo run --bin rift --release"
-preview_command = "bat --language=toml --style=snip --color=always ~/.rift.toml"
+# [[session]]
+# name = "rift"
+# path = "~/c/rift"
+# startup_command = "cargo run --bin rift --release"
+# preview_command = "bat --language=toml --style=snip --color=always ~/.rift.toml"
 
-[[session]]
-name = "wallpaper"
-path = "~/.config/wezterm/wallpapers"
-startup_command = "wezterm_wallpaper_picker.sh && exit"
 
-[[session]]
-name = "color scheme"
-path = "~/c/iTerm2-Color-Schemes/wezterm"
-startup_command = "wezterm_color_scheme_picker.sh && exit"
+# [[session]]
+# name = "color scheme"
+# path = "~/c/iTerm2-Color-Schemes/wezterm"
+# startup_command = "wezterm_color_scheme_picker.sh && exit"
 
-[[session]]
-name = "update"
-path = "/tmp"
-startup_command = "update"
-preview_command = "bat --language=fish --style=snip --color=always ~/c/dotfiles/.config/bin/update"
 
 [[session]]
 name = "Downloads"
@@ -100,47 +167,14 @@ name = "repositories (c)"
 path = "~/c"
 startup_command = "l"
 
-[[session]]
-name = "home (~)"
-path = "~"
-disable_startup_command = true
-# startup_command = "l"
-
-# nutilti
-
-# [[wildcard]]
-# pattern = "~/c/nu/*"
+# [[session]]
+# name = "home (~)"
+# path = "~"
 # disable_startup_command = true
-# startup_command = "lazygit"
-
-[[session]]
-name = "nutiliti pick worktree"
-path = "~/c/nu"
-startup_command = "sesh connect (find . -maxdepth 1 -type d | gum filter --limit 1 --fuzzy --no-sort --placeholder 'Pick a worktree' --prompt='🌲') && exit"
-
-[[session]]
-name = "nutiliti new worktree"
-path = "~/c/nu"
-startup_command = "nu_new_worktree"
-
-[[session]]
-name = "nutiliti reviews"
-path = "~/c/nu/review"
-startup_command = "gh dash"
-
-# sesh
-
-[[session]]
-name = "sesh pick worktree"
-path = "~/c/sesh"
-startup_command = "sesh connect (find . -maxdepth 1 -type d | gum filter --limit 1 --fuzzy --no-sort --placeholder 'Pick a worktree' --prompt='🌲') && exit"
-
-# josh medeski
-
-[[session]]
-name = "joshmedeski_com"
-path = "~/c/joshmedeski.com"
-startup_command = "~/.config/sesh/scripts/node_dev"
+# startup_command = "l"
+[[wildcard]]
+pattern = "~/c/re/**"
+startup_command = "echo 'Raycast is cool'"
 
 # configs
 
@@ -149,13 +183,13 @@ name = "dotfiles"
 path = "~/c/dotfiles"
 
 [[session]]
-name = "wezterm config"
-path = "~/c/dotfiles/.config/wezterm"
-startup_command = "nvim wezterm.lua"
+name = "my custom binaries"
+path = "~/c/dotfiles/.config/bin"
 
 [[session]]
-name = "neovim config"
-path = "~/c/dotfiles/.config/nvim"
+name = "treekanga config"
+path = "~/c/dotfiles/.config/treekanga"
+startup_command = "nvim treekanga.yml"
 
 [[session]]
 name = "aerospace config"
@@ -163,11 +197,11 @@ path = "~/c/dotfiles/.config/aerospace"
 startup_command = "nvim aerospace.toml"
 preview_command = "bat --language=bash --style=snip --color=always ~/c/dotfiles/.config/aerospace/aerospace.toml"
 
-[[session]]
-name = "opencode config"
-path = "/Users/joshmedeski/c/dotfiles/.config/opencode/config.json"
-startup_command = "nvim config.json"
-preview_command = "bat --language=json --style=snip --color=always ~/c/dotfiles/.config/opencode/config.json"
+# [[session]]
+# name = "opencode config"
+# path = "~/c/dotfiles/.config/opencode"
+# startup_command = "nvim config.json"
+# preview_command = "bat --language=json --style=snip --color=always ~/c/dotfiles/.config/opencode/config.json"
 
 [[session]]
 name = "fish config"
@@ -176,15 +210,9 @@ preview_command = "bat --language=fish --style=snip --color=always ~/c/dotfiles/
 
 [[session]]
 name = "sesh config"
-path = "~/c/dotfiles/.config/sesh"
+path = "$HOME/c/dotfiles/.config/sesh"
 startup_command = "nvim sesh.toml"
-preview_command = "bat --language=toml --style=snip --color=always ~/c/dotfiles/.config/sesh/sesh.toml"
-
-[[session]]
-name = "new sesh git worktree"
-path = "~/c/sesh"
-startup_command = "git worktree add (gum input --placeholder 'Enter new worktree name')"
-
+preview_command = "bat --language=toml --style=snip --color=always $HOME/c/dotfiles/.config/sesh/sesh.toml"
 
 [[session]]
 name = "tmux config"
@@ -194,7 +222,9 @@ preview_command = "bat --language=bash --style=snip --color=always ~/c/dotfiles/
 
 [[session]]
 name = "leaderkey config"
-path = "nvim ~/c/dotfiles/.config/leaderkey/config.json"
+path = "~/c/dotfiles/.config/leaderkey"
+preview_command = "bat --language=bash --style=snip --color=always ~/c/dotfiles/.config/leaderkey/config.json"
+startup_command = "nvim ~/c/dotfiles/.config/leaderkey/config.json"
 
 [[session]]
 name = "gitmux config"
@@ -211,10 +241,6 @@ path = "~/c/dotfiles/.config/yazi"
 startup_command = "nvim yazi.toml"
 
 [[session]]
-name = "my custom binaries"
-path = "~/c/dotfiles/.config/bin"
-
-[[session]]
 name = "ghostty config"
 path = "~/c/dotfiles/.config/ghostty"
 startup_command = "nvim config"
@@ -224,53 +250,53 @@ name = "karabiner elements config"
 path = "~/c/dotfiles/.config/karabiner"
 
 [[session]]
-name = "/ect/hosts"
+name = "ect/hosts"
 path = "/etc"
 startup_command = "sudo nvim hosts"
 
-[[session]]
-name = "lazyvim config (legacy)"
-path = "~/c/dotfiles/.config/lazyvim"
+# [[session]]
+# name = "lazyvim config (legacy)"
+# path = "~/c/dotfiles/.config/lazyvim"
 
 # tools
 
-[[session]]
-name = "mactop"
-path = "/"
-startup_command = "sudo mactop"
+# [[session]]
+# name = "mactop"
+# path = "/"
+# startup_command = "sudo mactop"
 
-[[session]]
-name = "ollama"
-path = "~/.ollama"
-startup_command = 'grc tail -f ~/.ollama/logs/server.log'
+# [[session]]
+# name = "ollama"
+# path = "~/.ollama"
+# startup_command = 'grc tail -f ~/.ollama/logs/server.log'
 
-[[session]]
-name = "blender mcp logs"
-path = "~/Library/Logs/Claude/"
-startup_command = "grc tail -f ~/Library/Logs/Claude/mcp-server-blender.log"
+# [[session]]
+# name = "blender mcp logs"
+# path = "~/Library/Logs/Claude/"
+# startup_command = "grc tail -f ~/Library/Logs/Claude/mcp-server-blender.log"
 
-[[session]]
-name = "macmon"
-path = "~/"
-startup_command = "macmon"
+# [[session]]
+# name = "macmon"
+# path = "~/"
+# startup_command = "macmon"
 
-[[session]]
-name = "cava (audio visualizer)"
-path = "~/.config/cava"
-startup_command = "tmux set-option -t cava status off && cava"
+# [[session]]
+# name = "cava (audio visualizer)"
+# path = "~/.config/cava"
+# startup_command = "tmux set-option -t cava status off && cava"
 
 # other
 
-[[session]]
-name = "perplexica"
-path = "~/c/perplexica"
+# [[session]]
+# name = "perplexica"
+# path = "~/c/perplexica"
 # startup_command = "docker compose up -d"
-windows = ["git"]
+# windows = ["git"]
 
-[[session]]
-name = "steam deck"
-path = "~/.ssh"
-startup_command = "ssh deck@steamdeck"
+# [[session]]
+# name = "steam deck"
+# path = "~/.ssh"
+# startup_command = "ssh deck@steamdeck"
 
 # ideas / tasks
 
@@ -303,9 +329,3 @@ startup_command = "ssh deck@steamdeck"
 
 # NOTE: bat styles (--style)
 # full, auto, plain, changes, header, header-filename,
-
-# windows
-
-[[window]]
-name = "git"
-startup_script = "git pull && lazygit"

@@ -22,11 +22,6 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   command = "execute 'silent !aerospace reload-config'",
 })
 
-vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = { "sketchybarrc" },
-  command = "!brew services restart sketchybar",
-})
-
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufFilePre", "BufRead" }, {
   pattern = { "*.mdx", "*.md" },
   callback = function()

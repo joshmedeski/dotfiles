@@ -1,0 +1,4 @@
+[[window]]
+name = "git"
+startup_script = "git pull && lazygit"
+

@@ -1,0 +1,5 @@
+strict_mode = false
+
+[[session]]
+name = "test"
+path = "~/c/sesh"
