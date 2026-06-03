@@ -139,7 +139,7 @@ customCommands:
     command: "lumen draft | tee >(pbcopy)"
     loadingText: "Generating message..."
     output: popup
-  - key: "<c-G>"
+  - key: "<ctrl+shift+g>"
     context: "files"
     command: "lumen draft -c {{.Form.Context | quote}} | tee >(pbcopy)"
     loadingText: "Generating message..."
@@ -152,6 +152,7 @@ keybinding:
   universal:
     quit: "q"
     quit-alt1: "<c-c>" # alternative/alias of quit
+    suspendApp: "<disabled>" # keep ctrl+z available for redo
     return: "<esc>" # return to previous menu, will quit if there's nowhere to return
     quitWithoutChangingDirectory: "Q"
     togglePanel: "<tab>" # goto the next panel
@@ -197,7 +198,7 @@ keybinding:
     nextScreenMode: "+"
     prevScreenMode: "_"
     undo: "z"
-    redo: "<c-z>"
+    redo: "<ctrl+z>"
     filteringMenu: "<c-s>"
     diffingMenu: "W"
     diffingMenu-alt: "<c-e>" # deprecated
@@ -250,7 +251,7 @@ keybinding:
     pasteCommits: "v"
     tagCommit: "T"
     checkoutCommit: "<space>"
-    resetCherryPick: "<c-R>"
+    resetCherryPick: "<ctrl+shift+r>"
   stash:
     popStash: "g"
   commitFiles:
