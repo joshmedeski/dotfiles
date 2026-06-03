@@ -14,8 +14,11 @@ cd ../
 echo "🔗 Setting NODE_ENV to production for server, web, and cli"
 echo "NODE_ENV=production" >./server/.env
 echo "MONGODB_URI=mongodb://localhost:30001,localhost:30002,localhost:30003/?replicaSet=nutiliti-repl-set" >>./server/.env
-echo "NODE_ENV=production" >./web/.env
+
 echo "NODE_ENV=production" >./apps/cli/.env
+echo "MONGODB_URI=mongodb://localhost:30001,localhost:30002,localhost:30003/?replicaSet=nutiliti-repl-set" >>./apps/cli/.env
+
+echo "NODE_ENV=production" >./web/.env
 
 echo "📦 Installing dependencies"
 pnpm i
