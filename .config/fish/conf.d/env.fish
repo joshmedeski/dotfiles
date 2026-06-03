@@ -7,6 +7,9 @@ set -Ux LUMEN_AI_MODEL "llama3.1:latest"
 # Nutiliti
 set -e MONGOMS_VERSION
 
+# mas
+set -gx MAS_NO_AUTO_INDEX 1
+
 # Ollama
 set -Ux OLLAMA_ORIGINS "app://obsidian.md*"
 set -Ux OLLAMA_FLASH_ATTENTION 1
