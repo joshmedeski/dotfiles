@@ -25,6 +25,7 @@ tell application "System Events"
 						end tell
 					end tell
 				end tell
-			end if
-		end tell
+			end tell
+		end if
 	end tell
+end tell
