@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-# Map GitHub "org/repo" -> local repo directory
+# Map GitHub "org/repo" -> local repo directory (keys must be lowercase)
 declare -A REPO_DIRS=(
-  ["Nutiliti/nutiliti"]="$HOME/c/nu"
+  ["nutiliti/nutiliti"]="$HOME/c/nu"
   ["joshmedeski/joshmedeski.com"]="$HOME/c/joshmedeski_com"
   ["joshmedeski/sesh"]="$HOME/c/sesh"
 )
@@ -15,14 +15,14 @@ declare -A REPO_BRANCH_PREFIXES=(
 # Map GitHub "org/repo" -> worktree base directory (optional).
 # Relative paths are resolved from the repo root; absolute paths are used as-is.
 declare -A REPO_WORKTREE_DIRS=(
-  ["Nutiliti/nutiliti"]="w"
+  ["nutiliti/nutiliti"]="w"
   ["joshmedeski/joshmedeski.com"]="w"
   ["joshmedeski/sesh"]="w"
 )
 
 # Map GitHub "org/repo" -> sesh setup command to run on new worktree (optional)
 declare -A REPO_SETUP_CMDS=(
-  ["Nutiliti/nutiliti"]="nu_setup"
+  ["nutiliti/nutiliti"]="nu_setup"
   ["joshmedeski/joshmedeski.com"]="pnpm i"
 )
 
@@ -31,7 +31,7 @@ github_worktree() {
   local repo="$2"
   local kind="$3"
   local number="$4"
-  local repo_key="$org/$repo"
+  local repo_key="${org,,}/${repo,,}" # lowercase so lookups are case-insensitive
   local repo_dir="${REPO_DIRS[$repo_key]}"
 
   if [[ -z "$repo_dir" ]]; then
