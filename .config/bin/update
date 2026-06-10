@@ -46,6 +46,22 @@ gum spin --spinner globe --title "🐠 fisher plugins updating..." -- fisher upd
 echo "\n" >>/tmp/u-$NOW.txt
 echo "✅ 🐠 fisher plugins updated"
 
+if type -q pi
+    gum spin --spinner globe --title "🌀 pi updating..." -- pi update >>/tmp/u-$NOW.txt
+    echo "\n" >>/tmp/u-$NOW.txt
+    echo "✅ 🌀 pi updated"
+else
+    echo "ℹ️ 🌀 pi not installed" >>/tmp/u-$NOW.txt
+end
+
+if type -q claude
+    gum spin --spinner globe --title "🤖 claude updating..." -- claude update >>/tmp/u-$NOW.txt
+    echo "\n" >>/tmp/u-$NOW.txt
+    echo "✅ 🤖 claude updated"
+else
+    echo "ℹ️ 🤖 claude not installed" >>/tmp/u-$NOW.txt
+end
+
 # TODO: auto-open neovim instead?
 # gum spin --spinner globe --title "💤 lazy.nvim syncing..." -- nvim --headless "+Lazy! sync" +qa
 # echo "\n" >>/tmp/u-$NOW.txt
