@@ -9,8 +9,6 @@
 
 # TODO: update to use AI to summarize
 
-tmux rename-session -t $(tmux display-message -p '#S') "🌎 updating"
-
 gum style \
     --foreground 12 --border-foreground 12 --border double \
     --align center --width 60 --margin "1 0" --padding "1 0" \
@@ -96,6 +94,3 @@ echo "✅ 🧾 logged to /tmp/u-$NOW.txt"
 
 # TODO: create fabric prompt to summarize all the updates
 # TODO: output summmary with glow (already done?)
-
-# tmux rename-session -t $(tmux display-message -p '#S') "🌎 updated"
-# say "	All modules updated. Handing control back to operator."
