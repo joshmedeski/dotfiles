@@ -47,7 +47,7 @@ echo "\n" >>/tmp/u-$NOW.txt
 echo "✅ 🐠 fisher plugins updated"
 
 if type -q pi
-    gum spin --spinner globe --title "🌀 pi updating..." -- pi update >>/tmp/u-$NOW.txt
+    gum spin --spinner globe --title "🌀 pi updating..." -- pi update --all >>/tmp/u-$NOW.txt
     echo "\n" >>/tmp/u-$NOW.txt
     echo "✅ 🌀 pi updated"
 else
