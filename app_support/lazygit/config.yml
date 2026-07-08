@@ -40,26 +40,22 @@ gui:
     "joshmedeski": "blue"
     "Josh Medeski": "blue"
 git:
-  # pagers:
-  # - externalDiffCommand: "difft --display=inline"
-  # - externalDiffCommand: difft --color=always
-  # - pager: delta --paging=never
-  # - pager: diff-so-fancy
-  # - externalDiffCommand: "difft --display=side-by-side"
-  #   colorArgs: always
-  # - pager: ydiff -p cat -s --wrap --width={{columnWidth}}
-  #   colorArg: never
-  # - pager: ydiff -p cat -s --wrap --width={{columnWidth}}
-  #   colorArg: never
-  # - pager: ydiff -p cat -s --unified --width={{columnWidth}}
-  #   colorArg: never
-
-  # - externalDiffCommand: difft --color=always
-  # - externalDiffCommand: difft --width={{columnWidth}}
-  # - pager: ydiff -p cat -s --wrap --width={{columnWidth}}
-  #   colorArg: never
-  # - pager: delta --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
-  # - pager: delta --dark --paging=never
+  # Diff pagers to experiment with. The FIRST entry is the default on startup.
+  # Press `|` (choosePager) inside lazygit to switch between them live — no restart needed.
+  pagers:
+    # diff-so-fancy
+    # - pager: diff-so-fancy
+    # delta with jump-to-editor hyperlinks (default)
+    # - pager: 'delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"'
+    # delta, plain
+    # - pager: delta --paging=never
+    # difftastic, inline (structural/semantic diff; needs externalDiffCommand)
+    - externalDiffCommand: difft --color=always --display=inline
+    # difftastic, side-by-side
+    - externalDiffCommand: difft --color=always --display=side-by-side
+    # ydiff, side-by-side wrapped to panel width
+    # - pager: ydiff -p cat -s --wrap --width={{columnWidth}}
+    #   colorArg: never
   merging:
     # only applicable to unix users
     manualCommit: false
