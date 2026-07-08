@@ -75,9 +75,28 @@ gum spin --spinner globe --title "🌳 nvim-treesitter updating" -- nvim --headl
 echo "\n" >>/tmp/u-$NOW.txt
 echo "✅ 🌳 nvim-treesitter updated"
 
-gum spin --spinner globe --title "🍻 brew updating" -- brew update >>/tmp/u-$NOW.txt
+# brew writes its "==> New Formulae" block to stderr, so capture both streams
+gum spin --spinner globe --title "🍻 brew updating" -- fish -c "brew update >/tmp/brew-update-$NOW.txt 2>&1"
+cat /tmp/brew-update-$NOW.txt >>/tmp/u-$NOW.txt
 echo "\n" >>/tmp/u-$NOW.txt
 echo "✅ 🍻 brew updated"
+
+# Capture new Homebrew formulae for review in Obsidian
+set -l NEW_FORMULAE (awk '/^==> New Formulae/{inf=1; next} /^==> (New Casks|Outdated|Deleted|Modified|Renamed)/{inf=0} inf && /^[a-zA-Z0-9].*: /{print}' /tmp/brew-update-$NOW.txt)
+if test -n "$NEW_FORMULAE"
+    set -l OBSIDIAN_FILE "$HOME/c/second-brain/Inbox/New Homebrew Formulas.md"
+    mkdir -p (dirname "$OBSIDIAN_FILE")
+    if not test -f "$OBSIDIAN_FILE"
+        echo "# New Homebrew Formulas" >"$OBSIDIAN_FILE"
+        echo >>"$OBSIDIAN_FILE"
+    end
+    echo "## "(date +"%Y-%m-%d") >>"$OBSIDIAN_FILE"
+    for formula in $NEW_FORMULAE
+        echo "- $formula" >>"$OBSIDIAN_FILE"
+    end
+    echo >>"$OBSIDIAN_FILE"
+    echo "✅ 📝 logged "(count $NEW_FORMULAE)" new formula(e) to Obsidian"
+end
 
 set -l OUTDATED (brew outdated)
 echo $OUTDATED >>/tmp/u-$NOW.txt
