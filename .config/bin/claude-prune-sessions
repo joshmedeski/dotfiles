@@ -1,0 +1,113 @@
+#!/usr/bin/env bash
+# claude-prune-sessions — remove contentless Claude Code session transcripts.
+#
+# Claude Code stores each conversation as ~/.claude/projects/<encoded-cwd>/<id>.jsonl
+# and offers no content-based pruning (cleanupPeriodDays is time-based; `claude
+# project purge` nukes a whole project). This trims the clutter of sessions that
+# were opened, cleared, and abandoned — no AI title, no meaningful command, no
+# typed prompt, and no assistant output.
+#
+# A session is "contentless" when it yields no display label from the same
+# fallback chain the Neovim conversations picker uses:
+#   aiTitle  ->  /command — args (ignoring /clear)  ->  lastPrompt  ->  assistant text
+# If none of those exist, there is nothing worth keeping.
+#
+# DRY-RUN BY DEFAULT: lists candidates and deletes nothing. Pass --delete to remove.
+#
+# Usage:
+#   claude-prune-sessions            # dry run, all projects
+#   claude-prune-sessions --delete   # actually delete the candidates
+#   claude-prune-sessions --project  # limit to the current directory's project
+#   claude-prune-sessions -h
+set -euo pipefail
+
+ROOT="${CLAUDE_PROJECTS_DIR:-$HOME/.claude/projects}"
+DELETE=0
+SCOPE_CURRENT=0
+
+usage() { sed -n '2,25p' "$0" | sed 's/^# \{0,1\}//'; exit 0; }
+
+for arg in "$@"; do
+  case "$arg" in
+    --delete) DELETE=1 ;;
+    --project) SCOPE_CURRENT=1 ;;
+    -h|--help) usage ;;
+    *) echo "unknown option: $arg" >&2; exit 2 ;;
+  esac
+done
+
+# Encode a directory the way Claude Code does: '/' and '.' become '-'.
+encode_dir() { printf '%s' "$1" | sed 's/[/.]/-/g'; }
+
+# Best display label for one session file ($1); empty output => contentless.
+session_label() {
+  local f="$1" t c n a lp at line
+
+  t=$(grep '"type":"ai-title"' "$f" 2>/dev/null | tail -1 | jq -r '.aiTitle // empty' 2>/dev/null)
+  if [ -n "$t" ]; then printf '%s' "$t"; return; fi
+
+  while IFS= read -r line; do
+    c=$(printf '%s' "$line" | jq -r '.message.content | if type == "string" then . else (map(select(.type == "text").text) | join("\n")) end' 2>/dev/null)
+    n=$(printf '%s' "$c" | sed -n 's|.*<command-name>[[:space:]]*/*\([^<[:space:]]*\).*|\1|p' | head -1)
+    [ -z "$n" ] && continue
+    [ "$n" = "clear" ] && continue
+    a=$(printf '%s' "$c" | sed -n 's|.*<command-args>[[:space:]]*\([^<]*\)</command-args>.*|\1|p' | head -1 | sed 's/[[:space:]]*$//')
+    if [ -n "$a" ]; then printf '/%s — %s' "$n" "$a" | tr '\n' ' ' | cut -c1-80; else printf '/%s' "$n"; fi
+    return
+  done < <(grep '<command-name>' "$f" 2>/dev/null)
+
+  lp=$(grep '"type":"last-prompt"' "$f" 2>/dev/null | jq -r '.lastPrompt // empty' 2>/dev/null | grep -v '^[[:space:]]*$' | tail -1)
+  if [ -n "$lp" ]; then printf '%s' "$lp" | tr '\n' ' ' | cut -c1-80; return; fi
+
+  at=$(jq -r 'select(.type == "assistant") | (.message.content | if type == "array" then (map(select(.type == "text").text) | join(" ")) else "" end)' "$f" 2>/dev/null | grep -v '^[[:space:]]*$' | head -1)
+  if [ -n "$at" ]; then printf '%s' "$at" | tr '\n' ' ' | cut -c1-80; return; fi
+}
+
+command -v jq >/dev/null || { echo "jq is required" >&2; exit 1; }
+[ -d "$ROOT" ] || { echo "no such directory: $ROOT" >&2; exit 1; }
+
+# Build the list of session files to inspect.
+dirs=()
+if [ "$SCOPE_CURRENT" = 1 ]; then
+  d="$ROOT/$(encode_dir "$PWD")"
+  [ -d "$d" ] || { echo "no Claude sessions for this project: $d" >&2; exit 0; }
+  dirs=("$d")
+else
+  for d in "$ROOT"/*/; do
+    [ "$(basename "$d")" = "memory" ] && continue
+    dirs+=("$d")
+  done
+fi
+
+candidates=()
+for d in "${dirs[@]}"; do
+  for f in "$d"*.jsonl; do
+    [ -e "$f" ] || continue
+    [ -z "$(session_label "$f")" ] && candidates+=("$f")
+  done
+done
+
+if [ "${#candidates[@]}" -eq 0 ]; then
+  echo "No contentless sessions found."
+  exit 0
+fi
+
+if [ "$DELETE" = 1 ]; then
+  echo "Deleting ${#candidates[@]} contentless session(s):"
+else
+  echo "DRY RUN — ${#candidates[@]} contentless session(s) would be deleted (pass --delete to remove):"
+fi
+echo
+
+for f in "${candidates[@]}"; do
+  size=$(wc -c < "$f" | tr -d ' ')
+  printf '  %6sB  %s\n' "$size" "${f#"$ROOT"/}"
+  if [ "$DELETE" = 1 ]; then rm -f "$f"; fi
+done
+
+echo
+if [ "$DELETE" = 1 ]; then
+  echo "Done. Deleted ${#candidates[@]} file(s)."
+else
+  echo "Nothing deleted. Re-run with --delete to remove these."
+fi
