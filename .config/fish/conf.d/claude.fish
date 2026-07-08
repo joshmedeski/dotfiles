@@ -1,0 +1,1 @@
+set -gx CLAUDE_CODE_NO_FLICKER 1
