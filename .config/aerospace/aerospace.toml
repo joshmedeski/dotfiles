@@ -62,6 +62,8 @@ alt-shift-semicolon = 'mode layout'
 
 alt-shift-z = 'mode move'
 
+alt-shift-w = 'mode window'
+
 [mode.move.binding]
 esc = ['mode main']
 # 1 = ['move-node-to-workspace 1', 'workspace 1']
@@ -99,6 +101,43 @@ w = ['move-node-to-workspace w', 'workspace w']
 x = ['move-node-to-workspace x', 'workspace x']
 y = ['move-node-to-workspace y', 'workspace y']
 z = ['move-node-to-workspace z', 'workspace z']
+
+# Quick window arrangement mode (alt-shift-w). Bindings stay in the mode
+# so you can rapid-fire adjustments on the ultrawide, then esc to exit.
+[mode.window.binding]
+esc = ['mode main']
+
+# move the focused window
+h = 'move left'
+j = 'move down'
+k = 'move up'
+l = 'move right'
+
+# merge/join the focused window into its neighbor
+shift-h = 'join-with left'
+shift-j = 'join-with down'
+shift-k = 'join-with up'
+shift-l = 'join-with right'
+
+# move focus without leaving the mode
+ctrl-h = 'focus left'
+ctrl-j = 'focus down'
+ctrl-k = 'focus up'
+ctrl-l = 'focus right'
+
+# layout swaps
+slash = 'layout tiles horizontal vertical'
+comma = 'layout accordion horizontal vertical'
+f = 'fullscreen'
+space = 'layout floating tiling'
+
+# sizing
+minus = 'resize smart -100'
+equal = 'resize smart +100'
+b = 'balance-sizes'
+
+# reset: flatten nesting and drop back to main
+0 = ['flatten-workspace-tree', 'mode main']
 
 # TODO: come up with a mode that works for me (resizing, moving?)
 [mode.layout.binding]
