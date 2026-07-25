@@ -3,8 +3,11 @@
 # full path of the wallpapers directory (no trailing slash)
 WALLPAPER_DIR="$HOME/c/second-brain/Assets/Wallpapers"
 
-# list only filenames (without .DS_STORE)
-FILES=$(find "$WALLPAPER_DIR" -type f ! -name '.DS_STORE' -exec basename {} \;)
+# list only filenames (without .DS_STORE), newest created first
+FILES=$(find "$WALLPAPER_DIR" -type f ! -name '.DS_STORE' -exec stat -f '%B %N' {} + |
+  sort -rn |
+  cut -d' ' -f2- |
+  sed 's|.*/||')
 
 # put in fzf list; fzf shell-quotes {}, so don't add our own quotes
 SELECTED_FILE=$(echo "$FILES" | fzf --preview "wezterm_wallpaper_setter.sh \"$WALLPAPER_DIR\"/{}" --preview-window=bottom:1%)
