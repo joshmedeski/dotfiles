@@ -90,7 +90,6 @@ alias_auto_connect = true
 [[session]]
 name = "wezterm config"
 path = "~/.config/wezterm"
-startup_command = "nvim wezterm.lua"
 preview_command = "bat --language=lua --style=snip --color=always ~/.config/wezterm/wezterm.lua"
 alias = "wc"
 alias_auto_connect = true
