@@ -1,0 +1,106 @@
+#:schema file:///Users/joshmedeski/c/sesh/main/sesh.schema.json
+
+# "{name} config" sessions for jumping straight into a tool's config
+
+[[session]]
+name = "claude code config"
+path = "~/.claude"
+alias = "ccc"
+alias_auto_connect = true
+
+[[session]]
+name = "treekanga config"
+path = "~/c/dotfiles/.config/treekanga"
+startup_command = "nvim treekanga.yml"
+alias = "tk"
+alias_auto_connect = true
+
+[[session]]
+name = "aerospace config"
+path = "~/c/dotfiles/.config/aerospace"
+startup_command = "nvim aerospace.toml"
+preview_command = "bat --language=bash --style=snip --color=always ~/c/dotfiles/.config/aerospace/aerospace.toml"
+alias = "aero"
+alias_auto_connect = true
+
+# [[session]]
+# name = "opencode config"
+# path = "~/c/dotfiles/.config/opencode"
+# startup_command = "nvim config.json"
+# preview_command = "bat --language=json --style=snip --color=always ~/c/dotfiles/.config/opencode/config.json"
+
+[[session]]
+name = "fish config"
+path = "/Users/joshmedeski/c/dotfiles/.config/fish"
+preview_command = "bat --language=fish --style=snip --color=always ~/c/dotfiles/.config/fish/config.fish"
+alias = "fc"
+alias_auto_connect = true
+
+[[session]]
+name = "sesh config"
+path = "$HOME/c/dotfiles/.config/sesh"
+startup_command = "nvim sesh.toml"
+preview_command = "bat --language=toml --style=snip --color=always $HOME/c/dotfiles/.config/sesh/sesh.toml"
+alias = "sc"
+alias_auto_connect = true
+
+[[session]]
+name = "tmux config"
+path = "~/c/dotfiles/.config/tmux"
+startup_command = "nvim tmux.conf tmux-nerd-font-window-name.yml gitmux.yml"
+preview_command = "bat --language=bash --style=snip --color=always ~/c/dotfiles/.config/tmux/tmux.conf"
+alias = "tc"
+alias_auto_connect = true
+
+[[session]]
+name = "leaderkey config"
+path = "~/c/dotfiles/.config/leaderkey"
+preview_command = "bat --language=bash --style=snip --color=always ~/c/dotfiles/.config/leaderkey/config.json"
+startup_command = "nvim ~/c/dotfiles/.config/leaderkey/config.json"
+alias = "lk"
+alias_auto_connect = true
+
+[[session]]
+name = "gitmux config"
+path = "~/c/dotfiles/.config/tmux"
+startup_command = "nvim gitmux.conf"
+alias = "gm"
+alias_auto_connect = true
+
+[[session]]
+name = "hammerspoon config"
+path = "~/c/dotfiles/.hammerspoon"
+alias = "hs"
+alias_auto_connect = true
+
+[[session]]
+name = "yazi config"
+path = "~/c/dotfiles/.config/yazi"
+startup_command = "nvim yazi.toml"
+alias = "yz"
+alias_auto_connect = true
+
+[[session]]
+name = "ghostty config"
+path = "~/c/dotfiles/.config/ghostty"
+startup_command = "nvim config"
+alias = "gc"
+alias_auto_connect = true
+
+[[session]]
+name = "wezterm config"
+path = "~/.config/wezterm"
+startup_command = "nvim wezterm.lua"
+preview_command = "bat --language=lua --style=snip --color=always ~/.config/wezterm/wezterm.lua"
+alias = "wc"
+alias_auto_connect = true
+
+[[session]]
+name = "karabiner elements config"
+path = "~/c/dotfiles/.config/karabiner"
+alias = "kb"
+alias_auto_connect = true
+
+# [[session]]
+# name = "lazyvim config (legacy)"
+# path = "~/c/dotfiles/.config/lazyvim"
