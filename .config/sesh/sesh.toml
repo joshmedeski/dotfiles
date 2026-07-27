@@ -137,6 +137,13 @@ icon = "⚡"
 path = "~/c/sesh"
 alias = "sesh"
 
+[[session]]
+name = "joshmedeski_com"
+icon = "🌐"
+path = "~/c/joshmedeski_com"
+alias = "jm"
+alias_auto_connect = true
+
 # common
 
 [[session]]
