@@ -3,13 +3,15 @@
 # "{name} config" sessions for jumping straight into a tool's config
 
 [[session]]
-name = "claude code config"
+name = "claude config"
+icon = "🤖"
 path = "~/.claude"
-alias = "ccc"
+alias = "cc"
 alias_auto_connect = true
 
 [[session]]
 name = "treekanga config"
+icon = "🦘"
 path = "~/c/dotfiles/.config/treekanga"
 startup_command = "nvim treekanga.yml"
 alias = "tk"
@@ -17,10 +19,11 @@ alias_auto_connect = true
 
 [[session]]
 name = "aerospace config"
+icon = "🪐"
 path = "~/c/dotfiles/.config/aerospace"
 startup_command = "nvim aerospace.toml"
 preview_command = "bat --language=bash --style=snip --color=always ~/c/dotfiles/.config/aerospace/aerospace.toml"
-alias = "aero"
+alias = "ac"
 alias_auto_connect = true
 
 # [[session]]
@@ -31,6 +34,7 @@ alias_auto_connect = true
 
 [[session]]
 name = "fish config"
+icon = "🐟"
 path = "/Users/joshmedeski/c/dotfiles/.config/fish"
 preview_command = "bat --language=fish --style=snip --color=always ~/c/dotfiles/.config/fish/config.fish"
 alias = "fc"
@@ -38,6 +42,7 @@ alias_auto_connect = true
 
 [[session]]
 name = "sesh config"
+icon = "⚡"
 path = "$HOME/c/dotfiles/.config/sesh"
 startup_command = "nvim sesh.toml"
 preview_command = "bat --language=toml --style=snip --color=always $HOME/c/dotfiles/.config/sesh/sesh.toml"
@@ -46,6 +51,7 @@ alias_auto_connect = true
 
 [[session]]
 name = "tmux config"
+icon = "🪟"
 path = "~/c/dotfiles/.config/tmux"
 startup_command = "nvim tmux.conf tmux-nerd-font-window-name.yml gitmux.yml"
 preview_command = "bat --language=bash --style=snip --color=always ~/c/dotfiles/.config/tmux/tmux.conf"
@@ -54,6 +60,7 @@ alias_auto_connect = true
 
 [[session]]
 name = "leaderkey config"
+icon = "🔑"
 path = "~/c/dotfiles/.config/leaderkey"
 preview_command = "bat --language=bash --style=snip --color=always ~/c/dotfiles/.config/leaderkey/config.json"
 startup_command = "nvim ~/c/dotfiles/.config/leaderkey/config.json"
@@ -62,6 +69,7 @@ alias_auto_connect = true
 
 [[session]]
 name = "gitmux config"
+icon = "🌿"
 path = "~/c/dotfiles/.config/tmux"
 startup_command = "nvim gitmux.conf"
 alias = "gm"
@@ -69,12 +77,14 @@ alias_auto_connect = true
 
 [[session]]
 name = "hammerspoon config"
+icon = "🔨"
 path = "~/c/dotfiles/.hammerspoon"
 alias = "hs"
 alias_auto_connect = true
 
 [[session]]
 name = "yazi config"
+icon = "📁"
 path = "~/c/dotfiles/.config/yazi"
 startup_command = "nvim yazi.toml"
 alias = "yz"
@@ -82,13 +92,22 @@ alias_auto_connect = true
 
 [[session]]
 name = "ghostty config"
+icon = "👻"
 path = "~/c/dotfiles/.config/ghostty"
 startup_command = "nvim config"
 alias = "gc"
 alias_auto_connect = true
 
 [[session]]
+name = "neovim config"
+icon = "📝"
+path = "~/.config/nvim"
+alias = "nc"
+alias_auto_connect = true
+
+[[session]]
 name = "wezterm config"
+icon = "💻"
 path = "~/.config/wezterm"
 preview_command = "bat --language=lua --style=snip --color=always ~/.config/wezterm/wezterm.lua"
 alias = "wc"
@@ -96,6 +115,7 @@ alias_auto_connect = true
 
 [[session]]
 name = "karabiner elements config"
+icon = "🎹"
 path = "~/c/dotfiles/.config/karabiner"
 alias = "kb"
 alias_auto_connect = true

@@ -102,11 +102,13 @@ blacklist = ["^scratch$", "^_", '^~/\.config(?:/.*)?$']
 
 [[session]]
 name = "nutiliti"
+icon = "🏠"
 path = "~/c/nu"
 alias = "nu"
 
 [[session]]
 name = "nu cleanup worktrees"
+icon = "🧹"
 path = "~/c/nu"
 startup_command = "nu_cleanup_worktrees"
 alias = "ncw"
@@ -124,12 +126,14 @@ preview_command = "eza --all --icons --color=always {} && echo '---' && git -C {
 
 [[session]]
 name = "second brain"
+icon = "🧠"
 path = "/Users/joshmedeski/c/second-brain"
 alias = "sb"
 alias_auto_connect = true
 
 [[session]]
 name = "sesh"
+icon = "⚡"
 path = "~/c/sesh"
 alias = "sesh"
 
@@ -137,6 +141,7 @@ alias = "sesh"
 
 [[session]]
 name = "pick code"
+icon = "🎯"
 path = "~/c"
 startup_command = "pick-code.sh"
 alias = "pc"
@@ -144,6 +149,7 @@ alias_auto_connect = true
 
 [[session]]
 name = "discordo"
+icon = "💬"
 path = "~/.config/discordo"
 startup_command = "discordo"
 alias = "dc"
@@ -151,6 +157,7 @@ alias_auto_connect = true
 
 [[session]]
 name = "update"
+icon = "🆕"
 path = "/tmp"
 startup_command = "update"
 preview_command = "bat --language=fish --style=snip --color=always ~/c/dotfiles/.config/bin/update"
@@ -159,6 +166,7 @@ alias_auto_connect = true
 
 [[session]]
 name = "pick wallpaper"
+icon = "🎨"
 path = "~/.config/wezterm/wallpapers"
 startup_command = "tmux set-option status off && wezterm_wallpaper_picker.sh && exit"
 alias = "pw"
@@ -172,6 +180,7 @@ alias_auto_connect = true
 
 [[session]]
 name = "plugins"
+icon = "🔌"
 path = "~"
 startup_command = "~/.config/bin/plugin_picker.sh && exit"
 alias = "pl"
@@ -179,6 +188,7 @@ alias_auto_connect = true
 
 [[session]]
 name = "godot projects"
+icon = "🎮"
 path = "~/c/godot/"
 startup_command = "sesh connect \"$(ls | fzf)\" && exit"
 preview_command = "lsd  --group-dirs first -A"
@@ -187,6 +197,7 @@ alias_auto_connect = true
 
 [[session]]
 name = "fastfetch"
+icon = "💨"
 path = "~/.config/fastfetch"
 startup_command = "fastfetch"
 preview_command = "fastfetch"
@@ -213,37 +224,51 @@ alias_auto_connect = true
 
 [[session]]
 name = "Downloads"
+icon = "📥"
 path = "~/Downloads"
 startup_command = "yazi"
 alias = "dl"
 alias_auto_connect = true
 
 [[session]]
-name = "repositories (c)"
+name = "code"
+icon = "📚"
 path = "~/c"
 startup_command = "l"
 alias = "c"
 
 [[wildcard]]
 pattern = "~/c/re/**"
+icon = "🚀"
 startup_command = "echo 'Raycast is cool'"
+
+[[wildcard]]
+pattern = "~/c/nu/w/*"
+icon = "🏠"
+
+[[wildcard]]
+pattern = "~/c/sesh/w/*"
+icon = "⚡"
 
 # configs
 
 [[session]]
 name = "dotfiles"
+icon = "🏠"
 path = "~/c/dotfiles"
-alias = "dot"
+alias = "df"
 alias_auto_connect = true
 
 [[session]]
 name = "my custom binaries"
+icon = "🔧"
 path = "~/c/dotfiles/.config/bin"
 alias = "bin"
 alias_auto_connect = true
 
 [[session]]
 name = "etc/hosts"
+icon = "🌐"
 path = "/etc"
 startup_command = "sudo nvim hosts"
 alias = "eh"
