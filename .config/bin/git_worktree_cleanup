@@ -52,23 +52,55 @@ done
 echo
 echo "🔍 Checking worktree status..."
 
-declare -a merged_lines=() merged_paths=() merged_branches=() active_lines=()
-pr_jq='.[0] | select(.) | "\(.number)\t\(.title)"'
+declare -a done_lines=() done_paths=() done_branches=() active_lines=()
+
+# Prefer a merged PR, then a closed one; ignore open PRs (still in progress).
+pr_jq='(map(select(.state == "MERGED")) + map(select(.state == "CLOSED")))[0]
+       | select(.) | "\(.state)\t\(.number)\t\(.title)"'
+
+# Pull an issue number out of common branch conventions:
+#   123-foo  feat/123-foo  issue-123  fix/gh-123-foo
+issue_number_from_branch() {
+  local branch="$1"
+  if [[ "$branch" =~ ^([a-zA-Z]+/)?((issue|gh)-)?([0-9]+)([-_/].*)?$ ]]; then
+    echo "${BASH_REMATCH[4]}"
+  fi
+}
 
 for i in "${!wt_paths[@]}"; do
   path="${wt_paths[$i]}"
   branch="${wt_branches[$i]}"
 
   pr_info="$(gum spin --spinner dot --title "Checking ${branch}" -- \
-    bash -c 'gh pr list --head "$1" --state merged --limit 1 --json number,title --jq "$2" 2>/dev/null || true' _ "$branch" "$pr_jq")"
+    bash -c 'gh pr list --head "$1" --state all --limit 20 --json number,title,state --jq "$2" 2>/dev/null || true' _ "$branch" "$pr_jq")"
 
+  reason=""
   if [[ -n "$pr_info" ]]; then
-    pr_number="${pr_info%%$'\t'*}"
-    pr_title="${pr_info#*$'\t'}"
-    merged_lines+=("✅ #${pr_number} │ ${branch} │ ${pr_title}")
-    merged_paths+=("$path")
-    merged_branches+=("$branch")
-    echo "  ✅ ${branch} — merged, ready to delete (#${pr_number})"
+    IFS=$'\t' read -r pr_state pr_number pr_title <<< "$pr_info"
+    if [[ "$pr_state" == "MERGED" ]]; then
+      reason="merged PR #${pr_number}"
+      done_lines+=("✅ PR #${pr_number} merged │ ${branch} │ ${pr_title}")
+    else
+      reason="closed PR #${pr_number} (not merged)"
+      done_lines+=("🚫 PR #${pr_number} closed │ ${branch} │ ${pr_title}")
+    fi
+  else
+    issue_number="$(issue_number_from_branch "$branch")"
+    if [[ -n "$issue_number" ]]; then
+      issue_info="$(gum spin --spinner dot --title "Checking issue #${issue_number}" -- \
+        bash -c 'gh issue view "$1" --json number,title,state --jq "select(.state == \"CLOSED\") | \"\(.number)\t\(.title)\"" 2>/dev/null || true' _ "$issue_number")"
+      if [[ -n "$issue_info" ]]; then
+        issue_title="${issue_info#*$'\t'}"
+        reason="closed issue #${issue_number}"
+        done_lines+=("📕 Issue #${issue_number} closed │ ${branch} │ ${issue_title}")
+      fi
+    fi
+  fi
+
+  if [[ -n "$reason" ]]; then
+    done_paths+=("$path")
+    done_branches+=("$branch")
+    echo "  ✅ ${branch} — ${reason}, ready to delete"
   else
     active_lines+=("${branch} │ ${path}")
     echo "  🚧 ${branch} — still in progress"
@@ -80,28 +112,29 @@ echo
 if [[ ${#active_lines[@]} -gt 0 ]]; then
   echo "🚧 Still in progress: ${#active_lines[@]}"
 fi
-if [[ ${#merged_lines[@]} -eq 0 ]]; then
-  echo "✅ No worktrees with merged PRs found"
+if [[ ${#done_lines[@]} -eq 0 ]]; then
+  echo "✅ No worktrees with merged/closed PRs or closed issues found"
   exit 0
 fi
 
 echo
 echo "🧹 The following worktrees are candidates for deletion."
-echo "   Reason: their associated PRs have been merged on GitHub,"
-echo "   so the branches and worktrees are no longer needed."
+echo "   Reason: their PR was merged or closed on GitHub, or the issue"
+echo "   their branch is named after is closed, so the branches and"
+echo "   worktrees are no longer needed."
 echo
-for i in "${!merged_lines[@]}"; do
-  echo "  ${merged_lines[$i]}"
-  echo "     ↳ ${merged_paths[$i]}"
+for i in "${!done_lines[@]}"; do
+  echo "  ${done_lines[$i]}"
+  echo "     ↳ ${done_paths[$i]}"
 done
 echo
 
-default_selected="$(IFS=,; echo "${merged_lines[*]}")"
+default_selected="$(IFS=,; echo "${done_lines[*]}")"
 
-selected="$(printf '%s\n' "${merged_lines[@]}" \
+selected="$(printf '%s\n' "${done_lines[@]}" \
   | gum choose --no-limit \
       --selected="$default_selected" \
-      --header "All merged worktrees are pre-selected. Space to toggle, enter to confirm:")"
+      --header "All finished worktrees are pre-selected. Space to toggle, enter to confirm:")"
 
 if [[ -z "$selected" ]]; then
   echo "ℹ️  Nothing selected, exiting"
@@ -110,10 +143,10 @@ fi
 
 while IFS= read -r selected_line; do
   [[ -z "$selected_line" ]] && continue
-  for i in "${!merged_lines[@]}"; do
-    if [[ "${merged_lines[$i]}" == "$selected_line" ]]; then
-      path="${merged_paths[$i]}"
-      branch="${merged_branches[$i]}"
+  for i in "${!done_lines[@]}"; do
+    if [[ "${done_lines[$i]}" == "$selected_line" ]]; then
+      path="${done_paths[$i]}"
+      branch="${done_branches[$i]}"
 
       echo "🗑️  Removing worktree: $path"
       if ! git worktree remove "$path" 2>/tmp/git_worktree_cleanup_err; then
