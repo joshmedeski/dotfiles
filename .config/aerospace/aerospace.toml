@@ -11,9 +11,29 @@
 # TODO: setup leaderkey to do transformations
 # TODO: come up with a good way to merge windows for better splitting
 
+config-version = 2
+
 # after-login-command = []
 # after-startup-command = []
 start-at-login = true
+
+persistent-workspaces = [
+  'a',
+  'b',
+  'd',
+  'f',
+  'g',
+  'h',
+  'j',
+  'm',
+  'n',
+  'o',
+  'p',
+  'q',
+  's',
+  'w',
+  'y',
+]
 
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
