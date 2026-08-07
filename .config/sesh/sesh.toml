@@ -63,19 +63,19 @@ application = "Helium"
 # Map github.com/joshmedeski/sesh to the local repo so `sesh worktree create -b`
 # can turn an open issue/PR tab into a worktree under ~/c/sesh/w/<number>.
 [[worktree]]
-name = "joshmedeski/sesh"
+repo = "joshmedeski/sesh"
 path = "~/c/sesh"
 worktree_dir = "w"
 branch_template = "{number}"
 base_branch = "origin/main"
 
 [[worktree]]
-name = "Nutiliti/nutiliti"
+repo = "Nutiliti/nutiliti"
 path = "~/c/nu"
 worktree_dir = "w"
 branch_template = "jam/{number}-1"
 base_branch = "origin/main"
-startup_command = "nu_setup"
+create_command = "nu_setup"
 
 # sort_order = ["tmux", "config", "tmuxinator", "zoxide"]
 # sort_order = ["tmux", "config", "tmuxinator", "zoxide"]
