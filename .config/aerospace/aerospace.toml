@@ -31,6 +31,7 @@ persistent-workspaces = [
   'p',
   'q',
   's',
+  't',
   'w',
   'y',
 ]
@@ -259,5 +260,9 @@ run = ['move-node-to-workspace y']
 [[on-window-detected]]
 if.app-id = 'io.robbie.HomeAssistant'
 run = ['move-node-to-workspace h']
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.teams2'
+run = ['move-node-to-workspace t']
 
 # zoom to move to `s` and tile top 1/3
