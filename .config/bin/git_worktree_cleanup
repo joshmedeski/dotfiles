@@ -7,7 +7,7 @@ else
   REPO_DIR="$1"
 fi
 
-for cmd in gum gh git; do
+for cmd in gum gh git jq; do
   if ! command -v "$cmd" >/dev/null 2>&1; then
     echo "❌ Missing required command: $cmd" >&2
     exit 1
@@ -49,14 +49,28 @@ for i in "${!wt_paths[@]}"; do
   echo "    ${wt_paths[$i]}"
 done
 
-echo
-echo "🔍 Checking worktree status..."
-
 declare -a done_lines=() done_paths=() done_branches=() active_lines=()
 
 # Prefer a merged PR, then a closed one; ignore open PRs (still in progress).
 pr_jq='(map(select(.state == "MERGED")) + map(select(.state == "CLOSED")))[0]
        | select(.) | "\(.state)\t\(.number)\t\(.title)"'
+
+# Disk usage of a directory in KB (0 if it's gone or unreadable).
+dir_size_kb() {
+  local dir="$1"
+  [[ -d "$dir" ]] || { echo 0; return; }
+  du -sk "$dir" 2>/dev/null | awk '{print $1}' || echo 0
+}
+
+# Render a KB count as a human-readable size.
+human_size() {
+  awk -v kb="$1" 'BEGIN {
+    split("KB MB GB TB", units, " ")
+    i = 1
+    while (kb >= 1024 && i < 4) { kb /= 1024; i++ }
+    printf (kb == int(kb) && i == 1) ? "%d %s\n" : "%.1f %s\n", kb, units[i]
+  }'
+}
 
 # Pull an issue number out of common branch conventions:
 #   123-foo  feat/123-foo  issue-123  fix/gh-123-foo
@@ -67,12 +81,112 @@ issue_number_from_branch() {
   fi
 }
 
+# Summarize `git status --porcelain` output as "2 unstaged, 1 untracked".
+status_summary() {
+  local status="$1" staged=0 unstaged=0 untracked=0 entry x y summary=""
+  while IFS= read -r entry; do
+    [[ -z "$entry" ]] && continue
+    x="${entry:0:1}"
+    y="${entry:1:1}"
+    if [[ "$x$y" == "??" ]]; then
+      untracked=$((untracked + 1))
+      continue
+    fi
+    [[ "$x" != " " ]] && staged=$((staged + 1))
+    [[ "$y" != " " ]] && unstaged=$((unstaged + 1))
+  done <<< "$status"
+
+  [[ $unstaged -gt 0 ]] && summary+=", ${unstaged} unstaged"
+  [[ $staged -gt 0 ]] && summary+=", ${staged} staged"
+  [[ $untracked -gt 0 ]] && summary+=", ${untracked} untracked"
+  echo "${summary#, }"
+}
+
+# A worktree with uncommitted work can't be removed, so rule those out before
+# spending any GitHub calls on them.
+echo
+echo "🔍 Checking for uncommitted changes..."
+
+declare -a is_dirty=() dirty_lines=() dirty_paths=()
+
 for i in "${!wt_paths[@]}"; do
+  status="$(git -C "${wt_paths[$i]}" status --porcelain=v1 2>/dev/null || true)"
+  if [[ -n "$status" ]]; then
+    is_dirty[$i]=1
+    dirty_lines+=("${wt_branches[$i]} │ $(status_summary "$status")")
+    dirty_paths+=("${wt_paths[$i]}")
+  else
+    is_dirty[$i]=0
+  fi
+done
+
+if [[ ${#dirty_lines[@]} -gt 0 ]]; then
+  echo
+  echo "🔴 ${#dirty_lines[@]} worktree(s) have uncommitted work and cannot be removed:"
+  for i in "${!dirty_lines[@]}"; do
+    echo "  • ${dirty_lines[$i]}"
+    echo "    ${dirty_paths[$i]}"
+  done
+  echo "   ↳ commit, stash, or discard first (git_worktree_dirty helps); skipping them below"
+fi
+
+declare -a query_idx=() issue_numbers=()
+gql_fields=""
+
+for i in "${!wt_paths[@]}"; do
+  [[ "${is_dirty[$i]}" == 1 ]] && continue
+  branch="${wt_branches[$i]}"
+  # GraphQL string literal — branch names may legitimately contain quotes/backslashes.
+  gql_branch="${branch//\\/\\\\}"
+  gql_branch="${gql_branch//\"/\\\"}"
+
+  query_idx+=("$i")
+  gql_fields+="    pr${i}: pullRequests(headRefName: \"${gql_branch}\", first: 20, states: [OPEN, MERGED, CLOSED], orderBy: {field: CREATED_AT, direction: DESC}) { nodes { number title state } }"$'\n'
+
+  issue_numbers[$i]="$(issue_number_from_branch "$branch")"
+  if [[ -n "${issue_numbers[$i]}" ]]; then
+    gql_fields+="    issue${i}: issue(number: ${issue_numbers[$i]}) { number title state }"$'\n'
+  fi
+done
+
+if [[ ${#query_idx[@]} -eq 0 ]]; then
+  echo
+  echo "✅ Nothing left to check — every worktree has uncommitted work"
+  exit 0
+fi
+
+gql_json="$(mktemp)"
+gql_err="$(mktemp)"
+trap 'rm -f "$gql_json" "$gql_err"' EXIT
+
+nwo="$(gh repo view --json nameWithOwner --jq .nameWithOwner)"
+
+# One request for every branch's PRs and every candidate issue.
+gql_query="query {
+  repository(owner: \"${nwo%%/*}\", name: \"${nwo##*/}\") {
+${gql_fields}  }
+}"
+
+echo
+echo "🔍 Checking ${#query_idx[@]} worktree(s) on GitHub..."
+
+# Unknown issue numbers come back as NOT_FOUND errors alongside usable data,
+# so keep the body and only bail if there's no data at all.
+gum spin --spinner dot --title "Querying GitHub" -- \
+  bash -c 'gh api graphql -f query="$1" >"$2" 2>"$3"' _ "$gql_query" "$gql_json" "$gql_err" || true
+
+if ! jq -e '.data.repository' "$gql_json" >/dev/null 2>&1; then
+  echo "❌ GitHub query failed:" >&2
+  cat "$gql_err" >&2
+  exit 1
+fi
+
+for i in "${query_idx[@]}"; do
   path="${wt_paths[$i]}"
   branch="${wt_branches[$i]}"
 
-  pr_info="$(gum spin --spinner dot --title "Checking ${branch}" -- \
-    bash -c 'gh pr list --head "$1" --state all --limit 20 --json number,title,state --jq "$2" 2>/dev/null || true' _ "$branch" "$pr_jq")"
+  pr_info="$(jq -r --arg key "pr$i" \
+    "(.data.repository[\$key].nodes // []) | $pr_jq" "$gql_json")"
 
   reason=""
   if [[ -n "$pr_info" ]]; then
@@ -84,16 +198,13 @@ for i in "${!wt_paths[@]}"; do
       reason="closed PR #${pr_number} (not merged)"
       done_lines+=("🚫 PR #${pr_number} closed │ ${branch} │ ${pr_title}")
     fi
-  else
-    issue_number="$(issue_number_from_branch "$branch")"
-    if [[ -n "$issue_number" ]]; then
-      issue_info="$(gum spin --spinner dot --title "Checking issue #${issue_number}" -- \
-        bash -c 'gh issue view "$1" --json number,title,state --jq "select(.state == \"CLOSED\") | \"\(.number)\t\(.title)\"" 2>/dev/null || true' _ "$issue_number")"
-      if [[ -n "$issue_info" ]]; then
-        issue_title="${issue_info#*$'\t'}"
-        reason="closed issue #${issue_number}"
-        done_lines+=("📕 Issue #${issue_number} closed │ ${branch} │ ${issue_title}")
-      fi
+  elif [[ -n "${issue_numbers[$i]}" ]]; then
+    issue_number="${issue_numbers[$i]}"
+    issue_title="$(jq -r --arg key "issue$i" \
+      '.data.repository[$key] // empty | select(.state == "CLOSED") | .title' "$gql_json")"
+    if [[ -n "$issue_title" ]]; then
+      reason="closed issue #${issue_number}"
+      done_lines+=("📕 Issue #${issue_number} closed │ ${branch} │ ${issue_title}")
     fi
   fi
 
@@ -141,6 +252,9 @@ if [[ -z "$selected" ]]; then
   exit 0
 fi
 
+freed_kb=0
+removed_count=0
+
 while IFS= read -r selected_line; do
   [[ -z "$selected_line" ]] && continue
   for i in "${!done_lines[@]}"; do
@@ -148,7 +262,9 @@ while IFS= read -r selected_line; do
       path="${done_paths[$i]}"
       branch="${done_branches[$i]}"
 
-      echo "🗑️  Removing worktree: $path"
+      size_kb="$(dir_size_kb "$path")"
+
+      echo "🗑️  Removing worktree: $path ($(human_size "$size_kb"))"
       if ! git worktree remove "$path" 2>/tmp/git_worktree_cleanup_err; then
         echo "❌ Failed to remove worktree $path:" >&2
         cat /tmp/git_worktree_cleanup_err >&2
@@ -158,6 +274,9 @@ while IFS= read -r selected_line; do
       fi
       rm -f /tmp/git_worktree_cleanup_err
 
+      freed_kb=$((freed_kb + size_kb))
+      removed_count=$((removed_count + 1))
+
       echo "🌿 Deleting branch: $branch"
       git branch -D "$branch"
       break
@@ -165,4 +284,9 @@ while IFS= read -r selected_line; do
   done
 done <<< "$selected"
 
-echo "✅ Cleanup complete"
+echo
+if [[ $removed_count -gt 0 ]]; then
+  echo "✅ Cleanup complete — removed ${removed_count} worktree(s), freed $(human_size "$freed_kb")"
+else
+  echo "✅ Cleanup complete — no worktrees removed"
+fi
