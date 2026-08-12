@@ -1,11 +1,38 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-if [[ $# -lt 1 || "$1" == "." ]]; then
-  REPO_DIR="$PWD"
-else
-  REPO_DIR="$1"
-fi
+# Remove git worktrees whose work has already landed.
+#
+# A worktree is a candidate when its branch has a merged or closed PR, or when
+# the issue its branch is named after is closed. Those candidates are then
+# checked for uncommitted work and skipped if they have any, since git refuses
+# to remove them — press O at the prompt to reopen those as background sesh
+# sessions instead. Worktrees still in progress are never checked; they are
+# expected to be dirty.
+#
+# Usage:
+#   git_worktree_cleanup [repo-dir] [--no-size]
+#
+#   repo-dir     repo to inspect (default: cwd)
+#   --no-size    don't measure how much disk space the removals freed
+#                (measuring is slow on node_modules-heavy trees)
+
+REPO_DIR=""
+show_size=true
+
+for arg in "$@"; do
+  case "$arg" in
+    --no-size) show_size=false ;;
+    -h|--help)
+      sed -n '4,18p' "$0" | sed 's/^# \{0,1\}//'
+      exit 0
+      ;;
+    .) REPO_DIR="$PWD" ;;
+    *) REPO_DIR="$arg" ;;
+  esac
+done
+
+REPO_DIR="${REPO_DIR:-$PWD}"
 
 for cmd in gum gh git jq; do
   if ! command -v "$cmd" >/dev/null 2>&1; then
@@ -43,24 +70,7 @@ if [[ ${#wt_paths[@]} -eq 0 ]]; then
   exit 0
 fi
 
-echo "📋 Worktrees (${#wt_paths[@]}):"
-for i in "${!wt_paths[@]}"; do
-  echo "  • ${wt_branches[$i]}"
-  echo "    ${wt_paths[$i]}"
-done
-
-declare -a done_lines=() done_paths=() done_branches=() active_lines=()
-
-# Prefer a merged PR, then a closed one; ignore open PRs (still in progress).
-pr_jq='(map(select(.state == "MERGED")) + map(select(.state == "CLOSED")))[0]
-       | select(.) | "\(.state)\t\(.number)\t\(.title)"'
-
-# Disk usage of a directory in KB (0 if it's gone or unreadable).
-dir_size_kb() {
-  local dir="$1"
-  [[ -d "$dir" ]] || { echo 0; return; }
-  du -sk "$dir" 2>/dev/null | awk '{print $1}' || echo 0
-}
+# ── helpers ──────────────────────────────────────────────────────────────────
 
 # Render a KB count as a human-readable size.
 human_size() {
@@ -102,45 +112,45 @@ status_summary() {
   echo "${summary#, }"
 }
 
-# A worktree with uncommitted work can't be removed, so rule those out before
-# spending any GitHub calls on them.
-echo
-echo "🔍 Checking for uncommitted changes..."
-
-declare -a is_dirty=() dirty_lines=() dirty_paths=()
-
-for i in "${!wt_paths[@]}"; do
-  status="$(git -C "${wt_paths[$i]}" status --porcelain=v1 2>/dev/null || true)"
-  if [[ -n "$status" ]]; then
-    is_dirty[$i]=1
-    dirty_lines+=("${wt_branches[$i]} │ $(status_summary "$status")")
-    dirty_paths+=("${wt_paths[$i]}")
+# Worktree path relative to the repo, falling back to a ~-shortened path.
+short_path() {
+  local path="$1"
+  if [[ "$path" == "$main_dir/"* ]]; then
+    echo "${path#"$main_dir"/}"
   else
-    is_dirty[$i]=0
+    echo "${path/#"$HOME"/\~}"
   fi
-done
+}
 
-if [[ ${#dirty_lines[@]} -gt 0 ]]; then
-  echo
-  echo "🔴 ${#dirty_lines[@]} worktree(s) have uncommitted work and cannot be removed:"
-  for i in "${!dirty_lines[@]}"; do
-    echo "  • ${dirty_lines[$i]}"
-    echo "    ${dirty_paths[$i]}"
-  done
-  echo "   ↳ commit, stash, or discard first (git_worktree_dirty helps); skipping them below"
-fi
+# gum table treats --widths as minimums, so cells are trimmed here to keep the
+# whole table inside the terminal.
+cell() {
+  local text="$1" width="$2"
+  if (( ${#text} > width )); then
+    printf '%s…' "${text:0:width-1}"
+  else
+    printf '%s' "$text"
+  fi
+}
 
-declare -a query_idx=() issue_numbers=()
+# cell(), padded out to the column width for the picker's aligned columns.
+pad() {
+  local text
+  text="$(cell "$1" "$2")"
+  printf '%s%*s' "$text" "$(( $2 - ${#text} ))" ""
+}
+
+# ── one GitHub request for every branch and candidate issue ──────────────────
+
+declare -a issue_numbers=()
 gql_fields=""
 
 for i in "${!wt_paths[@]}"; do
-  [[ "${is_dirty[$i]}" == 1 ]] && continue
   branch="${wt_branches[$i]}"
-  # GraphQL string literal — branch names may legitimately contain quotes/backslashes.
+  # GraphQL string literal — branch names may legitimately contain quotes.
   gql_branch="${branch//\\/\\\\}"
   gql_branch="${gql_branch//\"/\\\"}"
 
-  query_idx+=("$i")
   gql_fields+="    pr${i}: pullRequests(headRefName: \"${gql_branch}\", first: 20, states: [OPEN, MERGED, CLOSED], orderBy: {field: CREATED_AT, direction: DESC}) { nodes { number title state } }"$'\n'
 
   issue_numbers[$i]="$(issue_number_from_branch "$branch")"
@@ -149,30 +159,22 @@ for i in "${!wt_paths[@]}"; do
   fi
 done
 
-if [[ ${#query_idx[@]} -eq 0 ]]; then
-  echo
-  echo "✅ Nothing left to check — every worktree has uncommitted work"
-  exit 0
-fi
-
 gql_json="$(mktemp)"
 gql_err="$(mktemp)"
-trap 'rm -f "$gql_json" "$gql_err"' EXIT
+size_file="$(mktemp)"
+err_file="$(mktemp)"
+trap 'rm -f "$gql_json" "$gql_err" "$size_file" "$err_file"' EXIT
 
 nwo="$(gh repo view --json nameWithOwner --jq .nameWithOwner)"
 
-# One request for every branch's PRs and every candidate issue.
 gql_query="query {
   repository(owner: \"${nwo%%/*}\", name: \"${nwo##*/}\") {
 ${gql_fields}  }
 }"
 
-echo
-echo "🔍 Checking ${#query_idx[@]} worktree(s) on GitHub..."
-
 # Unknown issue numbers come back as NOT_FOUND errors alongside usable data,
 # so keep the body and only bail if there's no data at all.
-gum spin --spinner dot --title "Querying GitHub" -- \
+gum spin --spinner dot --title "Inspecting ${#wt_paths[@]} worktrees on GitHub…" -- \
   bash -c 'gh api graphql -f query="$1" >"$2" 2>"$3"' _ "$gql_query" "$gql_json" "$gql_err" || true
 
 if ! jq -e '.data.repository' "$gql_json" >/dev/null 2>&1; then
@@ -181,112 +183,336 @@ if ! jq -e '.data.repository' "$gql_json" >/dev/null 2>&1; then
   exit 1
 fi
 
-for i in "${query_idx[@]}"; do
-  path="${wt_paths[$i]}"
+# ── classify ─────────────────────────────────────────────────────────────────
+
+# Prefer a merged PR, then a closed one; ignore open PRs (still in progress).
+pr_jq='(map(select(.state == "MERGED")) + map(select(.state == "CLOSED")))[0]
+       | select(.) | "\(.state)\t\(.number)\t\(.title)"'
+
+declare -a landed_idx=() active_idx=()
+declare -a row_st=() row_ref=() row_title=()
+
+for i in "${!wt_paths[@]}"; do
   branch="${wt_branches[$i]}"
+  landed=0
 
   pr_info="$(jq -r --arg key "pr$i" \
     "(.data.repository[\$key].nodes // []) | $pr_jq" "$gql_json")"
 
-  reason=""
   if [[ -n "$pr_info" ]]; then
     IFS=$'\t' read -r pr_state pr_number pr_title <<< "$pr_info"
     if [[ "$pr_state" == "MERGED" ]]; then
-      reason="merged PR #${pr_number}"
-      done_lines+=("✅ PR #${pr_number} merged │ ${branch} │ ${pr_title}")
+      row_st[$i]="✅"
     else
-      reason="closed PR #${pr_number} (not merged)"
-      done_lines+=("🚫 PR #${pr_number} closed │ ${branch} │ ${pr_title}")
+      row_st[$i]="🚫"
     fi
-  elif [[ -n "${issue_numbers[$i]}" ]]; then
+    row_ref[$i]="PR #${pr_number}"
+    row_title[$i]="$pr_title"
+    landed=1
+  else
     issue_number="${issue_numbers[$i]}"
-    issue_title="$(jq -r --arg key "issue$i" \
-      '.data.repository[$key] // empty | select(.state == "CLOSED") | .title' "$gql_json")"
-    if [[ -n "$issue_title" ]]; then
-      reason="closed issue #${issue_number}"
-      done_lines+=("📕 Issue #${issue_number} closed │ ${branch} │ ${issue_title}")
+    issue_title=""
+    if [[ -n "$issue_number" ]]; then
+      issue_state="$(jq -r --arg key "issue$i" \
+        '.data.repository[$key] // empty | .state' "$gql_json")"
+      issue_title="$(jq -r --arg key "issue$i" \
+        '.data.repository[$key] // empty | .title' "$gql_json")"
+      row_ref[$i]="issue #${issue_number}"
+      if [[ "$issue_state" == "CLOSED" ]]; then
+        row_st[$i]="📕"
+        landed=1
+      else
+        row_st[$i]="🚧"
+      fi
+    else
+      # Nothing on GitHub connects to this worktree.
+      row_ref[$i]="—"
+      row_st[$i]="🚧"
     fi
+    # Fall back to the branch so every row still carries a label.
+    row_title[$i]="${issue_title:-$branch}"
   fi
 
-  if [[ -n "$reason" ]]; then
-    done_paths+=("$path")
-    done_branches+=("$branch")
-    echo "  ✅ ${branch} — ${reason}, ready to delete"
+  if [[ "$landed" == 1 ]]; then
+    landed_idx+=("$i")
   else
-    active_lines+=("${branch} │ ${path}")
-    echo "  🚧 ${branch} — still in progress"
+    active_idx+=("$i")
   fi
-  echo "     ${path}"
 done
 
-echo
-if [[ ${#active_lines[@]} -gt 0 ]]; then
-  echo "🚧 Still in progress: ${#active_lines[@]}"
+# ── uncommitted work, for the finished ones only ─────────────────────────────
+
+# Work in progress is expected to be dirty, so only the worktrees that are
+# otherwise ready to delete get checked — there it's the one thing standing
+# between them and removal.
+declare -a is_dirty=() dirty_summaries=() done_idx=()
+dirty_count=0
+for i in "${!wt_paths[@]}"; do is_dirty[$i]=0; done
+
+for i in "${landed_idx[@]}"; do
+  status="$(git -C "${wt_paths[$i]}" status --porcelain=v1 2>/dev/null || true)"
+  if [[ -n "$status" ]]; then
+    is_dirty[$i]=1
+    dirty_summaries[$i]="$(status_summary "$status")"
+    dirty_count=$((dirty_count + 1))
+    # Uncommitted work is why this one is untouchable, so it takes over REF;
+    # the PR/issue title stays in TITLE.
+    row_st[$i]="🔴"
+    row_ref[$i]="${dirty_summaries[$i]}"
+  else
+    done_idx+=("$i")
+  fi
+done
+
+# ── column budget ────────────────────────────────────────────────────────────
+
+# gum table sizes every column to its widest cell and never truncates, so the
+# fit is enforced here: the narrow columns take what their content needs (up to
+# a cap) and TITLE, last and widest, absorbs the rest of the terminal width.
+#
+# The kernel is asked first: `tput cols` falls back to terminfo's 80 whenever it
+# can't query the window, which silently shrinks TITLE on a wide terminal.
+# stderr is redirected before /dev/tty, so a missing tty stays quiet.
+term_cols="$( { stty size 2>/dev/null </dev/tty || true; } | awk '{print $2}')"
+if [[ -z "$term_cols" ]]; then
+  term_cols="$(tput cols 2>/dev/null || true)"
 fi
-if [[ ${#done_lines[@]} -eq 0 ]]; then
-  echo "✅ No worktrees with merged/closed PRs or closed issues found"
+if [[ -z "$term_cols" ]]; then
+  term_cols=100
+fi
+(( term_cols < 40 )) && term_cols=40
+
+w_st=2
+# Every column costs its width plus two padding spaces and a border.
+overhead=$(( 4 * 3 + 1 ))
+
+# Widths the content would like, floored at the header labels.
+nat_folder=6 nat_ref=3 nat_title=5
+for i in "${!wt_paths[@]}"; do
+  folder="$(short_path "${wt_paths[$i]}")"
+  if (( ${#folder} > nat_folder )); then nat_folder=${#folder}; fi
+  if (( ${#row_ref[$i]} > nat_ref )); then nat_ref=${#row_ref[$i]}; fi
+  if (( ${#row_title[$i]} > nat_title )); then nat_title=${#row_title[$i]}; fi
+done
+
+w_folder=$nat_folder w_ref=$nat_ref w_title=$nat_title
+
+if (( w_st + nat_folder + nat_ref + nat_title + overhead > term_cols )); then
+  # Out of room, so trim: FOLDER and REF give up anything past their caps and
+  # TITLE takes whatever is left.
+  folder_cap=$(( term_cols * 24 / 100 ))
+  ref_cap=$(( term_cols * 26 / 100 ))
+  (( folder_cap > 28 )) && folder_cap=28
+  (( ref_cap > 26 )) && ref_cap=26
+  (( w_folder > folder_cap )) && w_folder=$folder_cap
+  (( w_ref > ref_cap )) && w_ref=$ref_cap
+
+  w_title=$(( term_cols - w_st - w_folder - w_ref - overhead ))
+  if (( w_title < 16 )); then w_title=16; fi
+fi
+
+# ── the table ────────────────────────────────────────────────────────────────
+
+repo_label="$(basename "$main_dir")"
+
+# gum table parses its input as CSV, so a PR title containing a quote has to be
+# escaped rather than passed through raw.
+csv_cell() {
+  local text
+  text="$(cell "$1" "$2")"
+  printf '"%s"' "${text//\"/\"\"}"
+}
+
+emit_row() {
+  local i="$1"
+  printf '%s\t%s\t%s\t%s\n' \
+    "$(csv_cell "${row_st[$i]}" 2)" \
+    "$(csv_cell "$(short_path "${wt_paths[$i]}")" "$w_folder")" \
+    "$(csv_cell "${row_ref[$i]}" "$w_ref")" \
+    "$(csv_cell "${row_title[$i]}" "$w_title")"
+}
+
+echo
+gum style --bold "🌳 ${repo_label} — ${#wt_paths[@]} worktree(s)"
+{
+  for i in "${done_idx[@]}"; do emit_row "$i"; done
+  for i in "${active_idx[@]}"; do emit_row "$i"; done
+  for i in "${!wt_paths[@]}"; do
+    if [[ "${is_dirty[$i]}" == 1 ]]; then emit_row "$i"; fi
+  done
+} | gum table --print --separator=$'\t' \
+      --columns="ST,FOLDER,REF,TITLE" \
+      --widths="$w_st,$w_folder,$w_ref,$w_title"
+
+gum style --faint "  ✅ merged   🚫 closed   📕 issue closed   🚧 in progress   🔴 done, but uncommitted work"
+
+if [[ $dirty_count -gt 0 ]]; then
+  gum style --faint "  ${dirty_count} finished worktree(s) have uncommitted work and can't be removed — commit, stash, or discard first"
+fi
+
+# ── open the dirty ones ──────────────────────────────────────────────────────
+
+# Uncommitted work usually means an unfinished session, so offer to reopen them
+# all at once rather than hunting them down by hand.
+open_dirty_sessions() {
+  local origin="" path name
+
+  # sesh always switches to whatever it connects, so remember where we started
+  # and come back, leaving every new session running in the background.
+  if [[ -n "${TMUX:-}" ]]; then
+    origin="$(tmux display-message -p '#S')"
+  fi
+
+  for i in "${!wt_paths[@]}"; do
+    [[ "${is_dirty[$i]}" == 1 ]] || continue
+    path="${wt_paths[$i]}"
+
+    if [[ -n "$origin" ]]; then
+      echo "🚀 sesh connect $(short_path "$path")"
+      sesh connect --switch "$path" || echo "⚠️  Failed to connect: $path" >&2
+    else
+      # No client to switch back to, so create the sessions detached.
+      name="$(basename "$path" | tr '.:' '__')"
+      if tmux has-session -t="$name" 2>/dev/null; then
+        echo "✅ ${name} already running"
+      else
+        echo "🚀 new detached session ${name} → $(short_path "$path")"
+        tmux new-session -d -s "$name" -c "$path" || echo "⚠️  Failed to create: $path" >&2
+      fi
+    fi
+  done
+
+  if [[ -n "$origin" ]]; then
+    tmux switch-client -t "$origin"
+    echo "↩️  Back in ${origin} — new sessions left detached"
+  fi
+}
+
+# Prefer the controlling terminal so the prompt works when output is piped.
+if [[ $dirty_count -gt 0 ]] && command -v sesh >/dev/null 2>&1 &&
+  command -v tmux >/dev/null 2>&1 && ( : </dev/tty ) 2>/dev/null; then
+  gum style --faint "  press O to open those ${dirty_count} worktree(s) with sesh · any other key to continue"
+  read -rsn1 dirty_key </dev/tty || dirty_key=""
+  if [[ "$dirty_key" == [Oo] ]]; then
+    echo
+    open_dirty_sessions
+  fi
+fi
+
+if [[ ${#done_idx[@]} -eq 0 ]]; then
+  echo
+  gum style --bold "✅ Nothing to clean up"
   exit 0
 fi
 
-echo
-echo "🧹 The following worktrees are candidates for deletion."
-echo "   Reason: their PR was merged or closed on GitHub, or the issue"
-echo "   their branch is named after is closed, so the branches and"
-echo "   worktrees are no longer needed."
-echo
-for i in "${!done_lines[@]}"; do
-  echo "  ${done_lines[$i]}"
-  echo "     ↳ ${done_paths[$i]}"
+# ── pick ─────────────────────────────────────────────────────────────────────
+
+declare -a pick_lines=()
+for i in "${done_idx[@]}"; do
+  # TITLE is last and left unpadded, so options carry no trailing blanks.
+  pick_lines+=("${row_st[$i]} $(pad "$(short_path "${wt_paths[$i]}")" "$w_folder")  $(pad "${row_ref[$i]}" "$w_ref")  $(cell "${row_title[$i]}" "$w_title")")
 done
+
 echo
+height=$(( ${#pick_lines[@]} + 1 ))
+(( height > 15 )) && height=15
 
-default_selected="$(IFS=,; echo "${done_lines[*]}")"
-
-selected="$(printf '%s\n' "${done_lines[@]}" \
-  | gum choose --no-limit \
-      --selected="$default_selected" \
-      --header "All finished worktrees are pre-selected. Space to toggle, enter to confirm:")"
+selected="$(printf '%s\n' "${pick_lines[@]}" \
+  | gum choose --no-limit --selected='*' --height="$height" \
+      --cursor-prefix="○ " --unselected-prefix="○ " --selected-prefix="◉ " \
+      --header "Remove which worktrees? (all candidates pre-selected)")"
 
 if [[ -z "$selected" ]]; then
-  echo "ℹ️  Nothing selected, exiting"
+  gum style --faint "ℹ️  Nothing selected, exiting"
   exit 0
 fi
 
-freed_kb=0
-removed_count=0
+# ── confirm ──────────────────────────────────────────────────────────────────
+
+declare -a remove_idx=()
 
 while IFS= read -r selected_line; do
   [[ -z "$selected_line" ]] && continue
-  for i in "${!done_lines[@]}"; do
-    if [[ "${done_lines[$i]}" == "$selected_line" ]]; then
-      path="${done_paths[$i]}"
-      branch="${done_branches[$i]}"
-
-      size_kb="$(dir_size_kb "$path")"
-
-      echo "🗑️  Removing worktree: $path ($(human_size "$size_kb"))"
-      if ! git worktree remove "$path" 2>/tmp/git_worktree_cleanup_err; then
-        echo "❌ Failed to remove worktree $path:" >&2
-        cat /tmp/git_worktree_cleanup_err >&2
-        echo "   (re-run with --force manually if you want to discard changes)" >&2
-        rm -f /tmp/git_worktree_cleanup_err
-        continue 2
-      fi
-      rm -f /tmp/git_worktree_cleanup_err
-
-      freed_kb=$((freed_kb + size_kb))
-      removed_count=$((removed_count + 1))
-
-      echo "🌿 Deleting branch: $branch"
-      git branch -D "$branch"
+  for j in "${!pick_lines[@]}"; do
+    if [[ "${pick_lines[$j]}" == "$selected_line" ]]; then
+      remove_idx+=("${done_idx[$j]}")
       break
     fi
   done
 done <<< "$selected"
 
 echo
-if [[ $removed_count -gt 0 ]]; then
-  echo "✅ Cleanup complete — removed ${removed_count} worktree(s), freed $(human_size "$freed_kb")"
-else
-  echo "✅ Cleanup complete — no worktrees removed"
+gum style --border rounded --padding "0 2" --border-foreground 214 \
+  "Remove ${#remove_idx[@]} worktree(s) and delete ${#remove_idx[@]} branch(es)?"
+
+if ! gum confirm "Proceed?"; then
+  gum style --faint "ℹ️  Cancelled, nothing removed"
+  exit 0
 fi
+
+# ── sizes ────────────────────────────────────────────────────────────────────
+
+# Measured only once removal is agreed to, and in parallel: du is slow on
+# node_modules-heavy trees, but several at once cost barely more than one.
+declare -a size_kb=()
+
+if [[ "$show_size" == true ]]; then
+  declare -a size_args=()
+  for i in "${remove_idx[@]}"; do size_args+=("$i:${wt_paths[$i]}"); done
+
+  gum spin --spinner dot --title "Measuring ${#remove_idx[@]} worktree(s)…" -- \
+    bash -c '
+      out="$1"; shift
+      : >"$out"
+      for entry in "$@"; do
+        {
+          kb="$(du -sk "${entry#*:}" 2>/dev/null | awk "{print \$1}")"
+          printf "%s\t%s\n" "${entry%%:*}" "${kb:-0}" >>"$out"
+        } &
+      done
+      wait
+    ' _ "$size_file" "${size_args[@]}" || true
+
+  while IFS=$'\t' read -r idx kb; do
+    [[ -z "$idx" ]] && continue
+    size_kb[$idx]="$kb"
+  done < "$size_file"
+fi
+
+# ── remove ───────────────────────────────────────────────────────────────────
+
+freed_kb=0
+removed_count=0
+failed_count=0
+
+echo
+for i in "${remove_idx[@]}"; do
+  path="${wt_paths[$i]}"
+  branch="${wt_branches[$i]}"
+
+  if ! gum spin --spinner dot --title "Removing ${branch}…" -- \
+    bash -c 'git worktree remove "$1" 2>"$2"' _ "$path" "$err_file"; then
+    echo "🔴 ${branch} — could not remove worktree"
+    sed 's/^/     /' "$err_file" >&2
+    failed_count=$((failed_count + 1))
+    continue
+  fi
+
+  gum spin --spinner dot --title "Deleting branch ${branch}…" -- \
+    bash -c 'git branch -D "$1" >/dev/null 2>"$2"' _ "$branch" "$err_file" || true
+
+  freed_kb=$(( freed_kb + ${size_kb[$i]:-0} ))
+  removed_count=$((removed_count + 1))
+  printf '✅ %s  %s\n' "$(pad "$(short_path "$path")" "$w_folder")" "$branch"
+done
+
+echo
+if [[ $removed_count -gt 0 ]]; then
+  result="Removed ${removed_count} worktree(s) and branch(es)"
+  [[ "$show_size" == true ]] && result+=$'\n'"Freed $(human_size "$freed_kb")"
+else
+  result="No worktrees removed"
+fi
+[[ $failed_count -gt 0 ]] && result+=$'\n'"${failed_count} failed — see errors above"
+
+gum style --border rounded --padding "0 2" --border-foreground 42 "🧹 ${result}"
