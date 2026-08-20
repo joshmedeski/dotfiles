@@ -203,6 +203,14 @@ alias = "gp"
 alias_auto_connect = true
 
 [[session]]
+name = "spymux"
+icon = "🕵️"
+path = "~"
+startup_command = "tmux set-option status off && spymux; exit"
+alias = "sm"
+alias_auto_connect = true
+
+[[session]]
 name = "fastfetch"
 icon = "💨"
 path = "~/.config/fastfetch"
