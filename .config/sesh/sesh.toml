@@ -24,6 +24,10 @@ import = [
   "~/.config/sesh/configs/configs.toml",
 ]
 
+[[name_substitution]]
+find = "~/c/dotfiles/.config/"
+replace = ""
+
 # TODO: test dashboard
 [dashboard]
 title = "My Dashboard"
@@ -142,6 +146,13 @@ name = "joshmedeski_com"
 icon = "🌐"
 path = "~/c/joshmedeski_com"
 alias = "jm"
+alias_auto_connect = true
+
+[[session]]
+name = "bunnybuddies_org"
+icon = "🐰"
+path = "~/c/bunnybuddies.org"
+alias = "bb"
 alias_auto_connect = true
 
 # common
