@@ -155,6 +155,13 @@ path = "~/c/bunnybuddies.org"
 alias = "bb"
 alias_auto_connect = true
 
+[[session]]
+name = "record wall"
+icon = "🧱"
+path = "~/c/xcode/record-wall"
+alias = "rw"
+alias_auto_connect = true
+
 # common
 
 [[session]]
@@ -163,6 +170,14 @@ icon = "🎯"
 path = "~/c"
 startup_command = "pick-code.sh"
 alias = "pc"
+alias_auto_connect = true
+
+[[session]]
+name = "pick xcode"
+icon = "🛠️"
+path = "~/c/xcode"
+startup_command = "pick-xcode.sh"
+alias = "xc"
 alias_auto_connect = true
 
 [[session]]
