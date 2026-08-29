@@ -33,6 +33,7 @@ persistent-workspaces = [
   's',
   't',
   'w',
+  'x',
   'y',
 ]
 
@@ -194,6 +195,10 @@ if.app-id = 'org.blenderfoundation.blender'
 run = ['move-node-to-workspace b']
 
 [[on-window-detected]]
+if.app-id = 'com.bambulab.bambu-studio'
+run = ['move-node-to-workspace b']
+
+[[on-window-detected]]
 if.app-id = 'md.obsidian'
 run = ['move-node-to-workspace s']
 
@@ -264,5 +269,9 @@ run = ['move-node-to-workspace h']
 [[on-window-detected]]
 if.app-id = 'com.microsoft.teams2'
 run = ['move-node-to-workspace t']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.dt.Xcode'
+run = ['move-node-to-workspace x']
 
 # zoom to move to `s` and tile top 1/3
