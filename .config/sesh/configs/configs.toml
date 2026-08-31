@@ -13,7 +13,7 @@ alias_auto_connect = true
 name = "treekanga config"
 icon = "🦘"
 path = "~/c/dotfiles/.config/treekanga"
-startup_command = "nvim treekanga.yml"
+startup_command = "nvim treekanga.yml && exit"
 alias = "tk"
 alias_auto_connect = true
 
@@ -21,7 +21,7 @@ alias_auto_connect = true
 name = "aerospace config"
 icon = "🪐"
 path = "~/c/dotfiles/.config/aerospace"
-startup_command = "nvim aerospace.toml"
+startup_command = "nvim aerospace.toml && exit"
 preview_command = "bat --language=bash --style=snip --color=always ~/c/dotfiles/.config/aerospace/aerospace.toml"
 alias = "ac"
 alias_auto_connect = true
@@ -29,7 +29,7 @@ alias_auto_connect = true
 # [[session]]
 # name = "opencode config"
 # path = "~/c/dotfiles/.config/opencode"
-# startup_command = "nvim config.json"
+# startup_command = "nvim config.json && exit"
 # preview_command = "bat --language=json --style=snip --color=always ~/c/dotfiles/.config/opencode/config.json"
 
 [[session]]
@@ -44,7 +44,7 @@ alias_auto_connect = true
 name = "sesh config"
 icon = "⚡"
 path = "$HOME/c/dotfiles/.config/sesh"
-startup_command = "nvim sesh.toml"
+startup_command = "nvim sesh.toml && exit"
 preview_command = "bat --language=toml --style=snip --color=always $HOME/c/dotfiles/.config/sesh/sesh.toml"
 alias = "sc"
 alias_auto_connect = true
@@ -53,7 +53,7 @@ alias_auto_connect = true
 name = "tmux config"
 icon = "🪟"
 path = "~/c/dotfiles/.config/tmux"
-startup_command = "nvim tmux.conf tmux-nerd-font-window-name.yml gitmux.yml"
+startup_command = "nvim tmux.conf tmux-nerd-font-window-name.yml gitmux.yml && exit"
 preview_command = "bat --language=bash --style=snip --color=always ~/c/dotfiles/.config/tmux/tmux.conf"
 alias = "tc"
 alias_auto_connect = true
@@ -63,7 +63,7 @@ name = "leaderkey config"
 icon = "🔑"
 path = "~/c/dotfiles/.config/leaderkey"
 preview_command = "bat --language=bash --style=snip --color=always ~/c/dotfiles/.config/leaderkey/config.json"
-startup_command = "nvim ~/c/dotfiles/.config/leaderkey/config.json"
+startup_command = "nvim ~/c/dotfiles/.config/leaderkey/config.json && exit"
 alias = "lk"
 alias_auto_connect = true
 
@@ -71,7 +71,7 @@ alias_auto_connect = true
 name = "gitmux config"
 icon = "🌿"
 path = "~/c/dotfiles/.config/tmux"
-startup_command = "nvim gitmux.conf"
+startup_command = "nvim gitmux.conf && exit"
 alias = "gm"
 alias_auto_connect = true
 
@@ -86,7 +86,7 @@ alias_auto_connect = true
 name = "yazi config"
 icon = "📁"
 path = "~/c/dotfiles/.config/yazi"
-startup_command = "nvim yazi.toml"
+startup_command = "nvim yazi.toml && exit"
 alias = "yz"
 alias_auto_connect = true
 
@@ -94,7 +94,7 @@ alias_auto_connect = true
 name = "ghostty config"
 icon = "👻"
 path = "~/c/dotfiles/.config/ghostty"
-startup_command = "nvim config"
+startup_command = "nvim config && exit"
 alias = "gc"
 alias_auto_connect = true
 

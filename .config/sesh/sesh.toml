@@ -137,7 +137,7 @@ alias_auto_connect = true
 # default
 
 [default_session]
-startup_command = "nvim"
+startup_command = "nvim && exit"
 # preview_command = "eza --all --git --icons --color=always {}"
 preview_command = "eza --all --icons --color=always {} && echo '---' && git -C {} status --short"
 # startup_command_ignore_dirs = ["~/repos", "~/.config"]
@@ -326,7 +326,7 @@ alias_auto_connect = true
 name = "etc/hosts"
 icon = "🌐"
 path = "/etc"
-startup_command = "sudo nvim hosts"
+startup_command = "sudo nvim hosts && exit"
 alias = "eh"
 alias_auto_connect = true
 
