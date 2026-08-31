@@ -14,6 +14,9 @@ strict_mode = false
 cache = true
 separator_aware = true
 dir_length = 2
+# macOS: bring this app to the front after a connect made from outside tmux
+# (leaderkey, osascript), so the session you asked for is the one in front of you.
+terminal = "wezterm"
 # git_namer_use_worktree_root = true
 # git_dir_length = 2
 
@@ -59,13 +62,17 @@ placeholder = "Choose a session"
 preview = true
 preview_border = 'none'
 
-# Read the active browser tab URL (macOS) for `sesh worktree create --browser`.
+# Read the active browser tab URL (macOS) for `sesh worktree connect --browser`.
 [browser]
 application = "Helium"
 # url_command = "URL of active tab of front window"  # optional; Safari uses "URL of current tab of front window"
 
-# Map github.com/joshmedeski/sesh to the local repo so `sesh worktree create -b`
-# can turn an open issue/PR tab into a worktree under ~/c/sesh/w/<number>.
+# Map each repo to its local checkout so `sesh worktree connect -b` can turn an open
+# issue/PR tab into a worktree under <path>/<worktree_dir>/<number>.
+#
+# create_command  runs once, on the connect that creates the worktree (setup)
+# startup_command runs when connecting to a worktree that already existed
+# The two are exclusive -- chain with && if you want both on creation.
 [[worktree]]
 repo = "joshmedeski/sesh"
 path = "~/c/sesh"
@@ -80,6 +87,14 @@ worktree_dir = "w"
 branch_template = "jam/{number}-1"
 base_branch = "origin/main"
 create_command = "nu_setup"
+
+[[worktree]]
+repo = "joshmedeski/joshmedeski.com"
+path = "~/c/joshmedeski_com"
+worktree_dir = "w"
+branch_template = "{number}"
+base_branch = "origin/main"
+create_command = "pnpm i"
 
 # sort_order = ["tmux", "config", "tmuxinator", "zoxide"]
 # sort_order = ["tmux", "config", "tmuxinator", "zoxide"]

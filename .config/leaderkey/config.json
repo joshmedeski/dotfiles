@@ -24,9 +24,9 @@
     },
     {
       "key": "i",
-      "label": "Issue",
+      "label": "Issue Worktree",
       "type": "command",
-      "value": "/Users/joshmedeski/.config/bin/browser-dispatch"
+      "value": "/Users/joshmedeski/go/bin/sesh worktree connect --browser --switch"
     },
     {
       "key": "m",
