@@ -1,59 +1,126 @@
-#!/bin/sh
+#!/bin/bash
+#
+# dev — find and run the right dev script for the current directory.
+#
+# Usage:
+#   dev [--hold] [script-key] [extra args...]
+#
+#   --hold       on a failure, wait for q before exiting, so the error stays
+#                on screen in a pane that closes the moment this exits (see
+#                the ⌘+d tmux binding, which opens a window just for this
+#                run). A clean exit, Ctrl-C included, closes immediately.
+#   script-key   prefix of a package.json script to run; defaults to `dev`
+#   extra args   forwarded to the underlying script after `--`
+
+hold=false
+if [ "$1" = "--hold" ]; then
+	hold=true
+	shift
+fi
+
+# Remaining argv, minus --hold: the script key, then anything to forward.
+ORIG=("$@")
 
 # Get argument for script key/name, default to dev
 DEV_SCRIPT="${1:-dev}"
+[ $# -gt 0 ] && shift
+# Wrap the leftovers in `--` so package managers hand them to the script
+# rather than eating them, and stay empty when there are none.
+FORWARD=()
+[ $# -gt 0 ] && FORWARD=(-- "$@")
+
+# Under --hold, every exit path ends here so a failure survives the caller
+# closing the moment this returns. Registered as a trap rather than called at
+# the end, so early exits hold too — a "port already in use" or "no dev script
+# found" message is the one most worth reading.
+#
+# Only failures hold. Nothing went wrong on a clean exit, and Ctrl-C is the
+# normal way to stop a dev server, so neither is worth a keypress — the
+# INT trap records the interrupt because a package manager may report it as an
+# ordinary non-zero status rather than 130.
+held=false
+interrupted=false
+
+# Discard whatever is already buffered on the terminal, up to a short lull.
+drain_tty() {
+	local discard
+	while read -rsn1 -t 0.05 discard </dev/tty; do :; done
+	return 0
+}
+
+hold_for_key() {
+	local status="${1:-0}"
+	[ "$hold" = true ] || return 0
+	[ "$status" != 0 ] || return 0
+	[ "$interrupted" = false ] || return 0
+	# Both the INT trap and the EXIT trap that follows it reach here — prompt once.
+	[ "$held" = false ] || return 0
+	held=true
+	(: </dev/tty) 2>/dev/null || return 0
+	local key
+	drain_tty
+	printf '\n  press q to quit '
+	while read -rsn1 key </dev/tty; do
+		[[ "$key" == [Qq] ]] && break
+		# The rest of an escape sequence follows immediately; take it in one go.
+		[[ "$key" == $'\e' ]] && drain_tty
+	done
+	printf '\n'
+}
+trap 'hold_for_key $?' EXIT
+trap 'interrupted=true; exit 130' INT
 
 # First, check if the jq command is available
 # AND there is a package.json file in the current directory
 if command -v jq &>/dev/null && [[ -f "package.json" ]]; then
-  # if we have jq,
-  # then use it to extract the first occurence of a key in package.json's scripts object
-  # that starts with the argument passed in (or dev)
-  DEV_SCRIPT="$(jq \
-    -r \
-    --arg ds "$DEV_SCRIPT" \
-    'first(.scripts | keys[] | select(. | test("^\($ds)[^\"]*")))' \
-    package.json)"
-  # if this didn't match anything, fallback to dev
-  DEV_SCRIPT="${DEV_SCRIPT:-dev}"
+	# if we have jq,
+	# then use it to extract the first occurence of a key in package.json's scripts object
+	# that starts with the argument passed in (or dev)
+	DEV_SCRIPT="$(jq \
+		-r \
+		--arg ds "$DEV_SCRIPT" \
+		'first(.scripts | keys[] | select(. | test("^\($ds)[^\"]*")))' \
+		package.json)"
+	# if this didn't match anything, fallback to dev
+	DEV_SCRIPT="${DEV_SCRIPT:-dev}"
 fi
 
 if [ -f .fgvm-version ]; then
 	fgvm godot --attached
-	exit 0
+	exit $?
 fi
-							
+
 if [ -f "d" ]; then
-	./d "$@"
-	exit 0
+	./d "${ORIG[@]}"
+	exit $?
 fi
 
 if [ -f package-lock.json ]; then
-	echo "npm run $DEV_SCRIPT"
-	npm run "$DEV_SCRIPT"
-	exit 0
+	echo "npm run $DEV_SCRIPT" "${FORWARD[@]}"
+	npm run "$DEV_SCRIPT" "${FORWARD[@]}"
+	exit $?
 fi
 
 if [ -f yarn.lock ]; then
-	echo "yarn $DEV_SCRIPT"
-	yarn "$DEV_SCRIPT"
-	exit 0
+	echo "yarn $DEV_SCRIPT" "${FORWARD[@]}"
+	yarn "$DEV_SCRIPT" "${FORWARD[@]}"
+	exit $?
 fi
 
 if [ -f pnpm-lock.yaml ]; then
-	echo "pnpm run $DEV_SCRIPT"
-	pnpm run "$DEV_SCRIPT"
-	exit 0
+	echo "pnpm run $DEV_SCRIPT" "${FORWARD[@]}"
+	pnpm run "$DEV_SCRIPT" "${FORWARD[@]}"
+	exit $?
 fi
 
 if [ -f bun.lock ]; then
-  DIR=$(git rev-parse --git-common-dir)
-  # if the git common dir's parent dir has a bun.lock, use that
-  if [ -f "$DIR/../bun.lock" ]; then
-    echo "bun run $DEV_SCRIPT"
-    bun "$DEV_SCRIPT"
-    exit 0
-  fi  
+	DIR=$(git rev-parse --git-common-dir)
+	# if the git common dir's parent dir has a bun.lock, use that
+	if [ -f "$DIR/../bun.lock" ]; then
+		echo "bun run $DEV_SCRIPT" "${FORWARD[@]}"
+		bun "$DEV_SCRIPT" "${FORWARD[@]}"
+		exit $?
+	fi
 fi
 
 BASE_NAME="$(basename "$(pwd)")"
@@ -61,8 +128,8 @@ BASE_NAME="$(basename "$(pwd)")"
 cd ..
 if [ -f pnpm-lock.yaml ]; then
 	cd "$BASE_NAME" || exit
-	pnpm run "$DEV_SCRIPT"
-	exit 0
+	pnpm run "$DEV_SCRIPT" "${FORWARD[@]}"
+	exit $?
 fi
 
 PARENT_BASE_NAME="$(basename "$(pwd)")"
@@ -71,9 +138,10 @@ cd ..
 if [ -f pnpm-lock.yaml ]; then
 	cd "$PARENT_BASE_NAME" || exit
 	cd "$BASE_NAME" || exit
-	pnpm run "$DEV_SCRIPT"
-	exit 0
+	pnpm run "$DEV_SCRIPT" "${FORWARD[@]}"
+	exit $?
 fi
 
 tmux display-message "No dev script found"
+echo "No dev script found" >&2
 exit 1
