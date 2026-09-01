@@ -204,6 +204,14 @@ alias = "dc"
 alias_auto_connect = true
 
 [[session]]
+name = "quill"
+icon = "🪶"
+path = "~/.config/quill"
+startup_command = "quill && exit"
+alias = "qu"
+alias_auto_connect = true
+
+[[session]]
 name = "update"
 icon = "🆕"
 path = "/tmp"
