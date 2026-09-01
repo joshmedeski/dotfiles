@@ -263,6 +263,14 @@ if.app-id = 'com.flexibits.fantastical2.mac'
 run = ['move-node-to-workspace y']
 
 [[on-window-detected]]
+if.app-id = 'com.apple.iCal'
+run = ['move-node-to-workspace y']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.reminders'
+run = ['move-node-to-workspace y']
+
+[[on-window-detected]]
 if.app-id = 'io.robbie.HomeAssistant'
 run = ['move-node-to-workspace h']
 
@@ -272,6 +280,10 @@ run = ['move-node-to-workspace t']
 
 [[on-window-detected]]
 if.app-id = 'com.apple.dt.Xcode'
+run = ['move-node-to-workspace x']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.iphonesimulator'
 run = ['move-node-to-workspace x']
 
 # zoom to move to `s` and tile top 1/3
