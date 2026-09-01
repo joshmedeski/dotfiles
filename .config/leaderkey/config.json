@@ -87,6 +87,74 @@
       "iconPath": "inset.filled.rectangle.and.cursorarrow"
     },
     {
+      "key": "v",
+      "label": "volume",
+      "type": "group",
+      "actions": [
+        {
+          "key": "1",
+          "label": "10%",
+          "type": "url",
+          "value": "raycast://extensions/benvp/audio-device/set-volume-to?arguments={\"volume\":\"10\"}"
+        },
+        {
+          "key": "2",
+          "label": "20%",
+          "type": "url",
+          "value": "raycast://extensions/benvp/audio-device/set-volume-to?arguments={\"volume\":\"20\"}"
+        },
+        {
+          "key": "3",
+          "label": "30%",
+          "type": "url",
+          "value": "raycast://extensions/benvp/audio-device/set-volume-to?arguments={\"volume\":\"30\"}"
+        },
+        {
+          "key": "4",
+          "label": "40%",
+          "type": "url",
+          "value": "raycast://extensions/benvp/audio-device/set-volume-to?arguments={\"volume\":\"40\"}"
+        },
+        {
+          "key": "5",
+          "label": "50%",
+          "type": "url",
+          "value": "raycast://extensions/benvp/audio-device/set-volume-to?arguments={\"volume\":\"50\"}"
+        },
+        {
+          "key": "6",
+          "label": "60%",
+          "type": "url",
+          "value": "raycast://extensions/benvp/audio-device/set-volume-to?arguments={\"volume\":\"60\"}"
+        },
+        {
+          "key": "7",
+          "label": "70%",
+          "type": "url",
+          "value": "raycast://extensions/benvp/audio-device/set-volume-to?arguments={\"volume\":\"70\"}"
+        },
+        {
+          "key": "8",
+          "label": "80%",
+          "type": "url",
+          "value": "raycast://extensions/benvp/audio-device/set-volume-to?arguments={\"volume\":\"80\"}"
+        },
+        {
+          "key": "9",
+          "label": "90%",
+          "type": "url",
+          "value": "raycast://extensions/benvp/audio-device/set-volume-to?arguments={\"volume\":\"90\"}"
+        },
+        {
+          "key": "0",
+          "label": "100%",
+          "type": "url",
+          "value": "raycast://extensions/benvp/audio-device/set-volume-to?arguments={\"volume\":\"100\"}"
+        }
+      ],
+      "iconPath": "speaker.wave.3"
+    },
+    {
       "key": "w",
       "label": "window",
       "type": "group",
