@@ -61,6 +61,9 @@ prompt = "⚡"
 placeholder = "Choose a session"
 preview = true
 preview_border = 'none'
+# Any tmux format. This one shows the pane title when the pane sets one,
+# falling back to the window name otherwise.
+# window_name_format = "#{?#{pane_title},#{pane_title},#{window_name}}"
 
 # Read the active browser tab URL (macOS) for `sesh worktree connect --browser`.
 [browser]
@@ -98,7 +101,7 @@ create_command = "pnpm i"
 
 # sort_order = ["tmux", "config", "tmuxinator", "zoxide"]
 # sort_order = ["tmux", "config", "tmuxinator", "zoxide"]
-# blacklist_sources = ["tmux", "zoxide"]
+# blacklist_sources = ["tmuxinator"]
 
 
 # projects
@@ -124,15 +127,6 @@ name = "nutiliti"
 icon = "🏠"
 path = "~/c/nu"
 alias = "nu"
-
-[[session]]
-name = "nu cleanup worktrees"
-icon = "🧹"
-path = "~/c/nu"
-startup_command = "nu_cleanup_worktrees"
-alias = "ncw"
-alias_auto_connect = true
-
 
 # default
 
@@ -313,6 +307,14 @@ icon = "🏠"
 [[wildcard]]
 pattern = "~/c/sesh/w/*"
 icon = "⚡"
+
+[[wildcard]]
+pattern = "~/c/dotfiles/.config/tmux/plugins/*"
+icon = "🪟"
+
+[[wildcard]]
+pattern = "~/.config/tmux/plugins/*"
+icon = "🪟"
 
 # configs
 
