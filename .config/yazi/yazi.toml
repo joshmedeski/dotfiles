@@ -1,5 +1,5 @@
 [mgr]
-ratio = [1, 2, 4]
+ratio = [1, 2, 5]
 sort_by = "mtime"
 sort_sensitive = true
 sort_reverse = true
@@ -10,8 +10,8 @@ show_symlink = true
 
 [preview]
 tab_size = 2
-max_width = 2000
-max_height = 1200
+max_width = 3840
+max_height = 2160
 cache_dir = ""
 ueberzug_scale = 1
 ueberzug_offset = [0, 0, 0, 0]
@@ -43,7 +43,7 @@ play = [
 
 [open]
 rules = [
-  { name = "*/", use = [
+  { url = "*/", use = [
     "edit",
     "open",
     "reveal",
