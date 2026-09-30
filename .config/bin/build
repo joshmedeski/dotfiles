@@ -6,15 +6,24 @@
 # 	echo "✅ Built to ~/go/bin/sesh"
 # fi
 
+WAIT=false
+BUILT=false
+if [[ "$1" == "-w" || "$1" == "--wait" ]]; then
+	WAIT=true
+	shift
+fi
+
 # Get argument for script key/name, default to dev
 BUILD_SCRIPT="${1:-build}"
 
 if [ -f justfile ]; then
 	just "$BUILD_SCRIPT"
+	BUILT=true
 fi
 
 if [ -f Makefile ]; then
 	make "$BUILD_SCRIPT"
+	BUILT=true
 fi
 
 # First, check if the jq command is available
@@ -34,26 +43,31 @@ fi
 
 if [ -f ".b" ]; then
 	./.b "$@"
+	BUILT=true
 fi
 
 if [ -f package-lock.json ]; then
 	echo "npm run $BUILD_SCRIPT"
 	npm run "$BUILD_SCRIPT"
+	BUILT=true
 fi
 
 if [ -f yarn.lock ]; then
 	echo "yarn $BUILD_SCRIPT"
 	yarn "$BUILD_SCRIPT"
+	BUILT=true
 fi
 
 if [ -f pnpm-lock.yaml ]; then
 	echo "pnpm run $BUILD_SCRIPT"
 	pnpm run "$BUILD_SCRIPT"
+	BUILT=true
 fi
 
 if [ -f bun.lockb ]; then
 	echo "bun $BUILD_SCRIPT"
 	pnpm run "$BUILD_SCRIPT"
+	BUILT=true
 fi
 
 BASE_NAME="$(basename "$(pwd)")"
@@ -62,6 +76,7 @@ cd ..
 if [ -f pnpm-lock.yaml ]; then
 	cd "$BASE_NAME" || exit
 	pnpm run "$BUILD_SCRIPT"
+	BUILT=true
 fi
 
 PARENT_BASE_NAME="$(basename "$(pwd)")"
@@ -71,9 +86,22 @@ if [ -f pnpm-lock.yaml ]; then
 	cd "$PARENT_BASE_NAME" || exit
 	cd "$BASE_NAME" || exit
 	pnpm run "$BUILD_SCRIPT"
+	BUILT=true
 fi
 
-echo "Build complete"
+MESSAGE="Build complete"
+[ "$BUILT" = false ] && MESSAGE="No build found"
+if [ "$WAIT" = false ] && [ -n "$TMUX" ]; then
+	tmux display-message -d 3000 "$MESSAGE"
+else
+	echo "$MESSAGE"
+fi
+
+if [ "$WAIT" = false ]; then
+	sleep 2
+	exit 0
+fi
+
 echo "Press 'q' or 'esc' to exit"
 while true; do
 	read -rsn1 input # Read a single character without displaying it
