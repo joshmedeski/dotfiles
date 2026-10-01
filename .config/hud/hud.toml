@@ -1,0 +1,285 @@
+[recipe.sesh]
+command = "sesh list --json"
+columns = ["Icon", "Name", "Path"]
+labels = { Icon = "" }
+enter = ["sesh", "connect", "{{.Name}}"]
+keys = { "ctrl+d" = ["tmux", "kill-session", "-t", "{{.Name}}"] }
+
+[recipe.nutiliti-worktrees]
+command = "sesh worktree list -r Nutiliti/nutiliti --json"
+columns = ["Title", "Number", "State"]
+labels = { Number = "#" }
+enter = ["sesh", "worktree", "connect", "{{.Number}}", "-r", "Nutiliti/nutiliti"]
+keys = { "o" = ["gh", "browse", "{{.Number}}", "-R", "Nutiliti/nutiliti"] }
+colors = { State = { OPEN = "green", CLOSED = "red", MERGED = "magenta" } }
+
+[recipe.sesh-worktrees]
+command = "sesh worktree list -r joshmedeski/sesh --json"
+columns = ["Title", "State"]
+enter = ["sesh", "worktree", "connect", "{{.Number}}", "-r", "joshmedeski/sesh"]
+keys = { "o" = ["gh", "browse", "{{.Number}}", "-R", "joshmedeski/sesh"] }
+colors = { State = { OPEN = "green", CLOSED = "red", MERGED = "magenta" } }
+fit = true
+
+[recipe.calendar]
+command = '''
+ical upcoming --exclude-calendar Birthdays -o json | jq --argjson cals "$(ical calendars -o json)" 'map(. as $e
+  | .color = ($cals[] | select(.id == $e.calendar_id) | .color)
+  | .icon = ({ "Life": "🌱", "Personal": "👕", "Josh/Diane": "💑", "More To Life": "🌎", "Holidays in United States": "🎉",
+      "Medeski Solutions": "💼", "Work Hours": "⏰", "Calendar": "🏠", "United States holidays": "🎉", "Birthdays": "🎂" }[.calendar] // "📅")
+  | .when = ($e.start_date | fromdateiso8601 | strflocaltime(if $e.all_day then "%a %b %e" else "%a %b %e %l:%M %p" end))
+  | .url = "ical://ekevent/\($e.occurrence_date // $e.start_date | gsub("[-:]"; ""))/\($e.id)?method=show&options=more")'
+'''
+columns = ["icon", "title", "when"]
+labels = { icon = "" }
+colors = { when = "gray italic", calendar = "{{.color}}" }
+enter = ["open", "{{.url}}"]
+refresh = 300
+fit = true
+headers = false
+
+[recipe.reminders]
+fit = true
+
+columns = ["due", "title"]
+colors = { due = "gray italic" }
+enter = ["remindctl", "open", "{{.id}}"]
+keys = { "c" = ["remindctl", "complete", "{{.id}}"] }
+refresh = 300
+[recipe.obsidian-recent]
+command = '''
+obsidian eval code='JSON.stringify(app.vault.getMarkdownFiles().sort((a, b) => b.stat.mtime - a.stat.mtime).slice(0, 30)
+  .map(f => ({ icon: app.metadataCache.getFileCache(f)?.frontmatter?.icon ?? "", name: f.basename, folder: f.parent.path, path: f.path,
+    modified: new Date(f.stat.mtime).toLocaleString("en-US", { weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }) })))' | sed 's/^=> //'
+'''
+columns = ["icon", "name", "folder"]
+labels = { icon = "" }
+colors = { modified = "gray italic", folder = "gray" }
+enter = ["sh", "-c", 'obsidian open path="$1" && open -a Obsidian', "sh", "{{.path}}"]
+refresh = 60
+
+[recipe.obsidian-sesh]
+command = '''
+obsidian eval code='JSON.stringify(app.vault.getMarkdownFiles()
+  .filter(f => [].concat(app.metadataCache.getFileCache(f)?.frontmatter?.areas ?? []).some(a => String(a).toLowerCase() === "[[sesh]]"))
+  .sort((a, b) => b.stat.mtime - a.stat.mtime)
+  .map(f => ({ icon: app.metadataCache.getFileCache(f)?.frontmatter?.icon ?? "", name: f.basename, folder: f.parent.path, path: f.path })))' | sed 's/^=> //'
+'''
+columns = ["icon", "name", "folder"]
+labels = { icon = "" }
+colors = { folder = "gray" }
+enter = ["sh", "-c", 'obsidian open path="$1" && open -a Obsidian', "sh", "{{.path}}"]
+refresh = 60
+
+[recipe.obsidian-nutiliti]
+command = '''
+obsidian eval code='JSON.stringify(app.vault.getMarkdownFiles()
+  .filter(f => [].concat(app.metadataCache.getFileCache(f)?.frontmatter?.areas ?? []).some(a => String(a).toLowerCase() === "[[nutiliti]]"))
+  .sort((a, b) => b.stat.mtime - a.stat.mtime)
+  .map(f => ({ icon: app.metadataCache.getFileCache(f)?.frontmatter?.icon ?? "", name: f.basename, folder: f.parent.path, path: f.path,
+    modified: new Date(f.stat.mtime).toLocaleString("en-US", { weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }) })))' | sed 's/^=> //'
+'''
+columns = ["icon", "name", "folder"]
+labels = { icon = "" }
+colors = { folder = "gray", modified = "gray italic" }
+enter = ["sh", "-c", 'obsidian open path="$1" && open -a Obsidian', "sh", "{{.path}}"]
+refresh = 60
+
+[recipe.claude-conversations]
+command = '''
+cd ~/.claude/projects && {
+  stat -f 'm:%N:%m' -- ./*/*.jsonl
+  rg -o -N --no-heading --max-depth 2 -g '*.jsonl' '"aiTitle":"(?:[^"\\]|\\.)*"' . | sed 's/^/t:/'
+  rg -o -N --no-heading --max-depth 2 -g '*.jsonl' -m1 '"cwd":"(?:[^"\\]|\\.)*"' . | sed 's/^/c:/'
+} | jq -R -n --arg home "$HOME" '
+  reduce (inputs | capture("^(?<k>.):(?<p>[^:]*):(?<v>.*)$")) as $l ({}; .[$l.p][$l.k] = $l.v)
+  | to_entries | map(select(.value.t)) | sort_by(.value.m | -tonumber)
+  | map(.value as $v | ("{" + ($v.c // "\"cwd\":\"\"") + "}" | fromjson.cwd) as $cwd | {
+      title: ("{" + $v.t + "}" | fromjson.aiTitle),
+      project: ($cwd | sub("^" + $home; "~")),
+      cwd: $cwd,
+      id: (.key | split("/") | last | rtrimstr(".jsonl")),
+      updated: ($v.m | tonumber | strflocaltime("%a %b %e %l:%M %p"))})'
+'''
+columns = ["title", "project", "updated"]
+colors = { project = "gray", updated = "gray italic" }
+enter = ["sh", "-c", 'cd "$1" && exec claude --resume "$2"', "sh", "{{.cwd}}", "{{.id}}"]
+refresh = 60
+
+[recipe.now-playing]
+command = '''
+osascript -l JavaScript -e 'const m = Application("Music");
+  JSON.stringify(m.running() && m.playerState() !== "stopped"
+    ? [{ state: m.playerState(), title: m.currentTrack.name(), artist: m.currentTrack.artist(), album: m.currentTrack.album() }]
+    : [])'
+'''
+columns = ["title", "artist", "album"]
+colors = { artist = "gray", album = "gray italic" }
+refresh = 5
+fit = true
+headers = false
+
+[recipe.messages]
+command = '''
+imsg chats --limit 30 --json | jq -s 'map({
+  name: ([.contact_name, (.display_name | gsub("^\\s+|\\s+$"; "")), .name] | map(select(. != null and . != "")) | first),
+  when: (.last_message_at | sub("\\.[0-9]+Z$"; "Z") | fromdateiso8601 | strflocaltime("%a %b %e %l:%M %p")),
+  url: ("sms://open?groupid=" + (.identifier | @uri))})'
+'''
+columns = ["name", "when"]
+enter = ["open", "{{.url}}"]
+colors = { when = "gray italic" }
+headers = false
+refresh = 60
+
+[recipe.weather]
+command = "curl -s 'wttr.in?0' | sed '/^Location:/d'"
+refresh = 900
+
+[recipe.sesh-prs]
+command = '''
+gh pr list -R joshmedeski/sesh --state open --json number,title,author,createdAt,isDraft |
+  jq 'sort_by(.createdAt) | reverse | map(.author = .author.login | .opened = (.createdAt | fromdateiso8601 | strflocaltime("%b %e")))'
+'''
+columns = ["number", "title", "author", "opened"]
+labels = { number = "#" }
+colors = { number = "gray", author = "gray", opened = "gray italic" }
+enter = ["sesh", "worktree", "connect", "{{.number}}", "--pr", "-r", "joshmedeski/sesh"]
+keys = { "o" = ["gh", "browse", "{{.number}}", "-R", "joshmedeski/sesh"] }
+refresh = 300
+fit = true
+
+[recipe.sesh-issues]
+command = '''
+gh issue list -R joshmedeski/sesh --state open --limit 100 --json number,title,author,updatedAt |
+  jq 'sort_by(.updatedAt) | reverse | map(.author = .author.login | .updated = (.updatedAt | fromdateiso8601 | strflocaltime("%b %e")))'
+'''
+columns = ["number", "title", "author", "updated"]
+labels = { number = "#" }
+colors = { number = "gray", author = "gray", updated = "gray italic" }
+enter = ["sesh", "worktree", "connect", "{{.number}}", "-r", "joshmedeski/sesh"]
+keys = { "o" = ["gh", "browse", "{{.number}}", "-R", "joshmedeski/sesh"] }
+refresh = 300
+
+[recipe.nutiliti-prs]
+command = """
+gh pr list -R Nutiliti/nutiliti --author @me --state open --json number,title,createdAt |
+  jq 'sort_by(.createdAt) | reverse | map(.opened = (.createdAt | fromdateiso8601 | strflocaltime("%b %e")))'
+"""
+columns = ["title", "number", "opened"]
+labels = { number = "#" }
+colors = { number = "gray", opened = "gray italic" }
+enter = ["sesh", "worktree", "connect", "{{.number}}", "--pr", "-r", "Nutiliti/nutiliti"]
+keys = { "o" = ["gh", "browse", "{{.number}}", "-R", "Nutiliti/nutiliti"] }
+refresh = 300
+
+[recipe.nutiliti-work]
+command = """
+cd ~/c/nu && pnpm -s work --json | jq '.items | sort_by(.priority as $p | ["Urgent", "High", "Medium", "Low"] | index($p) // 4) | map(.priority |= if . then "\uf024 " + . else . end)'
+"""
+columns = ["title", "number", "priority"]
+labels = { number = "#" }
+colors = { number = "gray", priority = { "\uf024 Urgent" = "magenta", "\uf024 High" = "red", "\uf024 Medium" = "yellow", "\uf024 Low" = "green" } }
+enter = ["open", "{{.url}}"]
+refresh = 300
+
+[[page]]
+title = "Life"
+sections = [
+  [
+    { stack = [
+      { title = "Messages", recipe = "messages" },
+      { title = "Calendars", recipe = "calendar" },
+      { title = "Weather", recipe = "weather" },
+    ] },
+    { stack = [
+      { title = "Recent Notes", recipe = "obsidian-recent" },
+      { title = "Now Playing", recipe = "now-playing" },
+    ] },
+  ],
+  [
+    { stack = [
+      { title = "Inbox", recipe = "reminders", command = '''
+remindctl show open -l Inbox --json | jq 'sort_by(.dueDate // "~")
+  | map(.due = (if .dueDate then .dueDate | fromdateiso8601 | strflocaltime("%a %b %e") else "" end))'
+''' },
+      { title = "Other Lists", recipe = "reminders", columns = [
+        "due",
+        "title",
+        "listName",
+      ], command = '''
+remindctl show open --json | jq 'map(select(.listName | IN("Inbox", "Nutiliti", "Groceries") | not))
+  | sort_by(.dueDate // "~")
+  | map(.due = (if .dueDate then .dueDate | fromdateiso8601 | strflocaltime("%a %b %e") else "" end))'
+''' },
+    ] },
+    { title = "Nutiliti", recipe = "reminders", command = '''
+remindctl show open -l Nutiliti --json | jq 'sort_by(.dueDate // "~")
+  | map(.due = (if .dueDate then .dueDate | fromdateiso8601 | strflocaltime("%a %b %e") else "" end))'
+''' },
+  ],
+]
+
+[[page]]
+title = "Sessions"
+sections = [
+  [
+    { title = "Sessions", recipe = "sesh", command = "sesh list -t --json", columns = [
+      "Icon",
+      "Name",
+      "WindowNames",
+      "Alerts",
+    ], labels = { Icon = "", WindowNames = "Windows" } },
+    { title = "Weather", recipe = "weather" },
+  ],
+  [
+    { title = "Config + Zoxide", recipe = "sesh", command = "sesh list -c -z -d --json", columns = [
+      "Icon",
+      "Name",
+    ], headers = false },
+    { title = "Nutiliti/nutiliti", recipe = "nutiliti-worktrees" },
+    { title = "joshmedeski/sesh", recipe = "sesh-worktrees" },
+  ],
+]
+
+[[page]]
+title = "sesh"
+sections = [
+  [
+    { stack = [
+      { title = "Worktrees", recipe = "sesh-worktrees" },
+      { title = "Sesh Notes", recipe = "obsidian-sesh" },
+    ] },
+    { stack = [
+      { title = "Pull Requests", recipe = "sesh-prs" },
+      { title = "Issues", recipe = "sesh-issues" },
+    ] },
+  ],
+]
+
+[[page]]
+title = "Claude"
+sections = [[{ title = "Conversations", recipe = "claude-conversations" }]]
+
+[[page]]
+title = "Nutiliti"
+sections = [
+  [
+    { stack = [
+      { title = "Worktrees", recipe = "nutiliti-worktrees" },
+      { title = "My Pull Requests", recipe = "nutiliti-prs" },
+    ] },
+    { stack = [
+      { title = "In Progress", recipe = "nutiliti-work", where = { status = "In Progress" }, fit = true },
+      { title = "Merged", recipe = "nutiliti-work", where = { status = "Merged" }, fit = true },
+      { title = "Up Next", recipe = "nutiliti-work", where = { status = "Up Next" } },
+    ] },
+    { stack = [
+      { title = "Reminders", recipe = "reminders", command = '''
+remindctl show open -l Nutiliti --json | jq 'sort_by(.dueDate // "~")
+  | map(.due = (if .dueDate then .dueDate | fromdateiso8601 | strflocaltime("%a %b %e") else "" end))'
+''' },
+      { title = "Notes", recipe = "obsidian-nutiliti" },
+    ] },
+  ],
+]
