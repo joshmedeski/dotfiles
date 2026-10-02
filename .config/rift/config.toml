@@ -75,7 +75,7 @@ hot_reload = true
 # This is the default layout mode if there is nothing else configured
 # in the `workspace_rules` section below.
 # You can set different layouts per workspace using `workspace_rules`.
-mode = "traditional"
+mode = "bsp"
 
 # these settings only apply when layout mode == "master_stack"
 [settings.layout.master_stack]
@@ -145,8 +145,8 @@ bottom = 0
 right = 0
 
 [settings.layout.gaps.inner]
-horizontal = 0
-vertical = 0
+horizontal = 8
+vertical = 8
 
 # Example per-display overrides:
 # Replace the quoted key with your display's UUID. Only specify values you want to override.
@@ -231,7 +231,7 @@ drag_swap_fraction = 0.3
 #   that's already active, it will switch to the last workspace instead
 # - reapply_app_rules_on_title_change: if true, app rules are re-evaluated when a window's title changes
 enabled = true
-default_workspace_count = 4
+default_workspace_count = 17
 auto_assign_windows = true
 preserve_focus_per_workspace = true
 workspace_auto_back_and_forth = false
@@ -255,7 +255,7 @@ workspace_rules = []
 # Workspace names (indexed order). If fewer than default_workspace_count are provided,
 # remaining workspaces are named "Workspace X".
 # Do not provide more names than default_workspace_count.
-workspace_names = ["first", "second"]
+workspace_names = ["a", "b", "d", "f", "g", "h", "j", "m", "n", "o", "p", "q", "s", "t", "w", "x", "y"]
 
 # App rules (automatic assignment)
 # Define rules that match new windows and set properties (workspace, floating, etc).
@@ -320,7 +320,34 @@ workspace_names = ["first", "second"]
 #       ]
 #
 # By default there are no app rules; add or uncomment rules below as needed.
-app_rules = []
+app_rules = [
+  { app_id = "com.github.wez.wezterm", workspace = "a" },
+  { app_id = "com.google.Chrome", workspace = "a" },
+  { app_id = "org.blenderfoundation.blender", workspace = "b" },
+  { app_id = "com.bambulab.bambu-studio", workspace = "b" },
+  { app_id = "com.hnc.Discord", workspace = "m" },
+  { app_id = "com.figma.Desktop", workspace = "f" },
+  { app_id = "org.yanex.marta", workspace = "f" },
+  { app_id = "com.apple.finder", workspace = "f" },
+  { app_id = "io.robbie.HomeAssistant", workspace = "h" },
+  { app_id = "com.electron.playlist", workspace = "j" },
+  { app_id = "com.apple.MobileSMS", workspace = "m" },
+  { app_id = "net.whatsapp.WhatsApp", workspace = "m" },
+  { app_id = "notion.id", workspace = "n" },
+  { app_id = "com.obsproject.obs-studio", workspace = "o" },
+  { app_id = "com.apple.Music", workspace = "p" },
+  { app_id = "br.com.marcosatanaka.musicbox", workspace = "p" },
+  { app_id = "md.obsidian", workspace = "s" },
+  { app_id = "com.microsoft.teams2", workspace = "m" },
+  { app_id = "company.thebrowser.Browser", workspace = "w" },
+  { app_id = "net.imput.helium", workspace = "w" },
+  { app_id = "com.officecommun.search", workspace = "w" },
+  { app_id = "com.apple.dt.Xcode", workspace = "x" },
+  { app_id = "com.apple.iphonesimulator", workspace = "x" },
+  { app_id = "com.flexibits.fantastical2.mac", workspace = "y" },
+  { app_id = "com.apple.iCal", workspace = "y" },
+  { app_id = "com.apple.reminders", workspace = "y" },
+]
 
 # Modifier combinations that can be reused in key bindings
 # Define common modifier combinations to avoid repetition.
@@ -374,15 +401,15 @@ comb1 = "Alt + Shift"
 
 "Alt + Z" = "toggle_space_activated"
 
-"Alt + H" = { move_focus = "left" }
-"Alt + J" = { move_focus = "down" }
-"Alt + K" = { move_focus = "up" }
-"Alt + L" = { move_focus = "right" }
+"Alt + Left" = { move_focus = "left" }
+"Alt + Down" = { move_focus = "down" }
+"Alt + Up" = { move_focus = "up" }
+"Alt + Right" = { move_focus = "right" }
 
-"comb1 + H" = { move_node = "left" }
-"comb1 + J" = { move_node = "down" }
-"comb1 + K" = { move_node = "up" }
-"comb1 + L" = { move_node = "right" }
+"Shift + Left" = { move_node = "left" }
+"Shift + Down" = { move_node = "down" }
+"Shift + Up" = { move_node = "up" }
+"Shift + Right" = { move_node = "right" }
 
 "Alt + 0" = { switch_to_workspace = 0 }
 "Alt + 1" = { switch_to_workspace = 1 }
@@ -394,6 +421,9 @@ comb1 = "Alt + Shift"
 "comb1 + 2" = { move_window_to_workspace = 2 }
 "comb1 + 3" = { move_window_to_workspace = 3 }
 
+"comb1 + A" = { "exec" = ["/opt/homebrew/bin/rift-cli", "execute", "workspace", "move-window", "0", "--follow"] }
+"comb1 + W" = { "exec" = ["/opt/homebrew/bin/rift-cli", "execute", "workspace", "move-window", "14", "--follow"] }
+
 "Alt + Tab" = "switch_to_last_workspace"
 
 # commands to change the layout engine of the active workspace
@@ -402,10 +432,10 @@ comb1 = "Alt + Shift"
 # "Alt + Ctrl + 3" = { set_workspace_layout = { mode = "master_stack" } }
 # "Alt + Ctrl + 4" = { set_workspace_layout = { mode = "scrolling" } }
 
-"Alt + Shift + Left" = { join_window = "left" }
-"Alt + Shift + Right" = { join_window = "right" }
-"Alt + Shift + Up" = { join_window = "up" }
-"Alt + Shift + Down" = { join_window = "down" }
+"Alt + Ctrl + Left" = { join_window = "left" }
+"Alt + Ctrl + Right" = { join_window = "right" }
+"Alt + Ctrl + Up" = { join_window = "up" }
+"Alt + Ctrl + Down" = { join_window = "down" }
 "Alt + Comma" = "toggle_stack"
 "Alt + Slash" = "toggle_orientation"
 "Alt + Ctrl + E" = "unjoin_windows"
@@ -413,7 +443,7 @@ comb1 = "Alt + Shift"
 "Alt + Shift + Space" = "toggle_window_floating"
 "Alt + F" = "toggle_fullscreen"
 "Alt + Shift + F" = "toggle_fullscreen_within_gaps"
-"comb1 + Ctrl + Space" = "toggle_focus_floating"    # briefly bring focus to floating window
+"comb1 + Ctrl + Space" = "toggle_focus_floating" # briefly bring focus to floating window
 
 # smartly resize windows
 "Alt + Shift + Equal" = "resize_window_grow"
