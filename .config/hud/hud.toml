@@ -199,6 +199,42 @@ colors = { number = "gray", priority = { "\uf024 Urgent" = "magenta", "\uf024 Hi
 enter = ["open", "{{.url}}"]
 refresh = 300
 
+[recipe.github-notifications]
+command = '''
+gh api notifications --paginate | jq -s 'add | map({
+  id,
+  unread,
+  category: ({ PullRequest: "", Issue: "", Release: "", CheckSuite: "" }[.subject.type] // (.subject.type | ascii_downcase)),
+  title: .subject.title,
+  repo: .repository.full_name,
+  url: (.subject.url // "")})'
+'''
+columns = ["category", "title", "repo"]
+labels = { category = "" }
+colors = { category = { "" = "magenta", "" = "green", "" = "blue", "" = "yellow" }, title = "{{if not .unread}}gray{{end}}", repo = "gray" }
+keys = { "enter" = [
+  "tmux",
+  "new-window",
+  "sh",
+  "-c",
+  'exec nvim "+Octo $(gh api "$1" --jq .html_url)"',
+  "sh",
+  "{{.url}}",
+], "o" = [
+  "sh",
+  "-c",
+  'open "$(gh api "$1" --jq .html_url)"',
+  "sh",
+  "{{.url}}",
+], "e" = [
+  "gh",
+  "api",
+  "-X",
+  "DELETE",
+  "notifications/threads/{{.id}}",
+] }
+refresh = 300
+
 [[page]]
 title = "Life"
 sections = [
@@ -317,6 +353,25 @@ obsidian eval code='JSON.stringify(app.vault.getMarkdownFiles().sort((a, b) => b
       { title = "Inbox", recipe = "obsidian-projects", where = { folder = "Inbox" }, fit = true },
       { title = "Active Projects", recipe = "obsidian-projects", where = { folder = "Projects/Active" }, fit = true },
       { title = "Waiting For", recipe = "obsidian-projects", where = { folder = "Projects/Waiting For" }, fit = true },
+    ] },
+  ],
+]
+
+[[page]]
+title = "GitHub"
+sections = [
+  [
+    { tabs = [
+      { title = "Inbox", recipe = "github-notifications" },
+      { title = "All", recipe = "github-notifications", command = '''
+gh api "notifications?all=true" --paginate | jq -s 'add | map({
+  id,
+  unread,
+  category: ({ PullRequest: "", Issue: "", Release: "", CheckSuite: "" }[.subject.type] // (.subject.type | ascii_downcase)),
+  title: .subject.title,
+  repo: .repository.full_name,
+  url: (.subject.url // "")})'
+''' },
     ] },
   ],
 ]
