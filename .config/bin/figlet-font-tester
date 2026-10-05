@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [ $# -eq 0 ]; then
+  echo "usage: figlet-font-tester <text>" >&2
+  exit 1
+fi
+
+text="$*"
+font_dir="$(figlet -I2)"
+
+for font in $(ls "$font_dir" | grep '\.flf$' | sed 's/\.flf$//' | sort -f); do
+  echo "==> $font"
+  figlet -w "$(tput cols)" -f "$font" "$text" 2>/dev/null || echo "(failed to render)"
+  echo
+done | less -S
