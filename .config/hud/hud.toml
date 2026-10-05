@@ -56,6 +56,20 @@ columns = ["icon", "name", "folder"]
 labels = { icon = "" }
 colors = { modified = "gray italic", folder = "gray" }
 enter = ["sh", "-c", 'obsidian open path="$1" && open -a Obsidian', "sh", "{{.path}}"]
+keys = { "space" = ["sh", "-c", 'cd ~/c/second-brain && exec nvim "$1"', "sh", "{{.path}}"] }
+refresh = 60
+
+[recipe.obsidian-projects]
+command = '''
+obsidian eval code='JSON.stringify(app.vault.getMarkdownFiles()
+  .filter(f => ["Projects/Active", "Projects/Waiting For", "Inbox"].includes(f.parent.path))
+  .sort((a, b) => b.stat.mtime - a.stat.mtime)
+  .map(f => ({ icon: app.metadataCache.getFileCache(f)?.frontmatter?.icon ?? "", name: f.basename, folder: f.parent.path, path: f.path })))' | sed 's/^=> //'
+'''
+columns = ["icon", "name"]
+labels = { icon = "" }
+enter = ["sh", "-c", 'obsidian open path="$1" && open -a Obsidian', "sh", "{{.path}}"]
+keys = { "space" = ["sh", "-c", 'cd ~/c/second-brain && exec nvim "$1"', "sh", "{{.path}}"] }
 refresh = 60
 
 [recipe.obsidian-sesh]
@@ -69,6 +83,7 @@ columns = ["icon", "name", "folder"]
 labels = { icon = "" }
 colors = { folder = "gray" }
 enter = ["sh", "-c", 'obsidian open path="$1" && open -a Obsidian', "sh", "{{.path}}"]
+keys = { "space" = ["sh", "-c", 'cd ~/c/second-brain && exec nvim "$1"', "sh", "{{.path}}"] }
 refresh = 60
 
 [recipe.obsidian-nutiliti]
@@ -83,6 +98,7 @@ columns = ["icon", "name", "folder"]
 labels = { icon = "" }
 colors = { folder = "gray", modified = "gray italic" }
 enter = ["sh", "-c", 'obsidian open path="$1" && open -a Obsidian', "sh", "{{.path}}"]
+keys = { "space" = ["sh", "-c", 'cd ~/c/second-brain && exec nvim "$1"', "sh", "{{.path}}"] }
 refresh = 60
 
 [recipe.claude-conversations]
@@ -193,7 +209,12 @@ sections = [
       { title = "Weather", recipe = "weather" },
     ] },
     { stack = [
-      { title = "Recent Notes", recipe = "obsidian-recent" },
+      { tabs = [
+        { title = "Recent Notes", recipe = "obsidian-recent" },
+        { title = "Active Projects", recipe = "obsidian-projects", where = { folder = "Projects/Active" } },
+        { title = "Waiting For", recipe = "obsidian-projects", where = { folder = "Projects/Waiting For" } },
+        { title = "Inbox", recipe = "obsidian-projects", where = { folder = "Inbox" } },
+      ] },
       { title = "Now Playing", recipe = "now-playing" },
     ] },
   ],
@@ -280,6 +301,22 @@ remindctl show open -l Nutiliti --json | jq 'sort_by(.dueDate // "~")
   | map(.due = (if .dueDate then .dueDate | fromdateiso8601 | strflocaltime("%a %b %e") else "" end))'
 ''' },
       { title = "Notes", recipe = "obsidian-nutiliti" },
+    ] },
+  ],
+]
+
+[[page]]
+title = "Second Brain"
+sections = [
+  [
+    { stack = [
+      { title = "Recent Notes", recipe = "obsidian-recent", fit = true, command = '''
+obsidian eval code='JSON.stringify(app.vault.getMarkdownFiles().sort((a, b) => b.stat.mtime - a.stat.mtime).slice(0, 5)
+  .map(f => ({ icon: app.metadataCache.getFileCache(f)?.frontmatter?.icon ?? "", name: f.basename, folder: f.parent.path, path: f.path })))' | sed 's/^=> //'
+''' },
+      { title = "Inbox", recipe = "obsidian-projects", where = { folder = "Inbox" }, fit = true },
+      { title = "Active Projects", recipe = "obsidian-projects", where = { folder = "Projects/Active" }, fit = true },
+      { title = "Waiting For", recipe = "obsidian-projects", where = { folder = "Projects/Waiting For" }, fit = true },
     ] },
   ],
 ]
