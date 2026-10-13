@@ -2,22 +2,22 @@
 command = "sesh list --json"
 columns = ["Icon", "Name", "Path"]
 labels = { Icon = "" }
-enter = ["sesh", "connect", "{{.Name}}"]
-keys = { "ctrl+d" = ["tmux", "kill-session", "-t", "{{.Name}}"] }
+keys.enter = { run = ["sesh", "connect", "{{.Name}}"], quit = true }
+keys."ctrl+d" = ["tmux", "kill-session", "-t", "{{.Name}}"]
 
 [recipe.nutiliti-worktrees]
 command = "sesh worktree list -r Nutiliti/nutiliti --json"
 columns = ["Title", "Number", "State"]
 labels = { Number = "#" }
-enter = ["sesh", "worktree", "connect", "{{.Number}}", "-r", "Nutiliti/nutiliti"]
-keys = { "o" = ["gh", "browse", "{{.Number}}", "-R", "Nutiliti/nutiliti"] }
+keys.enter = { run = ["sesh", "worktree", "connect", "{{.Number}}", "-r", "Nutiliti/nutiliti"], quit = true }
+keys."o" = ["gh", "browse", "{{.Number}}", "-R", "Nutiliti/nutiliti"]
 colors = { State = { OPEN = "green", CLOSED = "red", MERGED = "magenta" } }
 
 [recipe.sesh-worktrees]
 command = "sesh worktree list -r joshmedeski/sesh --json"
 columns = ["Title", "State"]
-enter = ["sesh", "worktree", "connect", "{{.Number}}", "-r", "joshmedeski/sesh"]
-keys = { "o" = ["gh", "browse", "{{.Number}}", "-R", "joshmedeski/sesh"] }
+keys.enter = { run = ["sesh", "worktree", "connect", "{{.Number}}", "-r", "joshmedeski/sesh"], quit = true }
+keys."o" = ["gh", "browse", "{{.Number}}", "-R", "joshmedeski/sesh"]
 colors = { State = { OPEN = "green", CLOSED = "red", MERGED = "magenta" } }
 fit = true
 
@@ -33,18 +33,17 @@ ical upcoming --exclude-calendar Birthdays -o json | jq --argjson cals "$(ical c
 columns = ["icon", "title", "when"]
 labels = { icon = "" }
 colors = { when = "gray italic", calendar = "{{.color}}" }
-enter = ["open", "{{.url}}"]
+keys.enter = { run = ["open", "{{.url}}"], quit = true }
 refresh = 300
 fit = true
 headers = false
 
 [recipe.reminders]
 fit = true
-
-columns = ["due", "title"]
+columns = ["title", "due"]
 colors = { due = "gray italic" }
-enter = ["remindctl", "open", "{{.id}}"]
-keys = { "c" = ["remindctl", "complete", "{{.id}}"] }
+keys.enter = { run = ["open", "x-apple-reminderkit://REMCDReminder/{{.id}}"], quit = true }
+keys."c" = ["rem", "complete", "{{.id}}"]
 refresh = 300
 [recipe.obsidian-recent]
 command = '''
@@ -55,8 +54,8 @@ obsidian eval code='JSON.stringify(app.vault.getMarkdownFiles().sort((a, b) => b
 columns = ["icon", "name", "folder"]
 labels = { icon = "" }
 colors = { modified = "gray italic", folder = "gray" }
-enter = ["sh", "-c", 'obsidian open path="$1" && open -a Obsidian', "sh", "{{.path}}"]
-keys = { "space" = ["sh", "-c", 'cd ~/c/second-brain && exec nvim "$1"', "sh", "{{.path}}"] }
+keys.enter = { run = ["sh", "-c", 'obsidian open path="$1" && open -a Obsidian', "sh", "{{.path}}"], quit = true }
+keys."space" = ["sh", "-c", 'cd ~/c/second-brain && exec nvim "$1"', "sh", "{{.path}}"]
 refresh = 60
 
 [recipe.obsidian-projects]
@@ -68,8 +67,8 @@ obsidian eval code='JSON.stringify(app.vault.getMarkdownFiles()
 '''
 columns = ["icon", "name"]
 labels = { icon = "" }
-enter = ["sh", "-c", 'obsidian open path="$1" && open -a Obsidian', "sh", "{{.path}}"]
-keys = { "space" = ["sh", "-c", 'cd ~/c/second-brain && exec nvim "$1"', "sh", "{{.path}}"] }
+keys.enter = { run = ["sh", "-c", 'obsidian open path="$1" && open -a Obsidian', "sh", "{{.path}}"], quit = true }
+keys."space" = ["sh", "-c", 'cd ~/c/second-brain && exec nvim "$1"', "sh", "{{.path}}"]
 refresh = 60
 
 [recipe.obsidian-sesh]
@@ -82,8 +81,8 @@ obsidian eval code='JSON.stringify(app.vault.getMarkdownFiles()
 columns = ["icon", "name", "folder"]
 labels = { icon = "" }
 colors = { folder = "gray" }
-enter = ["sh", "-c", 'obsidian open path="$1" && open -a Obsidian', "sh", "{{.path}}"]
-keys = { "space" = ["sh", "-c", 'cd ~/c/second-brain && exec nvim "$1"', "sh", "{{.path}}"] }
+keys.enter = { run = ["sh", "-c", 'obsidian open path="$1" && open -a Obsidian', "sh", "{{.path}}"], quit = true }
+keys."space" = ["sh", "-c", 'cd ~/c/second-brain && exec nvim "$1"', "sh", "{{.path}}"]
 refresh = 60
 
 [recipe.obsidian-nutiliti]
@@ -97,8 +96,8 @@ obsidian eval code='JSON.stringify(app.vault.getMarkdownFiles()
 columns = ["icon", "name", "folder"]
 labels = { icon = "" }
 colors = { folder = "gray", modified = "gray italic" }
-enter = ["sh", "-c", 'obsidian open path="$1" && open -a Obsidian', "sh", "{{.path}}"]
-keys = { "space" = ["sh", "-c", 'cd ~/c/second-brain && exec nvim "$1"', "sh", "{{.path}}"] }
+keys.enter = { run = ["sh", "-c", 'obsidian open path="$1" && open -a Obsidian', "sh", "{{.path}}"], quit = true }
+keys."space" = ["sh", "-c", 'cd ~/c/second-brain && exec nvim "$1"', "sh", "{{.path}}"]
 refresh = 60
 
 [recipe.claude-conversations]
@@ -119,7 +118,7 @@ cd ~/.claude/projects && {
 '''
 columns = ["title", "project", "updated"]
 colors = { project = "gray", updated = "gray italic" }
-enter = ["sh", "-c", 'cd "$1" && exec claude --resume "$2"', "sh", "{{.cwd}}", "{{.id}}"]
+keys.enter = { run = ["sh", "-c", 'cd "$1" && exec claude --resume "$2"', "sh", "{{.cwd}}", "{{.id}}"], quit = true }
 refresh = 60
 
 [recipe.now-playing]
@@ -143,7 +142,7 @@ imsg chats --limit 30 --json | jq -s 'map({
   url: ("sms://open?groupid=" + (.identifier | @uri))})'
 '''
 columns = ["name", "when"]
-enter = ["open", "{{.url}}"]
+keys.enter = { run = ["open", "{{.url}}"], quit = true }
 colors = { when = "gray italic" }
 headers = false
 refresh = 60
@@ -160,8 +159,8 @@ gh pr list -R joshmedeski/sesh --state open --json number,title,author,createdAt
 columns = ["number", "title", "author", "opened"]
 labels = { number = "#" }
 colors = { number = "gray", author = "gray", opened = "gray italic" }
-enter = ["sesh", "worktree", "connect", "{{.number}}", "--pr", "-r", "joshmedeski/sesh"]
-keys = { "o" = ["gh", "browse", "{{.number}}", "-R", "joshmedeski/sesh"] }
+keys.enter = { run = ["sesh", "worktree", "connect", "{{.number}}", "--pr", "-r", "joshmedeski/sesh"], quit = true }
+keys."o" = ["gh", "browse", "{{.number}}", "-R", "joshmedeski/sesh"]
 refresh = 300
 fit = true
 
@@ -173,20 +172,43 @@ gh issue list -R joshmedeski/sesh --state open --limit 100 --json number,title,a
 columns = ["number", "title", "author", "updated"]
 labels = { number = "#" }
 colors = { number = "gray", author = "gray", updated = "gray italic" }
-enter = ["sesh", "worktree", "connect", "{{.number}}", "-r", "joshmedeski/sesh"]
-keys = { "o" = ["gh", "browse", "{{.number}}", "-R", "joshmedeski/sesh"] }
+keys.enter = { run = ["sesh", "worktree", "connect", "{{.number}}", "-r", "joshmedeski/sesh"], quit = true }
+keys."o" = ["gh", "browse", "{{.number}}", "-R", "joshmedeski/sesh"]
+refresh = 300
+
+[recipe.orbit-prs]
+command = '''
+gh pr list -R medeskisolutions/orbit --state open --json number,title,author,createdAt |
+  jq 'sort_by(.createdAt) | reverse | map(.author = .author.login | .opened = (.createdAt | fromdateiso8601 | strflocaltime("%b %e")))'
+'''
+columns = ["number", "title", "author", "opened"]
+labels = { number = "#" }
+colors = { number = "gray", author = "gray", opened = "gray italic" }
+keys.enter = { run = ["gh", "browse", "{{.number}}", "-R", "medeskisolutions/orbit"], quit = true }
+refresh = 300
+fit = true
+
+[recipe.orbit-issues]
+command = '''
+gh issue list -R medeskisolutions/orbit --state open --limit 100 --json number,title,author,updatedAt |
+  jq 'sort_by(.updatedAt) | reverse | map(.author = .author.login | .updated = (.updatedAt | fromdateiso8601 | strflocaltime("%b %e")))'
+'''
+columns = ["number", "title", "author", "updated"]
+labels = { number = "#" }
+colors = { number = "gray", author = "gray", updated = "gray italic" }
+keys.enter = { run = ["gh", "browse", "{{.number}}", "-R", "medeskisolutions/orbit"], quit = true }
 refresh = 300
 
 [recipe.nutiliti-prs]
 command = """
-gh pr list -R Nutiliti/nutiliti --author @me --state open --json number,title,createdAt |
+gh pr list -R Nutiliti/nutiliti --author @me --state open --search '-label:"Do Not Merge"' --json number,title,createdAt |
   jq 'sort_by(.createdAt) | reverse | map(.opened = (.createdAt | fromdateiso8601 | strflocaltime("%b %e")))'
 """
 columns = ["title", "number", "opened"]
 labels = { number = "#" }
 colors = { number = "gray", opened = "gray italic" }
-enter = ["sesh", "worktree", "connect", "{{.number}}", "--pr", "-r", "Nutiliti/nutiliti"]
-keys = { "o" = ["gh", "browse", "{{.number}}", "-R", "Nutiliti/nutiliti"] }
+keys.enter = { run = ["sesh", "worktree", "connect", "{{.number}}", "--pr", "-r", "Nutiliti/nutiliti"], quit = true }
+keys."o" = ["gh", "browse", "{{.number}}", "-R", "Nutiliti/nutiliti"]
 refresh = 300
 
 [recipe.nutiliti-work]
@@ -196,7 +218,7 @@ cd ~/c/nu && pnpm -s work --json | jq '.items | sort_by(.priority as $p | ["Urge
 columns = ["title", "number", "priority"]
 labels = { number = "#" }
 colors = { number = "gray", priority = { "\uf024 Urgent" = "magenta", "\uf024 High" = "red", "\uf024 Medium" = "yellow", "\uf024 Low" = "green" } }
-enter = ["open", "{{.url}}"]
+keys.enter = { run = ["open", "{{.url}}"], quit = true }
 refresh = 300
 
 [recipe.github-notifications]
@@ -257,22 +279,22 @@ sections = [
   [
     { stack = [
       { title = "Inbox", recipe = "reminders", command = '''
-remindctl show open -l Inbox --json | jq 'sort_by(.dueDate // "~")
-  | map(.due = (if .dueDate then .dueDate | fromdateiso8601 | strflocaltime("%a %b %e") else "" end))'
+rem list -l Inbox --incomplete -o json | jq 'sort_by(.due_date // "~")
+  | map(.title = .name | .due = (if .due_date then .due_date | strptime("%Y-%m-%dT%H:%M:%S") | strftime("%a %b %e") else "" end))'
 ''' },
       { title = "Other Lists", recipe = "reminders", columns = [
         "due",
         "title",
-        "listName",
+        "list_name",
       ], command = '''
-remindctl show open --json | jq 'map(select(.listName | IN("Inbox", "Nutiliti", "Groceries") | not))
-  | sort_by(.dueDate // "~")
-  | map(.due = (if .dueDate then .dueDate | fromdateiso8601 | strflocaltime("%a %b %e") else "" end))'
+rem list --incomplete -o json | jq 'map(select(.list_name | IN("Inbox", "Nutiliti", "Groceries") | not))
+  | sort_by(.due_date // "~")
+  | map(.title = .name | .due = (if .due_date then .due_date | strptime("%Y-%m-%dT%H:%M:%S") | strftime("%a %b %e") else "" end))'
 ''' },
     ] },
     { title = "Nutiliti", recipe = "reminders", command = '''
-remindctl show open -l Nutiliti --json | jq 'sort_by(.dueDate // "~")
-  | map(.due = (if .dueDate then .dueDate | fromdateiso8601 | strflocaltime("%a %b %e") else "" end))'
+rem list -l Nutiliti --incomplete -o json | jq 'sort_by(.due_date // "~")
+  | map(.title = .name | .due = (if .due_date then .due_date | strptime("%Y-%m-%dT%H:%M:%S") | strftime("%a %b %e") else "" end))'
 ''' },
   ],
 ]
@@ -315,6 +337,17 @@ sections = [
 ]
 
 [[page]]
+title = "Orbit"
+sections = [
+  [
+    { stack = [
+      { title = "Pull Requests", recipe = "orbit-prs" },
+      { title = "Issues", recipe = "orbit-issues" },
+    ] },
+  ],
+]
+
+[[page]]
 title = "Claude"
 sections = [[{ title = "Conversations", recipe = "claude-conversations" }]]
 
@@ -323,18 +356,18 @@ title = "Nutiliti"
 sections = [
   [
     { stack = [
+      { title = "My Pull Requests", recipe = "nutiliti-prs", fit = true },
       { title = "Worktrees", recipe = "nutiliti-worktrees" },
-      { title = "My Pull Requests", recipe = "nutiliti-prs" },
-    ] },
-    { stack = [
-      { title = "In Progress", recipe = "nutiliti-work", where = { status = "In Progress" }, fit = true },
-      { title = "Merged", recipe = "nutiliti-work", where = { status = "Merged" }, fit = true },
-      { title = "Up Next", recipe = "nutiliti-work", where = { status = "Up Next" } },
+      { tabs = [
+        { title = "In Progress", recipe = "nutiliti-work", where = { status = "In Progress" } },
+        { title = "Merged", recipe = "nutiliti-work", where = { status = "Merged" } },
+        { title = "Up Next", recipe = "nutiliti-work", where = { status = "Up Next" } },
+      ] },
     ] },
     { stack = [
       { title = "Reminders", recipe = "reminders", command = '''
-remindctl show open -l Nutiliti --json | jq 'sort_by(.dueDate // "~")
-  | map(.due = (if .dueDate then .dueDate | fromdateiso8601 | strflocaltime("%a %b %e") else "" end))'
+rem list -l Nutiliti --incomplete -o json | jq 'sort_by(.due_date // "~")
+  | map(.title = .name | .due = (if .due_date then .due_date | strptime("%Y-%m-%dT%H:%M:%S") | strftime("%a %b %e") else "" end))'
 ''' },
       { title = "Notes", recipe = "obsidian-nutiliti" },
     ] },
