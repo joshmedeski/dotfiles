@@ -1,29 +1,27 @@
 #!/usr/bin/env bash
-find . -maxdepth 1 -type d -print0 | xargs -0 zoxide add
+set -euo pipefail
 
-cd packages || return
-find . -maxdepth 1 -type d -print0 | xargs -0 zoxide add
-
-echo "🔐 Generating SSL certificates for Ladle"
-cd ./ui || return
-mkcert localhost
-
-cd ../../apps || return
-find . -maxdepth 1 -type d -print0 | xargs -0 zoxide add
-cd ../
-echo "🔗 Setting NODE_ENV to production for server, web, and cli"
-echo "NODE_ENV=production" >./server/.env
-# TODO: setup with shortcuts
-# echo "MONGODB_URI=mongodb://localhost:30001,localhost:30002,localhost:30003/?replicaSet=nutiliti-repl-set" >>./server/.env
-
-echo "NODE_ENV=production" >./apps/cli/.env
-# TODO: setup with shortcuts
-# echo "MONGODB_URI=mongodb://localhost:30001,localhost:30002,localhost:30003/?replicaSet=nutiliti-repl-set" >>./apps/cli/.env
-
-echo "NODE_ENV=production" >./web/.env
+cd "$(git rev-parse --show-toplevel)"
 
 echo "📦 Installing dependencies"
-pnpm i
+pnpm install
 
-echo "👷 Building"
-pnpm build
+echo "🏗️  Building everything except web"
+pnpm exec turbo run build --filter='!web'
+
+echo "🏞️ Setup .env files"
+for env_file in ./apps/cli/.env ./server/.env; do
+  grep -q '^NODE_ENV=' "$env_file" 2>/dev/null || echo "NODE_ENV=production" >>"$env_file"
+done
+
+SESS=$(tmux display-message -p -t "${TMUX_PANE:-}" '#S')
+ICON="$(dirname "$0")/icons/nutiliti.png"
+
+/usr/bin/perl -MPOSIX -e 'POSIX::setsid(); exec @ARGV or die $!' bash -c '
+RESULT=$(alerter --ignore-dnd --title "$1" --message "Worktree is ready" \
+  --app-icon "$2" --group "$1:worktree" --timeout 1800 2>/dev/null)
+if [[ "$RESULT" == "@CONTENTCLICKED" ]]; then
+  sesh connect --switch "$1" || tmux switch-client -t "$1"
+  open -b com.github.wez.wezterm
+fi
+' _ "$SESS" "$ICON" </dev/null >/dev/null 2>&1 &
