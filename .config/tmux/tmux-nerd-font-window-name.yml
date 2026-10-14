@@ -1,11 +1,12 @@
-# Nerd font window name plugin 
+# Nerd font window name plugin
 # https://github.com/joshmedeski/tmux-nerd-font-window-name
 
 # TODO: add regex support?
 # TODO: add CLAUDE skill for adding new icons (on project?)
 
 config:
-  fallback-icon: "🌀"
+  fallback-icon: ""
+  # fallback-icon: "🌀"
   multi-pane-icon: "🪟"
   show-name: false
   icon-position: "left"
@@ -13,17 +14,24 @@ config:
   separator_aware: true
   sem-version-icon: "🤖"
 
+icons-regex:
+  "(pnpm|npm).*generate": 🧩
+  "(pnpm|npm|bun).*dev": 🔧
+  "(pnpm|npm|bun).*build": 🔨
+
 icons:
   btop: "📈"
   bun: "🥟"
   docker: "🐳"
   fish: "🐠"
   fx: "📄"
+  hud: "🛸"
   lazygit: "🌳"
   nvim: "📝"
   ollama: "🦙"
   opencode: "🤖"
   overmind: "👀"
+  quill: "🪶"
   sesh: "⚡"
   sidecar: "🚗"
   stripe-mock: "💳"
