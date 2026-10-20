@@ -136,10 +136,16 @@ headers = false
 
 [recipe.messages]
 command = '''
-imsg chats --limit 30 --json | jq -s 'map({
-  name: ([.contact_name, (.display_name | gsub("^\\s+|\\s+$"; "")), .name] | map(select(. != null and . != "")) | first),
+imsg chats --limit 1000 --json | jq -s '
+(map(select(.is_group | not) | select(.contact_name) | {key: .participants[0], value: (.contact_name | split(" ")[0])}) | from_entries) as $contacts
+| map((.display_name | gsub("^\\s+|\\s+$"; "")) as $title | [.participants[] | $contacts[.] // .] as $people | {
+  name: ([.contact_name, $title,
+    (select(.is_group) | $people | if length > 1 then (.[:-1] | join(", ")) + " & " + .[-1] else .[0] end),
+    .name] | map(select(. != null and . != "")) | first),
+  contact: (if .contact_name or $title != "" or (.is_group and any(.participants[]; $contacts[.])) then "known" else "unknown" end),
   when: (.last_message_at | sub("\\.[0-9]+Z$"; "Z") | fromdateiso8601 | strflocaltime("%a %b %e %l:%M %p")),
-  url: ("sms://open?groupid=" + (.identifier | @uri))})'
+  url: ("sms://open?groupid=" + (.identifier | @uri))})
+| (map(select(.contact == "known"))[:30]) + (map(select(.contact == "unknown"))[:30])'
 '''
 columns = ["name", "when"]
 keys.enter = { run = ["open", "{{.url}}"], quit = true }
@@ -262,7 +268,10 @@ title = "Life"
 sections = [
   [
     { stack = [
-      { title = "Messages", recipe = "messages" },
+      { tabs = [
+        { title = "Messages", recipe = "messages", where = { contact = "known" } },
+        { title = "Unknown", recipe = "messages", where = { contact = "unknown" } },
+      ] },
       { title = "Calendars", recipe = "calendar" },
       { title = "Weather", recipe = "weather" },
     ] },
