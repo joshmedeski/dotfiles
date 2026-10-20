@@ -30,13 +30,13 @@ ical upcoming --exclude-calendar Birthdays -o json | jq --argjson cals "$(ical c
   | .when = ($e.start_date | fromdateiso8601 | strflocaltime(if $e.all_day then "%a %b %e" else "%a %b %e %l:%M %p" end))
   | .url = "ical://ekevent/\($e.occurrence_date // $e.start_date | gsub("[-:]"; ""))/\($e.id)?method=show&options=more")'
 '''
-columns = ["icon", "title", "when"]
-labels = { icon = "" }
-colors = { when = "gray italic", calendar = "{{.color}}" }
+days = 3
+date = "start_date"
+end = "end_date"
+columns = ["icon", "title"]
 keys.enter = { run = ["open", "{{.url}}"], quit = true }
 refresh = 300
 fit = true
-headers = false
 
 [recipe.reminders]
 fit = true
