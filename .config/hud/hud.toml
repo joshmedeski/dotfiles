@@ -207,11 +207,16 @@ refresh = 300
 
 [recipe.nutiliti-prs]
 command = """
-gh pr list -R Nutiliti/nutiliti --author @me --state open --search '-label:"Do Not Merge"' --json number,title,createdAt |
-  jq 'sort_by(.createdAt) | reverse | map(.opened = (.createdAt | fromdateiso8601 | strflocaltime("%b %e")))'
+gh pr list -R Nutiliti/nutiliti --author @me --state open --search '-label:"Do Not Merge"' --json number,title,createdAt,updatedAt,mergeStateStatus,reviewDecision,statusCheckRollup |
+  jq 'sort_by(.updatedAt) | reverse | map(
+    .opened = (.createdAt | fromdateiso8601 | strflocaltime("%b %e"))
+    | .ready = (if .mergeStateStatus == "DIRTY" or .reviewDecision == "CHANGES_REQUESTED"
+        or any(.statusCheckRollup[]; [.conclusion, .state] | any(IN("FAILURE", "ERROR", "CANCELLED", "TIMED_OUT", "ACTION_REQUIRED")))
+      then "🔴" elif .mergeStateStatus == "CLEAN" then "🟢" else "🟡" end)
+    | del(.statusCheckRollup))'
 """
-columns = ["title", "number", "opened"]
-labels = { number = "#" }
+columns = ["ready", "title", "number", "opened"]
+labels = { ready = "", number = "#" }
 colors = { number = "gray", opened = "gray italic" }
 keys.enter = { run = ["sesh", "worktree", "connect", "{{.number}}", "--pr", "-r", "Nutiliti/nutiliti"], quit = true }
 keys."o" = ["gh", "browse", "{{.number}}", "-R", "Nutiliti/nutiliti"]
