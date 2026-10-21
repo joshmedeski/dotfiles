@@ -182,6 +182,30 @@ keys.enter = { run = ["sesh", "worktree", "connect", "{{.number}}", "-r", "joshm
 keys."o" = ["gh", "browse", "{{.number}}", "-R", "joshmedeski/sesh"]
 refresh = 300
 
+[recipe.sesh-work]
+command = '''
+repo=joshmedeski/sesh
+wts=$(sesh worktree list -r $repo --json)
+branches=$(echo "$wts" | jq -r '.[].Path' | while read -r p; do printf '%s\t%s\t%s\n' "$p" "$(git -C "$p" branch --show-current)" "$(git -C "$p" log -1 --format=%ct)"; done |
+  jq -Rn '[inputs | split("\t") | {key: .[0], value: {branch: .[1], updated: (.[2] | tonumber? // 0)}}] | from_entries')
+prs=$(gh pr list -R $repo --state open --limit 200 --json number,headRefName,mergeStateStatus,reviewDecision,statusCheckRollup)
+issues=$(gh issue list -R $repo --state open --limit 100 --json number,title,updatedAt)
+jq -n --argjson wts "$wts" --argjson branches "$branches" --argjson prs "$prs" --argjson issues "$issues" '
+  ($prs | map({key: .headRefName, value: .}) | from_entries) as $pr
+  | ($wts | sort_by(-($branches[.Path].updated // 0)) | map($pr[$branches[.Path].branch // ""] as $p | {number: .Number, title: .Title, path: .Path} + if $p then {icon: "",
+      color: (if $p.mergeStateStatus == "DIRTY" or $p.reviewDecision == "CHANGES_REQUESTED"
+        or any($p.statusCheckRollup[]; [.conclusion, .state] | any(IN("FAILURE", "ERROR", "CANCELLED", "TIMED_OUT", "ACTION_REQUIRED")))
+      then "red" elif $p.mergeStateStatus == "CLEAN" then "green" else "yellow" end)} else {icon: "", color: "blue"} end))
+  + ($issues | sort_by(.updatedAt) | reverse | map(select(.number | IN($wts[].Number) | not) | {number, title, icon: "", color: "gray"}))'
+'''
+columns = ["icon", "title", "number"]
+labels = { icon = "", number = "#" }
+colors = { icon = "{{.color}}", number = "gray" }
+keys.enter = { run = ["sesh", "worktree", "connect", "{{.number}}", "-r", "joshmedeski/sesh"], quit = true }
+keys."o" = ["gh", "browse", "{{.number}}", "-R", "joshmedeski/sesh"]
+keys."x" = { run = ["sh", "-c", '''g=$(git -C "$1" rev-parse --path-format=absolute --git-common-dir) && b=$(git -C "$1" branch --show-current) && git --git-dir="$g" worktree remove "$1" && git --git-dir="$g" branch -D "$b"''', "sh", "{{.path}}"], confirm = "Delete worktree and branch for #{{.number}} {{.title}}?" }
+refresh = 300
+
 [recipe.orbit-prs]
 command = '''
 gh pr list -R medeskisolutions/orbit --state open --json number,title,author,createdAt |
@@ -339,14 +363,8 @@ sections = [
 title = "sesh"
 sections = [
   [
-    { stack = [
-      { title = "Worktrees", recipe = "sesh-worktrees" },
-      { title = "Sesh Notes", recipe = "obsidian-sesh" },
-    ] },
-    { stack = [
-      { title = "Pull Requests", recipe = "sesh-prs" },
-      { title = "Issues", recipe = "sesh-issues" },
-    ] },
+    { title = "Work", recipe = "sesh-work" },
+    { title = "Sesh Notes", recipe = "obsidian-sesh" },
   ],
 ]
 
